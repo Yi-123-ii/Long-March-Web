@@ -38,7 +38,23 @@
         "lm-event" + (read.has(event.id) ? " is-read" : ""),
       );
       article.id = "event-" + event.id;
-      const date = el("div", "lm-event-date", event.date);
+      const previewUrl = new URL(
+        event.image.preview || event.image.src,
+        document.baseURI,
+      ).href;
+      article.style.setProperty(
+        "--lm-event-image",
+        'url("' + previewUrl + '")',
+      );
+      const date = el("div", "lm-event-date");
+      const [month, day] = event.date.slice(5).split(".");
+      const monthLabel = month.replace(/(^|—)0/g, "$1");
+      const dateLabel =
+        monthLabel + "月" + (day ? day.replace(/^0/, "") + "日" : "");
+      date.append(
+        el("span", "lm-event-date-year", event.year),
+        el("span", "lm-event-date-rest", dateLabel),
+      );
       date.append(
         el(
           "span",

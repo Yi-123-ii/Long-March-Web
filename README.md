@@ -55,17 +55,21 @@ npm run dev
 ## 文件与交接
 
 - `assets/css/base.css`：公共字体、颜色、导航、按钮、弹窗。
+- `assets/css/fonts.css`、`assets/fonts/`：本地艺术字体、文楷、年代数字字体及其开源许可。
 - `assets/css/chronicle.css` / `post-office.css`：两个栏目的样式。
 - `assets/js/storage.js`：本机存储，校验异常数据并处理写入失败。
 - `assets/js/chronicle.js` / `post-office.js`：交互逻辑。
 - `data/events.js`：历史内容与来源，可集中修改文字。
 - [整合说明](docs/INTEGRATION.md) · [资料与素材来源](docs/SOURCES.md)。
+- [视觉参考与字体分工](docs/DESIGN.md)：原创设计方向、字体角色和字形维护方式。
 
 不含 A 的首页/精神传承页面与 C 的地图游戏；当前顶部导航仅连接已实现的两个栏目。
 
 ## 依赖及用途
 
 **运行依赖：无。** `server.mjs` 仅用 Node.js 内置模块提供本地预览，不参与网页交互，不构成后端业务。`tools/check.mjs` 使用 Node.js 内置模块检查脚本语法、本地资源引用和事件资料完整性。制作素材时用 Sharp 做图片格式转换；它不是作品运行依赖。预览测试使用 Playwright CLI；不随作品加载。
+
+本地字体：**Ma Shan Zheng**（毛笔风格题字）、**LXGW WenKai TC**（阶段名与短标题）、**Oswald**（年代数字）。三者均按 SIL Open Font License 1.1 分发，许可原文与来源清单在 `assets/fonts/`。网页加载的是覆盖固定文字的轻量本地字形子集，不请求外部字体 CDN。字体不属于预设网页样式或 UI 组件库。
 
 ## 提交信息待全队填写
 

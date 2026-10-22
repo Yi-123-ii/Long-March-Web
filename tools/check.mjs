@@ -20,6 +20,14 @@ async function scan(dir) {
       new vm.Script(await readFile(target, "utf8"), { filename: target });
       count++;
     }
+    if (entry.name.endsWith(".css")) {
+      const css = await readFile(target, "utf8");
+      for (const match of css.matchAll(/url\(["']?([^"')]+)["']?\)/g)) {
+        const ref = match[1].split(/[?#]/)[0];
+        if (!ref || /^[a-z]+:/i.test(ref)) continue;
+        await access(path.resolve(path.dirname(target), ref));
+      }
+    }
     if (entry.name.endsWith(".html")) {
       const source = await readFile(target, "utf8");
       for (const match of source.matchAll(/(?:src|href)="([^"]+)"/g)) {
@@ -55,7 +63,17 @@ if (
   )
 )
   throw Error("事件资料不完整");
-for (const event of events) await access(path.join(root, event.image.src));
+for (const event of events) {
+  await access(path.join(root, event.image.src));
+  if (event.image.preview) await access(path.join(root, event.image.preview));
+}
+const fonts = JSON.parse(
+  await readFile(path.join(root, "assets/fonts/manifest.json"), "utf8"),
+);
+for (const font of fonts) {
+  await access(path.join(root, "assets/fonts", font.file));
+  await access(path.join(root, "assets/fonts", font.licenseFile));
+}
 console.log(
   `检查通过：${count} 份浏览器脚本语法正确，本地资源引用有效，8 篇图文纪事的正文、时间线与本地配图完整。`,
 );

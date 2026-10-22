@@ -12,6 +12,9 @@ const types = {
   ".webp": "image/webp",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
+  ".woff2": "font/woff2",
+  ".json": "application/json; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
 };
 const previewUrl = `http://127.0.0.1:${port}`;
 const server = http

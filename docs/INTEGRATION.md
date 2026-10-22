@@ -13,7 +13,7 @@
 
 保留两个 HTML 页的主内容和各自脚本，将顶部导航替换为 A 的总站导航。当前使用相对路径，可部署在 GitHub Pages 的仓库子目录中。
 
-保留样式加载顺序：`base.css` → 栏目 CSS。主要类名使用 `lm-` 前缀；`base.css` 含基础元素样式，A 合入时应与总站的基础样式统一，避免两套全局样式叠加。字体和色值集中在 `base.css` 的 `:root`。
+保留样式加载顺序：`fonts.css` → `base.css` → 栏目 CSS。`fonts.css` 只定义本地字体；请连同 `assets/fonts/` 的字体和许可文件一起保留。主要类名使用 `lm-` 前缀；`base.css` 含基础元素样式，A 合入时应与总站的基础样式统一，避免两套全局样式叠加。字体和色值集中在 `base.css` 的 `:root`。
 
 若更改目录位置，请同步修改 HTML 的资源路径，以及 `chronicle.js` 中生成邮局链接的位置。`data/events.js` 必须先于栏目脚本执行；`storage.js` 同理。当前使用 `defer` 保证顺序。
 

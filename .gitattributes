@@ -8,3 +8,4 @@
 *.svg text eol=lf
 *.cmd text eol=crlf
 *.webp binary
+*.woff2 binary

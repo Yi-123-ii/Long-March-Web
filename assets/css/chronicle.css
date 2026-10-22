@@ -26,12 +26,14 @@
   position: relative;
   padding-top: 94px;
   margin-left: max(8.3%, calc((100vw - 1200px) / 2));
-  width: 440px;
+  width: 560px;
 }
 .lm-hero h1 {
-  font-size: clamp(58px, 5.3vw, 88px);
-  line-height: 1.35;
-  letter-spacing: 7px;
+  font-family: var(--lm-brush);
+  font-size: clamp(78px, 6.8vw, 108px);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: 2px;
   margin: 0 0 25px;
 }
 .lm-hero-intro {
@@ -57,9 +59,9 @@
   letter-spacing: 2px;
 }
 .lm-hero-bottom > span:first-child {
-  font-family: Georgia, serif;
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-family: var(--lm-number);
+  font-size: 26px;
+  letter-spacing: 2px;
 }
 .lm-hero-bottom .lm-art-note {
   margin-left: auto;
@@ -68,6 +70,7 @@
   opacity: 0.8;
 }
 .lm-chronicle {
+  position: relative;
   padding-top: 96px;
   padding-bottom: 80px;
 }
@@ -82,8 +85,9 @@
   margin-bottom: 12px;
 }
 .lm-section-heading h2 {
-  font-size: 40px;
-  letter-spacing: 3px;
+  font-family: var(--lm-brush);
+  font-size: 55px;
+  letter-spacing: 4px;
   margin: 0;
   line-height: 1.4;
 }
@@ -142,16 +146,34 @@
   color: #78867b;
 }
 .lm-history-layout {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: 190px 1fr;
   gap: 55px;
+}
+.lm-history-layout::before {
+  content: "";
+  position: absolute;
+  inset: 100px -30px 70px 160px;
+  z-index: -1;
+  background: url("../images/hero-mountains.webp") 65% center / cover no-repeat;
+  opacity: 0.11;
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  pointer-events: none;
 }
 .lm-history-aside {
   padding-top: 28px;
 }
 .lm-aside-date {
-  font-family: var(--lm-serif);
-  font-size: 19px;
+  font-family: var(--lm-hand);
+  font-size: 22px;
   letter-spacing: 5px;
   line-height: 1.8;
 }
@@ -171,7 +193,7 @@
   gap: 8px;
 }
 .lm-read-count > span {
-  font-family: Georgia, serif;
+  font-family: var(--lm-number);
   font-size: 38px;
   line-height: 1;
 }
@@ -189,46 +211,80 @@
 }
 .lm-event {
   position: relative;
+  isolation: isolate;
   display: grid;
-  grid-template-columns: 112px 1fr;
-  gap: 20px;
-  border-bottom: 1px solid var(--lm-line);
-  padding: 32px 0 32px 26px;
+  grid-template-columns: 110px 1fr;
+  gap: 24px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(145 164 142 / 29%);
+  border-radius: 2px;
+  padding: 32px 34px;
+  background: rgb(250 252 246 / 52%);
+  box-shadow: 0 5px 20px rgb(41 64 45 / 3%);
+  overflow: hidden;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 .lm-event::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 40px;
-  width: 6px;
-  height: 6px;
-  border: 1px solid #87988a;
-  border-radius: 50%;
-  background: var(--lm-bg);
+  inset: 0;
+  z-index: -2;
+  background-image: var(--lm-event-image);
+  background-position: right center;
+  background-size: cover;
+  opacity: 0.2;
+  mask-image: linear-gradient(90deg, transparent 10%, #000 90%);
 }
 .lm-event::after {
   content: "";
   position: absolute;
-  left: 3px;
-  top: 50px;
-  bottom: -30px;
-  width: 1px;
-  background: var(--lm-line);
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    rgb(251 252 247 / 60%),
+    rgb(246 249 240 / 28%)
+  );
+  pointer-events: none;
 }
-.lm-event:last-child::after {
-  display: none;
+.lm-event:hover,
+.lm-event:focus-within {
+  border-color: rgb(112 139 106 / 58%);
+  box-shadow: 0 7px 24px rgb(41 64 45 / 7%);
 }
-.lm-event.is-read::before {
+.lm-event.is-read .lm-event-date::before {
   background: var(--lm-red);
-  border-color: var(--lm-red);
 }
 .lm-event-date {
-  font-family: Georgia, var(--lm-serif);
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  line-height: 1.6;
-  padding-top: 4px;
-  color: var(--lm-muted);
+  position: relative;
+  padding-top: 2px;
+  color: #546a56;
+}
+.lm-event-date::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 37px;
+  background: #a8b99b;
+  left: -35px;
+  top: 6px;
+}
+.lm-event-date-year {
+  display: block;
+  font-family: var(--lm-number);
+  font-size: 43px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.15;
+}
+.lm-event-date-rest {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--lm-sans);
+  font-size: 11px;
+  line-height: 1.8;
 }
 .lm-event-year {
   display: block;
@@ -239,7 +295,7 @@
 }
 .lm-event-content {
   position: relative;
-  padding-right: 90px;
+  padding-right: 60px;
 }
 .lm-event-place {
   font-size: 10px;
@@ -248,9 +304,10 @@
   margin-bottom: 7px;
 }
 .lm-event h3 {
-  font-family: var(--lm-serif);
-  font-size: 27px;
-  letter-spacing: 2px;
+  font-family: var(--lm-hand);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 1px;
   line-height: 1.5;
   margin-bottom: 8px;
 }
@@ -263,8 +320,8 @@
   color: var(--lm-red);
 }
 .lm-event-summary {
-  font-size: 12px;
-  color: var(--lm-muted);
+  font-size: 13px;
+  color: #5b6d5b;
   line-height: 1.9;
   margin-bottom: 13px;
 }
@@ -276,18 +333,18 @@
 }
 .lm-event-theme {
   position: absolute;
-  right: 8px;
-  top: 30px;
+  right: 0;
+  top: 22px;
   width: 44px;
   height: 44px;
-  border: 1px solid #a9b3a4;
-  transform: rotate(6deg);
+  border: 1px solid #9f635a;
+  transform: rotate(4deg);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--lm-serif);
   font-size: 16px;
-  color: #788671;
+  color: #92564c;
   opacity: 0.85;
 }
 .lm-history-note {
@@ -317,6 +374,7 @@
   padding: 48px 0 80px;
 }
 .lm-mail-invite h2 {
+  font-family: var(--lm-hand);
   font-size: 34px;
   line-height: 1.7;
   letter-spacing: 2px;
@@ -330,7 +388,7 @@
     padding-top: 120px;
   }
   .lm-hero h1 {
-    font-size: 88px;
+    font-size: 108px;
   }
   .lm-hero-intro {
     font-size: 16px;
@@ -343,8 +401,11 @@
   }
   .lm-event {
     grid-template-columns: 90px 1fr;
-    gap: 15px;
-    padding-left: 20px;
+    gap: 18px;
+    padding: 28px 26px;
+  }
+  .lm-event-date::before {
+    left: -27px;
   }
   .lm-event-content {
     padding-right: 50px;
@@ -384,8 +445,8 @@
     margin-left: 32px;
   }
   .lm-hero h1 {
-    font-size: 62px;
-    letter-spacing: 5px;
+    font-size: 82px;
+    letter-spacing: 3px;
   }
   .lm-hero-intro {
     font-size: 13px;
@@ -396,13 +457,17 @@
     gap: 18px;
   }
   .lm-section-heading h2 {
-    font-size: 34px;
+    font-size: 46px;
   }
   .lm-section-heading > p br {
     display: none;
   }
   .lm-history-layout {
     display: block;
+  }
+  .lm-history-layout::before {
+    inset: 100px -10px 20px 0;
+    opacity: 0.08;
   }
   .lm-history-aside {
     display: flex;
@@ -474,8 +539,9 @@
     padding-top: 65px;
   }
   .lm-hero h1 {
-    font-size: 55px;
-    line-height: 1.45;
+    font-size: clamp(52px, 16vw, 65px);
+    line-height: 1.3;
+    letter-spacing: 1px;
   }
   .lm-hero .lm-eyebrow {
     font-size: 9px;
@@ -521,7 +587,8 @@
     padding: 7px 17px;
   }
   .lm-section-heading h2 {
-    font-size: 30px;
+    font-size: 39px;
+    letter-spacing: 1px;
   }
   .lm-section-heading > p {
     font-size: 11px;
@@ -530,23 +597,36 @@
     margin-bottom: 25px;
   }
   .lm-event {
-    grid-template-columns: 66px 1fr;
-    gap: 13px;
-    padding: 28px 0 28px 16px;
+    grid-template-columns: 65px 1fr;
+    gap: 15px;
+    padding: 24px 17px;
+    margin-bottom: 16px;
   }
   .lm-event-date {
-    font-size: 12px;
     overflow-wrap: anywhere;
   }
+  .lm-event-date-year {
+    font-size: 31px;
+  }
+  .lm-event-date-rest {
+    font-size: 10px;
+  }
+  .lm-event-date::before {
+    left: -18px;
+    top: 2px;
+    height: 30px;
+    width: 3px;
+  }
   .lm-event h3 {
-    font-size: 23px;
+    font-size: 25px;
+    letter-spacing: 0;
   }
   .lm-event-place {
     font-size: 9px;
     letter-spacing: 0.2px;
   }
   .lm-event-summary {
-    font-size: 11px;
+    font-size: 12px;
   }
   .lm-event-content {
     padding-right: 0;
@@ -664,7 +744,7 @@
   margin-top: 31px;
 }
 .lm-article-section h3 {
-  font-family: var(--lm-serif);
+  font-family: var(--lm-hand);
   font-size: 23px;
   letter-spacing: 0.6px;
   line-height: 1.65;
@@ -733,7 +813,7 @@
   margin-bottom: 8px;
 }
 .lm-article-focus h3 {
-  font-family: var(--lm-serif);
+  font-family: var(--lm-hand);
   font-size: 20px;
   line-height: 1.7;
   margin-bottom: 10px;

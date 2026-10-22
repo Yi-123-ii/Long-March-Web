@@ -55,6 +55,7 @@ window.LM_EVENTS = [
       credit: "Zhangzhugang · CC BY-SA 3.0",
       licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0",
       licensePath: "by-sa/3.0",
+      preview: "assets/images/stages/yudu.webp",
     },
     focus: {
       title: "不只看见“出发”，也看见出发的条件",
@@ -116,6 +117,7 @@ window.LM_EVENTS = [
       credit: "N509FZ · CC BY-SA 4.0",
       licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
       licensePath: "by-sa/4.0",
+      preview: "assets/images/stages/xiangjiang.webp",
     },
     focus: {
       title: "同一场战役里，有两种同时发生的行动",
@@ -177,6 +179,7 @@ window.LM_EVENTS = [
       credit: "小小新手；RyanCray 裁剪 · CC BY-SA 3.0",
       licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
       licensePath: "by-sa/3.0",
+      preview: "assets/images/stages/zunyi.webp",
     },
     focus: {
       title: "这里的“转折”，来自面对实际问题",
@@ -242,6 +245,7 @@ window.LM_EVENTS = [
       credit: "Fanghong · CC BY-SA 3.0",
       licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0",
       licensePath: "by-sa/3.0",
+      preview: "assets/images/stages/chishui.webp",
     },
     focus: {
       title: "方向会改变，争取主动的目标没有改变",
@@ -303,6 +307,7 @@ window.LM_EVENTS = [
       credit: "Huangdan2060 · CC0 1.0",
       licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
       licensePath: "zero/1.0",
+      preview: "assets/images/stages/luding.webp",
     },
     focus: {
       title: "“飞夺”首先是一场与时间的竞赛",
@@ -364,6 +369,7 @@ window.LM_EVENTS = [
       credit: "landagent · CC BY-SA 3.0",
       licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0",
       licensePath: "by-sa/3.0",
+      preview: "assets/images/stages/jiajin.webp",
     },
     focus: {
       title: "翻越雪山，依靠的不只是个人体力",
@@ -425,6 +431,7 @@ window.LM_EVENTS = [
       credit: "Yumeto · CC BY-SA 4.0",
       licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
       licensePath: "by-sa/4.0",
+      preview: "assets/images/stages/grassland.webp",
     },
     focus: {
       title: "平缓的地表，不等于容易走过的道路",
@@ -488,6 +495,7 @@ window.LM_EVENTS = [
       caption:
         "长征结束的两个时间层次。此图为依据史实绘制的时间示意，不是地理路线图；中央红军抵达陕北与三大主力会师相隔约一年。",
       credit: "本项目原创 · 史实时序示意",
+      preview: "assets/images/events/wuqi.svg",
     },
     focus: {
       title: "记住两个时间，避免把两次“抵达”混为一谈",

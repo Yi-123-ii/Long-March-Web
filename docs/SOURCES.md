@@ -48,7 +48,9 @@
 - `assets/images/hero-mountains.webp`：本项目使用 OpenAI ImageGen 辅助生成的原创主题插画，后以 Sharp 转为 WebP，约269 KiB。仅作氛围插画，不作为史料图片。最终参赛时按组委会对 AI 素材的最新要求披露或替换。
 - `assets/images/mark.svg`：本项目编写的山形与旗帜简图。
 - 邮筒、邮票与信封：本项目编写的 SVG / CSS 图形，没有第三方图标库或下载模型。
-- 字体：系统宋体、微软雅黑及对应本机字体回退；不加载外部网络字体，无字体文件分发。
+- 字体：Ma Shan Zheng、LXGW WenKai TC、Oswald 三款开源字体的 WOFF2 字形子集由本项目本地托管，许可为 SIL Open Font License 1.1。完整许可原文和源仓库记录见 `assets/fonts/`；正文继续使用本机宋体、微软雅黑等回退字体。访客不需要连接外部字体服务。
+- 阶段半透明背景使用 `assets/images/stages/` 中的轻量配图，是对应纪事照片的等比例缩小版本；作者及许可与上表相同。背景透明效果通过 CSS 实现，没有把照片伪造成历史影像。
+- 视觉参考：[故宫名画记](https://minghuaji.dpm.org.cn/)。仅研究题字与图文的层次关系，未复用其网页代码、图片、标识或版式；本站的设计选择见 `docs/DESIGN.md`。
 
 ### 插画生成提示词
 

@@ -13,9 +13,11 @@
   margin-bottom: 42px;
 }
 .lm-post-heading h1 {
-  font-size: 57px;
-  letter-spacing: 5px;
-  line-height: 1.35;
+  font-family: var(--lm-brush);
+  font-size: 69px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.25;
   margin: 0;
 }
 .lm-post-heading .lm-eyebrow {
@@ -125,7 +127,7 @@
   font-size: 8px;
 }
 .lm-salutation {
-  font-family: var(--lm-serif);
+  font-family: var(--lm-hand);
   font-size: 21px;
   margin-bottom: 18px;
   letter-spacing: 1px;
@@ -258,6 +260,7 @@
   padding-top: 24px;
 }
 .lm-prompts h2 {
+  font-family: var(--lm-hand);
   font-size: 19px;
   letter-spacing: 1px;
   margin-bottom: 6px;
@@ -298,6 +301,7 @@
   margin: 6px 0 30px;
 }
 .lm-saved-heading h2 {
+  font-family: var(--lm-hand);
   font-size: 28px;
   letter-spacing: 1px;
   margin-bottom: 8px;

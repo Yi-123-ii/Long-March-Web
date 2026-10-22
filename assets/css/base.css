@@ -8,6 +8,9 @@
   --lm-red: #973e39;
   --lm-serif: "Songti SC", "Noto Serif CJK SC", "SimSun", serif;
   --lm-sans: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  --lm-brush: "Ma Shan Zheng", "KaiTi", "STKaiti", serif;
+  --lm-hand: "LXGW WenKai TC", "KaiTi", "STKaiti", var(--lm-serif);
+  --lm-number: "Oswald", "Arial Narrow", sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -129,10 +132,11 @@ h2 {
   flex-shrink: 0;
 }
 .lm-brand > span {
-  font-family: var(--lm-serif);
-  font-size: 24px;
-  letter-spacing: 4px;
-  line-height: 1.45;
+  font-family: var(--lm-brush);
+  font-size: 30px;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  font-weight: 400;
 }
 .lm-brand small {
   display: block;
@@ -296,6 +300,7 @@ body:has(dialog[open]) {
   padding: 60px 56px 42px;
 }
 .lm-dialog h2 {
+  font-family: var(--lm-hand);
   font-size: 38px;
   line-height: 1.4;
   margin-bottom: 12px;

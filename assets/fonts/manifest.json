@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Ma Shan Zheng",
+    "file": "ma-shan-zheng.woff2",
+    "bytes": 11132,
+    "characters": 26,
+    "source": "https://github.com/google/fonts/tree/main/ofl/mashanzheng",
+    "license": "SIL Open Font License 1.1",
+    "licenseFile": "ma-shan-zheng-OFL.txt",
+    "note": "通过 Google Fonts CSS API 获取固定文字字形子集；本地托管。"
+  },
+  {
+    "name": "LXGW WenKai TC",
+    "file": "lxgw-wenkai.woff2",
+    "bytes": 70996,
+    "characters": 271,
+    "source": "https://github.com/google/fonts/tree/main/ofl/lxgwwenkaitc",
+    "license": "SIL Open Font License 1.1",
+    "licenseFile": "lxgw-wenkai-OFL.txt",
+    "note": "通过 Google Fonts CSS API 获取固定文字字形子集；本地托管。"
+  },
+  {
+    "name": "Oswald",
+    "file": "oswald.woff2",
+    "bytes": 1968,
+    "characters": 15,
+    "source": "https://github.com/google/fonts/tree/main/ofl/oswald",
+    "license": "SIL Open Font License 1.1",
+    "licenseFile": "oswald-OFL.txt",
+    "note": "通过 Google Fonts CSS API 获取固定文字字形子集；本地托管。"
+  }
+]
