@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="给长征路上的人们留一段来自今天的话。" />
+    <meta name="theme-color" content="#e9eeeb" />
+    <title>山河邮局 · 山河印记</title>
+    <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/post-office.css" />
+    <script defer src="data/events.js"></script>
+    <script defer src="assets/js/storage.js"></script>
+    <script defer src="assets/js/site.js"></script>
+    <script defer src="assets/js/post-office.js"></script>
+  </head>
+  <body class="lm-page lm-post-page">
+    <a class="lm-skip" href="#letter-form">跳至写留言</a>
+    <header class="lm-header">
+      <a class="lm-brand" href="index.html"
+        ><img src="assets/images/mark.svg" width="38" height="38" alt="" /><span
+          >山河印记<small>循着来路，读懂远方</small></span
+        ></a
+      >
+      <nav aria-label="主导航">
+        <a href="index.html">长征纪事</a
+        ><a href="post-office.html" aria-current="page"
+          >山河邮局 <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main class="lm-container lm-post-main">
+      <section class="lm-post-heading">
+        <div>
+          <p class="lm-eyebrow"><span></span> 一封来自今天的留言</p>
+          <h1>隔着岁月，<br />说给你们听。</h1>
+        </div>
+        <p>
+          写给长征路上的人们，<br />写下敬意，也写下今天的生活。<br /><span
+            >这份留言将留在你的浏览器中。</span
+          >
+        </p>
+      </section>
+      <div class="lm-post-tabs" role="tablist" aria-label="邮局功能">
+        <button
+          id="write-tab"
+          role="tab"
+          aria-selected="true"
+          aria-controls="write-panel"
+          tabindex="0"
+        >
+          写下留言 <span aria-hidden="true">↗</span></button
+        ><button
+          id="saved-tab"
+          role="tab"
+          aria-selected="false"
+          aria-controls="saved-panel"
+          tabindex="-1"
+        >
+          我的留言 <span id="saved-count">0</span>
+        </button>
+      </div>
+      <section id="write-panel" role="tabpanel" aria-labelledby="write-tab">
+        <div class="lm-post-layout">
+          <div>
+            <form id="letter-form" class="lm-letter" novalidate>
+              <div class="lm-letter-top">
+                <span>山河邮局</span>
+                <div class="lm-stamp" aria-hidden="true">
+                  <svg viewBox="0 0 48 48">
+                    <path
+                      d="M4 37 16 16l9 14 7-11 12 18M7 42h34M16 16V6l11 3-11 4"
+                    /></svg
+                  ><span>山河 · 留念</span>
+                </div>
+              </div>
+              <p class="lm-salutation">致长征路上的你们：</p>
+              <p id="event-context" class="lm-event-context" hidden></p>
+              <label class="lm-sr-only" for="letter-body"
+                >给长征路上的人们的留言，最多2000字</label
+              ><textarea
+                id="letter-body"
+                maxlength="2000"
+                placeholder="今天的山河，与你们走过时已经很不一样了……"
+                required
+              ></textarea>
+              <div class="lm-letter-meta">
+                <span id="draft-status" role="status"
+                  >落笔之后，草稿会自动保存</span
+                ><span><span id="character-count">0</span> / 2000</span>
+              </div>
+              <div class="lm-signature">
+                <label for="nickname">署名</label
+                ><input
+                  id="nickname"
+                  maxlength="20"
+                  autocomplete="nickname"
+                  placeholder="可不填，作为一位无名来信人"
+                />
+              </div>
+            </form>
+            <p id="form-error" class="lm-form-error" role="alert"></p>
+            <div class="lm-send-row">
+              <p>
+                仅保存于本机当前浏览器，不会发送邮件或公开发布。<br />清除网站数据或更换设备后，这些留言将无法在此找回。
+              </p>
+              <button
+                class="lm-button"
+                type="submit"
+                form="letter-form"
+                id="send-letter"
+              >
+                封好，投递 <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </div>
+          <aside class="lm-post-aside">
+            <div class="lm-mailbox-scene" aria-hidden="true">
+              <div class="lm-scene-ring"></div>
+              <svg class="lm-mailbox" viewBox="0 0 250 345">
+                <ellipse
+                  cx="125"
+                  cy="326"
+                  rx="86"
+                  ry="10"
+                  fill="#34473d"
+                  opacity=".12"
+                />
+                <path d="M96 235h58v82H96z" fill="#753b37" />
+                <path d="M87 313h76l8 10H79z" fill="#71322f" />
+                <path
+                  d="M57 82Q57 29 125 29t68 53v153q-68 21-136 0Z"
+                  fill="#9a4540"
+                />
+                <path d="M57 82q68 16 136 0" stroke="#b66358" fill="none" />
+                <path d="M72 101h106v15H72z" fill="#3f2928" />
+                <path d="m73 100 9-8h87l9 8" fill="#79332f" />
+                <path
+                  d="M76 145h98v63H76z"
+                  fill="none"
+                  stroke="#d1a18a"
+                  opacity=".6"
+                />
+                <text
+                  x="125"
+                  y="173"
+                  text-anchor="middle"
+                  fill="#f0d6b9"
+                  font-size="15"
+                  font-family="SimSun,serif"
+                >
+                  山 河 邮 局
+                </text>
+                <path d="M108 188h34" stroke="#d1a18a" />
+                <path d="M65 220q60 16 120 0" stroke="#74342f" fill="none" />
+                <path d="M65 83v137" stroke="#bd6a5a" opacity=".5" /></svg
+              ><span class="lm-mailbox-caption">山河无言，心意有声。</span>
+            </div>
+            <div class="lm-prompts">
+              <h2>不知道从哪里落笔？</h2>
+              <p>选一个角度，听听自己的想法。</p>
+              <div>
+                <button type="button" data-prompt="today">说说今天</button
+                ><button type="button" data-prompt="thanks">留一句感谢</button
+                ><button type="button" data-prompt="question">
+                  分享一个问题
+                </button>
+              </div>
+              <p id="prompt-hint" class="lm-prompt-hint" aria-live="polite">
+                可以从今天的一件小事开始。
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section
+        id="saved-panel"
+        role="tabpanel"
+        aria-labelledby="saved-tab"
+        hidden
+      >
+        <div class="lm-saved-heading">
+          <div>
+            <h2>留下的每一句，都在这里。</h2>
+            <p>只展示你在当前浏览器保存的留言。</p>
+          </div>
+          <button id="export-all" class="lm-link" hidden>导出全部留言 ↓</button>
+        </div>
+        <p id="saved-warning" class="lm-form-error" role="status"></p>
+        <div id="saved-list" class="lm-saved-list"></div>
+        <div id="empty-letters" class="lm-empty">
+          <span class="lm-empty-envelope" aria-hidden="true">✉</span>
+          <h3>信箱里，正等着你的第一句话。</h3>
+          <p>写一段来自今天的留言，让这次回望留下回声。</p>
+          <button id="start-writing" class="lm-button">写下第一段留言 ↗</button>
+        </div>
+      </section>
+    </main>
+    <footer class="lm-footer lm-container">
+      <span>山河印记 · 山河邮局</span
+      ><span>写给长征路上的人们 · 保存在本机的心意</span
+      ><a href="index.html">翻阅长征纪事 ↗</a>
+    </footer>
+    <dialog
+      id="delivery-dialog"
+      class="lm-dialog lm-delivery-dialog"
+      aria-labelledby="delivery-title"
+      data-locked="true"
+    >
+      <div class="lm-delivery-art" aria-hidden="true">
+        <div class="lm-flying-envelope"><i></i><b>山河 · 留念</b></div>
+        <div class="lm-slot"></div>
+      </div>
+      <h2 id="delivery-title">正在封好这份心意</h2>
+      <p id="delivery-description">留言已保存在本机，正在完成投递动画。</p>
+      <button id="skip-delivery" class="lm-link">跳过动画</button>
+      <div id="delivery-actions" hidden>
+        <button id="view-sent" class="lm-button">查看我的留言 ↗</button
+        ><button id="write-another" class="lm-link">再写一段</button>
+      </div>
+    </dialog>
+    <dialog
+      id="letter-dialog"
+      class="lm-dialog lm-letter-dialog"
+      aria-labelledby="letter-dialog-title"
+    >
+      <button class="lm-close" data-close aria-label="关闭留言">×</button>
+      <div class="lm-dialog-body">
+        <p class="lm-eyebrow">一封来自今天的留言</p>
+        <h2 id="letter-dialog-title">致长征路上的你们</h2>
+        <p id="letter-date" class="lm-detail-place"></p>
+        <p id="letter-context" class="lm-event-context" hidden></p>
+        <div id="letter-content" class="lm-letter-content"></div>
+        <p id="letter-signer" class="lm-letter-signer"></p>
+        <div class="lm-letter-actions">
+          <button id="download-letter" class="lm-link">保存为文本 ↓</button
+          ><button id="delete-letter" class="lm-danger-link">
+            删除这段留言
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <dialog
+      id="delete-dialog"
+      class="lm-dialog lm-confirm-dialog"
+      aria-labelledby="delete-title"
+    >
+      <div class="lm-dialog-body">
+        <p class="lm-eyebrow">删除本机留言</p>
+        <h2 id="delete-title">确定删除这段留言？</h2>
+        <p>删除后无法从本页恢复，可以先将它保存为文本。</p>
+        <p id="delete-error" class="lm-form-error" role="alert"></p>
+        <div class="lm-confirm-actions">
+          <button data-close class="lm-button lm-button-light" autofocus>
+            保留留言</button
+          ><button id="confirm-delete" class="lm-button lm-button-danger">
+            确定删除
+          </button>
+        </div>
+      </div>
+    </dialog>
+    <noscript
+      ><p class="lm-container">
+        请启用 JavaScript 以使用草稿保存和留言投递功能。
+      </p></noscript
+    >
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="沿着八段长征纪事，认识中央红军1934至1935年的主要历程。"
+    />
+    <meta name="theme-color" content="#e9eeeb" />
+    <title>长征纪事 · 山河印记</title>
+    <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/chronicle.css" />
+    <script defer src="data/events.js"></script>
+    <script defer src="assets/js/storage.js"></script>
+    <script defer src="assets/js/site.js"></script>
+    <script defer src="assets/js/chronicle.js"></script>
+  </head>
+  <body class="lm-page">
+    <a class="lm-skip" href="#chronicle">跳至纪事内容</a>
+    <header class="lm-header">
+      <a class="lm-brand" href="index.html"
+        ><img src="assets/images/mark.svg" width="38" height="38" alt="" /><span
+          >山河印记<small>循着来路，读懂远方</small></span
+        ></a
+      >
+      <nav aria-label="主导航">
+        <a href="index.html" aria-current="page">长征纪事</a
+        ><a href="post-office.html"
+          >山河邮局 <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main>
+      <section class="lm-hero" aria-labelledby="hero-title">
+        <div
+          class="lm-hero-art"
+          role="img"
+          aria-label="水墨风格的群山、河流与行军者主题插画"
+        ></div>
+        <div class="lm-hero-copy">
+          <p class="lm-eyebrow"><span></span> 长征纪事 · 中央红军主要历程</p>
+          <h1 id="hero-title">山河为卷，<br />脚步为证。</h1>
+          <p class="lm-hero-intro">
+            从于都河畔，到陕北吴起。<br />读懂那些改变方向的抉择，<br />也记住每一段艰难路途中的人。
+          </p>
+          <a class="lm-link" href="#chronicle"
+            >翻开这段历程 <span aria-hidden="true">↓</span></a
+          >
+        </div>
+        <div class="lm-hero-bottom">
+          <span>1934 — 1935</span><span>八段纪事，一路向前</span
+          ><span class="lm-art-note">主题插画 · 非史料照片</span>
+        </div>
+      </section>
+      <section
+        id="chronicle"
+        class="lm-chronicle lm-container"
+        aria-labelledby="chronicle-title"
+      >
+        <div class="lm-section-heading">
+          <div>
+            <p class="lm-eyebrow">沿时间，走近历史</p>
+            <h2 id="chronicle-title">那些走过的路</h2>
+          </div>
+          <p>
+            这里记录中央红军的八个历史片段。<br />点开一段纪事，继续了解背景与史实。
+          </p>
+        </div>
+        <div class="lm-tools">
+          <div class="lm-filters" role="group" aria-label="按年份筛选">
+            <button class="is-active" data-filter="all" aria-pressed="true">
+              全部纪事</button
+            ><button data-filter="1934" aria-pressed="false">1934</button
+            ><button data-filter="1935" aria-pressed="false">1935</button>
+          </div>
+          <label class="lm-search"
+            ><span class="lm-sr-only">搜索事件或地点</span
+            ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="6.5" />
+              <path d="m15 15 5 5" /></svg
+            ><input
+              id="event-search"
+              type="search"
+              placeholder="搜索事件或地点"
+              maxlength="80"
+          /></label>
+        </div>
+        <div class="lm-history-layout">
+          <aside class="lm-history-aside">
+            <span class="lm-aside-date"
+              >一九三四<br /><i>至</i><br />一九三五</span
+            >
+            <div class="lm-read-count">
+              <span id="read-count">0</span><small>/ 8 段已阅</small>
+            </div>
+            <p>历史有来处，<br />每一步都值得回望。</p>
+          </aside>
+          <div>
+            <p id="search-status" class="lm-sr-only" aria-live="polite"></p>
+            <div id="event-list" class="lm-event-list"></div>
+            <div id="empty-events" class="lm-empty" hidden>
+              <h3>暂时没有找到这段纪事</h3>
+              <p>试试“遵义”“雪山”或其他地点。</p>
+              <button id="reset-search" class="lm-button lm-button-light">
+                查看全部纪事
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="lm-history-note">
+          <span>读到这里，还未结束。</span>
+          <p>
+            1935年，中央红军抵达陕北。1936年，红军三大主力会师。长征还有更多值得继续认识的历程。
+          </p>
+          <a
+            href="https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16418521.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >延伸阅读：长征中的会师 ↗</a
+          >
+        </div>
+      </section>
+      <section class="lm-mail-invite lm-container">
+        <div>
+          <p class="lm-eyebrow">读过来路，留下回声</p>
+          <h2>如果能寄去一句话，<br />你想对他们说什么？</h2>
+        </div>
+        <a class="lm-button" href="post-office.html"
+          >走进山河邮局 <span aria-hidden="true">↗</span></a
+        >
+      </section>
+    </main>
+    <footer class="lm-footer lm-container">
+      <span>山河印记 · 长征主题网页</span
+      ><span>史实来源见各段纪事 · 插画为 AI 辅助创作</span
+      ><a href="#hero-title">回到顶部 ↑</a>
+    </footer>
+    <dialog
+      id="event-dialog"
+      class="lm-dialog lm-event-dialog"
+      aria-labelledby="event-dialog-title"
+    >
+      <button class="lm-close" data-close aria-label="关闭纪事">×</button>
+      <div class="lm-dialog-body">
+        <p id="detail-date" class="lm-eyebrow"></p>
+        <h2 id="event-dialog-title"></h2>
+        <p id="detail-place" class="lm-detail-place"></p>
+        <div id="detail-paragraphs" class="lm-prose"></div>
+        <blockquote id="detail-significance"></blockquote>
+        <div class="lm-sources">
+          <h3>史实来源</h3>
+          <ul id="detail-sources"></ul>
+          <p>本页文字为依据所列资料整理的概述，可前往原文了解完整背景。</p>
+        </div>
+        <a id="detail-mail" class="lm-link" href="post-office.html"
+          >此刻想说的话，留在山河邮局 ↗</a
+        >
+      </div>
+      <div class="lm-dialog-nav">
+        <button id="previous-event">← 上一段</button
+        ><span id="detail-position"></span
+        ><button id="next-event">下一段 →</button>
+      </div>
+    </dialog>
+    <noscript
+      ><p class="lm-container">
+        请启用 JavaScript 以查看纪事和使用留言功能。
+      </p></noscript
+    >
+  </body>
+</html>
