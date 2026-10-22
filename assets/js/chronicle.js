@@ -78,22 +78,62 @@
       event.date + " · " + event.theme;
     document.querySelector("#event-dialog-title").textContent = event.title;
     document.querySelector("#detail-place").textContent = event.location;
-    document
-      .querySelector("#detail-paragraphs")
-      .replaceChildren(...event.paragraphs.map((p) => el("p", "", p)));
-    document.querySelector("#detail-significance").textContent =
-      event.significance;
+    document.querySelector("#article-bar-title").textContent = event.title;
+    document.querySelector("#detail-lead").textContent = event.lead;
+    const image = document.querySelector("#detail-image");
+    const imageError = document.querySelector("#detail-image-error");
+    image.hidden = false;
+    imageError.hidden = true;
+    image.onload = () => {
+      image.hidden = false;
+      imageError.hidden = true;
+    };
+    image.onerror = () => {
+      image.hidden = true;
+      imageError.hidden = false;
+    };
+    image.alt = event.image.alt;
+    image.src = event.image.src;
+    document.querySelector("#detail-caption").textContent = event.image.caption;
+    const sections = document.querySelector("#detail-sections");
+    sections.replaceChildren(
+      ...event.sections.map((section) => {
+        const block = el("section", "lm-article-section");
+        block.append(el("h3", "", section.heading), el("p", "", section.text));
+        return block;
+      }),
+    );
+    document.querySelector("#detail-timeline").replaceChildren(
+      ...event.timeline.map((step) => {
+        const li = el("li", "");
+        li.append(
+          el("span", "lm-article-step-date", step.date),
+          el("p", "", step.text),
+        );
+        return li;
+      }),
+    );
+    document.querySelector("#detail-focus-title").textContent =
+      event.focus.title;
+    document.querySelector("#detail-focus-text").textContent = event.focus.text;
+    document.querySelector("#detail-notes").open = false;
     const sources = document.querySelector("#detail-sources");
     sources.replaceChildren();
     event.sources.forEach((source) => {
       const li = el("li", "");
-      const a = el("a", "", source.name + " ↗");
-      a.href = source.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      li.append(a);
+      li.textContent = source.name;
       sources.append(li);
     });
+    document.querySelector("#detail-image-credit").textContent =
+      "配图：" +
+      event.image.credit +
+      "。" +
+      (event.image.licenseUrl ? "等比例缩小并转换为 WebP，未重新着色。" : "");
+    const license = document.querySelector("#detail-license");
+    license.textContent = event.image.licenseUrl
+      ? "图片许可：" + event.image.licenseUrl
+      : "";
+    license.hidden = !event.image.licenseUrl;
     document.querySelector("#detail-mail").href =
       "post-office.html?event=" + encodeURIComponent(event.id);
     document.querySelector("#detail-position").textContent =
@@ -115,7 +155,11 @@
         document.activeElement?.classList.contains("lm-event-read");
     }
     showDetail(index);
-    if (!dialog.open) dialog.showModal();
+    if (!dialog.open) {
+      dialog.showModal();
+      // 浏览器可能恢复已关闭弹窗的滚动位置，展开后再回到文章开头。
+      dialog.scrollTop = 0;
+    }
   }
   dialog.addEventListener("close", () => {
     history.replaceState(

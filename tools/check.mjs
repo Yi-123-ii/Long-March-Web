@@ -44,11 +44,18 @@ if (
   events.some(
     (e) =>
       !e.title ||
-      !e.paragraphs.length ||
+      !e.lead ||
+      e.sections?.length !== 3 ||
+      e.sections.some((s) => !s.heading || s.text.length < 50) ||
+      e.timeline?.length < 3 ||
+      !e.image?.src ||
+      !e.image?.caption ||
+      !e.image?.credit ||
       !e.sources.every((s) => s.url.startsWith("https://")),
   )
 )
   throw Error("事件资料不完整");
+for (const event of events) await access(path.join(root, event.image.src));
 console.log(
-  `检查通过：${count} 份浏览器脚本语法正确，本地资源引用有效，8 段事件资料完整。`,
+  `检查通过：${count} 份浏览器脚本语法正确，本地资源引用有效，8 篇图文纪事的正文、时间线与本地配图完整。`,
 );

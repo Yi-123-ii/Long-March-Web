@@ -11,11 +11,14 @@
     <title>长征纪事 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/chronicle.css" />
-    <script defer src="data/events.js"></script>
+    <link
+      rel="stylesheet"
+      href="assets/css/chronicle.css?v=20261022-articles"
+    />
+    <script defer src="data/events.js?v=20261022-articles"></script>
     <script defer src="assets/js/storage.js"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/chronicle.js"></script>
+    <script defer src="assets/js/chronicle.js?v=20261022-articles"></script>
   </head>
   <body class="lm-page">
     <a class="lm-skip" href="#chronicle">跳至纪事内容</a>
@@ -51,7 +54,7 @@
         </div>
         <div class="lm-hero-bottom">
           <span>1934 — 1935</span><span>八段纪事，一路向前</span
-          ><span class="lm-art-note">主题插画 · 非史料照片</span>
+          ><span class="lm-art-note">AI 辅助主题插画 · 非史料照片</span>
         </div>
       </section>
       <section
@@ -114,12 +117,9 @@
           <p>
             1935年，中央红军抵达陕北。1936年，红军三大主力会师。长征还有更多值得继续认识的历程。
           </p>
-          <a
-            href="https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16418521.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            >延伸阅读：长征中的会师 ↗</a
-          >
+          <p>
+            1936年10月9日，红一、红四方面军在会宁会师；10月22日，红二方面军在将台堡与红一方面军会师。中央红军抵达吴起镇与三大主力会师，是长征历史中的两个不同时间节点。
+          </p>
         </div>
       </section>
       <section class="lm-mail-invite lm-container">
@@ -134,7 +134,7 @@
     </main>
     <footer class="lm-footer lm-container">
       <span>山河印记 · 长征主题网页</span
-      ><span>史实来源见各段纪事 · 插画为 AI 辅助创作</span
+      ><span>图文纪事 · 资料注记收于各篇末尾</span
       ><a href="#hero-title">回到顶部 ↑</a>
     </footer>
     <dialog
@@ -142,18 +142,55 @@
       class="lm-dialog lm-event-dialog"
       aria-labelledby="event-dialog-title"
     >
-      <button class="lm-close" data-close aria-label="关闭纪事">×</button>
+      <div class="lm-article-bar">
+        <span id="article-bar-title">长征纪事</span
+        ><button class="lm-close" data-close aria-label="关闭纪事">×</button>
+      </div>
       <div class="lm-dialog-body">
         <p id="detail-date" class="lm-eyebrow"></p>
         <h2 id="event-dialog-title"></h2>
         <p id="detail-place" class="lm-detail-place"></p>
-        <div id="detail-paragraphs" class="lm-prose"></div>
-        <blockquote id="detail-significance"></blockquote>
-        <div class="lm-sources">
-          <h3>史实来源</h3>
-          <ul id="detail-sources"></ul>
-          <p>本页文字为依据所列资料整理的概述，可前往原文了解完整背景。</p>
+        <p id="detail-lead" class="lm-article-lead"></p>
+        <figure class="lm-article-figure">
+          <img
+            id="detail-image"
+            alt=""
+            width="1200"
+            height="800"
+            decoding="async"
+          />
+          <figcaption id="detail-caption"></figcaption>
+          <p id="detail-image-error" hidden>
+            配图暂未加载，下面的史实正文可继续阅读。
+          </p>
+        </figure>
+        <div class="lm-article-layout">
+          <div id="detail-sections" class="lm-article-sections"></div>
+          <aside
+            class="lm-article-timeline"
+            aria-labelledby="detail-timeline-title"
+          >
+            <h3 id="detail-timeline-title">这一段的时间线</h3>
+            <ol id="detail-timeline"></ol>
+          </aside>
         </div>
+        <section class="lm-article-focus" aria-labelledby="detail-focus-title">
+          <p>回望这一程</p>
+          <h3 id="detail-focus-title"></h3>
+          <p id="detail-focus-text"></p>
+        </section>
+        <details id="detail-notes" class="lm-article-notes">
+          <summary>资料与图片注记</summary>
+          <div>
+            <p>正文依据以下资料重新整理，完整叙述已呈现在本页。</p>
+            <ul id="detail-sources"></ul>
+            <p id="detail-image-credit"></p>
+            <p id="detail-license"></p>
+            <p>
+              本文配图为现址／环境照片或时序示意；原图出处与授权记录保存在项目的资料清单中。
+            </p>
+          </div>
+        </details>
         <a id="detail-mail" class="lm-link" href="post-office.html"
           >此刻想说的话，留在山河邮局 ↗</a
         >

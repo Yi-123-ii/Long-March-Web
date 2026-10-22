@@ -2,7 +2,7 @@
 
 ## 史实范围
 
-纪事以中央红军 1934—1935 年主要历程为线索，不表示各路红军全部路线。1936 年红军三大主力会师另作延伸说明。页面概述为重新整理的短文，不复制长段原文；具体链接同时存在 `data/events.js` 和页面史实弹窗中。
+纪事以中央红军 1934—1935 年主要历程为线索，不表示各路红军全部路线。1936 年红军三大主力会师另作延伸说明。每篇图文纪事按背景、经过和影响重新整理，不复制长段原文。网页正文与配图均在站内呈现，篇末折叠注记列出资料名称，不将外部文章链接作为阅读入口；原文 URL 保存在 `data/events.js` 和本清单，便于团队核对。
 
 | 内容               | 依据                                                                                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,7 +15,25 @@
 | 吴起镇             | [国防部·红军陕甘支队始末](https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16485038.html)                                                                              |
 | 1936年会师         | [国防部·红军长征中的会师](https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/16418521.html)                                                                              |
 
-日期用月或阶段表示时，是为避免将不同部队的行动日期混为一谈。事件的“阅读提示”是本项目的理解角度，不是历史人物原话。外部来源的可访问性取决于网站及网络，正文阅读不需要联网。
+日期用月或阶段表示时，是为避免将不同部队的行动日期混为一谈。“回望这一程”是本项目的理解角度，不是历史人物原话。外部来源的可访问性取决于网站及网络；正文与配图的加载不依赖外部来源网站。
+
+## 图文纪事配图
+
+七张照片均为现址或环境照片，不能当作1930年代的现场影像。各篇图注标出拍摄／上传年代及使用范围。吴起镇篇使用原创时序示意图，区分1935年中央红军抵达陕北与1936年三大主力会师。
+
+完整作者、原始文件页、许可 URI、尺寸与格式转换记录见 `data/photo-credits.json`。网页使用等比例缩小的 WebP 文件，没有重新着色、AI 修复或伪造成历史影像；保留原文件已有的日期和作者信息。CC BY-SA 素材的缩小版本继续采用对应的原许可，不将其纳入项目其他文件的不同许可。
+
+| 配图                 | 作者与许可                             | 原始文件页                                                                                                                                 |
+| -------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 于都长征出发地纪念园 | Zhangzhugang · CC BY-SA 3.0            | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Yudu_Zhongyang_Hongjun_Changzheng_Diyi_Dukou_2014.05.30_11-05-37.jpg)          |
+| 湘江战役纪念馆       | N509FZ · CC BY-SA 4.0                  | [Wikimedia Commons](<https://commons.wikimedia.org/wiki/File:Xiangjiang_Campaign_Memorial_Hall,_Quanzhou_(20250122171627).jpg>)            |
+| 遵义会议会址建筑     | 小小新手；RyanCray 裁剪 · CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ZunyiMeeting.jpg)                                                              |
+| 赤水河环境           | Fanghong · CC BY-SA 3.0                | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chizhui_river.jpg)                                                             |
+| 泸定桥               | Huangdan2060 · CC0 1.0                 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Luding_Bridge_over_the_Dadu_River,_in_Luding_County,_Sichuan,_China,_2018.jpg) |
+| 夹金山环境           | landagent · CC BY-SA 3.0               | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:四川夹金山_-_panoramio.jpg)                                                    |
+| 若尔盖花湖湿地       | Yumeto · CC BY-SA 4.0                  | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20230430_Hua_Hu,_Zoigê.jpg)                                                    |
+
+许可原文：[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)、[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)、[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)。这些许可仅适用于表中对应图片。
 
 ## 给 A 的当代案例
 
