@@ -1,5 +1,10 @@
 # 网页在线访问
 
+当前仓库已公开，并启用 `main` 分支根目录的 GitHub Pages。公开访问地址：
+
+- 长征纪事：<https://yi-123-ii.github.io/Long-March-Web/>
+- 山河邮局：<https://yi-123-ii.github.io/Long-March-Web/post-office.html>
+
 GitHub 仓库用于保存和协作修改代码。让访客直接打开网页，还需要启用 GitHub Pages 等静态网页托管服务。`127.0.0.1` 仅代表访问者自己的电脑，不能作为给队友或评委的在线地址。
 
 ## GitHub Pages 配置

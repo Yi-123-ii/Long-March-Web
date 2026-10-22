@@ -6,7 +6,12 @@
 
 代码仓库：[Yi-123-ii/Long-March-Web](https://github.com/Yi-123-ii/Long-March-Web)。
 
-网页可以直接部署至 GitHub Pages，不需要运行 Node.js 服务。启用 Pages 并部署成功后，默认地址为 `https://yi-123-ii.github.io/Long-March-Web/`；邮局地址在其后添加 `post-office.html`。该地址在部署成功前不能作为可用链接分享。
+已通过 GitHub Pages 公开上线，无需安装软件或登录 GitHub：
+
+- [长征纪事](https://yi-123-ii.github.io/Long-March-Web/)
+- [山河邮局](https://yi-123-ii.github.io/Long-March-Web/post-office.html)
+
+Pages 从 `main` 分支根目录部署。后续推送会触发更新；本地预览不影响线上网站运行。
 
 配置方法及私有仓库限制见 [部署说明](docs/DEPLOYMENT.md)。
 
