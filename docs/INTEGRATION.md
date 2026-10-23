@@ -21,6 +21,8 @@
 
 新增两处标题插画：`assets/images/titles/post-heading-v2.webp`、`assets/images/titles/mail-invite-v1.webp`，需连同保留。标题真实文本保留在各自标题元素中，勿删除可访问文本。
 
+品牌副标题另使用 `assets/images/titles/brand-tagline-v2.webp` 的重绘书法字形，`base.css` 通过透明遮罩显示；复制导航时保留 `.lm-brand-tagline-art` 及其辅助文字。首页邮局入口使用 `.lm-postal-link` 与内嵌信封 SVG，样式位于 `chronicle.css`；无需外部组件或图标库。该区域可直接链接 `index.html#post-office-invite`。
+
 ## 给 C 的链接
 
 | 游戏阶段 | 可打开的史实              |

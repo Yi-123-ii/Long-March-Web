@@ -52,6 +52,7 @@
 - 邮筒：当前采用 ImageGen 生成的原创绿色金属邮筒透明图 `assets/images/mailbox-cabinet-v2.webp`，小翻板、信封及反馈使用原生 CSS 动画；没有第三方图标库或下载模型。旧版三个 `mailbox-*.svg` 仅留作版本记录，当前页面不再使用。邮票与信封为本项目编写的 SVG / CSS 图形。
 - 现用字体：ZCOOL XiaoWei（站酷小薇体）用于阶段文字回退和筛选，LXGW WenKai TC（文楷）用于小字和正文，Noto Serif SC（思源宋体）600字重用于按钮和导航，Oswald 用于年份，志莽行书用于品牌。两处新邮局相关标题使用原创透明艺术字插画。开源 WOFF2 字形子集本地托管，许可为 SIL Open Font License 1.1；来源、分组字形范围和许可见 `assets/fonts/manifest.json` 及同目录 OFL 文件。早期文件保留授权记录，页面只加载现用清单。
 - 首页及栏目艺术字：使用 OpenAI ImageGen 内置工具，参考用户图片的笔触或字形与图形结合方式，重新绘制本站文字。保留真实标题文本。保存路径、完整提示词见 `docs/TITLE-ART.md`。
+- 品牌副标题的书法字形：使用 OpenAI ImageGen 内置工具，以本站邮局大标题的笔势为参考重新绘制，保存为 `assets/images/titles/brand-tagline-v2.webp`，提示词见 `docs/REVISION-ART.md`。邮局入口的信封、火漆印与邮边为本项目编写的 SVG / CSS 图形。
 - 九个阶段的题字：使用 OpenAI ImageGen 内置工具逐幅生成，参考用户“西湖醋鱼”图片的粗笔画、方折和飞白风格，改为本站实际阶段名称及深色字形。保存路径和完整提示词见 `docs/STAGE-TITLE-ART.md` 与 `docs/REVISION-ART.md`；网页始终保留可访问的真实标题。
 - 阶段插画：`assets/images/illustrations/` 下九幅原创解释性绘画，使用 OpenAI ImageGen 内置工具逐幅生成，保持实色显示；不是历史照片。保存路径、风格提示词与各幅场景提示词见 `docs/ILLUSTRATIONS.md` 及 `docs/REVISION-ART.md`。原有 `assets/images/stages/` 缩略照片仍保留原许可，当前列表不再使用淡化照片底图。
 - 视觉参考：[故宫名画记](https://minghuaji.dpm.org.cn/)。仅研究题字与图文的层次关系，未复用其网页代码、图片、标识或版式；本站的设计选择见 `docs/DESIGN.md`。

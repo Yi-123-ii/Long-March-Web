@@ -212,7 +212,56 @@
 .lm-mail-invite > div { flex: 0 1 760px; min-width: 0; }
 .lm-mail-invite .lm-invite-title { width: 100%; max-width: 760px; }
 .lm-invite-title img { display: block; width: 100%; height: auto; }
-.lm-mail-invite > .lm-button { flex-shrink: 0; }
+.lm-postal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  position: relative;
+  flex-shrink: 0;
+  min-height: 90px;
+  padding: 15px 20px 15px 15px;
+  border: 1px solid #a4b09b;
+  border-radius: 999px;
+  color: #294336;
+  background: linear-gradient(135deg, #fffdf4, #f1eddb);
+  box-shadow: 0 5px 0 #c7d0c380, 0 12px 24px #354c3b12;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.lm-postal-link::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed #a9b49b91;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.lm-postal-envelope { display: block; width: 58px; flex-shrink: 0; transform: rotate(-8deg); transition: transform .25s ease; }
+.lm-postal-envelope svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 3px 2px #4c3d2c18); }
+.lm-postal-copy { display: flex; flex-direction: column; gap: 5px; padding-block: 2px; white-space: nowrap; }
+.lm-postal-copy > span { font-family: var(--lm-display); font-size: 20px; letter-spacing: 1px; line-height: 1.4; }
+.lm-postal-copy small { font-family: var(--lm-reading); font-size: 11px; letter-spacing: .3px; line-height: 1.5; color: #6b785f; }
+.lm-postal-arrow { display: grid; place-items: center; width: 31px; height: 31px; margin-left: 2px; border: 1px solid #9da995; border-radius: 50%; color: #4c6651; transition: background .2s ease, color .2s ease; }
+.lm-postal-arrow svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.lm-postal-link:hover { transform: translateY(-3px); border-color: #687e60; box-shadow: 0 7px 0 #c7d0c380, 0 15px 26px #354c3b1c; }
+.lm-postal-link:hover .lm-postal-envelope { transform: translateY(-3px) rotate(0); }
+.lm-postal-link:hover .lm-postal-arrow { background: #314f3b; color: #fff9e8; }
+.lm-postal-link:focus-visible { outline: 3px solid #365b43; outline-offset: 6px; }
+.lm-postal-link:active { transform: translateY(1px); box-shadow: 0 2px 0 #c7d0c380; }
+@media (max-width: 900px) {
+  .lm-mail-invite { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .lm-mail-invite > div { flex: none; width: 100%; }
+}
+@media (max-width: 580px) {
+  .lm-mail-invite .lm-postal-link { max-width: 100%; min-height: 82px; padding: 13px 17px 13px 13px; gap: 10px; }
+  .lm-postal-copy > span { font-size: 19px; }
+  .lm-postal-envelope { width: 52px; }
+  .lm-postal-arrow { width: 28px; height: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lm-postal-link, .lm-postal-link * { transition: none; }
+  .lm-postal-link:hover, .lm-postal-link:hover .lm-postal-envelope { transform: none; }
+}
 @media (min-width: 1600px) {
   .lm-hero-copy { padding-top: 120px; }
   .lm-hero h1 { font-size: 114px; }
@@ -259,7 +308,6 @@
   .lm-chronicle { padding-top: 65px; padding-bottom: 48px; }
   .lm-mail-invite { padding: 30px 0 60px; }
   .lm-mail-invite h2 { font-size: 25px; }
-  .lm-mail-invite .lm-button { gap: 10px; padding: 14px 18px; white-space: nowrap; }
 }
 @media (max-width: 580px) {
   .lm-hero { min-height: 640px; }
@@ -298,7 +346,6 @@
   .lm-mail-invite { flex-direction: column; align-items: flex-start; gap: 25px; }
   .lm-mail-invite > div { flex: none; width: 100%; }
   .lm-mail-invite h2 { font-size: 25px; }
-  .lm-mail-invite .lm-button { padding-inline: 25px; }
 }
 
 /* 图文纪事在同一张阅读纸面中展开；只作用于纪事弹窗。 */

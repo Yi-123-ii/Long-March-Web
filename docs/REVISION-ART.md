@@ -9,10 +9,17 @@
 | 立式邮筒箱体 | `assets/images/mailbox-cabinet-v2.webp` |
 | 三军会师主题背景插画 | `assets/images/illustrations/huishi-v1.webp` |
 | 三军会师阶段题字 | `assets/images/titles/stages/huishi-v1.webp` |
+| 品牌副标题的重绘书法字形 | `assets/images/titles/brand-tagline-v2.webp` |
 
 邮筒箱体图在网页中保持静止，投信口的小翻板、信封及投递反馈由原生 CSS 实现；箱体底部取信门不参与动画。会师插画只用于解释性背景，不表示特定会师现场；正文采用原创史实时序图。
 
-## post-heading
+## brand-tagline-v2
+
+以本站 `post-heading-v2.webp` 为笔势参考，使用 ImageGen 内置工具重新生成“循着来路，读懂远方”的独立书法字形。没有继续用普通字库文字变色。原始字形保留透明通道，页面以 CSS 遮罩显示：纪事页为松墨色，邮局页为深红金渐变。真实文字保留在品牌链接中，供辅助技术读取。网页保存路径见上表。
+
+Use case: logo-brand. Create an ORIGINAL small Chinese brand tagline calligraphy wordmark. The attached reference is the EXISTING large heading of the SAME website: match its broad confident flowing brush style, strong thick-thin stroke contrast, connected sweeping terminals and natural flying-white texture, so this subtitle looks like it was lettered by the same calligrapher. Do not copy the reference's words, illustrations or composition. Exact simplified Chinese text in ONE horizontal line:「循着来路，读懂远方」. Nine characters including the comma, all complete and immediately legible. It must be visibly designed brush lettering, NOT a typed regular font, NOT delicate thin handwriting, NOT upright printed Kai/Song. Slightly compact but airy horizontal arrangement, disciplined stroke joins; no flourishes through other characters. This will appear as a small subtitle, so keep bold clear character shapes and use only subtle dry-brush gaps. Single solid BLACK ink with fine alpha edges, genuine transparent background. No other text, no seals, no pinyin, no illustrations, no borders, no paper, no shadows, no metallic background. Keep all strokes within the frame, approximately 6:1 wide. The webpage will color these letter shapes itself to match its heading.
+
+## post-heading（提示词）
 
 Use case: logo-brand. One original illustrated Chinese calligraphy title for a modern visitors' letter page on a Long March remembrance website. Reference only the sweeping brush energy and restrained red-gold treatment of the attached lettering; do not copy its words, shapes or composition. Exact simplified Chinese text in TWO lines: first line「隔着岁月，」 second line「说给你们听。」. No quote marks, no other text, no pinyin, no seals, no logos. Every character must be complete and legible. Warm gold and copper-red calligraphy with subtle mineral-pigment texture, bold flowing elegant strokes with natural flying white. Integrate a small refined panorama of present-day China beneath / between lower brush terminals: a high-speed train, a modest contemporary city skyline, green fields and two distant wind turbines, all secondary and harmoniously tiny. Original illustrative forms, no particular famous building or political symbol required. Mature, hopeful, dignified, not a cluttered poster. Landscape composition about 2:1. Genuine transparent background, no white/paper block, no border, no shadow.
 
