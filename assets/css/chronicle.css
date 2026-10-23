@@ -165,7 +165,7 @@
 .lm-read-count small { font-size: 12px; color: var(--lm-muted); }
 .lm-history-aside > p { font-size: 14px; line-height: 2; color: var(--lm-muted); }
 .lm-event-list { position: relative; }
-.lm-event { position: relative; isolation: isolate; display: block; background: #e8eee4; min-height: 330px; margin-bottom: 30px; border-bottom: 1px solid #bac9bd; overflow: hidden; }
+.lm-event { position: relative; isolation: isolate; display: block; background: transparent; min-height: 330px; margin-bottom: 30px; overflow: hidden; }
 .lm-event-content { position: relative; z-index: 2; padding: 34px 40px 36px; width: 67%; }
 .lm-event-date { display: flex; align-items: baseline; gap: 12px; margin-bottom: 17px; color: #3f5948; flex-wrap: wrap; }
 .lm-event-date-year { font-family: var(--lm-number); font-size: 32px; letter-spacing: 1px; line-height: 1; }
@@ -182,9 +182,21 @@
 .lm-event-summary { font-family: var(--lm-reading); font-size: 17px; color: #314e3d; line-height: 1.9; margin-bottom: 16px; max-width: 28em; text-wrap: pretty; }
 .lm-event-read { font-family: var(--lm-hand); font-size: 13px; color: #263d36; border-bottom: 1px solid #738e79; min-height: 36px; padding: 0 0 2px; letter-spacing: 1px; }
 .lm-event-read:hover { color: var(--lm-red); border-color: var(--lm-red); }
-.lm-stage-art { position: absolute; z-index: -1; inset: 0; margin: 0; background: #dce6d8; }
+.lm-stage-art { position: absolute; z-index: -1; inset: 0; margin: 0; }
 .lm-stage-art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; opacity: .8; }
-.lm-stage-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(249 250 246 / 96%) 0%, rgb(249 250 246 / 89%) 33%, rgb(249 250 246 / 60%) 56%, rgb(249 250 246 / 8%) 77%, transparent 100%); }
+.lm-stage-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(238 241 237 / 96%) 0%, rgb(238 241 237 / 89%) 33%, rgb(238 241 237 / 60%) 56%, rgb(238 241 237 / 8%) 77%, transparent 100%); }
+/* 只让插画和护字遮罩四周渐隐，文字、按钮、配图标记不参与透明。 */
+.lm-stage-art img,
+.lm-stage-art::after {
+  -webkit-mask-image:
+    linear-gradient(180deg, transparent, #000 42px, #000 calc(100% - 46px), transparent),
+    linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 34px), transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(180deg, transparent, #000 42px, #000 calc(100% - 46px), transparent),
+    linear-gradient(90deg, transparent, #000 28px, #000 calc(100% - 34px), transparent);
+  mask-composite: intersect;
+}
 .lm-stage-art figcaption { position: absolute; right: 12px; bottom: 12px; z-index: 1; font-family: var(--lm-reading); font-size: 12px; color: #f9faf6; background: #263d36d9; padding: 3px 8px; }
 .lm-history-note { margin: 42px 0 0 178px; border-left: 2px solid var(--lm-red); padding: 4px 0 4px 23px; }
 .lm-history-note > span { font-family: var(--lm-hand); font-weight: 600; font-size: 22px; }
@@ -270,7 +282,7 @@
   .lm-event-dialog .lm-stage-title img { height: 62px; }
   .lm-event-summary { font-size: 16px; }
   .lm-stage-art img { object-position: 60% center; opacity: .78; }
-  .lm-stage-art::after { background: linear-gradient(180deg, rgb(249 250 246 / 96%) 0%, rgb(249 250 246 / 88%) 43%, rgb(249 250 246 / 57%) 68%, rgb(249 250 246 / 10%) 100%); }
+  .lm-stage-art::after { background: linear-gradient(180deg, rgb(238 241 237 / 96%) 0%, rgb(238 241 237 / 88%) 43%, rgb(238 241 237 / 57%) 68%, rgb(238 241 237 / 10%) 100%); }
   .lm-history-note { padding-left: 17px; }
   .lm-history-note > span { font-size: 20px; }
   .lm-history-note p { font-size: 12px; }
