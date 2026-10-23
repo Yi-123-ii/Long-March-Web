@@ -17,11 +17,13 @@
 
 若更改目录位置，请同步修改 HTML 的资源路径，以及 `chronicle.js` 中生成邮局链接的位置。纪事页加载顺序为 `data/events.js` → `data/stage-title-art.js` → `storage.js` / `site.js` → `chronicle.js`，使用 `defer` 保证顺序。阶段题字路径和尺寸在 `data/stage-title-art.js`，真实标题仍来自事件资料；图片失败时显示文字。
 
-邮局额外保留 `postbox.css`、`#postbox-template` 和 `assets/images/mailbox-cabinet-v2.webp`。模板由 `post-office.js` 分别装入侧栏和投递弹窗；箱体静止，只让投信口小翻板绕上沿铰链运动，信封经过遮挡层进入投信口。不要只复制侧栏外观而遗漏模板或动画样式。当前不再使用旧版箱门与旗帜 SVG 图层。
+邮局额外保留 `postbox.css`、`#postbox-template` 和 `assets/images/mailbox-cabinet-v2.webp`。模板由 `post-office.js` 分别装入侧栏和投递弹窗；箱体及投信口保持静止，只让信封经过遮挡层进入投信口。已移除额外翻板和铰链叠层。不要只复制侧栏外观而遗漏模板或动画样式。当前不再使用旧版箱门与旗帜 SVG 图层。
 
 新增两处标题插画：`assets/images/titles/post-heading-v2.webp`、`assets/images/titles/mail-invite-v1.webp`，需连同保留。标题真实文本保留在各自标题元素中，勿删除可访问文本。
 
 品牌副标题另使用 `assets/images/titles/brand-tagline-v2.webp` 的重绘书法字形，`base.css` 通过透明遮罩显示；复制导航时保留 `.lm-brand-tagline-art` 及其辅助文字。首页邮局入口使用 `.lm-postal-link` 与内嵌信封 SVG，样式位于 `chronicle.css`；无需外部组件或图标库。该区域可直接链接 `index.html#post-office-invite`。
+
+品牌主标题与左侧插画同步保留 `assets/images/titles/brand-name-v2.webp`、`assets/images/brand-landscape-v2.webp` 及其 `.lm-brand-name-art` / `.lm-brand-landscape` 样式。主标题图片的替代文字为“山河印记”，左侧插画是装饰图像。
 
 ## 给 C 的链接
 

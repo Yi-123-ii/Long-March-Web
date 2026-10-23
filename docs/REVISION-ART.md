@@ -10,8 +10,10 @@
 | 三军会师主题背景插画 | `assets/images/illustrations/huishi-v1.webp` |
 | 三军会师阶段题字 | `assets/images/titles/stages/huishi-v1.webp` |
 | 品牌副标题的重绘书法字形 | `assets/images/titles/brand-tagline-v2.webp` |
+| 品牌主标题“山河印记” | `assets/images/titles/brand-name-v2.webp` |
+| 品牌左侧山水红旗小插画 | `assets/images/brand-landscape-v2.webp` |
 
-邮筒箱体图在网页中保持静止，投信口的小翻板、信封及投递反馈由原生 CSS 实现；箱体底部取信门不参与动画。会师插画只用于解释性背景，不表示特定会师现场；正文采用原创史实时序图。
+邮筒箱体图和投信口保持静止，只让信封逐步进入箱内并显示投递反馈，不再额外叠加翻板或铰链细杠。会师插画只用于解释性背景，不表示特定会师现场；正文采用原创史实时序图。
 
 ## brand-tagline-v2
 
@@ -34,6 +36,20 @@ Use case: product-mockup. A photorealistic high-quality 3D rendered cutout of a 
 ## huishi-art
 
 Use case: illustration-story. Original small landscape painting for a Long March history website, 3:2. Hand-painted gouache with dark ink contours and subtle grain, clear opaque silhouettes, forest green, muted slate blue, ivory and restrained red. A symbolic meeting of three small groups of anonymous 1930s grey-uniformed Red Army marchers on an ochre highland path near simple northwestern Chinese village buildings; three small red flags draw together. Dignified, collective, no portraits, no modern objects. This is an interpretive thematic painting about the October 1936 reunion, NOT a documentary reconstruction and NOT a precise depiction of a particular historical site. No text, letters, dates, seals, borders, watermark or photorealism.
+
+## 品牌主标题与山水小插画
+
+工具：OpenAI ImageGen 内置生成工具。主标题使用本站邮局大标题作笔势参考，左侧为新绘制的山水与红旗插画；均非史料图像。
+
+保存：`assets/images/titles/brand-name-v2.webp`（主标题）、`assets/images/brand-landscape-v2.webp`（山水小插画）。
+
+### brand-name-v2
+
+Use case: logo-brand. An original Chinese calligraphy brand wordmark for a Long March remembrance website. The attached reference is this SAME website's large postal heading. Match its majestic confident broad brush energy, elegant thick-thin contrast, sweeping terminals and subtle flying-white texture, so this looks lettered by the same artist. Exact simplified Chinese text in ONE line:「山河印记」. FOUR complete, highly legible characters only. No other words, punctuation, pinyin, seals, pictures, or decorations. Original new character forms, not a tracing of the reference. Warm gold and copper-red pigment, mature and restrained, with strong readable silhouettes and minimal internal texture because it will appear at a small size in a navigation header. Tight, balanced horizontal composition approximately 4:1, all stroke tips contained in frame. Genuine transparent background, no white block, paper, border, shadows, or glow.
+
+### brand-landscape-v2
+
+Use case: icon. Original simple hand-painted miniature landscape illustration for the brand of a dignified Chinese Long March history website. Three overlapping mountain ridges in dark pine green, muted jade and blue-grey, an ivory winding river/path threading between them toward the foreground, ONE very small muted-red flag on a slender pole on a ridge. A few tiny pine trees and restrained warm ochre accents. Painterly gouache/watercolor massed shapes and soft bristle edges, tasteful paper-cut-like layered volumes, NOT a stick-figure outline mountain logo, NOT geometric line art, NOT a round badge. Keep only a few bold well-separated shapes, immediately recognizable even at 60px wide. No people, faces, buildings, sun, text, letters, seals, logos, or scenery background. Square compact arrangement, all illustration visible with tiny clear margins. Genuine transparent background. No border, frame, disk, white/paper backdrop, drop shadow or glow.
 
 ## huishi-title
 
