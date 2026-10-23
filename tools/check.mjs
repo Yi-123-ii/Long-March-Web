@@ -46,10 +46,17 @@ vm.runInContext(
   context,
 );
 const events = context.window.LM_EVENTS;
+const wuqi = events.find(event => event.id === "wuqi");
+const huishi = events.find(event => event.id === "huishi");
+if (wuqi?.date !== "1935.10.19" || huishi?.date !== "1936.10" ||
+    !huishi.timeline.some(item => item.date === "1936年10月9日" && item.text.includes("会宁")) ||
+    !huishi.timeline.some(item => item.date === "1936年10月22日" && item.text.includes("将台堡"))) {
+  throw Error("吴起抵达与三大主力会师的时间或地点不正确");
+}
 vm.runInContext(await readFile(path.join(root, "data/stage-title-art.js"), "utf8"), context);
 if (
-  events.length !== 8 ||
-  new Set(events.map((e) => e.id)).size !== 8 ||
+  events.length !== 9 ||
+  new Set(events.map((e) => e.id)).size !== 9 ||
   events.some(
     (e) =>
       !e.title ||
@@ -80,5 +87,5 @@ for (const font of fonts) {
   await access(path.join(root, "assets/fonts", font.licenseFile));
 }
 console.log(
-  `检查通过：${count} 份浏览器脚本语法正确，本地资源引用有效，8 篇图文纪事的正文、时间线与本地配图完整。`,
+  `检查通过：${count} 份浏览器脚本语法正确，本地资源引用有效，9 篇图文纪事的正文、时间线与本地配图完整。`,
 );

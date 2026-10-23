@@ -9,19 +9,19 @@
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="assets/fonts/zhi-mang-xing.woff2?v=20261023-postbox"
+      href="assets/fonts/zhi-mang-xing.woff2?v=20261023-four-fixes"
       as="font"
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261023-postbox" />
-    <link rel="stylesheet" href="assets/css/base.css?v=20261023-postbox" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261023-postbox" />
-    <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-postbox" />
-    <script defer src="data/events.js?v=20261023-postbox"></script>
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261023-four-fixes" />
+    <link rel="stylesheet" href="assets/css/base.css?v=20261023-four-fixes" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261023-four-fixes" />
+    <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-four-fixes" />
+    <script defer src="data/events.js?v=20261023-four-fixes"></script>
     <script defer src="assets/js/storage.js"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/post-office.js?v=20261023-postbox"></script>
+    <script defer src="assets/js/post-office.js?v=20261023-four-fixes"></script>
   </head>
   <body class="lm-page lm-post-page">
     <a class="lm-skip" href="#letter-form">跳至写留言</a>
@@ -42,7 +42,7 @@
       <section class="lm-post-heading">
         <div>
           <p class="lm-eyebrow"><span></span> 一封来自今天的留言</p>
-          <h1>隔着岁月，<br />说给你们听。</h1>
+          <h1 class="lm-post-title"><span class="lm-sr-only">隔着岁月，说给你们听。</span><img src="assets/images/titles/post-heading-v2.webp" width="1400" height="617" alt="" fetchpriority="high" /></h1>
         </div>
         <p>
           写给长征路上的人们，<br />写下敬意，也写下今天的生活。<br /><span
@@ -174,10 +174,11 @@
       ><a href="index.html">翻阅长征纪事 ↗</a>
     </footer>
     <template id="postbox-template">
-      <img class="lm-postbox-shell" src="assets/images/mailbox-shell.svg" width="360" height="390" alt="" />
-      <div class="lm-postbox-envelope"><span></span><i></i></div>
-      <img class="lm-postbox-door" src="assets/images/mailbox-door.svg" width="360" height="390" alt="" />
-      <img class="lm-postbox-flag" src="assets/images/mailbox-flag.svg" width="360" height="390" alt="" />
+      <img class="lm-postbox-shell" src="assets/images/mailbox-cabinet-v2.webp" width="720" height="960" alt="" />
+      <div class="lm-postbox-mail-path"><div class="lm-postbox-envelope"><i></i></div></div>
+      <div class="lm-postbox-slot"><div class="lm-postbox-flap"></div><i class="lm-postbox-hinge"></i></div>
+      <span class="lm-postbox-label">山河邮局<small>留言投递</small></span>
+      <span class="lm-postbox-receipt">已投递</span>
     </template>
     <dialog
       id="delivery-dialog"

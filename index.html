@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="沿着八段长征纪事，认识中央红军1934至1935年的主要历程。"
+      content="沿着九段长征纪事，从1934年出发，读到1936年红军三大主力会师。"
     />
     <meta name="theme-color" content="#e9eeeb" />
     <title>长征纪事 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="assets/fonts/zhi-mang-xing.woff2?v=20261023-postbox"
+      href="assets/fonts/zhi-mang-xing.woff2?v=20261023-four-fixes"
       as="font"
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261023-postbox" />
-    <link rel="stylesheet" href="assets/css/base.css?v=20261023-postbox" />
-    <link rel="stylesheet" href="assets/css/chronicle.css?v=20261023-hero-fade" />
-    <script defer src="data/events.js?v=20261023-postbox"></script>
-    <script defer src="data/stage-title-art.js?v=20261023-postbox"></script>
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261023-four-fixes" />
+    <link rel="stylesheet" href="assets/css/base.css?v=20261023-four-fixes" />
+    <link rel="stylesheet" href="assets/css/chronicle.css?v=20261023-four-fixes" />
+    <script defer src="data/events.js?v=20261023-four-fixes"></script>
+    <script defer src="data/stage-title-art.js?v=20261023-four-fixes"></script>
     <script defer src="assets/js/storage.js"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/chronicle.js?v=20261023-postbox"></script>
+    <script defer src="assets/js/chronicle.js?v=20261023-four-fixes"></script>
   </head>
   <body class="lm-page">
     <a class="lm-skip" href="#chronicle">跳至纪事内容</a>
@@ -49,17 +49,17 @@
           aria-label="水墨风格的群山、河流与行军者主题插画"
         ></div>
         <div class="lm-hero-copy">
-          <p class="lm-eyebrow"><span></span> 长征纪事 · 中央红军主要历程</p>
+          <p class="lm-eyebrow"><span></span> 长征纪事 · 从出发到三军会师</p>
           <h1 id="hero-title" class="lm-title-art"><span class="lm-sr-only">山河为卷，脚步为证。</span><img src="assets/images/titles/hero-v1.webp" width="1400" height="814" alt="" fetchpriority="high" /></h1>
           <p class="lm-hero-intro">
-            从于都河畔，到陕北吴起。<br />读懂那些改变方向的抉择，<br />也记住每一段艰难路途中的人。
+            从于都河畔，到三军会师。<br />读懂那些改变方向的抉择，<br />也记住每一段艰难路途中的人。
           </p>
           <a class="lm-link" href="#chronicle"
             >翻开这段历程 <span aria-hidden="true">↓</span></a
           >
         </div>
         <div class="lm-hero-bottom">
-          <span>1934 — 1935</span><span>八段纪事，一路向前</span
+          <span>1934 — 1936</span><span>九段纪事，一路向前</span
           ><span class="lm-art-note">AI 辅助主题插画 · 非史料照片</span>
         </div>
       </section>
@@ -74,7 +74,7 @@
             <h2 id="chronicle-title" class="lm-title-art"><span class="lm-sr-only">那些走过的路</span><img src="assets/images/titles/chronicle-v2.webp" width="1400" height="293" alt="" /></h2>
           </div>
           <p>
-            这里记录中央红军的八个历史片段。<br />点开一段纪事，继续了解背景与史实。
+            沿中央红军主要历程，读到三大主力会师。<br />九段纪事，串起1934—1936年的重要节点。
           </p>
         </div>
         <div class="lm-tools">
@@ -82,7 +82,8 @@
             <button class="is-active" data-filter="all" aria-pressed="true">
               全部纪事</button
             ><button data-filter="1934" aria-pressed="false">1934</button
-            ><button data-filter="1935" aria-pressed="false">1935</button>
+            ><button data-filter="1935" aria-pressed="false">1935</button
+            ><button data-filter="1936" aria-pressed="false">1936</button>
           </div>
           <label class="lm-search"
             ><span class="lm-sr-only">搜索事件或地点</span
@@ -99,10 +100,10 @@
         <div class="lm-history-layout">
           <aside class="lm-history-aside">
             <span class="lm-aside-date"
-              >一九三四<br /><i>至</i><br />一九三五</span
+              >一九三四<br /><i>至</i><br />一九三六</span
             >
             <div class="lm-read-count">
-              <span id="read-count">0</span><small>/ 8 段已阅</small>
+              <span id="read-count">0</span><small>/ <span id="event-count">9</span> 段已阅</small>
             </div>
             <p>历史有来处，<br />每一步都值得回望。</p>
           </aside>
@@ -119,9 +120,9 @@
           </div>
         </div>
         <div class="lm-history-note">
-          <span>读到这里，还未结束。</span>
+          <span>记准两个时间，读懂不同的终点。</span>
           <p>
-            1935年，中央红军抵达陕北。1936年，红军三大主力会师。长征还有更多值得继续认识的历程。
+            <strong>红军长征：1934年10月—1936年10月。</strong><br />1935年10月19日，中央红军抵达吴起镇，中央红军长征胜利结束。
           </p>
           <p>
             1936年10月9日，红一、红四方面军在会宁会师；10月22日，红二方面军在将台堡与红一方面军会师。中央红军抵达吴起镇与三大主力会师，是长征历史中的两个不同时间节点。
@@ -131,7 +132,7 @@
       <section class="lm-mail-invite lm-container">
         <div>
           <p class="lm-eyebrow">读过来路，留下回声</p>
-          <h2>如果能寄去一句话，<br />你想对他们说什么？</h2>
+          <h2 class="lm-invite-title"><span class="lm-sr-only">如果能寄去一句话，你想对他们说什么？</span><img src="assets/images/titles/mail-invite-v1.webp" width="1400" height="553" alt="" loading="lazy" /></h2>
         </div>
         <a class="lm-button" href="post-office.html"
           >走进山河邮局 <span aria-hidden="true">↗</span></a

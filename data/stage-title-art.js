@@ -34,6 +34,11 @@ window.LM_STAGE_TITLE_ART = {
     "width": 1100,
     "height": 358
   },
+  "huishi": {
+    "src": "assets/images/titles/stages/huishi-v1.webp",
+    "width": 1100,
+    "height": 337
+  },
   "wuqi": {
     "src": "assets/images/titles/stages/wuqi-v1.webp",
     "width": 1100,

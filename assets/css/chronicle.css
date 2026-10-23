@@ -125,6 +125,7 @@
 }
 .lm-filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .lm-filters button {
@@ -208,6 +209,10 @@
 .lm-mail-invite { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px 0 80px; }
 .lm-mail-invite h2 { font-family: var(--lm-hand); font-size: 32px; font-weight: 600; line-height: 1.8; margin-bottom: 0; }
 .lm-mail-invite .lm-eyebrow { margin-bottom: 16px; }
+.lm-mail-invite > div { flex: 0 1 760px; min-width: 0; }
+.lm-mail-invite .lm-invite-title { width: 100%; max-width: 760px; }
+.lm-invite-title img { display: block; width: 100%; height: auto; }
+.lm-mail-invite > .lm-button { flex-shrink: 0; }
 @media (min-width: 1600px) {
   .lm-hero-copy { padding-top: 120px; }
   .lm-hero h1 { font-size: 114px; }
@@ -243,7 +248,7 @@
   .lm-history-aside { display: flex; position: static; align-items: center; padding: 0; margin-bottom: 20px; justify-content: space-between; }
   .lm-aside-date { font-size: 0; letter-spacing: 0; }
   .lm-aside-date br, .lm-aside-date i, .lm-history-aside > p { display: none; }
-  .lm-aside-date::after { content: '1934 — 1935'; font-family: var(--lm-number); font-size: 23px; letter-spacing: 1px; }
+  .lm-aside-date::after { content: '1934 — 1936'; font-family: var(--lm-number); font-size: 23px; letter-spacing: 1px; }
   .lm-read-count { border: 0; width: auto; margin: 0; padding: 0; }
   .lm-read-count > span { font-size: 27px; }
   .lm-history-note { margin-left: 0; }
@@ -270,7 +275,7 @@
   .lm-tools { align-items: stretch; flex-direction: column; padding: 13px 0; gap: 8px; }
   .lm-search { width: 100%; }
   .lm-filters { gap: 6px; }
-  .lm-filters button { padding: 7px 17px; }
+  .lm-filters button { padding: 7px 11px; }
   .lm-section-heading h2 { font-size: 45px; letter-spacing: 0; }
   .lm-section-heading > p { font-size: 15px; }
   .lm-section-heading { margin-bottom: 25px; }
@@ -291,6 +296,7 @@
   .lm-history-note > span { font-size: 20px; }
   .lm-history-note p { font-size: 12px; }
   .lm-mail-invite { flex-direction: column; align-items: flex-start; gap: 25px; }
+  .lm-mail-invite > div { flex: none; width: 100%; }
   .lm-mail-invite h2 { font-size: 25px; }
   .lm-mail-invite .lm-button { padding-inline: 25px; }
 }

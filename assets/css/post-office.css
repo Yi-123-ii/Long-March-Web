@@ -23,6 +23,10 @@
 .lm-post-heading .lm-eyebrow {
   margin-bottom: 18px;
 }
+.lm-post-heading > div { flex: 0 1 720px; min-width: 0; }
+.lm-post-heading .lm-post-title { width: 100%; max-width: 720px; }
+.lm-post-title img { display: block; width: 100%; height: auto; }
+.lm-post-heading > p { flex: 0 0 245px; }
 .lm-post-heading > p {
   font-size: 13px;
   color: var(--lm-muted);
@@ -492,6 +496,9 @@
   }
 }
 @media (max-width: 800px) {
+  .lm-post-heading { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .lm-post-heading > div { flex: none; width: 100%; }
+  .lm-post-heading > p { flex: none; }
   .lm-post-main {
     padding-top: 45px;
   }

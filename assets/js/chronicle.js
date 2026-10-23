@@ -1,5 +1,6 @@
 (() => {
   const events = window.LM_EVENTS;
+  document.querySelector("#event-count").textContent = events.length;
   const list = document.querySelector("#event-list");
   const dialog = document.querySelector("#event-dialog");
   const search = document.querySelector("#event-search");

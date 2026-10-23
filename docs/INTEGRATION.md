@@ -17,7 +17,9 @@
 
 若更改目录位置，请同步修改 HTML 的资源路径，以及 `chronicle.js` 中生成邮局链接的位置。纪事页加载顺序为 `data/events.js` → `data/stage-title-art.js` → `storage.js` / `site.js` → `chronicle.js`，使用 `defer` 保证顺序。阶段题字路径和尺寸在 `data/stage-title-art.js`，真实标题仍来自事件资料；图片失败时显示文字。
 
-邮局额外保留 `postbox.css`、`#postbox-template` 和三个 `mailbox-*.svg` 图层。模板由 `post-office.js` 分别装入侧栏和投递弹窗，复用箱门、信封及小旗的动画状态。不要只复制侧栏外观而遗漏模板或动画样式。
+邮局额外保留 `postbox.css`、`#postbox-template` 和 `assets/images/mailbox-cabinet-v2.webp`。模板由 `post-office.js` 分别装入侧栏和投递弹窗；箱体静止，只让投信口小翻板绕上沿铰链运动，信封经过遮挡层进入投信口。不要只复制侧栏外观而遗漏模板或动画样式。当前不再使用旧版箱门与旗帜 SVG 图层。
+
+新增两处标题插画：`assets/images/titles/post-heading-v2.webp`、`assets/images/titles/mail-invite-v1.webp`，需连同保留。标题真实文本保留在各自标题元素中，勿删除可访问文本。
 
 ## 给 C 的链接
 
@@ -26,6 +28,9 @@
 | 出发     | `index.html#event=yudu`   |
 | 雪山     | `index.html#event=jiajin` |
 | 抵达     | `index.html#event=wuqi`   |
+| 会师     | `index.html#event=huishi` |
+
+整体时间为1934年10月至1936年10月，共九个纪事节点。`wuqi` 是1935年10月19日中央红军抵达吴起；`huishi` 是1936年10月三大主力会师，两者不得混写。新增1936年份筛选；已阅总数由事件数组长度计算。
 
 其他稳定事件 ID：`xiangjiang`、`zunyi`、`chishui`、`luding`、`grassland`。深链接会自动打开对应史实弹窗；它不要求玩家通关。
 

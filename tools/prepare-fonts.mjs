@@ -34,7 +34,7 @@ const hand =
   titles +
   uiHeadings +
   "这份心意，已在此留下。" +
-  "一九三四五至如果能寄去一句话你想对他们说什么致长征路上的你们山河邮局不知道从哪里落笔留下的每一句都在这里回望这一程沿时间走近历史历史有来处每一步都值得回望";
+  "一九三四五六至已投递留言投递如果能寄去一句话你想对他们说什么致长征路上的你们山河邮局不知道从哪里落笔留下的每一句都在这里回望这一程沿时间走近历史历史有来处每一步都值得回望";
 const reading = [...new Set((
   await Promise.all([
     "index.html", "post-office.html", "data/events.js",
@@ -134,4 +134,4 @@ await writeFile(
 );
 await writeFile(path.join(root, "assets/css/fonts.css"),
   "/* 字体本地托管，授权原文与来源见 assets/fonts/。文楷按字形分组按需加载。 */\n" +
-  manifest.map(font => `@font-face {\n  font-family: "${font.name}";\n  font-style: normal;\n  font-weight: ${font.weight};\n  font-display: swap;\n  src: url("../fonts/${font.file}?v=20261023-postbox") format("woff2");\n${font.unicodeRange ? "  unicode-range: " + font.unicodeRange + ";\n" : ""}}\n`).join(""));
+  manifest.map(font => `@font-face {\n  font-family: "${font.name}";\n  font-style: normal;\n  font-weight: ${font.weight};\n  font-display: swap;\n  src: url("../fonts/${font.file}?v=20261023-four-fixes") format("woff2");\n${font.unicodeRange ? "  unicode-range: " + font.unicodeRange + ";\n" : ""}}\n`).join(""));
