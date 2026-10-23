@@ -48,8 +48,8 @@
 - `assets/images/hero-mountains.webp`：本项目使用 OpenAI ImageGen 辅助生成的原创主题插画，后以 Sharp 转为 WebP，约269 KiB。仅作氛围插画，不作为史料图片。最终参赛时按组委会对 AI 素材的最新要求披露或替换。
 - `assets/images/mark.svg`：本项目编写的山形与旗帜简图。
 - 邮筒、邮票与信封：本项目编写的 SVG / CSS 图形，没有第三方图标库或下载模型。
-- 字体：Ma Shan Zheng、LXGW WenKai TC、Oswald 三款开源字体的 WOFF2 字形子集由本项目本地托管，许可为 SIL Open Font License 1.1。完整许可原文和源仓库记录见 `assets/fonts/`；正文继续使用本机宋体、微软雅黑等回退字体。访客不需要连接外部字体服务。
-- 阶段半透明背景使用 `assets/images/stages/` 中的轻量配图，是对应纪事照片的等比例缩小版本；作者及许可与上表相同。背景透明效果通过 CSS 实现，没有把照片伪造成历史影像。
+- 现用字体：Zhi Mang Xing（志莽行书）、Noto Serif SC（思源宋体）600字重、Oswald。开源 WOFF2 字形子集由本项目本地托管，许可为 SIL Open Font License 1.1；来源与许可原文见 `assets/fonts/manifest.json` 和同目录 OFL 文件。正文使用清晰的系统字体，不依赖外部字体服务。早期 Ma Shan Zheng、LXGW WenKai 文件保留授权记录，当前页面不加载它们。
+- 阶段插画：`assets/images/illustrations/` 下八幅原创解释性绘画，使用 OpenAI ImageGen 内置工具逐幅生成，保持实色显示；不是历史照片。保存路径、风格提示词与各幅场景提示词见 `docs/ILLUSTRATIONS.md`。原有 `assets/images/stages/` 缩略照片仍保留原许可，当前列表不再使用淡化照片底图。
 - 视觉参考：[故宫名画记](https://minghuaji.dpm.org.cn/)。仅研究题字与图文的层次关系，未复用其网页代码、图片、标识或版式；本站的设计选择见 `docs/DESIGN.md`。
 
 ### 插画生成提示词

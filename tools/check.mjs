@@ -66,6 +66,7 @@ if (
 for (const event of events) {
   await access(path.join(root, event.image.src));
   if (event.image.preview) await access(path.join(root, event.image.preview));
+  await access(path.join(root, "assets/images/illustrations", event.id + "-v1.webp"));
 }
 const fonts = JSON.parse(
   await readFile(path.join(root, "assets/fonts/manifest.json"), "utf8"),

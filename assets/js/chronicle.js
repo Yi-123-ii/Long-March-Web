@@ -38,14 +38,8 @@
         "lm-event" + (read.has(event.id) ? " is-read" : ""),
       );
       article.id = "event-" + event.id;
-      const previewUrl = new URL(
-        event.image.preview || event.image.src,
-        document.baseURI,
-      ).href;
-      article.style.setProperty(
-        "--lm-event-image",
-        'url("' + previewUrl + '")',
-      );
+      if (event.id === "yudu" || event.id === "wuqi")
+        article.classList.add("lm-event-bookend");
       const date = el("div", "lm-event-date");
       const [month, day] = event.date.slice(5).split(".");
       const monthLabel = month.replace(/(^|—)0/g, "$1");
@@ -63,23 +57,30 @@
         ),
       );
       const content = el("div", "lm-event-content");
+      content.append(date);
       content.append(el("p", "lm-event-place", event.location));
       const heading = el("h3", "");
       const button = el("button", "", event.title);
       button.addEventListener("click", () => openEvent(event.id));
       heading.append(button);
-      const more = el("button", "lm-event-read", "展开史实 ↗");
+      const more = el("button", "lm-event-read", "展开这段纪事");
       more.setAttribute("aria-label", "展开史实：" + event.title);
       more.addEventListener("click", () => openEvent(event.id));
-      const theme = el("span", "lm-event-theme", event.theme);
-      theme.setAttribute("aria-hidden", "true");
       content.append(
         heading,
         el("p", "lm-event-summary", event.summary),
         more,
-        theme,
       );
-      article.append(date, content);
+      const art = el("figure", "lm-stage-art");
+      const illustration = el("img", "");
+      illustration.src = "assets/images/illustrations/" + event.id + "-v1.webp";
+      illustration.alt = event.title + "主题插画，非史料照片";
+      illustration.width = 720;
+      illustration.height = 480;
+      illustration.loading = "lazy";
+      illustration.decoding = "async";
+      art.append(illustration, el("figcaption", "", "主题插画"));
+      article.append(content, art);
       list.append(article);
     });
     document.querySelector("#empty-events").hidden = shown.length > 0;

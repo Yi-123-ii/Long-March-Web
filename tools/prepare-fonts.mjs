@@ -16,7 +16,7 @@ const titles = context.window.LM_EVENTS.flatMap((event) => [
   ...event.sections.map((s) => s.heading),
   event.focus.title,
 ]).join("");
-const brush = "山河印记山河为卷，脚步为证。那些走过的路隔着岁月，说给你们听。";
+const brush = "山河印记山河为卷，脚步为证。那些走过的路隔着岁月，说给你们听。" + context.window.LM_EVENTS.map((event) => event.title).join("");
 const uiHeadings = (
   await Promise.all(
     ["index.html", "post-office.html"].map((file) =>
@@ -37,15 +37,16 @@ const hand =
   "一九三四五至如果能寄去一句话你想对他们说什么致长征路上的你们山河邮局不知道从哪里落笔留下的每一句都在这里回望这一程沿时间走近历史历史有来处每一步都值得回望";
 const sets = [
   {
-    name: "Ma Shan Zheng",
-    file: "ma-shan-zheng",
-    folder: "mashanzheng",
+    name: "Zhi Mang Xing",
+    file: "zhi-mang-xing",
+    folder: "zhimangxing",
     text: brush,
   },
   {
-    name: "LXGW WenKai TC",
-    file: "lxgw-wenkai",
-    folder: "lxgwwenkaitc",
+    name: "Noto Serif SC",
+    weight: "600",
+    file: "noto-serif-sc-semibold",
+    folder: "notoserifsc",
     text: hand,
   },
   { name: "Oswald", file: "oswald", folder: "oswald", text: "0123456789.—/ :" },
@@ -57,7 +58,7 @@ for (const font of sets) {
   const subset = [...new Set(font.text)].join("");
   const url =
     "https://fonts.googleapis.com/css2?" +
-    new URLSearchParams({ family: font.name, display: "swap", text: subset });
+    new URLSearchParams({ family: font.name + (font.weight ? ":wght@" + font.weight : ""), display: "swap", text: subset });
   const response = await fetch(url, { headers: { "User-Agent": ua } });
   if (!response.ok) throw Error(font.name + ": " + response.status);
   const css = await response.text();
@@ -76,6 +77,7 @@ for (const font of sets) {
   await writeFile(path.join(dir, font.file + "-OFL.txt"), await license.text());
   manifest.push({
     name: font.name,
+    weight: font.weight || "400",
     file: font.file + ".woff2",
     bytes: bytes.length,
     characters: [...subset].length,

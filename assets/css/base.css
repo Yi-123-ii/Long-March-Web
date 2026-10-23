@@ -8,8 +8,8 @@
   --lm-red: #973e39;
   --lm-serif: "Songti SC", "Noto Serif CJK SC", "SimSun", serif;
   --lm-sans: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
-  --lm-brush: "Ma Shan Zheng", "KaiTi", "STKaiti", serif;
-  --lm-hand: "LXGW WenKai TC", "KaiTi", "STKaiti", var(--lm-serif);
+  --lm-brush: "Zhi Mang Xing", "KaiTi", "STKaiti", serif;
+  --lm-hand: "Noto Serif SC", "Songti SC", "SimSun", serif;
   --lm-number: "Oswald", "Arial Narrow", sans-serif;
 }
 * {
@@ -300,6 +300,7 @@ body:has(dialog[open]) {
   padding: 60px 56px 42px;
 }
 .lm-dialog h2 {
+  font-weight: 600;
   font-family: var(--lm-hand);
   font-size: 38px;
   line-height: 1.4;

@@ -1,17 +1,17 @@
 /* 开源字体在本地托管；授权原文见 assets/fonts/ 中各字体的 OFL 文件。 */
 @font-face {
-  font-family: "Ma Shan Zheng";
+  font-family: "Zhi Mang Xing";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/ma-shan-zheng.woff2") format("woff2");
+  src: url("../fonts/zhi-mang-xing.woff2") format("woff2");
 }
 @font-face {
-  font-family: "LXGW WenKai TC";
+  font-family: "Noto Serif SC";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-display: swap;
-  src: url("../fonts/lxgw-wenkai.woff2") format("woff2");
+  src: url("../fonts/noto-serif-sc-semibold.woff2") format("woff2");
 }
 @font-face {
   font-family: "Oswald";
