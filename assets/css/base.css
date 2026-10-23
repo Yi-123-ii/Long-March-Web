@@ -10,6 +10,8 @@
   --lm-sans: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
   --lm-brush: "Zhi Mang Xing", "KaiTi", "STKaiti", serif;
   --lm-hand: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --lm-reading: "LXGW WenKai TC", "KaiTi", "STKaiti", serif;
+  --lm-display: "ZCOOL XiaoWei", "Noto Serif SC", "SimSun", serif;
   --lm-number: "Oswald", "Arial Narrow", sans-serif;
 }
 * {
@@ -23,8 +25,8 @@ body {
   margin: 0;
   background: var(--lm-bg);
   color: var(--lm-ink);
-  font-family: var(--lm-sans);
-  font-size: 15px;
+  font-family: var(--lm-reading);
+  font-size: 16px;
   line-height: 1.8;
 }
 button,
@@ -32,6 +34,17 @@ input,
 textarea {
   font: inherit;
   color: inherit;
+}
+button,
+.lm-header nav a,
+.lm-link,
+.lm-button {
+  font-family: var(--lm-hand);
+  font-weight: 600;
+}
+input,
+textarea {
+  font-family: var(--lm-reading);
 }
 button,
 a,

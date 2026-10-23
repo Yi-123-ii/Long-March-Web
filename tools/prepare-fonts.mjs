@@ -35,6 +35,12 @@ const hand =
   uiHeadings +
   "这份心意，已在此留下。" +
   "一九三四五至如果能寄去一句话你想对他们说什么致长征路上的你们山河邮局不知道从哪里落笔留下的每一句都在这里回望这一程沿时间走近历史历史有来处每一步都值得回望";
+const reading = [...new Set((
+  await Promise.all([
+    "index.html", "post-office.html", "data/events.js",
+    "assets/js/chronicle.js", "assets/js/post-office.js", "assets/js/site.js",
+  ].map(file => readFile(path.join(root, file), "utf8")))
+).join("").match(/[\p{Script=Han}\p{Punctuation}\p{Number}\p{Letter}]/gu))];
 const sets = [
   {
     name: "Zhi Mang Xing",
@@ -47,14 +53,40 @@ const sets = [
     weight: "600",
     file: "noto-serif-sc-semibold",
     folder: "notoserifsc",
-    text: hand,
+    text: hand + reading.join(""),
+  },
+  {
+    name: "ZCOOL XiaoWei",
+    file: "zcool-xiaowei",
+    folder: "zcoolxiaowei",
+    text: brush + "全部纪事长征山河邮局启程抉择转折机动突破雪山同行抵达",
   },
   { name: "Oswald", file: "oswald", folder: "oswald", text: "0123456789.—/ :" },
 ];
+// 文楷覆盖正文与小字；分组本地托管，避免超长字体请求和单个巨大文件。
+for (let i = 0; i < reading.length; i += 350) {
+  const chars = reading.slice(i, i + 350);
+  sets.push({
+    name: "LXGW WenKai TC", file: "wenkai-reading-" + (i / 350 + 1),
+    folder: "lxgwwenkaitc", text: chars.join(""),
+    unicodeRange: chars.map(char => "U+" + char.codePointAt(0).toString(16)).join(","),
+  });
+}
 const ua =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36";
 const manifest = [];
-for (const font of sets) {
+const downloads = sets.flatMap(font => {
+  const chars = [...new Set(font.text)];
+  if (chars.length <= 350) return [font];
+  const parts = [];
+  for (let i = 0; i < chars.length; i += 350) {
+    const group = chars.slice(i, i + 350);
+    parts.push({ ...font, file: font.file + "-" + (i / 350 + 1), text: group.join(""),
+      unicodeRange: group.map(char => "U+" + char.codePointAt(0).toString(16)).join(",") });
+  }
+  return parts;
+});
+for (const font of downloads) {
   const subset = [...new Set(font.text)].join("");
   const url =
     "https://fonts.googleapis.com/css2?" +
@@ -78,6 +110,7 @@ for (const font of sets) {
   manifest.push({
     name: font.name,
     weight: font.weight || "400",
+    ...(font.unicodeRange ? { unicodeRange: font.unicodeRange } : {}),
     file: font.file + ".woff2",
     bytes: bytes.length,
     characters: [...subset].length,
@@ -99,3 +132,6 @@ await writeFile(
   path.join(dir, "manifest.json"),
   JSON.stringify(manifest, null, 2) + "\n",
 );
+await writeFile(path.join(root, "assets/css/fonts.css"),
+  "/* 字体本地托管，授权原文与来源见 assets/fonts/。文楷按字形分组按需加载。 */\n" +
+  manifest.map(font => `@font-face {\n  font-family: "${font.name}";\n  font-style: normal;\n  font-weight: ${font.weight};\n  font-display: swap;\n  src: url("../fonts/${font.file}?v=20261023-ink") format("woff2");\n${font.unicodeRange ? "  unicode-range: " + font.unicodeRange + ";\n" : ""}}\n`).join(""));

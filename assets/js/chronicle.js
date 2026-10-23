@@ -38,8 +38,6 @@
         "lm-event" + (read.has(event.id) ? " is-read" : ""),
       );
       article.id = "event-" + event.id;
-      if (event.id === "yudu" || event.id === "wuqi")
-        article.classList.add("lm-event-bookend");
       const date = el("div", "lm-event-date");
       const [month, day] = event.date.slice(5).split(".");
       const monthLabel = month.replace(/(^|—)0/g, "$1");
@@ -79,6 +77,8 @@
       illustration.height = 480;
       illustration.loading = "lazy";
       illustration.decoding = "async";
+      illustration.setAttribute("aria-hidden", "true");
+      illustration.alt = "";
       art.append(illustration, el("figcaption", "", "主题插画"));
       article.append(content, art);
       list.append(article);

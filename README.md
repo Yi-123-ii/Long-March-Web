@@ -69,9 +69,9 @@ npm run dev
 
 **运行依赖：无。** `server.mjs` 仅用 Node.js 内置模块提供本地预览，不参与网页交互，不构成后端业务。`tools/check.mjs` 使用 Node.js 内置模块检查脚本语法、本地资源引用和事件资料完整性。制作素材时用 Sharp 做图片格式转换；它不是作品运行依赖。预览测试使用 Playwright CLI；不随作品加载。
 
-本地字体：**Zhi Mang Xing（志莽行书）**用于题字，**Noto Serif SC（思源宋体）600字重**用于阶段及短标题，**Oswald**用于年代数字。三者均按 SIL Open Font License 1.1 分发，许可原文与来源清单在 `assets/fonts/`。网页加载轻量本地字形子集，不请求外部字体 CDN。字体不属于预设网页样式或 UI 组件库。
+本地字体：**站酷小薇体**用于阶段名与筛选，**文楷**用于简介、地点及正文，**思源宋体600字重**用于按钮、导航及阅读短标题，**Oswald**用于年份；品牌及邮局题字保留志莽行书。均按 SIL Open Font License 1.1 分发，许可和来源在 `assets/fonts/`。网页加载轻量本地字形子集，不请求字体 CDN；字体不是预设网页样式或 UI 组件库。
 
-八幅阶段主题插画存放在 `assets/images/illustrations/`，采用清晰的实色图文分栏。图片为解释性绘画，详情中的现址照片和史实时间线另行保留。生成工具、完整提示词及保存路径见 [插画记录](docs/ILLUSTRATIONS.md)。
+八幅阶段主题插画存放在 `assets/images/illustrations/`，铺作阶段背景，以约80%不透明度和局部浅色遮罩兼顾画面与文字。插画为解释性绘画，详情现址照片和史实时间线独立保留。生成工具、提示词及路径见 [插画记录](docs/ILLUSTRATIONS.md)；首页和栏目题字记录见 [题字记录](docs/TITLE-ART.md)。
 
 ## 提交信息待全队填写
 
