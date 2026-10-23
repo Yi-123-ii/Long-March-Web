@@ -21,6 +21,20 @@
     if (value !== undefined) node.textContent = value;
     return node;
   };
+  function setStageTitle(node, event) {
+    const art = window.LM_STAGE_TITLE_ART?.[event.id];
+    if (!art) { node.textContent = event.title; return; }
+    const label = el("span", "lm-sr-only", event.title);
+    const image = el("img", "");
+    image.src = art.src;
+    image.width = art.width;
+    image.height = art.height;
+    image.alt = "";
+    image.decoding = "async";
+    image.onerror = () => { label.classList.remove("lm-sr-only"); image.remove(); };
+    node.classList.add("lm-stage-title");
+    node.replaceChildren(label, image);
+  }
   function render() {
     list.replaceChildren();
     const query = search.value.trim().toLocaleLowerCase();
@@ -59,6 +73,7 @@
       content.append(el("p", "lm-event-place", event.location));
       const heading = el("h3", "");
       const button = el("button", "", event.title);
+      setStageTitle(button, event);
       button.addEventListener("click", () => openEvent(event.id));
       heading.append(button);
       const more = el("button", "lm-event-read", "展开这段纪事");
@@ -93,7 +108,7 @@
     const event = events[index];
     document.querySelector("#detail-date").textContent =
       event.date + " · " + event.theme;
-    document.querySelector("#event-dialog-title").textContent = event.title;
+    setStageTitle(document.querySelector("#event-dialog-title"), event);
     document.querySelector("#detail-place").textContent = event.location;
     document.querySelector("#article-bar-title").textContent = event.title;
     document.querySelector("#detail-lead").textContent = event.lead;

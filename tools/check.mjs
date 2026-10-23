@@ -46,6 +46,7 @@ vm.runInContext(
   context,
 );
 const events = context.window.LM_EVENTS;
+vm.runInContext(await readFile(path.join(root, "data/stage-title-art.js"), "utf8"), context);
 if (
   events.length !== 8 ||
   new Set(events.map((e) => e.id)).size !== 8 ||
@@ -67,6 +68,9 @@ for (const event of events) {
   await access(path.join(root, event.image.src));
   if (event.image.preview) await access(path.join(root, event.image.preview));
   await access(path.join(root, "assets/images/illustrations", event.id + "-v1.webp"));
+  const titleArt = context.window.LM_STAGE_TITLE_ART[event.id];
+  if (!titleArt?.src || !titleArt.width || !titleArt.height) throw Error("阶段题字缺失：" + event.id);
+  await access(path.join(root, titleArt.src));
 }
 const fonts = JSON.parse(
   await readFile(path.join(root, "assets/fonts/manifest.json"), "utf8"),

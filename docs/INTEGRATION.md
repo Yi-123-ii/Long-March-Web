@@ -15,7 +15,9 @@
 
 保留样式加载顺序：`fonts.css` → `base.css` → 栏目 CSS。`fonts.css` 只定义本地字体；请连同 `assets/fonts/` 的字体和许可文件一起保留。主要类名使用 `lm-` 前缀；`base.css` 含基础元素样式，A 合入时应与总站的基础样式统一，避免两套全局样式叠加。字体和色值集中在 `base.css` 的 `:root`。
 
-若更改目录位置，请同步修改 HTML 的资源路径，以及 `chronicle.js` 中生成邮局链接的位置。`data/events.js` 必须先于栏目脚本执行；`storage.js` 同理。当前使用 `defer` 保证顺序。
+若更改目录位置，请同步修改 HTML 的资源路径，以及 `chronicle.js` 中生成邮局链接的位置。纪事页加载顺序为 `data/events.js` → `data/stage-title-art.js` → `storage.js` / `site.js` → `chronicle.js`，使用 `defer` 保证顺序。阶段题字路径和尺寸在 `data/stage-title-art.js`，真实标题仍来自事件资料；图片失败时显示文字。
+
+邮局额外保留 `postbox.css`、`#postbox-template` 和三个 `mailbox-*.svg` 图层。模板由 `post-office.js` 分别装入侧栏和投递弹窗，复用箱门、信封及小旗的动画状态。不要只复制侧栏外观而遗漏模板或动画样式。
 
 ## 给 C 的链接
 

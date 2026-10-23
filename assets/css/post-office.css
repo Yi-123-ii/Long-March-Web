@@ -431,7 +431,7 @@
 .lm-delivery-dialog {
   width: min(520px, calc(100% - 32px));
   text-align: center;
-  padding: 45px 28px 40px;
+  padding: 18px 28px 32px;
   overflow: hidden;
 }
 .lm-delivery-dialog h2 {
@@ -442,80 +442,6 @@
   color: var(--lm-muted);
   margin: 15px 0 25px;
 }
-.lm-delivery-art {
-  height: 155px;
-  position: relative;
-  margin-bottom: 15px;
-}
-.lm-flying-envelope {
-  position: absolute;
-  width: 150px;
-  height: 94px;
-  left: calc(50% - 75px);
-  top: 18px;
-  border: 1px solid #afba9b;
-  background: #e7e9d9;
-  box-shadow: 0 8px 20px #263d3610;
-  transform: rotate(-6deg);
-  z-index: 1;
-}
-.lm-flying-envelope::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(32deg, transparent 49.5%, #b9c3aa 50%, transparent 51%),
-    linear-gradient(-32deg, transparent 49.5%, #b9c3aa 50%, transparent 51%);
-  clip-path: polygon(0 100%, 50% 45%, 100% 100%);
-}
-.lm-flying-envelope i {
-  position: absolute;
-  inset: 0;
-  background: #d9dfc7;
-  clip-path: polygon(0 0, 100% 0, 50% 55%);
-}
-.lm-flying-envelope b {
-  font-family: var(--lm-serif);
-  font-size: 9px;
-  font-weight: 400;
-  border: 1px solid var(--lm-red);
-  color: var(--lm-red);
-  padding: 4px;
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  transform: rotate(-12deg);
-}
-.lm-slot {
-  position: absolute;
-  left: calc(50% - 100px);
-  width: 200px;
-  height: 8px;
-  bottom: 10px;
-  background: #562d29;
-  border: 6px solid #973e39;
-  box-sizing: content-box;
-}
-.is-delivering .lm-flying-envelope {
-  animation: lm-post 2.3s ease-in-out forwards;
-}
-.is-delivered .lm-flying-envelope {
-  transform: translateY(75px) scale(0.6);
-  opacity: 0;
-}
-.is-delivered .lm-delivery-art::after {
-  content: "✓";
-  position: absolute;
-  left: calc(50% - 31px);
-  top: 24px;
-  border: 1px solid #8f9f83;
-  border-radius: 50%;
-  width: 62px;
-  height: 62px;
-  line-height: 62px;
-  color: #5f7950;
-  font-size: 30px;
-}
 .lm-delivery-dialog #delivery-actions {
   display: flex;
   align-items: center;
@@ -524,24 +450,6 @@
 }
 .lm-delivery-dialog #delivery-actions .lm-link {
   font-size: 12px;
-}
-@keyframes lm-post {
-  0% {
-    transform: translateY(-15px) rotate(-6deg);
-    opacity: 1;
-  }
-  35% {
-    transform: translateY(0) rotate(2deg);
-    opacity: 1;
-  }
-  75% {
-    transform: translateY(45px) scale(0.75) rotate(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100px) scale(0.45) rotate(0);
-    opacity: 0;
-  }
 }
 @media (min-width: 1600px) {
   .lm-post-layout {

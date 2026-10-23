@@ -1,0 +1,111 @@
+/* 立体邮箱由同一组原生 SVG 图层组成，侧栏与投递反馈复用。 */
+.lm-postbox-model {
+  width: min(100%, 290px);
+  aspect-ratio: 360 / 390;
+  position: relative;
+  flex-shrink: 0;
+  perspective: 700px;
+  isolation: isolate;
+}
+.lm-postbox-model > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.lm-postbox-shell { z-index: 0; }
+.lm-postbox-door {
+  z-index: 3;
+  transform-origin: 37% 65%;
+  transform: rotateX(-12deg);
+  backface-visibility: visible;
+}
+.lm-postbox-flag {
+  z-index: 4;
+  transform-origin: 69% 45.4%;
+  transform: rotate(55deg);
+}
+.lm-postbox-envelope {
+  position: absolute;
+  z-index: 2;
+  left: 22%;
+  top: 39%;
+  width: 36%;
+  aspect-ratio: 1.55;
+  border: 1px solid #b5a47e;
+  background: linear-gradient(140deg, #fffbdf, #dacfaa);
+  box-shadow: 0 6px 8px #37251a29;
+  opacity: 0;
+}
+.lm-postbox-envelope::before,
+.lm-postbox-envelope::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.lm-postbox-envelope::before {
+  background: #f7edc9;
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  filter: drop-shadow(0 1px 0 #bdae85);
+}
+.lm-postbox-envelope::after {
+  background: linear-gradient(32deg, transparent 49%, #b5a580 50%, transparent 51%), linear-gradient(-32deg, transparent 49%, #b5a580 50%, transparent 51%);
+  clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+}
+.lm-postbox-envelope i {
+  position: absolute;
+  z-index: 1;
+  width: 19%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 41%;
+  top: 43%;
+  background: #a63d31;
+  border: 2px solid #c87351;
+  box-shadow: 0 1px 2px #66302480;
+}
+.lm-delivery-art {
+  height: 282px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.lm-delivery-art .lm-postbox-model { width: min(100%, 255px); }
+.is-delivering .lm-postbox-door { animation: lm-door-receive 3s ease-in-out both; }
+.is-delivering .lm-postbox-envelope { animation: lm-letter-in 3s ease-in-out both; }
+.is-delivering .lm-postbox-flag { animation: lm-flag-receive 3s ease-in-out both; }
+.is-delivered .lm-postbox-door { transform: rotateX(0deg); }
+.is-delivered .lm-postbox-flag { transform: rotate(0deg); }
+.is-delivered .lm-postbox-envelope { opacity: 0; }
+@keyframes lm-door-receive {
+  0% { transform: rotateX(-12deg); }
+  20%, 68% { transform: rotateX(-112deg); }
+  86%, 100% { transform: rotateX(0deg); }
+}
+@keyframes lm-letter-in {
+  0%, 18% { transform: translate(-65%, -45%) rotate(-14deg) scale(1.08); opacity: 0; }
+  28% { transform: translate(-52%, -35%) rotate(-10deg) scale(1.08); opacity: 1; }
+  44% { transform: translate(-8%, -5%) rotate(5deg); opacity: 1; }
+  63% { transform: translate(10%, 4%) rotate(7deg) scale(.28); opacity: 0; }
+  100% { transform: translate(10%, 4%) scale(.28); opacity: 0; }
+}
+@keyframes lm-flag-receive {
+  0%, 79% { transform: rotate(55deg); }
+  93% { transform: rotate(-6deg); }
+  100% { transform: rotate(0deg); }
+}
+@media (max-width: 580px) {
+  .lm-post-aside { grid-template-columns: 1fr; gap: 14px; }
+  .lm-mailbox-scene { height: 260px; }
+  .lm-mailbox-scene .lm-postbox-model { width: 220px; }
+  .lm-mailbox-caption { font-size: 12px; letter-spacing: 2px; }
+  .lm-delivery-art { height: 262px; }
+  .lm-delivery-dialog h2 { font-size: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lm-postbox-model * { animation: none !important; transition: none !important; }
+}

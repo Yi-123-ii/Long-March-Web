@@ -9,18 +9,19 @@
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="assets/fonts/zhi-mang-xing.woff2?v=20261023-ink"
+      href="assets/fonts/zhi-mang-xing.woff2?v=20261023-postbox"
       as="font"
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261023-ink" />
-    <link rel="stylesheet" href="assets/css/base.css?v=20261023-ink" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261023-ink" />
-    <script defer src="data/events.js?v=20261023-ink"></script>
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261023-postbox" />
+    <link rel="stylesheet" href="assets/css/base.css?v=20261023-postbox" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261023-postbox" />
+    <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-postbox" />
+    <script defer src="data/events.js?v=20261023-postbox"></script>
     <script defer src="assets/js/storage.js"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/post-office.js"></script>
+    <script defer src="assets/js/post-office.js?v=20261023-postbox"></script>
   </head>
   <body class="lm-page lm-post-page">
     <a class="lm-skip" href="#letter-form">跳至写留言</a>
@@ -124,45 +125,8 @@
           </div>
           <aside class="lm-post-aside">
             <div class="lm-mailbox-scene" aria-hidden="true">
-              <div class="lm-scene-ring"></div>
-              <svg class="lm-mailbox" viewBox="0 0 250 345">
-                <ellipse
-                  cx="125"
-                  cy="326"
-                  rx="86"
-                  ry="10"
-                  fill="#34473d"
-                  opacity=".12"
-                />
-                <path d="M96 235h58v82H96z" fill="#753b37" />
-                <path d="M87 313h76l8 10H79z" fill="#71322f" />
-                <path
-                  d="M57 82Q57 29 125 29t68 53v153q-68 21-136 0Z"
-                  fill="#9a4540"
-                />
-                <path d="M57 82q68 16 136 0" stroke="#b66358" fill="none" />
-                <path d="M72 101h106v15H72z" fill="#3f2928" />
-                <path d="m73 100 9-8h87l9 8" fill="#79332f" />
-                <path
-                  d="M76 145h98v63H76z"
-                  fill="none"
-                  stroke="#d1a18a"
-                  opacity=".6"
-                />
-                <text
-                  x="125"
-                  y="173"
-                  text-anchor="middle"
-                  fill="#f0d6b9"
-                  font-size="15"
-                  font-family="SimSun,serif"
-                >
-                  山 河 邮 局
-                </text>
-                <path d="M108 188h34" stroke="#d1a18a" />
-                <path d="M65 220q60 16 120 0" stroke="#74342f" fill="none" />
-                <path d="M65 83v137" stroke="#bd6a5a" opacity=".5" /></svg
-              ><span class="lm-mailbox-caption">山河无言，心意有声。</span>
+              <div class="lm-postbox-model" data-postbox></div>
+              <span class="lm-mailbox-caption">山河无言，心意有声。</span>
             </div>
             <div class="lm-prompts">
               <h2>不知道从哪里落笔？</h2>
@@ -209,16 +173,19 @@
       ><span>写给长征路上的人们 · 保存在本机的心意</span
       ><a href="index.html">翻阅长征纪事 ↗</a>
     </footer>
+    <template id="postbox-template">
+      <img class="lm-postbox-shell" src="assets/images/mailbox-shell.svg" width="360" height="390" alt="" />
+      <div class="lm-postbox-envelope"><span></span><i></i></div>
+      <img class="lm-postbox-door" src="assets/images/mailbox-door.svg" width="360" height="390" alt="" />
+      <img class="lm-postbox-flag" src="assets/images/mailbox-flag.svg" width="360" height="390" alt="" />
+    </template>
     <dialog
       id="delivery-dialog"
       class="lm-dialog lm-delivery-dialog"
       aria-labelledby="delivery-title"
       data-locked="true"
     >
-      <div class="lm-delivery-art" aria-hidden="true">
-        <div class="lm-flying-envelope"><i></i><b>山河 · 留念</b></div>
-        <div class="lm-slot"></div>
-      </div>
+      <div class="lm-delivery-art" aria-hidden="true"><div class="lm-postbox-model" data-postbox></div></div>
       <h2 id="delivery-title">正在封好这份心意</h2>
       <p id="delivery-description">留言已保存在本机，正在完成投递动画。</p>
       <button id="skip-delivery" class="lm-link">跳过动画</button>

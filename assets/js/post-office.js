@@ -1,5 +1,9 @@
 (() => {
   const $ = (selector) => document.querySelector(selector);
+  const mailbox = $(".lm-mailbox-scene");
+  document.querySelectorAll("[data-postbox]").forEach((model) => {
+    model.append($("#postbox-template").content.cloneNode(true));
+  });
   const form = $("#letter-form"),
     body = $("#letter-body"),
     nickname = $("#nickname");
@@ -155,6 +159,8 @@
     clearTimeout(deliveryTimer);
     delivery.classList.remove("is-delivering");
     delivery.classList.add("is-delivered");
+    mailbox.classList.remove("is-delivering");
+    mailbox.classList.add("is-delivered");
     $("#delivery-title").textContent = "这份心意，已在此留下。";
     $("#delivery-description").textContent =
       "留言已保存于当前浏览器，可以随时回来看。";
@@ -221,8 +227,10 @@
     renderMessages();
     delivery.classList.remove("is-delivered");
     delivery.classList.add("is-delivering");
+    mailbox.classList.remove("is-delivered");
+    mailbox.classList.add("is-delivering");
     delivery.dataset.locked = "true";
-    $("#delivery-title").textContent = "正在封好这份心意";
+    $("#delivery-title").textContent = "把这份心意，轻轻放进信箱";
     $("#delivery-description").textContent =
       "留言已保存在本机，正在完成投递动画。";
     $("#skip-delivery").hidden = false;
@@ -230,7 +238,7 @@
     delivery.showModal();
     if (matchMedia("(prefers-reduced-motion: reduce)").matches)
       finishDelivery();
-    else deliveryTimer = setTimeout(finishDelivery, 2400);
+    else deliveryTimer = setTimeout(finishDelivery, 3100);
   });
   $("#skip-delivery").addEventListener("click", finishDelivery);
   delivery.addEventListener("cancel", (event) => {

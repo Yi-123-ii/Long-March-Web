@@ -47,9 +47,10 @@
 
 - `assets/images/hero-mountains.webp`：本项目使用 OpenAI ImageGen 辅助生成的原创主题插画，后以 Sharp 转为 WebP，约269 KiB。仅作氛围插画，不作为史料图片。最终参赛时按组委会对 AI 素材的最新要求披露或替换。
 - `assets/images/mark.svg`：本项目编写的山形与旗帜简图。
-- 邮筒、邮票与信封：本项目编写的 SVG / CSS 图形，没有第三方图标库或下载模型。
+- 邮筒、邮票与信封：本项目编写的 SVG / CSS 图形，没有第三方图标库或下载模型。立体邮筒由 `mailbox-shell.svg`、`mailbox-door.svg`、`mailbox-flag.svg` 与 `postbox.css` 组成，参考用户图片的圆拱、侧面和铰链门概念，没有复用参考图像。
 - 现用字体：ZCOOL XiaoWei（站酷小薇体）用于阶段名，LXGW WenKai TC（文楷）用于小字和正文，Noto Serif SC（思源宋体）600字重用于按钮和导航，Oswald 用于年份，志莽行书用于品牌与邮局题字。开源 WOFF2 字形子集本地托管，许可为 SIL Open Font License 1.1；来源、分组字形范围和许可见 `assets/fonts/manifest.json` 及同目录 OFL 文件。早期文件保留授权记录，页面只加载现用清单。
 - 首页及栏目艺术字：使用 OpenAI ImageGen 内置工具，参考用户图片的笔触或字形与图形结合方式，重新绘制本站文字。保留真实标题文本。保存路径、完整提示词见 `docs/TITLE-ART.md`。
+- 八个阶段的题字：使用 OpenAI ImageGen 内置工具逐幅生成，参考用户“西湖醋鱼”图片的粗笔画、方折和飞白风格，改为本站实际阶段名称及深色字形。保存路径和完整提示词见 `docs/STAGE-TITLE-ART.md`；网页始终保留可访问的真实标题。
 - 阶段插画：`assets/images/illustrations/` 下八幅原创解释性绘画，使用 OpenAI ImageGen 内置工具逐幅生成，保持实色显示；不是历史照片。保存路径、风格提示词与各幅场景提示词见 `docs/ILLUSTRATIONS.md`。原有 `assets/images/stages/` 缩略照片仍保留原许可，当前列表不再使用淡化照片底图。
 - 视觉参考：[故宫名画记](https://minghuaji.dpm.org.cn/)。仅研究题字与图文的层次关系，未复用其网页代码、图片、标识或版式；本站的设计选择见 `docs/DESIGN.md`。
 

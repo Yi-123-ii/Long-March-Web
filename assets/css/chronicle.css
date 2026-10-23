@@ -175,6 +175,9 @@
 .lm-event-place { font-family: var(--lm-reading); color: #425c4b; font-size: 15px; letter-spacing: 1px; margin-bottom: 7px; }
 .lm-event h3 { font-family: var(--lm-display); font-size: 48px; font-weight: 400; letter-spacing: 2px; line-height: 1.4; margin-bottom: 13px; }
 .lm-event h3 button { font: inherit; text-align: left; padding: 0; }
+.lm-stage-title img { display: block; height: 70px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
+.lm-event h3 button.lm-stage-title { display: block; width: max-content; max-width: 100%; }
+.lm-event-dialog .lm-stage-title img { height: 78px; }
 .lm-event h3 button:hover { color: var(--lm-red); }
 .lm-event-summary { font-family: var(--lm-reading); font-size: 17px; color: #314e3d; line-height: 1.9; margin-bottom: 16px; max-width: 28em; text-wrap: pretty; }
 .lm-event-read { font-family: var(--lm-hand); font-size: 13px; color: #263d36; border-bottom: 1px solid #738e79; min-height: 36px; padding: 0 0 2px; letter-spacing: 1px; }
@@ -263,6 +266,8 @@
   .lm-section-heading .lm-title-art { width: min(390px, 100%); }
   .lm-event-year { margin-left: auto; }
   .lm-event h3 { font-size: clamp(33px, 9vw, 42px); }
+  .lm-stage-title img { height: 58px; }
+  .lm-event-dialog .lm-stage-title img { height: 62px; }
   .lm-event-summary { font-size: 16px; }
   .lm-stage-art img { object-position: 60% center; opacity: .78; }
   .lm-stage-art::after { background: linear-gradient(180deg, rgb(249 250 246 / 96%) 0%, rgb(249 250 246 / 88%) 43%, rgb(249 250 246 / 57%) 68%, rgb(249 250 246 / 10%) 100%); }
