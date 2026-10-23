@@ -16,7 +16,7 @@ const titles = context.window.LM_EVENTS.flatMap((event) => [
   ...event.sections.map((s) => s.heading),
   event.focus.title,
 ]).join("");
-const brush = "山河印记山河为卷，脚步为证。那些走过的路隔着岁月，说给你们听。" + context.window.LM_EVENTS.map((event) => event.title).join("");
+const brush = "山河印记循着来路，读懂远方山河为卷，脚步为证。那些走过的路隔着岁月，说给你们听。" + context.window.LM_EVENTS.map((event) => event.title).join("");
 const uiHeadings = (
   await Promise.all(
     ["index.html", "post-office.html"].map((file) =>
@@ -134,4 +134,4 @@ await writeFile(
 );
 await writeFile(path.join(root, "assets/css/fonts.css"),
   "/* 字体本地托管，授权原文与来源见 assets/fonts/。文楷按字形分组按需加载。 */\n" +
-  manifest.map(font => `@font-face {\n  font-family: "${font.name}";\n  font-style: normal;\n  font-weight: ${font.weight};\n  font-display: swap;\n  src: url("../fonts/${font.file}?v=20261023-four-fixes") format("woff2");\n${font.unicodeRange ? "  unicode-range: " + font.unicodeRange + ";\n" : ""}}\n`).join(""));
+  manifest.map(font => `@font-face {\n  font-family: "${font.name}";\n  font-style: normal;\n  font-weight: ${font.weight};\n  font-display: swap;\n  src: url("../fonts/${font.file}?v=20261023-tagline") format("woff2");\n${font.unicodeRange ? "  unicode-range: " + font.unicodeRange + ";\n" : ""}}\n`).join(""));

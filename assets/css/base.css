@@ -153,11 +153,22 @@ h2 {
 }
 .lm-brand small {
   display: block;
-  font-family: var(--lm-sans);
-  font-size: 10px;
-  letter-spacing: 2px;
+  margin-top: 4px;
+  font-family: var(--lm-brush);
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: 1.2px;
   font-weight: 400;
-  color: var(--lm-muted);
+  color: #526b5c;
+  text-align: center;
+  white-space: nowrap;
+}
+.lm-post-page .lm-brand small {
+  color: #9d472d;
+  background: linear-gradient(110deg, #965b24, #9d392b 38%, #986c2d 67%, #963e2d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .lm-header nav {
   height: 100%;
@@ -447,8 +458,9 @@ body:has(dialog[open]) {
     letter-spacing: 2px;
   }
   .lm-brand small {
-    font-size: 8px;
-    letter-spacing: 0.4px;
+    margin-top: 3px;
+    font-size: 12px;
+    letter-spacing: 0.1px;
   }
   .lm-header nav {
     gap: 19px;
