@@ -1,8 +1,8 @@
 {
-  "name": "long-march-web-b",
-  "version": "0.1.0",
+  "name": "shanhe-yinji-a-home-v1",
+  "version": "0.2.0",
   "private": true,
-  "description": "零杯长征主题网页：长征纪事与山河邮局（B模块）",
+  "description": "零杯长征主题网站：A 首页与导航整合，保留 B 纪事/邮局，C 游戏待接入",
   "scripts": {
     "dev": "node server.mjs",
     "check": "node tools/check.mjs"

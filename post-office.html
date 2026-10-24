@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="assets/css/fonts.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261024-corner" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
@@ -25,21 +25,21 @@
     <script defer src="assets/js/storage.js?v=20261024-stationery"></script>
     <script defer src="assets/js/letter-backup.js?v=20261024-stationery"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/post-office.js?v=20261024-corner"></script>
+    <script defer src="assets/js/site-nav.js"></script>
+    <script defer src="assets/js/post-office.js?v=20261024-stationery"></script>
+    <link rel="stylesheet" href="assets/css/site-shell.css" />
   </head>
   <body class="lm-page lm-post-page">
     <a class="lm-skip" href="#letter-form">跳至写留言</a>
-    <header class="lm-header">
-      <a class="lm-brand" href="index.html"
-        ><img class="lm-brand-landscape" src="assets/images/brand-landscape-v2.webp" width="320" height="259" alt="" /><span
-          ><img class="lm-brand-name-art" src="assets/images/titles/brand-name-v3.webp" width="900" height="229" alt="山河印记" /><small><span class="lm-sr-only">循着来路，读懂远方</span><span class="lm-brand-tagline-art" aria-hidden="true"></span></small></span
-        ></a
-      >
-      <nav aria-label="主导航">
-        <a href="index.html">长征纪事</a
-        ><a href="post-office.html" aria-current="page"
-          >山河邮局 <span aria-hidden="true">↗</span></a
-        >
+    <header class="lm-header site-header site-header--paper">
+      <a class="lm-brand" href="index.html"><img class="lm-brand-landscape" src="assets/images/brand-landscape-v2.webp" width="320" height="259" alt="" /><span><img class="lm-brand-name-art" src="assets/images/titles/brand-name-v3.webp" width="900" height="229" alt="山河印记" /><small><span class="lm-sr-only">循着来路，读懂远方</span><span class="lm-brand-tagline-art" aria-hidden="true"></span></small></span></a>
+      <button class="site-menu-toggle" type="button" aria-label="展开主导航" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="chronicle.html">长征纪事</a>
+        <a href="journey.html">重走长征</a>
+        <a href="inheritance.html">精神传承</a>
+        <a href="post-office.html" aria-current="page">山河邮局</a>
       </nav>
     </header>
     <main class="lm-container lm-post-main">
@@ -77,7 +77,10 @@
             <form id="letter-form" class="lm-letter" novalidate>
               <div class="lm-letter-top">
                 <span>山河邮局</span>
-                <img class="lm-letter-vignette" src="assets/images/letter-corner-v1.webp" width="360" height="288" alt="" aria-hidden="true" />
+                <div class="lm-stamp" aria-hidden="true">
+                  <img id="writing-stamp" src="assets/images/stamps/yudu-v1.webp" width="240" height="300" alt="" />
+                  <span>山河 · 留念</span>
+                </div>
               </div>
               <p class="lm-salutation">致长征路上的你们：</p>
               <p id="event-context" class="lm-event-context" hidden></p>
@@ -175,7 +178,7 @@
       </section>
     </main>
     <footer class="lm-footer lm-container">
-      <span>山河邮局</span><a href="index.html">翻阅长征纪事 ↗</a>
+      <span>山河邮局</span><a href="chronicle.html">翻阅长征纪事 ↗</a>
     </footer>
     <template id="postbox-template">
       <img class="lm-postbox-shell" src="assets/images/mailbox-cabinet-v2.webp" width="720" height="960" alt="" />
