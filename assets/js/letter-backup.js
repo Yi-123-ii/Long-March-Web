@@ -1,6 +1,6 @@
 window.LM_LETTERS = (() => {
   const limit = 200;
-  const clean = (m) => ({ id: m.id, body: m.body, nickname: m.nickname, createdAt: m.createdAt, eventId: m.eventId, ...(m.stampId ? { stampId: m.stampId } : {}) });
+  const clean = (m) => ({ id: m.id, body: m.body, nickname: m.nickname, createdAt: m.createdAt, eventId: m.eventId, ...(m.stampId ? { stampId: m.stampId } : {}), ...(m.paperId ? { paperId: m.paperId } : {}) });
   function hash(value) {
     let result = 2166136261;
     for (const char of value) result = Math.imul(result ^ char.codePointAt(0), 16777619);

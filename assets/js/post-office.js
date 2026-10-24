@@ -1,8 +1,8 @@
 (() => {
   const $ = (selector) => document.querySelector(selector);
-  const mailbox = $(".lm-mailbox-scene");
   document.querySelectorAll("[data-postbox]").forEach((model) => {
     model.append($("#postbox-template").content.cloneNode(true));
+    if (model.closest(".lm-mailbox-scene")) model.querySelector(".lm-postbox-receipt")?.remove();
   });
   const form = $("#letter-form"),
     body = $("#letter-body"),
@@ -21,16 +21,18 @@
     draftTimer,
     deliveryTimer,
     sending = false;
-  const stamps = [
-    { id: "yudu", name: "于都启程", caption: "从渡口出发，走向远方" },
-    { id: "luding", name: "铁索长桥", caption: "江流奔涌，脚步不息" },
-    { id: "snow", name: "雪山草地", caption: "翻过雪山，彼此同行" },
-    { id: "city", name: "今日山河", caption: "万家灯火，岁月安宁" },
-  ];
+  const { stamps, papers } = window.LM_POSTAL;
   const stampById = id => stamps.find(stamp => stamp.id === id);
+  const paperById = id => papers.find(paper => paper.id === id);
   const stampImage = id => "assets/images/stamps/" + id + "-v1.webp";
-  let stampId = null, pendingLetter = null;
+  const paperImage = id => "assets/images/stationery/" + id + "-v1.webp";
+  let stampId = null, paperId = null, pendingLetter = null;
   const packingTimers = [];
+  function applyPaper(node, id) {
+    node.classList.add("lm-stationery");
+    if (paperById(id)) node.dataset.paper = id;
+    else delete node.dataset.paper;
+  }
   stamps.forEach(stamp => {
     const label = text("label", "lm-stamp-option", "");
     const radio = document.createElement("input");
@@ -41,14 +43,42 @@
     image.src = stampImage(stamp.id); image.alt = ""; image.width = 240; image.height = 300;
     art.append(image, text("span", "", stamp.name));
     label.append(radio, art, text("strong", "", stamp.name), text("small", "", stamp.caption));
+    label.dataset.group = stamp.group;
+    label.hidden = stamp.group !== "history";
     radio.addEventListener("change", () => {
       stampId = stamp.id;
       $("#writing-stamp").src = image.src;
-      $("#preview-letter").disabled = false;
+      $("#choose-paper").disabled = false;
+      $("#stamp-selection").textContent = "已选：" + stamp.name;
       saveDraft();
     });
     $("#stamp-options").append(label);
   });
+  papers.forEach(paper => {
+    const label = text("label", "lm-paper-option", "");
+    const radio = document.createElement("input");
+    radio.type = "radio"; radio.name = "letter-paper"; radio.value = paper.id;
+    const art = text("span", "lm-paper-sample", "");
+    art.setAttribute("aria-hidden", "true");
+    const image = document.createElement("img");
+    image.src = paperImage(paper.id); image.alt = ""; image.width = 640; image.height = 896;
+    art.append(image, text("span", "", "致长征路上的你们："));
+    label.append(radio, art, text("strong", "", paper.name), text("small", "", paper.caption));
+    radio.addEventListener("change", () => {
+      paperId = paper.id;
+      $("#paper-selection").textContent = "已选：" + paper.name;
+      $("#preview-letter").disabled = false;
+      applyPaper(form, paperId);
+      saveDraft();
+    });
+    $("#paper-options").append(label);
+  });
+  function filterStamps(group) {
+    document.querySelectorAll("[data-stamp-group]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.stampGroup === group)));
+    document.querySelectorAll(".lm-stamp-option").forEach(label => label.hidden = label.dataset.group !== group);
+    $("#stamp-options").scrollTop = 0;
+  }
+  document.querySelectorAll("[data-stamp-group]").forEach(button => button.addEventListener("click", () => filterStamps(button.dataset.stampGroup)));
   const dateFormat = new Intl.DateTimeFormat("zh-CN", {
     year: "numeric",
     month: "long",
@@ -73,7 +103,16 @@
     stampId = draft.stampId;
     $("#stamp-options input[value='" + stampId + "']").checked = true;
     $("#writing-stamp").src = stampImage(stampId);
+    $("#choose-paper").disabled = false;
+    $("#stamp-selection").textContent = "已选：" + stampById(stampId).name;
+    filterStamps(stampById(stampId).group);
+  }
+  if (paperById(draft.paperId)) {
+    paperId = draft.paperId;
+    $("#paper-options input[value='" + paperId + "']").checked = true;
+    $("#paper-selection").textContent = "已选：" + paperById(paperId).name;
     $("#preview-letter").disabled = false;
+    applyPaper(form, paperId);
   }
   const queryEvent = new URLSearchParams(location.search).get("event");
   eventId = knownEvent(queryEvent)?.id || knownEvent(draft.eventId)?.id || null;
@@ -100,6 +139,7 @@
       nickname: nickname.value,
       eventId,
       stampId,
+      paperId,
     });
     $("#draft-status").textContent = success
       ? "草稿已保存"
@@ -194,8 +234,6 @@
     delivery.dataset.phase = "delivered";
     delivery.classList.remove("is-delivering");
     delivery.classList.add("is-delivered");
-    mailbox.classList.remove("is-delivering");
-    mailbox.classList.add("is-delivered");
     $("#delivery-title").textContent = "这份心意，已在此留下。";
     $("#delivery-description").textContent =
       "留言已保存，可在「我的留言」中查看。";
@@ -223,6 +261,7 @@
   }
   function chooseStamp() {
     $("#stamp-choice").hidden = false;
+    $("#paper-choice").hidden = true;
     $("#letter-review").hidden = true;
     $("#prepare-step").textContent = "为这封信，选一枚邮票";
     $("#prepare-title").textContent = "带着心意，出发吧。";
@@ -236,16 +275,28 @@
     $("#prepare-error").textContent = "";
     prepare.showModal();
   });
-  $("#change-stamp").addEventListener("click", () => {
+  $("#back-to-stamps").addEventListener("click", () => {
     chooseStamp();
     $("#stamp-options input:checked")?.focus();
   });
+  function choosePaper() {
+    if (!stampById(stampId)) return;
+    $("#stamp-choice").hidden = true;
+    $("#paper-choice").hidden = false;
+    $("#letter-review").hidden = true;
+    $("#prepare-step").textContent = "为心里的话，挑一张信纸";
+    $("#prepare-title").textContent = "把来路，写进纸间。";
+    ($("#paper-options input:checked") || $("#paper-options input"))?.focus();
+  }
+  $("#choose-paper").addEventListener("click", choosePaper);
+  $("#change-paper").addEventListener("click", choosePaper);
   $("#preview-letter").addEventListener("click", () => {
     const stamp = stampById(stampId);
-    if (!pendingLetter || !stamp) return;
+    if (!pendingLetter || !stamp || !paperById(paperId)) return;
     $("#stamp-choice").hidden = true;
+    $("#paper-choice").hidden = true;
     $("#letter-review").hidden = false;
-    $("#prepare-step").textContent = "贴好邮票，再读一遍";
+    $("#prepare-step").textContent = paperById(paperId).name + " · " + stamp.name;
     $("#prepare-title").textContent = "这就是你写下的信。";
     $("#review-stamp").src = stampImage(stamp.id);
     $("#review-stamp-name").textContent = stamp.name;
@@ -255,20 +306,20 @@
     const event = knownEvent(pendingLetter.eventId);
     $("#review-context").hidden = !event;
     if (event) $("#review-context").textContent = "读过「" + event.title + "」之后";
-    $(".lm-review-paper").scrollTop = 0;
-    $(".lm-review-paper").focus();
+    applyPaper($("#review-sheet"), paperId);
+    $(".lm-review-window").scrollTop = 0;
+    $(".lm-review-window").focus();
   });
   prepare.addEventListener("close", () => { if (!sending) $("#send-letter").focus(); });
   function beginPosting() {
     delivery.classList.remove("is-packing");
     delivery.dataset.phase = "posting";
     delivery.classList.add("is-delivering");
-    mailbox.classList.add("is-delivering");
     $("#delivery-title").textContent = "把这份心意，轻轻放进信箱";
     deliveryTimer = setTimeout(finishDelivery, 3100);
   }
   $("#confirm-dispatch").addEventListener("click", () => {
-    if (sending || !pendingLetter || !stampById(stampId)) return;
+    if (sending || !pendingLetter || !stampById(stampId) || !paperById(paperId)) return;
     const latest = getMessages();
     if (latest.length >= 200) {
       $("#prepare-error").textContent =
@@ -284,6 +335,7 @@
       createdAt: Date.now(),
       eventId: pendingLetter.eventId,
       stampId,
+      paperId,
     };
     if (!LM_STORE.write("messages", [message, ...latest])) {
       $("#prepare-error").textContent =
@@ -291,11 +343,20 @@
       return;
     }
     sending = true;
-    const parts = Array.from("致长征路上的你们：\n" + message.body + "\n署名：" + (message.nickname || "一位无名来信人"));
-    const size = Math.ceil(parts.length / 3);
-    ["top", "center", "bottom"].forEach((part, i) => {
-      $(".lm-fold-" + part + " span").textContent = parts.slice(i * size, (i + 1) * size).join("");
+    const miniature = text("div", "lm-mini-letter", "");
+    miniature.dataset.paper = paperId;
+    const miniStamp = document.createElement("img");
+    miniStamp.src = stampImage(stampId); miniStamp.alt = "";
+    miniature.append(text("span", "lm-mini-heading", "山河邮局"), miniStamp,
+      text("p", "lm-mini-salutation", "致长征路上的你们："),
+      text("div", "lm-mini-body", message.body),
+      text("p", "lm-mini-signer", message.nickname || "一位无名来信人"));
+    ["top", "center", "bottom"].forEach(part => {
+      const face = text("div", "lm-fold-face", "");
+      face.append(miniature.cloneNode(true));
+      $(".lm-fold-" + part).replaceChildren(face, text("i", "lm-fold-back", ""));
     });
+    $(".lm-fold-paper").dataset.paper = paperId;
     $("#packed-stamp").src = stampImage(stampId);
     document.querySelectorAll(".lm-postbox-stamp").forEach(image => image.src = stampImage(stampId));
     prepare.close();
@@ -319,7 +380,6 @@
     renderMessages();
     delivery.classList.remove("is-delivered", "is-delivering", "is-packing");
     delivery.dataset.phase = "packing";
-    mailbox.classList.remove("is-delivered", "is-delivering");
     delivery.dataset.locked = "true";
     $("#delivery-title").textContent = "把写下的话，仔细折好";
     $("#delivery-description").textContent =
@@ -331,9 +391,9 @@
       finishDelivery();
     else {
       delivery.classList.add("is-packing");
-      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "装进信封，留下今天的邮票", 2100));
-      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "封好心意，交给邮差", 3700));
-      packingTimers.push(setTimeout(beginPosting, 4900));
+      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "装进信封，留下今天的邮票", 3200));
+      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "封好心意，交给邮差", 5100));
+      packingTimers.push(setTimeout(beginPosting, 6300));
     }
   });
   $("#skip-delivery").addEventListener("click", finishDelivery);
@@ -362,6 +422,7 @@
     $("#letter-signer").textContent = message.nickname || "一位无名来信人";
     const event = knownEvent(message.eventId);
     const stamp = stampById(message.stampId);
+    applyPaper($("#letter-dialog .lm-dialog-body"), message.paperId);
     $("#letter-stamp").hidden = !stamp;
     if (stamp) { $("#letter-stamp img").src = stampImage(stamp.id); $("#letter-stamp img").alt = stamp.name + "插画邮票"; $("#letter-stamp span").textContent = stamp.name; }
     $("#letter-context").hidden = !event;

@@ -59,13 +59,27 @@ test("JSON备份可跨存储空间迁移，重复导入不增加留言", () => {
 
 test("插画邮票随留言保留，兼容没有邮票的旧留言", () => {
   const { store, letters } = app();
-  const withStamp = { ...record("stamped"), stampId: "luding" };
+  const withStamp = { ...record("stamped"), stampId: "luding", paperId: "river" };
   assert.equal(store.write("messages", [withStamp, record("legacy")]), true);
   const imported = letters.parse(letters.serialize(store.readMessages()));
   assert.equal(imported.messages[0].stampId, "luding");
+  assert.equal(imported.messages[0].paperId, "river");
   assert.equal(imported.messages[1].stampId, undefined);
   assert.equal(letters.merge(store.readMessages(), imported).added, 0);
   assert.equal(store.messageValid({ ...withStamp, stampId: "invalid" }), false);
+  assert.equal(store.messageValid({ ...withStamp, paperId: "invalid" }), false);
+});
+
+test("十二枚邮票及四款信纸均可保存与备份，保留旧款编号", async () => {
+  const context = vm.createContext({ window: {} });
+  vm.runInContext(await readFile(new URL("../data/postal-designs.js", import.meta.url), "utf8"), context);
+  const { stamps, papers } = context.window.LM_POSTAL;
+  assert.equal(stamps.length, 12); assert.equal(papers.length, 4);
+  assert.equal(stamps.filter(stamp => stamp.group === "history").length, 7);
+  const { store, letters } = app();
+  const records = stamps.map((stamp, i) => ({ ...record("design-" + i), stampId: stamp.id, paperId: papers[i % papers.length].id }));
+  assert.equal(store.write("messages", records), true);
+  assert.deepEqual(plain(letters.parse(letters.serialize(records)).messages), plain(records));
 });
 test("旧版文本备份保留多行正文和署名，支持批量导入与重复检测", () => {
   const { letters } = app();

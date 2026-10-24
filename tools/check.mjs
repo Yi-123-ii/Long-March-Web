@@ -82,6 +82,11 @@ for (const event of events) {
 const fonts = JSON.parse(
   await readFile(path.join(root, "assets/fonts/manifest.json"), "utf8"),
 );
+vm.runInContext(await readFile(path.join(root, "data/postal-designs.js"), "utf8"), context);
+for (const stamp of context.window.LM_POSTAL.stamps)
+  await access(path.join(root, "assets/images/stamps", stamp.id + "-v1.webp"));
+for (const paper of context.window.LM_POSTAL.papers)
+  await access(path.join(root, "assets/images/stationery", paper.id + "-v1.webp"));
 for (const font of fonts) {
   await access(path.join(root, "assets/fonts", font.file));
   await access(path.join(root, "assets/fonts", font.licenseFile));

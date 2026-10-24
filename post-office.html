@@ -9,21 +9,23 @@
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="assets/fonts/zhi-mang-xing.woff2?v=20261024-postal"
+      href="assets/fonts/zhi-mang-xing.woff2?v=20261024-stationery"
       as="font"
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261024-postal" />
-    <link rel="stylesheet" href="assets/css/base.css?v=20261024-postal" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261024-postal" />
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261024-stationery" />
+    <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
-    <link rel="stylesheet" href="assets/css/courier.css?v=20261024-postal" />
+    <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
+    <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
     <script defer src="data/events.js?v=20261023-four-fixes"></script>
-    <script defer src="assets/js/storage.js?v=20261024-postal"></script>
-    <script defer src="assets/js/letter-backup.js?v=20261024-postal"></script>
+    <script defer src="data/postal-designs.js?v=20261024-stationery"></script>
+    <script defer src="assets/js/storage.js?v=20261024-stationery"></script>
+    <script defer src="assets/js/letter-backup.js?v=20261024-stationery"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/post-office.js?v=20261024-postal"></script>
+    <script defer src="assets/js/post-office.js?v=20261024-stationery"></script>
   </head>
   <body class="lm-page lm-post-page">
     <a class="lm-skip" href="#letter-form">跳至写留言</a>
@@ -191,23 +193,36 @@
         <h2 id="prepare-title">带着心意，出发吧。</h2>
       </div>
       <section id="stamp-choice">
+        <div class="lm-stamp-groups" role="group" aria-label="邮票题材">
+          <button type="button" data-stamp-group="history" aria-pressed="true">长征来路 <span>7</span></button>
+          <button type="button" data-stamp-group="today" aria-pressed="false">今日山河 <span>5</span></button>
+        </div>
         <fieldset class="lm-stamp-fieldset">
           <legend class="lm-sr-only">选择插画邮票</legend>
           <div id="stamp-options" class="lm-stamp-options"></div>
         </fieldset>
-        <div class="lm-prepare-actions"><button id="return-writing" class="lm-link" data-close>返回修改</button><button id="preview-letter" class="lm-button" disabled>看看完整信纸 ↗</button></div>
+        <p id="stamp-selection" class="lm-selection-note" role="status">请选择一枚邮票</p>
+        <div class="lm-prepare-actions"><button id="return-writing" class="lm-link" data-close>返回修改</button><button id="choose-paper" class="lm-button" disabled>挑选信纸 ↗</button></div>
+      </section>
+      <section id="paper-choice" hidden>
+        <fieldset class="lm-stamp-fieldset">
+          <legend class="lm-sr-only">选择长征主题信纸</legend>
+          <div id="paper-options" class="lm-paper-options"></div>
+        </fieldset>
+        <p id="paper-selection" class="lm-selection-note" role="status">请选择一款信纸</p>
+        <div class="lm-prepare-actions"><button id="back-to-stamps" class="lm-link">重选邮票</button><button id="preview-letter" class="lm-button" disabled>看看完整信纸 ↗</button></div>
       </section>
       <section id="letter-review" hidden>
-        <article class="lm-review-paper" tabindex="0" aria-label="完整信纸，可滚动阅读">
+        <div class="lm-review-window" tabindex="0" aria-label="完整信纸，可滚动阅读"><article id="review-sheet" class="lm-review-paper lm-stationery">
           <div class="lm-review-top"><span>山河邮局</span><div class="lm-stamp"><img id="review-stamp" width="240" height="300" alt="" /><span id="review-stamp-name"></span></div></div>
           <p class="lm-salutation">致长征路上的你们：</p>
           <p id="review-context" class="lm-event-context" hidden></p>
           <div id="review-content" class="lm-review-content"></div>
           <p id="review-signer" class="lm-letter-signer"></p>
           <p id="review-date" class="lm-review-date"></p>
-        </article>
+        </article></div>
         <p id="prepare-error" class="lm-form-error" role="alert"></p>
-        <div class="lm-prepare-actions"><button id="change-stamp" class="lm-link">重选邮票</button><button id="confirm-dispatch" class="lm-button">折好信纸，交给邮差 ↗</button></div>
+        <div class="lm-prepare-actions"><button id="change-paper" class="lm-link">重选信纸</button><button id="confirm-dispatch" class="lm-button">折好信纸，交给邮差 ↗</button></div>
       </section>
     </dialog>
     <dialog
@@ -218,7 +233,7 @@
     >
       <div class="lm-packing-art" aria-hidden="true">
         <div class="lm-pack-envelope"><div class="lm-pack-back"></div><div class="lm-pack-front"></div><div class="lm-pack-flap"></div><img id="packed-stamp" width="240" height="300" alt="" /><i></i></div>
-        <div class="lm-fold-paper"><div class="lm-fold-center"><span></span></div><div class="lm-fold-top"><span></span></div><div class="lm-fold-bottom"><span></span></div></div>
+        <div class="lm-fold-paper"><div class="lm-fold-center"></div><div class="lm-fold-top"></div><div class="lm-fold-bottom"></div></div>
       </div>
       <div class="lm-delivery-art" aria-hidden="true"><div class="lm-postbox-model" data-postbox></div></div>
       <div class="lm-delivery-courier" aria-hidden="true"><img src="assets/images/couriers/river-v1.webp" width="240" height="320" alt="" /></div>

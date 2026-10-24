@@ -54,7 +54,8 @@ window.LM_STORE = (() => {
     v.createdAt >= 0 &&
     v.createdAt <= 8640000000000000 &&
     (v.eventId === null || typeof v.eventId === "string") &&
-    (v.stampId === undefined || ["yudu", "luding", "snow", "city"].includes(v.stampId));
+    (v.stampId === undefined || ["yudu", "luding", "snow", "city", "xiangjiang", "zunyi", "chishui", "reunion", "rail", "harvest", "stars", "energy"].includes(v.stampId)) &&
+    (v.paperId === undefined || ["mountain", "river", "snow", "spark"].includes(v.paperId));
   function readMessages() {
     try {
       const raw = localStorage.getItem(prefix + "messages:v1");
