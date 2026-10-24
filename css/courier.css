@@ -1,0 +1,87 @@
+/* 插画邮票是可选择的信物；邮差仅在场景中作陪衬。 */
+.lm-stamp { width: 72px; height: auto; min-height: 88px; padding: 4px; flex-shrink: 0; gap: 3px; background: #f5f3e7; border: 3px dotted #d0d7c2; outline: none; box-shadow: 0 2px 4px #314e3420; }
+.lm-stamp img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.lm-stamp span { font-family: var(--lm-reading); font-size: 9px; line-height: 1.4; letter-spacing: 1px; }
+.lm-aside-courier { position: absolute; width: 95px; height: auto; object-fit: contain; bottom: 37px; right: -5px; pointer-events: none; }
+.lm-empty-courier { display: block; width: 110px; height: auto; margin: 0 auto 18px; }
+.lm-prepare-dialog { width: min(760px, calc(100% - 32px)); padding: 36px 34px 25px; overflow-y: auto; }
+.lm-prepare-heading { padding-right: 30px; }
+.lm-prepare-heading .lm-eyebrow { font-size: 12px; letter-spacing: 1px; }
+.lm-prepare-dialog h2 { font-family: var(--lm-reading); font-size: 30px; font-weight: 400; margin-bottom: 24px; }
+.lm-stamp-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.lm-stamp-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.lm-stamp-option { display: flex; flex-direction: column; align-items: center; padding: 18px 7px 13px; border: 1px solid transparent; background: #eaf0e5; position: relative; cursor: pointer; text-align: center; }
+.lm-stamp-option input { accent-color: #406745; position: absolute; top: 8px; right: 7px; width: 15px; height: 15px; }
+.lm-stamp-option:has(input:checked) { background: #e0ead9; border-color: #58774c; box-shadow: inset 0 0 0 2px #f9faf6; }
+.lm-stamp-option:has(input:focus-visible) { outline: 2px solid #406745; outline-offset: 3px; }
+.lm-stamp-option .lm-stamp { width: min(104px, 90%); min-height: 0; margin: 7px 0 16px; transform: rotate(-4deg); transition: transform .3s ease; }
+.lm-stamp-option:nth-child(even) .lm-stamp { transform: rotate(4deg); }
+.lm-stamp-option:hover .lm-stamp, .lm-stamp-option:has(input:checked) .lm-stamp { transform: rotate(0) scale(1.04); }
+.lm-stamp-option strong { font-family: var(--lm-reading); font-size: 17px; font-weight: 400; }
+.lm-stamp-option small { font-size: 11px; line-height: 1.7; color: #63755c; margin-top: 6px; max-width: 8em; }
+.lm-prepare-actions { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-top: 25px; }
+.lm-prepare-actions .lm-button { font-size: 13px; padding: 12px 19px; }
+.lm-review-paper { max-height: 46dvh; overflow-y: auto; overscroll-behavior: contain; padding: 24px 30px; background: #fffdf3; border: 1px solid #d9d9c3; box-shadow: 0 5px 16px #3444330d; }
+.lm-review-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 10px; }
+.lm-review-top > span { font-size: 13px; letter-spacing: 5px; color: #738168; }
+.lm-review-top .lm-stamp { width: 66px; min-height: 0; }
+.lm-review-content { font-family: var(--lm-reading); white-space: pre-wrap; overflow-wrap: anywhere; font-size: 17px; line-height: 2.1; }
+.lm-review-date { text-align: right; font-size: 11px; color: #76826a; margin: -18px 0 0; }
+.lm-kept-stamp { float: right; margin: 0 0 18px 15px; }
+.lm-postbox-stamp { position: absolute; z-index: 2; width: 17%; height: auto; aspect-ratio: 4 / 5; right: 5%; top: 8%; object-fit: cover; border: 1px dotted #fffbed; }
+.lm-delivery-dialog { position: fixed; width: min(560px, calc(100% - 32px)); max-height: 90dvh; overflow-y: auto; }
+.lm-delivery-dialog h2 { font-family: var(--lm-reading); font-size: 27px; font-weight: 400; }
+.lm-delivery-dialog .lm-delivery-courier { position: absolute; left: 35px; top: 155px; pointer-events: none; }
+.lm-delivery-courier img { display: block; width: 76px; height: auto; }
+.lm-packing-art { position: relative; width: min(100%, 370px); height: 320px; margin: 0 auto 12px; perspective: 1000px; }
+.lm-delivery-dialog:not([data-phase="packing"]) .lm-packing-art { display: none; }
+.lm-delivery-dialog[data-phase="packing"] .lm-delivery-art,
+.lm-delivery-dialog[data-phase="packing"] .lm-delivery-courier { display: none; }
+.lm-fold-paper { position: absolute; z-index: 2; width: 190px; height: 216px; top: 20px; left: calc(50% - 95px); transform-style: preserve-3d; }
+.lm-fold-paper > div { position: absolute; width: 100%; height: 72px; background: #fffdf0; border: 1px solid #dedbc7; transform-style: preserve-3d; }
+.lm-fold-paper span { display: block; padding: 10px 15px; height: 100%; overflow: hidden; font-size: 9px; line-height: 16px; white-space: pre-wrap; overflow-wrap: anywhere; text-align: left; color: #52654b; background: repeating-linear-gradient(transparent 0 15px, #dce0ce 15px 16px); backface-visibility: hidden; }
+.lm-fold-center { top: 72px; z-index: 1; }
+.lm-fold-top { top: 0; transform-origin: center bottom; z-index: 3; }
+.lm-fold-bottom { top: 144px; transform-origin: center top; z-index: 4; }
+.lm-pack-envelope { position: absolute; width: 232px; height: 139px; left: calc(50% - 116px); top: 169px; }
+.lm-pack-back { position: absolute; inset: 0; background: #d9cca5; border: 1px solid #b9ab83; box-shadow: 0 7px 16px #4755391a; }
+.lm-pack-front { position: absolute; z-index: 4; inset: 0; background: linear-gradient(145deg,#f4e9c8,#e2d4ad); clip-path: polygon(0 0,50% 59%,100% 0,100% 100%,0 100%); }
+.lm-pack-front::after { content: ""; position: absolute; inset: 0; background: linear-gradient(32deg,transparent 49.5%,#c5b78e 50%,transparent 50.5%),linear-gradient(-32deg,transparent 49.5%,#c5b78e 50%,transparent 50.5%); clip-path: polygon(0 100%,50% 45%,100% 100%); }
+.lm-pack-flap { position: absolute; z-index: 1; left: 0; top: -88px; width: 100%; height: 89px; background: #dfd1aa; clip-path: polygon(0 100%,50% 0,100% 100%); transform-origin: center bottom; }
+.lm-pack-envelope > img { position: absolute; z-index: 7; right: 13px; top: 50px; width: 29px; height: 36px; border: 2px dotted #fffbed; opacity: 0; }
+.lm-pack-envelope > i { position: absolute; z-index: 8; top: 63px; left: calc(50% - 10px); width: 20px; height: 20px; border-radius: 50%; background: #93493b; box-shadow: inset 0 0 0 3px #af6650,0 2px 3px #583b3120; opacity: 0; }
+.is-packing .lm-fold-top { animation: lm-fold-top 4.9s ease-in-out both; }
+.is-packing .lm-fold-bottom { animation: lm-fold-bottom 4.9s ease-in-out both; }
+.is-packing .lm-fold-paper { animation: lm-paper-pack 4.9s ease-in-out both; }
+.is-packing .lm-pack-flap { animation: lm-envelope-close 4.9s ease-in-out both; }
+.is-packing .lm-pack-envelope > img, .is-packing .lm-pack-envelope > i { animation: lm-envelope-seal 4.9s ease both; }
+@keyframes lm-fold-top { 0%,8% { transform: rotateX(0); } 26%,100% { transform: rotateX(-180deg); } }
+@keyframes lm-fold-bottom { 0%,27% { transform: rotateX(0); } 44%,100% { transform: rotateX(180deg); } }
+@keyframes lm-paper-pack { 0%,44% { transform: translateY(0) scale(1); opacity: 1; } 56% { transform: translateY(-9px) scale(.88); opacity: 1; } 72%,100% { transform: translateY(126px) scale(.88); opacity: 1; } }
+@keyframes lm-envelope-close { 0%,73% { transform: rotateX(0); z-index: 1; } 74% { z-index: 6; } 91%,100% { transform: rotateX(-180deg); z-index: 6; background: #eee0b9; } }
+@keyframes lm-envelope-seal { 0%,90% { opacity: 0; } 97%,100% { opacity: 1; } }
+@media (max-width: 580px) {
+  .lm-stamp { width: 58px; min-height: 0; }
+  .lm-stamp span { font-size: 7px; }
+  .lm-aside-courier { right: max(0px, calc(50% - 145px)); width: 80px; bottom: 35px; }
+  .lm-prepare-dialog { padding: 32px 20px 20px; }
+  .lm-prepare-dialog h2 { font-size: 24px; }
+  .lm-stamp-options { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+  .lm-stamp-option { padding: 8px 5px; }
+  .lm-stamp-option .lm-stamp { width: 70px; margin: 5px 0 10px; }
+  .lm-stamp-option strong { font-size: 15px; }
+  .lm-stamp-option small { font-size: 10px; max-width: none; }
+  .lm-prepare-actions { gap: 10px; margin-top: 18px; }
+  .lm-prepare-actions .lm-button { padding: 11px 10px; font-size: 11px; }
+  .lm-review-paper { padding: 18px; max-height: 49dvh; }
+  .lm-review-content { font-size: 15px; }
+  .lm-delivery-dialog { padding: 15px 18px 24px; }
+  .lm-delivery-dialog h2 { font-size: 23px; }
+  .lm-delivery-dialog .lm-delivery-courier { left: 5px; top: 145px; }
+  .lm-delivery-courier img { width: 65px; }
+  .lm-packing-art { height: 310px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lm-stamp-option .lm-stamp { transition: none; transform: none !important; }
+  .lm-packing-art * { animation: none !important; }
+}

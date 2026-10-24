@@ -1,0 +1,720 @@
+.lm-post-page {
+  background: #e9eeea;
+}
+.lm-post-main {
+  padding-top: 62px;
+  min-height: calc(100svh - 201px);
+}
+.lm-post-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 42px;
+}
+.lm-post-heading h1 {
+  font-family: var(--lm-brush);
+  font-size: 69px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.25;
+  margin: 0;
+}
+.lm-post-heading .lm-eyebrow {
+  margin-bottom: 18px;
+}
+.lm-post-heading > div { flex: 0 1 720px; min-width: 0; }
+.lm-post-heading .lm-post-title { width: 100%; max-width: 720px; }
+.lm-post-title img { display: block; width: 100%; height: auto; }
+.lm-post-heading > p { flex: 0 0 245px; }
+.lm-post-heading > p {
+  font-size: 13px;
+  color: var(--lm-muted);
+  line-height: 2.1;
+  margin-bottom: 6px;
+}
+.lm-post-heading > p > span {
+  font-size: 11px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.lm-post-tabs {
+  border-bottom: 1px solid var(--lm-line);
+  display: flex;
+  gap: 32px;
+  margin-bottom: 38px;
+}
+.lm-post-tabs button {
+  font-size: 13px;
+  padding: 15px 0;
+  position: relative;
+  color: var(--lm-muted);
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.lm-post-tabs button[aria-selected="true"] {
+  color: var(--lm-ink);
+}
+.lm-post-tabs button[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lm-red);
+}
+#saved-count {
+  font-size: 11px;
+  min-width: 19px;
+  text-align: center;
+  background: #dce3da;
+  border-radius: 50%;
+  line-height: 19px;
+}
+.lm-post-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 70px;
+  padding-bottom: 75px;
+}
+.lm-letter {
+  padding: 35px 42px 27px;
+  background: #faf9f2;
+  box-shadow: 0 8px 35px #4f605210;
+  border: 1px solid #dfdfcf;
+  position: relative;
+}
+.lm-letter::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #b6bda929;
+  pointer-events: none;
+}
+.lm-letter-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+.lm-letter-top > span {
+  font-family: var(--lm-serif);
+  font-size: 13px;
+  letter-spacing: 6px;
+  color: #87917d;
+  padding-top: 5px;
+}
+.lm-stamp {
+  width: 65px;
+  height: 78px;
+  background: #e5e8d6;
+  border: 3px dotted #faf9f2;
+  outline: 1px solid #bdc6ac;
+  transform: rotate(5deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #66785e;
+}
+.lm-stamp svg {
+  width: 37px;
+  height: 37px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+.lm-stamp span {
+  font-size: 8px;
+}
+.lm-salutation {
+  font-family: var(--lm-hand);
+  font-size: 21px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+.lm-event-context {
+  font-size: 11px;
+  color: var(--lm-muted);
+  border-left: 2px solid #a5b198;
+  padding-left: 10px;
+  line-height: 1.8;
+}
+.lm-letter textarea {
+  display: block;
+  width: 100%;
+  min-height: 260px;
+  resize: vertical;
+  border: 0;
+  border-radius: 0;
+  padding: 2px 0 0;
+  background: repeating-linear-gradient(
+    transparent 0px,
+    transparent 35px,
+    #d8ddcb 35px,
+    #d8ddcb 36px
+  );
+  font-family: var(--lm-serif);
+  font-size: 17px;
+  line-height: 36px;
+  letter-spacing: 0.7px;
+  overflow-wrap: anywhere;
+}
+.lm-letter textarea::placeholder {
+  color: #a4ad9b;
+}
+.lm-letter-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 10px;
+  color: #87927e;
+  margin-top: 18px;
+}
+.lm-signature {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--lm-muted);
+}
+.lm-signature input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #b9c3ad;
+  padding: 8px 0;
+  font-size: 12px;
+  width: 230px;
+  min-width: 0;
+  border-radius: 0;
+}
+.lm-signature input::placeholder {
+  font-size: 10px;
+  color: #97a08e;
+}
+.lm-send-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 23px;
+}
+.lm-send-row > p {
+  font-size: 10px;
+  line-height: 1.9;
+  color: var(--lm-muted);
+  margin: 0;
+}
+.lm-send-row > .lm-button {
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-inline: 22px;
+  gap: 30px;
+}
+.lm-post-aside {
+  padding-top: 7px;
+}
+.lm-mailbox-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 345px;
+}
+.lm-scene-ring {
+  position: absolute;
+  width: 235px;
+  height: 235px;
+  border: 1px solid #cad3c6;
+  border-radius: 50%;
+  top: 30px;
+  z-index: -1;
+}
+.lm-scene-ring::before,
+.lm-scene-ring::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #cad3c652;
+  border-radius: 50%;
+  inset: -18px;
+}
+.lm-scene-ring::after {
+  inset: 18px;
+}
+.lm-mailbox {
+  width: 222px;
+  height: 305px;
+  filter: drop-shadow(0 10px 15px #52644d0d);
+}
+.lm-mailbox-caption {
+  font-family: var(--lm-serif);
+  letter-spacing: 3px;
+  font-size: 13px;
+  color: #7a8870;
+}
+.lm-prompts {
+  border-top: 1px solid var(--lm-line);
+  margin-top: 25px;
+  padding-top: 24px;
+}
+.lm-prompts h2 {
+  font-family: var(--lm-hand);
+  font-size: 19px;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.lm-prompts > p {
+  font-size: 11px;
+  color: var(--lm-muted);
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+.lm-prompts > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lm-prompts button {
+  border: 1px solid #c1cbb9;
+  padding: 6px 10px;
+  font-size: 10px;
+}
+.lm-prompts button[aria-pressed="true"] {
+  border-color: var(--lm-red);
+  color: var(--lm-red);
+  background: #f2eee3;
+}
+.lm-prompts .lm-prompt-hint {
+  font-family: var(--lm-serif);
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 17px 0 0;
+  min-height: 52px;
+}
+.lm-saved-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin: 6px 0 30px;
+}
+.lm-saved-heading h2 {
+  font-family: var(--lm-hand);
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.lm-saved-heading p {
+  font-size: 12px;
+  color: var(--lm-muted);
+  margin: 0;
+}
+.lm-backup-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 22px; flex-shrink: 0; }
+.lm-backup-actions button { font-size: 13px; }
+.lm-storage-help { margin: -8px 0 28px; color: var(--lm-muted); font-size: 12px; line-height: 1.9; }
+.lm-storage-help summary { cursor: pointer; width: fit-content; }
+.lm-storage-help p { margin: 10px 0 0; max-width: 66em; }
+.lm-storage-help a { text-decoration: underline; text-underline-offset: 3px; }
+.lm-saved-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 65px;
+}
+.lm-letter-preview {
+  background: #f8f7ef;
+  border: 1px solid #d5dbcb;
+  padding: 25px 26px;
+  position: relative;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: transform 0.2s;
+}
+.lm-letter-preview:hover {
+  transform: translateY(-4px);
+  border-color: #9fac92;
+}
+.lm-letter-preview::after {
+  content: "✉";
+  position: absolute;
+  right: 22px;
+  top: 23px;
+  color: var(--lm-red);
+  font-size: 24px;
+}
+.lm-letter-preview time {
+  font-size: 10px;
+  color: var(--lm-muted);
+  margin-bottom: 27px;
+}
+.lm-letter-preview .lm-preview-body {
+  font-family: var(--lm-serif);
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 0 0 25px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lm-preview-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  font-size: 10px;
+  color: var(--lm-muted);
+  width: 100%;
+}
+.lm-preview-bottom > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lm-empty-envelope {
+  font-size: 52px;
+  color: var(--lm-red);
+  display: block;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+#empty-letters {
+  margin-bottom: 65px;
+}
+.lm-letter-content {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: var(--lm-serif);
+  font-size: 18px;
+  line-height: 2.1;
+  min-height: 130px;
+}
+.lm-letter-signer {
+  text-align: right;
+  margin: 30px 0;
+  font-family: var(--lm-serif);
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+.lm-letter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--lm-line);
+  padding-top: 20px;
+}
+.lm-confirm-dialog {
+  width: min(500px, calc(100% - 32px));
+}
+.lm-confirm-dialog .lm-dialog-body {
+  padding: 38px 35px;
+}
+.lm-confirm-dialog h2 {
+  font-size: 27px;
+}
+.lm-confirm-dialog p:not(.lm-eyebrow) {
+  font-size: 13px;
+  color: var(--lm-muted);
+}
+.lm-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+.lm-confirm-actions button {
+  padding: 10px 18px;
+  min-height: 44px;
+}
+.lm-delivery-dialog {
+  width: min(520px, calc(100% - 32px));
+  text-align: center;
+  padding: 18px 28px 32px;
+  overflow: hidden;
+}
+.lm-delivery-dialog h2 {
+  font-size: 28px;
+}
+.lm-delivery-dialog > p {
+  font-size: 12px;
+  color: var(--lm-muted);
+  margin: 15px 0 25px;
+}
+.lm-delivery-dialog #delivery-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+.lm-delivery-dialog #delivery-actions .lm-link {
+  font-size: 12px;
+}
+@media (min-width: 1600px) {
+  .lm-post-layout {
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 100px;
+  }
+  .lm-letter {
+    padding: 38px 55px 30px;
+  }
+  .lm-letter textarea {
+    min-height: 288px;
+  }
+  .lm-post-heading h1 {
+    font-size: 64px;
+  }
+}
+@media (max-width: 1100px) {
+  .lm-post-layout {
+    grid-template-columns: minmax(0, 1fr) 245px;
+    gap: 32px;
+  }
+  .lm-letter {
+    padding: 28px;
+  }
+  .lm-send-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .lm-send-row .lm-button {
+    align-self: flex-end;
+  }
+  .lm-mailbox {
+    width: 200px;
+  }
+  .lm-prompts button {
+    padding: 5px 8px;
+  }
+  .lm-saved-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 800px) {
+  .lm-post-heading { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .lm-post-heading > div { flex: none; width: 100%; }
+  .lm-post-heading > p { flex: none; }
+  .lm-post-main {
+    padding-top: 45px;
+  }
+  .lm-post-heading h1 {
+    font-size: 46px;
+  }
+  .lm-post-heading > p {
+    font-size: 11px;
+  }
+  .lm-post-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .lm-post-aside {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 25px;
+    align-items: center;
+  }
+  .lm-mailbox-scene {
+    height: 230px;
+  }
+  .lm-mailbox {
+    width: 155px;
+    height: 215px;
+  }
+  .lm-scene-ring {
+    width: 165px;
+    height: 165px;
+    top: 5px;
+  }
+  .lm-mailbox-caption {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .lm-prompts {
+    margin: 0;
+  }
+  .lm-send-row {
+    flex-direction: row;
+    align-items: center;
+  }
+  .lm-send-row .lm-button {
+    align-self: center;
+  }
+  .lm-letter textarea {
+    min-height: 288px;
+  }
+  .lm-letter {
+    padding: 35px 40px;
+  }
+  .lm-saved-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .lm-saved-heading h2 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 580px) {
+  .lm-post-main {
+    padding-top: 36px;
+  }
+  .lm-post-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 23px;
+    margin-bottom: 24px;
+  }
+  .lm-post-heading h1 {
+    font-size: 43px;
+    letter-spacing: 3px;
+  }
+  .lm-post-heading > p {
+    font-size: 11px;
+  }
+  .lm-post-heading > p br:first-child {
+    display: none;
+  }
+  .lm-post-heading > p > span {
+    margin-top: 5px;
+  }
+  .lm-post-tabs {
+    margin-bottom: 24px;
+  }
+  .lm-post-tabs button {
+    font-size: 12px;
+  }
+  .lm-letter {
+    padding: 25px 22px;
+  }
+  .lm-letter-top > span {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+  .lm-stamp {
+    width: 52px;
+    height: 64px;
+  }
+  .lm-stamp svg {
+    width: 30px;
+    height: 30px;
+  }
+  .lm-stamp span {
+    font-size: 6px;
+  }
+  .lm-salutation {
+    font-size: 18px;
+  }
+  .lm-letter textarea {
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    min-height: 288px;
+  }
+  .lm-letter-meta {
+    font-size: 9px;
+    gap: 7px;
+  }
+  .lm-signature {
+    margin-top: 20px;
+    gap: 10px;
+  }
+  .lm-signature input {
+    width: 210px;
+  }
+  .lm-send-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+  .lm-send-row > p {
+    font-size: 9px;
+  }
+  .lm-send-row .lm-button {
+    align-self: flex-end;
+    width: 100%;
+  }
+  .lm-post-aside {
+    grid-template-columns: 116px 1fr;
+    gap: 18px;
+  }
+  .lm-mailbox-scene {
+    height: 192px;
+  }
+  .lm-mailbox {
+    width: 123px;
+    height: 174px;
+  }
+  .lm-scene-ring {
+    width: 110px;
+    height: 110px;
+    top: 27px;
+  }
+  .lm-mailbox-caption {
+    font-size: 8px;
+  }
+  .lm-prompts h2 {
+    font-size: 17px;
+  }
+  .lm-prompts > p {
+    font-size: 10px;
+  }
+  .lm-prompts {
+    padding-top: 17px;
+  }
+  .lm-prompts button {
+    font-size: 9px;
+    padding: 5px 7px;
+  }
+  .lm-prompts > div {
+    gap: 6px;
+  }
+  .lm-prompts .lm-prompt-hint {
+    font-size: 11px;
+    min-height: 42px;
+  }
+  .lm-post-layout {
+    padding-bottom: 50px;
+  }
+  .lm-saved-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .lm-letter-preview {
+    min-height: 220px;
+  }
+  .lm-saved-heading h2 {
+    font-size: 23px;
+  }
+  .lm-letter-content {
+    font-size: 16px;
+  }
+  .lm-letter-actions .lm-danger-link {
+    font-size: 12px;
+  }
+  .lm-confirm-dialog .lm-dialog-body {
+    padding: 32px 24px;
+  }
+  .lm-confirm-dialog h2 {
+    font-size: 25px;
+  }
+  .lm-confirm-actions {
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .lm-confirm-actions button {
+    font-size: 12px;
+    padding-inline: 13px;
+  }
+  .lm-delivery-dialog h2 {
+    font-size: 25px;
+  }
+}
