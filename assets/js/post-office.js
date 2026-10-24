@@ -47,7 +47,6 @@
     label.hidden = stamp.group !== "history";
     radio.addEventListener("change", () => {
       stampId = stamp.id;
-      $("#writing-stamp").src = image.src;
       $("#choose-paper").disabled = false;
       $("#stamp-selection").textContent = "已选：" + stamp.name;
       saveDraft();
@@ -102,7 +101,6 @@
   if (stampById(draft.stampId)) {
     stampId = draft.stampId;
     $("#stamp-options input[value='" + stampId + "']").checked = true;
-    $("#writing-stamp").src = stampImage(stampId);
     $("#choose-paper").disabled = false;
     $("#stamp-selection").textContent = "已选：" + stampById(stampId).name;
     filterStamps(stampById(stampId).group);

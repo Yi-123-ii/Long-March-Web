@@ -107,6 +107,14 @@
   color: #87917d;
   padding-top: 5px;
 }
+.lm-letter-vignette {
+  display: block;
+  width: 100px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  pointer-events: none;
+}
 .lm-stamp {
   width: 65px;
   height: 78px;
@@ -600,6 +608,7 @@
     font-size: 12px;
     letter-spacing: 4px;
   }
+  .lm-letter-vignette { width: 80px; height: 64px; }
   .lm-stamp {
     width: 52px;
     height: 64px;
