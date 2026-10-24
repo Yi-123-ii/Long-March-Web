@@ -88,14 +88,14 @@
       const art = el("figure", "lm-stage-art");
       const illustration = el("img", "");
       illustration.src = "assets/images/illustrations/" + event.id + "-v1.webp";
-      illustration.alt = event.title + "主题插画，非史料照片";
+      illustration.alt = "";
       illustration.width = 720;
       illustration.height = 480;
       illustration.loading = "lazy";
       illustration.decoding = "async";
       illustration.setAttribute("aria-hidden", "true");
       illustration.alt = "";
-      art.append(illustration, el("figcaption", "", "主题插画"));
+      art.append(illustration);
       article.append(content, art);
       list.append(article);
     });

@@ -23,7 +23,7 @@
 
 品牌副标题另使用 `assets/images/titles/brand-tagline-v2.webp` 的重绘书法字形，`base.css` 通过透明遮罩显示；复制导航时保留 `.lm-brand-tagline-art` 及其辅助文字。首页邮局入口使用 `.lm-postal-link` 与内嵌信封 SVG，样式位于 `chronicle.css`；无需外部组件或图标库。该区域可直接链接 `index.html#post-office-invite`。
 
-品牌主标题与左侧插画同步保留 `assets/images/titles/brand-name-v2.webp`、`assets/images/brand-landscape-v2.webp` 及其 `.lm-brand-name-art` / `.lm-brand-landscape` 样式。主标题图片的替代文字为“山河印记”，左侧插画是装饰图像。
+当前紧凑绿色品牌的品牌主标题使用 `assets/images/titles/brand-name-v3.webp`，左侧插画为 `assets/images/brand-landscape-v2.webp`，同时保留 `.lm-brand-name-art` / `.lm-brand-landscape` 样式。主标题图片的替代文字为“山河印记”，左侧插画是装饰图像。副标题为实色绿色，整体尺寸已缩小；这一版先供本地查看。
 
 ## 给 C 的链接
 
@@ -52,9 +52,15 @@
 | ------------------------- | ------------------------------------------------------ |
 | `longmarch-b:read:v1`     | 已阅事件 ID 数组                                       |
 | `longmarch-b:draft:v1`    | 草稿正文、署名、可选事件 ID                            |
-| `longmarch-b:messages:v1` | 本机留言数组：`id, body, nickname, createdAt, eventId` |
+| `longmarch-b:messages:v1` | 留言数组：`id, body, nickname, createdAt, eventId`，新留言可带 `stampId` |
+| `longmarch-b:messages-backup:v1` | 最近一次成功写入的备用留言数组 |
+| `longmarch-b:messages-recovery:v1` | 写入前首次保留的异常原文，避免覆盖后失去恢复依据 |
 
 禁止对总站使用 `localStorage.clear()`，应只操作自己模块的键。部署地址改变后，浏览器不会自动搬迁旧地址的数据。
+
+邮票 ID 为 `yudu / luding / snow / city`，分别对应于都启程、铁索长桥、雪山草地及今日山河。旧留言无需补填邮票。`letter-backup.js` 必须在 `storage.js` 之后、`post-office.js` 之前加载；JSON 备份保留邮票 ID、正文、署名、时间和事件关联。支持旧版文本导入，先整体校验，再去重合并；失败不覆盖原记录。
+
+邮局流程为：填写 → 选择插画邮票 → 完整信纸预览 → 确认后保存 → 折叠 → 装封 → 原绿色信箱投递。选择与预览可返回，尚不新增留言；确认保存失败时不清空输入。减少动态效果或跳过时只结束演出，不重复保存。邮差为固定场景插画，不是选择项。
 
 ## 发布前合并检查
 

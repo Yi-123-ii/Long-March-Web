@@ -38,7 +38,7 @@ const hand =
 const reading = [...new Set((
   await Promise.all([
     "index.html", "post-office.html", "data/events.js",
-    "assets/js/chronicle.js", "assets/js/post-office.js", "assets/js/site.js",
+    "assets/js/chronicle.js", "assets/js/post-office.js", "assets/js/site.js", "assets/js/letter-backup.js",
   ].map(file => readFile(path.join(root, file), "utf8")))
 ).join("").match(/[\p{Script=Han}\p{Punctuation}\p{Number}\p{Letter}]/gu))];
 const sets = [
@@ -134,4 +134,4 @@ await writeFile(
 );
 await writeFile(path.join(root, "assets/css/fonts.css"),
   "/* 字体本地托管，授权原文与来源见 assets/fonts/。文楷按字形分组按需加载。 */\n" +
-  manifest.map(font => `@font-face {\n  font-family: "${font.name}";\n  font-style: normal;\n  font-weight: ${font.weight};\n  font-display: swap;\n  src: url("../fonts/${font.file}?v=20261023-postal-lettering") format("woff2");\n${font.unicodeRange ? "  unicode-range: " + font.unicodeRange + ";\n" : ""}}\n`).join(""));
+  manifest.map(font => `@font-face {\n  font-family: "${font.name}";\n  font-style: normal;\n  font-weight: ${font.weight};\n  font-display: swap;\n  src: url("../fonts/${font.file}?v=20261024-postal") format("woff2");\n${font.unicodeRange ? "  unicode-range: " + font.unicodeRange + ";\n" : ""}}\n`).join(""));

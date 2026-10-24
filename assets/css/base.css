@@ -141,7 +141,7 @@ h2 {
 .lm-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex-shrink: 0;
 }
 .lm-brand > span {
@@ -151,23 +151,20 @@ h2 {
   line-height: 1.2;
   font-weight: 400;
 }
-.lm-brand > .lm-brand-landscape { display: block; width: 72px; height: 72px; object-fit: contain; }
-.lm-brand .lm-brand-name-art { display: block; width: 172px; height: auto; }
+.lm-brand > .lm-brand-landscape { display: block; width: 42px; height: 42px; object-fit: contain; }
+.lm-brand .lm-brand-name-art { display: block; width: 118px; height: auto; }
 .lm-brand small {
   display: block;
-  margin-top: 5px;
+  margin-top: 4px;
   line-height: 0;
 }
 .lm-brand-tagline-art {
   display: block;
-  width: 156px;
+  width: 108px;
   aspect-ratio: 1100 / 214;
-  background: #294336;
+  background: #385d43;
   -webkit-mask: url("../images/titles/brand-tagline-v2.webp") center / contain no-repeat;
   mask: url("../images/titles/brand-tagline-v2.webp") center / contain no-repeat;
-}
-.lm-post-page .lm-brand-tagline-art {
-  background: linear-gradient(110deg, #97501f, #9c3526 38%, #986b24 67%, #963e2d);
 }
 .lm-header nav {
   height: 100%;
@@ -452,8 +449,8 @@ body:has(dialog[open]) {
     width: 29px;
     height: 34px;
   }
-  .lm-brand > .lm-brand-landscape { width: 46px; height: 46px; }
-  .lm-brand .lm-brand-name-art { width: 112px; }
+  .lm-brand > .lm-brand-landscape { width: 30px; height: 30px; }
+  .lm-brand .lm-brand-name-art { width: 94px; }
   .lm-brand > span {
     font-size: 19px;
     letter-spacing: 2px;
@@ -461,7 +458,7 @@ body:has(dialog[open]) {
   .lm-brand small {
     margin-top: 3px;
   }
-  .lm-brand-tagline-art { width: 108px; }
+  .lm-brand-tagline-art { width: 84px; }
   .lm-header nav {
     gap: 19px;
   }
@@ -514,9 +511,9 @@ body:has(dialog[open]) {
 @media (max-width: 360px) {
   .lm-header { padding-inline: 16px; gap: 8px; }
   .lm-header nav { gap: 13px; }
-  .lm-brand-tagline-art { width: 104px; }
-  .lm-brand > .lm-brand-landscape { width: 40px; height: 40px; }
-  .lm-brand .lm-brand-name-art { width: 104px; }
+  .lm-brand-tagline-art { width: 80px; }
+  .lm-brand > .lm-brand-landscape { width: 28px; height: 28px; }
+  .lm-brand .lm-brand-name-art { width: 90px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html {

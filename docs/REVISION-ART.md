@@ -11,6 +11,7 @@
 | 三军会师阶段题字 | `assets/images/titles/stages/huishi-v1.webp` |
 | 品牌副标题的重绘书法字形 | `assets/images/titles/brand-tagline-v2.webp` |
 | 品牌主标题“山河印记” | `assets/images/titles/brand-name-v2.webp` |
+| 紧凑绿色品牌版的松绿色主标题 | `assets/images/titles/brand-name-v3.webp` |
 | 品牌左侧山水红旗小插画 | `assets/images/brand-landscape-v2.webp` |
 
 邮筒箱体图和投信口保持静止，只让信封逐步进入箱内并显示投递反馈，不再额外叠加翻板或铰链细杠。会师插画只用于解释性背景，不表示特定会师现场；正文采用原创史实时序图。
@@ -50,6 +51,12 @@ Use case: logo-brand. An original Chinese calligraphy brand wordmark for a Long 
 ### brand-landscape-v2
 
 Use case: icon. Original simple hand-painted miniature landscape illustration for the brand of a dignified Chinese Long March history website. Three overlapping mountain ridges in dark pine green, muted jade and blue-grey, an ivory winding river/path threading between them toward the foreground, ONE very small muted-red flag on a slender pole on a ridge. A few tiny pine trees and restrained warm ochre accents. Painterly gouache/watercolor massed shapes and soft bristle edges, tasteful paper-cut-like layered volumes, NOT a stick-figure outline mountain logo, NOT geometric line art, NOT a round badge. Keep only a few bold well-separated shapes, immediately recognizable even at 60px wide. No people, faces, buildings, sun, text, letters, seals, logos, or scenery background. Square compact arrangement, all illustration visible with tiny clear margins. Genuine transparent background. No border, frame, disk, white/paper backdrop, drop shadow or glow.
+
+## brand-name-v3：紧凑绿色品牌
+
+工具：OpenAI ImageGen 内置工具。另绘克制的松绿色手写字形，撤去红金色、长拖尾和强烈海报笔势；主标题宽118px、左侧插画42px、副标题108px，副标题统一实色绿色。手机采用94px / 30px / 84px。当前使用此紧凑绿色品牌。
+
+Use case: logo-brand. Create a NEW restrained original Chinese brand wordmark for a cultural history website header. Exact text ONE horizontal line:「山河印记」. Four complete, immediately readable simplified Chinese characters. Fresh hand-lettered character forms with a calm compact woodcut/brush character: broad but controlled strokes, slight human irregularity, balanced square-round corners, very subtle dry-brush gaps. More composed and upright than sweeping poster calligraphy, with no exaggerated swashes or extended tails, no slanting high-energy cursive strokes. It must feel designed and artisanal yet remain very clear at only 118px total display width. ONE flat dark pine-green ink #294b3b; no red, no gold, no gradients, no metallic texture. No other text, objects, decorations, seals, pinyin, pictures, borders, shadow, glow, paper, or background. Genuine transparent background. Tight balanced horizontal arrangement about 4:1, all strokes completely visible. This is a small, quiet navigation identity rather than a large commemorative poster title.
 
 ## huishi-title
 

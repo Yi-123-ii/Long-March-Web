@@ -8,17 +8,12 @@
     body = $("#letter-body"),
     nickname = $("#nickname");
   const delivery = $("#delivery-dialog"),
+    prepare = $("#prepare-dialog"),
     letterDialog = $("#letter-dialog"),
     deleteDialog = $("#delete-dialog");
   const tabs = [$("#write-tab"), $("#saved-tab")];
   const panels = [$("#write-panel"), $("#saved-panel")];
-  const getMessages = () =>
-    LM_STORE.read(
-      "messages",
-      [],
-      (v) =>
-        Array.isArray(v) && v.length <= 200 && v.every(LM_STORE.messageValid),
-    );
+  const getMessages = () => LM_STORE.readMessages();
   const knownEvent = (id) => window.LM_EVENTS.find((e) => e.id === id);
   let messages = getMessages(),
     eventId = null,
@@ -26,6 +21,34 @@
     draftTimer,
     deliveryTimer,
     sending = false;
+  const stamps = [
+    { id: "yudu", name: "于都启程", caption: "从渡口出发，走向远方" },
+    { id: "luding", name: "铁索长桥", caption: "江流奔涌，脚步不息" },
+    { id: "snow", name: "雪山草地", caption: "翻过雪山，彼此同行" },
+    { id: "city", name: "今日山河", caption: "万家灯火，岁月安宁" },
+  ];
+  const stampById = id => stamps.find(stamp => stamp.id === id);
+  const stampImage = id => "assets/images/stamps/" + id + "-v1.webp";
+  let stampId = null, pendingLetter = null;
+  const packingTimers = [];
+  stamps.forEach(stamp => {
+    const label = text("label", "lm-stamp-option", "");
+    const radio = document.createElement("input");
+    radio.type = "radio"; radio.name = "illustrated-stamp"; radio.value = stamp.id;
+    const art = text("span", "lm-stamp", "");
+    art.setAttribute("aria-hidden", "true");
+    const image = document.createElement("img");
+    image.src = stampImage(stamp.id); image.alt = ""; image.width = 240; image.height = 300;
+    art.append(image, text("span", "", stamp.name));
+    label.append(radio, art, text("strong", "", stamp.name), text("small", "", stamp.caption));
+    radio.addEventListener("change", () => {
+      stampId = stamp.id;
+      $("#writing-stamp").src = image.src;
+      $("#preview-letter").disabled = false;
+      saveDraft();
+    });
+    $("#stamp-options").append(label);
+  });
   const dateFormat = new Intl.DateTimeFormat("zh-CN", {
     year: "numeric",
     month: "long",
@@ -33,12 +56,12 @@
     hour: "2-digit",
     minute: "2-digit",
   });
-  const text = (tag, cls, value) => {
+  function text(tag, cls, value) {
     const node = document.createElement(tag);
     node.className = cls;
     node.textContent = value;
     return node;
-  };
+  }
   const draft = LM_STORE.read(
     "draft",
     { body: "", nickname: "", eventId: null },
@@ -46,6 +69,12 @@
   );
   body.value = draft.body;
   nickname.value = draft.nickname;
+  if (stampById(draft.stampId)) {
+    stampId = draft.stampId;
+    $("#stamp-options input[value='" + stampId + "']").checked = true;
+    $("#writing-stamp").src = stampImage(stampId);
+    $("#preview-letter").disabled = false;
+  }
   const queryEvent = new URLSearchParams(location.search).get("event");
   eventId = knownEvent(queryEvent)?.id || knownEvent(draft.eventId)?.id || null;
   function renderContext() {
@@ -58,19 +87,22 @@
   renderContext();
   $("#character-count").textContent = body.value.length;
   if (draft.body || draft.nickname)
-    $("#draft-status").textContent = "已恢复本机草稿";
-  if (LM_STORE.damaged)
+    $("#draft-status").textContent = "已恢复上次草稿";
+  if (LM_STORE.recovered)
+    $("#form-error").textContent = "已从备用记录恢复留言，建议在「我的留言」中备份。";
+  else if (LM_STORE.damaged)
     $("#form-error").textContent =
-      "部分本机数据暂时无法读取。你仍可写留言；若原有留言未显示，请先不要清除浏览器数据。";
+      "有部分记录暂时无法读取，能恢复的留言已保留。请先备份，不要清除网站数据。";
   function saveDraft() {
     clearTimeout(draftTimer);
     const success = LM_STORE.write("draft", {
       body: body.value,
       nickname: nickname.value,
       eventId,
+      stampId,
     });
     $("#draft-status").textContent = success
-      ? "草稿已保存于本机"
+      ? "草稿已保存"
       : "草稿未能保存，请先复制留存";
     return success;
   }
@@ -157,13 +189,16 @@
   }
   function finishDelivery() {
     clearTimeout(deliveryTimer);
+    packingTimers.splice(0).forEach(clearTimeout);
+    delivery.classList.remove("is-packing");
+    delivery.dataset.phase = "delivered";
     delivery.classList.remove("is-delivering");
     delivery.classList.add("is-delivered");
     mailbox.classList.remove("is-delivering");
     mailbox.classList.add("is-delivered");
     $("#delivery-title").textContent = "这份心意，已在此留下。";
     $("#delivery-description").textContent =
-      "留言已保存于当前浏览器，可以随时回来看。";
+      "留言已保存，可在「我的留言」中查看。";
     $("#skip-delivery").hidden = true;
     $("#delivery-actions").hidden = false;
     delivery.dataset.locked = "false";
@@ -171,42 +206,99 @@
     $("#send-letter").disabled = false;
     $("#view-sent").focus();
   }
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (sending) return;
+  function validateLetter() {
     const content = body.value.trim(),
       signer = nickname.value.trim();
     if (!content) {
       $("#form-error").textContent = "先写下想对他们说的话，再封好投递。";
       body.focus();
-      return;
+      return null;
     }
     if (content.length > 2000 || signer.length > 20) {
       $("#form-error").textContent =
         "留言请控制在2000字以内，署名请控制在20字以内。";
-      return;
+      return null;
     }
+    return { body: content, nickname: signer, eventId };
+  }
+  function chooseStamp() {
+    $("#stamp-choice").hidden = false;
+    $("#letter-review").hidden = true;
+    $("#prepare-step").textContent = "为这封信，选一枚邮票";
+    $("#prepare-title").textContent = "带着心意，出发吧。";
+  }
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    if (sending) return;
+    pendingLetter = validateLetter();
+    if (!pendingLetter) return;
+    chooseStamp();
+    $("#prepare-error").textContent = "";
+    prepare.showModal();
+  });
+  $("#change-stamp").addEventListener("click", () => {
+    chooseStamp();
+    $("#stamp-options input:checked")?.focus();
+  });
+  $("#preview-letter").addEventListener("click", () => {
+    const stamp = stampById(stampId);
+    if (!pendingLetter || !stamp) return;
+    $("#stamp-choice").hidden = true;
+    $("#letter-review").hidden = false;
+    $("#prepare-step").textContent = "贴好邮票，再读一遍";
+    $("#prepare-title").textContent = "这就是你写下的信。";
+    $("#review-stamp").src = stampImage(stamp.id);
+    $("#review-stamp-name").textContent = stamp.name;
+    $("#review-content").textContent = pendingLetter.body;
+    $("#review-signer").textContent = "署名：" + (pendingLetter.nickname || "一位无名来信人");
+    $("#review-date").textContent = dateFormat.format(Date.now());
+    const event = knownEvent(pendingLetter.eventId);
+    $("#review-context").hidden = !event;
+    if (event) $("#review-context").textContent = "读过「" + event.title + "」之后";
+    $(".lm-review-paper").scrollTop = 0;
+    $(".lm-review-paper").focus();
+  });
+  prepare.addEventListener("close", () => { if (!sending) $("#send-letter").focus(); });
+  function beginPosting() {
+    delivery.classList.remove("is-packing");
+    delivery.dataset.phase = "posting";
+    delivery.classList.add("is-delivering");
+    mailbox.classList.add("is-delivering");
+    $("#delivery-title").textContent = "把这份心意，轻轻放进信箱";
+    deliveryTimer = setTimeout(finishDelivery, 3100);
+  }
+  $("#confirm-dispatch").addEventListener("click", () => {
+    if (sending || !pendingLetter || !stampById(stampId)) return;
     const latest = getMessages();
     if (latest.length >= 200) {
-      $("#form-error").textContent =
-        "本机已保存200段留言。请先导出留存，再删除部分留言。";
+      $("#prepare-error").textContent =
+        "已保存200封留言，请先备份并整理已有留言。";
       return;
     }
     const message = {
       id:
         globalThis.crypto?.randomUUID?.() ||
         Date.now().toString(36) + "-" + Math.random().toString(36).slice(2),
-      body: content,
-      nickname: signer,
+      body: pendingLetter.body,
+      nickname: pendingLetter.nickname,
       createdAt: Date.now(),
-      eventId,
+      eventId: pendingLetter.eventId,
+      stampId,
     };
     if (!LM_STORE.write("messages", [message, ...latest])) {
-      $("#form-error").textContent =
-        "本机存储不可用或空间不足，留言尚未保存。请先复制文字留存，或换用正常浏览窗口。";
+      $("#prepare-error").textContent =
+        "当前浏览器暂时无法保存，留言仍保留在输入框中。请先复制文字，再检查浏览器存储设置。";
       return;
     }
     sending = true;
+    const parts = Array.from("致长征路上的你们：\n" + message.body + "\n署名：" + (message.nickname || "一位无名来信人"));
+    const size = Math.ceil(parts.length / 3);
+    ["top", "center", "bottom"].forEach((part, i) => {
+      $(".lm-fold-" + part + " span").textContent = parts.slice(i * size, (i + 1) * size).join("");
+    });
+    $("#packed-stamp").src = stampImage(stampId);
+    document.querySelectorAll(".lm-postbox-stamp").forEach(image => image.src = stampImage(stampId));
+    prepare.close();
     $("#send-letter").disabled = true;
     clearTimeout(draftTimer);
     draftTimer = null;
@@ -225,20 +317,24 @@
       : "留言已保存，但旧草稿未清空";
     $("#form-error").textContent = "";
     renderMessages();
-    delivery.classList.remove("is-delivered");
-    delivery.classList.add("is-delivering");
-    mailbox.classList.remove("is-delivered");
-    mailbox.classList.add("is-delivering");
+    delivery.classList.remove("is-delivered", "is-delivering", "is-packing");
+    delivery.dataset.phase = "packing";
+    mailbox.classList.remove("is-delivered", "is-delivering");
     delivery.dataset.locked = "true";
-    $("#delivery-title").textContent = "把这份心意，轻轻放进信箱";
+    $("#delivery-title").textContent = "把写下的话，仔细折好";
     $("#delivery-description").textContent =
-      "留言已保存在本机，正在完成投递动画。";
+      "留言已保存，正在完成投递。";
     $("#skip-delivery").hidden = false;
     $("#delivery-actions").hidden = true;
     delivery.showModal();
     if (matchMedia("(prefers-reduced-motion: reduce)").matches)
       finishDelivery();
-    else deliveryTimer = setTimeout(finishDelivery, 3100);
+    else {
+      delivery.classList.add("is-packing");
+      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "装进信封，留下今天的邮票", 2100));
+      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "封好心意，交给邮差", 3700));
+      packingTimers.push(setTimeout(beginPosting, 4900));
+    }
   });
   $("#skip-delivery").addEventListener("click", finishDelivery);
   delivery.addEventListener("cancel", (event) => {
@@ -265,6 +361,9 @@
     $("#letter-content").textContent = message.body;
     $("#letter-signer").textContent = message.nickname || "一位无名来信人";
     const event = knownEvent(message.eventId);
+    const stamp = stampById(message.stampId);
+    $("#letter-stamp").hidden = !stamp;
+    if (stamp) { $("#letter-stamp img").src = stampImage(stamp.id); $("#letter-stamp img").alt = stamp.name + "插画邮票"; $("#letter-stamp span").textContent = stamp.name; }
     $("#letter-context").hidden = !event;
     if (event)
       $("#letter-context").textContent =
@@ -285,7 +384,7 @@
     letterDialog.close();
     selectedId = null;
     renderMessages();
-    $("#saved-warning").textContent = "这段留言已从本机删除。";
+    $("#saved-warning").textContent = "这封留言已删除。";
     tabs[1].focus();
   });
   function asText(message) {
@@ -300,13 +399,11 @@
       message.body,
       "",
       "署名：" + (message.nickname || "一位无名来信人"),
-      "",
-      "（本机留言留存）",
     ].join("\n");
   }
-  function download(content, filename) {
+  function download(content, filename, mime = "text/plain") {
     const url = URL.createObjectURL(
-      new Blob(["\uFEFF" + content], { type: "text/plain;charset=utf-8" }),
+      new Blob(["\uFEFF" + content], { type: mime + ";charset=utf-8" }),
     );
     const a = document.createElement("a");
     a.href = url;
@@ -324,15 +421,43 @@
     const all = getMessages().sort((a, b) => b.createdAt - a.createdAt);
     if (all.length)
       download(
-        all.map(asText).join("\n\n────────────────\n\n"),
-        "山河邮局-全部留言.txt",
+        LM_LETTERS.serialize(all),
+        "山河邮局-留言备份.json",
+        "application/json",
       );
   });
-  window.addEventListener("storage", (event) => {
-    if (event.key === "longmarch-b:messages:v1") {
+  $("#import-letters").addEventListener("click", () => $("#import-file").click());
+  $("#import-file").addEventListener("change", async (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    $("#import-letters").disabled = true;
+    try {
+      if (file.size > 3000000) throw Error("备份文件过大，未导入任何留言。");
+      const parsed = LM_LETTERS.parse(await file.text(), window.LM_EVENTS);
+      const merged = LM_LETTERS.merge(getMessages(), parsed);
+      if (merged.added && !LM_STORE.write("messages", merged.messages))
+        throw Error("浏览器暂时无法保存，现有留言没有改变。请保留备份文件后重试。");
       renderMessages();
-      $("#saved-warning").textContent = "本机留言已与另一个标签页同步。";
+      $("#saved-warning").textContent = merged.added
+        ? "已导入" + merged.added + "封留言。" + (merged.skipped ? "已跳过" + merged.skipped + "封重复留言。" : "")
+        : "这些留言已经在这里，无需重复导入。";
+    } catch (error) {
+      $("#saved-warning").textContent = error.message || "导入失败，现有留言没有改变。";
+    } finally {
+      $("#import-letters").disabled = false;
+      event.target.value = "";
     }
+  });
+  window.addEventListener("storage", (event) => {
+    if (event.key === LM_STORE.messageKey || event.key === null) {
+      renderMessages();
+      $("#saved-warning").textContent = "留言列表已更新。";
+    }
+  });
+  window.addEventListener("pageshow", renderMessages);
+  window.addEventListener("focus", renderMessages);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") renderMessages();
   });
   renderMessages();
 })();

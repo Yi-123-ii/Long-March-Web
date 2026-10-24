@@ -1,6 +1,7 @@
 window.LM_STORE = (() => {
   const prefix = "longmarch-b:";
   let damaged = false;
+  let recovered = false;
   function read(key, fallback, validate) {
     try {
       const raw = localStorage.getItem(prefix + key + ":v1");
@@ -15,7 +16,20 @@ window.LM_STORE = (() => {
   }
   function write(key, value) {
     try {
+      if (key === "messages") {
+        if (!Array.isArray(value) || !value.every(messageValid)) return false;
+        const original = localStorage.getItem(prefix + "messages:v1");
+        if (original) {
+          let valid = false;
+          try { const parsed = JSON.parse(original); valid = Array.isArray(parsed) && parsed.every(messageValid); } catch {}
+          if (!valid && localStorage.getItem(prefix + "messages-recovery:v1") === null)
+            localStorage.setItem(prefix + "messages-recovery:v1", original);
+        }
+      }
       localStorage.setItem(prefix + key + ":v1", JSON.stringify(value));
+      if (key === "messages") {
+        try { localStorage.setItem(prefix + "messages-backup:v1", JSON.stringify(value)); } catch {}
+      }
       return true;
     } catch {
       return false;
@@ -39,12 +53,45 @@ window.LM_STORE = (() => {
     Number.isSafeInteger(v.createdAt) &&
     v.createdAt >= 0 &&
     v.createdAt <= 8640000000000000 &&
-    (v.eventId === null || typeof v.eventId === "string");
+    (v.eventId === null || typeof v.eventId === "string") &&
+    (v.stampId === undefined || ["yudu", "luding", "snow", "city"].includes(v.stampId));
+  function readMessages() {
+    try {
+      const raw = localStorage.getItem(prefix + "messages:v1");
+      if (raw !== null) {
+        const value = JSON.parse(raw);
+        if (!Array.isArray(value)) throw new Error("invalid");
+        const valid = value.filter(messageValid);
+        if (valid.length === value.length) {
+          try {
+            if (localStorage.getItem(prefix + "messages-backup:v1") === null)
+              localStorage.setItem(prefix + "messages-backup:v1", raw);
+          } catch {}
+          return valid;
+        }
+        damaged = true;
+        if (valid.length) return valid;
+      }
+    } catch { damaged = true; }
+    try {
+      const raw = localStorage.getItem(prefix + "messages-backup:v1");
+      if (raw !== null) {
+        const backup = JSON.parse(raw);
+        if (!Array.isArray(backup) || !backup.every(messageValid)) throw new Error("invalid");
+        recovered = true;
+        return backup;
+      }
+    } catch { damaged = true; }
+    return [];
+  }
   return {
     read,
     write,
     draftValid,
     messageValid,
+    readMessages,
+    messageKey: prefix + "messages:v1",
+    get recovered() { return recovered; },
     get damaged() {
       return damaged;
     },

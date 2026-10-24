@@ -61,3 +61,8 @@
 ### 插画生成提示词
 
 > Create one original wide landscape illustration for a Chinese Long March historical education website, landscape 16:9. A restrained contemporary editorial watercolor / mineral pigment painting on pale cool gray rice paper: layered blue-gray and muted pine-green Chinese mountains, a quiet river winding through the foreground, distant snowy mountain crests fading into mist. A very small line of anonymous 1930s marchers crossing a ridge with a tiny muted dark-red flag, figures secondary to the landscape. Harmonious subtle paper grain, elegant atmospheric depth, ample pale mist in upper left for webpage typography overlay, most mountain detail concentrated across right half and lower third, no hard image border. Sophisticated museum visual identity, evocative and solemn without propaganda-poster styling. Cool slate, sage, off-white, one small oxblood accent. No text, no lettering, no dates, no logo, no photo realism, no modern objects, no ornate frames. This is interpretive artwork, not a historical documentary photograph.
+
+
+## 邮局插画邮票与陪衬人物
+
+2026-10-24 使用 OpenAI ImageGen 内置工具新绘四枚纪念性插画邮票及三位现代虚构邮差。长征邮票为主题绘画，不作为历史照片；今日山河表达当代城市与生活。页面无现实邮资或发行信息。完整提示词及文件路径见 [POSTAL-ART.md](POSTAL-ART.md)。
