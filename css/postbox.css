@@ -1,0 +1,32 @@
+/* 箱体与原有投信口保持静止，只移动信封，避免额外翻板横在信封前。 */
+.lm-postbox-model { width: min(100%, 235px); aspect-ratio: 3 / 4; position: relative; flex-shrink: 0; isolation: isolate; }
+.lm-postbox-shell { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
+/* 下沿遮挡信封，模拟投入箱内，而不是缩小消失。 */
+.lm-postbox-mail-path { position: absolute; inset: 0; z-index: 2; clip-path: polygon(0 0, 100% 0, 100% 25.35%, 0 25.35%); pointer-events: none; }
+.lm-postbox-envelope { position: absolute; left: 33.2%; top: 8.5%; width: 31%; aspect-ratio: 1.65; border: 1px solid #b5a47e; background: linear-gradient(140deg, #fffbdf, #dacfaa); box-shadow: 0 3px 6px #182c2340; opacity: 0; }
+.lm-postbox-envelope::before, .lm-postbox-envelope::after { content: ""; position: absolute; inset: 0; }
+.lm-postbox-envelope::before { background: #f7edc9; clip-path: polygon(0 0, 100% 0, 50% 58%); filter: drop-shadow(0 1px 0 #bdae85); }
+.lm-postbox-envelope::after { background: linear-gradient(32deg, transparent 49%, #b5a580 50%, transparent 51%), linear-gradient(-32deg, transparent 49%, #b5a580 50%, transparent 51%); clip-path: polygon(0 100%, 50% 48%, 100% 100%); }
+.lm-postbox-envelope i { position: absolute; z-index: 1; width: 17%; aspect-ratio: 1; border-radius: 50%; left: 42%; top: 42%; background: #a63d31; border: 1px solid #c87351; box-shadow: 0 1px 2px #66302480; }
+.lm-postbox-label { position: absolute; left: 31%; top: 47%; width: 36%; text-align: center; font-family: var(--lm-hand); font-weight: 600; font-size: 12px; letter-spacing: 2px; color: #e7d8ab; text-shadow: 0 1px 1px #102b22; }
+.lm-postbox-label small { display: block; margin-top: 5px; font-size: 8px; letter-spacing: 1px; font-family: var(--lm-reading); }
+.lm-postbox-receipt { position: absolute; z-index: 4; left: 30%; top: 62%; width: 39%; padding: 3px 0; border: 1px solid #e9d39c; font-family: var(--lm-hand); font-size: 14px; letter-spacing: 2px; text-align: center; color: #f7e3b5; background: #13372bdb; transform: rotate(-8deg); opacity: 0; }
+.lm-delivery-art { height: 292px; display: flex; justify-content: center; align-items: flex-start; margin-bottom: 10px; }
+.lm-delivery-art .lm-postbox-model { width: 215px; }
+.is-delivering .lm-postbox-envelope { animation: lm-letter-in 3s ease-in-out both; }
+.is-delivering .lm-postbox-receipt { animation: lm-receipt 3s ease-out both; }
+.is-delivered .lm-postbox-receipt { opacity: 1; }
+.is-delivered .lm-postbox-envelope { opacity: 0; }
+@keyframes lm-letter-in { 0%, 10% { transform: translate(-45%, -36%) rotate(-10deg); opacity: 0; } 23% { transform: translate(-8%, -10%) rotate(-3deg); opacity: 1; } 36% { transform: translate(0, 0) rotate(0); opacity: 1; } 68%, 100% { transform: translate(0, 126%) rotate(0); opacity: 1; } }
+@keyframes lm-receipt { 0%, 85% { opacity: 0; transform: rotate(-8deg) scale(1.15); } 94%, 100% { opacity: 1; transform: rotate(-8deg) scale(1); } }
+@media (max-width: 800px) { .lm-mailbox-scene .lm-postbox-model { width: 160px; } }
+@media (max-width: 580px) {
+  .lm-post-aside { grid-template-columns: 1fr; gap: 14px; }
+  .lm-mailbox-scene { height: 315px; }
+  .lm-mailbox-scene .lm-postbox-model { width: 215px; }
+  .lm-mailbox-caption { font-size: 12px; letter-spacing: 2px; }
+  .lm-delivery-art { height: 258px; }
+  .lm-delivery-art .lm-postbox-model { width: 190px; }
+  .lm-delivery-dialog h2 { font-size: 23px; }
+}
+@media (prefers-reduced-motion: reduce) { .lm-postbox-model * { animation: none !important; transition: none !important; } }

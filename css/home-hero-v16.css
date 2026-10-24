@@ -1,0 +1,287 @@
+/* A member · homepage hero V1.3.
+   Deliberately loaded after the stable V1.2 layout, so the responsive
+   structural fixes are easy to audit and roll back independently.
+   Shared B-member components and their CSS are untouched. */
+/* V1.3 | Structural hero fix: no overlapping absolute footer, no header band. */
+.site-header--overlay { background: transparent; border: 0; box-shadow: none; }
+.a-hero {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:auto;
+  min-height:max(790px,100svh);
+  max-height:none;
+  padding:clamp(128px,15svh,170px) 0 clamp(26px,3.7svh,42px);
+  background: #310f17;
+}
+.a-hero__scenery {
+  inset:0;
+  background-image:url('../images/home-cinematic-scenery-v3.webp');
+  background-size:cover;
+  background-position:58% 51%;
+  opacity:1;
+  -webkit-mask-image:none;
+  mask-image:none;
+  transform:scale(1.001);
+  filter:saturate(1.035) contrast(1.045);
+  animation:a-hero-approach 9s ease-out both;
+}
+.a-hero__shade {
+  background:
+    linear-gradient(90deg,rgba(30,7,15,.73) 0%,rgba(40,9,16,.62) 13%,rgba(50,11,18,.41) 31%,rgba(45,11,17,.18) 46%,transparent 68%),
+    linear-gradient(180deg,rgba(24,7,12,.40) 0%,rgba(24,7,12,.03) 21%,transparent 69%,rgba(25,8,14,.21) 100%);
+}
+.a-hero__content {
+  position:relative;
+  top:auto;
+  left:auto;
+  right:auto;
+  transform:none;
+  flex:0 0 auto;
+  width:min(650px,56vw);
+  margin:0 0 0 clamp(38px,6.2vw,120px);
+  padding:0 0 14px;
+}
+.a-hero__title {
+  width:min(560px,37vw);
+  max-width:100%;
+  margin:8px 0 6px -10px;
+  animation:a-fade-up .92s .30s both;
+}
+.a-hero__title img {
+  width:100%; height:auto;
+  display:block;
+  image-rendering:auto;
+  filter:drop-shadow(0 3px 9px rgba(21,8,10,.32));
+}
+.a-hero__declaration{font-size:clamp(28px,3.0vw,44px);line-height:1.4;letter-spacing:.05em}
+.a-hero__subline{margin:8px 0 25px;font-size:clamp(15px,1.42vw,21px)}
+.a-hero__cta {
+  min-height:59px; min-width:236px;
+  padding:12px 24px;
+  font-size:20px;
+  gap:38px;
+  border:1px solid rgba(235,151,108,.6);
+  box-shadow:0 10px 26px rgba(38,10,15,.30),inset 0 0 0 1px rgba(245,177,130,.25);
+}
+.a-hero__cta::before{inset:3px;background:linear-gradient(110deg,rgba(255,164,108,.10),transparent 72%);opacity:1;}
+.a-hero__cta::after{width:70px;opacity:.12}
+.a-hero__footer {
+  position:relative;
+  flex:0 0 auto;
+  bottom:auto;left:auto;right:auto;
+  margin:clamp(44px,7svh,78px) clamp(38px,6.2vw,120px) 0;
+  align-items:center;
+  font-size:clamp(11px,.92vw,14px);
+  line-height:1.5;
+  letter-spacing:.1em;
+  animation:a-fade-up .7s 1.15s both;
+}
+.a-hero__anniversary{display:block;max-width:none;white-space:nowrap}
+.a-hero__scroll-link {display:flex!important;align-items:center;justify-content:flex-end;gap:13px;white-space:nowrap;line-height:1.5}
+.a-hero__scroll-icon {display:block;flex:none;width:15px;height:24px;animation:a-scroll 2.5s ease-in-out infinite}
+@media(max-width:1100px) and (min-width:761px){
+ .a-hero {min-height:max(760px,100svh);padding-top:125px}
+ .a-hero__content{width:min(640px,61vw);margin-left:6vw}
+ .a-hero__title{width:min(500px,48vw)}
+ .a-hero__footer{margin-inline:6vw}
+ .a-hero__scenery{background-position:60% 50%}
+ .a-hero__shade{background:linear-gradient(90deg,rgba(29,7,15,.76),rgba(42,8,16,.46) 38%,rgba(38,8,14,.12) 65%,transparent 90%),linear-gradient(180deg,rgba(26,8,13,.30),transparent 26%,transparent 76%,rgba(24,8,12,.24))}
+}
+@media(max-width:760px){
+ .a-hero{min-height:max(740px,100svh);height:auto;padding:125px 0 26px}
+ .a-hero__scenery{inset:0;background-position:64% center;opacity:.88;-webkit-mask-image:none;mask-image:none}
+ .a-hero__shade{background:linear-gradient(180deg,rgba(23,6,13,.77) 0%,rgba(34,8,15,.65) 37%,rgba(35,8,15,.34) 62%,rgba(20,7,13,.72) 100%),linear-gradient(90deg,rgba(29,8,15,.42),transparent 80%)}
+ .a-hero__content{width:auto;margin:0 8vw;padding:0;transform:none;top:auto;left:auto;right:auto}
+ .a-hero__title{width:min(74vw,465px);margin:12px 0 6px -10px}
+ .a-hero__declaration{font-size:clamp(24px,4.75vw,35px);white-space:normal}
+ .a-hero__subline{font-size:clamp(13px,2.2vw,17px);margin:7px 0 24px}
+ .a-hero__cta{min-width:203px;min-height:54px;font-size:17px}
+ .a-hero__footer{margin:40px 8vw 0;bottom:auto;left:auto;right:auto;font-size:11px;gap:20px}
+}
+@media(max-width:520px){
+ .a-hero{min-height:max(680px,100svh);padding-top:116px;padding-bottom:22px}
+ .a-hero__content{margin:0 7vw}
+ .a-hero__title{width:83vw;max-width:380px;margin-left:-8px}
+ .a-hero__declaration{font-size:clamp(22px,5.3vw,28px)}
+ .a-hero__subline{font-size:13px;letter-spacing:.08em}
+ .a-hero__footer{margin:36px 7vw 0;font-size:9px;gap:12px;letter-spacing:.015em}
+ .a-hero__anniversary{white-space:normal;max-width:175px}
+ .a-hero__scroll-link{gap:7px}
+ .a-hero__scroll-icon{height:19px;width:12px}
+}
+@media(max-height:760px) and (min-width:761px){
+ .a-hero{padding-top:104px;min-height:max(725px,100svh)}
+ .a-hero__title{width:min(495px,33vw)}
+ .a-hero__overline{font-size:17px;line-height:1.4}
+ .a-hero__declaration{font-size:clamp(27px,2.7vw,39px)}
+ .a-hero__subline{margin-bottom:20px}
+ .a-hero__footer{margin-top:35px}
+}
+@media(prefers-reduced-motion:reduce){.a-hero__scenery{animation:none;transform:none}.a-hero__scroll-icon{animation:none}}
+
+/* Preserve contrast on sunlit clouds without adding a solid header band. */
+.site-header--overlay .site-nav a,
+.site-header--overlay .site-brand__tagline {
+  text-shadow:0 2px 12px rgba(25,7,13,.72);
+}
+
+/* V1.4 quality pass: optical alignment, full-glyph subtitle and retina background. */
+.a-hero__scenery {
+  background-image:image-set(
+    url('../images/home-cinematic-scenery-v4.webp') 1x,
+    url('../images/home-cinematic-scenery-v4@2x.webp') 2x
+  );
+  /* Keep pixels on the device pixel grid: compositor scaling softens detailed ridges. */
+  transform:none;
+  animation:none;
+  filter:none;
+  background-position:58% 51%;
+}
+.a-hero__declaration {
+  font-size:initial; line-height:1;
+  width:min(100%, 560px);
+  letter-spacing:normal;
+  white-space:normal;
+  filter:drop-shadow(0 2px 9px rgba(28,10,10,.23));
+}
+.a-hero__declaration img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:none;
+}
+.a-hero__subline {
+  font-family:'Songti SC','STSong','Noto Serif CJK SC',serif;
+  font-weight:600;
+  letter-spacing:.13em;
+  line-height:1.58;
+}
+.a-hero__scroll-link {
+  display:inline-flex !important;
+  gap:12px;
+  align-items:center;
+  justify-content:flex-end;
+  min-height:36px;
+  line-height:1;
+  white-space:nowrap;
+}
+.a-hero__scroll-text {display:inline-block;line-height:20px;white-space:nowrap}
+.a-hero__scroll-icon {
+  flex:none;
+  display:block;
+  width:19px;height:19px;
+  animation:none;
+  transform:translateY(0);
+}
+@media (max-width:1100px) and (min-width:761px) {
+  .a-hero__declaration {width:min(100%, 540px)}
+}
+@media (max-width:760px) {
+  .a-hero__declaration {width:min(100%, 520px)}
+  .a-hero__scenery {background-position:64% center}
+}
+@media (max-width:520px) {
+  .a-hero__declaration {width:100%}
+  .a-hero__scroll-link {gap:7px;min-height:32px}
+  .a-hero__scroll-icon {width:16px;height:16px}
+}
+
+/* V1.5: punctuation-free headings and legible bottom-right exploration cue.
+   Explicitly override the 12px type inherited from .a-hero__footer. */
+.a-hero__scroll-link {
+  gap: 13px;
+  min-height: 46px;
+  font-size: clamp(21px, 1.55vw, 25px);
+  font-weight: 600;
+  letter-spacing: .09em;
+  line-height: 1.35;
+  color: #f5e5d2;
+  text-shadow: 0 2px 10px rgba(25, 8, 14, .68);
+}
+.a-hero__scroll-text {
+  display: block;
+  line-height: 1.35;
+}
+.a-hero__scroll-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  transform: none;
+  animation: none;
+}
+.a-hero__scroll-link:hover .a-hero__scroll-icon,
+.a-hero__scroll-link:focus-visible .a-hero__scroll-icon {
+  transform: translateY(3px);
+}
+@media (max-width: 760px) {
+  .a-hero__scroll-link { gap: 9px; min-height: 40px; font-size: 18px; letter-spacing: .035em; }
+  .a-hero__scroll-icon { width: 24px; height: 24px; }
+}
+@media (max-width: 520px) {
+  .a-hero__scroll-link { gap: 6px; min-height: 36px; font-size: 17px; }
+  .a-hero__scroll-icon { width: 22px; height: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a-hero__scroll-link:hover .a-hero__scroll-icon,
+  .a-hero__scroll-link:focus-visible .a-hero__scroll-icon { transform:none; }
+}
+
+/* V1.6 · Make the exploration affordance truly prominent on full-size screens.
+   This is a deliberately sized editorial label, not a tiny footer caption.
+   No border, divider, solid box or decorative horizontal line is added. */
+.a-hero__scroll-link {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 9px 10px 9px 18px;
+  min-height: 60px;
+  color: #fff8ee;
+  font-family: 'Songti SC', 'STSong', 'Noto Serif CJK SC', serif;
+  font-size: clamp(30px, 2.1vw, 34px);
+  font-weight: 700;
+  letter-spacing: .055em;
+  line-height: 1.25;
+  text-shadow: 0 2px 5px rgba(14, 6, 8, .82), 0 1px 17px rgba(14, 6, 8, .9);
+  text-decoration: none;
+}
+.a-hero__scroll-link::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: -14px -16px;
+  border-radius: 60%;
+  background: radial-gradient(ellipse at center, rgba(13, 8, 12, .40) 0%, rgba(13, 8, 12, .22) 42%, transparent 74%);
+  filter: blur(10px);
+}
+.a-hero__scroll-text {
+  display: inline-block;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.a-hero__scroll-icon {
+  display: block;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  color: #fff8ee;
+  filter: drop-shadow(0 2px 5px rgba(14,6,8,.70));
+  transform: none;
+  animation: none;
+}
+@media (max-width: 1100px) {
+  .a-hero__scroll-link { font-size: clamp(24px, 2.65vw, 30px); gap: 12px; min-height: 52px; padding: 7px 6px 7px 12px; }
+  .a-hero__scroll-icon { width: 35px; height: 35px; }
+}
+@media (max-width: 760px) {
+  .a-hero__scroll-link { font-size: 21px; font-weight: 700; gap: 8px; min-height: 40px; padding: 3px; letter-spacing: .035em; }
+  .a-hero__scroll-icon { width: 27px; height: 27px; }
+}
+@media (max-width: 520px) {
+  .a-hero__scroll-link { font-size: 17px; gap: 5px; min-height: 36px; padding: 0; }
+  .a-hero__scroll-icon { width: 22px; height: 22px; }
+}
