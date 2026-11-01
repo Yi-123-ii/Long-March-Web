@@ -1,0 +1,47 @@
+/* V3.4 — chapter illustrations replaced with four fresh text-free image assets.
+   Source art is a newly generated four-scene atlas, split into independent files.
+   Important: its 836px-wide originals are not native UHD paintings.
+   All text, links and hit targets stay real HTML; B pages untouched. */
+.v3-home .v3-chapter__image { isolation:isolate; }
+.v3-home .v3-chapter__image img {
+  filter:none; image-rendering:auto; transform:none;
+  transition:transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.v3-home .v3-chapter:hover .v3-chapter__image img,
+.v3-home .v3-chapter:focus-visible .v3-chapter__image img {transform:scale(1.012)}
+.v3-home .v3-chapter--01 {--panel:#22303a;--detail:#eccbab}
+.v3-home .v3-chapter--02 {--panel:#302c2c;--detail:#efd2b1}
+.v3-home .v3-chapter--03 {--panel:#443028;--ink:#f7ebdb;--detail:#f0c39f}
+.v3-home .v3-chapter--04 {--panel:#263b34;--detail:#ecd6b7}
+.v3-home .v3-chapter--01 .v3-chapter__image {background:#233c4b}
+.v3-home .v3-chapter--02 .v3-chapter__image {background:#373a3c}
+.v3-home .v3-chapter--03 .v3-chapter__image {background:#69513e}
+.v3-home .v3-chapter--04 .v3-chapter__image {background:#3d4d3e}
+.v3-home .v3-chapter--01 .v3-chapter__image img {object-position:66% center}
+.v3-home .v3-chapter--02 .v3-chapter__image img {object-position:42% center}
+.v3-home .v3-chapter--03 .v3-chapter__image img {object-position:64% center}
+.v3-home .v3-chapter--04 .v3-chapter__image img {object-fit:cover;object-position:58% center}
+.v3-home .v3-chapter--01 .v3-chapter__image::after,
+.v3-home .v3-chapter--03 .v3-chapter__image::after {
+ background:linear-gradient(90deg,var(--panel) 0%,rgba(17,26,30,.24) 8%,transparent 30%);
+}
+.v3-home .v3-chapter--02 .v3-chapter__image::after,
+.v3-home .v3-chapter--04 .v3-chapter__image::after {
+ background:linear-gradient(270deg,var(--panel) 0%,rgba(18,23,24,.24) 8%,transparent 30%);
+}
+@media(max-width:760px) {
+ .v3-home .v3-chapter--01 .v3-chapter__image img,
+ .v3-home .v3-chapter--02 .v3-chapter__image img,
+ .v3-home .v3-chapter--03 .v3-chapter__image img,
+ .v3-home .v3-chapter--04 .v3-chapter__image img {object-fit:cover;object-position:center}
+ .v3-home .v3-chapter__image::after,
+ .v3-home .v3-chapter--01 .v3-chapter__image::after,
+ .v3-home .v3-chapter--02 .v3-chapter__image::after,
+ .v3-home .v3-chapter--03 .v3-chapter__image::after,
+ .v3-home .v3-chapter--04 .v3-chapter__image::after {
+  background:linear-gradient(0deg,var(--panel) 0%,transparent 27%);
+ }
+ .v3-home .v3-chapter--04 .v3-chapter__image {height:260px}
+}
+@media(max-width:420px){.v3-home .v3-chapter--04 .v3-chapter__image{height:240px}}
+@media(prefers-reduced-motion:reduce){.v3-home .v3-chapter__image img{transition:none!important}}

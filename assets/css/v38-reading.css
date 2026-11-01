@@ -1,0 +1,70 @@
+/* V3.8 text hierarchy only. Keep this after the existing page styles.
+   Display artwork, icons, dimensions, spacing and all B/C behavior stay in their own files. */
+:root {
+  --v38-reading: "Shanhe Reading", "Noto Serif CJK SC", "Songti SC", "SimSun", "Apple Color Emoji", "Segoe UI Emoji", serif;
+  --v38-ui: "Shanhe UI", "Shanhe Reading", "Noto Serif CJK SC", "Songti SC", "SimSun", "Apple Color Emoji", "Segoe UI Emoji", serif;
+  --a-reading: var(--v38-reading);
+  --a-display: var(--v38-ui);
+  --lm-reading: var(--v38-reading);
+  --lm-serif: var(--v38-reading);
+  --lm-hand: var(--v38-ui);
+  --lm-display: var(--v38-ui);
+  --lm-brush: var(--v38-ui);
+  --lm-number: var(--v38-ui);
+  --lm-sans: var(--v38-ui);
+}
+
+body.v3-home,
+body.a-auxiliary,
+body.lm-page {
+  font-family: var(--v38-reading);
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+/* One local UI family for the shared shell and all text controls. */
+.site-header,
+.site-header .site-brand__tagline,
+.site-header .site-nav a,
+body.v3-home :is(.a-skip, .a-hero__cta, .a-hero__scroll-link),
+body.a-auxiliary :is(.a-aux-skip, .a-pending__links, .a-inheritance__end a, .a-inheritance__footer),
+body.lm-page :is(button, select, label, summary, .lm-link, .lm-button, .lm-skip) {
+  font-family: var(--v38-ui);
+  font-weight: 500;
+}
+
+/* The hero's artwork and established composition are untouched. */
+body.v3-home :is(.a-hero__overline, .a-hero__subline, .a-hero__footer) {
+  font-family: var(--v38-ui);
+  font-weight: 400;
+}
+
+/* Prose uses the same regular reading face, including mixed Latin and punctuation. */
+.v3-home :is(.v3-prologue__description, .v3-chapters__lead, .v3-chapter__copy, .v3-epilogue__aside),
+.a-auxiliary :is(.a-pending__lead, .a-pending__status, .a-inheritance__heading > p:last-child),
+.a-inheritance :is(.a-inheritance__intro > p:last-child, .a-inheritance__case-content > p:not(.a-inheritance__case-meta), blockquote),
+.lm-page :is(input, textarea, .lm-article-lead, .lm-prose, .lm-letter-content, .lm-letter-signer, .lm-preview-body, .lm-review-content) {
+  font-family: var(--v38-reading);
+  font-weight: 400;
+}
+
+/* Small navigation, dates and status text no longer switch between decorative families. */
+.v3-home :is(.v3-prologue__eyebrow, .v3-prologue__eyebrow small, .v3-chapters__eyebrow, .v3-chapter__number, .v3-chapter__number small, .v3-chapter__status, .v3-chapter__link, .v3-epilogue__label, .v3-epilogue__return small, .v3-footer),
+.a-auxiliary :is(.a-pending__overline, .a-inheritance__eyebrow, .a-inheritance__case-number, .a-inheritance__case-meta, .a-inheritance__intro > p:first-child),
+.lm-page :is(.lm-eyebrow, .lm-hero-bottom, .lm-event-date-rest, .lm-event-place, .lm-event-year, .lm-event-read, .lm-read-count, .lm-detail-place, .lm-event-context, .lm-letter-meta, .lm-preview-bottom, .lm-mailbox-caption, .lm-storage-help, .lm-toast) {
+  font-family: var(--v38-ui);
+  font-weight: 400;
+}
+
+/* Genuine semibold is available in the UI variable font; do not synthesize bold/italic. */
+.a-auxiliary :is(.a-pending h1, .a-inheritance__case h3, .a-inheritance__end p),
+.lm-page :is(h1, h2, h3, .lm-aside-date, .lm-history-note > span, .lm-salutation) {
+  font-family: var(--v38-ui);
+  font-weight: 600;
+}
+
+/* Post-office letter bodies stay in the reading face even inside preview buttons. */
+.lm-post-page :is(.lm-letter-preview .lm-preview-body, .lm-mini-letter, .lm-paper-sample span, .lm-review-content, .lm-letter-content, .lm-letter-signer) {
+  font-family: var(--v38-reading);
+  font-weight: 400;
+}

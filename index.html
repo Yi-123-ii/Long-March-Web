@@ -1,223 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="沿着九段长征纪事，从1934年出发，读到1936年红军三大主力会师。"
-    />
-    <meta name="theme-color" content="#e9eeeb" />
-    <title>长征纪事 · 山河印记</title>
-    <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
-    <link
-      rel="preload"
-      href="assets/fonts/zhi-mang-xing.woff2?v=20261024-stationery"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/chronicle.css?v=20261024-stationery" />
-    <script defer src="data/events.js?v=20261023-four-fixes"></script>
-    <script defer src="data/stage-title-art.js?v=20261023-four-fixes"></script>
-    <script defer src="assets/js/storage.js?v=20261024-stationery"></script>
-    <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/chronicle.js?v=20261024-stationery"></script>
-  </head>
-  <body class="lm-page">
-    <a class="lm-skip" href="#chronicle">跳至纪事内容</a>
-    <header class="lm-header">
-      <a class="lm-brand" href="index.html"
-        ><img class="lm-brand-landscape" src="assets/images/brand-landscape-v2.webp" width="320" height="259" alt="" /><span
-          ><img class="lm-brand-name-art" src="assets/images/titles/brand-name-v3.webp" width="900" height="229" alt="山河印记" /><small><span class="lm-sr-only">循着来路，读懂远方</span><span class="lm-brand-tagline-art" aria-hidden="true"></span></small></span
-        ></a
-      >
-      <nav aria-label="主导航">
-        <a href="index.html" aria-current="page">长征纪事</a
-        ><a href="post-office.html"
-          >山河邮局 <span aria-hidden="true">↗</span></a
-        >
-      </nav>
-    </header>
-    <main>
-      <section class="lm-hero" aria-labelledby="hero-title">
-        <div
-          class="lm-hero-art"
-          role="img"
-          aria-label="水墨群山、河流与行军者"
-        ></div>
-        <div class="lm-hero-copy">
-          <p class="lm-eyebrow"><span></span> 长征纪事 · 从出发到三军会师</p>
-          <h1 id="hero-title" class="lm-title-art"><span class="lm-sr-only">山河为卷，脚步为证。</span><img src="assets/images/titles/hero-v1.webp" width="1400" height="814" alt="" fetchpriority="high" /></h1>
-          <p class="lm-hero-intro">
-            从于都河畔，到三军会师。<br />读懂那些改变方向的抉择，<br />也记住每一段艰难路途中的人。
-          </p>
-          <a class="lm-link" href="#chronicle"
-            >翻开这段历程 <span aria-hidden="true">↓</span></a
-          >
-        </div>
-        <div class="lm-hero-bottom">
-          <span>1934 — 1936</span><span>九段纪事，一路向前</span>
-        </div>
-      </section>
-      <section
-        id="chronicle"
-        class="lm-chronicle lm-container"
-        aria-labelledby="chronicle-title"
-      >
-        <div class="lm-section-heading">
-          <div>
-            <p class="lm-eyebrow">沿时间，走近历史</p>
-            <h2 id="chronicle-title" class="lm-title-art"><span class="lm-sr-only">那些走过的路</span><img src="assets/images/titles/chronicle-v2.webp" width="1400" height="293" alt="" /></h2>
-          </div>
-          <p>
-            沿中央红军主要历程，读到三大主力会师。<br />九段纪事，串起1934—1936年的重要节点。
-          </p>
-        </div>
-        <div class="lm-tools">
-          <div class="lm-filters" role="group" aria-label="按年份筛选">
-            <button class="is-active" data-filter="all" aria-pressed="true">
-              全部纪事</button
-            ><button data-filter="1934" aria-pressed="false">1934</button
-            ><button data-filter="1935" aria-pressed="false">1935</button
-            ><button data-filter="1936" aria-pressed="false">1936</button>
-          </div>
-          <label class="lm-search"
-            ><span class="lm-sr-only">搜索事件或地点</span
-            ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="10" cy="10" r="6.5" />
-              <path d="m15 15 5 5" /></svg
-            ><input
-              id="event-search"
-              type="search"
-              placeholder="搜索事件或地点"
-              maxlength="80"
-          /></label>
-        </div>
-        <div class="lm-history-layout">
-          <aside class="lm-history-aside">
-            <span class="lm-aside-date"
-              >一九三四<br /><i>至</i><br />一九三六</span
-            >
-            <div class="lm-read-count">
-              <span id="read-count">0</span><small>/ <span id="event-count">9</span> 段已阅</small>
-            </div>
-            <p>历史有来处，<br />每一步都值得回望。</p>
-          </aside>
-          <div>
-            <p id="search-status" class="lm-sr-only" aria-live="polite"></p>
-            <div id="event-list" class="lm-event-list"></div>
-            <div id="empty-events" class="lm-empty" hidden>
-              <h3>暂时没有找到这段纪事</h3>
-              <p>试试“遵义”“雪山”或其他地点。</p>
-              <button id="reset-search" class="lm-button lm-button-light">
-                查看全部纪事
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="lm-history-note">
-          <span>记准两个时间，读懂不同的终点。</span>
-          <p>
-            <strong>红军长征：1934年10月—1936年10月。</strong><br />1935年10月19日，中央红军抵达吴起镇，中央红军长征胜利结束。
-          </p>
-          <p>
-            1936年10月9日，红一、红四方面军在会宁会师；10月22日，红二方面军在将台堡与红一方面军会师。中央红军抵达吴起镇与三大主力会师，是长征历史中的两个不同时间节点。
-          </p>
-        </div>
-      </section>
-      <section id="post-office-invite" class="lm-mail-invite lm-container" aria-labelledby="mail-invite-title">
-        <div>
-          <p class="lm-eyebrow">读过来路，留下回声</p>
-          <h2 id="mail-invite-title" class="lm-invite-title"><span class="lm-sr-only">如果能寄去一句话，你想对他们说什么？</span><img src="assets/images/titles/mail-invite-v1.webp" width="1400" height="553" alt="" loading="lazy" /></h2>
-        </div>
-        <a class="lm-postal-link" href="post-office.html">
-          <span class="lm-postal-envelope" aria-hidden="true">
-            <svg viewBox="0 0 72 58" fill="none">
-              <path d="M5 12 64 6l4 39L9 51Z" fill="#fffaf0" stroke="#a39771" stroke-width="1.5" />
-              <path d="m6 13 31 18L64 7" fill="#eee1ba" stroke="#b5a47c" stroke-width="1.4" stroke-linejoin="round" />
-              <path d="m10 49 23-24m34 18L42 25" stroke="#c6b68c" stroke-width="1.3" />
-              <circle cx="37" cy="32" r="9" fill="#9e4436" stroke="#bd6b4c" stroke-width="2" />
-              <path d="m32 34 3-4 3 4 3-5" stroke="#e6b17d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="m1 5 7-2m-6 2 3 4M61 53l7-1" stroke="#a5b398" stroke-width="1.4" stroke-linecap="round" />
-            </svg>
-          </span>
-          <span class="lm-postal-copy"><span>走进山河邮局</span><small>寄一封来自今天的信</small></span>
-          <span class="lm-postal-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M6 18 18 6M7 6h11v11" /></svg>
-          </span>
-        </a>
-      </section>
-    </main>
-    <footer class="lm-footer lm-container">
-      <span>山河印记</span><a href="#hero-title">回到顶部 ↑</a>
-    </footer>
-    <dialog
-      id="event-dialog"
-      class="lm-dialog lm-event-dialog"
-      aria-labelledby="event-dialog-title"
-    >
-      <div class="lm-article-bar">
-        <span id="article-bar-title">长征纪事</span
-        ><button class="lm-close" data-close aria-label="关闭纪事">×</button>
-      </div>
-      <div class="lm-dialog-body">
-        <p id="detail-date" class="lm-eyebrow"></p>
-        <h2 id="event-dialog-title"></h2>
-        <p id="detail-place" class="lm-detail-place"></p>
-        <p id="detail-lead" class="lm-article-lead"></p>
-        <figure class="lm-article-figure">
-          <img
-            id="detail-image"
-            alt=""
-            width="1200"
-            height="800"
-            decoding="async"
-          />
-          <figcaption id="detail-caption"></figcaption>
-          <p id="detail-image-error" hidden>
-            配图暂未加载，下面的史实正文可继续阅读。
-          </p>
-        </figure>
-        <div class="lm-article-layout">
-          <div id="detail-sections" class="lm-article-sections"></div>
-          <aside
-            class="lm-article-timeline"
-            aria-labelledby="detail-timeline-title"
-          >
-            <h3 id="detail-timeline-title">这一段的时间线</h3>
-            <ol id="detail-timeline"></ol>
-          </aside>
-        </div>
-        <section class="lm-article-focus" aria-labelledby="detail-focus-title">
-          <p>回望这一程</p>
-          <h3 id="detail-focus-title"></h3>
-          <p id="detail-focus-text"></p>
-        </section>
-        <details id="detail-notes" class="lm-article-notes">
-          <summary>参考资料</summary>
-          <div>
-            <ul id="detail-sources"></ul>
-            <p id="detail-image-credit"></p>
-            <p id="detail-license"></p>
-          </div>
-        </details>
-        <a id="detail-mail" class="lm-link" href="post-office.html"
-          >此刻想说的话，留在山河邮局 ↗</a
-        >
-      </div>
-      <div class="lm-dialog-nav">
-        <button id="previous-event">← 上一段</button
-        ><span id="detail-position"></span
-        ><button id="next-event">下一段 →</button>
-      </div>
-    </dialog>
-    <noscript
-      ><p class="lm-container">
-        请启用 JavaScript 以查看纪事和使用留言功能。
-      </p></noscript
-    >
-  </body>
+<head>
+<script src="assets/js/legacy-chronicle.js?v=20261101-v38"></script>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="山河印记：循九段长征纪事、重走山河、探寻当代传承，给长征路上的人们写一封信。" name="description"/>
+<meta content="#241017" name="theme-color"/>
+<title>山河印记｜长征万里，薪火千秋</title>
+<link href="assets/images/mark.svg" rel="icon" type="image/svg+xml"/>
+<link as="image" fetchpriority="high" href="assets/images/home-cinematic-scenery-v4@2x.webp" rel="preload"/>
+<link href="assets/css/fonts.css?v=20261101-v38" rel="stylesheet"/><link href="assets/css/site-shell.css" rel="stylesheet"/><link href="assets/css/v3-home.css" rel="stylesheet"/><link href="assets/css/v3-chapter-art.css" rel="stylesheet"/><link href="assets/css/home.css" rel="stylesheet"/><link href="assets/css/home-hero-v16.css" rel="stylesheet"/><link href="assets/css/v36-hero-restore.css" rel="stylesheet"/><link href="assets/css/v37-prologue-epilogue.css" rel="stylesheet"/>
+<script defer="" src="assets/js/home.js"></script>
+<link href="assets/css/v38-title-art.css" rel="stylesheet"/>
+<link href="assets/css/v38-reading.css" rel="stylesheet"/>
+</head>
+<body class="v3-home">
+<a class="a-skip" href="#prologue">跳过开场，直接阅读序章</a>
+<header class="site-header site-header--overlay" id="site-header">
+<a aria-label="山河印记 · 首页" class="site-brand" href="index.html"><img alt="山河印记" class="site-brand__image" height="229" src="assets/images/titles/brand-name-v3.webp" width="900"/><span class="site-brand__tagline">以山河为卷 · 以青春为答</span></a>
+<button aria-controls="site-navigation" aria-expanded="false" aria-label="展开主导航" class="site-menu-toggle" type="button"><span></span><span></span><span></span></button>
+<nav aria-label="主导航" class="site-nav" id="site-navigation">
+<a aria-current="page" href="index.html"><span class="a-sr-only">首页</span><img alt="" aria-hidden="true" class="site-nav__label" src="assets/images/typography/nav-home.svg"/></a><a href="chronicle.html"><span class="a-sr-only">长征纪事</span><img alt="" aria-hidden="true" class="site-nav__label" src="assets/images/typography/nav-chronicle.svg"/></a><a href="journey.html"><span class="a-sr-only">重走长征</span><img alt="" aria-hidden="true" class="site-nav__label" src="assets/images/typography/nav-journey.svg"/></a><a href="inheritance.html"><span class="a-sr-only">精神传承</span><img alt="" aria-hidden="true" class="site-nav__label" src="assets/images/typography/nav-inheritance.svg"/></a><a href="post-office.html"><span class="a-sr-only">山河邮局</span><img alt="" aria-hidden="true" class="site-nav__label" src="assets/images/typography/nav-post.svg"/></a>
+</nav>
+</header>
+<main id="main">
+<section aria-labelledby="a-hero-title" class="a-hero">
+<div aria-hidden="true" class="a-hero__scenery"></div>
+<div aria-hidden="true" class="a-hero__shade"></div>
+<div aria-hidden="true" class="a-hero__grain"></div>
+<div class="a-hero__content">
+<p class="a-hero__overline"><span>1934 — 1936</span><span>THE LONG MARCH</span></p>
+<h1 class="a-hero__title" id="a-hero-title"><span class="a-sr-only">长征</span><img alt="" aria-hidden="true" height="349" src="assets/images/home-title-brush-v3.png" width="704"/></h1>
+<div class="a-hero__copy">
+<p class="a-hero__declaration"><span class="a-sr-only">万里征途，薪火千秋</span><img alt="" aria-hidden="true" height="66" src="assets/images/home-declaration-v15.svg" width="530"/></p>
+<p class="a-hero__subline">山河为证，信仰不息</p>
+<a class="a-hero__cta" href="#prologue"><span>开启征途</span><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></a>
+</div>
+</div>
+<div class="a-hero__footer">
+<span class="a-hero__anniversary">2026 · 长征胜利九十周年</span>
+<a aria-label="向下探索：阅读序章" class="a-hero__scroll-link" href="#prologue"><span class="a-hero__scroll-text">向下探索</span><svg aria-hidden="true" class="a-hero__scroll-icon" fill="none" height="19" viewbox="0 0 24 24" width="19"><path d="M12 3v17m-6-6 6 6 6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"></path></svg></a>
+</div>
+</section>
+<section aria-labelledby="v3-prologue-title" class="v3-prologue" id="prologue">
+<div aria-hidden="true" class="v3-prologue__mountain"></div>
+<div class="v3-prologue__inner">
+<div class="v3-prologue__story">
+<div class="v3-prologue__eyebrow"><span>序 / PROLOGUE</span><small>九十年后 · 再望山河</small></div>
+<h2 id="v3-prologue-title"><span class="a-sr-only">有些路，值得一再回望</span><img alt="" aria-hidden="true" height="1024" src="assets/images/typography/v38/prologue.webp" width="1536"/></h2>
+</div>
+<p class="v3-prologue__description">九十年后，山河依旧，<br/>而那段用信念和脚步写下的征途，<br/>仍在照亮今天的我们。</p>
+</div>
+</section>
+<section aria-labelledby="v3-chapters-heading" class="v3-chapters" id="chapters">
+<div class="v3-chapters__intro">
+<div>
+<p class="v3-chapters__eyebrow">CHAPTERS 01—04 <span aria-hidden="true">/</span> 四段回望</p>
+<h2 id="v3-chapters-heading"><span class="a-sr-only">沿着来路</span><img alt="" aria-hidden="true" height="120" src="assets/images/typography/chapters-intro.svg" width="396"/></h2>
+</div>
+<p class="v3-chapters__lead">从真实的历史，到亲自踏上的征途；<br/>从今天的行动，到一封写给过去的信。<br/>四个章节，循着同一束薪火。</p>
+</div>
+<a aria-label="进入长征纪事：循九个重要节点阅读历史" class="v3-chapter v3-chapter--01" href="chronicle.html">
+<div class="v3-chapter__content">
+<span class="v3-chapter__number">01 <small>/ 历史 · ARCHIVE</small></span>
+<h3 class="v3-chapter__name"><span class="a-sr-only">长征纪事</span><img alt="" aria-hidden="true" height="149" src="assets/images/typography/chapter-chronicle.svg" width="503"/></h3>
+<span class="v3-chapter__copy">翻开历史的长卷，沿着九个重要节点，<br/>读懂那些改变山河的抉择与足迹。</span>
+<span class="v3-chapter__link"><span>走进历史</span><svg aria-hidden="true" viewbox="0 0 32 32"><circle cx="16" cy="16" r="15"></circle><path d="M9 16h13m-5-5 5 5-5 5"></path></svg></span>
+</div>
+<div class="v3-chapter__image"><img alt="" height="470" loading="lazy" src="assets/images/v3/generation-v34/chapter-chronicle-snow.webp" width="836"/></div>
+</a>
+<a aria-label="重走长征：体验制作中，可查看目前状态" class="v3-chapter v3-chapter--02" href="journey.html">
+<div class="v3-chapter__content">
+<span class="v3-chapter__number">02 <small>/ 体验 · EXPERIENCE</small></span>
+<h3 class="v3-chapter__name"><span class="a-sr-only">重走长征</span><img alt="" aria-hidden="true" height="149" src="assets/images/typography/chapter-journey.svg" width="503"/></h3>
+<span class="v3-chapter__copy">从屏幕前走进山川之间。<br/>在雪山与险途中，理解每一步的重量。</span>
+<span class="v3-chapter__status">互动体验制作中</span>
+<span class="v3-chapter__link"><span>了解体验进度</span><svg aria-hidden="true" viewbox="0 0 32 32"><circle cx="16" cy="16" r="15"></circle><path d="M9 16h13m-5-5 5 5-5 5"></path></svg></span>
+</div>
+<div class="v3-chapter__image"><img alt="" height="470" loading="lazy" src="assets/images/v3/generation-v34/chapter-journey-bridge.webp" width="836"/></div>
+</a>
+<a aria-label="精神传承：走近当代研学、志愿服务和史料整理" class="v3-chapter v3-chapter--03" href="inheritance.html">
+<div class="v3-chapter__content">
+<span class="v3-chapter__number">03 <small>/ 当代 · INHERITANCE</small></span>
+<h3 class="v3-chapter__name"><span class="a-sr-only">精神传承</span><img alt="" aria-hidden="true" height="149" src="assets/images/typography/chapter-inheritance.svg" width="503"/></h3>
+<span class="v3-chapter__copy">走进今天的研学、志愿服务与史料传播，<br/>看看跨越时代的薪火怎样继续燃烧。</span>
+<span class="v3-chapter__link"><span>走近今天</span><svg aria-hidden="true" viewbox="0 0 32 32"><circle cx="16" cy="16" r="15"></circle><path d="M9 16h13m-5-5 5 5-5 5"></path></svg></span>
+</div>
+<div class="v3-chapter__image"><img alt="" height="471" loading="lazy" src="assets/images/v3/generation-v34/chapter-inheritance-flag.webp" width="836"/></div>
+</a>
+<a aria-label="山河邮局：写一封来自今天的信" class="v3-chapter v3-chapter--04" href="post-office.html">
+<div class="v3-chapter__content">
+<span class="v3-chapter__number">04 <small>/ 回响 · LETTERS</small></span>
+<h3 class="v3-chapter__name"><span class="a-sr-only">山河邮局</span><img alt="" aria-hidden="true" height="149" src="assets/images/typography/chapter-post.svg" width="503"/></h3>
+<span class="v3-chapter__copy">隔着九十年的山河，把未说出口的敬意，<br/>写成一封来自今天的信。</span>
+<span class="v3-chapter__link"><span>写下一封信</span><svg aria-hidden="true" viewbox="0 0 32 32"><circle cx="16" cy="16" r="15"></circle><path d="M9 16h13m-5-5 5 5-5 5"></path></svg></span>
+</div>
+<div class="v3-chapter__image"><img alt="" height="471" loading="lazy" src="assets/images/v3/generation-v34/chapter-post-couriers.webp" width="836"/></div>
+</a>
+</section>
+<section aria-labelledby="v3-epilogue-title" class="v3-epilogue">
+<div aria-hidden="true" class="v3-epilogue__backdrop"></div>
+<div class="v3-epilogue__inner"><div class="v3-epilogue__label"><span>THE JOURNEY</span><span>CONTINUES</span></div><h2 id="v3-epilogue-title"><span class="a-sr-only">征途有尽，回响无穷</span><img alt="" aria-hidden="true" height="1024" src="assets/images/typography/v38/epilogue.webp" width="1536"/></h2><p class="v3-epilogue__aside">长征的故事已经写下，<br/>而新的征途，<br/>正在你我脚下延续。</p></div>
+<a aria-label="返回网页顶部" class="v3-epilogue__return" href="#main"><span aria-hidden="true">↑</span><small>返回顶部</small></a>
+</section>
+</main>
+<footer class="v3-footer"><span>山河印记 · 2026</span><span>长征万里，薪火千秋</span></footer>
+</body>
 </html>

@@ -1,0 +1,24 @@
+/* V3.6 — return the homepage hero to the full-viewport V1.6 film-poster composition.
+   Scoped to A's hero only. Other V3.5 sections, B and C modules untouched. */
+@media (min-width:761px) and (max-height:760px) {
+  .v3-home .a-hero {
+    min-height:100svh;
+    height:100svh;
+    padding-top:clamp(95px,15svh,112px);
+    padding-bottom:clamp(18px,3.5svh,28px);
+  }
+  .v3-home .a-hero__footer {margin-top:23px;}
+}
+/* Tall original image is excellent at 16:9, but its 1.28:1 source crop loses
+   the sunrise and soldiers simultaneously on ultra-wide, low-height windows.
+   Use the existing wide cinematic art in that narrow aspect-ratio case only. */
+@media (min-width:761px) and (min-aspect-ratio: 12/5) {
+  .v3-home .a-hero__scenery {
+    background-image:url('../images/v3/hero-reference-composite.webp');
+    background-position:center center;
+  }
+  .v3-home .a-hero__shade {
+    background:linear-gradient(90deg,rgba(26,8,15,.61),rgba(30,10,14,.35) 26%,transparent 62%),
+               linear-gradient(0deg,rgba(26,7,14,.22),transparent 33%);
+  }
+}

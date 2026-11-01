@@ -1,0 +1,166 @@
+/* V3.7 art-direction revision: A-only prologue and epilogue. No B/C rules. */
+.v3-home{--v37-paper:#f1e7d7;--v37-dark:#17342f;--v37-rust:#a44b39}
+
+/* A substantial paper chapter, not a flat separator strip. */
+.v3-home .v3-prologue{
+  min-height:328px;
+  background:linear-gradient(180deg,#f6ecdb 0%,var(--v37-paper) 46%,#e9dcc7 100%);
+  color:var(--v37-dark);
+  isolation:isolate;
+  position:relative;
+}
+.v3-home .v3-prologue::before{
+  content:"";position:absolute;left:0;right:0;top:-31px;height:47px;
+  background:linear-gradient(180deg,transparent 0%,#f6ecdb 83%);
+  pointer-events:none;z-index:0;
+}
+.v3-home .v3-prologue::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 5% 40%,#fff7e7a0,transparent 50%),
+             linear-gradient(0deg,rgba(131,92,62,.045),transparent 27%);
+}
+.v3-home .v3-prologue__mountain{
+  z-index:0;width:62%;height:100%;right:0;top:0;opacity:.91;mix-blend-mode:multiply;
+  background-image:url('../images/v3/prologue-mountains-v37.webp');
+  background-position:right center;background-size:100% auto;
+  mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 91%,#000 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 91%,#000 100%);
+}
+.v3-home .v3-prologue__inner{
+  position:relative;z-index:2;
+  width:100%;max-width:1840px;
+  min-height:328px;margin-inline:auto;
+  padding:40px clamp(34px,7.1vw,150px) 48px;
+  grid-template-columns:minmax(410px,1.28fr) minmax(275px,.86fr) minmax(0,.9fr);
+  gap:clamp(20px,2.2vw,44px);
+  align-items:center;
+}
+.v3-home .v3-prologue__story{grid-column:1;align-self:center;max-width:525px}
+.v3-home .v3-prologue__eyebrow{
+  font:400 15px/1.5 Georgia,"Noto Serif SC",serif;
+  color:var(--v37-rust);letter-spacing:.115em;
+  gap:23px;white-space:nowrap;position:relative;padding:0 0 15px;
+}
+.v3-home .v3-prologue__eyebrow small{font-size:14px;color:#aa5947;letter-spacing:.08em}
+.v3-home .v3-prologue__eyebrow::after{
+  content:"";position:absolute;left:0;bottom:4px;width:min(94%,425px);
+  height:1px;background:linear-gradient(90deg,#a94d37b5,transparent);
+}
+.v3-home .v3-prologue h2{
+  display:block;width:min(100%,495px);margin-top:0!important;
+  transform:translateX(-7px);
+}
+.v3-home .v3-prologue h2 img{
+  display:block;width:100%;height:auto;
+  filter:drop-shadow(0 1px 0 rgba(25,52,46,.075));
+}
+.v3-home .v3-prologue__description{
+  grid-column:2;color:#8d4436;max-width:355px;
+  font:400 clamp(16px,1.16vw,19px)/2 "LXGW WenKai TC","Noto Serif SC",serif;
+  letter-spacing:.05em;
+  padding-left:clamp(16px,1.5vw,28px);
+  border-left:1px solid rgba(156,85,61,.27);
+  text-shadow:0 1px 0 rgba(255,249,230,.24);
+}
+/* Make the last chapter flow directly into the mountain outro. */
+.v3-home .v3-chapters{padding-bottom:clamp(30px,3.1vw,52px)}
+.v3-home .v3-epilogue{
+  min-height:282px;height:auto;
+  padding:62px clamp(38px,5vw,90px) 52px;
+  overflow:visible;
+  background:#122824;color:#f0e3d1;
+  isolation:isolate;
+}
+.v3-home .v3-epilogue::before{
+  content:"";position:absolute;top:-26px;left:0;right:0;height:46px;
+  z-index:0;pointer-events:none;
+  background:#142d29;
+  clip-path:polygon(0 43%,4% 55%,8% 29%,12% 51%,16% 24%,21% 52%,26% 30%,31% 59%,37% 20%,42% 39%,47% 31%,52% 56%,58% 29%,63% 50%,68% 21%,73% 42%,79% 33%,85% 57%,91% 28%,96% 45%,100% 37%,100% 100%,0 100%);
+}
+.v3-home .v3-epilogue__backdrop{
+  inset:0;z-index:-2;
+  background-image:url('../images/editorial/epilogue-mist.webp');
+  background-position:center 57%;background-size:cover;
+  filter:brightness(.63) sepia(.15) saturate(.8) hue-rotate(4deg) contrast(1.09);
+}
+.v3-home .v3-epilogue::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 95px 52px at 78% 24%,rgba(246,190,111,.34),transparent 93%),
+    radial-gradient(ellipse 22% 64% at 78% 43%,rgba(235,178,102,.16),transparent 100%),
+    linear-gradient(90deg,rgba(9,29,29,.71) 0%,rgba(12,34,32,.27) 38%,rgba(9,33,31,.17) 69%,rgba(9,29,28,.47) 100%),
+    linear-gradient(0deg,rgba(7,27,26,.78),transparent 70%);
+}
+.v3-home .v3-epilogue__inner{
+  position:relative;z-index:2;width:100%;max-width:1540px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(135px,.35fr) minmax(0,1.45fr) minmax(195px,.42fr);
+  align-items:center;gap:clamp(22px,2.5vw,48px);
+  text-align:left;
+}
+.v3-home .v3-epilogue__label{
+  align-self:center;margin:0;
+  display:flex;flex-direction:column;gap:6px;
+  font:400 clamp(11px,.84vw,14px)/1.4 Georgia,serif;
+  letter-spacing:.16em;color:#e7b77f;
+  white-space:nowrap;
+}
+.v3-home .v3-epilogue h2{
+  width:100%;min-width:0;line-height:0;margin:0;position:relative;
+}
+.v3-home .v3-epilogue h2 img{
+  display:block;width:100%;height:auto;
+  filter:drop-shadow(0 4px 12px rgba(4,12,11,.32));
+}
+.v3-home .v3-epilogue__aside{
+  max-width:245px;justify-self:end;
+  color:#e7d8bf;font:400 clamp(14px,1vw,16px)/2 "LXGW WenKai TC","Noto Serif SC",serif;
+  letter-spacing:.045em;line-break:strict;
+}
+.v3-home .v3-epilogue__return{right:clamp(15px,2vw,35px);top:auto;bottom:18px;transform:none;gap:4px;opacity:.9}
+.v3-home .v3-footer{background:#0f2523;color:#bdc8bb}
+@media (max-width:1200px) and (min-width:761px){
+ .v3-home .v3-prologue__inner{grid-template-columns:minmax(310px,1fr) minmax(260px,.8fr) minmax(0,.2fr);padding-inline:5vw}
+ .v3-home .v3-prologue h2{width:min(100%,445px)}
+ .v3-home .v3-prologue__eyebrow{gap:15px;font-size:13px}
+ .v3-home .v3-prologue__eyebrow small{font-size:12px}
+ .v3-home .v3-epilogue__inner{grid-template-columns:minmax(100px,.25fr) minmax(0,1.5fr) minmax(175px,.36fr)}
+ .v3-home .v3-epilogue__label{font-size:11px}
+ .v3-home .v3-epilogue__aside{font-size:13px}
+}
+@media (max-width:760px){
+ .v3-home .v3-prologue{min-height:380px}
+ .v3-home .v3-prologue__inner{
+   display:grid;grid-template-columns:1fr;min-height:380px;
+   padding:34px 7vw 58px;gap:14px;align-content:center;
+ }
+ .v3-home .v3-prologue__story,.v3-home .v3-prologue__description{grid-column:1}
+ .v3-home .v3-prologue__eyebrow{font-size:12px;gap:13px;padding-bottom:10px}
+ .v3-home .v3-prologue__eyebrow small{font-size:11px}
+ .v3-home .v3-prologue h2{width:min(86vw,400px);transform:translateX(-5px)}
+ .v3-home .v3-prologue__description{
+   border-left:0;border-top:1px solid rgba(156,85,61,.25);
+   padding:13px 0 0;max-width:480px;line-height:1.82;font-size:14px;
+ }
+ .v3-home .v3-prologue__mountain{
+   width:100%;height:100%;opacity:.34;background-position:72% center;
+   mask-image:linear-gradient(180deg,transparent 23%,#000 96%);
+   -webkit-mask-image:linear-gradient(180deg,transparent 23%,#000 96%);
+ }
+ .v3-home .v3-chapters{padding-bottom:35px}
+ .v3-home .v3-epilogue{min-height:335px;padding:56px 7vw 70px}
+ .v3-home .v3-epilogue__inner{
+   display:flex;flex-direction:column;align-items:center;gap:15px;text-align:center;
+ }
+ .v3-home .v3-epilogue__label{flex-direction:row;font-size:11px;gap:8px}
+ .v3-home .v3-epilogue h2{width:min(100%,620px)}
+ .v3-home .v3-epilogue__aside{justify-self:auto;max-width:450px;font-size:13px;line-height:1.85}
+ .v3-home .v3-epilogue__aside br{display:none}
+ .v3-home .v3-epilogue__return{right:6vw;bottom:13px;flex-direction:row}
+}
+@media (max-width:420px){
+ .v3-home .v3-prologue__inner{padding-inline:6vw;min-height:360px}
+ .v3-home .v3-prologue__eyebrow{flex-wrap:wrap;gap:4px 14px}
+ .v3-home .v3-prologue__description br{display:none}
+ .v3-home .v3-epilogue{min-height:300px;padding:44px 6vw 58px}
+ .v3-home .v3-epilogue__label{font-size:9px}
+}
