@@ -10,6 +10,10 @@ const types = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".webp": "image/webp",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".mp4": "video/mp4",
+  ".ogg": "audio/ogg",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
   ".woff2": "font/woff2",
@@ -20,6 +24,11 @@ const previewUrl = `http://127.0.0.1:${port}`;
 const server = http
   .createServer(async (req, res) => {
     try {
+      if (!["GET", "HEAD"].includes(req.method)) {
+        res.writeHead(405, { Allow: "GET, HEAD" });
+        res.end();
+        return;
+      }
       const pathname = decodeURIComponent(
         new URL(req.url, "http://localhost").pathname,
       );
@@ -36,12 +45,31 @@ const server = http
         return;
       }
       const body = await readFile(target);
-      res.writeHead(200, {
+      const headers = {
         "Content-Type":
           types[path.extname(target)] || "application/octet-stream",
         "Cache-Control": "no-store",
-      });
-      res.end(body);
+        "Accept-Ranges": "bytes",
+      };
+      let start = 0, end = body.length - 1, status = 200;
+      if (req.headers.range) {
+        const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range);
+        if (!range || (!range[1] && !range[2])) {
+          res.writeHead(416, { "Content-Range": `bytes */${body.length}` });
+          res.end(); return;
+        }
+        start = range[1] ? Number(range[1]) : Math.max(0, body.length - Number(range[2]));
+        if (range[1] && range[2]) end = Math.min(end, Number(range[2]));
+        if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end || start >= body.length) {
+          res.writeHead(416, { "Content-Range": `bytes */${body.length}` });
+          res.end(); return;
+        }
+        status = 206;
+        headers["Content-Range"] = `bytes ${start}-${end}/${body.length}`;
+      }
+      headers["Content-Length"] = Math.max(0, end - start + 1);
+      res.writeHead(status, headers);
+      res.end(req.method === "HEAD" ? undefined : body.subarray(start, end + 1));
     } catch {
       res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
       res.end("页面不存在");

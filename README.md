@@ -6,7 +6,7 @@ V3.8 首页与原有长征纪事、山河邮局的整合版本。
 
 - index.html：首页、序章、四个栏目入口和尾声。
 - chronicle.html：九段长征纪事、搜索、时间线与史料来源。
-- journey.html：重走长征入口；地图与雪山关卡尚未接入。
+- journey.html：六站地图式剧情体验；相册入站、原声影片、选择回响和会师尾声，源码位于 modules/c/。
 - inheritance.html：当代传承案例。
 - post-office.html：写信、选择邮票与信纸、投递动画、留言查看及备份。
 
@@ -26,7 +26,7 @@ Windows 也可以双击「开始预览.cmd」。如果端口被占用，在 Powe
 
 ## 验证
 
-运行 npm run check，以及 node --test tools/letters.test.mjs tools/legacy-chronicle.test.mjs。
+运行 npm run check，以及 node --test tools/letters.test.mjs tools/legacy-chronicle.test.mjs。C模块另运行 npm --prefix modules/c run check。
 
 ## 整合来源与边界
 
@@ -35,3 +35,5 @@ Windows 也可以双击「开始预览.cmd」。如果端口被占用，在 Powe
 整合记录见 [docs/INTEGRATION-V3.8.md](docs/INTEGRATION-V3.8.md)。队友包的原始说明存档于 [docs/README-V3.8-package.md](docs/README-V3.8-package.md)；其中提到的历史验收截图和原始比赛材料未加入网站仓库。
 
 字体许可位于 assets/fonts/，题字和插画来源见 docs/V3.8-ART-DIRECTION.md、docs/A-ART-TYPE-ATTRIBUTION.md 等原始说明。原有文档保留各自版本范围，不代表本次已重做全部历史验收。
+
+C模块整合边界与接口见 [docs/C-INTEGRATION.md](docs/C-INTEGRATION.md)。

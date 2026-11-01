@@ -1,0 +1,128 @@
+[
+  {
+    "id": "lusheng-river",
+    "asset": "assets/chapters/lusheng-river-v015.webp",
+    "references": [
+      "lusheng-reference.png"
+    ],
+    "prompt": "Use case: historical-scene. One 16:9 live-action cinematic still. The reference shows a fictional twenty-year-old ADULT man; use his exact facial identity, natural skin, grey cotton clothes and cloth cap. He is peacefully resting reclined against a folded blanket on a low canvas bed outdoors beside a quiet rural river in 1934, fully clothed. Medium close shot, head and shoulders complete, eyes calmly open, hands below frame under a grey blanket. Camera looks slightly down toward him. Background softly blurred riverbank reeds and grey daylight; low saturation cool blue-grey photography, natural pores, no painting or CGI. No other prominent person. An ordinary quiet rest moment, no activity, injuries or distressed expression. No letters, logos, badges or typography over the image."
+  },
+  {
+    "id": "lusheng-lamp",
+    "asset": "assets/chapters/lusheng-lamp-v015.webp",
+    "references": [
+      "lusheng-reference.png"
+    ],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. The ONLY character identity reference is this uploaded portrait. Make the EXACT same Lusheng, not another earlier actor: same youthful face shape, almond eyes, straight eyebrows and fringe, smaller natural lips, nose, ears, cap and age20. January1935 borrowed modest timber-and-plaster room in Zunyi. First-person seated eye-level medium close shot, he is ALREADY seated steadily and facing near-front towards camera, full hat and connected neck/shoulders. Same worn grey cotton uniform, hands and injured leg below lower frame. One plain small oil lamp already rests by him at left, giving a gentle local warm light on cheek while a small period wooden window behind admits cool grey-blue dusk. Bedding and simple stool nearby, no forest, standing pose or other clear faces. Closed lips, quiet tired attention, no big smile. Exact reference person without beautification, no copied AI badge, readable writing or modern items."
+  },
+  {
+    "id": "snow-path",
+    "asset": "assets/chapters/snow-path-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. June1935 Jiajin Mountain, a first-person eye-level wide view along a snow-covered mountain route. A few grey-uniformed Red Army soldiers separated at middle distance walking uphill away from viewer with bedding packs; only backs, no close recognizable faces. Grey-white slopes, dark rock outcrops, distant subdued alpine ridges, overcast diffuse daylight, thin natural snow cover patches with a tread path, no fantasy glacier or giant avalanche. Harsh but believable, human scale, calm cinematography, no player hands or ice-climbing equipment."
+  },
+  {
+    "id": "grass-camp",
+    "asset": "assets/chapters/grass-camp-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. August1935 Songpan grassland temporary camp in wet cold twilight. First-person seated eye-level view, flat damp grey-green grass and shallow muddy puddles stretching far, low cloud. A few separated exhausted Red Army soldiers ALREADY resting beside simple rough cloth windbreaks, packs resting on earth, a small understated covered food pot. Not modern military tents or a large army parade. Subtle warm pinpoints from one sheltered lamp, otherwise muted grey-green and blue. No close face or visible hand contact. Documentary film intimacy, ordinary people waiting for morning, no fantasy swamp."
+  },
+  {
+    "id": "lusheng-grass",
+    "asset": "assets/chapters/lusheng-grass-v015.webp",
+    "references": [
+      "lusheng-reference.png"
+    ],
+    "prompt": "One 16:9 photoreal live-action period portrait of the SAME fictional twenty-year-old ADULT man in the reference, exact face, eyes, eyebrows, black fringe, nose, natural lips, ears and cap. He is already sitting comfortably on folded grey bedding at a quiet rural meadow campsite, 1935. First-person seated eye-level medium close shot facing near-front. Worn grey cotton clothing and simple cap as in reference, complete connected head, neck and shoulders. Hands and lower legs outside frame. Calm attentive eyes and closed lips, a natural ordinary expression. Soft low grey-blue evening light, a very faint warm reflection from a small sheltered lamp offscreen, low rough cloth shelter and wet grass softly blurred behind; a simple bowl already rests nearby at the frame edge. Keep scene peaceful with no activity or interactions. Natural adult skin texture, no beauty filter, CGI or drawing, no text, logos or badge copied from reference."
+  },
+  {
+    "id": "chenhe-grass",
+    "asset": "assets/chapters/chenhe-grass-v015.webp",
+    "references": [
+      "chenhe-first-v011.png"
+    ],
+    "prompt": "undefinedPreserve the exact SAME Chenhe actor from reference, face, grey cap and uniform, age21. August1935 grey-green grassland camp after long wet marching. First-person seated medium shot of Chenhe ALREADY seated on rolled bedding beside low wet grass, upper body and full cap visible, both hands below frame. Tired and a little sore but quiet friendly eyes, restrained small smile, closed lips, natural posture. Mud and wear on same uniform, bedding straps loosened only naturally, no modern coat. His sore foot is out of frame, do not show injury or perform treatment. Low cloth windbreak, very faint fire/lamp point away from cloth, distant spaced comrades and flat wet meadow. Cool muted morning-dawn light with barely warm cheek light, not orange sunset. No speech or text."
+  },
+  {
+    "id": "grass-meal",
+    "asset": "assets/chapters/grass-meal-v015.webp",
+    "references": [
+      "exec-37ab03eb-f889-423f-97c8-29d6a8884426.png"
+    ],
+    "prompt": "EDIT the attached still into a WIDE 16:9 landscape cinema frame, by expanding the scene horizontally on both sides. Output aspect ratio 16:9, not square, no letterboxing. Preserve the exact two old bowls (one little thin grain porridge, one water), the folded grey bedding, blue-grey sewing pouch with reddish patch on the right, wet grass, canvas shelter left, faint misty dawn and restrained light. Same first-person low camera beside these already resting objects in a 1935 rural meadow camp. Show the entire bowls and pouch clearly, modest size within the widened frame, no additional objects or people, no new interaction. Extend only believable wet grass, blanket edges, shelter and distant grey meadow to the left/right, same photoreal live-action film textures, light, exposure and depth of field. Not painting, not CGI, no text."
+  },
+  {
+    "id": "wuqi-arrival",
+    "asset": "assets/chapters/wuqi-arrival-v015.webp",
+    "references": [
+      "exec-fba05a7e-2c9a-4c43-97b1-205ebbdf2134.png"
+    ],
+    "prompt": "EDIT the attached rural 1935 village arrival movie still into a WIDE 16:9 landscape frame by expanding left and right. Output aspect ratio 16:9, no black bars, not 3:2. Preserve the central dirt path leading into the village, separated adult comrades in grey cotton uniforms, rolled bedding packs, seated resting men at roadside, earth walls, courtyard gateway, yellow autumn leaves and arid loess hills. No prominent new face, do not change central subjects or add activity. The camera is a newly arrived adult comrade's eye level. Extend plausible earth walls, rough low houses, tree canopy and distant hills on the sides. Same natural restrained autumn daylight, muted earth palette and live-action photographic texture. Normal people, no duplication or merged figures. No painting, CGI, lettering or logos."
+  },
+  {
+    "id": "mountain-pack",
+    "asset": "assets/chapters/mountain-pack-v015.webp",
+    "references": [
+      "chenhe-first-v011.png"
+    ],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. Exact same Chenhe actor as reference, age21, same face, cap and grey worn uniform. June1935 at the lower mountain staging place before climbing Jiajin Mountain. First-person medium shot of Chenhe already crouched steadily near his modest rolled bedding, looking down concentrating on the bedding just BELOW lower frame; lips closed, a hint of familiar humor. Hands, rope knot and player's arms completely out of frame. Soft grey mountain foothills, sparse alpine shrubs and distant snow patches behind, separated soldiers preparing their packs at middle distance, NO river, boats, lanterns or snowstorm. Natural overcast daylight, realistic cotton and pack straps, no active multi-hand tying."
+  },
+  {
+    "id": "chenhe-rest",
+    "asset": "assets/chapters/chenhe-rest-v015.webp",
+    "references": [
+      "chenhe-first-v011.png"
+    ],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. Exact SAME Chenhe actor from the reference, same face/eyes/cap/age21 and uniform. October1935 northern Shaanxi at a simple Wuqi courtyard shelter. First-person eye-height medium close shot, Chenhe ALREADY sitting steadily on a low bench against rough earthen wall, rolled bedding set beside him, shoulders relaxed in exhaustion and quiet relief. Natural skin and dusty old grey cloth, a soft almost-smile, lips closed, looking towards the companion just beside camera. Both hands below frame, no unbuckling or sitting-down action. Low plain wooden doorway and a glimpse of muted loess hillside beyond, soft natural late afternoon light, restrained warmth, no modern items, no snow, no golden spectacle."
+  },
+  {
+    "id": "lusheng-wuqi",
+    "asset": "assets/chapters/lusheng-wuqi-v015.webp",
+    "references": [
+      "lusheng-reference.png"
+    ],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. Use EXACTLY the user-selected Lusheng in reference, same young face, eyes, straight brows, fringe, nose, lips and age20. October1935 Wuqi simple earthen courtyard in northern Shaanxi, soft natural muted afternoon light. First-person seated eye-level medium shot of Lusheng ALREADY seated nearby, tired but attentive, a tiny restrained friendly smile and closed lips. Old grey uniform with same worn collar and cap, rolled bedding nearby. A small plain water bowl is already placed at the edge near camera, no hands touching it and no pouring. Hands and old leg injury out of frame, not suddenly vigorous or standing. Rough earth wall and wood furnishing, no forest from reference, no subtitles, no fancy costume."
+  },
+  {
+    "id": "north-trail",
+    "asset": "assets/chapters/north-trail-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. September to October1935 northern march after the grassland. First-person eye-level view of a narrow rugged mountain path opening onto layered subdued dry hills, worn footpath and sparse autumn grasses. A small group of Red Army soldiers seen only from behind, separated naturally with rolled bedding and patched grey uniforms, walking towards a distant pass. Ordinary human scale, no heroic raised fists, no huge modern road or cliff stunt. Cool grey daylight shifting gently to muted earth tones, practical fatigue and persistence, no player body, no close recognizable faces, no modern bridge or signage."
+  },
+  {
+    "id": "memory-page",
+    "asset": "assets/chapters/memory-page-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. First-person downward still-life in an October1935 Wuqi earthen-room shelter. ONE fresh but inexpensive off-white paper sheet and a short used wooden pencil already resting on a rough wooden board. A closed small slate-blue cloth sewing pouch with a dull rust-red patch and dark tie lies beside it, a piece of worn grey cotton underneath. This is a NEW page for the player's memories, NOT an old family letter. Blank paper or very faint indistinct marks only, NO readable writing, Chinese characters or names; webpage will print text separately. No hands, no faces, no luxurious stationery. Cool natural window light with a weak local oil-lamp warmth, restrained photoreal old materials."
+  },
+  {
+    "id": "new-cuff",
+    "asset": "assets/chapters/new-cuff-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. First-person close film insert at Wuqi, October1935, a companion's old grey cotton uniform cuff resting flat on a rough bench, NO visible hand or body. A small practical split in THIS cuff is now closed with 5-7 uneven pale grey repair stitches, small and plausible, no decorative embroidery. This is Chenhe's newly mended cuff, NOT the player's cuff with three original dark stitch bars: do NOT put a set of three dark bars here. A small scrap of useful plain grey old cotton nearby, softly lit earthen room background. Natural window light and quiet warm lamp tone, truthful worn cotton weave, no active sewing or fingers, no paper or text."
+  },
+  {
+    "id": "old-letter-room",
+    "asset": "assets/chapters/old-letter-room-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. An intimate first-person downward still life in a borrowed earthen room at Wuqi in October1935. A small damp-marked old beige letter sheet ALREADY laid separately on dry grey cloth, only faint illegible handwriting marks. Beside it the SAME style small slate-blue handstitched sewing pouch with dull rust-red cloth repair patch and dark cord; unpretentious ordinary belongings. This is an OLD unfinished letter carried all the way, NOT the clean new memory page, so keep worn creases and stained corner. Background rough wooden board and earthen-room shadow ONLY, no river, boats, forest, modern objects, hands or faces. Soft cool window daylight and weak warm lamp, no readable generated words."
+  },
+  {
+    "id": "grass-path",
+    "asset": "assets/chapters/grass-path-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. August1935 grassland night, first-person eye-height view along a muddy flattened-grass path towards a distant small camp light, dark grey-blue and muted green. A few Red Army helpers in grey clothing and bedding packs seen separated from behind at middle distance, already pausing beside one exhausted comrade seated stably at the path edge; faces small and indistinct, hands out of clear view, no multi-person lifting or contact. Their packs rest naturally on ground. Wet flat meadow and shallow puddles, no giant sinkhole, fantasy fog, modern flashlights or dangerous acrobatics. Dim believable twilight, human scale and restrained hope, no blood or injuries visible."
+  },
+  {
+    "id": "newcomer-later",
+    "asset": "assets/chapters/newcomer-later-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. October1935 Wuqi plain northern Shaanxi courtyard shelter. First-person seated eye-height view of a newly arrived young adult Red Army soldier ALREADY standing steadily near an open place on a simple bench, shown three-quarter BACK so no new important face is established. Grey worn uniform, grey red-star cap, modest rolled bedding, one shoulder strap slightly twisted but physically natural, connected full head and neck. Another seated comrade is only a soft indistinct shoulder farther away, people separate. Earthen wall, rough wooden doorway, plain packed-earth ground, natural subdued late afternoon light, quiet invitation. No touching hands, player body, modern furniture, snow or celebration banner."
+  },
+  {
+    "id": "spare-cloth",
+    "asset": "assets/chapters/spare-cloth-v015.webp",
+    "references": [],
+    "prompt": "One single 16:9 live-action historical Chinese film still for a first-person Long March narrative game. Photoreal natural faces, real skin pores and worn grey cotton Red Army uniforms, grey cloth eight-corner red-star caps, faded red collar patches, simple rolled bedding. Restrained low-saturation grey-blue / muted earth tones, plausible period light, authentic cotton, connected head/neck/shoulders, normal limbs. No illustration, anime, 3D rendering, plastic faces, text, subtitles, logos, modern equipment, gore, poster hero poses or collage. Lower fifth calm for webpage text; no text in image. First-person downward film still in a plain Wuqi earthen shelter in October1935. A SMALL useful piece of plain grey old cotton, cut from worn clothing, already folded on a rough wooden bench, beside a small closed slate-blue handstitched sewing pouch with one dull rust-red patch and a dark cord. The cloth is unsewn and useful, NOT a finished mended cuff; no sleeve, needles, hands, paper, letter or readable text. A rolled grey bedding edge soft-focus beside the bench, earthen wall background, soft natural window light and subtle local lamp warmth. Modest practical gift, not decorative still-life luxury."
+  }
+]
