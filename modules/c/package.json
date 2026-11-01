@@ -1,0 +1,11 @@
+{
+  "name": "long-march-c-journey",
+  "version": "0.15.0",
+  "private": true,
+  "scripts": {
+    "check": "node --check assets/site-integration.js && node --check assets/yudu-game.js && node --test tests/*.test.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

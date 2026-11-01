@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e4e8df"><meta name="description" content="在地图与对白之间，走进长征路上一段关于同行的故事。从于都、雪山到草地与吴起，翻开一站站相册，记住同行的人。">
+<title>同行 · 重走长征路</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/fonts.css"><link rel="stylesheet" href="assets/yudu.css"><link rel="stylesheet" href="assets/journey-atlas.css">
+<script defer src="assets/late-chapters-data.js"></script><script defer src="assets/chapters-data.js"></script><script defer src="assets/yudu-data.js"></script><script defer src="assets/yudu-core.js"></script><script defer src="assets/yudu-text.js"></script><script defer src="assets/atlas-map.js"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/yudu-game.js"></script>
+<script defer src="assets/site-integration.js"></script>
+</head>
+<body>
+<audio id="ambient-audio" loop preload="auto" hidden aria-hidden="true"></audio>
+<div id="map-screen" class="atlas-screen">
+ <header class="atlas-header"><a class="brand" href="../../index.html" aria-label="返回山河印记首页"><span class="brand-seal" aria-hidden="true">山<br>河</span><span>同行<small>重走长征路 · 1934—1936</small></span></a><p id="atlas-progress">从于都河岸，走向更远的山河</p><nav class="c-site-links" aria-label="栏目导航"><a data-c-history href="../../chronicle.html" aria-label="返回长征纪事">纪事</a><a href="../../post-office.html" aria-label="走进山河邮局">邮局</a><button class="quiet" id="about-open">关于这一程</button></nav></header>
+ <main class="atlas-main">
+  <div class="atlas-intro"><h1 id="map-title">山河之间，<br>记得同行的人。</h1><p>点亮一个站点，翻开一页相册。</p></div>
+  <div id="atlas-window" class="atlas-window" aria-label="长征故事地图，可拖动查看">
+   <div id="atlas-canvas" class="atlas-canvas">
+    <img class="atlas-terrain" src="assets/atlas-base.svg" alt="江西、广西、贵州、云南、四川到陕北一带的山河概括示意">
+    <svg class="atlas-routes" viewBox="0 0 1180 780" aria-hidden="true"><polyline id="atlas-main-route" fill="none" stroke="#a55949" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 7"/><path d="M600 101Q530 115 416 161L454 156" fill="none" stroke="#b99472" stroke-width="1.8" stroke-dasharray="3 7"/></svg>
+    <div id="atlas-pins" class="atlas-pins"></div>
+   </div>
+  </div>
+  <aside class="atlas-card" aria-labelledby="station-title"><div class="atlas-photo-wrap"><img id="atlas-photo" src="assets/yudu/chenhe-first-v011.png" alt="于都河岸的陈禾"></div><div class="atlas-card-copy"><p id="atlas-date">1934年10月</p><p id="atlas-place">江西于都</p><h2 id="station-title">一只伸来的手</h2><p id="atlas-description">河边木板有些湿。有人停下来，等你跟上。</p><a id="chapter-facts" class="c-chapter-facts" href="../../chronicle.html#event=yudu">读这一程的史实</a><div class="entry-actions"><button id="enter" class="primary">翻开这一站</button><button id="restart-map" class="quiet" hidden>继续上次</button></div><p id="save-description" class="atlas-save"></p></div></aside>
+  <div class="atlas-controls" aria-label="地图缩放"><button id="atlas-zoom-out" aria-label="缩小地图">−</button><button id="atlas-fit" aria-pressed="false">全图</button><button id="atlas-zoom-in" aria-label="放大地图">＋</button></div>
+  <p class="atlas-note">故事路线概括示意 · 非完整行军轨迹<br><span>可拖动地图；点亮的站点可以进入。</span></p>
+ </main>
+ <details class="atlas-directory"><summary>章节目录</summary><nav id="chapter-nav" aria-label="故事章节"><div id="chapter-buttons"></div></nav></details>
+ <footer class="atlas-footer"><span>人物与具体经历为虚构情境</span><span>一站一页，一路同行。</span></footer>
+</div>
+
+<section id="story-screen" class="story-screen" aria-label="长征同行剧情" hidden>
+ <div class="visual-stage">
+  <img id="scene-image" src="assets/yudu/chenhe-first-v011.png" alt="陈禾站在于都河岸，身后战士走向浮桥">
+  <video id="scene-video" playsinline preload="metadata" poster="assets/yudu/chenhe-first-v011.png" aria-label="陈禾向你伸手的短镜头" hidden></video>
+  <div id="scene-cut-veil" class="scene-cut-veil" aria-hidden="true"></div><div class="river-light" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>
+  <p class="scene-location"><b id="scene-place">江西于都</b><span id="scene-date">1934年10月</span></p><div id="route-progress" class="route-progress" aria-label="时间与路线推进" hidden><span>遵义</span><i>—</i><span id="route-chishui">赤水</span><i>—</i><span id="route-jinsha">金沙江</span></div>
+ </div>
+ <header class="story-header"><button id="leave" class="glass">‹ 地图</button><span id="chapter-label">第一站 · 于都启程</span><div><button id="watch-invitation" class="glass" aria-label="重看最近一段视频">播放招呼</button><button id="history-open" class="glass">回看文字</button><button id="sound-open" class="glass">声音</button></div></header>
+ <div id="dialogue-panel" class="dialogue-panel">
+  <div class="dialogue-inner"><div class="speaker-row"><span class="speaker-line"></span><h2 id="speaker">旁白</h2><span id="voice-state" class="voice-state"></span></div><p id="line" class="dialogue-text" aria-hidden="true" title="点击显示整句"></p><p id="line-accessible" class="sr-only" aria-live="polite" aria-atomic="true"></p><blockquote id="document-text" class="document-text" hidden></blockquote>
+   <div id="choices" class="choices" aria-label="选择接下来的行动" hidden></div>
+   <div class="reading-controls"><div><button id="pause" class="subtle" aria-pressed="false">暂停</button><button id="repeat" class="subtle">再看一遍</button><button id="auto" class="subtle" aria-pressed="false">自动：关</button></div><button id="next" class="next">继续 <span aria-hidden="true">›</span></button></div>
+  </div>
+ </div>
+ <div id="ending" class="ending" hidden><p id="ending-place" class="ending-place">于都启程</p><h2 id="ending-title">路还很远，<br>有人与你同行。</h2><p id="memory-text"></p><ul id="memory-cards" class="memory-cards" hidden></ul><p id="ending-note" class="ending-note">走过的路和作过的选择都会记下。</p><div><button id="continue-route" class="primary" hidden>继续这一程</button><button id="back-map" class="primary">回到地图</button><button id="replay" class="glass">重看，试试另一种选择</button></div></div>
+ <div id="pause-overlay" class="pause-overlay" hidden><button id="resume" class="resume-button"><span aria-hidden="true">▷</span> 继续这一程</button><p>画面与声音已暂停</p></div>
+</section>
+<div id="album-transition" class="album-transition" aria-label="翻开这一站的相册" hidden><button id="skip-album" class="album-skip">直接进入</button><p id="album-live" class="sr-only" role="status"></p><div class="album-stage"><div class="album-book"><div class="album-page album-page-left"><span>同行 · 行军相册</span><p id="album-place"></p></div><div class="album-page album-page-right"><img id="album-photo" alt="这一站的相册照片"><p id="album-date"></p></div><div class="album-cover"><span class="album-cover-rule"></span><p>同 行</p><h2 id="album-title"></h2><small>山河印记</small></div></div></div><div class="album-white" aria-hidden="true"></div><div id="album-glints" class="album-glints" aria-hidden="true"></div></div>
+<p id="notice" class="notice" role="status" hidden></p>
+
+<dialog id="sound-dialog" aria-labelledby="sound-title"><div class="dialog-heading"><h2 id="sound-title">听见河岸</h2><button class="quiet close-dialog" aria-label="关闭声音设置">✕</button></div><label class="range-label" for="voice-volume">人物声音 <output id="voice-value">90%</output></label><input id="voice-volume" type="range" min="0" max="100" value="90"><label class="range-label" for="ambient-volume">环境声音 <output id="ambient-value">45%</output></label><input id="ambient-volume" type="range" min="0" max="100" value="45"><p class="dialog-note">于都五段、雪山两段镜头保留影片原声。其余片段用图片、环境底声与无声文字呈现，不另加人物配音。人物音量控制影片，环境音量控制各地的环境声音。</p><button id="sound-done" class="primary">回到河岸</button></dialog>
+<dialog id="history-dialog" aria-labelledby="history-title"><div class="dialog-heading"><h2 id="history-title">这一段，我们记得</h2><button class="quiet close-dialog" aria-label="关闭对白记录">✕</button></div><ol id="history-list" class="history-list"></ol><p class="dialog-note">这里只记录你走过的分支。回看时，画面和声音暂停。</p></dialog>
+<dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-heading"><h2 id="about-title">关于这一程</h2><button class="quiet close-dialog" aria-label="关闭关于说明">✕</button></div><p>这是一段以长征为背景的地图式剧情体验。你以新战士“小满”的视角，在路上认识陈禾和更多同行者。</p><p id="history-fact"></p><p>当前可走完于都、湘江、遵义、夹金山、草地、吴起六站，沿途历史转场与1936年会师尾声。人物与场景为AI创作的虚构情境，不是历史实录。七段镜头保留影片原声；心声、地点和旁白以无声文字呈现。</p><p id="source-links"></p><p class="dialog-note">本体验不以分数评价选择。地图是叙事示意，不是精确行军轨迹。</p></dialog>
+<noscript>请开启浏览器 JavaScript 以阅读互动剧情。</noscript>
+</body></html>

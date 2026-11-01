@@ -1,0 +1,23 @@
+(function(root){
+ 'use strict';
+ // Grapheme boundaries preserve punctuation, combining marks and emoji during reveal.
+ function plan(text){
+  const value=String(text||'');
+  const glyphs=typeof Intl.Segmenter==='function'?[...new Intl.Segmenter('zh',{granularity:'grapheme'}).segment(value)].map(s=>s.segment):Array.from(value);
+  let duration=0;
+  const ends=glyphs.map(g=>{duration+=/[。！？!?\n]/u.test(g)?230:/[，、；：,;:]/u.test(g)?130:/[…—]/u.test(g)?110:42;return duration;});
+  return {glyphs,ends,duration};
+ }
+ function frame(line,ms,instant=false){
+  let low=0,high=line.ends.length;
+  if(instant)low=high;
+  else while(low<high){const mid=(low+high)>>>1;if(line.ends[mid]<=Math.max(0,ms))low=mid+1;else high=mid;}
+  return {text:line.glyphs.slice(0,low).join(''),complete:low===line.glyphs.length,shown:low};
+ }
+ function mediaTime(line,currentTime,start,end){
+  if(end<=start)return currentTime>=end?line.duration:0;
+  return Math.max(0,Math.min(1,(currentTime-start)/(end-start)))*line.duration;
+ }
+ const api={plan,frame,mediaTime};
+ if(typeof module==='object'&&module.exports)module.exports=api;else root.YuduText=api;
+})(typeof window==='undefined'?globalThis:window);
