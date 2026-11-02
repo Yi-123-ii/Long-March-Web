@@ -6,6 +6,8 @@
 <title>同行 · 重走长征路</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/css/fonts.css"><link rel="stylesheet" href="assets/yudu.css"><link rel="stylesheet" href="assets/journey-atlas.css">
+<link rel="stylesheet" href="../../assets/css/site-shell.css"><link rel="stylesheet" href="assets/header-v41.css">
+<script defer src="assets/header-v41.js"></script>
 <script defer src="assets/journey-return.js?v=017"></script>
 <script defer src="assets/late-chapters-data.js"></script><script defer src="assets/chapters-data.js"></script><script defer src="assets/yudu-data.js"></script><script defer src="assets/yudu-core.js"></script><script defer src="assets/yudu-text.js"></script><script defer src="assets/atlas-route.js"></script><script defer src="assets/atlas-map.js"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/soldier-pointer.js"></script><script defer src="assets/yudu-game.js"></script>
 <script defer src="assets/site-integration.js?v=017"></script>
@@ -13,7 +15,19 @@
 <body>
 <audio id="ambient-audio" loop preload="auto" hidden aria-hidden="true"></audio>
 <div id="map-screen" class="atlas-screen">
- <header class="atlas-header"><a class="brand" href="../../index.html" aria-label="返回山河印记首页"><span class="brand-seal" aria-hidden="true">山<br>河</span><span>同行<small>重走长征路 · 1934—1936</small></span></a><p id="atlas-progress">从于都河岸，走向更远的山河</p><nav class="c-site-links" aria-label="栏目导航"><a data-c-history href="../../chronicle.html" aria-label="返回长征纪事">纪事</a><a href="../../post-office.html" aria-label="走进山河邮局">邮局</a><button class="quiet" id="about-open">关于这一程</button></nav></header>
+ <header class="atlas-header c-header-v41 site-header site-header--paper">
+  <a class="lm-brand" href="../../index.html" aria-label="返回山河印记首页"><img class="lm-brand-landscape" src="../../assets/images/brand-landscape-v2.webp" width="320" height="259" alt=""><span><img class="lm-brand-name-art" src="../../assets/images/titles/brand-name-v3.webp" width="900" height="229" alt="山河印记"><small><span class="c-header-sr-only">循着来路，读懂远方</span><span class="lm-brand-tagline-art" aria-hidden="true"></span></small></span></a>
+  <p id="atlas-progress" class="c-header-sr-only">从于都河岸，走向更远的山河</p>
+  <button class="site-menu-toggle" type="button" aria-label="展开更多菜单" aria-expanded="false" aria-controls="c-header-menu-extra"><span></span><span></span><span></span></button>
+  <nav class="site-nav" id="site-navigation" aria-label="主导航">
+   <a href="../../index.html">首页</a>
+   <a data-c-history href="../../chronicle.html">长征纪事</a>
+   <a href="../../journey.html" aria-current="page">重走长征</a>
+   <a href="../../inheritance.html">精神传承</a>
+   <a href="../../post-office.html">山河邮局</a>
+   <div class="c-header-menu-extra" id="c-header-menu-extra" hidden><button id="about-open" type="button">关于这一程</button></div>
+  </nav>
+ </header>
  <main class="atlas-main">
   <div class="atlas-intro"><h1 id="map-title">山河之间，<br>记得同行的人。</h1><p>点亮一个站点，翻开一页相册。</p></div>
   <div id="atlas-window" class="atlas-window" aria-label="长征故事地图，可拖动查看">

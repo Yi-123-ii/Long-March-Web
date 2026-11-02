@@ -1,0 +1,102 @@
+[
+  {
+    "file": "legacy-title.svg",
+    "sha256": "47e7ee52349a2b543a648a87de32d79369cceb24e9edf8ef8e3ee27b7ffd9014",
+    "size": [
+      1600,
+      916
+    ],
+    "renderedAlphaBBox": [
+      55,
+      56,
+      1545,
+      860
+    ],
+    "transparentMargins": [
+      55,
+      56,
+      55,
+      56
+    ],
+    "fourCornersTransparent": true,
+    "onlyExpectedTags": true,
+    "noScaling": true,
+    "paths": 15,
+    "displayInspection": "legacy-title-display-inspection.png"
+  },
+  {
+    "file": "learning-title.svg",
+    "sha256": "66543c5cf5a047a3c6390390ba9e92ed9e3b701c29312a21dd4aee13881b8495",
+    "size": [
+      1226,
+      408
+    ],
+    "renderedAlphaBBox": [
+      56,
+      55,
+      1170,
+      352
+    ],
+    "transparentMargins": [
+      56,
+      55,
+      56,
+      56
+    ],
+    "fourCornersTransparent": true,
+    "onlyExpectedTags": true,
+    "noScaling": true,
+    "paths": 5,
+    "displayInspection": "learning-title-display-inspection.png"
+  },
+  {
+    "file": "service-title.svg",
+    "sha256": "115feca43fae2042f905e1b8c9ff9e4ef001e4477ef44cd6455546caec8b2ab4",
+    "size": [
+      1199,
+      397
+    ],
+    "renderedAlphaBBox": [
+      55,
+      55,
+      1144,
+      342
+    ],
+    "transparentMargins": [
+      55,
+      55,
+      55,
+      55
+    ],
+    "fourCornersTransparent": true,
+    "onlyExpectedTags": true,
+    "noScaling": true,
+    "paths": 8,
+    "displayInspection": "service-title-display-inspection.png"
+  },
+  {
+    "file": "archives-title.svg",
+    "sha256": "e871ad1200aacacdcae3b0c915ea31cc2d7c5a0971e3fe56db53b80430257a7b",
+    "size": [
+      1237,
+      381
+    ],
+    "renderedAlphaBBox": [
+      56,
+      56,
+      1182,
+      326
+    ],
+    "transparentMargins": [
+      56,
+      56,
+      55,
+      55
+    ],
+    "fourCornersTransparent": true,
+    "onlyExpectedTags": true,
+    "noScaling": true,
+    "paths": 7,
+    "displayInspection": "archives-title-display-inspection.png"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "w": 1920,
+    "hero": 1080,
+    "titleY": 223.984375,
+    "text": "1934 — 1936",
+    "background": "url(\"http://127.0.0.1:5221/assets/images/home-long-march-selected-v1.webp\")",
+    "overflow": false,
+    "titleDelta": 0
+  },
+  {
+    "w": 1440,
+    "hero": 900,
+    "titleY": 192.703125,
+    "text": "1934 — 1936",
+    "background": "url(\"http://127.0.0.1:5221/assets/images/home-long-march-selected-v1.webp\")",
+    "overflow": false,
+    "titleDelta": 0
+  },
+  {
+    "w": 1280,
+    "hero": 720,
+    "titleY": 148.015625,
+    "text": "1934 — 1936",
+    "background": "url(\"http://127.0.0.1:5221/assets/images/home-long-march-selected-v1.webp\")",
+    "overflow": false,
+    "titleDelta": 0
+  },
+  {
+    "w": 760,
+    "hero": 740,
+    "titleY": 169.203125,
+    "text": "1934 — 1936",
+    "background": "url(\"http://127.0.0.1:5221/assets/images/home-long-march-selected-v1.webp\")",
+    "overflow": false,
+    "titleDelta": 0.015625
+  },
+  {
+    "w": 390,
+    "hero": 844,
+    "titleY": 155.125,
+    "text": "1934 — 1936",
+    "background": "url(\"http://127.0.0.1:5221/assets/images/home-long-march-selected-v1.webp\")",
+    "overflow": false,
+    "titleDelta": 0.015625
+  },
+  {
+    "w": 360,
+    "hero": 800,
+    "titleY": 155.125,
+    "text": "1934 — 1936",
+    "background": "url(\"http://127.0.0.1:5221/assets/images/home-long-march-selected-v1.webp\")",
+    "overflow": false,
+    "titleDelta": 0.015625
+  }
+]

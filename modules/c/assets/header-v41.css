@@ -1,0 +1,148 @@
+/* C's shared navigation is confined to the existing atlas header box. */
+.c-header-v41.site-header {
+  /* Preserve the original map paint order until a menu needs to overlay it. */
+  z-index: 1;
+  height: 87px !important;
+  min-height: 87px !important;
+  max-height: 87px;
+  flex-wrap: nowrap;
+  padding-block: 0;
+  font-family: "Shanhe UI", "Shanhe Reading", "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
+  font-weight: 500;
+  line-height: 1.8;
+  font-synthesis: none;
+}
+.c-header-v41.site-header.is-menu-open { z-index: 30; }
+.c-header-v41 .lm-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.c-header-v41 .lm-brand > span {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+.c-header-v41 .lm-brand > .lm-brand-landscape {
+  display: block;
+  object-fit: contain;
+}
+.c-header-v41 .lm-brand .lm-brand-name-art {
+  display: block;
+  height: auto;
+}
+.c-header-v41 .lm-brand small {
+  display: block;
+  margin-top: 4px;
+  line-height: 0;
+}
+.c-header-v41 .lm-brand-tagline-art {
+  display: block;
+  aspect-ratio: 1100 / 214;
+  background: #385d43;
+  -webkit-mask: url("../../../assets/images/titles/brand-tagline-v2.webp") center / contain no-repeat;
+  mask: url("../../../assets/images/titles/brand-tagline-v2.webp") center / contain no-repeat;
+}
+.c-header-v41 .site-nav a {
+  font-family: inherit;
+  font-weight: 500;
+}
+.c-header-v41 .c-header-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.c-header-v41 .site-menu-toggle {
+  padding: 0;
+  font: inherit;
+}
+.c-header-v41 .c-header-menu-extra button {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  background: transparent;
+  color: #52645a;
+  font: inherit;
+  font-size: 13px;
+  padding: 13px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+.c-header-v41 .c-header-menu-extra button:hover {
+  background: #dce4dc;
+}
+.c-header-v41 :is(a, button):focus-visible {
+  outline: 2px solid #973e39;
+  outline-offset: 4px;
+}
+@media (min-width: 761px) {
+  /* Keep the five links in B's positions; the local action uses the outer margin. */
+  .c-header-v41 .site-menu-toggle {
+    display: flex;
+    position: absolute;
+    right: max(5px, calc(clamp(28px, 6vw, 110px) - 58px));
+    width: 36px;
+    height: 36px;
+    flex-direction: row;
+    gap: 3px;
+    border-color: transparent;
+    color: #69786f;
+  }
+  .c-header-v41 .site-menu-toggle span {
+    width: 3px;
+    height: 3px;
+    transform: none;
+    opacity: 1;
+  }
+  .c-header-v41 .site-menu-toggle:hover,
+  .c-header-v41 .site-menu-toggle[aria-expanded="true"] {
+    background: #e0e6df;
+  }
+  .c-header-v41 .c-header-menu-extra {
+    position: absolute;
+    top: calc(100% - 1px);
+    right: max(14px, calc(clamp(28px, 6vw, 110px) - 58px));
+    min-width: 148px;
+    padding: 6px;
+    background: #e9eee9;
+    box-shadow: 0 12px 28px #19352926;
+  }
+}
+@media (min-width: 761px) and (max-width: 1060px) {
+  .c-header-v41 .site-menu-toggle { right: 0; width: 32px; }
+  .c-header-v41 .c-header-menu-extra { right: 14px; }
+}
+@media (max-width: 760px) {
+  .c-header-v41 .site-nav { padding-top: 14px; }
+  .c-header-v41 .c-header-menu-extra {
+    border-top: 1px solid #cdd6ce;
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+  .c-header-v41 .c-header-menu-extra button {
+    font-size: 15px;
+    padding-inline: 7px;
+  }
+}
+@media (max-width: 600px) {
+  /* 75.5px is the measured original mobile header, including its wrapped baseline. */
+  .c-header-v41.site-header {
+    height: 75.5px !important;
+    min-height: 75.5px !important;
+    max-height: 75.5px;
+  }
+}
+@media (max-width: 580px) {
+  .c-header-v41 .lm-brand { gap: 7px; }
+  .c-header-v41 .lm-brand > span { font-size: 19px; letter-spacing: 2px; }
+  .c-header-v41 .lm-brand small { margin-top: 3px; }
+}

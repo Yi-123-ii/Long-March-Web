@@ -1,0 +1,32 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "check"
+    ],
+    "exit": 0,
+    "output": "\n> long-march-web-b@0.1.0 check\n> node tools/check.mjs\n\n检查通过：26 份浏览器脚本语法正确，本地资源引用有效，9 篇图文纪事的正文、时间线与本地配图完整。\n"
+  },
+  {
+    "command": [
+      "node",
+      "--test",
+      "tools/letters.test.mjs",
+      "tools/legacy-chronicle.test.mjs"
+    ],
+    "exit": 0,
+    "output": "✔ old chronicle bookmarks keep the GitHub Pages project path, query and anchor (0.918584ms)\n✔ old event links continue to open the selected event (0.352125ms)\n✔ new homepage anchors stay on the homepage (1.715333ms)\n✔ changing to an old bookmark after loading also works (0.230458ms)\n✔ 旧版v1留言和草稿在重新打开后保持可读，不随页面版本变化 (1.930625ms)\n✔ 一条损坏记录不会导致其余留言消失，原始记录会保留 (0.32425ms)\n✔ 主记录损坏时恢复备用记录；删除至空不会复活旧留言 (0.527292ms)\n✔ 保存失败不改变已有留言；备用记录写失败不误报主记录失败 (0.590833ms)\n✔ JSON备份可跨存储空间迁移，重复导入不增加留言 (1.86475ms)\n✔ 插画邮票随留言保留，兼容没有邮票的旧留言 (0.344041ms)\n✔ 十二枚邮票及四款信纸均可保存与备份，保留旧款编号 (3.375417ms)\n✔ 旧版文本备份保留多行正文和署名，支持批量导入与重复检测 (0.794625ms)\n✔ 错误文件、冲突编号和超限导入不会修改现有留言 (0.603083ms)\nℹ tests 13\nℹ suites 0\nℹ pass 13\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 43.060542\n"
+  },
+  {
+    "command": [
+      "npm",
+      "--prefix",
+      "modules/c",
+      "run",
+      "check"
+    ],
+    "exit": 0,
+    "output": "\n> long-march-c-journey@0.16.1 check\n> node --check assets/site-integration.js && node --check assets/journey-return.js && node --check assets/atlas-route.js && node --check assets/atlas-map.js && node --check assets/soldier-pointer.js && node --check assets/yudu-game.js && node --test tests/*.test.cjs\n\n✔ every next chapter has a continuous route with the expected map endpoints (3.78ms)\n✔ the rivers chapter arrives at Chishui, departs Jinsha and cannot teleport across its route (0.266458ms)\n✔ replaying the final station keeps prior real choices and returns to that station, not Yudu (2.324875ms)\n✔ all four combinations preserve the Xiang choice through Zunyi and both historical transitions (2.053625ms)\n✔ the letter cannot appear in the stretcher route and the pouch is received before it is kept (1.985416ms)\n✔ chapter entry retains prior choices, rejects locked chapters and rewinds only to a valid prefix (1.119334ms)\n✔ v0.13 first-station saves migrate without replaying its videos or inventing the Xiang branch (0.312ms)\n✔ a forged callback path is rejected and silent later chapters never load voices or video (0.633917ms)\n✔ all 32 stories reach the 1936 epilogue with their five real choices intact (25.168041ms)\n✔ old saves at the former endpoint can enter the snow chapter without replaying earlier videos (0.592583ms)\n✔ new Lu assets replace both previous appearances, and V07/V08 introduce no extra movies (0.084959ms)\n✔ the two endings keep distinct objects; new writing does not consume or deliver the old letter (0.715167ms)\n✔ every six-station album has a valid start, checkpoint, image and map entry (0.130459ms)\n✔ return links are restricted to the same site game entry, including repository subpaths (0.449417ms)\n✔ outbound links preserve the history article and letter form while carrying return context (0.09525ms)\n✔ a returning tab restores its own original branch even if another game tab advances the shared save (2.975167ms)\n✔ C chapters link to existing B event IDs without inventing IDs (1.045041ms)\n✔ public journey entry and both existing navigation bars reach the isolated C module (0.256875ms)\n✔ C only writes its own save key and never clears the origin storage (0.181042ms)\n✔ each ending links to its own history and letter context even when the map selects the next chapter (2.122458ms)\n✔ text streams without splitting graphemes and can be revealed instantly (7.737083ms)\n✔ commas and sentence endings create readable pauses, empty clips finish immediately (0.304458ms)\n✔ video captions follow the media clock through pause and seek, finishing before the cut (0.449458ms)\n✔ all story targets exist and every node is reachable (0.637041ms)\n✔ both choices reach their own observations and remembered ending (0.756583ms)\n✔ automatic advance cannot choose for player or pass the ending (1.783125ms)\n✔ resume reconstructs the actual branch, ignores forged choice fields (0.592375ms)\n✔ reject corrupt or impossible save paths and preserve settings safely (0.380791ms)\n✔ replay preserves completed memories but makes a fresh branch (0.139625ms)\n✔ all seven supplied movies keep source audio and lead into matching holds (1.218792ms)\n✔ previous spoken-picture saves restart safely while keeping memories and volume settings (0.105417ms)\n✔ the view follows looking down, turning back, facing Liang and standing in the boat (0.106167ms)\n✔ both branches meet Chenhe once, and the single name response is never auto-selected (0.44475ms)\n✔ both first choices include Liang, the question, boarding and the complete first-station ending (0.192916ms)\nℹ tests 34\nℹ suites 0\nℹ pass 34\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 86.222083\n"
+  }
+]

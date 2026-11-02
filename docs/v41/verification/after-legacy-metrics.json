@@ -1,0 +1,2822 @@
+[
+  {
+    "w": 1920,
+    "h": 1080,
+    "dpr": 1,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          490,
+          281
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          748,
+          421
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 1.3368983957219251
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 1.3154205607476634
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          290,
+          96
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 1.3154205607476634
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          553,
+          311
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 1.8083182640144666
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 88,
+        "h": 693
+      },
+      {
+        "id": "learning",
+        "y": 847,
+        "h": 873
+      },
+      {
+        "id": "service",
+        "y": 1720.25,
+        "h": 1032
+      },
+      {
+        "id": "archives",
+        "y": 2751.84375,
+        "h": 847
+      },
+      {
+        "id": "letter",
+        "y": 3598.6875,
+        "h": 619
+      }
+    ]
+  },
+  {
+    "w": 1920,
+    "h": 1080,
+    "dpr": 2,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          490,
+          281
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-large.webp",
+        "loaded": true,
+        "css": [
+          748,
+          421
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 217642,
+        "effectiveDpr": 2.2351543942992875
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-large.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 158994,
+        "effectiveDpr": 2.1985981308411215
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          290,
+          96
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-large.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 285678,
+        "effectiveDpr": 2.1985981308411215
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-large.webp",
+        "loaded": true,
+        "css": [
+          553,
+          311
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 152848,
+        "effectiveDpr": 3.023508137432188
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 88,
+        "h": 693
+      },
+      {
+        "id": "learning",
+        "y": 847,
+        "h": 873
+      },
+      {
+        "id": "service",
+        "y": 1720.09375,
+        "h": 1031
+      },
+      {
+        "id": "archives",
+        "y": 2751.53125,
+        "h": 847
+      },
+      {
+        "id": "letter",
+        "y": 3598.375,
+        "h": 619
+      }
+    ]
+  },
+  {
+    "w": 1440,
+    "h": 900,
+    "dpr": 1,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          490,
+          281
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          748,
+          421
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 1.3368983957219251
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 1.3154205607476634
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          290,
+          96
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 1.3154205607476634
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          553,
+          311
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 1.8083182640144666
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 88,
+        "h": 693
+      },
+      {
+        "id": "learning",
+        "y": 847,
+        "h": 873
+      },
+      {
+        "id": "service",
+        "y": 1720.25,
+        "h": 1032
+      },
+      {
+        "id": "archives",
+        "y": 2751.84375,
+        "h": 847
+      },
+      {
+        "id": "letter",
+        "y": 3598.6875,
+        "h": 619
+      }
+    ]
+  },
+  {
+    "w": 1440,
+    "h": 900,
+    "dpr": 2,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          490,
+          281
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-large.webp",
+        "loaded": true,
+        "css": [
+          748,
+          421
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 217642,
+        "effectiveDpr": 2.2351543942992875
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-large.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 158994,
+        "effectiveDpr": 2.1985981308411215
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          290,
+          96
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-large.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 285678,
+        "effectiveDpr": 2.1985981308411215
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-large.webp",
+        "loaded": true,
+        "css": [
+          553,
+          311
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 152848,
+        "effectiveDpr": 3.023508137432188
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 88,
+        "h": 693
+      },
+      {
+        "id": "learning",
+        "y": 847,
+        "h": 873
+      },
+      {
+        "id": "service",
+        "y": 1720.09375,
+        "h": 1031
+      },
+      {
+        "id": "archives",
+        "y": 2751.53125,
+        "h": 847
+      },
+      {
+        "id": "letter",
+        "y": 3598.375,
+        "h": 619
+      }
+    ]
+  },
+  {
+    "w": 1280,
+    "h": 720,
+    "dpr": 1,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          487,
+          279
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          701,
+          395
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 1.4253164556962026
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 1.3154205607476634
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          290,
+          96
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 1.3154205607476634
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          524,
+          295
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 1.9083969465648856
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 88,
+        "h": 680
+      },
+      {
+        "id": "learning",
+        "y": 833.625,
+        "h": 873
+      },
+      {
+        "id": "service",
+        "y": 1706.875,
+        "h": 1032
+      },
+      {
+        "id": "archives",
+        "y": 2738.46875,
+        "h": 847
+      },
+      {
+        "id": "letter",
+        "y": 3585.3125,
+        "h": 607
+      }
+    ]
+  },
+  {
+    "w": 1280,
+    "h": 720,
+    "dpr": 2,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          487,
+          279
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-large.webp",
+        "loaded": true,
+        "css": [
+          701,
+          394
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 217642,
+        "effectiveDpr": 2.385164051355207
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-large.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 158994,
+        "effectiveDpr": 2.1985981308411215
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          290,
+          96
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-large.webp",
+        "loaded": true,
+        "css": [
+          760,
+          428
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 285678,
+        "effectiveDpr": 2.1985981308411215
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-large.webp",
+        "loaded": true,
+        "css": [
+          524,
+          295
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 152848,
+        "effectiveDpr": 3.1898305084745764
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 88,
+        "h": 680
+      },
+      {
+        "id": "learning",
+        "y": 833.625,
+        "h": 873
+      },
+      {
+        "id": "service",
+        "y": 1706.71875,
+        "h": 1031
+      },
+      {
+        "id": "archives",
+        "y": 2738.15625,
+        "h": 847
+      },
+      {
+        "id": "letter",
+        "y": 3585,
+        "h": 607
+      }
+    ]
+  },
+  {
+    "w": 760,
+    "h": 740,
+    "dpr": 1,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          390,
+          223
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          570,
+          321
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 1.7538940809968848
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          600,
+          338
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 1.665680473372781
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          263,
+          87
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          438,
+          247
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 2.279352226720648
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          384,
+          216
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 2.6041666666666665
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 76,
+        "h": 882
+      },
+      {
+        "id": "learning",
+        "y": 1018.15625,
+        "h": 1027
+      },
+      {
+        "id": "service",
+        "y": 2044.875,
+        "h": 1093
+      },
+      {
+        "id": "archives",
+        "y": 3137.640625,
+        "h": 1041
+      },
+      {
+        "id": "letter",
+        "y": 4178.25,
+        "h": 547
+      }
+    ]
+  },
+  {
+    "w": 760,
+    "h": 740,
+    "dpr": 2,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          390,
+          223
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-large.webp",
+        "loaded": true,
+        "css": [
+          570,
+          321
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 217642,
+        "effectiveDpr": 2.931464174454829
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          90
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-large.webp",
+        "loaded": true,
+        "css": [
+          600,
+          338
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 158994,
+        "effectiveDpr": 2.7840236686390534
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          263,
+          87
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-large.webp",
+        "loaded": true,
+        "css": [
+          438,
+          247
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 285678,
+        "effectiveDpr": 3.8097165991902835
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          270,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-large.webp",
+        "loaded": true,
+        "css": [
+          384,
+          216
+        ],
+        "filter": "none",
+        "native": [
+          1672,
+          941
+        ],
+        "bytes": 152848,
+        "effectiveDpr": 4.354166666666667
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 76,
+        "h": 882
+      },
+      {
+        "id": "learning",
+        "y": 1018.03125,
+        "h": 1027
+      },
+      {
+        "id": "service",
+        "y": 2044.625,
+        "h": 1093
+      },
+      {
+        "id": "archives",
+        "y": 3137.296875,
+        "h": 1041
+      },
+      {
+        "id": "letter",
+        "y": 4177.828125,
+        "h": 547
+      }
+    ]
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "dpr": 1,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          318,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          346,
+          195
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 2.887179487179487
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          77
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          346,
+          195
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 2.887179487179487
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          250,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          368,
+          207
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 2.717391304347826
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          71
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          346,
+          195
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 2.887179487179487
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 76,
+        "h": 774
+      },
+      {
+        "id": "learning",
+        "y": 910.296875,
+        "h": 998
+      },
+      {
+        "id": "service",
+        "y": 1908.15625,
+        "h": 1215
+      },
+      {
+        "id": "archives",
+        "y": 3122.75,
+        "h": 1192
+      },
+      {
+        "id": "letter",
+        "y": 4315.03125,
+        "h": 881
+      }
+    ]
+  },
+  {
+    "w": 390,
+    "h": 844,
+    "dpr": 2,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          318,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          346,
+          195
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 2.887179487179487
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          77
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          346,
+          195
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 2.887179487179487
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          250,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          368,
+          207
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 2.717391304347826
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          71
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          346,
+          195
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 2.887179487179487
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 76,
+        "h": 774
+      },
+      {
+        "id": "learning",
+        "y": 910.296875,
+        "h": 998
+      },
+      {
+        "id": "service",
+        "y": 1908.15625,
+        "h": 1215
+      },
+      {
+        "id": "archives",
+        "y": 3122.75,
+        "h": 1192
+      },
+      {
+        "id": "letter",
+        "y": 4315.03125,
+        "h": 881
+      }
+    ]
+  },
+  {
+    "w": 360,
+    "h": 800,
+    "dpr": 1,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          324,
+          185
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          324,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 3.0864197530864197
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          77
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          324,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 3.0864197530864197
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          250,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          342,
+          193
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 2.917098445595855
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          71
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          324,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 3.0864197530864197
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 76,
+        "h": 763
+      },
+      {
+        "id": "learning",
+        "y": 899.328125,
+        "h": 1023
+      },
+      {
+        "id": "service",
+        "y": 1922.734375,
+        "h": 1200
+      },
+      {
+        "id": "archives",
+        "y": 3122.6875,
+        "h": 1180
+      },
+      {
+        "id": "letter",
+        "y": 4302.578125,
+        "h": 881
+      }
+    ]
+  },
+  {
+    "w": 360,
+    "h": 800,
+    "dpr": 2,
+    "version": "156.0.8078.74",
+    "errors": [],
+    "overflow": false,
+    "imgs": [
+      {
+        "src": "http://127.0.0.1:5221/assets/images/brand-landscape-v2.webp",
+        "loaded": true,
+        "css": [
+          36,
+          36
+        ],
+        "filter": "none",
+        "native": [
+          320,
+          259
+        ],
+        "bytes": 42338,
+        "effectiveDpr": 7.194444444444445
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/titles/brand-name-v3.webp",
+        "loaded": true,
+        "css": [
+          118,
+          30
+        ],
+        "filter": "none",
+        "native": [
+          900,
+          229
+        ],
+        "bytes": 59390,
+        "effectiveDpr": 7.627118644067797
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-title.svg",
+        "loaded": true,
+        "css": [
+          324,
+          185
+        ],
+        "filter": "none",
+        "native": [
+          1600,
+          916
+        ],
+        "bytes": 58974
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/legacy-hero-small.webp",
+        "loaded": true,
+        "css": [
+          324,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 93452,
+        "effectiveDpr": 3.0864197530864197
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          77
+        ],
+        "filter": "none",
+        "native": [
+          1226,
+          408
+        ],
+        "bytes": 28030
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/learning-small.webp",
+        "loaded": true,
+        "css": [
+          324,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 67908,
+        "effectiveDpr": 3.0864197530864197
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-title.svg",
+        "loaded": true,
+        "css": [
+          250,
+          83
+        ],
+        "filter": "none",
+        "native": [
+          1199,
+          397
+        ],
+        "bytes": 31310
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/service-small.webp",
+        "loaded": true,
+        "css": [
+          342,
+          193
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 130208,
+        "effectiveDpr": 2.917098445595855
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-title.svg",
+        "loaded": true,
+        "css": [
+          230,
+          71
+        ],
+        "filter": "none",
+        "native": [
+          1237,
+          381
+        ],
+        "bytes": 30863
+      },
+      {
+        "src": "http://127.0.0.1:5221/assets/images/v41/archives-small.webp",
+        "loaded": true,
+        "css": [
+          324,
+          182
+        ],
+        "filter": "none",
+        "native": [
+          1000,
+          563
+        ],
+        "bytes": 73842,
+        "effectiveDpr": 3.0864197530864197
+      }
+    ],
+    "cases": [
+      {
+        "id": "learning",
+        "title": "在档案前，重新认识那段路",
+        "action": "云南多部门组织团员青年走进昆明市博物馆，参观红军长征过云南档案文献图片展，通过史料认识长征经历。",
+        "dates": [
+          "2026-09-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.ynjgdj.gov.cn/html/2026/dangqungongjian_0921/3032763.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "service",
+        "title": "把互相照应带进日常",
+        "action": "江西“新长征”退役军人志愿服务队参与基层服务。南昌相关队伍深入社区、商圈开展消防安全宣教，其他地方队伍开展关爱帮扶等服务。",
+        "dates": [
+          "2026-07-22"
+        ],
+        "source": [
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.mva.gov.cn/sy/zzxc/202607/t20260722_581657.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      },
+      {
+        "id": "archives",
+        "title": "让长征档案被更多人看见",
+        "action": "中央档案馆公开一批红军长征档案，让公众能够从原始材料进一步认识长征历史。",
+        "dates": [
+          "2026-10-21"
+        ],
+        "source": [
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          },
+          {
+            "url": "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202610/t20261021_4912405.html",
+            "rel": "noopener noreferrer"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "opening",
+        "y": 76,
+        "h": 763
+      },
+      {
+        "id": "learning",
+        "y": 899.328125,
+        "h": 1023
+      },
+      {
+        "id": "service",
+        "y": 1922.734375,
+        "h": 1200
+      },
+      {
+        "id": "archives",
+        "y": 3122.6875,
+        "h": 1180
+      },
+      {
+        "id": "letter",
+        "y": 4302.578125,
+        "h": 881
+      }
+    ]
+  }
+]
