@@ -1,5 +1,12 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const T=require('../assets/yudu-text.js');
+test('the opening invitation has its confirmed caption and completes before the original clip ends',()=>{
+ const n=require('../assets/yudu-data.js').nodes.find(n=>n.id==='reach'),p=T.plan(n.text);
+ assert.equal(n.text,'别站在岸上了。来，跟上我们。');assert.equal(n.speaker,'陈禾');
+ const at=t=>T.frame(p,T.mediaTime(p,t,n.captionStart,n.captionEnd));
+ assert.equal(at(0).text,'');assert(at(1).shown>0);assert.deepEqual(at(2),at(2));
+ assert(at(n.captionEnd).complete);assert(n.duration-n.captionEnd>.4);assert.equal(at(0).shown,0);
+});
 test('text streams without splitting graphemes and can be revealed instantly',()=>{
  const p=T.plan('你，👨‍👩‍👧‍👦好。');
  assert.equal(T.frame(p,0).text,'');assert.equal(T.frame(p,42).text,'你');

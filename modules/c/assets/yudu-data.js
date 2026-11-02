@@ -5,7 +5,7 @@
   {id:'river',speaker:'河岸',text:'1934年10月，江西于都。暮色里，队伍正准备渡河。',scene:'gathering',view:'wide',next:'strap',mode:'observation'},
   thought('strap','肩带拧着，还是勒得慌。桥上的脚步没停，队伍快走远了。','gathering','newcomer',{view:'bridge',cue:'steps'}),
   thought('newcomer','前面那个人回头看了我一眼。他停下了，没有催。','portrait','reach'),
-  {id:'reach',speaker:'陈禾',text:'',scene:'reach',next:'choice',mode:'dialogue',nativeAudio:true,duration:5.088005,title:'陈禾在河岸招呼你',replayLabel:'重看招呼',advanceOnEnd:true},
+  {id:'reach',speaker:'陈禾',text:'别站在岸上了。来，跟上我们。',scene:'reach',next:'choice',mode:'dialogue',nativeAudio:true,duration:5.088005,captionStart:.18,captionEnd:4.65,title:'陈禾在河岸招呼你',replayLabel:'重看招呼',advanceOnEnd:true},
   {id:'choice',speaker:'心声',text:'他还伸着手。身后有人脚下一滑，我回头看了一眼。',scene:'hold',mode:'thought',cue:'stumble',choices:[
    {id:'hand',label:'握住他的手',next:'a-cross'},
    {id:'help',label:'先回身扶住身后的人',next:'b-bag'}]},

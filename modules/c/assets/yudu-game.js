@@ -1,7 +1,7 @@
 (function(){
 'use strict';
 const D=window.YUDU_DATA,C=window.YuduCore,T=window.YuduText;
-const $=id=>document.getElementById(id),resolve=p=>window.YUDU_EMBEDDED?.[p]||p;
+const $=id=>document.getElementById(id),resolve=p=>window.YuduPresentation.media(p,window.YUDU_EMBEDDED);
 let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true,movieReturn=null;
 let textPlan=T.plan(''),lineDone=true,lineInstant=false,lineShown=-1;
 let navigating=false;
@@ -165,6 +165,7 @@ function visual(n){
 function speak(n){voiceDone=!n.nativeAudio;$('voice-state').textContent='';}
 function render(){
  epoch++;elapsed=0;lastTick=performance.now();stopVoice();
+ const badge=window.YuduPresentation.speaker(C.current(D,state));
  const n=C.current(D,state);chapterView(n);visual(n);$('watch-invitation').hidden=!!n.nativeAudio||!latestMovie();$('watch-invitation').textContent=latestMovie()?.replayLabel||'重看镜头';$('ending').hidden=!(n.end||n.checkpoint);$('dialogue-panel').hidden=!!(n.end||n.checkpoint);
  if(n.end||n.checkpoint){
   const ch=C.chapter(D,state),nextChapter=D.chapters[D.chapters.findIndex(c=>c.id===ch.id)+1];
@@ -177,7 +178,7 @@ function render(){
   if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'我记住陆生的名字，是在江边。':'我把梁叔没写完的半句话，带过了江。',state.choices['snow-choice']==='call'?'风里，我喊他阿禾。他应了一声。':'到了雪山，这回换我等他。',state.choices['grass-choice']==='stay'?'那一夜，我留下来陪陆生等天亮。':'那一夜，我们去接人，也彼此扶着回来。',state.choices['wuqi-choice']==='sew'?'针脚还是不齐，袖口总算合住了。':'我写下他的名字，也写他活着时的样子。'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}
   save();return;
  }
- $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=n.speaker;textPlan=T.plan(n.text);lineInstant=false;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=n.text||'';$('voice-state').textContent='';
+ $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=badge?.name||n.speaker;textPlan=T.plan(n.text);lineInstant=false;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=n.text||'';$('voice-state').textContent='';
  const choices=$('choices');choices.replaceChildren();choices.hidden=!n.choices;$('next').hidden=!!n.choices;$('repeat').disabled=!!n.choices&&n.mode!=='thought';$('repeat').textContent=n.nativeAudio?'重播镜头':'再看一遍';
  if(n.choices){for(const [index,choice] of n.choices.entries()){
   const b=document.createElement('button');b.className='choice-button';b.dataset.choice=choice.id;
@@ -232,7 +233,7 @@ $('history-open').onclick=()=>{
   const n=D.nodes.find(x=>x.id===id);if(!n||n.end)continue;
   const li=document.createElement('li'),name=document.createElement('strong'),p=document.createElement('p');
   if(n.choices){const c=n.choices.find(c=>c.id===state.choices[n.id]);if(!c)continue;name.textContent='你选择了';p.textContent=c.label;p.className='history-choice';}
-  else{name.textContent=n.speaker;p.textContent=n.text||(n.nativeAudio?(n.title||'于都镜头')+'（影片原声）':'');}
+  else{name.textContent=window.YuduPresentation.speaker(n)?.name||n.speaker;p.textContent=n.text||(n.nativeAudio?(n.title||'于都镜头')+'（影片原声）':'');}
   li.append(name,p);list.append(li);
  }
  openDialog($('history-dialog'));list.scrollTop=list.scrollHeight;

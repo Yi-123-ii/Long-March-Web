@@ -1,6 +1,6 @@
 (function(){
  'use strict';
- const D=window.YUDU_DATA,C=window.YuduCore,resolve=p=>window.YUDU_EMBEDDED?.[p]||p;
+ const D=window.YUDU_DATA,C=window.YuduCore,resolve=p=>window.YuduPresentation.media(p,window.YUDU_EMBEDDED);
  const $=id=>document.getElementById(id),world=$('atlas-canvas'),viewport=$('atlas-window'),pins=$('atlas-pins');
  const R=window.AtlasRoute,points=R.points,xy=R.xy;
  const flag=$('atlas-flag'),trail=$('atlas-travel-route'),travelPanel=$('atlas-travel-panel');
