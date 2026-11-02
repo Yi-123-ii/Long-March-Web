@@ -50,7 +50,7 @@
   flex: 1;
   padding-bottom: 56px;
   padding-top: 94px;
-  margin-left: max(8.3%, calc((100vw - 1200px) / 2));
+  margin-left: clamp(56px, 6vw, 120px);
   width: 560px;
 }
 .lm-hero h1 {
