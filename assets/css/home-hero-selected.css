@@ -2,6 +2,16 @@
 .v3-home .a-hero {
   background-color: #343b37;
 }
+/* Carry the paper header into the sky without a visible horizontal cut. */
+.v3-home .a-hero::before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 auto;
+  z-index: 1;
+  height: clamp(110px, 13vw, 180px);
+  pointer-events: none;
+  background: linear-gradient(180deg, #eef1ed 0%, rgb(238 241 237 / 92%) 14%, rgb(238 241 237 / 64%) 38%, rgb(238 241 237 / 25%) 68%, transparent 100%);
+}
 .v3-home .a-hero__scenery {
   background-image: url("../images/home-long-march-selected-v1.webp");
   background-position: center center;
