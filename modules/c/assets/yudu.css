@@ -12,7 +12,7 @@ dialog{width:min(520px,calc(100vw - 32px));max-height:80dvh;padding:27px 31px;co
 .visual-stage video{object-fit:contain;background:#07171c}
 .film-playing .scene-location{opacity:0;pointer-events:none}
 .film-playing .dialogue-panel{min-height:0;padding-top:16px;background:linear-gradient(transparent,#07171c99)}
-.film-playing .speaker-row{display:none}
+.film-playing .speaker-row{display:flex}
 .film-playing .dialogue-text{font-size:clamp(16px,1.3vw,21px);margin:6px 0 10px;text-align:center;max-width:none;min-height:0}
 .film-playing .reading-controls{border:0;padding-top:0}
 .river-light{position:absolute;right:0;bottom:23%;width:49%;height:22%;pointer-events:none;opacity:0;background:repeating-linear-gradient(177deg,transparent 0 14px,#d2af6c0a 17px,transparent 21px);filter:blur(3px);mix-blend-mode:screen}
