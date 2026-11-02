@@ -1,0 +1,24 @@
+/* Selected panorama: preserve the natural terrain colors at every viewport. */
+.v3-home .a-hero {
+  background-color: #343b37;
+}
+.v3-home .a-hero__scenery {
+  background-image: url("../images/home-long-march-selected-v1.webp");
+  background-position: center center;
+  opacity: 1;
+}
+.v3-home .a-hero__shade {
+  background:
+    linear-gradient(90deg, rgba(18, 25, 26, .51), rgba(18, 25, 26, .29) 30%, transparent 62%),
+    linear-gradient(180deg, rgba(18, 25, 26, .32), transparent 28%, transparent 76%, rgba(18, 25, 26, .24));
+}
+@media (max-width: 760px) {
+  .v3-home .a-hero__scenery {
+    background-position: 88% center;
+  }
+  .v3-home .a-hero__shade {
+    background:
+      linear-gradient(180deg, rgba(18, 25, 26, .55), rgba(18, 25, 26, .28) 52%, rgba(18, 25, 26, .46)),
+      linear-gradient(90deg, rgba(18, 25, 26, .22), transparent 86%);
+  }
+}
