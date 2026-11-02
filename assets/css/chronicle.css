@@ -6,7 +6,7 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  background: #e6eae5;
+  background: #f5e8da;
 }
 .lm-hero::after {
   content: "";
@@ -17,7 +17,7 @@
   bottom: 0;
   height: clamp(170px, 25%, 240px);
   pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, rgb(238 241 237 / 18%) 25%, rgb(238 241 237 / 64%) 60%, rgb(238 241 237 / 94%) 85%, var(--lm-bg) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgb(246 235 220 / 18%) 25%, rgb(241 238 228 / 64%) 60%, rgb(238 241 237 / 94%) 85%, var(--lm-bg) 100%);
 }
 .lm-hero::before {
   content: "";
@@ -26,12 +26,12 @@
   height: clamp(85px, 12vw, 165px);
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, var(--lm-bg), rgb(238 241 237 / 88%) 15%, rgb(238 241 237 / 40%) 52%, transparent);
+  background: linear-gradient(180deg, var(--lm-bg), rgb(249 242 232 / 88%) 15%, rgb(249 242 232 / 40%) 52%, transparent);
 }
 .lm-hero-art {
   position: absolute;
   inset: 0;
-  background: url("../images/hero-mountains.webp") center 52% / cover no-repeat;
+  background: url("../images/hero-chronicle-crimson-v1.webp") center 52% / cover no-repeat;
 }
 .lm-hero-art::after {
   content: "";
@@ -39,8 +39,8 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    #e9ede5bd 0%,
-    #e9ede51a 52%,
+    #fff4e8a6 0%,
+    #fff4e826 52%,
     transparent 70%
   );
 }
@@ -64,10 +64,11 @@
 .lm-hero-intro {
   font-size: 14px;
   line-height: 2.15;
-  color: #5b6b60;
+  color: #635246;
   margin-bottom: 28px;
 }
 .lm-hero .lm-link {
+  color: #594538;
   gap: 70px;
   font-size: 13px;
 }
@@ -80,7 +81,7 @@
   display: flex;
   align-items: center;
   gap: 25px;
-  color: #596e60;
+  color: #78503c;
   font-size: 11px;
   letter-spacing: 2px;
 }
@@ -292,8 +293,8 @@
 }
 @media (max-width: 760px) {
   .lm-hero { min-height: 690px; }
-  .lm-hero-art { background-position: 59% center; }
-  .lm-hero-art::after { background: linear-gradient(90deg, #e9ede5dd, #e9ede53b 90%); }
+  .lm-hero-art { background-position: 70% center; }
+  .lm-hero-art::after { background: linear-gradient(90deg, #fff4e8ed, #fff4e8a6 48%, #fff4e82e 100%); }
   .lm-hero-copy { padding-top: 75px; width: auto; margin-left: 32px; }
   .lm-hero h1 { font-size: 90px; letter-spacing: 1px; }
   .lm-hero-intro { font-size: 17px; }
@@ -328,7 +329,7 @@
   .lm-hero-bottom { margin-inline: 25px; gap: 14px; flex-wrap: wrap; padding-bottom: 22px; }
   .lm-hero-bottom > span:first-child { font-size: 21px; }
   .lm-hero-bottom > span:nth-child(2) { font-size: 10px; }
-  .lm-hero-art { background-position: 62% center; }
+  .lm-hero-art { background-position: 72% center; }
   .lm-tools { align-items: stretch; flex-direction: column; padding: 13px 0; gap: 8px; }
   .lm-search { width: 100%; }
   .lm-filters { gap: 6px; }
