@@ -12,7 +12,7 @@
   const ch=byId(id);if(!ch)return;chosen=id;
   $('atlas-place').textContent=ch.location;$('atlas-date').textContent=ch.date;$('station-title').textContent=ch.title;
   $('atlas-photo').src=resolve(D.images[ch.image]);$('atlas-photo').alt=ch.location+'这一程的画面';
-  const allowed=currentState&&C.canOpenChapter(D,currentState,id);$('enter').disabled=!allowed;$('enter').textContent=allowed?'翻开这一站':'前一程走完，这一站就亮起';
+  const allowed=currentState&&C.canOpenChapter(D,currentState,id),mark=currentState?.chapterProgress?.[id];$('enter').disabled=!allowed;$('enter').textContent=allowed?(mark&&mark.node!==ch.start?'继续这一站':'翻开这一站'):'前一程走完，这一站就亮起';
   $('atlas-description').textContent=ch.summary;
   for(const b of pins.querySelectorAll('button'))b.classList.toggle('selected',b.dataset.chapter===id);
   window.dispatchEvent(new CustomEvent('journey:station-selected',{detail:id}));

@@ -51,7 +51,7 @@ function mapStatus(){
  }
  window.AtlasMap.update(state);
 }
-function enterChapter(id){if(navigating||window.JourneyFX.busy||!C.canOpenChapter(D,state,id))return;return changeChapter(C.beginChapter(D,state,id));}
+function enterChapter(id,replay=false){if(navigating||window.JourneyFX.busy||!C.canOpenChapter(D,state,id))return;return changeChapter(replay?C.beginChapter(D,state,id):C.openChapter(D,state,id));}
 async function changeChapter(next){
  if(navigating||window.JourneyFX.busy)return;
  const from=C.chapter(D,state),to=C.chapter(D,next);
@@ -191,7 +191,8 @@ function go(choiceId,force=false){
  if(!active||paused||navigating||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
  if(!force&&!C.current(D,state).nativeAudio&&!lineDone){finishText();return;}
  if(movieReturn){state=movieReturn;movieReturn=null;render();return;}
- const next=C.advance(D,state,choiceId);if(next===state)return;
+ const entry=C.current(D,state),index=D.chapters.findIndex(c=>c.id===entry.chapter),following=D.chapters[index+1];
+ const next=entry.checkpoint&&following?C.openChapter(D,state,following.id):C.advance(D,state,choiceId);if(next===state)return;
  const previous=C.chapter(D,state).id;if(C.chapter(D,next).id!==previous){changeChapter(next);return;}state=next;render();
  if(C.current(D,state).end||C.current(D,state).checkpoint)$('back-map').focus();else if(C.current(D,state).choices&&lineDone)$('choices').querySelector('button').focus();else $('next').focus({preventScroll:true});
 }
@@ -222,7 +223,7 @@ for(const d of dialogs){
  d.addEventListener('close',()=>{const resume=modalResume;modalResume=false;if(resume&&!document.hidden)setPaused(false);else if(active)$('pause-overlay').hidden=!paused;});
  d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});
 }
-$('continue-route').onclick=()=>go(undefined,true);$('enter').onclick=()=>enterChapter(window.AtlasMap.selected());$('restart-map').onclick=()=>enter();$('watch-invitation').onclick=replayInvitation;$('leave').onclick=()=>leave();$('back-map').onclick=()=>leave();$('replay').onclick=()=>enterChapter(C.chapter(D,state).id);
+$('continue-route').onclick=()=>go(undefined,true);$('enter').onclick=()=>enterChapter(window.AtlasMap.selected());$('restart-map').onclick=()=>enter();$('watch-invitation').onclick=replayInvitation;$('leave').onclick=()=>leave();$('back-map').onclick=()=>leave();$('replay').onclick=()=>enterChapter(C.chapter(D,state).id,true);
 $('line').onclick=finishText;$('next').onclick=()=>go();$('pause').onclick=()=>setPaused(!paused);$('resume').onclick=()=>setPaused(false);
 $('repeat').onclick=()=>{if(!active||paused)return;render();};
 $('auto').onclick=()=>{state.settings.auto=!state.settings.auto;volumes();save();};

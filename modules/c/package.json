@@ -1,6 +1,6 @@
 {
   "name": "long-march-c-journey",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "private": true,
   "scripts": {
     "check": "node --check assets/site-integration.js && node --check assets/journey-return.js && node --check assets/atlas-route.js && node --check assets/atlas-map.js && node --check assets/soldier-pointer.js && node --check assets/yudu-game.js && node --test tests/*.test.cjs"
