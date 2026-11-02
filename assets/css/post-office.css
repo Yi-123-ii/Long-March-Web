@@ -1,12 +1,6 @@
 .lm-post-page {
   background: #e9eeea;
 }
-.lm-post-page .lm-header.site-header--paper .lm-brand .lm-brand-tagline-art {
-  width: clamp(112px, 10vw, 132px);
-  aspect-ratio: 2163 / 383;
-  -webkit-mask-image: url("../images/titles/postal-tagline-brush-v2.webp");
-  mask-image: url("../images/titles/postal-tagline-brush-v2.webp");
-}
 .lm-post-main {
   padding-top: 62px;
   min-height: calc(100svh - 201px);

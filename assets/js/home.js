@@ -1,28 +1,9 @@
 (() => {
   const header = document.querySelector('.site-header');
-  const toggle = document.querySelector('.site-menu-toggle');
   if (header) {
     const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 32);
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
-  }
-  const nav = document.querySelector('.site-nav');
-  if (header && toggle && nav) {
-    const close = () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', '展开主导航');
-      nav.classList.remove('is-open');
-    };
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') !== 'true';
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? '收起主导航' : '展开主导航');
-      nav.classList.toggle('is-open', open);
-    });
-    nav.addEventListener('click', (event) => { if (event.target.closest('a')) close(); });
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
-    document.addEventListener('click', (event) => { if (!header.contains(event.target)) close(); });
-    window.addEventListener('resize', () => { if (window.innerWidth > 760) close(); });
   }
 
   const items = [...document.querySelectorAll('[data-reveal]')];
