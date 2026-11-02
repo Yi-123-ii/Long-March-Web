@@ -1,0 +1,32 @@
+{
+  "headerHeights": {
+    "1920": 87,
+    "1440": 87,
+    "1280": 87,
+    "760": 87,
+    "390": 75.5,
+    "360": 75.5
+  },
+  "allMapRectsMatchBefore": true,
+  "allRecordedBaselinesMatch": true,
+  "horizontalOverflow": false,
+  "pageErrors": [],
+  "closedMenuPixelDifferencesOutsideHeader": {
+    "1440": 0,
+    "390": 0
+  },
+  "intermediateSharedZ30Difference": {
+    "viewport": 1440,
+    "pixels": 1220,
+    "maximumChannelDifference": 1,
+    "reason": "rotated card compositing; final header-only stacking adjustment removes it"
+  },
+  "interactionChecks": [
+    "Escape closes and focuses toggle",
+    "outside click closes",
+    "mobile Enter then Tab reaches first link",
+    "about opens original dialog",
+    "dialog close restores toggle"
+  ],
+  "unchangedHtmlOutsideHeaderAndNewReferences": true
+}

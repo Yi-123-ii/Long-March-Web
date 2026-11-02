@@ -1,0 +1,3 @@
+/* Only remove the English line; preserve the accepted year size and title position. */
+.v3-home .a-hero__overline>span:only-child{font-size:inherit;letter-spacing:inherit}
+.v3-home .a-hero__overline{padding-bottom:calc(.64lh + 1px)}

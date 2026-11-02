@@ -1,0 +1,31 @@
+/* V3.8 chapter lettering. Only the four chapter h3 artworks and legacy-page titles. */
+.v3-home .v3-chapter__name{
+  display:block;width:100%;max-width:430px;min-height:0;
+  margin:17px 0 18px!important;transform:translateX(-5px);line-height:0;
+}
+.v3-home .v3-chapter__name img{
+  display:block;width:100%;height:auto;max-height:none;
+  object-fit:contain;object-position:left center;filter:none;
+}
+/* Optical widths follow each composition's weight and terminal direction. */
+.v3-home .v3-chapter--01 .v3-chapter__name{max-width:410px}
+.v3-home .v3-chapter--02 .v3-chapter__name{max-width:430px}
+.v3-home .v3-chapter--03 .v3-chapter__name{max-width:420px}
+.v3-home .v3-chapter--04 .v3-chapter__name{max-width:406px}
+.a-inheritance .v38-system-legacy{width:min(510px,100%);line-height:0;margin:0 0 28px}
+.a-inheritance .v38-system-legacy img{display:block;width:100%;height:auto;max-height:none;filter:none}
+.a-inheritance .v38-system-case-title{
+  font-family:var(--v38-ui);font-weight:600;font-size:clamp(30px,3.2vw,46px);
+  line-height:1.45;letter-spacing:.015em;max-width:620px;margin:0;
+}
+@media(max-width:760px){
+ .v3-home .v3-chapter__name,
+ .v3-home .v3-chapter--01 .v3-chapter__name,
+ .v3-home .v3-chapter--02 .v3-chapter__name,
+ .v3-home .v3-chapter--03 .v3-chapter__name,
+ .v3-home .v3-chapter--04 .v3-chapter__name{
+   width:100%;max-width:345px;margin:16px 0 16px!important;transform:translateX(-4px);
+ }
+ .a-inheritance .v38-system-legacy{max-width:460px}
+ .a-inheritance .v38-system-case-title{font-size:34px;line-height:1.5;margin:14px 0 0}
+}

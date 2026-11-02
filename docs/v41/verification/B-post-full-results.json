@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-02T11:50:09.514Z",
+  "base": "http://127.0.0.1:5221",
+  "isolation": "Two fresh non-persistent Playwright browser contexts; no existing profiles opened, no storage clearing or direct data-layer writes.",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "uiChecks": [
+    "Fresh source context starts with zero saved messages.",
+    "Typed letter, selected stamp/paper, previewed, confirmed real dispatch, then opened the saved message from 我的留言 and verified body/signer.",
+    "Clicked 备份留言 and received actual browser JSON download.",
+    "Imported the complete backup through the file chooser into its source context: duplicate notice shown, count stayed one.",
+    "Imported complete backup into a second fresh context via file chooser: success notice, saved body/signer, and persistence after reload verified.",
+    "Imported complete backup again in target context: deduplicated, count stayed one.",
+    "Inheritance observer: navigate to archives then scroll to page top; current marker resets to learning."
+  ],
+  "dataChecks": [
+    "Parsed the downloaded JSON: format/version, one message, body/signer, selected stamp/paper and stable ID preserved.",
+    "Re-exported imported messages and compared the complete messages array with original backup: identical, including ID/date/context/stamp/paper."
+  ],
+  "errors": [],
+  "review": {
+    "progressReset": "Observer now resets learning when no scene is visible and first scene is below upper viewport line.",
+    "historicalV4Docs": "History scope explicitly distinguished from V4.1; source paths and actual V4.1 QA reference provided."
+  },
+  "download": {
+    "filename": "山河邮局-留言备份.json",
+    "bytes": 422,
+    "format": "longmarch-letters",
+    "version": 1,
+    "messageCount": 1
+  },
+  "status": "passed"
+}

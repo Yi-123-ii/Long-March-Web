@@ -1,0 +1,14 @@
+{
+  "main": "5c916ac033ace6728a56f7407bcc95bb56b50a50",
+  "changedExisting": [
+    "index.html",
+    "inheritance.html",
+    "modules/c/journey.html",
+    "assets/js/inheritance.js"
+  ],
+  "deleted": [],
+  "unchanged": 369,
+  "totalOriginal": 373,
+  "CAssetsAndLogic": "all byte-identical",
+  "BDataAndLogic": "all byte-identical"
+}

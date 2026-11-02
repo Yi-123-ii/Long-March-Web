@@ -1,0 +1,69 @@
+/* V3.9 A homepage only. All artwork and masks are decorative, labels remain semantic HTML. */
+.v3-home .a-hero{overflow:visible;isolation:isolate}
+.v3-home .a-hero__scenery{background-image:url('../images/home-cinematic-scenery-v4@2x.webp');transform:none;animation:none;filter:none}
+.v3-home .a-hero__grain{opacity:.035}
+.v3-home .a-hero__cta{font-family:var(--v38-ui);font-size:19px;letter-spacing:.14em;min-height:58px;min-width:236px;padding:13px 23px;box-shadow:inset 0 0 0 3px #913428,inset 0 0 0 4px #cf987166;gap:48px}
+.v3-home .a-hero__cta svg{width:23px;height:23px;flex:none}
+.v3-home .a-hero__cta::after{display:none}
+.v3-home .a-hero__content,.v3-home .a-hero__footer{z-index:3}
+/* Cloud banks have deliberately different contours, with a narrow overlap on the
+   foreground. The remaining depth lives below the soldiers, in the prologue. */
+.v39-hero-cloud{position:absolute;z-index:1;pointer-events:none;bottom:-99px;left:0;width:100%;height:156px;background:url('../images/v39/cloud-paper.svg') center/100% 100% no-repeat}
+.v3-home .v3-prologue{padding-top:98px;background:linear-gradient(#f6ecdb 0%,#f1e7d7 70%,#eee5d7);z-index:0}
+.v3-home .v3-prologue::before{display:none}
+.v3-home .v3-prologue__inner{padding-top:8px}
+.v3-home .v3-prologue__mountain{top:65px;height:calc(100% - 65px)}
+.v3-home .v3-chapters{padding-top:54px;padding-bottom:0;background:#eee5d7;position:relative;z-index:1}
+.v3-home .v3-chapters__intro{align-items:center;gap:32px;margin-bottom:16px;grid-template-columns:1fr 1fr}
+.v3-home .v3-chapters__intro h2 img{width:min(100%,405px);height:auto;max-height:none}
+.v3-home .v3-chapters__eyebrow{font:400 11px/1.6 Georgia,var(--v38-ui),serif;letter-spacing:.15em;margin-bottom:9px!important}
+.v3-home .v3-chapters__lead{font-size:16px;line-height:1.95}
+.v3-home .v3-chapter__image img{transform:none!important;transition:none;filter:none}
+.v3-home .v3-epilogue{padding-top:15px}
+.v3-home .v3-footer{font-size:12px;letter-spacing:.12em;align-items:center;min-height:54px;padding-block:18px;color:#c5c5b2}
+@media(min-width:761px) and (min-aspect-ratio:12/5){.v3-home .a-hero__scenery{background-size:100% auto;background-position:center 55%}}
+@media(max-width:760px){
+ .v3-home .a-hero__cta{min-height:52px;min-width:208px;font-size:17px;gap:30px}
+ .v39-hero-cloud{height:110px;bottom:-75px;background-size:170% 100%;background-position:62% center}
+ .v3-home .v3-prologue{padding-top:75px}
+ .v3-home .v3-prologue__inner{padding-top:9px}
+ .v3-home .v3-chapters{padding-top:34px}
+ .v3-home .v3-chapters__intro{grid-template-columns:1fr;gap:18px;margin-bottom:10px}
+ .v3-home .v3-chapters__intro h2 img{width:min(340px,88%)}
+ .v3-home .v3-chapters__lead{justify-self:start;font-size:14px;max-width:470px}
+ .v39-dusk{height:130px}
+ .v3-home .v3-epilogue{padding-top:10px}
+ .v3-home .v3-footer{font-size:10px;gap:12px;letter-spacing:.06em;padding-inline:6vw}
+}
+@media(prefers-reduced-motion:reduce){.v3-home .a-hero *{animation:none!important;transition:none!important}}
+@media(min-width:761px){
+ .v3-home .v3-chapter{min-height:clamp(390px,31vw,470px)}
+ .v3-home .v3-chapter__content{padding-block:38px}
+ .v3-home .v3-chapter__link{margin-top:25px}
+}
+/* Extend only the scenery into the cloud banks: no rectangular cut under alpha. */
+.v3-home .a-hero{z-index:2}
+.v3-home .a-hero__scenery,.v3-home .a-hero__shade{bottom:-99px}
+.v39-hero-cloud{height:230px}
+/* One continuous painted surface covers both the paper threshold and the outro. */
+.v39-closing{position:relative;isolation:isolate;background:#eee5d7}
+.v39-closing::before,.v39-closing::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;mask:url('../images/v39/dusk-mask.svg') center/100% 100% no-repeat;-webkit-mask:url('../images/v39/dusk-mask.svg') center/100% 100% no-repeat}
+.v39-closing::before{background:#17342f url('../images/editorial/epilogue-mist.webp') 65% center/cover no-repeat}
+.v39-closing::after{background:linear-gradient(0deg,#0f2523 0%,#12332fc9 23%,#183b3433 85%)}
+.v39-dusk{background:none;height:155px}
+.v3-home .v3-epilogue__backdrop,.v3-home .v3-epilogue::after{display:none}
+.v3-home .v3-epilogue{background:none}
+@media(max-width:760px){
+ .v3-home .a-hero__scenery,.v3-home .a-hero__shade{bottom:-75px}
+ .v39-hero-cloud{height:165px}
+ .v39-dusk{height:115px}
+ .v39-closing::before{background-position:70% center}
+ .v39-closing::before,.v39-closing::after{mask-size:180% 100%;-webkit-mask-size:180% 100%;mask-position:65% center;-webkit-mask-position:65% center}
+}
+@media(min-width:761px){.v3-home .v3-chapters__intro h2 img{width:min(100%,500px)}}
+/* Short windows reserve real space for the anniversary and exploration cue. */
+@media(min-width:761px) and (max-height:760px){
+ .v3-home .a-hero__title{width:min(460px,33vw)}
+ .v39-hero-cloud{height:190px}
+}
+@media(min-width:761px) and (max-height:760px){.v3-home .a-hero__footer{margin-top:12px}}

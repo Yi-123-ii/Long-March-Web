@@ -1,0 +1,19 @@
+[
+  {
+    "w": 1440,
+    "legacy": "details, service notes, tabs, keyboard, CTA and menu passed"
+  },
+  {
+    "w": 390,
+    "legacy": "details, service notes, tabs, keyboard, CTA and menu passed"
+  },
+  {
+    "noJS": "three cases, all archive panels and native details readable"
+  },
+  {
+    "dataFailure": "fallback text and status visible"
+  },
+  {
+    "imageFailure": "title and case reading preserved"
+  }
+]

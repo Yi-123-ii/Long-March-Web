@@ -1,0 +1,11 @@
+Use case: logo-brand
+Asset type: A clean three-row Chinese brush-lettering master sheet. Each row will be isolated and alpha-traced into its own SVG title for a memorial website.
+Primary request: Generate exactly three separate four-character Chinese brush title rows, with generous transparent gaps between rows. The exact text is:
+Row 1: "走近历史"
+Row 2: "践行责任"
+Row 3: "保存记忆"
+Character accuracy: Row 1 走 / 近 / 历 / 史. Row 2 践 / 行 / 责 / 任. Row 3 保 / 存 / 记 / 忆. Use simplified Chinese only. Do not mix the rows, omit a character, or add a character. Each row contains exactly four Chinese characters.
+Style/medium: powerful but humane Chinese running script 行书 with monumental stone-inscription bones 碑刻, full thick brush bellies, decisive angled cut-tip endings and very restrained sparse dry-brush gaps. Natural and coherent brush title lettering, warm, clear and human. Strong upright/downward energy. Related to bold Chinese memorial brush-title lettering. Expressive artwork, not an ordinary typeset font.
+Composition/framing: Exactly three horizontal rows, top to bottom, with equal overall line lengths and natural inter-character spacing. Make each character naturally close to square, visibly tall and strong, never squashed or horizontally stretched. Each four-character ink silhouette must have a width-to-height ratio between 3.5 and 4.2, ideally 3.8. Use clear unambiguous glyph skeletons. The three rows must be completely disconnected with at least half a character height of fully transparent vertical gap between rows so each row can be independently isolated. Generous transparent outer margins on all four sides. No underline, enclosing shape, giant horizontal swashes, or connecting strokes between rows.
+Color palette: one uniform flat deep pine green #203c32 across all characters. Truly transparent background and transparent internal gaps.
+Constraints: Exact text and legibility are highest priority. Only these twelve characters. No row labels, numbers, English, signature, seal, paper, border, background, gradients, glow, shadow, outlines, or watermark. All strokes flat-color ink; no photographed paper or texture image.

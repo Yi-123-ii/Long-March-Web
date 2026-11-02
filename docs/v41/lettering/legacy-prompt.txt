@@ -1,0 +1,11 @@
+Use case: logo-brand
+Asset type: AI-assisted Chinese brush-lettering master for the “精神传承” heritage page of a Long March memorial website; intended to be alpha-traced into SVG paths.
+Primary request: Create one transparent-background Chinese calligraphic artwork arranged in EXACTLY TWO lines.
+Text (verbatim):
+"山河不止，"
+"薪火有继"
+First line characters: 山 / 河 / 不 / 止 / ，. Second line characters: 薪 / 火 / 有 / 继. These exact simplified Chinese characters, no substitutions. The final character is 继, with 纟 on the left and 米 plus bent framing on the right.
+Style/medium: vigorous but warm and humane Chinese running script 行书, with the strong structural bones of stone inscriptions 碑刻. Full substantial brush bellies, decisive angled cut-tip endings, only a small number of deliberate dry-brush gaps. Slightly rounder transitions and breathing space lend human warmth and quiet continuity. Related to bold Chinese memorial brush title lettering. This is expressive lettering created for this artwork, not a typeset computer font.
+Composition/framing: Two compact horizontal lines, left aligned. Four Chinese characters per line, with a natural smaller comma after the fourth character on the first line. Near-square naturally high-bodied characters with strong upright and downward stroke energy. Do not flatten or stretch the glyphs horizontally. Each four-character group has an ink width-to-height ratio around 3.8:1. Moderate natural character spacing. Clear gap between the two lines, around one quarter of a character height. No extreme sweeping tails, underline, or surrounding marks. Entire title comfortably centered with ample transparent margin on all four sides.
+Color palette: one flat deep pine green #203c32. True transparent background, including transparent counters and sparse dry-brush gaps.
+Constraints: Accurately render the exact characters and line break; text accuracy and legibility outrank dramatic flourish. Only this two-line title. No signature, seal, paper, texture background, shadow, glow, gradient, outline, border, watermark, English or extra text. All strokes solid flat color with clean natural edges.

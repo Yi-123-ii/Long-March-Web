@@ -1,0 +1,264 @@
+[
+  {
+    "source": "legacy-master.png",
+    "lineBreaks": [
+      "山河不止，",
+      "薪火有继"
+    ],
+    "layoutTranslations": {
+      "firstLine": [
+        0,
+        0
+      ],
+      "secondLineCharacterX": [
+        16,
+        36,
+        56,
+        76
+      ],
+      "secondLineY": 72
+    },
+    "text": "山河不止，\n薪火有继",
+    "sourceSha256": "75e36f38b6f1a7ac265d58a3e22fbb109a3b9995e1665d2e69b11f2e0dbf44e9",
+    "sourceType": "AI-assisted brush lettering, generated with built-in image_gen; not human handwriting, a font, or font outlines",
+    "generationTool": "image_gen.imagegen",
+    "generationModel": "not exposed by built-in tool",
+    "transparent_background": true,
+    "referenced_image_paths": null,
+    "promptFile": "legacy-prompt.txt",
+    "prompt": "Use case: logo-brand\nAsset type: AI-assisted Chinese brush-lettering master for the “精神传承” heritage page of a Long March memorial website; intended to be alpha-traced into SVG paths.\nPrimary request: Create one transparent-background Chinese calligraphic artwork arranged in EXACTLY TWO lines.\nText (verbatim):\n\"山河不止，\"\n\"薪火有继\"\nFirst line characters: 山 / 河 / 不 / 止 / ，. Second line characters: 薪 / 火 / 有 / 继. These exact simplified Chinese characters, no substitutions. The final character is 继, with 纟 on the left and 米 plus bent framing on the right.\nStyle/medium: vigorous but warm and humane Chinese running script 行书, with the strong structural bones of stone inscriptions 碑刻. Full substantial brush bellies, decisive angled cut-tip endings, only a small number of deliberate dry-brush gaps. Slightly rounder transitions and breathing space lend human warmth and quiet continuity. Related to bold Chinese memorial brush title lettering. This is expressive lettering created for this artwork, not a typeset computer font.\nComposition/framing: Two compact horizontal lines, left aligned. Four Chinese characters per line, with a natural smaller comma after the fourth character on the first line. Near-square naturally high-bodied characters with strong upright and downward stroke energy. Do not flatten or stretch the glyphs horizontally. Each four-character group has an ink width-to-height ratio around 3.8:1. Moderate natural character spacing. Clear gap between the two lines, around one quarter of a character height. No extreme sweeping tails, underline, or surrounding marks. Entire title comfortably centered with ample transparent margin on all four sides.\nColor palette: one flat deep pine green #203c32. True transparent background, including transparent counters and sparse dry-brush gaps.\nConstraints: Accurately render the exact characters and line break; text accuracy and legibility outrank dramatic flourish. Only this two-line title. No signature, seal, paper, texture background, shadow, glow, gradient, outline, border, watermark, English or extra text. All strokes solid flat color with clean natural edges.\n",
+    "method": "Threshold generated alpha, median filter, isolate connected components, remove regions under 16px, reconstruct spline contours with vtracer 0.6.15; no manual stroke redrawing",
+    "parameters": {
+      "alphaThreshold": 128,
+      "medianFilterSize": 3,
+      "minimumConnectedArea": 16,
+      "padding": 56,
+      "colormode": "binary",
+      "mode": "spline",
+      "filter_speckle": 4,
+      "corner_threshold": 60,
+      "length_threshold": 6.0,
+      "splice_threshold": 45,
+      "path_precision": 3
+    },
+    "characterGeometry": "original generated proportions, no scaling or glyph deformation; translations only where recorded",
+    "processedAlphaSha256": "45a46bd211721d8ace6f564a477c92e1384896cd0eb8f42797fb9cf80b449052",
+    "inkDimensions": [
+      1488,
+      804
+    ],
+    "inkAspectRatio": 1.850746,
+    "license": {
+      "type": "AI-generated project artwork",
+      "attribution": "AI-assisted lettering and algorithmic alpha contour reconstruction; do not claim human hand-lettering",
+      "thirdPartyFontUsed": false,
+      "generationServiceTerms": "Subject to the terms governing the built-in image generation service; no separate font license applies",
+      "processor": "vtracer 0.6.15, MIT license; license copy in VTRACER-LICENSE"
+    },
+    "svg": "legacy-title.svg",
+    "svgSha256": "47e7ee52349a2b543a648a87de32d79369cceb24e9edf8ef8e3ee27b7ffd9014",
+    "viewBox": [
+      0,
+      0,
+      1600,
+      916
+    ],
+    "paths": 15,
+    "bytes": 58974
+  },
+  {
+    "source": "learning-title-master.png",
+    "sourceSheet": "chapters-sheet-master.png",
+    "sourceSheetSha256": "1a84237327c04c810d0293e76aa56fb1aeadb9d4681ce590f826fc6be242f0f2",
+    "sourceCrop": [
+      194,
+      6,
+      1372,
+      366
+    ],
+    "sourceSheetRow": 1,
+    "characterTranslationsX": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "text": "走近历史",
+    "sourceSha256": "48e40faf15023582f5c6ea5ca0003e0d1345871288d5ac2ac43528f51d2fe21f",
+    "sourceType": "AI-assisted brush lettering, generated with built-in image_gen; not human handwriting, a font, or font outlines",
+    "generationTool": "image_gen.imagegen",
+    "generationModel": "not exposed by built-in tool",
+    "transparent_background": true,
+    "referenced_image_paths": null,
+    "promptFile": "chapters-sheet-prompt.txt",
+    "prompt": "Use case: logo-brand\nAsset type: A clean three-row Chinese brush-lettering master sheet. Each row will be isolated and alpha-traced into its own SVG title for a memorial website.\nPrimary request: Generate exactly three separate four-character Chinese brush title rows, with generous transparent gaps between rows. The exact text is:\nRow 1: \"走近历史\"\nRow 2: \"践行责任\"\nRow 3: \"保存记忆\"\nCharacter accuracy: Row 1 走 / 近 / 历 / 史. Row 2 践 / 行 / 责 / 任. Row 3 保 / 存 / 记 / 忆. Use simplified Chinese only. Do not mix the rows, omit a character, or add a character. Each row contains exactly four Chinese characters.\nStyle/medium: powerful but humane Chinese running script 行书 with monumental stone-inscription bones 碑刻, full thick brush bellies, decisive angled cut-tip endings and very restrained sparse dry-brush gaps. Natural and coherent brush title lettering, warm, clear and human. Strong upright/downward energy. Related to bold Chinese memorial brush-title lettering. Expressive artwork, not an ordinary typeset font.\nComposition/framing: Exactly three horizontal rows, top to bottom, with equal overall line lengths and natural inter-character spacing. Make each character naturally close to square, visibly tall and strong, never squashed or horizontally stretched. Each four-character ink silhouette must have a width-to-height ratio between 3.5 and 4.2, ideally 3.8. Use clear unambiguous glyph skeletons. The three rows must be completely disconnected with at least half a character height of fully transparent vertical gap between rows so each row can be independently isolated. Generous transparent outer margins on all four sides. No underline, enclosing shape, giant horizontal swashes, or connecting strokes between rows.\nColor palette: one uniform flat deep pine green #203c32 across all characters. Truly transparent background and transparent internal gaps.\nConstraints: Exact text and legibility are highest priority. Only these twelve characters. No row labels, numbers, English, signature, seal, paper, border, background, gradients, glow, shadow, outlines, or watermark. All strokes flat-color ink; no photographed paper or texture image.\n",
+    "method": "Threshold generated alpha, median filter, isolate connected components, remove regions under 16px, reconstruct spline contours with vtracer 0.6.15; no manual stroke redrawing",
+    "parameters": {
+      "alphaThreshold": 128,
+      "medianFilterSize": 3,
+      "minimumConnectedArea": 16,
+      "padding": 56,
+      "colormode": "binary",
+      "mode": "spline",
+      "filter_speckle": 4,
+      "corner_threshold": 60,
+      "length_threshold": 6.0,
+      "splice_threshold": 45,
+      "path_precision": 3
+    },
+    "characterGeometry": "original generated proportions, no scaling or glyph deformation; translations only where recorded",
+    "processedAlphaSha256": "81899d6af783325028caa2547dcdc8e3c22d9ec4102fe79235ff9db8f3c76cee",
+    "inkDimensions": [
+      1114,
+      296
+    ],
+    "inkAspectRatio": 3.763514,
+    "license": {
+      "type": "AI-generated project artwork",
+      "attribution": "AI-assisted lettering and algorithmic alpha contour reconstruction; do not claim human hand-lettering",
+      "thirdPartyFontUsed": false,
+      "generationServiceTerms": "Subject to the terms governing the built-in image generation service; no separate font license applies",
+      "processor": "vtracer 0.6.15, MIT license; license copy in VTRACER-LICENSE"
+    },
+    "svg": "learning-title.svg",
+    "svgSha256": "66543c5cf5a047a3c6390390ba9e92ed9e3b701c29312a21dd4aee13881b8495",
+    "viewBox": [
+      0,
+      0,
+      1226,
+      408
+    ],
+    "paths": 5,
+    "bytes": 28030
+  },
+  {
+    "source": "service-title-master.png",
+    "sourceSheet": "chapters-sheet-master.png",
+    "sourceSheetSha256": "1a84237327c04c810d0293e76aa56fb1aeadb9d4681ce590f826fc6be242f0f2",
+    "sourceCrop": [
+      203,
+      364,
+      1354,
+      713
+    ],
+    "sourceSheetRow": 2,
+    "characterTranslationsX": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "text": "践行责任",
+    "sourceSha256": "12ea58048f2456cf60d1cd223cb5e6cbc3b716c672ad9e403d06a7f63b035968",
+    "sourceType": "AI-assisted brush lettering, generated with built-in image_gen; not human handwriting, a font, or font outlines",
+    "generationTool": "image_gen.imagegen",
+    "generationModel": "not exposed by built-in tool",
+    "transparent_background": true,
+    "referenced_image_paths": null,
+    "promptFile": "chapters-sheet-prompt.txt",
+    "prompt": "Use case: logo-brand\nAsset type: A clean three-row Chinese brush-lettering master sheet. Each row will be isolated and alpha-traced into its own SVG title for a memorial website.\nPrimary request: Generate exactly three separate four-character Chinese brush title rows, with generous transparent gaps between rows. The exact text is:\nRow 1: \"走近历史\"\nRow 2: \"践行责任\"\nRow 3: \"保存记忆\"\nCharacter accuracy: Row 1 走 / 近 / 历 / 史. Row 2 践 / 行 / 责 / 任. Row 3 保 / 存 / 记 / 忆. Use simplified Chinese only. Do not mix the rows, omit a character, or add a character. Each row contains exactly four Chinese characters.\nStyle/medium: powerful but humane Chinese running script 行书 with monumental stone-inscription bones 碑刻, full thick brush bellies, decisive angled cut-tip endings and very restrained sparse dry-brush gaps. Natural and coherent brush title lettering, warm, clear and human. Strong upright/downward energy. Related to bold Chinese memorial brush-title lettering. Expressive artwork, not an ordinary typeset font.\nComposition/framing: Exactly three horizontal rows, top to bottom, with equal overall line lengths and natural inter-character spacing. Make each character naturally close to square, visibly tall and strong, never squashed or horizontally stretched. Each four-character ink silhouette must have a width-to-height ratio between 3.5 and 4.2, ideally 3.8. Use clear unambiguous glyph skeletons. The three rows must be completely disconnected with at least half a character height of fully transparent vertical gap between rows so each row can be independently isolated. Generous transparent outer margins on all four sides. No underline, enclosing shape, giant horizontal swashes, or connecting strokes between rows.\nColor palette: one uniform flat deep pine green #203c32 across all characters. Truly transparent background and transparent internal gaps.\nConstraints: Exact text and legibility are highest priority. Only these twelve characters. No row labels, numbers, English, signature, seal, paper, border, background, gradients, glow, shadow, outlines, or watermark. All strokes flat-color ink; no photographed paper or texture image.\n",
+    "method": "Threshold generated alpha, median filter, isolate connected components, remove regions under 16px, reconstruct spline contours with vtracer 0.6.15; no manual stroke redrawing",
+    "parameters": {
+      "alphaThreshold": 128,
+      "medianFilterSize": 3,
+      "minimumConnectedArea": 16,
+      "padding": 56,
+      "colormode": "binary",
+      "mode": "spline",
+      "filter_speckle": 4,
+      "corner_threshold": 60,
+      "length_threshold": 6.0,
+      "splice_threshold": 45,
+      "path_precision": 3
+    },
+    "characterGeometry": "original generated proportions, no scaling or glyph deformation; translations only where recorded",
+    "processedAlphaSha256": "c5a215ab9b6214c54194ddf5a07ea482e913388c80922a1cf9457e8786a2511a",
+    "inkDimensions": [
+      1087,
+      285
+    ],
+    "inkAspectRatio": 3.814035,
+    "license": {
+      "type": "AI-generated project artwork",
+      "attribution": "AI-assisted lettering and algorithmic alpha contour reconstruction; do not claim human hand-lettering",
+      "thirdPartyFontUsed": false,
+      "generationServiceTerms": "Subject to the terms governing the built-in image generation service; no separate font license applies",
+      "processor": "vtracer 0.6.15, MIT license; license copy in VTRACER-LICENSE"
+    },
+    "svg": "service-title.svg",
+    "svgSha256": "115feca43fae2042f905e1b8c9ff9e4ef001e4477ef44cd6455546caec8b2ab4",
+    "viewBox": [
+      0,
+      0,
+      1199,
+      397
+    ],
+    "paths": 8,
+    "bytes": 31310
+  },
+  {
+    "source": "archives-title-master.png",
+    "sourceSheet": "chapters-sheet-master.png",
+    "sourceSheetSha256": "1a84237327c04c810d0293e76aa56fb1aeadb9d4681ce590f826fc6be242f0f2",
+    "sourceCrop": [
+      178,
+      692,
+      1376,
+      1024
+    ],
+    "sourceSheetRow": 3,
+    "characterTranslationsX": [
+      0,
+      -3,
+      -6,
+      -9
+    ],
+    "text": "保存记忆",
+    "sourceSha256": "94b50ec11a353042f4073d6d71de702a4de8fb64be8a68fbe14b91f843c47494",
+    "sourceType": "AI-assisted brush lettering, generated with built-in image_gen; not human handwriting, a font, or font outlines",
+    "generationTool": "image_gen.imagegen",
+    "generationModel": "not exposed by built-in tool",
+    "transparent_background": true,
+    "referenced_image_paths": null,
+    "promptFile": "chapters-sheet-prompt.txt",
+    "prompt": "Use case: logo-brand\nAsset type: A clean three-row Chinese brush-lettering master sheet. Each row will be isolated and alpha-traced into its own SVG title for a memorial website.\nPrimary request: Generate exactly three separate four-character Chinese brush title rows, with generous transparent gaps between rows. The exact text is:\nRow 1: \"走近历史\"\nRow 2: \"践行责任\"\nRow 3: \"保存记忆\"\nCharacter accuracy: Row 1 走 / 近 / 历 / 史. Row 2 践 / 行 / 责 / 任. Row 3 保 / 存 / 记 / 忆. Use simplified Chinese only. Do not mix the rows, omit a character, or add a character. Each row contains exactly four Chinese characters.\nStyle/medium: powerful but humane Chinese running script 行书 with monumental stone-inscription bones 碑刻, full thick brush bellies, decisive angled cut-tip endings and very restrained sparse dry-brush gaps. Natural and coherent brush title lettering, warm, clear and human. Strong upright/downward energy. Related to bold Chinese memorial brush-title lettering. Expressive artwork, not an ordinary typeset font.\nComposition/framing: Exactly three horizontal rows, top to bottom, with equal overall line lengths and natural inter-character spacing. Make each character naturally close to square, visibly tall and strong, never squashed or horizontally stretched. Each four-character ink silhouette must have a width-to-height ratio between 3.5 and 4.2, ideally 3.8. Use clear unambiguous glyph skeletons. The three rows must be completely disconnected with at least half a character height of fully transparent vertical gap between rows so each row can be independently isolated. Generous transparent outer margins on all four sides. No underline, enclosing shape, giant horizontal swashes, or connecting strokes between rows.\nColor palette: one uniform flat deep pine green #203c32 across all characters. Truly transparent background and transparent internal gaps.\nConstraints: Exact text and legibility are highest priority. Only these twelve characters. No row labels, numbers, English, signature, seal, paper, border, background, gradients, glow, shadow, outlines, or watermark. All strokes flat-color ink; no photographed paper or texture image.\n",
+    "method": "Threshold generated alpha, median filter, isolate connected components, remove regions under 16px, reconstruct spline contours with vtracer 0.6.15; no manual stroke redrawing",
+    "parameters": {
+      "alphaThreshold": 128,
+      "medianFilterSize": 3,
+      "minimumConnectedArea": 16,
+      "padding": 56,
+      "colormode": "binary",
+      "mode": "spline",
+      "filter_speckle": 4,
+      "corner_threshold": 60,
+      "length_threshold": 6.0,
+      "splice_threshold": 45,
+      "path_precision": 3
+    },
+    "characterGeometry": "original generated proportions, no scaling or glyph deformation; translations only where recorded",
+    "processedAlphaSha256": "7a66bdfed6dfb3ea225fd338fe134c505304cee249e1e59a66a78aad73332b60",
+    "inkDimensions": [
+      1125,
+      269
+    ],
+    "inkAspectRatio": 4.182156,
+    "license": {
+      "type": "AI-generated project artwork",
+      "attribution": "AI-assisted lettering and algorithmic alpha contour reconstruction; do not claim human hand-lettering",
+      "thirdPartyFontUsed": false,
+      "generationServiceTerms": "Subject to the terms governing the built-in image generation service; no separate font license applies",
+      "processor": "vtracer 0.6.15, MIT license; license copy in VTRACER-LICENSE"
+    },
+    "svg": "archives-title.svg",
+    "svgSha256": "e871ad1200aacacdcae3b0c915ea31cc2d7c5a0971e3fe56db53b80430257a7b",
+    "viewBox": [
+      0,
+      0,
+      1237,
+      381
+    ],
+    "paths": 7,
+    "bytes": 30863
+  }
+]

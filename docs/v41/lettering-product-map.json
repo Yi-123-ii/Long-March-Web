@@ -1,0 +1,26 @@
+[
+  {
+    "name": "legacy-title",
+    "originalSVG_SHA256": "47e7ee52349a2b543a648a87de32d79369cceb24e9edf8ef8e3ee27b7ffd9014",
+    "productSVG_SHA256": "a51ec9e90a0cf5cf663a1a7d237ed8e347f47af61194677d3d1a071fdc006b7f",
+    "change": "hero fill #203c32→#f1e4c5 only; no geometry change"
+  },
+  {
+    "name": "learning-title",
+    "originalSVG_SHA256": "66543c5cf5a047a3c6390390ba9e92ed9e3b701c29312a21dd4aee13881b8495",
+    "productSVG_SHA256": "66543c5cf5a047a3c6390390ba9e92ed9e3b701c29312a21dd4aee13881b8495",
+    "change": "byte-identical"
+  },
+  {
+    "name": "service-title",
+    "originalSVG_SHA256": "115feca43fae2042f905e1b8c9ff9e4ef001e4477ef44cd6455546caec8b2ab4",
+    "productSVG_SHA256": "115feca43fae2042f905e1b8c9ff9e4ef001e4477ef44cd6455546caec8b2ab4",
+    "change": "byte-identical"
+  },
+  {
+    "name": "archives-title",
+    "originalSVG_SHA256": "e871ad1200aacacdcae3b0c915ea31cc2d7c5a0971e3fe56db53b80430257a7b",
+    "productSVG_SHA256": "e871ad1200aacacdcae3b0c915ea31cc2d7c5a0971e3fe56db53b80430257a7b",
+    "change": "byte-identical"
+  }
+]

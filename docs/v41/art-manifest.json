@@ -1,0 +1,38 @@
+[
+  {
+    "name": "legacy-hero",
+    "width": 1672,
+    "height": 941,
+    "sourceSHA256": "6cfa4f4498b374bb3c80d5c05892c9002094114cdc7dcadfb72e0ec93288f4a1",
+    "largeBytes": 217642,
+    "smallBytes": 93452,
+    "encoding": "q90 full size; q88 Lanczos3 downsample1000; no sharpening/upscale/blur"
+  },
+  {
+    "name": "learning",
+    "width": 1672,
+    "height": 941,
+    "sourceSHA256": "3812e04d6e27c652b9e88677ae749c11a9b72d3dd880d2e3e73316276be5e20e",
+    "largeBytes": 158994,
+    "smallBytes": 67908,
+    "encoding": "q90 full size; q88 Lanczos3 downsample1000; no sharpening/upscale/blur"
+  },
+  {
+    "name": "service",
+    "width": 1672,
+    "height": 941,
+    "sourceSHA256": "b65f9db07ffce0ad0088f321b81594de20bc40e070eaaf621641ab59333b4fe9",
+    "largeBytes": 285678,
+    "smallBytes": 130208,
+    "encoding": "q90 full size; q88 Lanczos3 downsample1000; no sharpening/upscale/blur"
+  },
+  {
+    "name": "archives",
+    "width": 1672,
+    "height": 941,
+    "sourceSHA256": "def3492033fe8e8ae5bc27d932715bcc8cb2b4c59d1065047111abaf7b363dc2",
+    "largeBytes": 152848,
+    "smallBytes": 73842,
+    "encoding": "q90 full size; q88 Lanczos3 downsample1000; no sharpening/upscale/blur"
+  }
+]

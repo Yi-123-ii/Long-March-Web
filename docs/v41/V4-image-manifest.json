@@ -1,0 +1,42 @@
+[
+  {
+    "name": "chronicle",
+    "sourceSHA256": "903d26185b2dc1602bb12d6bb4c4a4e9d7ca62a73adb2edb00d88cb48a2aae99",
+    "width": 1672,
+    "height": 941,
+    "processing": "direct PNG copy; WebP q90 large; Lanczos3 downsample1000 and WebP q88 small; no sharpening, grain, colour filter, blur or upsampling",
+    "largeBytes": 463556,
+    "smallBytes": 188134,
+    "sourceGenerationFile": "exec-227d9e16-9b4c-4815-9931-2ad78d33c08d.png"
+  },
+  {
+    "name": "journey",
+    "sourceSHA256": "714c082822062e3579a58ffdf5cee7d8b5308285f1f4ca36143404a80f700fc8",
+    "width": 1672,
+    "height": 940,
+    "processing": "direct PNG copy; WebP q90 large; Lanczos3 downsample1000 and WebP q88 small; no sharpening, grain, colour filter, blur or upsampling",
+    "largeBytes": 552444,
+    "smallBytes": 222780,
+    "sourceGenerationFile": "exec-522bd324-e437-474b-b0f8-dc993392ab3c.png"
+  },
+  {
+    "name": "inheritance",
+    "sourceSHA256": "f51f7afb5569a241c5c5919c86eba526fe4313c9511759d45e4ee6631da48f59",
+    "width": 1672,
+    "height": 941,
+    "processing": "direct PNG copy; WebP q90 large; Lanczos3 downsample1000 and WebP q88 small; no sharpening, grain, colour filter, blur or upsampling",
+    "largeBytes": 446514,
+    "smallBytes": 207602,
+    "sourceGenerationFile": "exec-fc91884d-51c0-45fe-88a5-ad54737f170e.png"
+  },
+  {
+    "name": "post",
+    "sourceSHA256": "294ee1856544bb5effe1f4b6dfd10a7327fce74ec5a3e1f56035bf74eaf5fe79",
+    "width": 1672,
+    "height": 941,
+    "processing": "direct PNG copy; WebP q90 large; Lanczos3 downsample1000 and WebP q88 small; no sharpening, grain, colour filter, blur or upsampling",
+    "largeBytes": 384634,
+    "smallBytes": 169228,
+    "sourceGenerationFile": "exec-237af137-342c-411a-8191-ffa5461dc79a.png"
+  }
+]
