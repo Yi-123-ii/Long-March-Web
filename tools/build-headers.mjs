@@ -29,7 +29,6 @@ for (const section of sections) {
   const pattern = /<header\b[^>]*class="[^"]*(?:site-header|atlas-header)[^"]*"[^>]*>[\s\S]*?<\/header>/;
   if (!pattern.test(html)) throw Error('Header missing: ' + section.file);
   html = html.replace(pattern, () => header);
-  if (!html.includes('assets/css/header-unified.css')) html = html.replace('</head>', `<link rel="stylesheet" href="${prefix}assets/css/header-unified.css?v=20261102-illustrations" />\n</head>`);
   if (!html.includes('assets/js/site-nav.js')) html = html.replace('</head>', `<script defer src="${prefix}assets/js/site-nav.js?v=20261102-unified"></script>\n</head>`);
   else html = html.replace(/src="(?:\.\.\/\.\.\/)?assets\/js\/site-nav\.js(?:\?[^\"]*)?"/, `src="${prefix}assets/js/site-nav.js?v=20261102-unified"`);
   if (section.id === 'journey') {
@@ -38,8 +37,8 @@ for (const section of sections) {
     if (!html.includes('id="about-open"')) html = html.replace('<footer class="atlas-footer">', '<footer class="atlas-footer"><button class="quiet" id="about-open" type="button">关于这一程</button>');
   }
   // The shared stylesheet must win over page-specific styles and the older shell.
-  const style = `<link rel="stylesheet" href="${prefix}assets/css/header-unified.css?v=20261102-illustrations" />`;
-  html = html.replace(style + '\n', '').replace('</head>', style + '\n</head>');
+  const style = `<link rel="stylesheet" href="${prefix}assets/css/header-unified.css?v=20261102-top-seams" />`;
+  html = html.replace(/<link\b[^>]*href="(?:\.\.\/\.\.\/)?assets\/css\/header-unified\.css(?:\?[^"]*)?"[^>]*>\s*/g, '').replace('</head>', style + '\n</head>');
   await writeFile(target, html);
 }
 console.log('Built five consistent headers.');
