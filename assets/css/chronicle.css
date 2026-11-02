@@ -31,7 +31,7 @@
 .lm-hero-art {
   position: absolute;
   inset: 0;
-  background: url("../images/hero-mountains.webp") center 52% / cover no-repeat;
+  background: url("../images/hero-chronicle-snow-v1.webp") center 52% / cover no-repeat;
 }
 .lm-hero-art::after {
   content: "";
@@ -292,8 +292,8 @@
 }
 @media (max-width: 760px) {
   .lm-hero { min-height: 690px; }
-  .lm-hero-art { background-position: 59% center; }
-  .lm-hero-art::after { background: linear-gradient(90deg, #e9ede5dd, #e9ede53b 90%); }
+  .lm-hero-art { background-position: 74% center; }
+  .lm-hero-art::after { background: linear-gradient(90deg, #eef1edef 0%, #eef1edcc 48%, #eef1ed26 100%); }
   .lm-hero-copy { padding-top: 75px; width: auto; margin-left: 32px; }
   .lm-hero h1 { font-size: 90px; letter-spacing: 1px; }
   .lm-hero-intro { font-size: 17px; }
@@ -328,7 +328,7 @@
   .lm-hero-bottom { margin-inline: 25px; gap: 14px; flex-wrap: wrap; padding-bottom: 22px; }
   .lm-hero-bottom > span:first-child { font-size: 21px; }
   .lm-hero-bottom > span:nth-child(2) { font-size: 10px; }
-  .lm-hero-art { background-position: 62% center; }
+  .lm-hero-art { background-position: 80% center; }
   .lm-tools { align-items: stretch; flex-direction: column; padding: 13px 0; gap: 8px; }
   .lm-search { width: 100%; }
   .lm-filters { gap: 6px; }
