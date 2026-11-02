@@ -20,7 +20,7 @@ test('old saves at the former endpoint can enter the snow chapter without replay
 });
 test('new Lu assets replace both previous appearances, and V07/V08 introduce no extra movies',()=>{
  assert(D.images['lusheng-river'].endsWith('v015.webp'));assert(D.images['lusheng-lamp'].endsWith('v015.webp'));
- assert.equal(D.nodes.filter(n=>n.nativeAudio).length,7);
+ assert.equal(D.nodes.filter(n=>n.nativeAudio).length,8);
  for(const n of D.nodes.filter(n=>['grass','north','wuqi','epilogue'].includes(n.chapter))){assert(!n.nativeAudio);assert(!n.video);}
 });
 test('the two endings keep distinct objects; new writing does not consume or deliver the old letter',()=>{

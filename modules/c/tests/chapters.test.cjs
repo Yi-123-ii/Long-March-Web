@@ -38,8 +38,8 @@ test('v0.13 first-station saves migrate without replaying its videos or inventin
  const migrated=C.restore(D,JSON.stringify(prior));assert.equal(migrated.node,'end');assert.equal(migrated.storyRevision,D.storyRevision);
  assert.equal(migrated.choices.choice,'help');assert.equal(migrated.choices['xj-choice'],undefined);assert(C.canOpenChapter(D,migrated,'xiangjiang'));
 });
-test('a forged callback path is rejected and silent later chapters never load voices or video',()=>{
+test('a forged callback path is rejected and only supplied spoken scenes load video',()=>{
  const b=walk('hand','luggage');const bad={...b,path:b.path.map(id=>id==='zy-b-letter'?'zy-a-lusheng':id)};
  assert.equal(C.restore(D,bad).node,D.start);
- for(const n of D.nodes.filter(n=>!['yudu','snow'].includes(n.chapter))){assert(!n.nativeAudio);assert(!n.video);assert(!n.voice);assert(D.images[n.scene]);}
+ for(const n of D.nodes.filter(n=>!['yudu','snow'].includes(n.chapter))){if(n.id!=='xj-sleeve'){assert(!n.nativeAudio);assert(!n.video);}assert(!n.voice);assert(D.images[n.scene]);}
 });

@@ -4,8 +4,8 @@
  const fact=(id,text,scene,next,extra={})=>({id,speaker:'行军纪事',text,scene,next,mode:'fact',...extra});
  const nodes=[
   fact('xj-arrive','1934年11月下旬至12月初，广西湘江一线。队伍在这里付出了沉重代价。','xiang-bank','xj-sleeve'),
-  thought('xj-sleeve','袖口不知道在哪儿挂开了。梁叔叫我把胳膊伸直。我一紧张往回缩，他笑我，说针都还没碰着呢。','liang-sewing','xj-three'),
-  thought('xj-three','前头已经在催，只来得及三针。他让我先凑合着，过了江，再给我补。','sleeve-three','xj-choice'),
+  {id:'xj-sleeve',speaker:'梁叔',text:'别缩，针还没碰着呢。先缝三针，过了江再补。',scene:'liang-sewing',next:'xj-three',mode:'dialogue',nativeAudio:true,video:'assets/chapters/liang-sewing-v018.mp4',poster:'assets/chapters/liang-sewing-first-v018.png',hold:'assets/chapters/liang-sewing-hold-v018.png',duration:6.08,captionCues:[{text:'别缩，',start:.54,end:1.10},{text:'针还没碰着呢。',start:1.68,end:2.55},{text:'先缝三针，',start:3.63,end:4.50},{text:'过了江再补。',start:5.0,end:5.78}],title:'梁叔在湘江岸边替小满补袖口',replayLabel:'重看补衣',advanceOnEnd:true},
+  thought('xj-three','破开的袖口上，已经落了三针。我把胳膊收回来。前头又有人在催了，得跟着过江。','liang-sewing-hold','xj-choice'),
   {id:'xj-choice',speaker:'心声',mode:'thought',text:'转运的同志分成两组。一组随伤员担架过江，一组接运行装。两边都有人带领，也都需要帮忙。',scene:'xiang-bank',choices:[
    {id:'stretcher',label:'跟陈禾随担架组过江。',next:'xj-a-lusheng'},
    {id:'luggage',label:'随行装组接运，替梁叔腾出手。',next:'xj-b-bag'}]},
@@ -51,7 +51,7 @@
   let within=false;for(const n of nodes){if(n.id===first)within=true;if(within)n.chapter=id;if(n.id===last)within=false;}
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
- const data={nodes,images:Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),
+ const data={nodes,images:{...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png'},
   chapters:[
    {id:'yudu',name:'第一站 · 于都',title:'一只伸来的手',location:'江西于都',date:'1934年10月',start:'river',end:'end',ambient:'river',image:'portrait',ending:'路还很远，\n有人与你同行。',summary:'河岸相识、梁叔的枣树和上船的脚步，都留在这一程里。',button:'前往湘江'},
    {id:'xiangjiang',name:'第二站 · 湘江',title:'少了一个人的位置',location:'广西湘江一线',date:'1934年11月下旬—12月初',start:'xj-arrive',end:'xj-end',ambient:'cold',image:'xiang-bank',ending:'收好针线，\n再跟上队伍。',summary:'两条路线都有人照应。梁叔没有归队，不是你的选择造成的。',button:'前往遵义'},
@@ -59,7 +59,7 @@
    {id:'rivers',name:'历史转场一',title:'河流又在面前',location:'赤水—金沙江',date:'1935年1—5月',start:'t1-arrive',end:'t1-end',ambient:'cold',image:'jinsha-crossing',ending:'又一条江，\n又一段路。',summary:'从赤水到金沙江，地图上的每一段前进，都隔着实实在在的日子。',button:'继续前往泸定桥'},
    {id:'luding',name:'历史转场二',title:'有人先把路打开',location:'大渡河 · 泸定桥',date:'1935年5月',start:'t2-arrive',end:'t2-end',ambient:'gorge',image:'luding-bridge',ending:'前头的路，\n有人先走过。',summary:'这一程，先在桥边歇一歇。下一站，是更高的山。雪山篇待续。'}
   ],
-  alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'同一位梁叔低头替小满缝袖口，手与针在画外','lusheng-river':'年轻战士陆生已经靠稳在担架上，疲惫但清醒','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'同一位陈禾在遵义借住屋里低头补衣，桌边一盏灯','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
+  alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','lusheng-river':'年轻战士陆生已经靠稳在担架上，疲惫但清醒','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'同一位陈禾在遵义借住屋里低头补衣，桌边一盏灯','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
  };
  if(typeof module==='object'&&module.exports)module.exports=data;else root.MARCH_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);

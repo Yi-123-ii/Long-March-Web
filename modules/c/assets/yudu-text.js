@@ -18,6 +18,18 @@
   if(end<=start)return currentTime>=end?line.duration:0;
   return Math.max(0,Math.min(1,(currentTime-start)/(end-start)))*line.duration;
  }
- const api={plan,frame,mediaTime};
+ // Keep the revealed words during spoken pauses instead of showing the next phrase early.
+ function cueTime(line,currentTime,cues){
+  let count=0,previous=0;
+  for(const cue of cues){
+   count+=plan(cue.text).glyphs.length;
+   const end=line.ends[count-1]??line.duration;
+   if(currentTime<cue.start)return previous;
+   if(currentTime<cue.end)return previous+(end-previous)*Math.max(0,(currentTime-cue.start)/(cue.end-cue.start));
+   previous=end;
+  }
+  return previous;
+ }
+ const api={plan,frame,mediaTime,cueTime};
  if(typeof module==='object'&&module.exports)module.exports=api;else root.YuduText=api;
 })(typeof window==='undefined'?globalThis:window);
