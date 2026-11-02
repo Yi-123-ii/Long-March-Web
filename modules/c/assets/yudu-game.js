@@ -4,8 +4,18 @@ const D=window.YUDU_DATA,C=window.YuduCore,T=window.YuduText;
 const $=id=>document.getElementById(id),resolve=p=>window.YUDU_EMBEDDED?.[p]||p;
 let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true,movieReturn=null;
 let textPlan=T.plan(''),lineDone=true,lineInstant=false,lineShown=-1;
+let navigating=false;
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 try{state=C.restore(D,localStorage.getItem(C.SAVE_KEY));}catch{storageNotice=true;}
+const resumeView=new URL(location.href).searchParams.get('resume');
+if(['map','story'].includes(resumeView)){
+ try{
+  const snapshot=window.JourneyReturn.restore(D,C,state,sessionStorage.getItem(window.JourneyReturn.KEY));
+  if(snapshot?.view===resumeView)state=snapshot.state;
+  sessionStorage.removeItem(window.JourneyReturn.KEY);
+ }catch{/* The existing local save remains the fallback when session storage is unavailable. */}
+ const cleanURL=new URL(location.href);cleanURL.searchParams.delete('resume');history.replaceState(null,'',cleanURL);
+}
 let ambientKey='river';
 const river=$('ambient-audio');river.src=resolve(D.ambiences.river);
 river.loop=true;river.preload='auto';
@@ -41,7 +51,16 @@ function mapStatus(){
  }
  window.AtlasMap.update(state);
 }
-function enterChapter(id){if(window.JourneyFX.busy||!C.canOpenChapter(D,state,id))return;state=C.beginChapter(D,state,id);enter();}
+function enterChapter(id){if(navigating||window.JourneyFX.busy||!C.canOpenChapter(D,state,id))return;return changeChapter(C.beginChapter(D,state,id));}
+async function changeChapter(next){
+ if(navigating||window.JourneyFX.busy)return;
+ const from=C.chapter(D,state),to=C.chapter(D,next);
+ if(from.id!==to.id){
+  leave(false);navigating=true;
+  try{await window.AtlasMap.travel(state,to.id);}finally{navigating=false;}
+ }
+ state=next;await enter();
+}
 function chapterView(n){
  const ch=C.chapter(D,state);
  $('chapter-label').textContent=ch.name+' · '+ch.title;
@@ -147,7 +166,17 @@ function speak(n){voiceDone=!n.nativeAudio;$('voice-state').textContent='';}
 function render(){
  epoch++;elapsed=0;lastTick=performance.now();stopVoice();
  const n=C.current(D,state);chapterView(n);visual(n);$('watch-invitation').hidden=!!n.nativeAudio||!latestMovie();$('watch-invitation').textContent=latestMovie()?.replayLabel||'重看镜头';$('ending').hidden=!(n.end||n.checkpoint);$('dialogue-panel').hidden=!!(n.end||n.checkpoint);
- if(n.end||n.checkpoint){const ch=C.chapter(D,state);$('ending-place').textContent=ch.location;$('ending-title').textContent=ch.ending;$('ending-note').textContent=ch.summary;$('memory-text').textContent=memoryText();$('continue-route').hidden=!n.checkpoint;$('continue-route').textContent=ch.button||'继续这一程';$('replay').textContent=n.end?'重走这一程':'重看这一站';const cards=$('memory-cards');cards.replaceChildren();cards.hidden=!n.end;if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'我记住陆生的名字，是在江边。':'我把梁叔没写完的半句话，带过了江。',state.choices['snow-choice']==='call'?'风里，我喊他阿禾。他应了一声。':'到了雪山，这回换我等他。',state.choices['grass-choice']==='stay'?'那一夜，我留下来陪陆生等天亮。':'那一夜，我们去接人，也彼此扶着回来。',state.choices['wuqi-choice']==='sew'?'针脚还是不齐，袖口总算合住了。':'我写下他的名字，也写他活着时的样子。'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}save();return;}
+ if(n.end||n.checkpoint){
+  const ch=C.chapter(D,state),nextChapter=D.chapters[D.chapters.findIndex(c=>c.id===ch.id)+1];
+  $('ending').dataset.chapter=ch.id;
+  $('ending-place').textContent=ch.location;$('ending-title').textContent=ch.ending;$('ending-note').textContent=ch.summary;$('memory-text').textContent=memoryText();
+  $('continue-route').hidden=!n.checkpoint||!nextChapter;
+  $('continue-route').textContent=nextChapter?'进入下一站 · '+nextChapter.location:'这一程已走完';$('replay').textContent='重玩这一站';
+  window.dispatchEvent(new CustomEvent('journey:chapter-ended',{detail:ch.id}));
+  const cards=$('memory-cards');cards.replaceChildren();cards.hidden=!n.end;
+  if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'我记住陆生的名字，是在江边。':'我把梁叔没写完的半句话，带过了江。',state.choices['snow-choice']==='call'?'风里，我喊他阿禾。他应了一声。':'到了雪山，这回换我等他。',state.choices['grass-choice']==='stay'?'那一夜，我留下来陪陆生等天亮。':'那一夜，我们去接人，也彼此扶着回来。',state.choices['wuqi-choice']==='sew'?'针脚还是不齐，袖口总算合住了。':'我写下他的名字，也写他活着时的样子。'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}
+  save();return;
+ }
  $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=n.speaker;textPlan=T.plan(n.text);lineInstant=false;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=n.text||'';$('voice-state').textContent='';
  const choices=$('choices');choices.replaceChildren();choices.hidden=!n.choices;$('next').hidden=!!n.choices;$('repeat').disabled=!!n.choices&&n.mode!=='thought';$('repeat').textContent=n.nativeAudio?'重播镜头':'再看一遍';
  if(n.choices){for(const [index,choice] of n.choices.entries()){
@@ -158,30 +187,31 @@ function render(){
  revealText();updateNext();speak(n);cue(n.cue);save();
 }
 function go(choiceId,force=false){
- if(!active||paused||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
+ if(!active||paused||navigating||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
  if(!force&&!C.current(D,state).nativeAudio&&!lineDone){finishText();return;}
  if(movieReturn){state=movieReturn;movieReturn=null;render();return;}
  const next=C.advance(D,state,choiceId);if(next===state)return;
- const previous=C.chapter(D,state).id;state=next;if(C.chapter(D,state).id!==previous){enter();return;}render();
+ const previous=C.chapter(D,state).id;if(C.chapter(D,next).id!==previous){changeChapter(next);return;}state=next;render();
  if(C.current(D,state).end||C.current(D,state).checkpoint)$('back-map').focus();else if(C.current(D,state).choices&&lineDone)$('choices').querySelector('button').focus();else $('next').focus({preventScroll:true});
 }
-async function enter(restart=false){
- if(window.JourneyFX.busy)return;
+async function enter(restart=false,withAlbum=true){
+ if(navigating||window.JourneyFX.busy)return;
  if(restart)state=C.restart(D,state);movieReturn=null;
  paused=true;river.pause();video.pause();cancelCues();
  const ch=C.chapter(D,state),n=C.current(D,state),picture=resolve(D.images[n.scene]||D.images[ch.image]);
- await window.JourneyFX.open(ch,picture,()=>{
+ const reveal=()=>{
   active=true;paused=true;$('map-screen').hidden=true;$('story-screen').hidden=false;document.body.style.overflow='hidden';
   $('pause-overlay').hidden=true;$('pause').textContent='继续';$('pause').setAttribute('aria-pressed','true');volumes();render();
- });
+ };
+ if(withAlbum)await window.JourneyFX.open(ch,picture,reveal);else reveal();
  setPaused(document.hidden);$('leave').focus({preventScroll:true});
  if(storageNotice)notice('当前浏览器无法保存进度；可以继续体验这一程。');
 }
 
-function leave(){
+function leave(focus=true){
  if(movieReturn){state=movieReturn;movieReturn=null;}
  active=false;paused=false;epoch++;stopVoice();river.pause();river.currentTime=0;video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
- $('map-screen').hidden=false;$('story-screen').hidden=true;document.body.style.overflow='';save();mapStatus();$('enter').focus();
+ $('map-screen').hidden=false;$('story-screen').hidden=true;document.body.style.overflow='';save();mapStatus();if(focus)$('enter').focus();
 }
 function openDialog(dialog){
  modalResume=active&&!paused;if(active)setPaused(true);dialog.showModal();$('pause-overlay').hidden=true;
@@ -191,7 +221,7 @@ for(const d of dialogs){
  d.addEventListener('close',()=>{const resume=modalResume;modalResume=false;if(resume&&!document.hidden)setPaused(false);else if(active)$('pause-overlay').hidden=!paused;});
  d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});
 }
-$('continue-route').onclick=()=>go(undefined,true);$('map-xiangjiang').onclick=()=>enterChapter('xiangjiang');$('map-zunyi').onclick=()=>enterChapter('zunyi');$('enter').onclick=()=>enterChapter(window.AtlasMap.selected());$('map-yudu').onclick=()=>enter(true);$('restart-map').onclick=()=>enter();$('watch-invitation').onclick=replayInvitation;$('leave').onclick=leave;$('back-map').onclick=leave;$('replay').onclick=()=>C.current(D,state).end?enter(true):enterChapter(C.chapter(D,state).id);
+$('continue-route').onclick=()=>go(undefined,true);$('enter').onclick=()=>enterChapter(window.AtlasMap.selected());$('restart-map').onclick=()=>enter();$('watch-invitation').onclick=replayInvitation;$('leave').onclick=()=>leave();$('back-map').onclick=()=>leave();$('replay').onclick=()=>enterChapter(C.chapter(D,state).id);
 $('line').onclick=finishText;$('next').onclick=()=>go();$('pause').onclick=()=>setPaused(!paused);$('resume').onclick=()=>setPaused(false);
 $('repeat').onclick=()=>{if(!active||paused)return;render();};
 $('auto').onclick=()=>{state.settings.auto=!state.settings.auto;volumes();save();};
@@ -212,8 +242,14 @@ for(const source of D.sources){const a=document.createElement('a');a.textContent
 for(const [key,id]of [['voice','voice-volume'],['ambient','ambient-volume']])$(id).addEventListener('input',e=>{state.settings[key]=Number(e.target.value)/100;volumes();save();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&active){modalResume=false;setPaused(true);}});
 window.addEventListener('pagehide',()=>{if(active){river.pause();video.pause();cancelCues();save();}});
+window.addEventListener('journey:leaving-site',()=>{
+ save();
+ try{sessionStorage.setItem(window.JourneyReturn.KEY,JSON.stringify({version:1,view:active?'story':'map',state:movieReturn||state}));}catch{}
+ if(active)setPaused(true);
+});
 window.addEventListener('journey:chapter',e=>enterChapter(e.detail));
 document.addEventListener('keydown',e=>{
+ if(window.AtlasMap.travelling){if(e.key==='Escape'){e.preventDefault();window.AtlasMap.skipTravel();}return;}
  if(window.JourneyFX.busy){if(e.key==='Escape'){e.preventDefault();window.JourneyFX.skip();}return;}
  if(!active||dialogs.some(d=>d.open))return;
  if(e.key==='Escape'){e.preventDefault();setPaused(!paused);return;}
@@ -228,4 +264,5 @@ setInterval(()=>{
  if(state.settings.auto&&!n.choices&&!n.end&&!n.checkpoint&&voiceDone&&movieDone&&lineDone&&elapsed>=minimum)go();
 },35);
 volumes();mapStatus();
+if(resumeView==='story')enter(false,false);
 })();
