@@ -102,7 +102,7 @@ function updateNext(){
 }
 function revealText(){
  const n=C.current(D,state);if(n.end||n.checkpoint)return;
- const progress=n.nativeAudio?T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30)):elapsed;
+ const progress=n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):elapsed;
  const f=T.frame(textPlan,progress,lineInstant||reduceMotion);
  if(f.shown!==lineShown){$('line').textContent=f.text;lineShown=f.shown;}
  const changed=lineDone!==f.complete;lineDone=f.complete;

@@ -1,5 +1,18 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const T=require('../assets/yudu-text.js');
+test('Liang captions follow four spoken phrases and hold their text during pauses and replay',()=>{
+ const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js');
+ const n=D.nodes.find(n=>n.id==='xj-sleeve'),p=T.plan(n.text);
+ assert.equal(n.captionCues.map(c=>c.text).join(''),'别缩，针还没碰着呢。先缝三针，过了江再补。');
+ assert.equal(n.text,n.captionCues.map(c=>c.text).join(''));
+ const at=t=>T.frame(p,T.cueTime(p,t,n.captionCues));
+ assert.equal(at(.53).text,'');assert.equal(at(1.1).text,'别缩，');
+ assert.equal(at(1.5).text,at(1.1).text);assert.equal(at(2.8).text,'别缩，针还没碰着呢。');
+ assert.equal(at(3.5).text,at(2.8).text);assert.equal(at(4.8).text,'别缩，针还没碰着呢。先缝三针，');
+ assert(at(5.78).complete);assert(at(n.duration).complete);assert.equal(at(0).text,'');
+ assert.deepEqual(at(4),at(4));assert.equal(P.speaker(n).name,'梁叔');
+ assert.equal(n.poster,D.images[n.scene]);assert.equal(n.hold,D.images[D.nodes.find(x=>x.id===n.next).scene]);
+});
 test('the opening invitation has its confirmed caption and completes before the original clip ends',()=>{
  const n=require('../assets/yudu-data.js').nodes.find(n=>n.id==='reach'),p=T.plan(n.text);
  assert.equal(n.text,'别站在岸上了。来，跟上我们。');assert.equal(n.speaker,'陈禾');
