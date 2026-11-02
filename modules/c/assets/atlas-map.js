@@ -2,24 +2,13 @@
  'use strict';
  const D=window.YUDU_DATA,C=window.YuduCore,resolve=p=>window.YUDU_EMBEDDED?.[p]||p;
  const $=id=>document.getElementById(id),world=$('atlas-canvas'),viewport=$('atlas-window'),pins=$('atlas-pins');
- const points=[
-  {id:'yudu',name:'于都',lon:115.414,lat:25.95,no:'一',dx:-20,dy:24},
-  {id:'xiangjiang',name:'湘江',lon:111.07,lat:25.94,no:'二',dx:15,dy:22},
-  {id:'zunyi',name:'遵义',lon:106.92,lat:27.70,no:'三',dx:18,dy:22},
-  {id:'rivers',name:'赤水',lon:105.70,lat:28.59,dx:16,dy:-25},
-  {id:'rivers',key:'jinsha',name:'金沙江',lon:102.35,lat:26.53,dx:16,dy:20},
-  {id:'luding',name:'泸定桥',lon:102.23,lat:29.92,dx:-65,dy:8},
-  {id:'snow',name:'夹金山',lon:102.72,lat:30.85,no:'四',dx:18,dy:8},
-  {id:'grass',name:'草地',lon:102.75,lat:32.70,no:'五',dx:18,dy:8},
-  {id:'north',name:'六盘山',lon:106.10,lat:35.65,dx:17,dy:17},
-  {id:'wuqi',name:'吴起',lon:108.18,lat:36.92,no:'六',dx:18,dy:8},
-  {id:'epilogue',name:'会宁',lon:105.05,lat:35.69,dx:-58,dy:-19},
-  {id:'epilogue',key:'jiangtai',name:'将台堡',lon:105.69,lat:35.80,dx:-7,dy:-43}
- ];
- const xy=p=>[(p.lon-98)/20*1180,(39-p.lat)/16*780];
+ const R=window.AtlasRoute,points=R.points,xy=R.xy;
+ const flag=$('atlas-flag'),trail=$('atlas-travel-route'),travelPanel=$('atlas-travel-panel');
+ let journey=null,frame=0;
  let mobile=matchMedia('(max-width:600px)').matches,zoom=mobile?1.8:1,chosen='yudu',currentState=null,drag=null,lastChapter='';
  const byId=id=>D.chapters.find(c=>c.id===id);
  function select(id){
+  if(journey)return;
   const ch=byId(id);if(!ch)return;chosen=id;
   $('atlas-place').textContent=ch.location;$('atlas-date').textContent=ch.date;$('station-title').textContent=ch.title;
   $('atlas-photo').src=resolve(D.images[ch.image]);$('atlas-photo').alt=ch.location+'这一程的画面';
@@ -41,21 +30,57 @@
   b.style.left=(x/1180*100)+'%';b.style.top=(y/780*100)+'%';b.style.setProperty('--label-x',p.dx+'px');b.style.setProperty('--label-y',p.dy+'px');
   b.setAttribute('aria-label','走进'+p.name+'，'+byId(p.id).name);
   const dot=document.createElement('span');dot.className='station-dot';dot.textContent=p.no||'';const label=document.createElement('strong');label.textContent=p.name;b.append(dot,label);
-  b.addEventListener('pointerenter',()=>select(p.id));b.addEventListener('focus',()=>{select(p.id);follow(p.id);});
+  b.addEventListener('pointerenter',()=>select(p.id));b.addEventListener('focus',()=>{select(p.id);if(!journey)follow(p.id);});
   b.onclick=()=>window.dispatchEvent(new CustomEvent('journey:chapter',{detail:p.id}));pins.append(b);
  }
  const route=points.slice(0,10).map(p=>xy(p).join(',')).join(' ');$('atlas-main-route').setAttribute('points',route);
  $('atlas-fit').onclick=()=>{zoom=1;position();viewport.scrollTo({top:0,left:0,behavior:'smooth'});};
  for(const [id,dir]of[['atlas-zoom-in',1],['atlas-zoom-out',-1]])$(id).onclick=()=>{zoom=Math.max(.8,Math.min(2.8,zoom*(dir===1?1.25:.8)));position();follow(chosen);};
- viewport.addEventListener('pointerdown',e=>{if(e.target.closest('button')||e.pointerType!=='mouse')return;drag={x:e.clientX,y:e.clientY,left:viewport.scrollLeft,top:viewport.scrollTop};viewport.setPointerCapture(e.pointerId);});
+ viewport.addEventListener('pointerdown',e=>{if(journey||e.target.closest('button')||e.pointerType!=='mouse')return;drag={x:e.clientX,y:e.clientY,left:viewport.scrollLeft,top:viewport.scrollTop};viewport.setPointerCapture(e.pointerId);});
  viewport.addEventListener('pointermove',e=>{if(!drag)return;viewport.scrollLeft=drag.left-(e.clientX-drag.x);viewport.scrollTop=drag.top-(e.clientY-drag.y);});
  viewport.addEventListener('pointerup',()=>drag=null);viewport.addEventListener('pointercancel',()=>drag=null);
  window.addEventListener('resize',()=>{const nextMobile=matchMedia('(max-width:600px)').matches;if(nextMobile!==mobile){mobile=nextMobile;zoom=mobile?1.8:1;position();follow(chosen,'instant');}else position();});
- window.AtlasMap={selected:()=>chosen,update(state){
+ function moveFlag(p,center=false){
+  flag.setAttribute('transform','translate('+p.join(' ')+')');flag.removeAttribute('hidden');
+  if(center)viewport.scrollTo({left:p[0]/1180*world.clientWidth-viewport.clientWidth*.5,top:p[1]/780*world.clientHeight-viewport.clientHeight*.52,behavior:'instant'});
+ }
+ function atChapterEnd(state){return !!C.current(D,state).checkpoint||!!C.current(D,state).end||(C.current(D,state).routeStep||0)>=2;}
+ function travel(state,to){
+  if(journey)return journey.promise;
+  const from=C.chapter(D,state),route=R.between(from.id,to,atChapterEnd(state));
+  if(!route.length||from.id===to)return Promise.resolve();
+  select(to);position();drag=null;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){moveFlag(route.at(-1),true);return Promise.resolve();}
+  const inertTargets=[...document.querySelectorAll('.atlas-header,.atlas-card,.atlas-controls,.atlas-directory,.atlas-pins')].map(el=>[el,el.inert]);
+  for(const [el]of inertTargets)el.inert=true;
+  let resolve,done=false,start;
+  const promise=new Promise(r=>resolve=r),total=R.length(route),duration=Math.min(2800,Math.max(1600,1300+total*2));
+  function finish(){
+   if(done)return;done=true;cancelAnimationFrame(frame);moveFlag(route.at(-1),true);
+   trail.style.strokeDashoffset='0';travelPanel.hidden=true;world.classList.remove('flag-travelling');
+   for(const [el,wasInert]of inertTargets)el.inert=wasInert;
+   journey=null;resolve();
+  }
+  journey={finish,promise};
+  trail.setAttribute('points',route.map(p=>p.join(',')).join(' '));trail.removeAttribute('hidden');
+  trail.style.strokeDasharray=String(total);trail.style.strokeDashoffset=String(total);
+  $('atlas-travel-text').textContent='从'+R.station(from.id,atChapterEnd(state)).name+'，走向'+R.station(to).name;
+  travelPanel.hidden=false;world.classList.add('flag-travelling');moveFlag(route[0],true);$('skip-travel').focus({preventScroll:true});
+  function tick(now){
+   if(done)return;if(start===undefined)start=now;
+   const t=Math.min(1,(now-start)/duration),progress=t*t*(3-2*t);
+   moveFlag(R.sample(route,progress),true);trail.style.strokeDashoffset=String(total*(1-progress));
+   if(t===1)finish();else frame=requestAnimationFrame(tick);
+  }
+  frame=requestAnimationFrame(tick);return promise;
+ }
+ $('skip-travel').onclick=()=>journey?.finish();
+ window.AtlasMap={selected:()=>chosen,travel,get travelling(){return !!journey;},skipTravel(){journey?.finish();},update(state){
   currentState=state;const ch=C.chapter(D,state),n=C.current(D,state),index=D.chapters.findIndex(c=>c.id===ch.id);
   for(const b of pins.querySelectorAll('button')){const c=byId(b.dataset.chapter),allowed=C.canOpenChapter(D,state,c.id);b.disabled=!allowed;b.dataset.status=state.path.includes(c.start)?'visited':allowed?'available':'locked';b.title=allowed?c.name+'：'+c.title:'先走过前一段故事';}
   $('atlas-progress').textContent=n.end?'这一程，已走到会师的日子':'脚步停在'+ch.location;
   const next=n.checkpoint?D.chapters[index+1]:ch;select(next?.id||ch.id);position();
+  moveFlag(xy(R.station(ch.id,atChapterEnd(state))));trail.setAttribute('hidden','');
   if(lastChapter!==ch.id){follow(next?.id||ch.id,'instant');lastChapter=ch.id;}
  }};
  position();
