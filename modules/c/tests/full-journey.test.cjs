@@ -6,6 +6,7 @@ test('all 32 stories reach the 1936 epilogue with their five real choices intact
   const s=walk(a,b,c,d,e);assert.equal(s.choices.choice,a);assert.equal(s.choices['xj-choice'],b);assert.equal(s.choices['snow-choice'],c);assert.equal(s.choices['grass-choice'],d);assert.equal(s.choices['wuqi-choice'],e);
   assert.equal(s.path.includes('grass-a-new'),b==='luggage'&&d==='stay');assert.equal(s.path.includes('grass-b-new'),b==='luggage'&&d==='rescue');
   assert.equal(s.path.includes('grass-dawn-call'),c==='call');assert.equal(s.path.includes('wuqi-later-name'),c==='call');
+  assert.equal(s.path.includes('grass-a-water'),d==='stay');
   assert.equal(s.path.includes('wuqi-water'),d==='stay');assert.equal(s.path.includes('wuqi-cloth'),d==='rescue');
   assert.equal(s.path.includes('wuqi-sew'),e==='sew');assert.equal(s.path.includes('wuqi-writing'),e==='write');
   assert.equal(s.path.includes('wuqi-write-letter'),b==='luggage'&&e==='write');
@@ -18,10 +19,10 @@ test('old saves at the former endpoint can enter the snow chapter without replay
  const s=C.restore(D,raw);assert.equal(s.node,'t2-end');assert.equal(s.storyRevision,9);assert(C.canOpenChapter(D,s,'snow'));
  const next=C.beginChapter(D,s,'snow');assert.equal(next.node,'snow-arrive');assert.equal(next.choices['xj-choice'],'luggage');assert.equal(next.choices['snow-choice'],undefined);
 });
-test('new Lu assets replace both previous appearances, and V07/V08 introduce no extra movies',()=>{
+test('new Lu assets replace both previous appearances and only supplied grass scenes add movies',()=>{
  assert(D.images['lusheng-river'].endsWith('v015.webp'));assert(D.images['lusheng-lamp'].endsWith('v015.webp'));
- assert.equal(D.nodes.filter(n=>n.nativeAudio).length,8);
- for(const n of D.nodes.filter(n=>['grass','north','wuqi','epilogue'].includes(n.chapter))){assert(!n.nativeAudio);assert(!n.video);}
+ assert.equal(D.nodes.filter(n=>n.nativeAudio).length,11);
+ for(const n of D.nodes.filter(n=>['grass','north','wuqi','epilogue'].includes(n.chapter)&&!['grass-a-water','grass-dawn-call'].includes(n.id))){assert(!n.nativeAudio);assert(!n.video);}
 });
 test('the two endings keep distinct objects; new writing does not consume or deliver the old letter',()=>{
  const a=walk('hand','stretcher','support','rescue','sew'),b=walk('help','luggage','call','stay','write');

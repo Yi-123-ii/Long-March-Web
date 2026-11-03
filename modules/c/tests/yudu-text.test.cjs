@@ -1,5 +1,35 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const T=require('../assets/yudu-text.js');
+test('Chenhe dawn captions replace one sentence at a time and retain it through pauses',()=>{
+ const D=require('../assets/yudu-data.js'),n=D.nodes.find(x=>x.id==='grass-dawn-call');
+ assert.equal(n.captionPages.map(p=>p.text).join(''),n.text);assert.equal(n.captionPages.length,3);
+ const at=t=>T.pageFrame(n.captionPages,t);
+ assert.equal(at(0).text,'');assert.equal(at(2.5).text,'你在山上喊那几声，跟我娘似的。');
+ assert.deepEqual(at(2.5),at(3.67));assert.equal(at(3.68).text,'');assert.notEqual(at(3.68).key,at(3.67).key);
+ assert.equal(at(5.7).text,'以前她隔着田埂喊，我早听见了。');assert(!at(5.7).complete);
+ assert.equal(at(7.27).text,at(5.7).text);assert.equal(at(7.28).text,'');
+ assert.equal(at(8.7).text,'就是没玩够，不想回去。');assert(at(8.7).complete);assert(at(n.duration).complete);
+ assert.equal(at(0).text,'');assert.equal(T.pageFrame(n.captionPages,4,true).text,n.captionPages[1].text);
+ assert(!T.pageFrame(n.captionPages,4,true).complete);
+});
+test('Lu night caption keeps the confirmed words and does not start before he speaks',()=>{
+ const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js'),n=D.nodes.find(x=>x.id==='grass-a-water'),p=T.plan(n.text);
+ assert.equal(n.text,'放下吧，我想喝了叫你。');assert.equal(n.captionCues.map(c=>c.text).join(''),n.text);
+ assert.equal(P.speaker(n).name,'陆生');assert.equal(T.frame(p,T.cueTime(p,1.67,n.captionCues)).text,'');
+ assert.equal(T.frame(p,T.cueTime(p,3,n.captionCues)).text,'放下吧，');
+ assert(T.frame(p,T.cueTime(p,5.91,n.captionCues)).complete);
+});
+test('Chenhe keeps the changed dialogue and does not ask for the lamp during the long pause',()=>{
+ const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js');
+ const n=D.nodes.find(n=>n.id==='zy-thread'),p=T.plan(n.text),at=t=>T.frame(p,T.cueTime(p,t,n.captionCues));
+ assert.equal(n.text,'梁叔教过。到我手上……就是不听使唤。灯挪近点啊。');
+ assert.equal(n.captionCues.map(c=>c.text).join(''),n.text);assert.equal(P.speaker(n).name,'陈禾');
+ assert.equal(at(.57).text,'');assert.equal(at(1.7).text,'梁叔教过。');assert.equal(at(3.3).text,'梁叔教过。到我手上……');
+ const paused='梁叔教过。到我手上……就是不听使唤。';assert.equal(at(4.6).text,paused);assert.equal(at(7.2).text,paused);
+ assert(at(7.97).complete);assert.equal(at(0).text,'');assert.deepEqual(at(4),at(4));
+ const light=D.nodes.find(x=>x.id===n.next);assert.equal(D.images[light.scene],n.hold);assert.equal(light.choices[0].id,'hold-light');
+ assert(!light.text.includes('灯挪近点啊'));assert.equal(D.storyRevision,9);
+});
 test('Liang captions follow four spoken phrases and hold their text during pauses and replay',()=>{
  const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js');
  const n=D.nodes.find(n=>n.id==='xj-sleeve'),p=T.plan(n.text);

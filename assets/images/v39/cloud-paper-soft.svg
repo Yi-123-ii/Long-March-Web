@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f6ecdb" stop-opacity="0"/>
+      <stop offset=".20" stop-color="#f6ecdb" stop-opacity=".03"/>
+      <stop offset=".42" stop-color="#f6ecdb" stop-opacity=".20"/>
+      <stop offset=".62" stop-color="#f6ecdb" stop-opacity=".57"/>
+      <stop offset=".80" stop-color="#f6ecdb" stop-opacity=".90"/>
+      <stop offset=".94" stop-color="#f6ecdb"/>
+    </linearGradient>
+    <radialGradient id="mist">
+      <stop stop-color="#f6ecdb" stop-opacity=".34"/>
+      <stop offset=".52" stop-color="#f6ecdb" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#f6ecdb" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="drift" x="-12%" y="-35%" width="124%" height="170%">
+      <feTurbulence type="fractalNoise" baseFrequency=".004 .012" numOctaves="2" seed="8" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="42"/>
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+  <g filter="url(#drift)">
+    <ellipse fill="url(#mist)" cx="130" cy="150" rx="390" ry="135"/>
+    <ellipse fill="url(#mist)" cx="790" cy="180" rx="370" ry="120"/>
+    <ellipse fill="url(#mist)" cx="1400" cy="105" rx="310" ry="135"/>
+  </g>
+  <path fill="url(#paper)" d="M0 0H1440V320H0Z"/>
+</svg>

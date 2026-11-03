@@ -23,16 +23,16 @@
   thought('xj-silence','陈禾没催我，也没说别难过。他陪我坐了一会儿，直到远处又有人集合。针线包得收好，不能再弄掉了。','chenhe-wait','xj-pack'),
   {id:'xj-pack',speaker:'心声',text:'我把针线包收进衣襟。袖口那三针还在。',scene:'needle-pouch',mode:'thought',choices:[{id:'keep-pouch',label:'收好针线包，跟上队伍。',next:'xj-end'}]},
   {id:'xj-end',checkpoint:true,scene:'xiang-bank',next:'zy-arrive'},
-  fact('zy-arrive','1935年1月，贵州遵义。遵义会议在这里召开。我们在一处借住的屋里，得了一会儿收拾行装的空当。','zunyi-lamp','zy-thread'),
-  thought('zy-thread','袖口到底还是开了。陈禾说他来，低头弄了半天，线头还在外面。我问梁叔没教过他吗。他说教过，一到自己手上就不行。','zunyi-lamp','zy-light'),
-  {id:'zy-light',speaker:'心声',text:'我笑了一声，又赶紧收住。他抬眼看我，嫌我光笑，不把灯挪近点。屋里这么暗，倒也是。',scene:'zunyi-lamp',mode:'thought',choices:[{id:'hold-light',label:'替他举稳灯。',next:'zy-route'}]},
-  thought('zy-route','灯光挪近了一些。针线包就搁在身旁。','zunyi-lamp','zy-a-lusheng',{routes:[{choice:'xj-choice',equals:'luggage',next:'zy-b-letter'}]}),
+  fact('zy-arrive','1935年1月，贵州遵义。遵义会议在这里召开。借住的屋里，陈禾拿过我开线的袖口。我看他跟线头较劲，问起梁叔教他补衣的事。','zunyi-lamp','zy-thread'),
+  {id:'zy-thread',cornerRepair:true,speaker:'陈禾',text:'梁叔教过。到我手上……就是不听使唤。灯挪近点啊。',scene:'zunyi-lamp',next:'zy-light',mode:'dialogue',nativeAudio:true,video:'assets/chapters/chenhe-sewing-v019.mp4',poster:'assets/chapters/chenhe-sewing-first-v019.png',hold:'assets/chapters/chenhe-sewing-hold-v019.png',duration:8.096009,captionCues:[{text:'梁叔教过。',start:.58,end:1.60},{text:'到我手上……',start:2.49,end:3.16},{text:'就是不听使唤。',start:3.69,end:4.55},{text:'灯挪近点啊。',start:7.21,end:7.97}],title:'陈禾在遵义灯下替小满补衣',replayLabel:'重看灯下补衣',advanceOnEnd:true},
+  {id:'zy-light',speaker:'心声',text:'我忍住笑。灯还搁在桌角，照不到他手里的针线。',scene:'chenhe-sewing-hold',mode:'thought',choices:[{id:'hold-light',label:'替他举稳灯。',next:'zy-route'}]},
+  thought('zy-route','灯光挪近了一些。针线包就搁在身旁。','chenhe-sewing-hold','zy-a-lusheng',{routes:[{choice:'xj-choice',equals:'luggage',next:'zy-b-letter'}]}),
   thought('zy-a-lusheng','陆生挪过来，非要替我拿灯。我让他坐着。他说，坐着也能拿。我胳膊还真有点酸，就把灯让给他了。','lusheng-lamp','zy-a-return'),
   thought('zy-a-return','上回我在前头抬着他，这回轮到他坐在旁边替我照着。等他回去，还是得有人扶一把，伤没那么快好。','lusheng-lamp','zy-mended'),
   thought('zy-b-letter','梁叔的信，我一直带着。我问陈禾，要不要替他把后头写完。他停住，看着我：后头写什么呢？我说不上来。','keepsakes','zy-b-fold',{document:'娘，等有了落脚的地方……'}),
   thought('zy-b-fold','那就先别写。折的时候轻一点，纸角都快破了。他没有说别的，我也没再问。','keepsakes','zy-mended'),
   thought('zy-mended','陈禾让我伸胳膊试试。不绷了，样子也没多齐整。他嫌我再挂破就没线了，我没敢接着笑。旧的三针没拆，新针脚就接在旁边。','sleeve-mended','zy-depart'),
-  {id:'zy-depart',speaker:'心声',text:'屋外又响起收拾行装的声音。我们把灯放回去，准备再出发。',scene:'zunyi-lamp',mode:'thought',choices:[{id:'pack-again',label:'收好针线，准备再出发。',next:'zy-end'}]},
+  {id:'zy-depart',speaker:'心声',text:'屋外又响起收拾行装的声音。我们把灯放回去，准备再出发。',scene:'chenhe-sewing-hold',mode:'thought',choices:[{id:'pack-again',label:'收好针线，准备再出发。',next:'zy-end'}]},
   {id:'zy-end',checkpoint:true,scene:'sleeve-mended',next:'t1-arrive'},
   fact('t1-arrive','1935年1月至5月。离开遵义后，队伍转战黔滇。一条河过去了，前头还有另一条河。','chishui-trail','t1-familiar',{routePlace:'赤水河一带',routeDate:'1935年1—3月',routeStep:1}),
   thought('t1-familiar','眼前的河谷，像是来过。我问是不是又走回来了。陈禾看一眼，说上回是从那边过的。前头又动了，我们也跟上。','chishui-trail','t1-history',{routePlace:'赤水河一带',routeDate:'1935年1—3月',routeStep:1}),
@@ -51,7 +51,7 @@
   let within=false;for(const n of nodes){if(n.id===first)within=true;if(within)n.chapter=id;if(n.id===last)within=false;}
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
- const data={nodes,images:{...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png'},
+ const data={nodes,images:{...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
   chapters:[
    {id:'yudu',name:'第一站 · 于都',title:'一只伸来的手',location:'江西于都',date:'1934年10月',start:'river',end:'end',ambient:'river',image:'portrait',ending:'路还很远，\n有人与你同行。',summary:'河岸相识、梁叔的枣树和上船的脚步，都留在这一程里。',button:'前往湘江'},
    {id:'xiangjiang',name:'第二站 · 湘江',title:'少了一个人的位置',location:'广西湘江一线',date:'1934年11月下旬—12月初',start:'xj-arrive',end:'xj-end',ambient:'cold',image:'xiang-bank',ending:'收好针线，\n再跟上队伍。',summary:'两条路线都有人照应。梁叔没有归队，不是你的选择造成的。',button:'前往遵义'},
@@ -59,7 +59,7 @@
    {id:'rivers',name:'历史转场一',title:'河流又在面前',location:'赤水—金沙江',date:'1935年1—5月',start:'t1-arrive',end:'t1-end',ambient:'cold',image:'jinsha-crossing',ending:'又一条江，\n又一段路。',summary:'从赤水到金沙江，地图上的每一段前进，都隔着实实在在的日子。',button:'继续前往泸定桥'},
    {id:'luding',name:'历史转场二',title:'有人先把路打开',location:'大渡河 · 泸定桥',date:'1935年5月',start:'t2-arrive',end:'t2-end',ambient:'gorge',image:'luding-bridge',ending:'前头的路，\n有人先走过。',summary:'这一程，先在桥边歇一歇。下一站，是更高的山。雪山篇待续。'}
   ],
-  alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','lusheng-river':'年轻战士陆生已经靠稳在担架上，疲惫但清醒','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'同一位陈禾在遵义借住屋里低头补衣，桌边一盏灯','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
+  alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','lusheng-river':'年轻战士陆生已经靠稳在担架上，疲惫但清醒','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
  };
  if(typeof module==='object'&&module.exports)module.exports=data;else root.MARCH_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);
