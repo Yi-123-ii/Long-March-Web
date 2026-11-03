@@ -19,6 +19,7 @@
   min-height: 88px !important;
   margin: 0;
   padding: 0 clamp(28px, 6vw, 110px);
+  padding-left: clamp(24px, 3vw, 52px);
   border: 0;
   box-shadow: none;
   background: #eef1ed !important;
@@ -153,14 +154,14 @@ body.legacy-v41 .legacy-hero::after {
   mask-image: linear-gradient(transparent, #000 80px);
 }
 @media (max-width: 1060px) {
-  .site-header.lm-unified-header { gap: 16px; padding-inline: 32px; }
+  .site-header.lm-unified-header { gap: 16px; padding-left: 24px; padding-right: 32px; }
   .lm-unified-header .site-nav { gap: 15px; }
 }
 @media (max-width: 760px) {
   body.lm-page .lm-hero-art { top: -76px; }
   body.lm-page .lm-hero::before { top: -76px; height: 170px; }
   body.legacy-v41 .legacy-hero::after { top: -76px; height: calc(100% + 76px); background-position: top center, center, center, 65% center; }
-  .site-header.lm-unified-header { height: 76px !important; min-height: 76px !important; padding-inline: 22px; }
+  .site-header.lm-unified-header { height: 76px !important; min-height: 76px !important; padding-left: 16px; padding-right: 22px; }
   .lm-unified-header .lm-brand > .lm-brand-landscape { width: 32px; height: 32px; }
   .lm-unified-header .lm-brand .lm-brand-name-art { width: 100px; }
   .lm-unified-header .lm-brand .lm-brand-tagline-art { width: 112px; height: 20px; }
