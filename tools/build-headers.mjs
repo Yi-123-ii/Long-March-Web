@@ -37,7 +37,7 @@ for (const section of sections) {
     if (!html.includes('id="about-open"')) html = html.replace('<footer class="atlas-footer">', '<footer class="atlas-footer"><button class="quiet" id="about-open" type="button">关于这一程</button>');
   }
   // The shared stylesheet must win over page-specific styles and the older shell.
-  const style = `<link rel="stylesheet" href="${prefix}assets/css/header-unified.css?v=20261102-top-seams" />`;
+  const style = `<link rel="stylesheet" href="${prefix}assets/css/header-unified.css?v=20261103-continuous-scenes" />`;
   html = html.replace(/<link\b[^>]*href="(?:\.\.\/\.\.\/)?assets\/css\/header-unified\.css(?:\?[^"]*)?"[^>]*>\s*/g, '').replace('</head>', style + '\n</head>');
   await writeFile(target, html);
 }

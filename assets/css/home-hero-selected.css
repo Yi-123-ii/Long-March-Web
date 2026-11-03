@@ -3,15 +3,21 @@
   background-color: #343b37;
   padding-top: clamp(72px, 9svh, 100px);
 }
-/* Carry the paper header into the sky without a visible horizontal cut. */
+/* Extend the same painted sky behind the header, with visible, softened clouds. */
+.v3-home .site-header.lm-unified-header {
+  background: transparent !important;
+}
 .v3-home .a-hero::before {
   content: "";
   position: absolute;
-  inset: -1px 0 auto;
+  inset: -88px 0 auto;
   z-index: 1;
-  height: clamp(56px, 6vw, 96px);
+  height: clamp(180px, 15vw, 224px);
   pointer-events: none;
-  background: linear-gradient(180deg, #eef1ed 0%, rgb(238 241 237 / 82%) 18%, rgb(238 241 237 / 38%) 50%, rgb(238 241 237 / 10%) 76%, transparent 100%);
+  background: url("../images/v39/header-sky-mist.svg") center / 100% 100% no-repeat;
+}
+.v3-home :is(.a-hero__scenery, .a-hero__shade, .a-hero__grain) {
+  top: -88px;
 }
 .v3-home .a-hero__scenery {
   background-image: url("../images/home-long-march-selected-v1.webp");
@@ -37,6 +43,8 @@
 }
 @media (max-width: 760px) {
   .v3-home .a-hero { padding-top: 72px; }
+  .v3-home .a-hero::before { top: -76px; height: 170px; }
+  .v3-home :is(.a-hero__scenery, .a-hero__shade, .a-hero__grain) { top: -76px; }
   .v3-home .v39-hero-cloud { height: 200px; }
   .v3-home .a-hero__scenery {
     background-position: 88% center;

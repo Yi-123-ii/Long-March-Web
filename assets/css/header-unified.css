@@ -112,33 +112,54 @@
 .lm-unified-header .site-menu-toggle { display: none; }
 .lm-unified-header :is(a, button):focus-visible { outline: 2px solid #973e39; outline-offset: 5px; }
 .v3-home .lm-unified-header + main .a-hero { min-height: calc(100svh - 88px); }
-/* Connect every section to the paper header without a color step or rule. */
-#map-screen .atlas-main::before {
-  content: "";
-  position: absolute;
-  inset: -1px 0 auto;
-  z-index: 2;
-  height: clamp(54px, 7vw, 90px);
-  background: linear-gradient(180deg, #eef1ed 0%, rgb(238 241 237 / 86%) 18%, rgb(238 241 237 / 35%) 58%, transparent 100%);
-  pointer-events: none;
+/* Let each section's own artwork or paper continue behind the common shell. */
+body.lm-page:has(.lm-hero) > .lm-unified-header,
+body.legacy-v41 > .lm-unified-header {
+  background: transparent !important;
 }
-body.legacy-v41 .legacy-hero {
-  --header-blend-depth: clamp(76px, 9vw, 116px);
-  padding-top: var(--header-blend-depth);
+body.lm-page .lm-hero { overflow: visible; }
+body.lm-page .lm-hero-art { top: -88px; }
+body.lm-page .lm-hero::before {
+  top: -88px;
+  height: clamp(180px, 15vw, 224px);
+  background: url("../images/v39/header-sky-mist.svg") center / 100% 100% no-repeat;
 }
+/* A single continuous illustration fills the opening and its softened header. */
+body.legacy-v41 .legacy-hero { overflow: visible; isolation: isolate; }
+body.legacy-v41 .legacy-hero__inner { z-index: 1; }
+body.legacy-v41 .legacy-hero__visual picture { opacity: 0; }
 body.legacy-v41 .legacy-hero::after {
   content: "";
   position: absolute;
-  inset: -1px 0 auto;
-  height: calc(var(--header-blend-depth) + 1px);
-  background: linear-gradient(180deg, #eef1ed 0%, rgb(238 241 237 / 90%) 15%, rgb(238 241 237 / 48%) 50%, rgb(238 241 237 / 12%) 80%, transparent 100%);
+  inset: -88px 0 auto;
+  z-index: 0;
+  height: calc(100% + 88px);
+  background:
+    url("../images/v39/header-sky-mist.svg") top center / 100% 160px no-repeat,
+    linear-gradient(90deg, #173b32 0%, rgb(23 59 50 / 96%) 28%, rgb(23 59 50 / 65%) 48%, rgb(23 59 50 / 12%) 78%),
+    linear-gradient(0deg, #173b32 0%, transparent 32%),
+    url("../images/v41/legacy-hero-large.webp") center 42% / cover no-repeat;
   pointer-events: none;
+}
+/* The map keeps its camera, routes and hit targets; only its paper is extended. */
+#map-screen .atlas-header {
+  background:
+    linear-gradient(180deg, rgb(238 241 237 / 72%), #dce5dc),
+    url("../../modules/c/assets/atlas-base.svg") center top / max(100%, 1180px) auto no-repeat !important;
+}
+#map-screen .atlas-main::before { content: none; }
+#map-screen .atlas-terrain {
+  -webkit-mask-image: linear-gradient(transparent, #000 80px);
+  mask-image: linear-gradient(transparent, #000 80px);
 }
 @media (max-width: 1060px) {
   .site-header.lm-unified-header { gap: 16px; padding-inline: 32px; }
   .lm-unified-header .site-nav { gap: 15px; }
 }
 @media (max-width: 760px) {
+  body.lm-page .lm-hero-art { top: -76px; }
+  body.lm-page .lm-hero::before { top: -76px; height: 170px; }
+  body.legacy-v41 .legacy-hero::after { top: -76px; height: calc(100% + 76px); background-position: top center, center, center, 65% center; }
   .site-header.lm-unified-header { height: 76px !important; min-height: 76px !important; padding-inline: 22px; }
   .lm-unified-header .lm-brand > .lm-brand-landscape { width: 32px; height: 32px; }
   .lm-unified-header .lm-brand .lm-brand-name-art { width: 100px; }
