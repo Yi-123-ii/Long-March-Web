@@ -22,6 +22,7 @@
 <script defer src="assets/js/site-nav.js?v=20261102-unified"></script>
 <link rel="stylesheet" href="assets/css/header-unified.css?v=20261103-brand-lower" />
 <link rel="stylesheet" href="assets/css/home-v43.css?v=20261103"/>
+<link rel="stylesheet" href="assets/css/home-v44.css"/>
 </head>
 <body class="v3-home">
 <a class="a-skip" href="#prologue">跳过开场，直接阅读序章</a>
@@ -64,15 +65,48 @@
         <p>长征使中国革命走过危急关头，打开了新的局面。今天回望这段历史，我们仍能从一次次艰难的选择中，看见坚定信念、团结互助和迎难而上的力量。</p>
       </div>
     </div>
-    <figure class="v43-prologue__landscape">
-      <img src="assets/images/v3/prologue-mountains-v37.webp" width="1280" height="288" alt="" loading="lazy" decoding="async"/>
-      <figcaption>山河画卷 · 路线为叙事示意</figcaption>
-    </figure>
-    <ol class="v43-prologue__dates" aria-label="长征历史节点">
-      <li><time datetime="1934-10">1934年10月</time><span>中央红军踏上征途</span></li>
-      <li><time datetime="1935-01">1935年1月</time><span>遵义会议召开</span></li>
-      <li><time datetime="1936-10">1936年10月</time><span>三大主力胜利会师</span></li>
-    </ol>
+    <section class="v44-scroll" aria-labelledby="v44-scroll-title">
+      <div class="v44-scroll__heading">
+        <h3 id="v44-scroll-title">长征历史导览画卷</h3>
+        <p>三个节点，读懂出发、转折与会师</p>
+      </div>
+      <figure class="v44-scroll__figure">
+        <div class="v44-scroll__map">
+          <img src="assets/images/v44/historical-scroll.webp" srcset="assets/images/v44/historical-scroll-small.webp 840w, assets/images/v44/historical-scroll-medium.webp 1440w, assets/images/v44/historical-scroll.webp 2172w" sizes="(max-width:520px) calc(100vw - 40px), (max-width:1600px) 90vw, 1440px" width="2172" height="724" alt="" loading="lazy" decoding="async"/>
+          <svg class="v44-scroll__route" viewBox="0 0 1000 330" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M51 246 C94 243 119 215 160 211 C206 208 244 232 279 211 S303 167 342 184 S392 197 425 179 S469 160 510 155 C554 151 579 123 610 132 S655 161 684 157 S722 146 750 162 S807 198 840 181 S877 158 911 160"/>
+            <path class="v44-scroll__branch" d="M763 216 C795 220 811 199 840 181 M899 113 C871 121 872 158 840 181"/>
+          </svg>
+          <a class="v44-scroll__marker v44-scroll__marker--01" href="#v44-stage-01" aria-label="阅读第一节点，中央红军踏上长征"><span aria-hidden="true">01</span></a>
+          <a class="v44-scroll__marker v44-scroll__marker--02" href="#v44-stage-02" aria-label="阅读第二节点，遵义会议召开"><span aria-hidden="true">02</span></a>
+          <a class="v44-scroll__marker v44-scroll__marker--03" href="#v44-stage-03" aria-label="阅读第三节点，红军三大主力会师"><span aria-hidden="true">03</span></a>
+        </div>
+        <figcaption><strong>历史叙事示意</strong><span>赤线串联事件先后，山川为概念插画。</span></figcaption>
+      </figure>
+      <ol class="v44-scroll__stages" aria-label="长征历史节点">
+        <li id="v44-stage-01" class="v44-scroll__stage" tabindex="-1">
+          <div class="v44-scroll__folio"><span aria-hidden="true">01</span> 出发</div>
+          <time datetime="1934-10">1934<span>年</span>10<span>月</span></time>
+          <h4>中央红军踏上长征</h4>
+          <p>第五次反“围剿”失利后，中央红军撤离中央革命根据地。各部在于都一带集结，渡过于都河，开始战略转移。</p>
+          <a class="v44-scroll__read" href="chronicle.html#event=yudu" aria-label="查看长征纪事，从于都出发">查看纪事 <span aria-hidden="true">→</span></a>
+        </li>
+        <li id="v44-stage-02" class="v44-scroll__stage" tabindex="-1">
+          <div class="v44-scroll__folio"><span aria-hidden="true">02</span> 转折</div>
+          <time datetime="1935-01">1935<span>年</span>1<span>月</span></time>
+          <h4>遵义会议召开</h4>
+          <p>1月15日至17日，中共中央政治局在遵义召开扩大会议，集中检讨军事指挥并作出组织调整，成为危急关头的重要转折。</p>
+          <a class="v44-scroll__read" href="chronicle.html#event=zunyi" aria-label="查看长征纪事，转折在遵义">查看纪事 <span aria-hidden="true">→</span></a>
+        </li>
+        <li id="v44-stage-03" class="v44-scroll__stage" tabindex="-1">
+          <div class="v44-scroll__folio"><span aria-hidden="true">03</span> 会师</div>
+          <time datetime="1936-10">1936<span>年</span>10<span>月</span></time>
+          <h4>红军三大主力会师</h4>
+          <p>红一方面军先在会宁与红四方面军会合，再在将台堡与红二方面军会合。三大主力胜利会师，标志着长征结束。</p>
+          <a class="v44-scroll__read" href="chronicle.html#event=huishi" aria-label="查看长征纪事，三军会师">查看纪事 <span aria-hidden="true">→</span></a>
+        </li>
+      </ol>
+    </section>
   </div>
 </section>
 <section aria-labelledby="v3-chapters-heading" class="v3-chapters" id="chapters">

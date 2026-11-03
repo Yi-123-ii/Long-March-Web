@@ -16,15 +16,25 @@
   // mobile fallback rules from interfering when scripts are available.
   page.classList.add("legacy-nav-ready");
   const start = page.querySelector("[data-doc-start]");
-  const people = document.getElementById("people");
-  if (start && people) {
+  const bridge = document.getElementById("legacy-bridge");
+  if (start && bridge) {
     start.hidden = false;
     start.addEventListener("click", () => {
-      const heading = document.getElementById("people-title");
+      const heading = document.getElementById("legacy-bridge-title");
       heading.setAttribute("tabindex", "-1");
       heading.focus({ preventScroll: true });
-      people.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+      bridge.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
     });
+  }
+
+  if (bridge && "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const lineObserver = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      bridge.classList.add("v44-bridge--in-view");
+      lineObserver.disconnect();
+    });
+    bridge.classList.add("v44-bridge--can-animate");
+    lineObserver.observe(bridge.querySelector(".v44-bridge__sequence"));
   }
 
   function watchImages(root) {

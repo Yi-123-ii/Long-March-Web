@@ -85,7 +85,7 @@ for (const [key, marker] of [["people", "PEOPLE"], ["practices", "PRACTICES"]]) 
       }
     }
     const image = story.image;
-    if (!image || !/^assets\/images\/v43\/[a-z0-9-]+\.webp$/.test(image.file) ||
+    if (!image || !/^assets\/images\/v4[34]\/[a-z0-9-]+\.(?:webp|jpeg)$/.test(image.file) ||
         !validText(image.caption) || !validText(image.alt) ||
         !Number.isSafeInteger(image.width) || image.width < 1 ||
         !Number.isSafeInteger(image.height) || image.height < 1) {
