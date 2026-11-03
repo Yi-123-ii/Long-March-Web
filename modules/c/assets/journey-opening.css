@@ -1,0 +1,54 @@
+/* Extend the landscape above the original interactive map. Original map components keep their own styles. */
+html { scroll-behavior: smooth; }
+#map-screen {
+  isolation: isolate;
+  background: #ead1ad url("atlas/terrain-extension-v1.webp") center top / 100% 200svh no-repeat;
+}
+#map-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 175px;
+  z-index: -1;
+  background: linear-gradient(#eef1ed9c, #eef1ed55 43%, #eef1ed00);
+  pointer-events: none;
+}
+#map-screen .atlas-main,
+#map-screen .atlas-window { background: transparent; }
+.journey-opening {
+  position: relative;
+  height: 100svh;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  padding: 0 7vw;
+}
+.journey-opening__copy { width: min(660px, 49vw); transform: translateY(-6px); text-align: center; }
+.journey-opening h1 { margin: 0; line-height: 0; }
+.journey-opening h1 img { display: block; width: 100%; height: auto; }
+.journey-opening__entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  min-height: 44px;
+  margin: 30px auto 0;
+  padding: 5px 0;
+  color: #523b2b;
+  border-bottom: 1px solid #766d56;
+  text-decoration: none;
+  font-family: "Shanhe UI", SimSun, serif;
+  font-size: 14px;
+}
+.journey-opening__entry:hover { color: #8b3424; border-color: currentColor; }
+.journey-opening__entry span { font-size: 18px; }
+@media (max-width: 760px) {
+  .journey-opening { min-height: 600px; padding: 0 6vw; align-items: flex-start; }
+  .journey-opening__copy { width: 90%; margin-top: 32svh; }
+  .journey-opening__entry { width: 180px; }
+}
+@media (max-width: 600px) {
+  /* The old small map title is now the full-screen opening, so its 201px offset no longer applies. */
+  #map-screen .atlas-controls { top: calc(94.576vw - 48px); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

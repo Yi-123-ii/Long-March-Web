@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="../../assets/css/header-unified.css?v=20261103-brand-lower" />
 <link rel="stylesheet" href="assets/atlas-scroll.css?v=022" />
 <link rel="stylesheet" href="assets/atlas-fullscreen.css?v=20261103" />
+<link rel="stylesheet" href="assets/journey-opening.css?v=20261104" />
+<script defer src="assets/journey-opening.js?v=20261104"></script>
 </head>
 <body>
 <audio id="ambient-audio" loop preload="auto" hidden aria-hidden="true"></audio>
@@ -31,8 +33,13 @@
         <a href="../../post-office.html">山河邮局</a>
       </nav>
     </header>
- <main class="atlas-main">
-  <div class="atlas-intro"><h1 id="map-title">重走长征</h1></div>
+ <section class="journey-opening" aria-labelledby="journey-heading">
+  <div class="journey-opening__copy">
+   <h1 id="journey-heading"><span class="a-sr-only">循迹山河<br>重走长征</span><img src="assets/atlas/heading-eight-v1.svg" width="1536" height="1024" alt="" fetchpriority="high"></h1>
+   <a class="journey-opening__entry" href="#journey-map">展开长征地图 <span aria-hidden="true">↓</span></a>
+  </div>
+ </section>
+ <main class="atlas-main" id="journey-map">
   <div id="atlas-window" class="atlas-window" aria-label="长征故事地图，可拖动查看">
    <div id="atlas-canvas" class="atlas-canvas">
     <img class="atlas-terrain" src="assets/atlas/terrain-v022.webp" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" fetchpriority="high" draggable="false">
@@ -44,7 +51,6 @@
   </div>
   <aside class="atlas-card" aria-labelledby="station-title"><div class="atlas-photo-wrap"><img id="atlas-photo" src="assets/yudu/chenhe-first-v011.png" alt="于都河岸的陈禾"></div><div class="atlas-card-copy"><p id="atlas-chapter">第一站 · 于都启程</p><h2 id="station-title">一只伸来的手</h2><p class="atlas-meta"><span id="atlas-date">1934年10月</span><span id="atlas-place">江西于都</span></p><p id="atlas-description">河边木板有些湿。有人停下来，等你跟上。</p><a id="chapter-facts" class="c-chapter-facts" href="../../chronicle.html#event=yudu">读这一程的史实</a><div class="entry-actions"><button id="enter" class="primary">翻开这一站</button><button id="restart-map" class="quiet" hidden>继续上次</button></div><p id="save-description" class="atlas-save"></p></div></aside>
   <div class="atlas-controls" aria-label="地图缩放"><button id="atlas-zoom-out" aria-label="缩小地图">−</button><button id="atlas-fit" aria-pressed="false">全图</button><button id="atlas-zoom-in" aria-label="放大地图">＋</button></div>
-  <p class="atlas-note">故事路线概括示意 · 非完整行军轨迹<br><span>可拖动地图；点亮的站点可以进入。</span></p>
  </main>
  <div id="atlas-travel-panel" class="atlas-travel-panel" hidden><p id="atlas-travel-text" role="status"></p><button id="skip-travel" class="quiet">跳过行进</button></div>
  <details class="atlas-directory"><summary>章节目录</summary><nav id="chapter-nav" aria-label="故事章节"><div id="chapter-buttons"></div></nav></details>
