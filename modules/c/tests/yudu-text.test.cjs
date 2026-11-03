@@ -1,5 +1,15 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const T=require('../assets/yudu-text.js');
+test('Wuqi memory film holds its two confirmed sentences and leaves both history branches intact',()=>{
+ const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js'),n=D.nodes.find(x=>x.id==='wuqi-write-home');
+ assert.equal(n.text,'还有他家那棵枣树，也写上吧。他自己老爱说。');assert.equal(n.captionPages.map(p=>p.text).join(''),n.text);
+ assert.equal(T.pageFrame(n.captionPages,.42).text,'');assert.equal(T.pageFrame(n.captionPages,3).text,'还有他家那棵枣树，也写上吧。');
+ assert.equal(T.pageFrame(n.captionPages,4.47).text,T.pageFrame(n.captionPages,3).text);assert.equal(T.pageFrame(n.captionPages,4.48).text,'');
+ assert.equal(T.pageFrame(n.captionPages,5.7).text,'他自己老爱说。');assert(T.pageFrame(n.captionPages,n.duration).complete);
+ assert.equal(P.speaker(n).name,'陈禾');assert.equal(n.advanceOnEnd,false);assert.equal(n.next,'wuqi-write-lusheng');
+ assert.deepEqual(n.routes,[{choice:'xj-choice',equals:'luggage',next:'wuqi-write-letter'}]);assert.equal(D.storyRevision,9);
+ assert(!D.nodes.some(x=>(x.video||'').includes('6099')));
+});
 test('Chenhe dawn captions replace one sentence at a time and retain it through pauses',()=>{
  const D=require('../assets/yudu-data.js'),n=D.nodes.find(x=>x.id==='grass-dawn-call');
  assert.equal(n.captionPages.map(p=>p.text).join(''),n.text);assert.equal(n.captionPages.length,3);

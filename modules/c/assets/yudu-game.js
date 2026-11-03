@@ -155,7 +155,7 @@ function visual(n){
   movieDone=true;voiceDone=true;lineInstant=true;revealText();video.hidden=true;image.hidden=false;
   videoCorner.setEnabled(false);
   image.src=resolve(n.hold||D.images.hold||D.images.portrait);
-  $('story-screen').classList.remove('film-playing');$('voice-state').textContent='';
+  if(n.advanceOnEnd)$('story-screen').classList.remove('film-playing');$('voice-state').textContent='';
   updateNext();volumes();
   if(n.advanceOnEnd)go(undefined,true);
  };

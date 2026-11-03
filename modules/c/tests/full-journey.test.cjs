@@ -9,6 +9,7 @@ test('all 32 stories reach the 1936 epilogue with their five real choices intact
   assert.equal(s.path.includes('grass-a-water'),d==='stay');
   assert.equal(s.path.includes('wuqi-water'),d==='stay');assert.equal(s.path.includes('wuqi-cloth'),d==='rescue');
   assert.equal(s.path.includes('wuqi-sew'),e==='sew');assert.equal(s.path.includes('wuqi-writing'),e==='write');
+  assert.equal(s.path.includes('wuqi-write-home'),e==='write');
   assert.equal(s.path.includes('wuqi-write-letter'),b==='luggage'&&e==='write');
   assert.deepEqual(C.restore(D,JSON.stringify(s)).path,s.path);
  }
@@ -21,8 +22,8 @@ test('old saves at the former endpoint can enter the snow chapter without replay
 });
 test('new Lu assets replace both previous appearances and only supplied grass scenes add movies',()=>{
  assert(D.images['lusheng-river'].endsWith('v015.webp'));assert(D.images['lusheng-lamp'].endsWith('v015.webp'));
- assert.equal(D.nodes.filter(n=>n.nativeAudio).length,11);
- for(const n of D.nodes.filter(n=>['grass','north','wuqi','epilogue'].includes(n.chapter)&&!['grass-a-water','grass-dawn-call'].includes(n.id))){assert(!n.nativeAudio);assert(!n.video);}
+ assert.equal(D.nodes.filter(n=>n.nativeAudio).length,12);
+ for(const n of D.nodes.filter(n=>['grass','north','wuqi','epilogue'].includes(n.chapter)&&!['grass-a-water','grass-dawn-call','wuqi-write-home'].includes(n.id))){assert(!n.nativeAudio);assert(!n.video);}
 });
 test('the two endings keep distinct objects; new writing does not consume or deliver the old letter',()=>{
  const a=walk('hand','stretcher','support','rescue','sew'),b=walk('help','luggage','call','stay','write');
