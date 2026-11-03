@@ -1,0 +1,37 @@
+/* Match the chronicle's quiet text, down arrow and fine underline. */
+.v3-home .a-hero__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  min-width: 0;
+  height: auto;
+  min-height: 44px;
+  margin: 0 auto;
+  padding: 5px 0;
+  gap: 40px;
+  border: 0;
+  border-bottom: 1px solid #fff0db99;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+  color: #fff0db;
+  font: 400 14px/1.6 var(--v38-ui);
+  letter-spacing: .03em;
+  text-shadow: 0 1px 7px #17251c80;
+  transition: color .2s, border-color .2s;
+}
+.v3-home .a-hero__cta::before,
+.v3-home .a-hero__cta::after { content: none; }
+.v3-home .a-hero__cta:hover {
+  transform: none;
+  box-shadow: none;
+  color: #fff8ed;
+  border-color: #fff8ed;
+}
+.v3-home .a-hero__entry-arrow { transition: transform .2s; }
+.v3-home .a-hero__cta:hover .a-hero__entry-arrow { transform: translateY(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .v3-home .a-hero__cta,.v3-home .a-hero__entry-arrow { transition: none; }
+}
