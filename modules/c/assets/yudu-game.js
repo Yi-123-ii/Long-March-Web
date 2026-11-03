@@ -23,6 +23,7 @@ river.loop=true;river.preload='auto';
 const warmed=new Set();function warm(paths){for(const p of paths.filter(Boolean)){if(warmed.has(p))continue;warmed.add(p);const img=new Image();img.src=resolve(p);}}
 warm(D.nodes.filter(n=>n.nativeAudio).flatMap(n=>[n.poster,n.hold]));
 const video=$('scene-video'),image=$('scene-image');
+const videoCorner=window.VideoCorner.attach(video,$('video-corner'));
 video.preload='auto';video.src=resolve(D.video);
 const cueTimers=new Set(),cuePlayers=new Set();
 const dialogs=[$('sound-dialog'),$('history-dialog'),$('about-dialog')];
@@ -103,8 +104,9 @@ function updateNext(){
 function revealText(){
  const n=C.current(D,state);if(n.end||n.checkpoint)return;
  const progress=n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):elapsed;
- const f=T.frame(textPlan,progress,lineInstant||reduceMotion);
- if(f.shown!==lineShown){$('line').textContent=f.text;lineShown=f.shown;}
+ const f=n.nativeAudio&&n.captionPages?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
+ const frameKey=f.key??f.shown;
+ if(frameKey!==lineShown){$('line').textContent=f.text;lineShown=frameKey;}
  const changed=lineDone!==f.complete;lineDone=f.complete;
  $('line').classList.toggle('is-revealing',!lineDone);
  $('line').hidden=!textPlan.glyphs.length;
@@ -118,8 +120,10 @@ function finishText(){
 
 function visual(n){
  const token=epoch,useVideo=n.nativeAudio===true;
+ videoCorner.setEnabled(false);
  movieDone=!useVideo;
  $('story-screen').classList.toggle('film-playing',useVideo);
+ $('story-screen').classList.toggle('caption-pages',useVideo&&!!n.captionPages);
  $('story-screen').classList.toggle('river-scene',n.scene==='river');
  const portrait=D.images[n.scene]|| (n.scene==='hold'?(D.images.hold||D.images.portrait):n.scene==='reach-still'?D.images.reachStill:D.images.portrait);
  image.alt=D.imageAlt?.[n.scene]||(n.scene==='gathering'?'陈禾背对着你望向于都渡口，红军战士沿浮桥行进，河边停着木船':n.scene.startsWith('intro')?'陈禾在于都河岸与你相识，身后战士沿浮桥行进':n.scene==='reach-still'||n.scene==='hold'?'陈禾伸手接应你，身后有正沿浮桥行进的红军战士':'陈禾站在于都河岸，身后战士背着行装走向浮桥');
@@ -143,11 +147,13 @@ function visual(n){
  const ready=()=>{
   if(token!==epoch)return;
   video.currentTime=0;
+  videoCorner.setEnabled(n.cornerRepair===true);
   if(!paused)video.play().catch(e=>{if(token===epoch&&e.name!=='AbortError'){setPaused(true);notice('镜头尚未开始播放，点“继续这一程”重试，或选择跳过。');}});
  };
  video.onended=()=>{
   if(token!==epoch)return;
   movieDone=true;voiceDone=true;lineInstant=true;revealText();video.hidden=true;image.hidden=false;
+  videoCorner.setEnabled(false);
   image.src=resolve(n.hold||D.images.hold||D.images.portrait);
   $('story-screen').classList.remove('film-playing');$('voice-state').textContent='';
   updateNext();volumes();
@@ -156,6 +162,7 @@ function visual(n){
  video.onerror=()=>{
   if(token!==epoch)return;
   movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
+  videoCorner.setEnabled(false);
   voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头未能载入，暂显示文字。点“重播镜头”可重试。');
  };
  video.onplaying=()=>{if(token===epoch){video.controls=false;$('voice-state').textContent='';}};

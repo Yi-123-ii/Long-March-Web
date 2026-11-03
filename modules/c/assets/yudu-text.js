@@ -30,6 +30,13 @@
   }
   return previous;
  }
- const api={plan,frame,mediaTime,cueTime};
+ function pageFrame(pages,currentTime,instant=false){
+  if(!pages.length)return {...frame(plan(''),0),key:'empty'};
+  let index=0;
+  while(index+1<pages.length&&currentTime>=pages[index+1].start)index++;
+  const page=pages[index],line=plan(page.text),result=frame(line,mediaTime(line,currentTime,page.start,page.end),instant);
+  return {...result,key:index+':'+result.shown,complete:index===pages.length-1&&result.complete};
+ }
+ const api={plan,frame,mediaTime,cueTime,pageFrame};
  if(typeof module==='object'&&module.exports)module.exports=api;else root.YuduText=api;
 })(typeof window==='undefined'?globalThis:window);

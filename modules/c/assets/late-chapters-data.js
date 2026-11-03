@@ -27,8 +27,8 @@
   t('grass-a-old','陆生认出我，费劲地笑了笑。又是我，他大概也没想到。我让他想喝就叫我。','lusheng-grass','grass-a-night'),
   t('grass-a-new','我告诉他我叫小满，问他叫什么。陆生。他说完又问一遍，我叫小什么。我说没听清就算了，醒了再告诉他。他却自己低低重复了一遍：小满。','lusheng-grass','grass-a-night'),
   t('grass-a-night','他不是一下就好了。一会儿能听清，一会儿又迷糊，我就留在卫生员旁边，做些能做的。','lusheng-grass','grass-a-water'),
-  t('grass-a-water','夜里他醒了一次，嫌我老端着水碗不累吗。我这才放下。再想喝就叫我，我没睡。','grass-meal','grass-a-return'),
-  t('grass-a-return','天快亮时，陈禾跟接应的人回来了。他脚更疼了。我没看见外头那段路，只看见他们总算回来了。','chenhe-grass','grass-dawn-route'),
+  {id:'grass-a-water',cornerRepair:true,speaker:'陆生',text:'放下吧，我想喝了叫你。',scene:'lusheng-night-first',next:'grass-a-return',mode:'dialogue',nativeAudio:true,video:'assets/chapters/lusheng-night-v020.mp4',poster:'assets/chapters/lusheng-night-first-v020.png',hold:'assets/chapters/lusheng-night-hold-v020.png',duration:6.08,captionCues:[{text:'放下吧，',start:1.68,end:2.50},{text:'我想喝了',start:3.47,end:4.45},{text:'叫你。',start:5.14,end:5.90}],title:'草地夜里，陆生醒来让小满放下水碗',replayLabel:'重看陆生',advanceOnEnd:true},
+  t('grass-a-return','我把碗放下，陪他等到天快亮。外头响起陈禾的声音，他跟接应的人回来了。我没看见外头那段路，只知道他们总算回来了。','lusheng-night-hold','grass-dawn-route'),
   t('grass-b-path','我跟陈禾一起去，前头有人带路。听见应声，才知道草里还有人。他已经说不出整句话，先得让他缓一缓。','grass-path','grass-b-foot'),
   t('grass-b-foot','铺盖由另一位同志接了过去。再往回走，陈禾那只脚明显使不上劲。我让他搭过来，他倒先提醒我脚底滑。这回我知道他没说着玩。','chenhe-grass','grass-b-names'),
   t('grass-b-names','被接住的那位问我们叫什么，说等出去，要带我们去他家那条街。街名还没说完，他自己先接不上了。陈禾让他别急，回去慢慢说。','grass-path','grass-b-return'),
@@ -39,8 +39,8 @@
   t('grass-dawn-yudu','陈禾说起了于都那一天。','chenhe-grass','grass-dawn-hand',{routes:[{choice:'choice',equals:'help',next:'grass-dawn-help'}]}),
   t('grass-dawn-hand','他问我是不是怕水，上了木板都不肯撒手。那木板直晃，我说。他笑我，再拽紧点，就把他也拽下去了。我想还嘴，想想那天，确实没怎么敢松。','chenhe-grass','grass-dawn-end'),
   t('grass-dawn-help','他笑我自己都没站稳，还忙着接别人的包。总不能看着人家摔水里，我说。他没接着笑。等我再看，脚边那截绳子已经替我收好了。','chenhe-grass','grass-dawn-end'),
-  t('grass-dawn-call','陈禾嫌我在山上喊得太响。我说风那么大，怕他听不见。他低头看了看鞋上的泥，说他娘也总这么说。隔着两道田埂喊，其实早听见了，就是不想回去。','chenhe-grass','grass-dawn-home'),
-  t('grass-dawn-home','我问为什么。还没玩够呗。他说完，自己先笑了下。','chenhe-grass','grass-dawn-end'),
+  {id:'grass-dawn-call',cornerRepair:true,speaker:'陈禾',text:'你在山上喊那几声，跟我娘似的。以前她隔着田埂喊，我早听见了。就是没玩够，不想回去。',scene:'chenhe-dawn-first',next:'grass-dawn-home',mode:'dialogue',nativeAudio:true,video:'assets/chapters/chenhe-dawn-v020.mp4',poster:'assets/chapters/chenhe-dawn-first-v020.png',hold:'assets/chapters/chenhe-dawn-hold-v020.png',duration:9.088005,captionPages:[{text:'你在山上喊那几声，跟我娘似的。',start:.23,end:2.43},{text:'以前她隔着田埂喊，我早听见了。',start:3.68,end:5.66},{text:'就是没玩够，不想回去。',start:7.28,end:8.62}],title:'天亮后的营地，陈禾说起小时候',replayLabel:'重看田埂的回忆',advanceOnEnd:true},
+  t('grass-dawn-home','他说着，自己先笑了下。我也跟着笑了，像是看见田埂那头一个不肯回家的小孩。','chenhe-dawn-hold','grass-dawn-end'),
   {id:'grass-dawn-end',speaker:'心声',mode:'thought',scene:'grass-meal',text:'热的早凉了，碗里也没剩多少。腿还是发沉。但能坐在这儿，说几句没什么要紧的话，也挺好。',choices:[{id:'leave-grass',label:'收起碗，和大家一起走。',next:'grass-end'}]},
   {id:'grass-end',scene:'grass-camp',checkpoint:true,next:'north-arrive'},
   f('north-arrive','1935年9月至10月，队伍继续北上，突破腊子口，经过哈达铺，翻越六盘山，向陕北进发。','north-trail','north-lusheng'),
@@ -94,5 +94,9 @@
  const alts=Object.fromEntries(names.map(n=>[n,{'mountain-pack':'陈禾在夹金山山脚整理行装','snow-path':'积雪山路上相隔行进的队伍','grass-camp':'湿冷草地上的临时营地','grass-meal':'旧碗、少量稀粥和收好的针线包','lusheng-grass':'陆生在草地营地歇息','chenhe-grass':'陈禾坐在草地营地，疲惫中仍看着同伴','grass-path':'接应队伍经过的草地来路','north-trail':'草地以后继续北上的山路','wuqi-arrival':'抵达陕北吴起的队伍与土路','chenhe-rest':'同一位陈禾在吴起停留处坐下休息','lusheng-wuqi':'同一位陆生在吴起留着水等同伴','memory-page':'新纸、短铅笔和收好的针线包','new-cuff':'陈禾补好的袖口上留下浅色新针脚','old-letter-room':'在屋内另用干布包着的梁叔旧家书','newcomer-later':'后来抵达的年轻战士与留下的空位'}[n]]));
  Object.assign(alts,{'spare-cloth':'同伴送来的可用于补衣的旧棉布与针线包','lusheng-river':'陆生靠稳在湘江边的担架上','lusheng-lamp':'陆生坐在遵义的灯旁','atlas-1936':'从陕北暂歇到会宁、将台堡会师的历史示意图'});
  for(const phase of ['first','hold']){alts['snow-concern-'+phase]='陈禾站在夹金山雪路边，想继续照应小满';alts['snow-shelter-'+phase]='陈禾在背风处靠稳，缓过一口气';}
+ for(const name of ['lusheng-night','chenhe-dawn'])for(const phase of ['first','hold']){
+  images[name+'-'+phase]='assets/chapters/'+name+'-'+phase+'-v020.png';
+  alts[name+'-'+phase]=name==='lusheng-night'?'陆生在草地夜间营地靠着铺盖歇息，小满的水碗在近处':'陈禾坐在天亮后的草地营地，身后还有歇息的战士';
+ }
  const data={nodes,images,alts,chapters};if(typeof module==='object'&&module.exports)module.exports=data;else root.LATE_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);
