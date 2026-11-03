@@ -30,6 +30,8 @@
   font-synthesis: none;
 }
 .lm-unified-header .lm-brand {
+  position: relative;
+  top: 6px;
   display: flex;
   flex: 0 0 auto;
   align-items: center;
@@ -123,7 +125,7 @@ body.lm-page .lm-hero-art { top: -88px; }
 body.lm-page .lm-hero::before {
   top: -88px;
   height: clamp(180px, 15vw, 224px);
-  background: url("../images/v39/header-sky-mist.svg") center / 100% 100% no-repeat;
+  background: url("../images/v39/header-sky-mist.svg?v=20261103-even") center / 100% 100% no-repeat;
 }
 /* A single continuous illustration fills the opening and its softened header. */
 body.legacy-v41 .legacy-hero { overflow: visible; isolation: isolate; }
@@ -136,7 +138,7 @@ body.legacy-v41 .legacy-hero::after {
   z-index: 0;
   height: calc(100% + 88px);
   background:
-    url("../images/v39/header-sky-mist.svg") top center / 100% 160px no-repeat,
+    url("../images/v39/header-sky-mist.svg?v=20261103-even") top center / 100% 160px no-repeat,
     linear-gradient(90deg, #173b32 0%, rgb(23 59 50 / 96%) 28%, rgb(23 59 50 / 65%) 48%, rgb(23 59 50 / 12%) 78%),
     linear-gradient(0deg, #173b32 0%, transparent 32%),
     url("../images/v41/legacy-hero-large.webp") center 42% / cover no-repeat;

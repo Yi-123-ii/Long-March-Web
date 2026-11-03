@@ -7,21 +7,6 @@
       <stop offset=".72" stop-color="#eef1ed" stop-opacity=".10"/>
       <stop offset="1" stop-color="#eef1ed" stop-opacity="0"/>
     </linearGradient>
-    <radialGradient id="cloud">
-      <stop stop-color="#eef1ed" stop-opacity=".35"/>
-      <stop offset=".48" stop-color="#eef1ed" stop-opacity=".18"/>
-      <stop offset="1" stop-color="#eef1ed" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="drift" x="-15%" y="-45%" width="130%" height="190%">
-      <feTurbulence type="fractalNoise" baseFrequency=".003 .015" numOctaves="2" seed="4" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="25"/>
-      <feGaussianBlur stdDeviation="7"/>
-    </filter>
   </defs>
   <path fill="url(#air)" d="M0 0H1440V224H0Z"/>
-  <g filter="url(#drift)">
-    <ellipse fill="url(#cloud)" cx="90" cy="86" rx="380" ry="72"/>
-    <ellipse fill="url(#cloud)" cx="790" cy="40" rx="330" ry="76"/>
-    <ellipse fill="url(#cloud)" cx="1430" cy="70" rx="300" ry="78"/>
-  </g>
 </svg>

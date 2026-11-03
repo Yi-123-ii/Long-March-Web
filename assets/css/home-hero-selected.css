@@ -14,7 +14,7 @@
   z-index: 1;
   height: clamp(180px, 15vw, 224px);
   pointer-events: none;
-  background: url("../images/v39/header-sky-mist.svg") center / 100% 100% no-repeat;
+  background: url("../images/v39/header-sky-mist.svg?v=20261103-even") center / 100% 100% no-repeat;
 }
 .v3-home :is(.a-hero__scenery, .a-hero__shade, .a-hero__grain) {
   top: -88px;
