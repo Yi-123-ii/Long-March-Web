@@ -1,0 +1,37 @@
+/* Approved paper-scroll entrance; decorative arrow belongs to the artwork. */
+.v3-home .a-hero__cta {
+  display: flex;
+  justify-content: center;
+  width: 280px;
+  min-width: 0;
+  height: 80px;
+  min-height: 80px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  border-radius: 0;
+  background: url("../images/ui/hero-scroll-button.svg") center / 100% 100% no-repeat;
+  box-shadow: none;
+  filter: drop-shadow(0 4px 5px #17221c55);
+  color: #314b3c;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-shadow: none;
+  transition: transform .25s, background-size .25s;
+}
+.v3-home .a-hero__cta span { transform: translateX(-5px); }
+.v3-home .a-hero__cta::before,
+.v3-home .a-hero__cta::after { content: none; }
+.v3-home .a-hero__cta:hover {
+  transform: translateY(-2px);
+  background-size: 104% 100%;
+  box-shadow: none;
+}
+@media (max-width: 520px) {
+  .v3-home .a-hero__cta { width: min(280px, 100%); font-size: 19px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v3-home .a-hero__cta { transition: none; }
+}
