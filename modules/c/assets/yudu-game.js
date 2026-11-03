@@ -213,6 +213,7 @@ async function enter(restart=false,withAlbum=true){
   $('pause-overlay').hidden=true;$('pause').textContent='继续';$('pause').setAttribute('aria-pressed','true');volumes();render();
  };
  if(withAlbum)await window.JourneyFX.open(ch,picture,reveal);else reveal();
+ if(withAlbum&&ch.id==='yudu'&&n.id===ch.start)await window.JourneyIntro.open(state.settings.voice);
  setPaused(document.hidden);$('leave').focus({preventScroll:true});
  if(storageNotice)notice('当前浏览器无法保存进度；可以继续体验这一程。');
 }

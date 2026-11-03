@@ -2,7 +2,7 @@
  'use strict';
  const D=window.YUDU_DATA,C=window.YuduCore,resolve=p=>window.YuduPresentation.media(p,window.YUDU_EMBEDDED);
  const $=id=>document.getElementById(id),world=$('atlas-canvas'),viewport=$('atlas-window'),pins=$('atlas-pins');
- const R=window.AtlasRoute,points=R.points,xy=R.xy;
+ const R=window.AtlasRoute,points=R.points,xy=R.xy,W=R.width,H=R.height;
  const flag=$('atlas-flag'),trail=$('atlas-travel-route'),travelPanel=$('atlas-travel-panel');
  let journey=null,frame=0;
  let mobile=matchMedia('(max-width:600px)').matches,zoom=mobile?1.8:1,chosen='yudu',currentState=null,drag=null,lastChapter='';
@@ -11,29 +11,35 @@
   if(journey)return;
   const ch=byId(id);if(!ch)return;chosen=id;
   $('atlas-place').textContent=ch.location;$('atlas-date').textContent=ch.date;$('station-title').textContent=ch.title;
+  $('atlas-chapter').textContent=ch.name;
   $('atlas-photo').src=resolve(D.images[ch.image]);$('atlas-photo').alt=ch.location+'这一程的画面';
   const allowed=currentState&&C.canOpenChapter(D,currentState,id),mark=currentState?.chapterProgress?.[id];$('enter').disabled=!allowed;$('enter').textContent=allowed?(mark&&mark.node!==ch.start?'继续这一站':'翻开这一站'):'前一程走完，这一站就亮起';
   $('atlas-description').textContent=ch.summary;
-  for(const b of pins.querySelectorAll('button'))b.classList.toggle('selected',b.dataset.chapter===id);
+  for(const b of pins.querySelectorAll('button')){const selected=b.dataset.chapter===id;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',selected);}
   window.dispatchEvent(new CustomEvent('journey:station-selected',{detail:id}));
  }
  function position(){
-  const fit=Math.min(viewport.clientWidth,viewport.clientHeight*1180/780);
-  world.style.width=Math.round(fit*zoom)+'px';world.dataset.zoom=String(zoom);$('atlas-fit').setAttribute('aria-pressed',zoom===1);
+  const fit=Math.min(viewport.clientWidth,viewport.clientHeight*W/H);
+  world.style.width=Math.round(fit*zoom)+'px';world.style.setProperty('--map-scale',String(Math.max(.8,Math.min(1.35,fit*zoom/W))));world.dataset.zoom=String(zoom);$('atlas-fit').setAttribute('aria-pressed',zoom===1);
  }
  function follow(id,behavior='smooth'){
   const p=points.find(p=>p.id===id);if(!p)return;const [x,y]=xy(p);
-  viewport.scrollTo({left:x/1180*world.clientWidth-viewport.clientWidth*.52,top:y/780*world.clientHeight-viewport.clientHeight*.52,behavior});
+  viewport.scrollTo({left:x/W*world.clientWidth-viewport.clientWidth*.52,top:y/H*world.clientHeight-viewport.clientHeight*.52,behavior});
  }
  for(const p of points){
   const [x,y]=xy(p),b=document.createElement('button');b.className='atlas-station'+(p.no?' main-station':'');b.id='map-'+(p.key||p.id);b.dataset.chapter=p.id;
-  b.style.left=(x/1180*100)+'%';b.style.top=(y/780*100)+'%';b.style.setProperty('--label-x',p.dx+'px');b.style.setProperty('--label-y',p.dy+'px');
+  b.style.left=(x/W*100)+'%';b.style.top=(y/H*100)+'%';b.style.setProperty('--label-x',p.dx+'px');b.style.setProperty('--label-y',p.dy+'px');
   b.setAttribute('aria-label','走进'+p.name+'，'+byId(p.id).name);
-  const dot=document.createElement('span');dot.className='station-dot';dot.textContent=p.no||'';const label=document.createElement('strong');label.textContent=p.name;b.append(dot,label);
+  const dot=document.createElement('span');dot.className='station-dot';
+  const label=document.createElement('span');label.className='station-label';
+  if(p.no){const number=document.createElement('em');number.textContent=p.no;label.append(number);}
+  const name=document.createElement('strong');name.textContent=p.name;label.append(name);
+  if(p.date){const date=document.createElement('small');date.textContent=p.date;label.append(date);}
+  b.append(dot,label);
   b.addEventListener('pointerenter',()=>select(p.id));b.addEventListener('focus',()=>{select(p.id);if(!journey)follow(p.id);});
   b.onclick=()=>window.dispatchEvent(new CustomEvent('journey:chapter',{detail:p.id}));pins.append(b);
  }
- const route=points.slice(0,10).map(p=>xy(p).join(',')).join(' ');$('atlas-main-route').setAttribute('points',route);
+ $('atlas-main-route').setAttribute('d',R.path(0,9));$('atlas-epilogue-route').setAttribute('d',R.path(9,11));
  $('atlas-fit').onclick=()=>{zoom=1;position();viewport.scrollTo({top:0,left:0,behavior:'smooth'});};
  for(const [id,dir]of[['atlas-zoom-in',1],['atlas-zoom-out',-1]])$(id).onclick=()=>{zoom=Math.max(.8,Math.min(2.8,zoom*(dir===1?1.25:.8)));position();follow(chosen);};
  viewport.addEventListener('pointerdown',e=>{if(journey||e.target.closest('button')||e.pointerType!=='mouse')return;drag={x:e.clientX,y:e.clientY,left:viewport.scrollLeft,top:viewport.scrollTop};viewport.setPointerCapture(e.pointerId);});
@@ -42,7 +48,7 @@
  window.addEventListener('resize',()=>{const nextMobile=matchMedia('(max-width:600px)').matches;if(nextMobile!==mobile){mobile=nextMobile;zoom=mobile?1.8:1;position();follow(chosen,'instant');}else position();});
  function moveFlag(p,center=false){
   flag.setAttribute('transform','translate('+p.join(' ')+')');flag.removeAttribute('hidden');
-  if(center)viewport.scrollTo({left:p[0]/1180*world.clientWidth-viewport.clientWidth*.5,top:p[1]/780*world.clientHeight-viewport.clientHeight*.52,behavior:'instant'});
+  if(center)viewport.scrollTo({left:p[0]/W*world.clientWidth-viewport.clientWidth*.5,top:p[1]/H*world.clientHeight-viewport.clientHeight*.52,behavior:'instant'});
  }
  function atChapterEnd(state){return !!C.current(D,state).checkpoint||!!C.current(D,state).end||(C.current(D,state).routeStep||0)>=2;}
  function travel(state,to){
@@ -77,7 +83,7 @@
  $('skip-travel').onclick=()=>journey?.finish();
  window.AtlasMap={selected:()=>chosen,travel,get travelling(){return !!journey;},skipTravel(){journey?.finish();},update(state){
   currentState=state;const ch=C.chapter(D,state),n=C.current(D,state),index=D.chapters.findIndex(c=>c.id===ch.id);
-  for(const b of pins.querySelectorAll('button')){const c=byId(b.dataset.chapter),allowed=C.canOpenChapter(D,state,c.id);b.disabled=!allowed;b.dataset.status=state.path.includes(c.start)?'visited':allowed?'available':'locked';b.title=allowed?c.name+'：'+c.title:'先走过前一段故事';}
+  for(const b of pins.querySelectorAll('button')){const c=byId(b.dataset.chapter),allowed=C.canOpenChapter(D,state,c.id),mark=state.chapterProgress?.[c.id];b.disabled=!allowed;b.dataset.status=mark?.node===c.end?'completed':mark||state.path.includes(c.start)?'visited':allowed?'available':'locked';b.title=allowed?c.name+'：'+c.title:'先走过前一段故事';}
   $('atlas-progress').textContent=n.end?'这一程，已走到会师的日子':'脚步停在'+ch.location;
   const next=n.checkpoint?D.chapters[index+1]:ch;select(next?.id||ch.id);position();
   moveFlag(xy(R.station(ch.id,atChapterEnd(state))));trail.setAttribute('hidden','');
