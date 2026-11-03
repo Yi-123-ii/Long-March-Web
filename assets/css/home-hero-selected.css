@@ -1,6 +1,7 @@
 /* Selected panorama: preserve the natural terrain colors at every viewport. */
 .v3-home .a-hero {
   background-color: #343b37;
+  padding-top: clamp(72px, 9svh, 100px);
 }
 /* Carry the paper header into the sky without a visible horizontal cut. */
 .v3-home .a-hero::before {
@@ -8,9 +9,9 @@
   position: absolute;
   inset: -1px 0 auto;
   z-index: 1;
-  height: clamp(110px, 13vw, 180px);
+  height: clamp(56px, 6vw, 96px);
   pointer-events: none;
-  background: linear-gradient(180deg, #eef1ed 0%, rgb(238 241 237 / 92%) 14%, rgb(238 241 237 / 64%) 38%, rgb(238 241 237 / 25%) 68%, transparent 100%);
+  background: linear-gradient(180deg, #eef1ed 0%, rgb(238 241 237 / 82%) 18%, rgb(238 241 237 / 38%) 50%, rgb(238 241 237 / 10%) 76%, transparent 100%);
 }
 .v3-home .a-hero__scenery {
   background-image: url("../images/home-long-march-selected-v1.webp");
@@ -22,7 +23,21 @@
     linear-gradient(90deg, rgba(18, 25, 26, .51), rgba(18, 25, 26, .29) 30%, transparent 62%),
     linear-gradient(180deg, rgba(18, 25, 26, .32), transparent 28%, transparent 76%, rgba(18, 25, 26, .24));
 }
+/* Uneven mist dissolves into the same paper color as the opening chapter. */
+.v3-home .v39-hero-cloud {
+  height: clamp(240px, 21vw, 320px);
+  background-image: url("../images/v39/cloud-paper-soft.svg");
+}
+.v3-home .v3-prologue {
+  background: linear-gradient(#f6ecdb 100px, #f1e7d7 70%, #eee5d7);
+}
+.v3-home .v3-prologue::after {
+  -webkit-mask-image: linear-gradient(transparent, #000 180px);
+  mask-image: linear-gradient(transparent, #000 180px);
+}
 @media (max-width: 760px) {
+  .v3-home .a-hero { padding-top: 72px; }
+  .v3-home .v39-hero-cloud { height: 200px; }
   .v3-home .a-hero__scenery {
     background-position: 88% center;
   }
