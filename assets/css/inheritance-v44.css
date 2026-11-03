@@ -64,6 +64,7 @@ body.legacy-v41 .v44-opening__copy { max-width: min(45vw, 495px); }
 body.legacy-v41 .v44-opening .legacy-title {
   width: min(100%, 500px);
   margin-block: 12px 18px;
+  margin-inline: auto;
   color: #833d2c;
 }
 body.legacy-v41 .v44-opening__lead {
@@ -76,8 +77,24 @@ body.legacy-v41 .v44-opening__intro {
   color: #44372b;
   font-size: clamp(14px, 1.23vw, 17px);
 }
-body.legacy-v41 .v44-opening .legacy-action { margin-top: 22px; background: #923d2e; }
-body.legacy-v41 .v44-opening .legacy-action:hover { background: #733027; }
+body.legacy-v41 .v44-opening .legacy-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  min-height: 44px;
+  margin: 24px auto 0;
+  padding: 5px 0;
+  border: 0;
+  border-bottom: 1px solid #87968b;
+  background: transparent;
+  color: #263d36;
+  font: 400 14px/1.6 var(--v38-ui);
+  letter-spacing: .03em;
+  text-decoration: none;
+}
+body.legacy-v41 .v44-opening .legacy-action > span { font: inherit; }
+body.legacy-v41 .v44-opening .legacy-action:hover { background: transparent; color: #903b2e; border-color: #903b2e; }
 
 body.legacy-v41 .v44-bridge { padding-top: clamp(43px, 5vw, 76px); }
 body.legacy-v41 .v44-bridge__header {
