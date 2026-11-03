@@ -1,0 +1,55 @@
+/* A single map plane fills the viewport; the header overlays its softened sky. */
+#map-screen { position: relative; }
+#map-screen .site-header.lm-unified-header {
+  position: absolute;
+  inset: 0 0 auto;
+  background: transparent !important;
+  border-bottom: 0;
+  box-shadow: none;
+}
+#map-screen .atlas-main {
+  background: #eef1ed;
+  overflow: hidden;
+}
+#map-screen .atlas-main::before {
+  content: none;
+}
+#map-screen .atlas-main::after {
+  content: none;
+}
+#map-screen .atlas-window {
+  height: 100dvh;
+  background: #eef1ed;
+  align-items: flex-start;
+  scrollbar-color: #b27b51 transparent;
+}
+#map-screen .atlas-canvas { margin: 0; align-self: flex-start; }
+#map-screen .atlas-terrain {
+  -webkit-mask-image: linear-gradient(rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 10%) 6.8%, rgb(0 0 0 / 40%) calc(6.8% + 76px), #000 calc(6.8% + 180px));
+  mask-image: linear-gradient(rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 10%) 6.8%, rgb(0 0 0 / 40%) calc(6.8% + 76px), #000 calc(6.8% + 180px));
+}
+#map-screen .atlas-canvas::after { box-shadow: none; }
+#map-screen .atlas-intro { top: 96px; }
+#map-screen .atlas-intro h1::after { width: clamp(220px, 20vw, 300px); }
+#map-screen .atlas-intro > p { font-size: clamp(12px, 1.1vw, 16px); margin-top: 8px; }
+#map-screen .atlas-epilogue-note { top: calc(max(6.78vw, 12.9dvh) + 46px); }
+#map-screen #map-snow .station-label { left: calc(50% + 64px); top: calc(50% + 8px); }
+#map-screen .atlas-station[data-chapter="epilogue"] .station-label { top: calc(50% + 8px); }
+@media (max-width: 600px) {
+  #map-screen .atlas-main { overflow: visible; }
+  #map-screen .atlas-window { height: 94.576vw; }
+  #map-screen .atlas-intro {
+    top: auto; height: 201px; padding-top: 92px;
+    background: linear-gradient(rgb(238 241 237 / 88%), rgb(238 241 237 / 65%) 60%, #eef1ed), url("atlas/terrain-v022.webp") center 28% / cover no-repeat;
+  }
+  #map-screen .atlas-terrain {
+    -webkit-mask-image: linear-gradient(transparent 6.8%, #000 calc(6.8% + 70px));
+    mask-image: linear-gradient(transparent 6.8%, #000 calc(6.8% + 70px));
+  }
+  #map-screen .atlas-intro h1::after { width: 200px; }
+  #map-screen .atlas-intro > p { font-size: 11px; margin-top: 5px; }
+  #map-screen #map-snow .station-label { left: calc(50% + var(--label-x)*var(--map-scale)); top: calc(50% + var(--label-y)*var(--map-scale)); }
+  #map-screen .atlas-epilogue-note { top: 16px; }
+  #map-screen .atlas-controls { top: calc(201px + 94.576vw - 48px); }
+  #map-screen .atlas-note { top: calc(201px + 94.576vw - 46px); }
+}

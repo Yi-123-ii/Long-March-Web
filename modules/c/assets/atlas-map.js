@@ -5,7 +5,7 @@
  const R=window.AtlasRoute,points=R.points,xy=R.xy,W=R.width,H=R.height;
  const flag=$('atlas-flag'),trail=$('atlas-travel-route'),travelPanel=$('atlas-travel-panel');
  let journey=null,frame=0;
- let mobile=matchMedia('(max-width:600px)').matches,zoom=mobile?1.8:1,chosen='yudu',currentState=null,drag=null,lastChapter='';
+ let mobile=matchMedia('(max-width:600px)').matches,zoom=mobile?1.8:1,overview=false,chosen='yudu',currentState=null,drag=null,lastChapter='';
  const byId=id=>D.chapters.find(c=>c.id===id);
  function select(id){
   if(journey)return;
@@ -19,8 +19,8 @@
   window.dispatchEvent(new CustomEvent('journey:station-selected',{detail:id}));
  }
  function position(){
-  const fit=Math.min(viewport.clientWidth,viewport.clientHeight*W/H);
-  world.style.width=Math.round(fit*zoom)+'px';world.style.setProperty('--map-scale',String(Math.max(.8,Math.min(1.35,fit*zoom/W))));world.dataset.zoom=String(zoom);$('atlas-fit').setAttribute('aria-pressed',zoom===1);
+  const fit=(mobile||overview?Math.min:Math.max)(viewport.clientWidth,viewport.clientHeight*W/H);
+  world.style.width=Math.round(fit*zoom)+'px';world.style.setProperty('--map-scale',String(Math.max(.8,Math.min(1.35,fit*zoom/W))));world.dataset.zoom=String(zoom);$('atlas-fit').setAttribute('aria-pressed',overview&&zoom===1);
  }
  function follow(id,behavior='smooth'){
   const p=points.find(p=>p.id===id);if(!p)return;const [x,y]=xy(p);
@@ -40,12 +40,12 @@
   b.onclick=()=>window.dispatchEvent(new CustomEvent('journey:chapter',{detail:p.id}));pins.append(b);
  }
  $('atlas-main-route').setAttribute('d',R.path(0,9));$('atlas-epilogue-route').setAttribute('d',R.path(9,11));
- $('atlas-fit').onclick=()=>{zoom=1;position();viewport.scrollTo({top:0,left:0,behavior:'smooth'});};
+ $('atlas-fit').onclick=()=>{overview=true;zoom=1;position();viewport.scrollTo({top:0,left:0,behavior:'smooth'});};
  for(const [id,dir]of[['atlas-zoom-in',1],['atlas-zoom-out',-1]])$(id).onclick=()=>{zoom=Math.max(.8,Math.min(2.8,zoom*(dir===1?1.25:.8)));position();follow(chosen);};
  viewport.addEventListener('pointerdown',e=>{if(journey||e.target.closest('button')||e.pointerType!=='mouse')return;drag={x:e.clientX,y:e.clientY,left:viewport.scrollLeft,top:viewport.scrollTop};viewport.setPointerCapture(e.pointerId);});
  viewport.addEventListener('pointermove',e=>{if(!drag)return;viewport.scrollLeft=drag.left-(e.clientX-drag.x);viewport.scrollTop=drag.top-(e.clientY-drag.y);});
  viewport.addEventListener('pointerup',()=>drag=null);viewport.addEventListener('pointercancel',()=>drag=null);
- window.addEventListener('resize',()=>{const nextMobile=matchMedia('(max-width:600px)').matches;if(nextMobile!==mobile){mobile=nextMobile;zoom=mobile?1.8:1;position();follow(chosen,'instant');}else position();});
+ window.addEventListener('resize',()=>{const nextMobile=matchMedia('(max-width:600px)').matches;if(nextMobile!==mobile){mobile=nextMobile;overview=false;zoom=mobile?1.8:1;position();follow(chosen,'instant');}else position();});
  function moveFlag(p,center=false){
   flag.setAttribute('transform','translate('+p.join(' ')+')');flag.removeAttribute('hidden');
   if(center)viewport.scrollTo({left:p[0]/W*world.clientWidth-viewport.clientWidth*.5,top:p[1]/H*world.clientHeight-viewport.clientHeight*.52,behavior:'instant'});
@@ -87,7 +87,11 @@
   $('atlas-progress').textContent=n.end?'这一程，已走到会师的日子':'脚步停在'+ch.location;
   const next=n.checkpoint?D.chapters[index+1]:ch;select(next?.id||ch.id);position();
   moveFlag(xy(R.station(ch.id,atChapterEnd(state))));trail.setAttribute('hidden','');
-  if(lastChapter!==ch.id){follow(next?.id||ch.id,'instant');lastChapter=ch.id;}
+  if(lastChapter!==ch.id){
+   if(!lastChapter&&!mobile&&!overview)viewport.scrollTo({left:world.clientWidth-viewport.clientWidth,top:0,behavior:'instant'});
+   else follow(next?.id||ch.id,'instant');
+   lastChapter=ch.id;
+  }
  }};
  position();
 })();
