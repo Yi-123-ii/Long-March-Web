@@ -1,3 +1,17 @@
-/* Only remove the English line; preserve the accepted year size and title position. */
-.v3-home .a-hero__overline>span:only-child{font-size:inherit;letter-spacing:inherit}
-.v3-home .a-hero__overline{padding-bottom:calc(.64lh + 1px)}
+/* The title and statement share a center; removing the year lifts the group. */
+.v3-home .a-hero__content { --home-title-width: min(560px, 37vw); }
+.v3-home .a-hero__title,
+.v3-home .a-hero__copy { width: var(--home-title-width); }
+.v3-home .a-hero__statement { margin-inline: auto; }
+@media (min-width: 761px) and (max-width: 1100px) {
+  .v3-home .a-hero__content { --home-title-width: min(500px, 48vw); }
+}
+@media (min-width: 761px) and (max-height: 760px) {
+  .v3-home .a-hero__content { --home-title-width: min(460px, 33vw); }
+}
+@media (max-width: 760px) {
+  .v3-home .a-hero__content { --home-title-width: min(465px, 74vw); }
+}
+@media (max-width: 520px) {
+  .v3-home .a-hero__content { --home-title-width: min(380px, 83vw); }
+}
