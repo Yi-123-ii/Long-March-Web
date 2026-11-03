@@ -63,8 +63,8 @@
   t('wuqi-sew-lusheng','陆生也挨着坐下，不知看我们补衣，还是听我们拌嘴。','lusheng-wuqi','wuqi-sew-confirm'),
   t('wuqi-sew-letter','那半封信还在，一字没添。我把它另放好。','old-letter-room','wuqi-sew-confirm',{document:'娘，等有了落脚的地方……'}),
   {id:'wuqi-sew-confirm',speaker:'心声',mode:'thought',scene:'new-cuff',text:'我把针线收好。陈禾安静地坐在旁边。',choices:[{id:'remember-stitches',label:'收好针线，记住同行的人。',next:'wuqi-later-route'}]},
-  t('wuqi-write','我借了一张纸，想把名字记下来。梁守成。我问陈禾，是这三个字吧。他点头。我又添上大家叫惯的两个字，梁叔。','memory-page','wuqi-write-home'),
-  t('wuqi-write-home','江边抬担架的事，得写。那位转运同志告诉我们的，我把这句也记清楚。陈禾还让我把他家那棵枣树写上。我问，这也写？他觉得该写。梁叔自己爱说。','chenhe-rest','wuqi-write-lusheng',{routes:[{choice:'xj-choice',equals:'luggage',next:'wuqi-write-letter'}]}),
+  t('wuqi-write','我借来一张新纸，和陈禾在屋里的桌边坐下。梁守成。我写下名字，又添上大家叫惯的两个字，梁叔。临走前替我缝的三针，也得记着。江边抬担架那段，是转运同志告诉我们的，我把这句也注明了。','chenhe-memory-first','wuqi-write-home'),
+  {id:'wuqi-write-home',speaker:'陈禾',text:'还有他家那棵枣树，也写上吧。他自己老爱说。',scene:'chenhe-memory-first',next:'wuqi-write-lusheng',mode:'dialogue',nativeAudio:true,video:'assets/chapters/chenhe-memory-v021.mp4',poster:'assets/chapters/chenhe-memory-first-v021.png',hold:'assets/chapters/chenhe-memory-hold-v021.png',duration:6.08,captionPages:[{text:'还有他家那棵枣树，也写上吧。',start:.43,end:2.35},{text:'他自己老爱说。',start:4.48,end:5.60}],title:'吴起的桌边，陈禾提醒记下梁叔家的枣树',replayLabel:'重看枣树的回忆',advanceOnEnd:false,routes:[{choice:'xj-choice',equals:'luggage',next:'wuqi-write-letter'}]},
   t('wuqi-write-lusheng','陆生凑在一边，嫌我写得快，他还没看完。我就写慢一点。','lusheng-wuqi','wuqi-writing'),
   t('wuqi-write-letter','旧家书另用干布包着。我拿的是新纸，记的是我认识的梁叔。江边那段是转运同志告诉我们的，我也记上这是谁说的。至于旧信，就留着梁叔写下的半句话。','old-letter-room','wuqi-writing'),
   {id:'wuqi-writing',speaker:'心声',mode:'thought',scene:'memory-page',text:'我慢慢写，停一下，再往下记。',document:'梁守成。大家叫他梁叔。\n他会补衣，怕针线沾水。\n家里有棵枣树。\n临走前，替我缝了三针。',choices:[{id:'write-names',label:'写下这些名字。',next:'wuqi-later-route'}]},
@@ -98,5 +98,7 @@
   images[name+'-'+phase]='assets/chapters/'+name+'-'+phase+'-v020.png';
   alts[name+'-'+phase]=name==='lusheng-night'?'陆生在草地夜间营地靠着铺盖歇息，小满的水碗在近处':'陈禾坐在天亮后的草地营地，身后还有歇息的战士';
  }
+ Object.assign(images,{'chenhe-memory-first':'assets/chapters/chenhe-memory-first-v021.png','chenhe-memory-hold':'assets/chapters/chenhe-memory-hold-v021.png'});
+ Object.assign(alts,{'chenhe-memory-first':'白天的吴起借住屋内，陈禾坐在小满对面，桌上是新纸和短铅笔','chenhe-memory-hold':'同一张桌前，陈禾低头看向新纸，提醒小满记下梁叔家的枣树'});
  const data={nodes,images,alts,chapters};if(typeof module==='object'&&module.exports)module.exports=data;else root.LATE_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);

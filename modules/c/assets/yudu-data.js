@@ -1,4 +1,4 @@
-/* v0.20: full six-station story, eleven supplied movies, streamed text and no thought TTS. */
+/* v0.21: full six-station story, twelve supplied movies, streamed text and no thought TTS. */
 (function(root){
  const thought=(id,text,scene,next,extra={})=>({id,speaker:'心声',text,scene,next,mode:'thought',...extra});
  const nodes=[
