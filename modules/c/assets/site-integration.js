@@ -3,7 +3,7 @@
  const events=Object.freeze({yudu:'yudu',xiangjiang:'xiangjiang',zunyi:'zunyi',rivers:'chishui',luding:'luding',snow:'jiajin',grass:'grassland',north:'wuqi',wuqi:'wuqi',epilogue:'huishi'});
  if(typeof module==='object'&&module.exports){module.exports=events;return;}
  const base=new URL('../../',document.baseURI),chronicle=new URL('chronicle.html',base);
- const R=root.JourneyReturn,history=R.outbound(chronicle.href,'map');let selected=root.AtlasMap.selected();
+ const R=root.JourneyReturn,history=chronicle;let selected=root.AtlasMap.selected();
  function update(){
   for(const a of document.querySelectorAll('[data-c-history]'))a.href=history.href;
   const url=new URL(history);url.hash='event='+(events[selected]||'yudu');document.getElementById('chapter-facts').href=url.href;
@@ -18,8 +18,14 @@
  document.addEventListener('click',e=>{
   const a=e.target.closest('a[href]');if(!a)return;
   const url=new URL(a.href,document.baseURI);if(url.origin!==base.origin||![new URL('chronicle.html',base).pathname,new URL('post-office.html',base).pathname].includes(url.pathname))return;
-  const view=document.getElementById('story-screen').hidden?'map':'story';a.href=R.outbound(url.href,view).href;
+  const ending=document.getElementById('ending'),story=document.getElementById('story-screen');
+  const eligible=['ending-history','ending-post'].includes(a.id)&&ending&&!ending.hidden&&story&&!story.hidden;
+  if(!eligible){a.href=R.ordinary(url.href).href;try{sessionStorage.removeItem(R.VISIT_KEY);sessionStorage.removeItem(R.KEY);}catch{}return;}
+  const token=root.crypto?.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2);
   root.dispatchEvent(new CustomEvent('journey:leaving-site'));
+  // A tab-local marker belongs to this deliberate ending-page visit, never to the save.
+  try{sessionStorage.setItem(R.VISIT_KEY,token);}catch{a.href=R.ordinary(url.href).href;return;}
+  a.href=R.outbound(url.href,'story',token).href;
  },true);
  update();
  const initialEnding=document.getElementById('ending');

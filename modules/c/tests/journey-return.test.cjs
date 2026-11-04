@@ -3,12 +3,19 @@ const R=require('../assets/journey-return.js'),C=require('../assets/yudu-core.js
 const asset='https://example.test/Long-March-Web/modules/c/assets/journey-return.js?v=017';
 
 test('return links are restricted to the same site game entry, including repository subpaths',()=>{
- const url=R.destination('https://example.test/Long-March-Web/chronicle.html?from=journey&view=story&returnTo=https://evil.test#event=jiajin',asset);
+ const url=R.destination('https://example.test/Long-March-Web/chronicle.html?from=journey&view=story&journeyReturn=visit-1&returnTo=https://evil.test#event=jiajin',asset,'visit-1');
  assert.equal(url.href,'https://example.test/Long-March-Web/modules/c/journey.html?resume=story');
  assert.equal(R.destination('https://evil.test/chronicle.html?from=journey',asset),null);
  assert.equal(R.destination('https://example.test/Long-March-Web/index.html?from=journey',asset),null);
  assert.equal(R.destination('https://example.test/Long-March-Web/post-office.html',asset),null);
- assert.equal(R.destination('https://example.test/Long-March-Web/post-office.html?from=journey&view=map',asset).searchParams.get('resume'),'map');
+ assert.equal(R.destination('https://example.test/Long-March-Web/post-office.html?from=journey&view=map',asset,'visit-1'),null);
+ assert.equal(R.destination('https://example.test/Long-March-Web/post-office.html?from=journey&journeyReturn=old',asset,'visit-1'),null);
+ assert.equal(R.destination('https://example.test/Long-March-Web/post-office.html?from=journey&journeyReturn=visit-1',asset),null);
+});
+
+test('ordinary navigation drops only the game return context and keeps the selected article',()=>{
+ const url=R.ordinary('https://example.test/chronicle.html?from=journey&view=story&journeyReturn=visit-1&event=wuqi#event=wuqi');
+ assert.equal(url.href,'https://example.test/chronicle.html?event=wuqi#event=wuqi');
 });
 test('outbound links preserve the history article and letter form while carrying return context',()=>{
  const history=R.outbound('https://example.test/Long-March-Web/chronicle.html#event=grassland');

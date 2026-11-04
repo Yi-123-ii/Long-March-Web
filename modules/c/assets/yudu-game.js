@@ -13,6 +13,7 @@ if(['map','story'].includes(resumeView)){
   const snapshot=window.JourneyReturn.restore(D,C,state,sessionStorage.getItem(window.JourneyReturn.KEY));
   if(snapshot?.view===resumeView)state=snapshot.state;
   sessionStorage.removeItem(window.JourneyReturn.KEY);
+  sessionStorage.removeItem(window.JourneyReturn.VISIT_KEY);
  }catch{/* The existing local save remains the fallback when session storage is unavailable. */}
  const cleanURL=new URL(location.href);cleanURL.searchParams.delete('resume');history.replaceState(null,'',cleanURL);
 }
@@ -89,6 +90,8 @@ function setPaused(value){
  paused=value;$('pause').textContent=value?'继续':'暂停';$('pause').setAttribute('aria-pressed',value);
  $('pause-overlay').hidden=!value||dialogs.some(d=>d.open);
  $('story-screen').classList.toggle('is-paused',value);
+ if(value&&!$('pause-overlay').hidden)$('resume').focus({preventScroll:true});
+ else if(!value&&document.activeElement===$('resume'))$('pause').focus({preventScroll:true});
  if(value){river.pause();video.pause();cancelCues();}
  else{lastTick=performance.now();playRiver();if(!video.hidden&&!video.ended&&C.current(D,state).nativeAudio)video.play().catch(()=>{video.controls=true;notice('请点影片上的播放键，或点“重播镜头”重试。');});}
 }
@@ -262,6 +265,7 @@ document.addEventListener('keydown',e=>{
  if(window.JourneyFX.busy){if(e.key==='Escape'){e.preventDefault();window.JourneyFX.skip();}return;}
  if(!active||dialogs.some(d=>d.open))return;
  if(e.key==='Escape'){e.preventDefault();setPaused(!paused);return;}
+ if(paused&&e.key==='Tab'){e.preventDefault();$('resume').focus({preventScroll:true});return;}
  if(['INPUT','BUTTON','A'].includes(e.target.tagName))return;
  if(e.code==='Space'){e.preventDefault();if(paused)setPaused(false);else go();}
  if(e.key==='Escape'){e.preventDefault();setPaused(!paused);}
