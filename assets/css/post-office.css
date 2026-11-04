@@ -1,28 +1,6 @@
 .lm-post-page {
   background: #eef1ed;
 }
-.post-opening__illustration {
-  position: absolute;
-  left: 64%;
-  top: 48%;
-  width: min(25vw, 360px);
-  height: auto;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-@media (max-width: 760px) {
-  .post-opening__illustration {
-    top: auto;
-    right: 8vw;
-    bottom: 4svh;
-    left: auto;
-    width: min(33vw, 22svh, calc(69svh - 318px));
-    transform: none;
-  }
-}
-@media (max-width: 760px) and (max-height: 580px) {
-  .post-opening__illustration { display: none; }
-}
 .lm-post-main {
   padding-top: 0;
   min-height: calc(100svh - 201px);
