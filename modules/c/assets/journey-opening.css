@@ -15,6 +15,12 @@ html { scroll-behavior: smooth; }
 }
 #map-screen .atlas-main,
 #map-screen .atlas-window { background: transparent; }
+/* Let vertical scrolling continue to the page at either edge of the map. */
+#map-screen .atlas-window { overscroll-behavior-y: auto; }
+@media (pointer: fine) {
+  /* Wheel scrolls the page; dragging can still pan the map in both directions. */
+  #map-screen .atlas-window { overflow-y: hidden; }
+}
 .journey-opening {
   position: relative;
   height: 100svh;
