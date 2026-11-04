@@ -1,18 +1,21 @@
 (() => {
   'use strict';
+  const root = document.documentElement;
   const opening = document.querySelector('.section-opening[data-title-motion]');
-  if (!opening || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!opening || !root.classList.contains('has-opening-motion') ||
+      matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const heading = opening.querySelector('h1');
   const image = heading.querySelector('img');
   const action = opening.querySelector('.section-opening__action');
   let started = false;
-  opening.classList.add('is-awaiting-motion');
 
   async function reveal() {
     if (started) return;
     started = true;
     try {
       await image.decode();
+      // A slow or failed script must never hide the title indefinitely.
+      if (!root.classList.contains('has-opening-motion')) return;
       const frames = opening.dataset.titleMotion === 'ink'
         ? [{ clipPath: 'inset(-12% 112% -12% -12%)', opacity: 0.35 },
            { clipPath: 'inset(-12% -12% -12% -12%)', opacity: 1 }]
@@ -20,7 +23,8 @@
            { transform: 'scale(1)', opacity: 1 }];
       heading.animate(frames, {
         duration: 1400,
-        easing: 'cubic-bezier(.2,.7,.3,1)'
+        easing: 'cubic-bezier(.2,.7,.3,1)',
+        fill: 'backwards'
       });
       action.animate([
         { opacity: 0, transform: 'translateY(6px)' },
@@ -32,7 +36,8 @@
         fill: 'backwards'
       });
     } finally {
-      opening.classList.remove('is-awaiting-motion');
+      opening.classList.add('is-motion-revealed');
+      clearTimeout(window.openingMotionFallback);
     }
   }
   if (!('IntersectionObserver' in window)) {

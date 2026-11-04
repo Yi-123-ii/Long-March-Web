@@ -64,8 +64,12 @@ body .section-opening .section-opening__copy h1 img {
 }
 .section-opening__action span { font: inherit; }
 .section-opening__action:hover { color: #85382c; }
-.section-opening.is-awaiting-motion h1,
-.section-opening.is-awaiting-motion .section-opening__action { opacity: 0; }
+.has-opening-motion .section-opening[data-title-motion]:not(.is-motion-revealed) h1,
+.has-opening-motion .section-opening[data-title-motion]:not(.is-motion-revealed) .section-opening__action { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .has-opening-motion .section-opening[data-title-motion] h1,
+  .has-opening-motion .section-opening[data-title-motion] .section-opening__action { opacity: 1; }
+}
 @media (max-width: 760px) {
   body .section-opening.section-opening {
     --header-height: 76px;
