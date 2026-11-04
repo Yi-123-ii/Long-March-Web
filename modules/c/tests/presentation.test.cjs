@@ -6,6 +6,21 @@ test('spoken movies and picture dialogue use the same character name rules',()=>
  assert.deepEqual(P.speaker({mode:'thought',speaker:'心声'}),{name:'小满',kind:'心声'});
  for(const node of D.nodes.filter(n=>n.end||n.checkpoint||['fact','observation'].includes(n.mode)))assert.equal(P.speaker(node),null);
 });
+
+test('lookahead buffers one upcoming film, respects route choices and stops at chapter boundaries',()=>{
+ const C=require('../assets/yudu-core.js');let state=C.create(D);
+ assert.equal(P.upcomingFilm(D,C,state).id,'reach');
+ while(!C.current(D,state).end){
+  const n=C.current(D,state),film=P.upcomingFilm(D,C,state);
+  if(film){assert(film.nativeAudio);assert.equal(film.chapter,n.chapter);}
+  if(n.choices?.length>1||n.checkpoint)assert.equal(film,null);
+  const next=C.advance(D,state,n.choices?.[0].id);if(next===state)break;state=next;
+ }
+ const data={nodes:[{id:'start',chapter:'a',routes:[{choice:'branch',equals:'b',next:'film-b'}],next:'film-a'},
+  {id:'film-a',chapter:'a',nativeAudio:true},{id:'film-b',chapter:'a',nativeAudio:true}]};
+ assert.equal(P.upcomingFilm(data,C,{node:'start',choices:{branch:'b'}}).id,'film-b');
+ assert.equal(P.upcomingFilm(data,C,{node:'start',choices:{}}).id,'film-a');
+});
 test('changed video and still URLs refresh cached media without changing data paths or embedded assets',()=>{
  assert.equal(P.media('assets/yudu/liang-home-v013.mp4'),'assets/yudu/liang-home-v013.mp4?v=023');
  assert.equal(P.media('assets/yudu/liang-home-first-v013.png'),'assets/yudu/liang-home-first-v013.png?v=023');
