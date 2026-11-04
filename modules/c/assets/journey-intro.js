@@ -52,6 +52,10 @@
  },true);
  window.JourneyIntro={get busy(){return !!current;},open(volume=.9){
   if(current)return current.promise;
+  if(!video.src){
+   video.poster=video.dataset.poster;
+   video.src=video.dataset.src;
+  }
   let resolve;const promise=new Promise(r=>resolve=r);
   const inert=[$('map-screen'),$('story-screen')].map(el=>[el,el.inert]);
   current={promise,resolve,inert,finishing:false,fallback:video.src.endsWith('.webm')};for(const [el]of inert)el.inert=true;

@@ -10,7 +10,7 @@ const sections = [
   { id: 'inheritance', file: 'inheritance.html', art: 'headers/inheritance-v1.webp', tagline: '接过薪火，续写山河', lettering: 'titles/header-inheritance-tagline-v1.webp' },
   { id: 'post', file: 'post-office.html', art: 'headers/post-v1.webp', tagline: '寄一纸心语，念万里征途', lettering: 'titles/postal-tagline-brush-v2.webp' },
 ];
-const links = [ ['index.html', '首页', 'home'], ['chronicle.html', '长征纪事', 'chronicle'], ['journey.html', '重走长征', 'journey'], ['inheritance.html', '精神传承', 'inheritance'], ['post-office.html', '山河邮局', 'post'] ];
+const links = [ ['index.html', '首页', 'home'], ['chronicle.html', '长征纪事', 'chronicle'], ['modules/c/journey.html', '重走长征', 'journey'], ['inheritance.html', '精神传承', 'inheritance'], ['post-office.html', '山河邮局', 'post'] ];
 
 for (const section of sections) {
   await access(path.join(root, 'assets/images', section.art));

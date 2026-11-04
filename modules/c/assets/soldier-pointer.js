@@ -3,7 +3,7 @@
  const fine=matchMedia('(hover:hover) and (pointer:fine)'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
  const cursor=document.createElement('div'),picture=document.createElement('img'),tip=document.createElement('i');
  cursor.className='soldier-pointer';cursor.hidden=true;cursor.setAttribute('aria-hidden','true');
- picture.alt='';picture.draggable=false;picture.src=window.YUDU_EMBEDDED?.['assets/soldier-pointer-v016.png']||'assets/soldier-pointer-v016.png';
+ picture.alt='';picture.draggable=false;picture.src=window.YUDU_EMBEDDED?.['assets/soldier-pointer-v016.png']||'assets/soldier-pointer-fast.webp';
  cursor.append(tip,picture);document.body.append(cursor);
  let ready=false,idle;
  const hide=()=>{cursor.hidden=true;document.documentElement.classList.remove('soldier-pointer-on');};

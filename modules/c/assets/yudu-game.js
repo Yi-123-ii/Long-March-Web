@@ -18,13 +18,12 @@ if(['map','story'].includes(resumeView)){
 }
 let ambientKey='river';
 const river=$('ambient-audio');river.src=resolve(D.ambiences.river);
-river.loop=true;river.preload='auto';
+river.loop=true;river.preload='none';
 // The hold image is the last decoded movie frame, ready before the cut.
 const warmed=new Set();function warm(paths){for(const p of paths.filter(Boolean)){if(warmed.has(p))continue;warmed.add(p);const img=new Image();img.src=resolve(p);}}
-warm(D.nodes.filter(n=>n.nativeAudio).flatMap(n=>[n.poster,n.hold]));
 const video=$('scene-video'),image=$('scene-image');
 const videoCorner=window.VideoCorner.attach(video,$('video-corner'));
-video.preload='auto';video.src=resolve(D.video);
+video.preload='none';
 const cueTimers=new Set(),cuePlayers=new Set();
 const dialogs=[$('sound-dialog'),$('history-dialog'),$('about-dialog')];
 for(const img of document.querySelectorAll('img[src]'))img.src=resolve(img.getAttribute('src'));
@@ -135,7 +134,7 @@ function visual(n){
   veil.animate([{opacity:0},{opacity:.72,offset:.33},{opacity:0}],{duration:380,easing:'ease-in-out'});setTimeout(applyImage,110);
  }else applyImage();
  $('story-screen').dataset.mode=n.mode||'observation';
- const nextNode=D.nodes.find(x=>x.id===C.target(D,state,n));warm([D.images[n.scene],nextNode&&D.images[nextNode.scene],...(n.choices||[]).map(c=>D.images[D.nodes.find(x=>x.id===c.next)?.scene])]);
+ const nextNode=D.nodes.find(x=>x.id===C.target(D,state,n));warm([n.poster,n.hold,D.images[n.scene],nextNode&&D.images[nextNode.scene],...(n.choices||[]).map(c=>D.images[D.nodes.find(x=>x.id===c.next)?.scene])]);
 
  video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
  video.hidden=!useVideo;image.hidden=useVideo;updateNext();volumes();

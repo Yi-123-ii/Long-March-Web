@@ -5,10 +5,12 @@
 <meta name="theme-color" content="#f0dbb4"><meta name="description" content="在地图与对白之间，走进长征路上一段关于同行的故事。从于都、雪山到草地与吴起，翻开一站站相册，记住同行的人。">
 <title>同行 · 重走长征路</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preload" href="assets/atlas/heading-eight-fast.webp" as="image" type="image/webp">
+<link rel="preload" href="assets/atlas/terrain-extension-v1.webp" as="image" type="image/webp">
 <link rel="stylesheet" href="../../assets/css/fonts.css"><link rel="stylesheet" href="assets/yudu.css"><link rel="stylesheet" href="assets/journey-atlas.css">
 <script defer src="assets/journey-return.js?v=017"></script>
 <script defer src="assets/yudu-presentation.js?v=017"></script>
-<script defer src="assets/late-chapters-data.js?v=021"></script><script defer src="assets/chapters-data.js?v=020"></script><script defer src="assets/yudu-data.js"></script><script defer src="assets/yudu-core.js"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=20261103-fullscreen"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=022"></script><script defer src="assets/soldier-pointer.js"></script><script defer src="assets/video-corner.js?v=020"></script><script defer src="assets/yudu-game.js?v=022"></script>
+<script defer src="assets/late-chapters-data.js?v=021"></script><script defer src="assets/chapters-data.js?v=020"></script><script defer src="assets/yudu-data.js"></script><script defer src="assets/yudu-core.js"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=20261103-fullscreen"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261104-on-demand"></script><script defer src="assets/soldier-pointer.js?v=20261104-small"></script><script defer src="assets/video-corner.js?v=020"></script><script defer src="assets/yudu-game.js?v=20261104-on-demand"></script>
 <script defer src="assets/site-integration.js?v=017"></script>
 <script defer src="../../assets/js/site-nav.js?v=20261102-unified"></script>
 <link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261102-unified" />
@@ -20,7 +22,7 @@
 <link rel="stylesheet" href="../../assets/css/section-opening.css" />
 </head>
 <body>
-<audio id="ambient-audio" loop preload="auto" hidden aria-hidden="true"></audio>
+<audio id="ambient-audio" loop preload="none" hidden aria-hidden="true"></audio>
 <div id="map-screen" class="atlas-screen">
  <header class="site-header site-header--paper lm-header lm-unified-header atlas-header" id="site-header" data-section="journey">
       <a class="lm-brand" href="../../index.html"><img class="lm-brand-landscape" src="../../assets/images/headers/journey-v1.webp" width="320" height="259" alt="" /><span><img class="lm-brand-name-art" src="../../assets/images/titles/brand-name-v3.webp" width="900" height="229" alt="山河印记" /><small><span class="a-sr-only">重走征途，感知不易</span><span class="lm-brand-tagline-art" aria-hidden="true"></span></small></span></a>
@@ -29,21 +31,21 @@
       <nav class="site-nav" id="site-navigation" aria-label="主导航">
         <a href="../../index.html">首页</a>
         <a href="../../chronicle.html" data-c-history>长征纪事</a>
-        <a href="../../journey.html" aria-current="page">重走长征</a>
+        <a href="journey.html" aria-current="page">重走长征</a>
         <a href="../../inheritance.html">精神传承</a>
         <a href="../../post-office.html">山河邮局</a>
       </nav>
     </header>
  <section class="journey-opening section-opening section-opening--overlay" aria-labelledby="journey-heading">
   <div class="section-opening__copy">
-   <h1 id="journey-heading"><span class="a-sr-only">循迹山河<br>重走长征</span><img src="assets/atlas/heading-eight-v1.svg" width="1536" height="1024" alt="" fetchpriority="high"></h1>
+   <h1 id="journey-heading"><span class="a-sr-only">循迹山河<br>重走长征</span><img src="assets/atlas/heading-eight-fast.webp" width="1536" height="1024" alt="" fetchpriority="high"></h1>
    <a class="journey-opening__entry section-opening__action" href="#journey-map">展开长征地图 <span aria-hidden="true">↓</span></a>
   </div>
  </section>
  <main class="atlas-main" id="journey-map">
   <div id="atlas-window" class="atlas-window" aria-label="长征故事地图，可拖动查看">
    <div id="atlas-canvas" class="atlas-canvas">
-    <img class="atlas-terrain" src="assets/atlas/terrain-v022.webp" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" fetchpriority="high" draggable="false">
+    <img class="atlas-terrain" src="assets/atlas/terrain-v022.webp" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" loading="lazy" draggable="false">
     <svg class="atlas-routes" viewBox="0 0 1180 620" aria-hidden="true"><path id="atlas-main-route"/><path id="atlas-epilogue-route"/><polyline id="atlas-travel-route" class="atlas-travel-route" hidden/></svg>
     <p class="atlas-epilogue-note">1936年10月 · 历史尾声</p>
     <div id="atlas-pins" class="atlas-pins"></div>
@@ -69,8 +71,8 @@
 
 <section id="story-screen" class="story-screen" aria-label="长征同行剧情" hidden>
  <div class="visual-stage">
-  <img id="scene-image" src="assets/yudu/chenhe-first-v011.png" alt="陈禾站在于都河岸，身后战士走向浮桥">
-  <video id="scene-video" playsinline preload="metadata" poster="assets/yudu/chenhe-first-v011.png" aria-label="陈禾向你伸手的短镜头" hidden></video>
+  <img id="scene-image" loading="lazy" src="assets/yudu/chenhe-first-v011.png" alt="陈禾站在于都河岸，身后战士走向浮桥">
+  <video id="scene-video" playsinline preload="none" aria-label="陈禾向你伸手的短镜头" hidden></video>
   <canvas id="video-corner" class="video-corner" aria-hidden="true" hidden></canvas>
   <div id="scene-cut-veil" class="scene-cut-veil" aria-hidden="true"></div><div class="river-light" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>
   <p class="scene-location"><b id="scene-place">江西于都</b><span id="scene-date">1934年10月</span></p><div id="route-progress" class="route-progress" aria-label="时间与路线推进" hidden><span>遵义</span><i>—</i><span id="route-chishui">赤水</span><i>—</i><span id="route-jinsha">金沙江</span></div>
@@ -86,7 +88,7 @@
  <div id="pause-overlay" class="pause-overlay" hidden><button id="resume" class="resume-button"><span aria-hidden="true">▷</span> 继续这一程</button><p>画面与声音已暂停</p></div>
 </section>
 <section id="intro-film" class="intro-film" aria-label="第一站导入：走进于都" hidden>
- <video id="intro-video" playsinline preload="metadata" poster="assets/prologue/yudu-arrival-poster-v022.webp" src="assets/prologue/yudu-arrival-v022.mp4" aria-label="从书桌前走进于都河岸的导入影片"></video>
+ <video id="intro-video" playsinline preload="none" data-src="assets/prologue/yudu-arrival-v022.mp4" data-poster="assets/prologue/yudu-arrival-poster-v022.webp" aria-label="从书桌前走进于都河岸的导入影片"></video>
  <div class="intro-film-top"><span>序 · 走进这段山河</span><div><button id="intro-pause" class="glass" aria-pressed="false">暂停</button><button id="intro-skip" class="glass">跳过导入 ›</button></div></div>
  <div id="intro-caption" class="intro-caption" hidden><div class="speaker-row"><span class="speaker-line"></span><h2>陈禾</h2></div><p id="intro-line" aria-live="polite"></p></div>
  <button id="intro-resume" class="intro-resume" hidden>▷ 继续播放</button>
