@@ -1,5 +1,9 @@
-/* The title and statement share a center; removing the year lifts the group. */
-.v3-home .a-hero { padding-top: clamp(14px, 1.6svh, 22px); }
+/* Center the lettering in the first screen, allowing for the CTA below it. */
+.v3-home .a-hero {
+  height: auto;
+  justify-content: center;
+  padding-block: 0 5svh;
+}
 .v3-home .a-hero__content { --home-title-width: min(660px, 44vw); width: var(--home-title-width); }
 .v3-home .a-hero__title,
 .v3-home .a-hero__copy { width: var(--home-title-width); }
@@ -15,4 +19,8 @@
 }
 @media (max-width: 520px) {
   .v3-home .a-hero__content { --home-title-width: min(400px, 89vw); }
+}
+@media (max-height: 520px) and (min-width: 761px) {
+  .v3-home .a-hero__content { --home-title-width: min(39vw, 63svh); }
+  .v3-home .a-hero__statement { width: min(100%, 50svh); margin-block: 6px 10px; }
 }
