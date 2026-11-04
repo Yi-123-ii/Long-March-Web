@@ -176,6 +176,7 @@
       tabs[next].focus();
     });
   });
+  $("#post-entry").addEventListener("click", () => switchTab(0));
   $("#start-writing").addEventListener("click", () => {
     switchTab(0);
     body.focus();

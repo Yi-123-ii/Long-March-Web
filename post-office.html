@@ -26,11 +26,12 @@
     <script defer src="assets/js/letter-backup.js?v=20261024-stationery"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261102-unified"></script>
-    <script defer src="assets/js/post-office.js?v=20261101-v38"></script>
+    <script defer src="assets/js/post-office.js?v=20261104-opening"></script>
     <script defer src="modules/c/assets/journey-return.js?v=017"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css" />
   <link href="assets/css/v38-reading.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/header-unified.css?v=20261103-brand-lower" />
+<link rel="stylesheet" href="assets/css/section-opening.css" />
 </head>
   <body class="lm-page lm-post-page">
     <a class="lm-skip" href="#letter-form">跳至写留言</a>
@@ -46,16 +47,14 @@
         <a href="post-office.html" aria-current="page">山河邮局</a>
       </nav>
     </header>
-    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden"><defs><clipPath id="post-title-letters" clipPathUnits="objectBoundingBox"><path clip-rule="evenodd" d="M0 0H1V1H0Z M0.6628571428571428 0.2106969205834684H0.72V0.39384116693679094H0.6628571428571428Z M0.825 0.5850891410048622H0.8821428571428571V0.7017828200972447H0.825Z" /></clipPath></defs></svg>
-    <main class="lm-container lm-post-main">
-      <section class="lm-post-heading" aria-labelledby="post-title">
-        <div class="lm-post-hero-copy">
-          <h1 class="lm-post-title" id="post-title"><span class="lm-sr-only">隔着岁月 说给你们听</span><img src="assets/images/titles/post-heading-v2.webp" style="clip-path:url(#post-title-letters)" width="1400" height="617" alt="" fetchpriority="high" /></h1>
-          <p class="lm-post-intro">
-            写给长征路上的人们，<br />写下敬意，也写下今天的生活。
-          </p>
+    <main>
+      <section class="section-opening" aria-labelledby="post-title">
+        <div class="section-opening__copy">
+          <h1 id="post-title"><span class="lm-sr-only">隔着岁月 说给你听</span><img src="assets/images/titles/post-eight.webp" alt="" fetchpriority="high" /></h1>
+          <a class="section-opening__action" id="post-entry" href="#post-desk">写下留言 <span aria-hidden="true">↓</span></a>
         </div>
       </section>
+      <div class="lm-container lm-post-main" id="post-desk">
       <div class="lm-post-tabs" role="tablist" aria-label="邮局功能">
         <button
           id="write-tab"
@@ -177,6 +176,7 @@
           <button id="start-writing" class="lm-button">写下第一段留言 ↗</button>
         </div>
       </section>
+      </div>
     </main>
     <footer class="lm-footer lm-container">
       <span>山河邮局</span><a href="chronicle.html">翻阅长征纪事 ↗</a>
