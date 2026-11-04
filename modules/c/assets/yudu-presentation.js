@@ -6,7 +6,7 @@
   if(node.mode==='dialogue'&&['陈禾','梁叔','陆生','小满'].includes(node.speaker))return {name:node.speaker,kind:''};
   return null;
  }
- function media(path,embedded){return embedded?.[path]||(/\.(mp4|png)$/.test(path)?path+'?v=017':path);}
+ function media(path,embedded){return embedded?.[path]||(/\.(mp4|png)$/.test(path)?path+'?v=023':path);}
  const api={speaker,media};
  if(typeof module==='object'&&module.exports)module.exports=api;else root.YuduPresentation=api;
 })(typeof window==='undefined'?globalThis:window);
