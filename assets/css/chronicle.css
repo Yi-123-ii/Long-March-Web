@@ -183,6 +183,8 @@
 .lm-section-heading > p { flex: 0 1 350px; }
 .lm-hero-intro { font-family: var(--lm-reading); font-size: 18px; line-height: 1.9; }
 .lm-section-heading > p { font-family: var(--lm-reading); font-size: 16px; line-height: 1.9; }
+.lm-chronicle-intro { min-inline-size: min(100%, 16em); }
+.lm-chronicle-intro > span { display: block; }
 .lm-filters button { font-family: var(--lm-display); font-size: 17px; font-weight: 400; }
 .lm-search input { font-size: 15px; }
 .lm-history-layout { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 48px; align-items: start; }
