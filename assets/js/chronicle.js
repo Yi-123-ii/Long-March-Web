@@ -32,6 +32,7 @@
     image.height = art.height;
     image.alt = "";
     image.decoding = "async";
+    image.loading = "lazy";
     image.onerror = () => { label.classList.remove("lm-sr-only"); image.remove(); };
     node.classList.add("lm-stage-title");
     node.replaceChildren(label, image);
