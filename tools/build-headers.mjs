@@ -3,6 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const brandSource = 'data:image/webp;base64,' +
+  (await readFile(path.join(root, 'assets/images/titles/brand-name-compact.webp'))).toString('base64');
 const sections = [
   { id: 'home', file: 'index.html', art: 'headers/home-v1.webp', tagline: '以山河为卷，以青春为答', lettering: 'titles/header-home-tagline-v1.webp' },
   { id: 'chronicle', file: 'chronicle.html', art: 'brand-landscape-v2.webp', tagline: '循着来路，读懂远方', lettering: 'titles/brand-tagline-v2.webp' },
@@ -17,7 +19,7 @@ for (const section of sections) {
   await access(path.join(root, 'assets/images', section.lettering));
   const prefix = section.id === 'journey' ? '../../' : '';
   const header = `<header class="site-header site-header--paper lm-header lm-unified-header${section.id === 'journey' ? ' atlas-header' : ''}" id="site-header" data-section="${section.id}">
-      <a class="lm-brand" href="${prefix}index.html"><img class="lm-brand-landscape" src="${prefix}assets/images/${section.art}" width="320" height="259" alt="" /><span><img class="lm-brand-name-art" src="${prefix}assets/images/titles/brand-name-v3.webp" width="900" height="229" alt="山河印记" /><small><span class="a-sr-only">${section.tagline}</span><span class="lm-brand-tagline-art" aria-hidden="true"></span></small></span></a>
+      <a class="lm-brand" href="${prefix}index.html"><img class="lm-brand-landscape" src="${prefix}assets/images/${section.art}" width="320" height="259" alt="" /><span><img class="lm-brand-name-art" src="${brandSource}" width="360" height="92" alt="山河印记" /><small><span class="a-sr-only">${section.tagline}</span><span class="lm-brand-tagline-art" aria-hidden="true"></span></small></span></a>
       ${section.id === 'journey' ? '<p id="atlas-progress" class="a-sr-only">从于都河岸，走向更远的山河</p>' : ''}
       <button class="site-menu-toggle" type="button" aria-label="展开主导航" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
       <nav class="site-nav" id="site-navigation" aria-label="主导航">
@@ -37,7 +39,7 @@ for (const section of sections) {
     if (!html.includes('id="about-open"')) html = html.replace('<footer class="atlas-footer">', '<footer class="atlas-footer"><button class="quiet" id="about-open" type="button">关于这一程</button>');
   }
   // The shared stylesheet must win over page-specific styles and the older shell.
-  const style = `<link rel="stylesheet" href="${prefix}assets/css/header-unified.css?v=20261103-brand-lower" />`;
+  const style = `<link rel="stylesheet" href="${prefix}assets/css/header-unified.css?v=20261104-compact" />`;
   html = html.replace(/<link\b[^>]*href="(?:\.\.\/\.\.\/)?assets\/css\/header-unified\.css(?:\?[^"]*)?"[^>]*>\s*/g, '').replace('</head>', style + '\n</head>');
   await writeFile(target, html);
 }
