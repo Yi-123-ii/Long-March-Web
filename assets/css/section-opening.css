@@ -24,6 +24,7 @@ body .section-opening.section-opening--overlay {
   gap: clamp(16px, 3svh, 28px);
   width: var(--title-width);
   margin: 0;
+  transform: translateY(clamp(-62px, -6svh, -24px));
 }
 body .section-opening .section-opening__copy > h1[id] {
   position: relative;
@@ -63,6 +64,8 @@ body .section-opening .section-opening__copy h1 img {
 }
 .section-opening__action span { font: inherit; }
 .section-opening__action:hover { color: #85382c; }
+.section-opening.is-awaiting-motion h1,
+.section-opening.is-awaiting-motion .section-opening__action { opacity: 0; }
 @media (max-width: 760px) {
   body .section-opening.section-opening {
     --header-height: 76px;
