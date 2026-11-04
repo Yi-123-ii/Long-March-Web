@@ -40,6 +40,7 @@
     const art = text("span", "lm-stamp", "");
     art.setAttribute("aria-hidden", "true");
     const image = document.createElement("img");
+    image.loading = "lazy";
     image.src = stampImage(stamp.id); image.alt = ""; image.width = 240; image.height = 300;
     art.append(image, text("span", "", stamp.name));
     label.append(radio, art, text("strong", "", stamp.name), text("small", "", stamp.caption));
@@ -60,6 +61,7 @@
     const art = text("span", "lm-paper-sample", "");
     art.setAttribute("aria-hidden", "true");
     const image = document.createElement("img");
+    image.loading = "lazy";
     image.src = paperImage(paper.id); image.alt = ""; image.width = 640; image.height = 896;
     art.append(image, text("span", "", "致长征路上的你们："));
     label.append(radio, art, text("strong", "", paper.name), text("small", "", paper.caption));

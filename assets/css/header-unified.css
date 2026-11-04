@@ -1,9 +1,9 @@
 /* One header system for all five sections; page content remains independently styled. */
-.lm-unified-header[data-section="home"] { --header-tagline-image: url("../images/titles/header-home-tagline-v1.webp"); }
-.lm-unified-header[data-section="chronicle"] { --header-tagline-image: url("../images/titles/brand-tagline-v2.webp"); }
-.lm-unified-header[data-section="journey"] { --header-tagline-image: url("../images/titles/header-journey-tagline-v1.webp"); }
-.lm-unified-header[data-section="inheritance"] { --header-tagline-image: url("../images/titles/header-inheritance-tagline-v1.webp"); }
-.lm-unified-header[data-section="post"] { --header-tagline-image: url("../images/titles/postal-tagline-brush-v2.webp"); }
+.lm-unified-header[data-section="home"] { --header-tagline-image: url("../images/titles/header-home-tagline-v1-compact.webp"); }
+.lm-unified-header[data-section="chronicle"] { --header-tagline-image: url("../images/titles/brand-tagline-v2-compact.webp"); }
+.lm-unified-header[data-section="journey"] { --header-tagline-image: url("../images/titles/header-journey-tagline-v1-compact.webp"); }
+.lm-unified-header[data-section="inheritance"] { --header-tagline-image: url("../images/titles/header-inheritance-tagline-v1-compact.webp"); }
+.lm-unified-header[data-section="post"] { --header-tagline-image: url("../images/titles/postal-tagline-brush-v2-compact.webp"); }
 .site-header.lm-unified-header {
   box-sizing: border-box;
   position: relative;
