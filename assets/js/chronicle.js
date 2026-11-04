@@ -150,24 +150,6 @@
     document.querySelector("#detail-focus-title").textContent =
       event.focus.title;
     document.querySelector("#detail-focus-text").textContent = event.focus.text;
-    document.querySelector("#detail-notes").open = false;
-    const sources = document.querySelector("#detail-sources");
-    sources.replaceChildren();
-    event.sources.forEach((source) => {
-      const li = el("li", "");
-      li.textContent = source.name;
-      sources.append(li);
-    });
-    document.querySelector("#detail-image-credit").textContent =
-      "配图：" +
-      event.image.credit +
-      "。" +
-      (event.image.licenseUrl ? "等比例缩小并转换为 WebP，未重新着色。" : "");
-    const license = document.querySelector("#detail-license");
-    license.textContent = event.image.licenseUrl
-      ? "图片许可：" + event.image.licenseUrl
-      : "";
-    license.hidden = !event.image.licenseUrl;
     document.querySelector("#detail-mail").href =
       "post-office.html?event=" + encodeURIComponent(event.id);
     document.querySelector("#detail-position").textContent =

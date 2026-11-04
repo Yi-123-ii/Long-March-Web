@@ -513,31 +513,6 @@
   color: #61705d;
   margin-bottom: 0;
 }
-.lm-article-notes {
-  border-top: 1px solid var(--lm-line);
-  margin: 28px 0;
-  color: var(--lm-muted);
-  font-size: 11px;
-}
-.lm-article-notes summary {
-  padding: 16px 0;
-  font-size: 12px;
-  cursor: pointer;
-  min-height: 48px;
-}
-.lm-article-notes > div {
-  padding: 0 0 5px 15px;
-}
-.lm-article-notes ul {
-  padding-left: 18px;
-}
-.lm-article-notes li {
-  margin-bottom: 7px;
-}
-.lm-article-notes p {
-  margin-bottom: 10px;
-  overflow-wrap: anywhere;
-}
 .lm-event-dialog .lm-dialog-nav {
   z-index: 3;
 }
@@ -619,8 +594,5 @@
   }
   .lm-article-focus > p:last-child {
     font-size: 12px;
-  }
-  .lm-article-notes {
-    font-size: 10px;
   }
 }
