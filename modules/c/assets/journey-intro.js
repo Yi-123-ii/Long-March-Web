@@ -54,7 +54,7 @@
   if(current)return current.promise;
   if(!video.src){
    video.poster=video.dataset.poster;
-   video.src=video.dataset.src;
+   video.src=window.YuduPresentation.media(video.dataset.src,window.YUDU_EMBEDDED);
   }
   let resolve;const promise=new Promise(r=>resolve=r);
   const inert=[$('map-screen'),$('story-screen')].map(el=>[el,el.inert]);

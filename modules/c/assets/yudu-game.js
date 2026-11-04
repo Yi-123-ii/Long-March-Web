@@ -39,7 +39,7 @@ function cue(kind){
  for(const ms of moments){const timer=setTimeout(()=>{cueTimers.delete(timer);if(!active||paused)return;const a=new Audio(resolve('assets/audio/yudu/wood-step.ogg'));cuePlayers.add(a);a.volume=state.settings.ambient*.55;a.playbackRate=kind==='stumble'?.84:1+(ms%3)*.025;a.onended=()=>cuePlayers.delete(a);a.onerror=()=>cuePlayers.delete(a);a.play().catch(()=>cuePlayers.delete(a));},ms);cueTimers.add(timer);}
 }
 function playRiver(){if(active&&!paused){const requestEpoch=epoch,source=river.src;river.play().catch(e=>{if(e.name==='AbortError'||!active||paused||requestEpoch!==epoch||source!==river.src)return;notice('环境声未能播放，可从“声音”检查音量并重新进入。');});}}
-function mapStatus(){
+function mapStatus(options){
  const n=C.current(D,state),hasProgress=state.path.length>1,ch=C.chapter(D,state);
  $('restart-map').hidden=!hasProgress;
 
@@ -50,7 +50,7 @@ function mapStatus(){
   button.textContent=c.name+' · '+c.title;button.disabled=!allowed;button.title=allowed?'走进这一段':'先完成前一段故事';button.dataset.chapter=c.id;button.onclick=()=>enterChapter(c.id);buttons.append(button);
   const pin=$('map-'+c.id);if(pin)pin.disabled=!allowed;
  }
- window.AtlasMap.update(state);
+ window.AtlasMap.update(state,options);
 }
 function enterChapter(id,replay=false){if(navigating||window.JourneyFX.busy||!C.canOpenChapter(D,state,id))return;return changeChapter(replay?C.beginChapter(D,state,id):C.openChapter(D,state,id));}
 async function changeChapter(next){
@@ -120,6 +120,22 @@ function finishText(){
  lineInstant=true;revealText();updateNext();
 }
 
+async function presentStill(path,n,token,cut=false){
+ // Keep the outgoing movie's last frame until the replacement is decoded.
+ const source=resolve(path),nextImage=new Image();nextImage.src=source;
+ await nextImage.decode().catch(()=>{});
+ if(token!==epoch)return;
+ const apply=()=>{
+  if(token!==epoch)return;
+  image.loading='eager';image.src=source;image.dataset.scene=n.scene;image.dataset.view=n.view||'wide';
+  video.hidden=true;image.hidden=false;
+  const film=window.YuduPresentation.upcomingFilm(D,C,state);
+  if(film&&!n.nativeAudio){const nextSource=resolve(film.video||D.video);video.preload='auto';if(video.getAttribute('src')!==nextSource)video.src=nextSource;}
+ };
+ if(cut){$('scene-cut-veil').animate([{opacity:0},{opacity:.72,offset:.33},{opacity:0}],{duration:380,easing:'ease-in-out'});setTimeout(apply,110);}
+ else apply();
+}
+
 function visual(n){
  const token=epoch,useVideo=n.nativeAudio===true;
  videoCorner.setEnabled(false);
@@ -129,22 +145,19 @@ function visual(n){
  $('story-screen').classList.toggle('river-scene',n.scene==='river');
  const portrait=D.images[n.scene]|| (n.scene==='hold'?(D.images.hold||D.images.portrait):n.scene==='reach-still'?D.images.reachStill:D.images.portrait);
  image.alt=D.imageAlt?.[n.scene]||(n.scene==='gathering'?'陈禾背对着你望向于都渡口，红军战士沿浮桥行进，河边停着木船':n.scene.startsWith('intro')?'陈禾在于都河岸与你相识，身后战士沿浮桥行进':n.scene==='reach-still'||n.scene==='hold'?'陈禾伸手接应你，身后有正沿浮桥行进的红军战士':'陈禾站在于都河岸，身后战士背着行装走向浮桥');
- const imageSource=resolve(n.scene==='river'?D.images.river:portrait);
+ const imagePath=n.scene==='river'?D.images.river:portrait,imageSource=resolve(imagePath);
  const changesImage=image.getAttribute('src')!==imageSource;
- const applyImage=()=>{if(token!==epoch)return;image.src=imageSource;image.dataset.scene=n.scene;image.dataset.view=n.view||'wide';};
  const veil=$('scene-cut-veil');veil.getAnimations().forEach(a=>a.cancel());
- if(changesImage&&!useVideo&&active&&!window.JourneyFX.busy&&!reduceMotion){
-  veil.animate([{opacity:0},{opacity:.72,offset:.33},{opacity:0}],{duration:380,easing:'ease-in-out'});setTimeout(applyImage,110);
- }else applyImage();
  $('story-screen').dataset.mode=n.mode||'observation';
  const nextNode=D.nodes.find(x=>x.id===C.target(D,state,n));warm([n.poster,n.hold,D.images[n.scene],nextNode&&D.images[nextNode.scene],...(n.choices||[]).map(c=>D.images[D.nodes.find(x=>x.id===c.next)?.scene])]);
 
  video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
- video.hidden=!useVideo;image.hidden=useVideo;updateNext();volumes();
- if(!useVideo)return;
+ updateNext();
+ if(!useVideo){presentStill(imagePath,n,token,changesImage&&active&&!window.JourneyFX.busy&&!reduceMotion);volumes();return;}
+ video.hidden=false;image.hidden=true;volumes();
  video.loop=false;video.muted=!n.nativeAudio;video.volume=state.settings.voice;
  const source=resolve(n.video||D.video);
- if(video.getAttribute('src')!==source||video.error)video.src=source;
+ video.preload='auto';if(video.getAttribute('src')!==source||video.error)video.src=source;
  video.poster=resolve(n.poster||D.images.portrait);video.setAttribute('aria-label',n.title||'于都河岸电影镜头');
  const ready=()=>{
   if(token!==epoch)return;
@@ -154,17 +167,17 @@ function visual(n){
  };
  video.onended=()=>{
   if(token!==epoch)return;
-  movieDone=true;voiceDone=true;lineInstant=true;revealText();video.hidden=true;image.hidden=false;
+  movieDone=true;voiceDone=true;lineInstant=true;revealText();
   videoCorner.setEnabled(false);
-  image.src=resolve(n.hold||D.images.hold||D.images.portrait);
   if(n.advanceOnEnd)$('story-screen').classList.remove('film-playing');$('voice-state').textContent='';
   updateNext();volumes();
-  if(n.advanceOnEnd)go(undefined,true);
+  if(n.advanceOnEnd)go(undefined,true);else presentStill(n.hold||D.images.hold||D.images.portrait,n,token);
  };
  video.onerror=()=>{
   if(token!==epoch)return;
   movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
   videoCorner.setEnabled(false);
+  presentStill(n.poster||imagePath,n,token);
   voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头未能载入，暂显示文字。点“重播镜头”可重试。');
  };
  video.onplaying=()=>{if(token===epoch){video.controls=false;$('voice-state').textContent='';}};
@@ -223,7 +236,11 @@ async function enter(restart=false,withAlbum=true){
 function leave(focus=true){
  if(movieReturn){state=movieReturn;movieReturn=null;}
  active=false;paused=false;epoch++;stopVoice();river.pause();river.currentTime=0;video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
- $('map-screen').hidden=false;$('story-screen').hidden=true;document.body.style.overflow='';save();mapStatus();if(focus)$('enter').focus();
+ $('map-screen').hidden=false;$('story-screen').hidden=true;document.body.style.overflow='';save();mapStatus({keepCamera:!focus});
+ // Hiding the map screen also hides the hero, so the browser clamps the document scroll to zero.
+ // Restore the actual map before either the next route animation or manual return.
+ $('journey-map').scrollIntoView({block:'start',behavior:'instant'});
+ if(focus)$('enter').focus({preventScroll:true});
 }
 function openDialog(dialog){
  modalResume=active&&!paused;if(active)setPaused(true);dialog.showModal();$('pause-overlay').hidden=true;

@@ -1,0 +1,314 @@
+{
+  "video": {
+    "codec": "H.264",
+    "crf": 25,
+    "maxrate": "1400k",
+    "audio": "AAC 96k",
+    "faststart": true,
+    "dimensions": "source 1280×720",
+    "timing": "original frame rate and duration"
+  },
+  "image": {
+    "format": "WebP",
+    "quality": 87,
+    "dimensions": "original"
+  },
+  "originalBytes": 53696603,
+  "webBytes": 12723421,
+  "files": [
+    {
+      "source": "assets/prologue/yudu-arrival-v022.mp4",
+      "web": "assets/stream/yudu-arrival-v022-a5f017dccb.mp4",
+      "sha256": "f7dbcbe2c64bbe12bdd141feb4f10c271635c5fce27c05239cbb6ff39a5c85ca",
+      "originalBytes": 5505781,
+      "webBytes": 2578323
+    },
+    {
+      "source": "assets/yudu/chenhe-invitation-v011.mp4",
+      "web": "assets/stream/chenhe-invitation-v011-9ce972a139.mp4",
+      "sha256": "7c5adc646eba223a7c1f1c840d7e6b2d19349f6a2d1e84eb2d49a3970c9329b8",
+      "originalBytes": 1919551,
+      "webBytes": 762548
+    },
+    {
+      "source": "assets/yudu/chenhe-introduction-v012.mp4",
+      "web": "assets/stream/chenhe-introduction-v012-600c468e00.mp4",
+      "sha256": "a94302fb8c761be90653343ae96c788c644e5c9b8d7def22ec0bc787b47a6704",
+      "originalBytes": 1613286,
+      "webBytes": 625013
+    },
+    {
+      "source": "assets/yudu/liang-reminder-v013.mp4",
+      "web": "assets/stream/liang-reminder-v013-8f1539a9be.mp4",
+      "sha256": "4e7a3d2e3215280fe59558b01eee32216b54f31b764bbd83855ae38d2f2070bb",
+      "originalBytes": 1990567,
+      "webBytes": 670332
+    },
+    {
+      "source": "assets/yudu/liang-home-v013.mp4",
+      "web": "assets/stream/liang-home-v013-62fac603a4.mp4",
+      "sha256": "7054b4c5fe297ff93c4362adc3eaa12004ed91c6f72db1d9fc4fa4df73744a75",
+      "originalBytes": 2069524,
+      "webBytes": 696685
+    },
+    {
+      "source": "assets/yudu/boarding-v013.mp4",
+      "web": "assets/stream/boarding-v013-4256905a14.mp4",
+      "sha256": "9ae269bc6aa2d219b763fd586bc05a20ddf662a7b6e13de64119082e3698884c",
+      "originalBytes": 2621421,
+      "webBytes": 845940
+    },
+    {
+      "source": "assets/chapters/liang-sewing-v018.mp4",
+      "web": "assets/stream/liang-sewing-v018-bda219d315.mp4",
+      "sha256": "a8e823b0e63f9431ce21c4897fa112a6a91e3cd0bfca128ac8bc4ce2c43ed8b0",
+      "originalBytes": 2554666,
+      "webBytes": 939268
+    },
+    {
+      "source": "assets/chapters/chenhe-sewing-v019.mp4",
+      "web": "assets/stream/chenhe-sewing-v019-02c9c48460.mp4",
+      "sha256": "080a5cec965a1346368377b66a76c9f02fc6000ac893c098657d41f6647e0dde",
+      "originalBytes": 2609269,
+      "webBytes": 687332
+    },
+    {
+      "source": "assets/chapters/snow-concern-v015.mp4",
+      "web": "assets/stream/snow-concern-v015-e4378fb155.mp4",
+      "sha256": "0505771f71c52e488f6964fa4578fd1c6425b3a859feab5590dfbf776f6c8e66",
+      "originalBytes": 2179798,
+      "webBytes": 711239
+    },
+    {
+      "source": "assets/chapters/snow-shelter-v015.mp4",
+      "web": "assets/stream/snow-shelter-v015-f5b4d6c874.mp4",
+      "sha256": "f95f25e705cc067b046c12e21e08c24a623353cd9b190960694c9ee21dcc4fd2",
+      "originalBytes": 1513704,
+      "webBytes": 474159
+    },
+    {
+      "source": "assets/chapters/lusheng-night-v020.mp4",
+      "web": "assets/stream/lusheng-night-v020-ecb758bb7b.mp4",
+      "sha256": "9285db84406c707e669097d32f3671e5b444af95a8e7569dba9dc8d96976e5b7",
+      "originalBytes": 2574227,
+      "webBytes": 708479
+    },
+    {
+      "source": "assets/chapters/chenhe-dawn-v020.mp4",
+      "web": "assets/stream/chenhe-dawn-v020-4fa25a35dd.mp4",
+      "sha256": "1c9228116a8be8ad97c2368c3e3573730ea084232ec9088e92671caf80eb5392",
+      "originalBytes": 2435436,
+      "webBytes": 662356
+    },
+    {
+      "source": "assets/chapters/chenhe-memory-v021.mp4",
+      "web": "assets/stream/chenhe-memory-v021-67f9bbdcc7.mp4",
+      "sha256": "c13107d311c1e4c19b3aabc88a57cf8d86189e9e7d3286d838f57601abe65195",
+      "originalBytes": 2192277,
+      "webBytes": 580829
+    },
+    {
+      "source": "assets/yudu/bridge-step-v013.png",
+      "web": "assets/stream/bridge-step-v013-e3c178c20a.webp",
+      "sha256": "11b313581aebce5e32d1995c45165b35b535ac35e21e3e0248f526142f206318",
+      "originalBytes": 417813,
+      "webBytes": 34960
+    },
+    {
+      "source": "assets/yudu/bridge-forward-v013.png",
+      "web": "assets/stream/bridge-forward-v013-f9506aec4f.webp",
+      "sha256": "ba00ba4f441f04840810fd8f684054496e09fc783620e92ac56a07c5160c8788",
+      "originalBytes": 411708,
+      "webBytes": 33538
+    },
+    {
+      "source": "assets/yudu/bank-lookback-v013.png",
+      "web": "assets/stream/bank-lookback-v013-6a19246733.webp",
+      "sha256": "bb98a8004ccb850acdb2b54209bb6b0d1691096e8060404827e6360402c19652",
+      "originalBytes": 2077873,
+      "webBytes": 132606
+    },
+    {
+      "source": "assets/yudu/liang-reminder-first-v013.png",
+      "web": "assets/stream/liang-reminder-first-v013-36db407d21.webp",
+      "sha256": "79f1ef693bd2d7d18e9650aa35eaf593748d2d640757ce8a67402d7f64049a97",
+      "originalBytes": 514813,
+      "webBytes": 44812
+    },
+    {
+      "source": "assets/yudu/liang-reminder-hold-v013.png",
+      "web": "assets/stream/liang-reminder-hold-v013-abba86c6b0.webp",
+      "sha256": "facd1ddacc228259d53e136e3f6dd11082b52453dd732fcce994216ce0b6848b",
+      "originalBytes": 655735,
+      "webBytes": 51132
+    },
+    {
+      "source": "assets/yudu/liang-home-first-v013.png",
+      "web": "assets/stream/liang-home-first-v013-7fdf26d922.webp",
+      "sha256": "9091a0a21c2aea451a450f4fa9d64315296246c09cc31f102913997ea4e3f289",
+      "originalBytes": 566141,
+      "webBytes": 52860
+    },
+    {
+      "source": "assets/yudu/liang-home-hold-v013.png",
+      "web": "assets/stream/liang-home-hold-v013-4e5d6f61db.webp",
+      "sha256": "93a102fe55dcb2ab51a41bf43b01ec08175445111b794ba0c19b1fda36711da3",
+      "originalBytes": 692930,
+      "webBytes": 57210
+    },
+    {
+      "source": "assets/yudu/boarding-first-v013.png",
+      "web": "assets/stream/boarding-first-v013-fba17cb3d1.webp",
+      "sha256": "160a68cdd4903c22c9dfa3874c05c6a8fe42ff4edb9e725a1f14c7747843d092",
+      "originalBytes": 355619,
+      "webBytes": 33380
+    },
+    {
+      "source": "assets/yudu/boarding-hold-v013.png",
+      "web": "assets/stream/boarding-hold-v013-b9da6789ba.webp",
+      "sha256": "a9dde32579c555b48035ae3bfe7fde755808c9df84adde190ecb854e546b0c02",
+      "originalBytes": 448439,
+      "webBytes": 35894
+    },
+    {
+      "source": "assets/yudu/yudu-gathering-v011.png",
+      "web": "assets/stream/yudu-gathering-v011-0502f80c2b.webp",
+      "sha256": "5d56231d91ed9132f684ebe4589399e5b4fb30d9021076737a8285765bedc582",
+      "originalBytes": 2180605,
+      "webBytes": 157530
+    },
+    {
+      "source": "assets/yudu/chenhe-intro-first-v012.png",
+      "web": "assets/stream/chenhe-intro-first-v012-daa8736141.webp",
+      "sha256": "f8abd9893fc15e439b24b950d40bae8de8966eab5485bf5ee3192997ad009c8d",
+      "originalBytes": 672249,
+      "webBytes": 64068
+    },
+    {
+      "source": "assets/yudu/chenhe-intro-hold-v012.png",
+      "web": "assets/stream/chenhe-intro-hold-v012-6887aaff08.webp",
+      "sha256": "f0e82b3da0dd45ad5453fbd85b9499695d8b84486db2ea46c6f5e5bd4a89fcfc",
+      "originalBytes": 771836,
+      "webBytes": 63024
+    },
+    {
+      "source": "assets/yudu/chenhe-reach-still-v011.png",
+      "web": "assets/stream/chenhe-reach-still-v011-2302105087.webp",
+      "sha256": "4ef51df7688916f66bb21da128d9208ca0bf55b1279d27a3437db3b365a1d3b0",
+      "originalBytes": 769680,
+      "webBytes": 61930
+    },
+    {
+      "source": "assets/yudu/chenhe-first-v011.png",
+      "web": "assets/stream/chenhe-first-v011-06e04f5e8a.webp",
+      "sha256": "12f41cd6ffd0a80017a87e572a7aaaac6f443d63e45f685167690e44ed7f8c67",
+      "originalBytes": 672333,
+      "webBytes": 62320
+    },
+    {
+      "source": "assets/yudu/chenhe-hold-v011.png",
+      "web": "assets/stream/chenhe-hold-v011-5fd174a599.webp",
+      "sha256": "1c2217f7b1d3da8874762264096101f5f9969c7ae88fac206a04cce44a42706d",
+      "originalBytes": 762888,
+      "webBytes": 62848
+    },
+    {
+      "source": "assets/chapters/liang-sewing-first-v018.png",
+      "web": "assets/stream/liang-sewing-first-v018-c0e878fb8d.webp",
+      "sha256": "79789af94c96a3830324e708d3d0bbbee8b53a665556b4514579d6e0f51c8112",
+      "originalBytes": 702431,
+      "webBytes": 69390
+    },
+    {
+      "source": "assets/chapters/chenhe-sewing-first-v019.png",
+      "web": "assets/stream/chenhe-sewing-first-v019-dd12601527.webp",
+      "sha256": "f296f0aed0fd0d49e566b9df87a53cc906e507b98d0903508b8dc62fe56b10a6",
+      "originalBytes": 706462,
+      "webBytes": 53928
+    },
+    {
+      "source": "assets/chapters/liang-sewing-hold-v018.png",
+      "web": "assets/stream/liang-sewing-hold-v018-c46738c18c.webp",
+      "sha256": "6f0d25244f95e11ffc0c7f3cffdb3323120f5f3a0d8929b290f64b4a83c12565",
+      "originalBytes": 759393,
+      "webBytes": 65254
+    },
+    {
+      "source": "assets/chapters/chenhe-sewing-hold-v019.png",
+      "web": "assets/stream/chenhe-sewing-hold-v019-70b36a1c23.webp",
+      "sha256": "7ccba51fc017029dcc9d14f35303cd2fa6cb48be11621f0af544fcf533f4a24c",
+      "originalBytes": 732468,
+      "webBytes": 51442
+    },
+    {
+      "source": "assets/chapters/snow-concern-first-v015.png",
+      "web": "assets/stream/snow-concern-first-v015-373ea598a1.webp",
+      "sha256": "ccd7e7fd0300804f25d0eb6ff1879e6b2beb5328f92d3ed299f5ec202be375e0",
+      "originalBytes": 564253,
+      "webBytes": 54560
+    },
+    {
+      "source": "assets/chapters/snow-concern-hold-v015.png",
+      "web": "assets/stream/snow-concern-hold-v015-40505f6d71.webp",
+      "sha256": "e1e5ef9a91fafa90a5abd66d78e80735e3d6e1f57ce56e3a8e6ef1a097dd47c9",
+      "originalBytes": 682723,
+      "webBytes": 54136
+    },
+    {
+      "source": "assets/chapters/snow-shelter-first-v015.png",
+      "web": "assets/stream/snow-shelter-first-v015-8b75420045.webp",
+      "sha256": "08a323ad9256668cb724377cb9f10785e088fcc463c241d52a4b7b6d1d178259",
+      "originalBytes": 752451,
+      "webBytes": 87846
+    },
+    {
+      "source": "assets/chapters/snow-shelter-hold-v015.png",
+      "web": "assets/stream/snow-shelter-hold-v015-5e56ccdeda.webp",
+      "sha256": "4470ceac2b31022d179c5720899176fd90f0b36ecd84e512d04259af4503db59",
+      "originalBytes": 894495,
+      "webBytes": 82356
+    },
+    {
+      "source": "assets/chapters/lusheng-night-first-v020.png",
+      "web": "assets/stream/lusheng-night-first-v020-d41f56bcc0.webp",
+      "sha256": "2dad2299c504e23d52b97a67456129df25cb8c79b79ba39ccf3a219b98b8b63e",
+      "originalBytes": 768920,
+      "webBytes": 64562
+    },
+    {
+      "source": "assets/chapters/lusheng-night-hold-v020.png",
+      "web": "assets/stream/lusheng-night-hold-v020-f83e77da8f.webp",
+      "sha256": "c9cc9e7cacae75ec1322759d7c7ad1b117619e694983505dc63fab9cbb13d64e",
+      "originalBytes": 830089,
+      "webBytes": 59096
+    },
+    {
+      "source": "assets/chapters/chenhe-dawn-first-v020.png",
+      "web": "assets/stream/chenhe-dawn-first-v020-23728028a4.webp",
+      "sha256": "849f31e9186de7390762413a526b980fac615275c4c7f04962ea3aff063c92d6",
+      "originalBytes": 557265,
+      "webBytes": 41630
+    },
+    {
+      "source": "assets/chapters/chenhe-dawn-hold-v020.png",
+      "web": "assets/stream/chenhe-dawn-hold-v020-cc1ed8dd7c.webp",
+      "sha256": "7f8e0bbbb8a16bcd88dd6e88ce6dacb8ff400d19a1889d14f7366893c27d23fc",
+      "originalBytes": 626652,
+      "webBytes": 40142
+    },
+    {
+      "source": "assets/chapters/chenhe-memory-first-v021.png",
+      "web": "assets/stream/chenhe-memory-first-v021-e25d6081f4.webp",
+      "sha256": "e0d1bf1e731bccd9949f521e1c3bd47c9bc143c611e96249c14d62e79767adfa",
+      "originalBytes": 657832,
+      "webBytes": 54982
+    },
+    {
+      "source": "assets/chapters/chenhe-memory-hold-v021.png",
+      "web": "assets/stream/chenhe-memory-hold-v021-d3a87f28c0.webp",
+      "sha256": "537b9fcd5023750332d8ef9adebfc2cb957029418fa366aa864c7ecffc383fd8",
+      "originalBytes": 711000,
+      "webBytes": 53482
+    }
+  ]
+}

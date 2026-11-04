@@ -61,8 +61,22 @@
   for(const [el]of inertTargets)el.inert=true;
   let resolve,done=false,start;
   const promise=new Promise(r=>resolve=r),total=R.length(route),duration=Math.min(2800,Math.max(1600,1300+total*2));
+  // Read layout once, then pan from the current camera instead of snapping to the departure point.
+  let geometry;
+  function measure(){
+   const width=world.clientWidth,height=world.clientHeight,vw=viewport.clientWidth,vh=viewport.clientHeight;
+   geometry={width,height,vw,vh};
+  }
+  function camera(p){const {width,height,vw,vh}=geometry;return [Math.max(0,Math.min(width-vw,p[0]/W*width-vw*.5)),Math.max(0,Math.min(height-vh,p[1]/H*height-vh*.52))];}
+  measure();const departure=camera(route[0]),offset=[viewport.scrollLeft-departure[0],viewport.scrollTop-departure[1]];
+  function paint(progress){
+   const p=R.sample(route,progress),[left,top]=camera(p);moveFlag(p);
+   viewport.scrollTo({left:left+offset[0]*(1-progress),top:top+offset[1]*(1-progress),behavior:'instant'});
+   trail.style.strokeDashoffset=String(total*(1-progress));
+  }
+  window.addEventListener('resize',measure);
   function finish(){
-   if(done)return;done=true;cancelAnimationFrame(frame);moveFlag(route.at(-1),true);
+   if(done)return;done=true;cancelAnimationFrame(frame);paint(1);window.removeEventListener('resize',measure);
    trail.style.strokeDashoffset='0';travelPanel.hidden=true;world.classList.remove('flag-travelling');
    for(const [el,wasInert]of inertTargets)el.inert=wasInert;
    journey=null;resolve();
@@ -71,25 +85,27 @@
   trail.setAttribute('points',route.map(p=>p.join(',')).join(' '));trail.removeAttribute('hidden');
   trail.style.strokeDasharray=String(total);trail.style.strokeDashoffset=String(total);
   $('atlas-travel-text').textContent='从'+R.station(from.id,atChapterEnd(state)).name+'，走向'+R.station(to).name;
-  travelPanel.hidden=false;world.classList.add('flag-travelling');moveFlag(route[0],true);$('skip-travel').focus({preventScroll:true});
+  travelPanel.hidden=false;world.classList.add('flag-travelling');paint(0);$('skip-travel').focus({preventScroll:true});
   function tick(now){
    if(done)return;if(start===undefined)start=now;
    const t=Math.min(1,(now-start)/duration),progress=t*t*(3-2*t);
-   moveFlag(R.sample(route,progress),true);trail.style.strokeDashoffset=String(total*(1-progress));
+   paint(progress);
    if(t===1)finish();else frame=requestAnimationFrame(tick);
   }
   frame=requestAnimationFrame(tick);return promise;
  }
  $('skip-travel').onclick=()=>journey?.finish();
- window.AtlasMap={selected:()=>chosen,travel,get travelling(){return !!journey;},skipTravel(){journey?.finish();},update(state){
+ window.AtlasMap={selected:()=>chosen,travel,get travelling(){return !!journey;},skipTravel(){journey?.finish();},update(state,{keepCamera=false}={}){
   currentState=state;const ch=C.chapter(D,state),n=C.current(D,state),index=D.chapters.findIndex(c=>c.id===ch.id);
   for(const b of pins.querySelectorAll('button')){const c=byId(b.dataset.chapter),allowed=C.canOpenChapter(D,state,c.id),mark=state.chapterProgress?.[c.id];b.disabled=!allowed;b.dataset.status=mark?.node===c.end?'completed':mark||state.path.includes(c.start)?'visited':allowed?'available':'locked';b.title=allowed?c.name+'：'+c.title:'先走过前一段故事';}
   $('atlas-progress').textContent=n.end?'这一程，已走到会师的日子':'脚步停在'+ch.location;
   const next=n.checkpoint?D.chapters[index+1]:ch;select(next?.id||ch.id);position();
   moveFlag(xy(R.station(ch.id,atChapterEnd(state))));trail.setAttribute('hidden','');
   if(lastChapter!==ch.id){
-   if(!lastChapter&&!mobile&&!overview)viewport.scrollTo({left:world.clientWidth-viewport.clientWidth,top:0,behavior:'instant'});
-   else follow(next?.id||ch.id,'instant');
+   if(!keepCamera){
+    if(!lastChapter&&!mobile&&!overview)viewport.scrollTo({left:world.clientWidth-viewport.clientWidth,top:0,behavior:'instant'});
+    else follow(next?.id||ch.id,'instant');
+   }
    lastChapter=ch.id;
   }
  }};
