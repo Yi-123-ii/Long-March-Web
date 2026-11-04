@@ -220,9 +220,6 @@
 @media (hover: hover) and (pointer: fine) { .lm-event:hover .lm-stage-art img { transform: scale(1.045); } }
 @media (prefers-reduced-motion: reduce) { .lm-stage-art img { transition: none; transform: none !important; } }
 .lm-stage-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(249 250 246 / 96%) 0%, rgb(249 250 246 / 89%) 33%, rgb(249 250 246 / 60%) 56%, rgb(249 250 246 / 8%) 77%, transparent 100%); }
-.lm-history-note { margin: 42px 0 0 178px; border-left: 2px solid var(--lm-red); padding: 4px 0 4px 23px; }
-.lm-history-note > span { font-family: var(--lm-hand); font-weight: 600; font-size: 22px; }
-.lm-history-note p { font-size: 13px; color: var(--lm-muted); margin: 10px 0; line-height: 2; }
 .lm-mail-invite { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 48px 0 80px; }
 .lm-mail-invite h2 { font-family: var(--lm-hand); font-size: 32px; font-weight: 600; line-height: 1.8; margin-bottom: 0; }
 .lm-mail-invite .lm-eyebrow { margin-bottom: 16px; }
@@ -292,7 +289,6 @@
   .lm-event-year { margin-left: 0; }
   .lm-event-summary { font-size: 16px; }
   .lm-aside-date { font-size: 20px; letter-spacing: 3px; }
-  .lm-history-note { margin-left: 126px; }
   .lm-hero-copy { margin-left: 6vw; width: min(530px, 57vw); }
   .lm-hero-bottom { margin-inline: 32px; }
 }
@@ -316,7 +312,6 @@
   .lm-aside-date::after { content: '1934 — 1936'; font-family: var(--lm-number); font-size: 23px; letter-spacing: 1px; }
   .lm-read-count { border: 0; width: auto; margin: 0; padding: 0; }
   .lm-read-count > span { font-size: 27px; }
-  .lm-history-note { margin-left: 0; }
   .lm-tools { gap: 15px; }
   .lm-search { min-width: 0; width: 205px; }
   .lm-filters { gap: 2px; }
@@ -354,9 +349,6 @@
   .lm-event-summary { font-size: 16px; }
   .lm-stage-art img { object-position: 60% center; opacity: .78; }
   .lm-stage-art::after { background: linear-gradient(180deg, rgb(249 250 246 / 96%) 0%, rgb(249 250 246 / 88%) 43%, rgb(249 250 246 / 57%) 68%, rgb(249 250 246 / 10%) 100%); }
-  .lm-history-note { padding-left: 17px; }
-  .lm-history-note > span { font-size: 20px; }
-  .lm-history-note p { font-size: 12px; }
   .lm-mail-invite { flex-direction: column; align-items: flex-start; gap: 25px; }
   .lm-mail-invite > div { flex: none; width: 100%; }
   .lm-mail-invite h2 { font-size: 25px; }
