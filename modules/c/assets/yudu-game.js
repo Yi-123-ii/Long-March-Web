@@ -5,6 +5,7 @@ const $=id=>document.getElementById(id),resolve=p=>window.YuduPresentation.media
 let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true,movieReturn=null;
 let textPlan=T.plan(''),lineDone=true,lineInstant=false,lineShown=-1;
 let navigating=false;
+let moviePrepared=false,introPending=false;
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 try{state=C.restore(D,localStorage.getItem(C.SAVE_KEY));}catch{storageNotice=true;}
 const resumeView=new URL(location.href).searchParams.get('resume');
@@ -93,7 +94,11 @@ function setPaused(value){
  if(value&&!$('pause-overlay').hidden)$('resume').focus({preventScroll:true});
  else if(!value&&document.activeElement===$('resume'))$('pause').focus({preventScroll:true});
  if(value){river.pause();video.pause();cancelCues();}
- else{lastTick=performance.now();playRiver();if(!video.hidden&&!video.ended&&C.current(D,state).nativeAudio)video.play().catch(()=>{video.controls=true;notice('请点影片上的播放键，或点“重播镜头”重试。');});}
+ else{lastTick=performance.now();playRiver();playMovie();}
+}
+function playMovie(){
+ if(!active||paused||!moviePrepared||movieDone||video.hidden||!C.current(D,state).nativeAudio)return;
+ const token=epoch;video.play().catch(e=>{if(token===epoch&&!paused&&e.name!=='AbortError'){setPaused(true);notice('点“继续这一程”开始播放，或选择跳过镜头。');}});
 }
 function stopVoice(){voiceDone=true;cancelCues();}
 function updateNext(){
@@ -130,7 +135,7 @@ async function presentStill(path,n,token,cut=false){
   image.loading='eager';image.src=source;image.dataset.scene=n.scene;image.dataset.view=n.view||'wide';
   video.hidden=true;image.hidden=false;
   const film=window.YuduPresentation.upcomingFilm(D,C,state);
-  if(film&&!n.nativeAudio){const nextSource=resolve(film.video||D.video);video.preload='auto';if(video.getAttribute('src')!==nextSource)video.src=nextSource;}
+  if(film&&!n.nativeAudio&&!introPending)window.JourneyFilms.prepare(resolve(film.video||D.video));
  };
  if(cut){$('scene-cut-veil').animate([{opacity:0},{opacity:.72,offset:.33},{opacity:0}],{duration:380,easing:'ease-in-out'});setTimeout(apply,110);}
  else apply();
@@ -138,6 +143,7 @@ async function presentStill(path,n,token,cut=false){
 
 function visual(n){
  const token=epoch,useVideo=n.nativeAudio===true;
+ moviePrepared=false;$('film-loading').hidden=true;
  videoCorner.setEnabled(false);
  movieDone=!useVideo;
  $('story-screen').classList.toggle('film-playing',useVideo);
@@ -157,13 +163,14 @@ function visual(n){
  video.hidden=false;image.hidden=true;volumes();
  video.loop=false;video.muted=!n.nativeAudio;video.volume=state.settings.voice;
  const source=resolve(n.video||D.video);
- video.preload='auto';if(video.getAttribute('src')!==source||video.error)video.src=source;
+ video.preload='auto';
+ if(video.dataset.filmSource!==source||video.error){video.removeAttribute('src');video.load();}
  video.poster=resolve(n.poster||D.images.portrait);video.setAttribute('aria-label',n.title||'于都河岸电影镜头');
  const ready=()=>{
   if(token!==epoch)return;
   video.currentTime=0;
   videoCorner.setEnabled(n.cornerRepair===true);
-  if(!paused)video.play().catch(e=>{if(token===epoch&&e.name!=='AbortError'){setPaused(true);notice('镜头尚未开始播放，点“继续这一程”重试，或选择跳过。');}});
+  playMovie();
  };
  video.onended=()=>{
   if(token!==epoch)return;
@@ -176,13 +183,23 @@ function visual(n){
  video.onerror=()=>{
   if(token!==epoch)return;
   movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
+  $('film-loading').hidden=true;
   videoCorner.setEnabled(false);
   presentStill(n.poster||imagePath,n,token);
   voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头未能载入，暂显示文字。点“重播镜头”可重试。');
  };
  video.onplaying=()=>{if(token===epoch){video.controls=false;$('voice-state').textContent='';}};
  video.onloadedmetadata=ready;
- if(video.readyState>=1)ready();
+ $('film-loading').hidden=false;
+ window.JourneyFilms.load(source,(loaded,total)=>{
+  if(token!==epoch)return;
+  $('film-loading').textContent='镜头准备中'+(total?' '+Math.min(100,Math.round(loaded/total*100))+'%':'');
+ }).then(url=>{
+  if(token!==epoch)return;
+  $('film-loading').hidden=true;moviePrepared=true;video.dataset.filmSource=source;
+  if(video.getAttribute('src')!==url)video.src=url;
+  if(video.readyState>=1)ready();
+ }).catch(()=>{if(token===epoch)video.onerror();});
 }
 function speak(n){voiceDone=!n.nativeAudio;$('voice-state').textContent='';}
 function render(){
@@ -223,12 +240,16 @@ async function enter(restart=false,withAlbum=true){
  if(restart)state=C.restart(D,state);movieReturn=null;
  paused=true;river.pause();video.pause();cancelCues();
  const ch=C.chapter(D,state),n=C.current(D,state),picture=resolve(D.images[n.scene]||D.images[ch.image]);
+ introPending=withAlbum&&ch.id==='yudu'&&n.id===ch.start;
+ if(introPending)window.JourneyIntro.prepare();
  const reveal=()=>{
   active=true;paused=true;$('map-screen').hidden=true;$('story-screen').hidden=false;document.body.style.overflow='hidden';
   $('pause-overlay').hidden=true;$('pause').textContent='继续';$('pause').setAttribute('aria-pressed','true');volumes();render();
  };
  if(withAlbum)await window.JourneyFX.open(ch,picture,reveal);else reveal();
- if(withAlbum&&ch.id==='yudu'&&n.id===ch.start)await window.JourneyIntro.open(state.settings.voice);
+ if(introPending){try{await window.JourneyIntro.open(state.settings.voice);}finally{introPending=false;}}
+ const film=window.YuduPresentation.upcomingFilm(D,C,state);
+ if(!n.nativeAudio&&film)window.JourneyFilms.prepare(resolve(film.video||D.video));
  setPaused(document.hidden);$('leave').focus({preventScroll:true});
  if(storageNotice)notice('当前浏览器无法保存进度；可以继续体验这一程。');
 }

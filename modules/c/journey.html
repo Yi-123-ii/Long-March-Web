@@ -11,7 +11,9 @@
 <script defer src="assets/journey-return.js?v=023"></script>
 <script defer src="assets/journey-media.js?v=20261104-stream"></script>
 <script defer src="assets/yudu-presentation.js?v=20261104-stream"></script>
-<script defer src="assets/late-chapters-data.js?v=023"></script><script defer src="assets/chapters-data.js?v=023"></script><script defer src="assets/yudu-data.js"></script><script defer src="assets/yudu-core.js"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=20261104-continuity"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261104-stream"></script><script defer src="assets/soldier-pointer.js?v=20261104-small"></script><script defer src="assets/video-corner.js?v=020"></script><script defer src="assets/yudu-game.js?v=20261104-continuity"></script>
+<script defer src="assets/journey-films.js?v=20261104-buffer"></script>
+<link rel="stylesheet" href="assets/journey-film-loader.css?v=20261104-buffer">
+<script defer src="assets/late-chapters-data.js?v=023"></script><script defer src="assets/chapters-data.js?v=023"></script><script defer src="assets/yudu-data.js"></script><script defer src="assets/yudu-core.js"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=20261104-continuity"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261104-buffer"></script><script defer src="assets/soldier-pointer.js?v=20261104-small"></script><script defer src="assets/video-corner.js?v=020"></script><script defer src="assets/yudu-game.js?v=20261104-buffer"></script>
 <script defer src="assets/site-integration.js?v=023"></script>
 <script defer src="../../assets/js/site-nav.js?v=20261102-unified"></script>
 <link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261102-unified" />
@@ -83,6 +85,7 @@
   <video id="scene-video" playsinline preload="none" aria-label="陈禾向你伸手的短镜头" hidden></video>
   <canvas id="video-corner" class="video-corner" aria-hidden="true" hidden></canvas>
   <div id="scene-cut-veil" class="scene-cut-veil" aria-hidden="true"></div><div class="river-light" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>
+  <p id="film-loading" class="film-loading" role="status" hidden></p>
   <p class="scene-location"><b id="scene-place">江西于都</b><span id="scene-date">1934年10月</span></p><div id="route-progress" class="route-progress" aria-label="时间与路线推进" hidden><span>遵义</span><i>—</i><span id="route-chishui">赤水</span><i>—</i><span id="route-jinsha">金沙江</span></div>
  </div>
  <header class="story-header"><button id="leave" class="glass">‹ 地图</button><span id="chapter-label">第一站 · 于都启程</span><div><button id="watch-invitation" class="glass" aria-label="重看最近一段视频">播放招呼</button><button id="history-open" class="glass">回看文字</button><button id="sound-open" class="glass">声音</button></div></header>
@@ -100,6 +103,7 @@
  <div class="intro-film-top"><span>序 · 走进这段山河</span><div><button id="intro-pause" class="glass" aria-pressed="false">暂停</button><button id="intro-skip" class="glass">跳过导入 ›</button></div></div>
  <div id="intro-caption" class="intro-caption" hidden><div class="speaker-row"><span class="speaker-line"></span><h2>陈禾</h2></div><p id="intro-line" aria-live="polite"></p></div>
  <button id="intro-resume" class="intro-resume" hidden>▷ 继续播放</button>
+ <p id="intro-loading" class="film-loading" role="status" hidden></p>
  <p id="intro-error" class="intro-error" role="status" hidden></p>
 </section>
 <div id="album-transition" class="album-transition" aria-label="翻开这一站的相册" hidden><button id="skip-album" class="album-skip">直接进入</button><p id="album-live" class="sr-only" role="status"></p><div class="album-stage"><div class="album-book"><div class="album-page album-page-left"><span>同行 · 行军相册</span><p id="album-place"></p></div><div class="album-page album-page-right"><img id="album-photo" alt="这一站的相册照片"><p id="album-date"></p></div><div class="album-cover"><span class="album-cover-rule"></span><p>同 行</p><h2 id="album-title"></h2><small>山河印记</small></div></div></div><div class="album-white" aria-hidden="true"></div><div id="album-glints" class="album-glints" aria-hidden="true"></div></div>
