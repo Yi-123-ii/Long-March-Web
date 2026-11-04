@@ -27,16 +27,6 @@
     });
   }
 
-  if (bridge && "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const lineObserver = new IntersectionObserver(entries => {
-      if (!entries.some(entry => entry.isIntersecting)) return;
-      bridge.classList.add("v44-bridge--in-view");
-      lineObserver.disconnect();
-    });
-    bridge.classList.add("v44-bridge--can-animate");
-    lineObserver.observe(bridge.querySelector(".v44-bridge__sequence"));
-  }
-
   function watchImages(root) {
     root.querySelectorAll(".doc-media img").forEach(image => {
       const showFallback = () => {

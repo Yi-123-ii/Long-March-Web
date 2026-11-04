@@ -27,31 +27,29 @@
   background: #dfd8c9;
 }
 
-.v45-prologue__photograph figcaption {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+.v47-prologue__source {
   margin-top: 10px;
   color: #685b4b;
-  font: 400 12px/1.6 var(--v38-ui);
-  letter-spacing: .035em;
+  font: 400 12px/1.7 var(--v38-ui);
 }
 
-.v45-prologue__photograph figcaption a {
-  text-decoration: underline;
-  text-decoration-color: #aa8b7380;
+.v47-prologue__source summary {
+  width: fit-content;
+  cursor: pointer;
+  color: var(--archive-red);
   text-underline-offset: 3px;
 }
 
-.v45-prologue__photograph figcaption a:focus-visible {
-  outline: 2px solid var(--archive-red);
-  outline-offset: 3px;
+.v47-prologue__source summary:hover { text-decoration: underline; }
+.v47-prologue__source summary:focus-visible { outline: 2px solid var(--archive-red); outline-offset: 4px; }
+.v47-prologue__source > div {
+  padding: 12px 0 2px;
+  border-bottom: 1px solid var(--archive-rule);
+  overflow-wrap: anywhere;
 }
-
-.v45-prologue__photograph figcaption > span:first-child {
-  color: var(--archive-red);
-  letter-spacing: .08em;
-}
+.v47-prologue__source p + p { margin-top: 8px; }
+.v47-prologue__source a { text-decoration: underline; text-underline-offset: 3px; }
+.v47-prologue__source cite { font-style: normal; }
 
 .v43-prologue__frame {
   width: min(100%, 1120px);
@@ -111,12 +109,6 @@
   letter-spacing: .14em;
 }
 
-.v3-home .v43-prologue__narrative .v46-prologue__guide {
-  margin-top: 14px;
-  color: #704536;
-  font-size: 15px;
-  font-weight: 600;
-}
 
 .v43-guide {
   color: #283f35;
