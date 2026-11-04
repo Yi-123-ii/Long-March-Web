@@ -48,6 +48,43 @@ html { scroll-behavior: smooth; }
 }
 .journey-opening__entry:hover { color: #8b3424; border-color: currentColor; }
 .journey-opening__entry span { font-size: 18px; }
+.atlas-controls .atlas-directory {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.atlas-controls .atlas-directory summary {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  min-height: 37px;
+  border: 1px solid #c39664;
+  border-radius: 4px;
+  background: #fae9c9ed;
+  color: #6d3b24;
+  list-style: none;
+}
+.atlas-directory summary::-webkit-details-marker { display: none; }
+.atlas-directory summary::after { content: "▴"; margin-left: 6px; }
+.atlas-directory[open] summary::after { content: "▾"; }
+.atlas-controls #chapter-nav {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  width: min(320px, 90vw);
+  max-height: min(55dvh, 360px);
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid #c39664;
+  border-radius: 6px;
+  background: #faebce;
+  box-shadow: 0 4px 16px #59382033;
+}
+.atlas-controls #chapter-buttons { display: grid; grid-template-columns: 1fr; gap: 4px; }
+.atlas-controls #chapter-nav button { width: 100%; text-align: left; font: 13px/1.45 var(--serif); }
+.atlas-controls #about-open { margin-top: 8px; }
 @media (max-width: 760px) {
   .journey-opening { min-height: 600px; padding: 0 6vw; align-items: flex-start; }
   .journey-opening__copy { width: 90%; margin-top: 32svh; }
