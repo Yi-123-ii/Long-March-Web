@@ -28,9 +28,9 @@ test('replay preserves completed memories but makes a fresh branch',()=>{
  const b=finish('help',(()=>{let s=fresh;while(!C.current(D,s).choices)s=C.advance(D,s);return s;})());assert.deepEqual(b.completed,['hand','help']);
 });
 
-test('all twelve supplied movies keep source audio and lead into matching holds',()=>{
- const voiced=D.nodes.filter(n=>n.nativeAudio);assert.deepEqual(voiced.map(n=>n.id),['reach','introduce','liang-reminder','liang-home','boarding','xj-sleeve','zy-thread','snow-concern','snow-shelter','grass-a-water','grass-dawn-call','wuqi-write-home']);
- for(const n of voiced){assert(n.duration>0);if(n.id==='wuqi-write-home'){assert.equal(n.advanceOnEnd,false);assert.equal(n.hold,D.images['chenhe-memory-hold']);}else{assert(n.advanceOnEnd);if(n.hold)assert.equal(D.images[D.nodes.find(x=>x.id===n.next).scene],n.hold);}}
+test('all supplied movie segments keep source audio and lead into matching holds',()=>{
+ const voiced=D.nodes.filter(n=>n.nativeAudio);assert.deepEqual(voiced.map(n=>n.id),['reach','introduce','liang-reminder','liang-home','boarding','xj-sleeve','xj-choice','xj-a-name','xj-a-introduce','zy-thread','snow-concern','snow-shelter','grass-a-water','grass-dawn-call','wuqi-write-home']);
+ for(const n of voiced){assert(n.duration>0);if(n.id==='xj-choice'){assert(!n.advanceOnEnd);assert(n.textAfterMovie);assert.equal(n.choices.length,2);}else if(n.id==='wuqi-write-home'){assert.equal(n.advanceOnEnd,false);assert.equal(n.hold,D.images['chenhe-memory-hold']);}else{assert(n.advanceOnEnd);if(n.hold)assert.equal(D.images[D.nodes.find(x=>x.id===n.next).scene],n.hold);}}
  const intro=D.nodes.find(n=>n.id==='introduce');assert(intro.text.includes('你呢'));assert.equal(intro.hold,D.images['intro-hold']);
  assert.equal(D.nodes.find(n=>n.id==='boarding').text,'');
  const fs=require('node:fs'),path=require('node:path');for(const p of [D.video,...voiced.filter(n=>n.video).map(n=>n.video),...Object.values(D.images)])assert(fs.statSync(path.join(__dirname,'..',p)).size>1000);

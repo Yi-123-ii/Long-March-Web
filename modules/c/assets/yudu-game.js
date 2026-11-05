@@ -98,12 +98,13 @@ function stopVoice(){voiceDone=true;cancelCues();}
 function updateNext(){
  const n=C.current(D,state),playing=n.nativeAudio&&!movieDone;
  const label=playing?'跳过镜头':!lineDone?'显示全文':'继续';
- $('next').hidden=!!n.choices&&lineDone;
+ $('next').hidden=!!n.choices&&lineDone&&!playing;
  $('next').replaceChildren(document.createTextNode(label+' '));
  const arrow=document.createElement('span');arrow.textContent='›';$('next').append(arrow);
 }
 function revealText(){
  const n=C.current(D,state);if(n.end||n.checkpoint)return;
+ if(n.textAfterMovie&&!movieDone){$('line').hidden=true;$('choices').hidden=true;lineDone=false;return;}
  const progress=n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):elapsed;
  const f=n.nativeAudio&&n.captionPages?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
  const frameKey=f.key??f.shown;
@@ -111,7 +112,7 @@ function revealText(){
  const changed=lineDone!==f.complete;lineDone=f.complete;
  $('line').classList.toggle('is-revealing',!lineDone);
  $('line').hidden=!textPlan.glyphs.length;
- $('choices').hidden=!n.choices||!lineDone;$('document-text').hidden=!n.document||!lineDone;
+ $('choices').hidden=!n.choices||!lineDone||(n.nativeAudio&&!movieDone);$('document-text').hidden=!n.document||!lineDone;
  if(changed){updateNext();if(lineDone&&n.choices&&document.activeElement===$('next'))$('choices').querySelector('button')?.focus({preventScroll:true});}
 }
 function finishText(){
@@ -151,7 +152,7 @@ function visual(n){
  $('story-screen').dataset.mode=n.mode||'observation';
  const nextNode=D.nodes.find(x=>x.id===C.target(D,state,n));warm([n.poster,n.hold,D.images[n.scene],nextNode&&D.images[nextNode.scene],...(n.choices||[]).map(c=>D.images[D.nodes.find(x=>x.id===c.next)?.scene])]);
 
- video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
+ video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;video.onseeked=null;video.ontimeupdate=null;
  updateNext();
  if(!useVideo){presentStill(imagePath,n,token,changesImage&&active&&!window.JourneyFX.busy&&!reduceMotion);volumes();return;}
  video.hidden=false;image.hidden=true;volumes();
@@ -162,18 +163,23 @@ function visual(n){
  video.poster=resolve(n.poster||D.images.portrait);video.setAttribute('aria-label',n.title||'于都河岸电影镜头');
  const ready=()=>{
   if(token!==epoch)return;
-  video.currentTime=0;
   videoCorner.setEnabled(n.cornerRepair===true);
-  playMovie();
+  const start=n.mediaStart||0;
+  const play=()=>{if(token!==epoch)return;video.onseeked=null;playMovie();};
+  if(Math.abs(video.currentTime-start)<.015&&!video.seeking)play();
+  else{video.onseeked=play;video.currentTime=start;}
  };
  video.onended=()=>{
-  if(token!==epoch)return;
+  if(token!==epoch||movieDone)return;
+  video.pause();
   movieDone=true;voiceDone=true;lineInstant=true;revealText();
   videoCorner.setEnabled(false);
   if(n.advanceOnEnd)$('story-screen').classList.remove('film-playing');$('voice-state').textContent='';
   updateNext();volumes();
   if(n.advanceOnEnd)go(undefined,true);else presentStill(n.hold||D.images.hold||D.images.portrait,n,token);
  };
+ // One source film can stop at an interaction and resume from that same source later.
+ video.ontimeupdate=()=>{if(token===epoch&&!movieDone&&n.mediaEnd&&video.currentTime>=n.mediaEnd)video.onended?.();};
  video.onerror=()=>{
   if(token!==epoch)return;
   movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
@@ -232,6 +238,9 @@ function render(){
 function go(choiceId,force=false){
  if(!active||paused||navigating||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
  if(!force&&!C.current(D,state).nativeAudio&&!lineDone){finishText();return;}
+ if(C.current(D,state).nativeAudio&&!movieDone&&C.current(D,state).choices){
+  if(choiceId)return;video.onended?.();return;
+ }
  const entry=C.current(D,state),index=D.chapters.findIndex(c=>c.id===entry.chapter),following=D.chapters[index+1];
  const next=entry.checkpoint&&following?C.openChapter(D,state,following.id):C.advance(D,state,choiceId);if(next===state)return;
  const previous=C.chapter(D,state).id;if(C.chapter(D,next).id!==previous){changeChapter(next);return;}state=next;render();

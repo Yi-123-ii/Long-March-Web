@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 53696603,
-  "webBytes": 12723421,
+  "originalBytes": 64168163,
+  "webBytes": 14999780,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -309,6 +309,55 @@
       "sha256": "537b9fcd5023750332d8ef9adebfc2cb957029418fa366aa864c7ecffc383fd8",
       "originalBytes": 711000,
       "webBytes": 53482
+    },
+    {
+      "source": "assets/chapters/lusheng-stretcher-first-v032.png",
+      "web": "assets/stream/lusheng-stretcher-first-v032-152203246c.webp",
+      "sha256": "26289eea0bdece621b493d579dc37610fcc4cf0239d81c33c7774525ceef4a03",
+      "originalBytes": 779304,
+      "webBytes": 83154
+    },
+    {
+      "source": "assets/chapters/lusheng-stretcher-hold-v032.png",
+      "web": "assets/stream/lusheng-stretcher-hold-v032-b7ca35f9f4.webp",
+      "sha256": "6f8da3d963050251409cd3fa1ab669a2ad1247b007ce6aca35e37e311f32aacf",
+      "originalBytes": 864794,
+      "webBytes": 68490
+    },
+    {
+      "source": "assets/chapters/lusheng-stretcher-pause-v032.png",
+      "web": "assets/stream/lusheng-stretcher-pause-v032-f8fe8ddf47.webp",
+      "sha256": "19b4ed86917705e05a50c2d297cd2c73787e574284a567c2a3bed2d233c8f278",
+      "originalBytes": 857537,
+      "webBytes": 66760
+    },
+    {
+      "source": "assets/chapters/lusheng-stretcher-v032.mp4",
+      "web": "assets/stream/lusheng-stretcher-v032-100e39e554.mp4",
+      "sha256": "3d389d089b62b78bf4bbc2b2bad1a5f45a78d2f09bc08b51e0337b87839a757b",
+      "originalBytes": 3933301,
+      "webBytes": 1036857
+    },
+    {
+      "source": "assets/chapters/xiang-groups-first-v032.png",
+      "web": "assets/stream/xiang-groups-first-v032-d4c7b9f08a.webp",
+      "sha256": "6cf33978e6287f62934772c87533b13e6a5d217e2bce236e8ececf0f799366d7",
+      "originalBytes": 649229,
+      "webBytes": 76028
+    },
+    {
+      "source": "assets/chapters/xiang-groups-hold-v032.png",
+      "web": "assets/stream/xiang-groups-hold-v032-1d3409e613.webp",
+      "sha256": "5eede494b76f94d685d0dccc61d88c04b1b5d517245711da9010270589d4c341",
+      "originalBytes": 647662,
+      "webBytes": 72722
+    },
+    {
+      "source": "assets/chapters/xiang-groups-v032.mp4",
+      "web": "assets/stream/xiang-groups-v032-78578cb922.mp4",
+      "sha256": "58250067e8d94c3fa9440a1d5a860ac27a62b1d7436ac63c0cc7600ad085fbf4",
+      "originalBytes": 2739733,
+      "webBytes": 872348
     }
   ]
 }
