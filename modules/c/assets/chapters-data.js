@@ -80,7 +80,7 @@
     "speaker": "心声",
     "mode": "thought",
     "text": "行装组也在招手，搬到河边的包裹还没运完。",
-    "scene": "xiang-bank",
+    "scene": "xiang-groups-hold",
     "choices": [
       {
         "id": "stretcher",
@@ -94,13 +94,20 @@
       }
     ],
     "chapter": "xiangjiang",
-    "plannedFilm": "XJ-02"
+    "nativeAudio": true,
+    "video": "assets/chapters/xiang-groups-v032.mp4",
+    "poster": "assets/chapters/xiang-groups-first-v032.png",
+    "hold": "assets/chapters/xiang-groups-hold-v032.png",
+    "duration": 4.096009,
+    "textAfterMovie": true,
+    "title": "湘江渡口的担架与行装转运",
+    "filmId": "XJ-02"
   },
   {
     "id": "xj-a-lusheng",
     "speaker": "心声",
     "text": "担架还搁在岸边。我在后头蹲下，垂着的布边蹭过手背，躺着的年轻战士朝我的袖子指了一下。",
-    "scene": "lusheng-river",
+    "scene": "lusheng-stretcher-first",
     "next": "xj-a-name",
     "mode": "thought",
     "chapter": "xiangjiang"
@@ -109,16 +116,37 @@
     "id": "xj-a-name",
     "speaker": "陆生",
     "text": "你先把袖子挽好，别挂住了。",
-    "scene": "lusheng-river",
+    "scene": "lusheng-stretcher-first",
     "next": "xj-a-roll",
     "mode": "dialogue",
     "chapter": "xiangjiang",
-    "plannedFilm": "XJ-03"
+    "nativeAudio": true,
+    "video": "assets/chapters/lusheng-stretcher-v032.mp4",
+    "poster": "assets/chapters/lusheng-stretcher-first-v032.png",
+    "hold": "assets/chapters/lusheng-stretcher-pause-v032.png",
+    "duration": 2.7,
+    "mediaStart": 0,
+    "mediaEnd": 2.7,
+    "captionCues": [
+      {
+        "text": "你先把袖子挽好，",
+        "start": 0.21,
+        "end": 1.31
+      },
+      {
+        "text": "别挂住了。",
+        "start": 1.55,
+        "end": 2.05
+      }
+    ],
+    "advanceOnEnd": true,
+    "filmId": "XJ-03",
+    "title": "担架上的陆生与你相识"
   },
   {
     "id": "xj-a-roll",
     "text": "",
-    "scene": "lusheng-river",
+    "scene": "lusheng-river-pause",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -133,16 +161,38 @@
   {
     "id": "xj-a-introduce",
     "text": "我叫陆生。你呢？",
-    "scene": "lusheng-river",
+    "scene": "lusheng-stretcher-first",
     "speaker": "陆生",
     "mode": "dialogue",
     "chapter": "xiangjiang",
-    "next": "xj-a-tell"
+    "next": "xj-a-tell",
+    "nativeAudio": true,
+    "video": "assets/chapters/lusheng-stretcher-v032.mp4",
+    "poster": "assets/chapters/lusheng-stretcher-pause-v032.png",
+    "hold": "assets/chapters/lusheng-stretcher-hold-v032.png",
+    "duration": 3.316667,
+    "mediaStart": 2.7,
+    "mediaEnd": 6.016667,
+    "captionCues": [
+      {
+        "text": "我叫陆生。",
+        "start": 3.18,
+        "end": 4.88
+      },
+      {
+        "text": "你呢？",
+        "start": 5.52,
+        "end": 5.87
+      }
+    ],
+    "advanceOnEnd": true,
+    "filmId": "XJ-03",
+    "title": "担架上的陆生与你相识"
   },
   {
     "id": "xj-a-tell",
     "text": "",
-    "scene": "lusheng-river",
+    "scene": "lusheng-river-hold",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -724,7 +774,7 @@
   let within=false;for(const n of nodes){if(n.id===first)within=true;if(within)n.chapter=id;if(n.id===last)within=false;}
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
- const data={nodes,images:{...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
+ const data={nodes,images:{...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'xiang-groups-hold':'assets/chapters/xiang-groups-hold-v032.png','lusheng-stretcher-first':'assets/chapters/lusheng-stretcher-first-v032.png','lusheng-river-pause':'assets/chapters/lusheng-stretcher-pause-v032.png','lusheng-river-hold':'assets/chapters/lusheng-stretcher-hold-v032.png','liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
   chapters:[
   {
     "id": "yudu",
@@ -797,7 +847,7 @@
     "button": "翻开夹金山这一页"
   }
 ],
-  alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','lusheng-river':'年轻战士陆生已经靠稳在担架上，疲惫但清醒','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
+  alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','xiang-groups-hold':'湘江渡口的担架队经过身前，岸边战士仍在接运行装','lusheng-stretcher-first':'陆生侧靠在湘江岸边尚未抬起的担架上，抬手提醒小满挽好袖口','lusheng-river-pause':'陆生说完袖口提醒，仍靠在同一副担架上等候','lusheng-river-hold':'陆生在同一副担架上抬眼看向小满，等待回答名字','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
  };
  if(typeof module==='object'&&module.exports)module.exports=data;else root.MARCH_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);

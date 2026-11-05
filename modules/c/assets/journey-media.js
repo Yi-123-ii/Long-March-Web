@@ -41,5 +41,12 @@
  "assets/chapters/chenhe-dawn-first-v020.png": "assets/stream/chenhe-dawn-first-v020-23728028a4.webp",
  "assets/chapters/chenhe-dawn-hold-v020.png": "assets/stream/chenhe-dawn-hold-v020-cc1ed8dd7c.webp",
  "assets/chapters/chenhe-memory-first-v021.png": "assets/stream/chenhe-memory-first-v021-e25d6081f4.webp",
- "assets/chapters/chenhe-memory-hold-v021.png": "assets/stream/chenhe-memory-hold-v021-d3a87f28c0.webp"
+ "assets/chapters/chenhe-memory-hold-v021.png": "assets/stream/chenhe-memory-hold-v021-d3a87f28c0.webp",
+ "assets/chapters/lusheng-stretcher-first-v032.png": "assets/stream/lusheng-stretcher-first-v032-152203246c.webp",
+ "assets/chapters/lusheng-stretcher-hold-v032.png": "assets/stream/lusheng-stretcher-hold-v032-b7ca35f9f4.webp",
+ "assets/chapters/lusheng-stretcher-pause-v032.png": "assets/stream/lusheng-stretcher-pause-v032-f8fe8ddf47.webp",
+ "assets/chapters/lusheng-stretcher-v032.mp4": "assets/stream/lusheng-stretcher-v032-100e39e554.mp4",
+ "assets/chapters/xiang-groups-first-v032.png": "assets/stream/xiang-groups-first-v032-d4c7b9f08a.webp",
+ "assets/chapters/xiang-groups-hold-v032.png": "assets/stream/xiang-groups-hold-v032-1d3409e613.webp",
+ "assets/chapters/xiang-groups-v032.mp4": "assets/stream/xiang-groups-v032-78578cb922.mp4"
 };if(typeof module==='object'&&module.exports)module.exports=media;else root.JourneyMedia=media;})(typeof window==='undefined'?globalThis:window);
