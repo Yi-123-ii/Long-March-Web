@@ -1,19 +1,14 @@
 /* V4.6 prologue / V4.3 chapter guide. The cloud and panorama above the prologue are shared with V4.1. */
 .v3-home .v43-prologue {
-  --archive-rule: #aa8b7369;
   --archive-red: #8d493a;
   position: relative;
   z-index: 0;
-  padding: 100px clamp(24px, 5.2vw, 92px) 28px;
+  padding: calc(var(--cover-bottom-overlap) + 14px) clamp(24px, 5.2vw, 92px) 14px;
   color: #283f35;
-  background: linear-gradient(#f6ecdb 100px, #f3e9da 270px, #eee5d7);
+  background: linear-gradient(#f6ecdb calc(var(--cover-bottom-overlap) + 2px), #f3e9da 270px, #eee5d7);
 }
 
-.v43-prologue__frame {
-  width: min(100%, 940px);
-  margin-inline: auto;
-}
-
+.v43-prologue__frame,
 .v43-guide {
   width: min(100%, 1440px);
   margin-inline: auto;
@@ -24,8 +19,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 12px 0;
-  border-block: 1px solid var(--archive-rule);
   color: var(--archive-red);
   font: 500 14px/1.5 var(--v38-ui);
   letter-spacing: .12em;
@@ -146,12 +139,11 @@
   }
 }
 
-@media (max-width: 640px) {
-  .v3-home .v43-prologue {
-    padding: 68px 5vw 28px;
-    background: linear-gradient(#f6ecdb 75px, #f3e9da 205px, #eee5d7);
-  }
+@media (max-width: 760px) {
+  .v3-home .v43-prologue { padding-inline: 5vw; }
+}
 
+@media (max-width: 640px) {
   .v3-home .v43-prologue h2 {
     font-size: clamp(29px, 5.8vw, 38px);
   }

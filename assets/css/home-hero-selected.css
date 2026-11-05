@@ -35,7 +35,8 @@
   bottom: calc(-1 * var(--cover-bottom-overlap));
 }
 .v3-home .v39-hero-cloud {
-  height: var(--cover-bottom-band);
+  bottom: calc(-1 * var(--cover-bottom-overlap) - 2px);
+  height: calc(var(--cover-bottom-band) + 2px);
   background-image: var(--cover-bottom-mist);
 }
 .v3-home .a-hero__copy { animation: none; }
