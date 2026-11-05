@@ -24,14 +24,13 @@ function photo(image, caption = "") {
       </span>`;
 }
 
-function renderStory(story, index, group) {
+function renderStory(story, index) {
   const number = String(index + 1).padStart(2, "0");
   const sections = story.sections.map(section => `
           <section class="doc-article__section">
             <h3>${escape(section.title)}</h3>
             <p>${escape(section.text)}</p>
           </section>`).join("");
-  const caption = group === "practices" ? `${story.image.caption} ${story.image.credit}` : story.image.caption;
   return `
       <details class="doc-story" data-story="${story.id}">
         <summary class="doc-story__cover">
@@ -48,7 +47,7 @@ function renderStory(story, index, group) {
             <p class="doc-kicker"><span>${number}</span> ${escape(story.name)} · ${escape(story.theme)}</p>
             <h2 class="doc-article__title">${escape(story.title)}</h2>
           </header>
-          ${photo(story.image, caption)}
+          ${photo(story.image, story.image.caption)}
           <div class="doc-article__reading">${sections}
           </div>
         </article>
@@ -89,7 +88,7 @@ for (const [key, marker] of [["people", "PEOPLE"], ["practices", "PRACTICES"]]) 
 
   const pattern = new RegExp(`(<!-- V43:${marker}:BEGIN -->)[\\s\\S]*?(<!-- V43:${marker}:END -->)`);
   if (!pattern.test(html)) throw new Error(`案例生成区缺失：${marker}`);
-  html = html.replace(pattern, (_, begin, end) => `${begin}${stories.map((story, index) => renderStory(story, index, key)).join("")}\n          ${end}`);
+  html = html.replace(pattern, (_, begin, end) => `${begin}${stories.map((story, index) => renderStory(story, index)).join("")}\n          ${end}`);
 }
 
 if (process.argv.includes("--check")) {
