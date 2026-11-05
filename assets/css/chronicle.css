@@ -389,7 +389,7 @@
   margin-bottom: 22px;
 }
 .lm-article-lead {
-  max-width: 760px;
+  max-width: none;
   font-family: var(--lm-serif);
   font-size: 19px;
   line-height: 1.95;
@@ -564,13 +564,9 @@
     line-height: 1.95;
     margin-bottom: 23px;
   }
-  .lm-article-figure {
-    margin-inline: -8px;
-  }
   .lm-article-figure figcaption {
     font-size: 10px;
     padding-left: 10px;
-    margin-inline: 8px;
   }
   .lm-article-section h3 {
     font-size: 21px;
