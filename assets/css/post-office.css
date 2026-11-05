@@ -88,7 +88,6 @@
   text-align: center;
 }
 .lm-post-tabs {
-  border-bottom: 1px solid var(--lm-line);
   display: flex;
   gap: 32px;
   margin-bottom: 38px;
@@ -99,23 +98,14 @@
 .lm-post-tabs button {
   font-size: 13px;
   padding: 15px 0;
-  position: relative;
   color: var(--lm-muted);
   display: flex;
   align-items: center;
   gap: 30px;
 }
-.lm-post-tabs button[aria-selected="true"] {
-  color: var(--lm-ink);
-}
-.lm-post-tabs button[aria-selected="true"]::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--lm-red);
+.lm-post-page .lm-post-tabs button[aria-selected="true"] {
+  color: var(--lm-red);
+  font-weight: 600;
 }
 #saved-count {
   font-size: 11px;
