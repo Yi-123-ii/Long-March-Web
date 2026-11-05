@@ -47,7 +47,7 @@
   const status = page.querySelector(".doc-status");
   const stories = new Map([...page.querySelectorAll("[data-story]")].map(story => [story.dataset.story, story]));
   const closeButton = dialog.querySelector("[data-doc-close]");
-  if (stories.size !== 6) {
+  if (stories.size !== 7) {
     status.textContent = "部分资料暂未载入，可先阅读已显示的故事";
     status.hidden = false;
   }
