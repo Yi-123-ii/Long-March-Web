@@ -114,7 +114,32 @@
     $("#preview-letter").disabled = false;
     applyPaper(form, paperId);
   }
-  const queryEvent = new URLSearchParams(location.search).get("event");
+  const query = new URLSearchParams(location.search);
+  const queryEvent = query.get("event");
+  const readingEvent = query.get("readFrom") === "chronicle" && knownEvent(queryEvent);
+  if (readingEvent) {
+    const dock = $("#chronicle-return");
+    const back = new URL("chronicle.html", location.href);
+    back.searchParams.set("resumeReading", readingEvent.id);
+    back.hash = "event=" + readingEvent.id;
+    $("#chronicle-return-context").textContent = "你刚才读到「" + readingEvent.title + "」";
+    document.querySelectorAll("[data-reading-return]").forEach(link => {
+      link.href = back.href;
+      link.hidden = false;
+    });
+    dock.hidden = false;
+    document.body.classList.add("lm-reading-visitor");
+    window.addEventListener("DOMContentLoaded", () => {
+      const journeyDock = $(".c-game-return");
+      if (!journeyDock) return;
+      // Keep both return paths together when this visit began in the game.
+      const link = dock.querySelector("a");
+      link.title = "返回「" + readingEvent.title + "」继续阅读";
+      journeyDock.append(link);
+      journeyDock.classList.add("c-game-return--reading");
+      dock.remove();
+    });
+  }
   eventId = knownEvent(queryEvent)?.id || knownEvent(draft.eventId)?.id || null;
   function renderContext() {
     const event = knownEvent(eventId);

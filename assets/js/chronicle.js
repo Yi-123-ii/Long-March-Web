@@ -5,6 +5,7 @@
   const dialog = document.querySelector("#event-dialog");
   const search = document.querySelector("#event-search");
   const filters = [...document.querySelectorAll("[data-filter]")];
+  const readingReturnKey = "longmarch-b:chronicle-return:v1";
   let year = "all",
     current = 0,
     focusId = null,
@@ -151,7 +152,7 @@
       event.focus.title;
     document.querySelector("#detail-focus-text").textContent = event.focus.text;
     document.querySelector("#detail-mail").href =
-      "post-office.html?event=" + encodeURIComponent(event.id);
+      "post-office.html?event=" + encodeURIComponent(event.id) + "&readFrom=chronicle";
     document.querySelector("#detail-position").textContent =
       `${index + 1} / ${events.length}`;
     document.querySelector("#previous-event").disabled = index === 0;
@@ -215,9 +216,66 @@
     filters[0].click();
     search.focus();
   });
+  function rememberReading() {
+    try {
+      sessionStorage.setItem(readingReturnKey, JSON.stringify({
+        eventId: events[current].id,
+        articleScroll: dialog.scrollTop,
+        pageScroll: window.scrollY,
+        year,
+        query: search.value,
+      }));
+    } catch {
+      // The return URL still opens the same article when storage is unavailable.
+    }
+  }
+  document.querySelector("#detail-mail").addEventListener("click", rememberReading);
+  document.querySelector("#detail-mail").addEventListener("auxclick", rememberReading);
+  const resumeId = new URLSearchParams(location.search).get("resumeReading");
+  let resumeReading = null;
+  if (resumeId) {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(readingReturnKey));
+      if (saved?.eventId === resumeId && events.some(event => event.id === resumeId)
+        && Number.isFinite(saved.articleScroll) && saved.articleScroll >= 0
+        && Number.isFinite(saved.pageScroll) && saved.pageScroll >= 0) {
+        resumeReading = saved;
+        year = ["all", "1934", "1935", "1936"].includes(saved.year) ? saved.year : "all";
+        search.value = typeof saved.query === "string" ? saved.query : "";
+        filters.forEach(button => {
+          const active = button.dataset.filter === year;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+      }
+    } catch {
+      // A missing or damaged snapshot falls back to the article's beginning.
+    }
+    const url = new URL(location.href);
+    url.searchParams.delete("resumeReading");
+    history.replaceState(history.state, "", url);
+  }
   render();
   const deepLink = location.hash.match(/^#event=([a-z]+)$/);
-  if (deepLink) openEvent(deepLink[1]);
+  if (deepLink) {
+    openEvent(deepLink[1]);
+    if (resumeReading && deepLink[1] === resumeReading.eventId) {
+      let interrupted = false;
+      const stopRestoring = () => { interrupted = true; };
+      for (const type of ["wheel", "touchstart", "keydown", "pointerdown"])
+        dialog.addEventListener(type, stopRestoring, { once: true, passive: true });
+      const restore = () => {
+        if (interrupted || !dialog.open || events[current].id !== resumeReading.eventId) return;
+        window.scrollTo(0, resumeReading.pageScroll);
+        dialog.scrollTop = resumeReading.articleScroll;
+      };
+      requestAnimationFrame(restore);
+      Promise.all([
+        document.fonts.ready,
+        document.querySelector("#detail-image").decode().catch(() => {}),
+      ]).then(() => requestAnimationFrame(restore));
+    }
+  }
   window.addEventListener("hashchange", () => {
     const match = location.hash.match(/^#event=([a-z]+)$/);
     if (match) openEvent(match[1]);

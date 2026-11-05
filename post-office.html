@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/css/fonts.css?v=20261105-reflection-glyphs" />
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261104-landscape" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261105-reading-return" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
@@ -19,7 +19,7 @@
     <script defer src="assets/js/letter-backup.js?v=20261024-stationery"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261102-unified"></script>
-    <script defer src="assets/js/post-office.js?v=20261104-lazy-options"></script>
+    <script defer src="assets/js/post-office.js?v=20261105-reading-return"></script>
     <script defer src="modules/c/assets/journey-return.js?v=023"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css" />
   <link href="assets/css/v38-reading.css" rel="stylesheet"/>
@@ -182,6 +182,10 @@
       </section>
       </div>
     </main>
+    <nav id="chronicle-return" class="lm-reading-return" aria-label="返回长征纪事" hidden>
+      <p id="chronicle-return-context"></p>
+      <a data-reading-return href="chronicle.html">返回长征纪事继续阅读 <span aria-hidden="true">↗</span></a>
+    </nav>
     <footer class="lm-footer lm-container">
       <span>山河邮局</span><a href="chronicle.html">翻阅长征纪事 ↗</a>
     </footer>
@@ -248,6 +252,7 @@
       <div id="delivery-actions" hidden>
         <button id="view-sent" class="lm-button">查看我的留言 ↗</button
         ><button id="write-another" class="lm-link">再写一段</button>
+        <a data-reading-return class="lm-link" href="chronicle.html" hidden>返回长征纪事继续阅读 ↗</a>
       </div>
     </dialog>
     <dialog
