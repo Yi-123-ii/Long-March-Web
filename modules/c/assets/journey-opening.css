@@ -4,17 +4,11 @@ html { scroll-behavior: smooth; }
   isolation: isolate;
   background: #ead1ad url("atlas/terrain-extension-v1.webp") center top / 100% 200svh no-repeat;
 }
-#map-screen::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 175px;
-  z-index: -1;
-  background: linear-gradient(#eef1ed9c, #eef1ed55 43%, #eef1ed00);
-  pointer-events: none;
-}
 #map-screen .atlas-main,
 #map-screen .atlas-window { background: transparent; }
+#map-screen .atlas-terrain {
+  mask-image: linear-gradient(transparent 6.8%, #000 calc(6.8% + var(--cover-bottom-overlap)));
+}
 /* Let vertical scrolling continue to the page at either edge of the map. */
 #map-screen .atlas-window { overscroll-behavior-y: auto; }
 @media (pointer: fine) {

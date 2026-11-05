@@ -21,16 +21,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(0deg, #eef1ed, #eef1edb3 6%, transparent 22%),
-    linear-gradient(180deg, #eef1edb8, #eef1ed33 14%, transparent 28%),
-    linear-gradient(90deg, #eef1ed88, #eef1ed33 40%, transparent 62%);
+  background: linear-gradient(90deg, #eef1ed88, #eef1ed33 40%, transparent 62%);
 }
 @media (max-width: 760px) {
   .post-opening__landscape img { object-position: 72% center; }
   .post-opening__landscape::after {
-    background:
-      linear-gradient(0deg, #eef1ed, transparent 24%),
-      linear-gradient(180deg, #eef1edc9, #eef1ed99 24%, #eef1ed88 62%, transparent 85%);
+    background: radial-gradient(ellipse 86% 35% at 28% 48%, #eef1edb8, transparent);
   }
 }

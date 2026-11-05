@@ -2,6 +2,8 @@
 body .section-opening.section-opening {
   --header-height: 88px;
   --title-width: min(43vw, 560px, 75svh);
+  --cover-top-offset: calc(-1 * var(--header-height));
+  --cover-paper: var(--lm-bg, #eef1ed);
   position: relative;
   display: flex;
   flex-direction: row;
@@ -13,8 +15,42 @@ body .section-opening.section-opening {
   padding: 0 6vw;
 }
 body .section-opening.section-opening--overlay {
+  --cover-top-offset: 0px;
+  --cover-paper: rgb(234 209 173 / 38%);
   min-height: 100svh;
   padding-top: var(--header-height);
+}
+
+/* Share the home cover's mist and let the picture continue beneath the lower seam. */
+body .section-opening.section-opening::before,
+body .section-opening.section-opening::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+body .section-opening.section-opening::before {
+  top: var(--cover-top-offset);
+  height: var(--cover-top-band);
+  background: var(--cover-top-mist) center / 100% 100% no-repeat;
+}
+body .section-opening.section-opening::after {
+  bottom: calc(-1 * var(--cover-bottom-overlap));
+  height: var(--cover-bottom-band);
+  background: var(--cover-paper);
+  mask: var(--cover-bottom-mist) center / 100% 100% no-repeat;
+}
+body .section-opening.section-opening--overlay::after { z-index: -1; }
+body .lm-hero.section-opening { background: var(--cover-paper); }
+body .v44-opening.section-opening { --cover-paper: var(--doc-paper); }
+body .section-opening :is(.lm-hero-art, .v44-opening__art, .post-opening__landscape) {
+  bottom: calc(-1 * var(--cover-bottom-overlap));
+}
+.section-opening + :is(.lm-chronicle, .lm-post-main),
+.v44-opening + .v44-bridge > .doc-wrap {
+  position: relative;
+  z-index: 2;
 }
 .section-opening .section-opening__copy {
   position: relative;
@@ -100,5 +136,9 @@ body .section-opening .section-opening__copy :is(#journey-heading, #legacy-title
   body .section-opening.section-opening {
     --header-height: 76px;
     --title-width: min(88vw, 460px, 74svh);
+  }
+  body .section-opening.section-opening::after {
+    mask-size: 170% 100%;
+    mask-position: 62% center;
   }
 }
