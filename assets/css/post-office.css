@@ -127,8 +127,8 @@
 }
 .lm-post-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 310px;
-  column-gap: 70px;
+  grid-template-columns: minmax(0, 1fr) clamp(320px, 31%, 390px);
+  column-gap: clamp(28px, 4vw, 64px);
   padding-bottom: 75px;
 }
 .lm-letter {
@@ -548,10 +548,6 @@
   }
 }
 @media (min-width: 1600px) {
-  .lm-post-layout {
-    grid-template-columns: minmax(0, 1fr) 330px;
-    column-gap: 100px;
-  }
   .lm-letter {
     padding: 38px 55px 30px;
   }
@@ -563,10 +559,6 @@
   }
 }
 @media (max-width: 1100px) {
-  .lm-post-layout {
-    grid-template-columns: minmax(0, 1fr) 245px;
-    column-gap: 32px;
-  }
   .lm-letter {
     padding: 28px;
   }
@@ -804,4 +796,37 @@
   .lm-delivery-dialog h2 {
     font-size: 25px;
   }
+}
+
+@media (width > 800px) {
+  html:has(.lm-post-page) { scroll-padding-top: 16px; }
+  .lm-post-tabs { margin-bottom: 14px; }
+  .lm-post-tabs button { padding-block: 10px; }
+
+  .lm-post-layout .lm-letter { padding-block: 22px; }
+  .lm-letter-top { margin-bottom: 8px; }
+  .lm-letter-vignette { width: 75px; height: 60px; }
+  .lm-salutation { margin-bottom: 10px; }
+  .lm-post-layout .lm-letter textarea { min-height: clamp(144px, 29svh, 250px); }
+  .lm-letter-meta { margin-top: 12px; }
+  .lm-signature { margin-top: 16px; }
+  .lm-send-row { flex-direction: row; align-items: center; gap: 12px; margin-top: 10px; }
+  .lm-send-row .lm-button { align-self: center; min-height: 44px; padding-block: 9px; }
+
+  .lm-post-aside { padding-top: 0; }
+  .lm-mailbox-scene {
+    --desk-mailbox-width: clamp(64px, calc(50svh - 237px), 170px);
+    height: auto;
+  }
+  .lm-mailbox-scene .lm-postbox-model { width: var(--desk-mailbox-width); }
+  .lm-mailbox-scene .lm-postbox-label { font-size: clamp(5px, calc(var(--desk-mailbox-width) / 12), 10px); letter-spacing: .045em; white-space: nowrap; }
+  .lm-mailbox-scene .lm-postbox-label small { margin-top: 2px; font-size: .75em; letter-spacing: 0; }
+  .lm-mailbox-scene .lm-aside-courier {
+    width: calc(var(--desk-mailbox-width) * .4);
+    right: calc(50% - var(--desk-mailbox-width) * .68);
+    bottom: 23px;
+  }
+  .lm-prompts { margin-top: 11px; padding-top: 10px; }
+  .lm-prompts > p { margin-bottom: 10px; }
+  .lm-prompts .lm-prompt-hint { margin-top: 12px; line-height: 1.78; }
 }
