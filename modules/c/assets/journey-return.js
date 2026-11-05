@@ -32,7 +32,7 @@
  const view=back.searchParams.get('resume'),style=document.createElement('link');
  style.rel='stylesheet';style.href=new URL('journey-return.css',script).href;document.head.append(style);
  const dock=document.createElement('nav'),note=document.createElement('span'),link=document.createElement('a');
- dock.className='c-game-return';dock.setAttribute('aria-label','返回正在进行的游戏');note.textContent='读完、写完，还可以继续这一程。';
+ dock.className='c-game-return';dock.setAttribute('aria-label','返回正在进行的游戏');note.textContent='阅读或写信之后，还可以回来继续这一程';
  link.href=back.href;link.textContent=view==='map'?'返回游戏地图':'返回游戏，继续这一站';dock.append(note,link);document.body.append(dock);document.body.classList.add('c-game-visitor');
  const articleBar=document.querySelector('#event-dialog .lm-article-bar');
  if(articleBar){const inner=link.cloneNode(true);inner.className='c-game-return-dialog';articleBar.insertBefore(inner,articleBar.querySelector('[data-close]'));}

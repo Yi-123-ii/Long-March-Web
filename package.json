@@ -5,7 +5,7 @@
   "description": "零杯长征主题网页：长征纪事与山河邮局（B模块）",
   "scripts": {
     "dev": "node server.mjs",
-    "check": "node tools/check.mjs"
+    "check": "node tools/check.mjs && node tools/check-short-copy.mjs"
   },
   "engines": {
     "node": ">=18"

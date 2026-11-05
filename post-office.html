@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="给长征路上的人们留一段来自今天的话。" />
+    <meta name="description" content="给长征路上的人们写一封来自今天的信" />
     <meta name="theme-color" content="#e9eeeb" />
     <title>山河邮局 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261105-prompts-glyphs" />
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261105-site-copy-glyphs" />
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/post-office.css?v=20261105-reading-return" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
-    <script defer src="data/events.js?v=20261105-route-map"></script>
+    <script defer src="data/events.js?v=20261105-site-copy"></script>
     <script defer src="data/postal-designs.js?v=20261024-stationery"></script>
     <script defer src="assets/js/storage.js?v=20261024-stationery"></script>
-    <script defer src="assets/js/letter-backup.js?v=20261024-stationery"></script>
+    <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261102-unified"></script>
-    <script defer src="assets/js/post-office.js?v=20261105-writing-prompts"></script>
-    <script defer src="modules/c/assets/journey-return.js?v=023"></script>
+    <script defer src="assets/js/post-office.js?v=20261105-site-copy"></script>
+    <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css" />
   <link href="assets/css/v38-reading.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/header-unified.css?v=20261104-compact" />
@@ -114,7 +114,7 @@
             <p id="form-error" class="lm-form-error" role="alert"></p>
             <div class="lm-send-row">
               <p>
-                投递后，可在「我的留言」中查看和备份。
+                投递后，可在「我的留言」中查看和备份
               </p>
               <button
                 class="lm-button"
@@ -130,11 +130,11 @@
             <div class="lm-mailbox-scene" aria-hidden="true">
               <div class="lm-postbox-model" data-postbox></div>
               <img class="lm-aside-courier" src="assets/images/couriers/mountain-v1.webp" width="240" height="320" alt="" />
-              <span class="lm-mailbox-caption">山河无言，心意有声。</span>
+              <span class="lm-mailbox-caption">山河无言，心意有声</span>
             </div>
             <div class="lm-prompts">
               <h2>不知道从哪里落笔？</h2>
-              <p>选一个角度，听听自己的想法。</p>
+              <p>从一个角度落笔，慢慢写出自己的感受</p>
               <div>
                 <button type="button" data-prompt="today">说说今天</button
                 ><button type="button" data-prompt="thanks">留一句感谢</button
@@ -157,8 +157,8 @@
       >
         <div class="lm-saved-heading">
           <div>
-            <h2>留下的每一句，都在这里。</h2>
-            <p>查看、备份或导入你的留言。</p>
+            <h2>写下的心意，都留在这里</h2>
+            <p>查看、备份或导入你的留言</p>
           </div>
           <div class="lm-backup-actions">
             <button id="export-all" class="lm-link" hidden>备份留言 ↓</button>
@@ -169,14 +169,14 @@
         <p id="saved-warning" class="lm-form-error" role="status"></p>
         <details class="lm-storage-help">
           <summary>如何保留之前的留言？</summary>
-          <p>使用同一个浏览器，再次打开同一个网址，留言会自动恢复。本地预览和线上网址各自保存；需要转移时，在原地址备份留言，再到这里导入。也支持之前导出的文本文件。</p>
-          <p>建议固定使用 <a href="https://yi-123-ii.github.io/Long-March-Web/post-office.html">山河邮局线上地址</a>。更换浏览器、清除网站数据或使用无痕窗口前，请先备份留言。</p>
+          <p>使用同一个浏览器打开同一网址时，已保存的留言会自动恢复；本地预览与线上页面分别存储，迁移时需在原地址导出备份，再到这里导入，也兼容旧版文本备份</p>
+          <p>建议固定使用 <a href="https://yi-123-ii.github.io/Long-March-Web/post-office.html">山河邮局线上地址</a>；如需更换浏览器、清除网站数据或使用无痕窗口，请先导出备份</p>
         </details>
         <div id="saved-list" class="lm-saved-list"></div>
         <div id="empty-letters" class="lm-empty">
           <img class="lm-empty-courier" src="assets/images/couriers/city-v1.webp" width="240" height="320" alt="" />
-          <h3>信箱里，正等着你的第一句话。</h3>
-          <p>写一段来自今天的留言，让这次回望留下回声。</p>
+          <h3>信箱正等着你的第一封信</h3>
+          <p>把读过历史后的感受写下来，给长征路上的人们留一封信</p>
           <button id="start-writing" class="lm-button">写下第一段留言 ↗</button>
         </div>
       </section>
@@ -199,7 +199,7 @@
       <button class="lm-close" data-close aria-label="返回修改留言">×</button>
       <div class="lm-prepare-heading">
         <p class="lm-eyebrow" id="prepare-step">为这封信，选一枚邮票</p>
-        <h2 id="prepare-title">带着心意，出发吧。</h2>
+        <h2 id="prepare-title">挑一枚邮票，寄出这份心意</h2>
       </div>
       <section id="stamp-choice">
         <div class="lm-stamp-groups" role="group" aria-label="邮票题材">
@@ -247,7 +247,7 @@
       <div class="lm-delivery-art" aria-hidden="true"><div class="lm-postbox-model" data-postbox></div></div>
       <div class="lm-delivery-courier" aria-hidden="true"><img src="assets/images/couriers/river-v1.webp" width="240" height="320" alt="" /></div>
       <h2 id="delivery-title" aria-live="polite">正在封好这份心意</h2>
-      <p id="delivery-description">留言已保存，正在完成投递。</p>
+      <p id="delivery-description">留言已保存，正在完成投递</p>
       <button id="skip-delivery" class="lm-link">跳过动画</button>
       <div id="delivery-actions" hidden>
         <button id="view-sent" class="lm-button">查看我的留言 ↗</button
@@ -285,7 +285,7 @@
       <div class="lm-dialog-body">
         <p class="lm-eyebrow">删除留言</p>
         <h2 id="delete-title">确定删除这段留言？</h2>
-        <p>删除后无法从本页恢复，可以先将它保存为文本。</p>
+        <p>删除后无法从本页恢复，如需留存请先保存为文本</p>
         <p id="delete-error" class="lm-form-error" role="alert"></p>
         <div class="lm-confirm-actions">
           <button data-close class="lm-button lm-button-light" autofocus>
@@ -298,7 +298,7 @@
     </dialog>
     <noscript
       ><p class="lm-container">
-        请启用 JavaScript 以使用草稿保存和留言投递功能。
+        请启用 JavaScript 以使用草稿保存和留言投递功能
       </p></noscript
     >
   </body>

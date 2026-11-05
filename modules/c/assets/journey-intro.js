@@ -57,7 +57,7 @@
   if(!current.fallback){
    current.fallback=true;loadFilm('assets/prologue/yudu-arrival-v022.webm');return;
   }
-  pause();$('intro-error').hidden=false;$('intro-error').textContent='导入影片未能播放，可以跳过并继续于都故事。';
+  pause();$('intro-error').hidden=false;$('intro-error').textContent='导入影片暂未播放，可跳过影片继续于都故事';
  };
  document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
  window.addEventListener('pagehide',pause);

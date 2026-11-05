@@ -10,15 +10,15 @@ window.LM_LETTERS = (() => {
     const chunks = source.split(/\n\n─{10,}\n\n(?=山河邮局 · 来自今天的留言\n)/);
     return chunks.map((chunk, index) => {
       const lines = chunk.split("\n");
-      if (lines[0] !== "山河邮局 · 来自今天的留言") throw Error("请选择山河邮局导出的留言文件。");
+      if (lines[0] !== "山河邮局 · 来自今天的留言") throw Error("请选择山河邮局导出的留言文件");
       const date = lines[1]?.match(/^(\d{4})年(\d{1,2})月(\d{1,2})日\s+(\d{1,2}):(\d{2})$/);
       const start = chunk.indexOf("致长征路上的你们：\n\n");
       const end = chunk.lastIndexOf("\n\n署名：");
-      if (!date || start < 0 || end < start) throw Error("文本备份格式不完整，请重新导出后再试。");
+      if (!date || start < 0 || end < start) throw Error("文本备份格式不完整，请重新导出后再试");
       const [, y, mo, d, h, mi] = date.map(Number);
       const time = new Date(y, mo - 1, d, h, mi);
       if (time.getFullYear() !== y || time.getMonth() !== mo - 1 || time.getDate() !== d || time.getHours() !== h || time.getMinutes() !== mi)
-        throw Error("备份中的留言日期无效。");
+        throw Error("备份中的留言日期无效");
       const body = chunk.slice(start + "致长征路上的你们：\n\n".length, end);
       const rawName = chunk.slice(end + "\n\n署名：".length).split("\n")[0];
       const nickname = rawName === "一位无名来信人" ? "" : rawName;
@@ -27,18 +27,18 @@ window.LM_LETTERS = (() => {
     });
   }
   function parse(source, events = []) {
-    if (typeof source !== "string" || source.length > 2000000) throw Error("备份文件过大，未导入任何留言。");
+    if (typeof source !== "string" || source.length > 2000000) throw Error("备份文件过大，未导入任何留言");
     const text = source.replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n").trim();
     let messages, legacy = false;
     if (/^[\[{]/.test(text)) {
       let value;
-      try { value = JSON.parse(text); } catch { throw Error("备份文件无法读取，未更改现有留言。"); }
+      try { value = JSON.parse(text); } catch { throw Error("备份文件无法读取，未更改现有留言"); }
       if (Array.isArray(value)) messages = value;
       else if (value?.format === "longmarch-letters" && value.version === 1) messages = value.messages;
-      else throw Error("不是支持的山河邮局备份文件。");
+      else throw Error("不是支持的山河邮局备份文件");
     } else { messages = parseLegacy(text, events); legacy = true; }
     if (!Array.isArray(messages) || !messages.length || messages.length > limit || !messages.every(LM_STORE.messageValid))
-      throw Error("备份内容不完整或超出200封，未更改现有留言。");
+      throw Error("备份内容不完整或超出200封，未更改现有留言");
     return { messages: messages.map(clean), legacy };
   }
   const legacyKey = m => JSON.stringify([m.body, m.nickname, Math.floor(m.createdAt / 60000)]);
@@ -52,12 +52,12 @@ window.LM_LETTERS = (() => {
       if (incoming.legacy && counts.get(key) > 0) { counts.set(key, counts.get(key) - 1); skipped++; return; }
       const found = byId.get(message.id);
       if (found) {
-        if (JSON.stringify(clean(found)) !== JSON.stringify(clean(message))) throw Error("备份与现有留言存在编号冲突，未执行导入。");
+        if (JSON.stringify(clean(found)) !== JSON.stringify(clean(message))) throw Error("备份与现有留言存在编号冲突，未执行导入");
         skipped++; return;
       }
       result.push(clean(message)); byId.set(message.id, message); added++;
     });
-    if (result.length > limit) throw Error("合并后将超过200封，请先备份并整理已有留言。");
+    if (result.length > limit) throw Error("合并后将超过200封，请先备份并整理已有留言");
     return { messages: result, added, skipped };
   }
   function serialize(messages) {

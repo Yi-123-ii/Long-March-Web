@@ -490,12 +490,12 @@ window.LM_EVENTS = [
       },
     ],
     image: {
-      src: "assets/images/events/wuqi.svg",
+      src: "assets/images/events/wuqi-time-20261105.svg",
       alt: "时间示意图：1935年中央红军抵达吴起，1936年红军三大主力会师",
       caption:
         "中央红军抵达陕北与三大主力会师时间示意",
       credit: "本项目原创 · 史实时序示意",
-      preview: "assets/images/events/wuqi.svg",
+      preview: "assets/images/events/wuqi-time-20261105.svg",
     },
     focus: {
       title: "长途转战有了落脚之地",
