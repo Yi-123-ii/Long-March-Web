@@ -32,3 +32,27 @@ test('source-clock captions keep the natural pauses and resume only the second s
  const resumed=C.advance(D,saved,'roll-sleeve');assert.equal(resumed.node,'xj-a-introduce');
  assert.equal(n(resumed.node).mediaStart,2.7);
 });
+test('Liang handoff belongs only to the luggage route and its stills preserve the same position',()=>{
+ const film=n('xj-b-bag');assert.equal(film.filmId,'XJ-04');assert.equal(film.speaker,'梁叔');
+ assert(film.nativeAudio&&film.advanceOnEnd);assert.equal(film.captionCues.map(c=>c.text).join(''),film.text);
+ assert.equal(film.poster,D.images[n('xj-b-handoff').scene]);assert.equal(film.hold,D.images[n('xj-b-leave').scene]);
+ assert(walk('xj-end','luggage').path.includes(film.id));assert(!walk('xj-end','stretcher').path.includes(film.id));
+});
+test('both routes meet the same report without receiving the needle pouch twice',()=>{
+ const film=n('xj-loss');assert.equal(film.filmId,'XJ-05');assert.equal(film.speaker,'转运同志');
+ assert(film.nativeAudio);assert.equal(film.advanceOnEnd,false);assert(!film.text.includes('摘下帽子'));
+ assert.equal(film.captionPages.map(c=>c.text).join(''),film.text);
+ for(const route of ['stretcher','luggage']){
+  const state=walk('xj-end',route);assert.equal(state.path.filter(id=>id===film.id).length,1);
+  assert.equal(state.path.includes('xj-news-a'),route==='stretcher');
+  assert.equal(state.path.includes('xj-news-b'),route==='luggage');
+ }
+ assert.equal(film.poster,D.images[n('xj-ask-liang').scene]);
+});
+test('the report replaces a single subtitle line and keeps its pause before the final sentence',()=>{
+ const film=n('xj-loss'),at=t=>T.pageFrame(film.captionPages,t).text;
+ assert.equal(at(1.9),'梁叔回去帮我们抬担架，');
+ assert.equal(at(4.5),'在江边中了弹。');
+ assert.equal(at(7),'我们没能把他救回来。');
+ assert.equal(C.restore(D,JSON.stringify(walk('xj-loss','luggage'))).node,'xj-loss');
+});

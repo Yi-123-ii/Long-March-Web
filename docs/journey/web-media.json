@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 64168163,
-  "webBytes": 14999780,
+  "originalBytes": 71395696,
+  "webBytes": 16743856,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -358,6 +358,48 @@
       "sha256": "58250067e8d94c3fa9440a1d5a860ac27a62b1d7436ac63c0cc7600ad085fbf4",
       "originalBytes": 2739733,
       "webBytes": 872348
+    },
+    {
+      "source": "assets/chapters/liang-handoff-first-v033.png",
+      "web": "assets/stream/liang-handoff-first-v033-90bd388316.webp",
+      "sha256": "33fa3512af995f2ed30146f74e5613c057f1911b165511475c6e1d93f1c64336",
+      "originalBytes": 735590,
+      "webBytes": 80022
+    },
+    {
+      "source": "assets/chapters/liang-handoff-hold-v033.png",
+      "web": "assets/stream/liang-handoff-hold-v033-dff061e20f.webp",
+      "sha256": "d562547d5811805d8a14cc731bcc73fa0278d33fed12bafff7286f64072a83f1",
+      "originalBytes": 659827,
+      "webBytes": 56058
+    },
+    {
+      "source": "assets/chapters/liang-handoff-v033.mp4",
+      "web": "assets/stream/liang-handoff-v033-cdedf3d5ed.mp4",
+      "sha256": "47b5b254c1027adb7effde59acfc45868436c318915dcef1717ee6f3ad46af02",
+      "originalBytes": 2564145,
+      "webBytes": 808685
+    },
+    {
+      "source": "assets/chapters/xiang-loss-first-v033.png",
+      "web": "assets/stream/xiang-loss-first-v033-971a4271dd.webp",
+      "sha256": "33a4bc4cba67844ad476a186605beb5119ae06d7353612af9aaf56a99737af7f",
+      "originalBytes": 518272,
+      "webBytes": 42978
+    },
+    {
+      "source": "assets/chapters/xiang-loss-hold-v033.png",
+      "web": "assets/stream/xiang-loss-hold-v033-3d336f2293.webp",
+      "sha256": "26f2fe2cfe0689c0240b08e2e210e27c67a83d8b2f43f959685d4ea88765f4a4",
+      "originalBytes": 624696,
+      "webBytes": 42006
+    },
+    {
+      "source": "assets/chapters/xiang-loss-v033.mp4",
+      "web": "assets/stream/xiang-loss-v033-9bf36dd4dc.mp4",
+      "sha256": "6dbed5ebd6f7230b2c929056ec152d2c73a8856e778472689f4cc32553ff0f12",
+      "originalBytes": 2125003,
+      "webBytes": 714327
     }
   ]
 }
