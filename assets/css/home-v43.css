@@ -9,49 +9,8 @@
   background: linear-gradient(#f6ecdb 100px, #f3e9da 270px, #eee5d7);
 }
 
-.v45-prologue__photograph {
-  grid-area: photo;
-  width: min(100%, 420px);
-  margin: 0;
-}
-
-.v45-prologue__photograph img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 237px;
-  background: #dfd8c9;
-}
-
-.v45-prologue__photograph figcaption {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  margin-top: 10px;
-  color: #685b4b;
-  font: 400 12px/1.6 var(--v38-ui);
-  letter-spacing: .035em;
-}
-
-.v45-prologue__photograph figcaption a {
-  text-decoration: underline;
-  text-decoration-color: #aa8b7380;
-  text-underline-offset: 3px;
-}
-
-.v45-prologue__photograph figcaption a:focus-visible {
-  outline: 2px solid var(--archive-red);
-  outline-offset: 3px;
-}
-
-.v45-prologue__photograph figcaption > span:first-child {
-  color: var(--archive-red);
-  letter-spacing: .08em;
-}
-
 .v43-prologue__frame {
-  width: min(100%, 1120px);
+  width: min(100%, 940px);
   margin-inline: auto;
 }
 
@@ -78,22 +37,10 @@
   white-space: nowrap;
 }
 
-.v43-prologue__intro {
-  display: grid;
-  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
-  grid-template-areas:
-    "title history"
-    "photo history";
-  align-items: start;
-  gap: 18px clamp(36px, 6vw, 84px);
-  padding-block: 24px 0;
-}
-
 .v3-home .v43-prologue h2 {
-  grid-area: title;
+  margin-block: clamp(20px, 3vw, 30px) 16px;
   font: 600 clamp(32px, 2.5vw, 36px)/1.32 var(--v38-reading);
   letter-spacing: .025em;
-  text-wrap: balance;
 }
 
 .v43-prologue__history,
@@ -102,14 +49,8 @@
   font: 400 17px/1.85 var(--v38-reading);
 }
 
-.v43-prologue__history {
-  grid-area: history;
-  align-self: center;
-}
-
 .v3-home .v43-prologue__narrative {
-  max-width: 54em;
-  margin-top: clamp(22px, 3vw, 36px);
+  margin-top: clamp(16px, 2vw, 24px);
 }
 
 .v43-guide {
@@ -193,12 +134,7 @@
   }
 }
 
-@media (min-width: 641px) and (max-width: 900px) {
-  .v43-prologue__intro {
-    grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
-    column-gap: 32px;
-  }
-
+@media (max-width: 900px) {
   .v3-home .v43-prologue h2 {
     font-size: 30px;
   }
@@ -216,25 +152,9 @@
     background: linear-gradient(#f6ecdb 75px, #f3e9da 205px, #eee5d7);
   }
 
-  .v43-prologue__intro {
-    grid-template-columns: 1fr;
-    grid-template-areas: "title" "history" "photo";
-    gap: 18px;
-    padding-block: 20px 0;
-  }
-
   .v3-home .v43-prologue h2 {
     font-size: clamp(29px, 5.8vw, 38px);
-    text-wrap: initial;
   }
-
-  .v43-prologue__history,
-  .v43-prologue__narrative {
-    max-width: 560px;
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
 }
 
 @media (max-width: 540px) {
