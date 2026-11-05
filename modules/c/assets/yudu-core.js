@@ -31,12 +31,53 @@
   return remember(data,result);
  }
  function restart(data,state){const kept=remember(data,state);return remember(data,{...create(data),chapterProgress:{...kept.chapterProgress},completed:[...state.completed],settings:{...state.settings}});}
+ // Recover decisions from the validated old path, never from serialized choice fields.
+ function legacyDecisions(schema,raw){
+  if(!schema||!Array.isArray(raw.path)||raw.path.length>512||raw.path[0]!==schema.start||raw.path.at(-1)!==raw.node)return null;
+  const nodes=new Map(schema.nodes.map(n=>[n.id,n])),choices={};let n=nodes.get(schema.start);
+  for(const id of raw.path.slice(1)){
+   if(!n||n.end)return null;
+   const choice=n.choices?.find(c=>c.next===id);
+   if(n.choices&&!choice)return null;
+   const next=choice?.next||n.routes?.find(r=>choices[r.choice]===r.equals)?.next||n.next;
+   if(next!==id)return null;
+   if(choice)choices[n.id]=choice.id;
+   n=nodes.get(id);
+  }
+  return n?choices:null;
+ }
+ function upgradeProgress(data,saved){
+  const revision=saved.storyRevision||1;
+  if(data.storyRevision!==10||revision<7||revision>9)return saved;
+  function rewrite(mark){
+   const decisions=legacyDecisions(data.legacyStory,mark);if(!decisions)return null;
+   let state=create(data),guard=0;
+   while(state.node!==mark.node&&guard++<512){
+    const n=current(data,state);
+    if(n.end)return null;
+    const pick=n.choices?.length===1?n.choices[0].id:decisions[n.id];
+    if(n.choices&&!n.choices.some(c=>c.id===pick))return null;
+    const next=advance(data,state,pick);if(next===state)return null;state=next;
+   }
+   return state.node===mark.node?{node:state.node,path:state.path}:null;
+  }
+  const migrated=rewrite(saved);
+  // Some supported older saves already carry the new topology (e.g. a re-saved migration).
+  // They still pass the normal path validator below; this does not trust their decisions.
+  if(!migrated)return {...saved,storyRevision:data.storyRevision};
+  const chapterProgress={};
+  for(const [id,mark]of Object.entries(saved.chapterProgress||{})){
+   const mapped=rewrite(mark);if(mapped)chapterProgress[id]=mapped;
+  }
+  return {...saved,...migrated,chapterProgress,storyRevision:data.storyRevision};
+ }
  function restore(data,raw){
   const fresh=create(data);try{
-   const saved=typeof raw==='string'?JSON.parse(raw):raw;
+   let saved=typeof raw==='string'?JSON.parse(raw):raw;
    if(!saved||saved.version!==1||!Array.isArray(saved.path)||saved.path.length>512)return fresh;
+   saved=upgradeProgress(data,saved);
    // An edited scene cannot resume at a removed speech node. Keep prior memories and audio settings.
-   if((saved.storyRevision||1)!==fresh.storyRevision&&!(saved.storyRevision>=7&&saved.storyRevision<fresh.storyRevision&&fresh.storyRevision<=9)){
+   if((saved.storyRevision||1)!==fresh.storyRevision){
     fresh.completed=[...new Set((Array.isArray(saved.completed)?saved.completed:[]).filter(x=>data.memories[x]))];
     for(const key of ['voice','thought','ambient'])if(Number.isFinite(saved.settings?.[key]))fresh.settings[key]=Math.max(0,Math.min(1,saved.settings[key]));
     fresh.settings.auto=saved.settings?.auto===true;
