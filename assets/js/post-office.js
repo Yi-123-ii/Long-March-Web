@@ -209,23 +209,34 @@
     body.focus();
   });
   const prompts = {
-    today:
-      "如果能把今天的生活讲给长征路上的人听，你最想让他们看到怎样的一天？可以从最近一次与家人围坐吃饭写起，也可以讲讲教室里的一个寻常片刻，把熟悉的生活慢慢说给他们听。留下一两个具体的细节，再写写读过这些纪事后，你对这份日常有了怎样的感受，让远方的收信人看见你眼中的今天。",
-    thanks:
-      "读过这些纪事，哪一个人、哪一段经历让你久久记得？回到那个让你停下来的地方，说说是什么打动了你，以及这份触动与你今天的生活有怎样的联系。感谢可以写得很具体：也许是对艰难处境中仍然扶持战友的敬意，也许是对今天能够与亲人平安相伴的珍惜；顺着自己的感受写下去，让收信人知道你为何记住他们。",
-    question:
-      "有时，一段历史最先留给我们的是一个疑问。读到重要的抉择，或某段艰难的行军时，你最想向当时的人了解什么？把问题放回具体的经历中，讲讲它为什么让你在意；如果已经有了自己的理解，也可以写下理由，让疑问与思考一同留在信里，成为下一次走近这段历史的起点。",
+    today: [
+      "如果能够向长征路上的先辈写一封信，你最想向他们介绍怎样的今日中国？",
+      "你可以从自身的求学经历谈起，介绍当代青少年所拥有的学习条件、成长环境与发展机遇；也可以从家乡的变迁、科技的进步、社会的发展等角度，描绘今日中国的崭新面貌。还可以讲述身边平凡而温暖的生活，让先辈们看看，他们曾以热血与信念守护的山河，如今正发生着怎样的变化，他们曾经为之奋斗的理想，又如何在新时代延续与实现。",
+    ],
+    thanks: [
+      "读过这些纪事，是否有一段经历令你心生感念，想向其中的人物表达一份感谢？",
+      "或许是长征途中为红军提供帮助、给予支持的沿途群众，或许是在艰难行军中彼此扶持、相互照应的战士；也可能是那些在危急关头挺身而出、为信念坚守到底的平凡身影。无论是一次无私的援助，还是一份坚定的守护，都值得被历史铭记。写信时，不妨选取一段令你动容的经历，讲述他们曾经的付出，以及这段历史带给你的感悟，让跨越岁月的敬意化作真挚的文字。",
+    ],
+    question: [
+      "在阅读长征历史的过程中，是否有某段经历、某次抉择令你产生疑问，想向当年的亲历者寻求答案？",
+      "或许你想了解，面对雪山草地、饥寒交迫与重重险阻，先辈们如何坚定信念、坚持前行；或许你想探寻，在重要的历史关头，他们为何作出那样的选择，又经历了怎样的思考与权衡。也可以从一场战役、一次转移或一个历史细节出发，写下自己的困惑与思考。让问题成为理解历史的起点，在与先辈的隔空对话中，走近那段峥嵘岁月。",
+    ],
   };
+  const promptHint = $("#prompt-hint");
   document.querySelectorAll("[data-prompt]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.prompt === "today"));
     button.addEventListener("click", () => {
       document
         .querySelectorAll("[data-prompt]")
         .forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
-      $("#prompt-hint").textContent = prompts[button.dataset.prompt];
+      const paragraphs = prompts[button.dataset.prompt].map((text) => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = text;
+        return paragraph;
+      });
+      promptHint.replaceChildren(...paragraphs);
     });
   });
-  $("#prompt-hint").textContent = prompts.today;
   function renderMessages() {
     messages = getMessages().sort((a, b) => b.createdAt - a.createdAt);
     $("#saved-count").textContent = messages.length;

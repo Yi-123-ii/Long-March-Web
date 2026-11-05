@@ -335,7 +335,7 @@
   line-height: 1.9;
   margin-bottom: 15px;
 }
-.lm-prompts > div {
+.lm-prompts > .lm-prompt-options {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -351,12 +351,15 @@
   background: #f2eee3;
 }
 .lm-prompts .lm-prompt-hint {
+  color: var(--lm-muted);
   font-family: var(--lm-serif);
   font-size: 13px;
   line-height: 1.9;
   margin: 17px 0 0;
   min-height: 52px;
 }
+.lm-prompt-hint p { margin: 0; }
+.lm-prompt-hint p + p { margin-top: .65em; }
 .lm-saved-heading {
   display: flex;
   justify-content: space-between;
@@ -735,7 +738,7 @@
     font-size: 9px;
     padding: 5px 7px;
   }
-  .lm-prompts > div {
+  .lm-prompts > .lm-prompt-options {
     gap: 6px;
   }
   .lm-prompts .lm-prompt-hint {

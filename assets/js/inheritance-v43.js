@@ -117,11 +117,12 @@
   dialog.addEventListener("keydown", event => {
     if (event.key !== "Tab") return;
     event.preventDefault();
-    const active = document.activeElement;
+    const controls = [closeButton, ...body.querySelectorAll("a[href]"), scroll];
+    const active = controls.indexOf(document.activeElement);
     const target = event.shiftKey
-      ? (active === scroll ? closeButton : scroll)
-      : (active === closeButton ? scroll : closeButton);
-    target.focus({ preventScroll: true });
+      ? controls[active > 0 ? active - 1 : controls.length - 1]
+      : controls[(active + 1) % controls.length];
+    target.focus({ preventScroll: target === closeButton || target === scroll });
   });
   dialog.addEventListener("cancel", event => {
     event.preventDefault();

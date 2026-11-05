@@ -6,7 +6,9 @@
 
 历史过渡保留周广才皮带实拍与裴周玉的渡河回忆，撤去遵义会议和半条被子的独立段落。两条史料各自陈述，作为粮食短缺与照顾战友的具体见证。随后由史事写到救国救民的信念，交代长征中的独立判断、团结和军民相依。人物纪实与集体行动的导语也分别转向长期为群众尽责和分工协作。
 
-精神内涵按[纪念红军长征胜利80周年大会讲话](https://www.xinhuanet.com/politics/2016-10/21/c_1119765804_2.htm)核对。图下只留文物身份，[影像来源](image-credits.html)从精神传承页脚进入。团队实践照片的报道出处继续保留在案例资料中。
+精神内涵按[纪念红军长征胜利80周年大会讲话](https://www.xinhuanet.com/politics/2016-10/21/c_1119765804_2.htm)核对。图下只留文物身份，[照片许可](image-credits.html)从皮带故事内进入。团队实践照片的报道出处继续保留在案例资料中。
+
+历史过渡的两个标题由矢量笔形重新排字。主标题加重「熠熠不朽」，在「的」处收小字身；副标题让「走下去」放大并上扬。字形取自 [Ma Shan Zheng](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/mashanzheng) 和 [Zhi Mang Xing](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/zhimangxing)，均采用 SIL OFL 1.1。字库许可见 [Ma Shan Zheng](../../assets/fonts/ma-shan-zheng-OFL.txt) 和 [Zhi Mang Xing](../../assets/fonts/zhi-mang-xing-OFL.txt)。
 
 ## 首版叙事意图与空间组织
 
@@ -82,7 +84,7 @@
 
 处理记录：从原图 `x=1250,y=1290,width=2032,height=1270` 裁取下方周广才皮带，完整保留该圈皮带、金属扣与编号2；等比缩小至1260×788、840×525并转换WebP。没有调色、锐化、重绘或抹除标记。图中看不到皮带背面的“长征记”，正文与辅助文本均不声称这三个字在该画面可见。派生图片沿用CC BY-SA 4.0。
 
-首版把授权信息放在图下的折叠区。2026年11月5日修订后，该信息移至页脚链接的影像来源页。
+首版把授权信息放在图下的折叠区。现行页面从皮带故事链接至照片许可页。
 
 ## 验证记录
 

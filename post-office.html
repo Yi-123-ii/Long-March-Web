@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#e9eeeb" />
     <title>山河邮局 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261105-site-copy-glyphs" />
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261105-letter-guide-glyphs" />
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261105-reading-return" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261105-letter-guides" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
@@ -19,7 +19,7 @@
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261102-unified"></script>
-    <script defer src="assets/js/post-office.js?v=20261105-site-copy"></script>
+    <script defer src="assets/js/post-office.js?v=20261105-letter-guides"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
@@ -136,16 +136,17 @@
             <div class="lm-prompts">
               <h2>不知道从哪里落笔？</h2>
               <p>从一个角度落笔，慢慢写出自己的感受</p>
-              <div>
-                <button type="button" data-prompt="today">说说今天</button
+              <div class="lm-prompt-options">
+                <button type="button" data-prompt="today" aria-pressed="true">说说今天</button
                 ><button type="button" data-prompt="thanks">留一句感谢</button
                 ><button type="button" data-prompt="question">
                   分享一个问题
                 </button>
               </div>
-              <p id="prompt-hint" class="lm-prompt-hint" aria-live="polite">
-                如果能把今天的生活讲给长征路上的人听，你最想让他们看到怎样的一天？可以从最近一次与家人围坐吃饭写起，也可以讲讲教室里的一个寻常片刻，把熟悉的生活慢慢说给他们听。留下一两个具体的细节，再写写读过这些纪事后，你对这份日常有了怎样的感受，让远方的收信人看见你眼中的今天。
-              </p>
+              <div id="prompt-hint" class="lm-prompt-hint" aria-live="polite" aria-atomic="true">
+                <p>如果能够向长征路上的先辈写一封信，你最想向他们介绍怎样的今日中国？</p>
+                <p>你可以从自身的求学经历谈起，介绍当代青少年所拥有的学习条件、成长环境与发展机遇；也可以从家乡的变迁、科技的进步、社会的发展等角度，描绘今日中国的崭新面貌。还可以讲述身边平凡而温暖的生活，让先辈们看看，他们曾以热血与信念守护的山河，如今正发生着怎样的变化，他们曾经为之奋斗的理想，又如何在新时代延续与实现。</p>
+              </div>
             </div>
           </aside>
         </div>
