@@ -208,33 +208,16 @@
     switchTab(0);
     body.focus();
   });
-  const prompts = {
-    today: [
-      "如果能够向长征路上的先辈写一封信，你最想向他们介绍怎样的今日中国？",
-      "你可以从自身的求学经历谈起，介绍当代青少年所拥有的学习条件、成长环境与发展机遇；也可以从家乡的变迁、科技的进步、社会的发展等角度，描绘今日中国的崭新面貌。还可以讲述身边平凡而温暖的生活，让先辈们看看，他们曾以热血与信念守护的山河，如今正发生着怎样的变化，他们曾经为之奋斗的理想，又如何在新时代延续与实现。",
-    ],
-    thanks: [
-      "读过这些纪事，是否有一段经历令你心生感念，想向其中的人物表达一份感谢？",
-      "或许是长征途中为红军提供帮助、给予支持的沿途群众，或许是在艰难行军中彼此扶持、相互照应的战士；也可能是那些在危急关头挺身而出、为信念坚守到底的平凡身影。无论是一次无私的援助，还是一份坚定的守护，都值得被历史铭记。写信时，不妨选取一段令你动容的经历，讲述他们曾经的付出，以及这段历史带给你的感悟，让跨越岁月的敬意化作真挚的文字。",
-    ],
-    question: [
-      "在阅读长征历史的过程中，是否有某段经历、某次抉择令你产生疑问，想向当年的亲历者寻求答案？",
-      "或许你想了解，面对雪山草地、饥寒交迫与重重险阻，先辈们如何坚定信念、坚持前行；或许你想探寻，在重要的历史关头，他们为何作出那样的选择，又经历了怎样的思考与权衡。也可以从一场战役、一次转移或一个历史细节出发，写下自己的困惑与思考。让问题成为理解历史的起点，在与先辈的隔空对话中，走近那段峥嵘岁月。",
-    ],
-  };
-  const promptHint = $("#prompt-hint");
-  document.querySelectorAll("[data-prompt]").forEach((button) => {
-    button.setAttribute("aria-pressed", String(button.dataset.prompt === "today"));
+  const promptButtons = document.querySelectorAll("[data-prompt]");
+  const promptPanels = $("#prompt-hint").querySelectorAll("[data-prompt-panel]");
+  promptButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      document
-        .querySelectorAll("[data-prompt]")
-        .forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
-      const paragraphs = prompts[button.dataset.prompt].map((text) => {
-        const paragraph = document.createElement("p");
-        paragraph.textContent = text;
-        return paragraph;
+      if (button.getAttribute("aria-pressed") === "true") return;
+      promptButtons.forEach((option) => option.setAttribute("aria-pressed", String(option === button)));
+      promptPanels.forEach((panel) => {
+        if (panel.dataset.promptPanel === button.dataset.prompt) panel.removeAttribute("aria-hidden");
+        else panel.setAttribute("aria-hidden", "true");
       });
-      promptHint.replaceChildren(...paragraphs);
     });
   });
   function renderMessages() {

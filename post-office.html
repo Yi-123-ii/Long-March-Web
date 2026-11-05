@@ -12,7 +12,7 @@
 <noscript><link rel="stylesheet" href="assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
 
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261105-letter-guides" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261105-letter-layout" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
@@ -22,7 +22,7 @@
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261105-opening-perf"></script>
-    <script defer src="assets/js/post-office.js?v=20261105-letter-guides"></script>
+    <script defer src="assets/js/post-office.js?v=20261105-letter-layout"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=20261105-opening-perf" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
@@ -81,7 +81,7 @@
       </div>
       <section id="write-panel" role="tabpanel" aria-labelledby="write-tab">
         <div class="lm-post-layout">
-          <div>
+          <div class="lm-post-compose">
             <form id="letter-form" class="lm-letter" novalidate>
               <div class="lm-letter-top">
                 <span>山河邮局</span>
@@ -112,19 +112,21 @@
                 />
               </div>
             </form>
-            <p id="form-error" class="lm-form-error" role="alert"></p>
-            <div class="lm-send-row">
-              <p>
-                投递后，可在「我的留言」中查看和备份
-              </p>
-              <button
-                class="lm-button"
-                type="submit"
-                form="letter-form"
-                id="send-letter"
-              >
-                封好，投递 <span aria-hidden="true">↗</span>
-              </button>
+            <div class="lm-post-send">
+              <p id="form-error" class="lm-form-error" role="alert"></p>
+              <div class="lm-send-row">
+                <p>
+                  投递后，可在「我的留言」中查看和备份
+                </p>
+                <button
+                  class="lm-button"
+                  type="submit"
+                  form="letter-form"
+                  id="send-letter"
+                >
+                  封好，投递 <span aria-hidden="true">↗</span>
+                </button>
+              </div>
             </div>
           </div>
           <aside class="lm-post-aside">
@@ -138,14 +140,24 @@
               <p>从一个角度落笔，慢慢写出自己的感受</p>
               <div class="lm-prompt-options">
                 <button type="button" data-prompt="today" aria-pressed="true">说说今天</button
-                ><button type="button" data-prompt="thanks">留一句感谢</button
-                ><button type="button" data-prompt="question">
+                ><button type="button" data-prompt="thanks" aria-pressed="false">留一句感谢</button
+                ><button type="button" data-prompt="question" aria-pressed="false">
                   分享一个问题
                 </button>
               </div>
               <div id="prompt-hint" class="lm-prompt-hint" aria-live="polite" aria-atomic="true">
-                <p>如果能够向长征路上的先辈写一封信，你最想向他们介绍怎样的今日中国？</p>
-                <p>你可以从自身的求学经历谈起，介绍当代青少年所拥有的学习条件、成长环境与发展机遇；也可以从家乡的变迁、科技的进步、社会的发展等角度，描绘今日中国的崭新面貌。还可以讲述身边平凡而温暖的生活，让先辈们看看，他们曾以热血与信念守护的山河，如今正发生着怎样的变化，他们曾经为之奋斗的理想，又如何在新时代延续与实现。</p>
+                <div data-prompt-panel="today">
+                  <p>如果能够向长征路上的先辈写一封信，你最想向他们介绍怎样的今日中国？</p>
+                  <p>你可以从自身的求学经历谈起，介绍当代青少年所拥有的学习条件、成长环境与发展机遇；也可以从家乡的变迁、科技的进步、社会的发展等角度，描绘今日中国的崭新面貌。还可以讲述身边平凡而温暖的生活，让先辈们看看，他们曾以热血与信念守护的山河，如今正发生着怎样的变化，他们曾经为之奋斗的理想，又如何在新时代延续与实现。</p>
+                </div>
+                <div data-prompt-panel="thanks" aria-hidden="true">
+                  <p>读过这些纪事，是否有一段经历令你心生感念，想向其中的人物表达一份感谢？</p>
+                  <p>或许是长征途中为红军提供帮助、给予支持的沿途群众，或许是在艰难行军中彼此扶持、相互照应的战士；也可能是那些在危急关头挺身而出、为信念坚守到底的平凡身影。无论是一次无私的援助，还是一份坚定的守护，都值得被历史铭记。写信时，不妨选取一段令你动容的经历，讲述他们曾经的付出，以及这段历史带给你的感悟，让跨越岁月的敬意化作真挚的文字。</p>
+                </div>
+                <div data-prompt-panel="question" aria-hidden="true">
+                  <p>在阅读长征历史的过程中，是否有某段经历、某次抉择令你产生疑问，想向当年的亲历者寻求答案？</p>
+                  <p>或许你想了解，面对雪山草地、饥寒交迫与重重险阻，先辈们如何坚定信念、坚持前行；或许你想探寻，在重要的历史关头，他们为何作出那样的选择，又经历了怎样的思考与权衡。也可以从一场战役、一次转移或一个历史细节出发，写下自己的困惑与思考。让问题成为理解历史的起点，在与先辈的隔空对话中，走近那段峥嵘岁月。</p>
+                </div>
               </div>
             </div>
           </aside>
