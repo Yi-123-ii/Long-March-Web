@@ -69,3 +69,7 @@ dialog{width:min(520px,calc(100vw - 32px));max-height:80dvh;padding:27px 31px;co
 
 /* The pause layer covers the entire story, including its header and subtitles. */
 .pause-overlay{z-index:20;isolation:isolate}.resume-button{background:#10252b38;border-color:#f6e3bfb3;min-height:56px}.resume-button:focus-visible{outline-color:#f6e3bf}.pause-overlay p{margin:16px 0 0;letter-spacing:1px}
+
+/* Navigation remains available beside the reading controls at narrow widths. */
+.reading-controls{flex-wrap:wrap}.reading-controls>div{flex-wrap:wrap;column-gap:20px;row-gap:0}.subtle:disabled{opacity:.38}.ending-navigation{display:flex;gap:24px;flex-wrap:wrap}.dialog-heading .close-dialog{min-width:60px;min-height:44px;white-space:nowrap}
+@media(max-width:600px){.reading-controls{gap:6px}.reading-controls>div{column-gap:14px}.reading-controls .next{margin-left:auto}.ending .ending-navigation{margin-top:10px}}

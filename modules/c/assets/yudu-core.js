@@ -129,6 +129,22 @@
   const kept=remember(data,state),mark=savedAt(data,kept,id);
   return mark?restore(data,{...kept,node:mark.node,path:mark.path}):beginChapter(data,kept,id);
  }
- const api={SAVE_KEY,create,current,advance,restart,restore,target,chapter,canOpenChapter,beginChapter,openChapter};
+ function previousIndex(data,state){
+  const id=chapter(data,state)?.id;
+  for(let i=state.path.length-2;i>=0;i--){
+   const n=data.nodes.find(n=>n.id===state.path[i]);
+   if(!n||n.chapter!==id)break;
+   if(n.text||n.choices||n.nativeAudio)return i;
+  }
+  return -1;
+ }
+ function canBack(data,state){return previousIndex(data,state)>=0;}
+ function back(data,state){
+  const index=previousIndex(data,state);if(index<0)return state;
+  const kept=remember(data,state),path=state.path.slice(0,index+1);
+  // Rebuild choices from the actual truncated route, retaining independent station bookmarks.
+  return restore(data,{...kept,node:path.at(-1),path,settings:{...state.settings,auto:false}});
+ }
+ const api={SAVE_KEY,create,current,advance,restart,restore,target,chapter,canOpenChapter,beginChapter,openChapter,canBack,back};
  if(typeof module==='object'&&module.exports)module.exports=api;else root.YuduCore=api;
 })(typeof window==='undefined'?globalThis:window);
