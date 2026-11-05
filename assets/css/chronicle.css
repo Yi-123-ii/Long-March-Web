@@ -407,6 +407,14 @@
   object-fit: contain;
   background: #e6ebe2;
 }
+.lm-article-figure img.is-route-map { max-height: none; }
+.lm-article-image-full {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 6px;
+  font-size: 13px;
+}
 .lm-article-figure figcaption {
   margin-top: 12px;
   padding-left: 14px;

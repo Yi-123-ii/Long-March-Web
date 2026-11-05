@@ -128,8 +128,15 @@
       imageError.hidden = false;
     };
     image.alt = event.image.alt;
+    image.width = event.image.width || 1200;
+    image.height = event.image.height || 800;
+    image.classList.toggle("is-route-map", event.image.type === "map");
     image.src = event.image.src;
     document.querySelector("#detail-caption").textContent = event.image.caption;
+    const fullImage = document.querySelector("#detail-image-full");
+    fullImage.hidden = !event.image.full;
+    fullImage.href = event.image.full || "#";
+    fullImage.setAttribute("aria-label", "查看" + event.title + "配图大图（在新页面打开）");
     const sections = document.querySelector("#detail-sections");
     sections.replaceChildren(
       ...event.sections.map((section) => {
