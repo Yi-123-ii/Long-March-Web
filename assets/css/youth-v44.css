@@ -1,8 +1,14 @@
 /* V4.4 · 青年行动 */
-.v44-youth {
+body.legacy-v41 {
   --youth-paper: #f4eddf;
-  --youth-ink: #233a31;
   --youth-muted: #4e594c;
+  --footer-paper: var(--youth-paper);
+  --footer-ink: var(--youth-muted);
+  --footer-rule: transparent;
+}
+
+.v44-youth {
+  --youth-ink: #233a31;
   --youth-rust: #963c2d;
   --youth-rule: #ccbba3;
   position: relative;
