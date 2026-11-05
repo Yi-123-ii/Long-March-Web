@@ -40,9 +40,35 @@ body .section-opening .section-opening__copy h1 img {
   object-fit: contain;
 }
 .section-opening h1 img:not(.legacy-title__art) { display: block; }
-/* Compensate for the transparent margins built into these two artworks. */
-#journey-heading img { transform: translate(-1%, -2%) scale(1.12); }
-#post-title img { transform: scale(1.08); }
+
+/* Map each artwork's visible bounds to the Chronicle lettering within the shared frame. */
+#journey-heading {
+  --art-left: -.90%;
+  --art-top: -11.60%;
+  --art-width: 100.94%;
+  --art-height: 116.59%;
+}
+#legacy-title {
+  --art-left: -3.83%;
+  --art-top: -16.50%;
+  --art-width: 107.52%;
+  --art-height: 124.26%;
+}
+#post-title {
+  --art-left: .49%;
+  --art-top: -1.40%;
+  --art-width: 98.82%;
+  --art-height: 103.87%;
+}
+body .section-opening .section-opening__copy :is(#journey-heading, #legacy-title, #post-title) img {
+  position: absolute;
+  left: var(--art-left);
+  top: var(--art-top);
+  width: var(--art-width);
+  max-width: none;
+  height: var(--art-height);
+  object-fit: fill;
+}
 .section-opening .section-opening__action {
   display: flex;
   align-items: center;
