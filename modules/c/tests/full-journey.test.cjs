@@ -17,7 +17,7 @@ test('all 32 stories reach the 1936 epilogue with their five real choices intact
 test('old saves at the former endpoint can enter the snow chapter without replaying earlier videos',()=>{
  const old=walk('help','luggage','call','stay','write'),i=old.path.indexOf('t2-end');
  const raw={...old,storyRevision:8,node:'t2-end',path:old.path.slice(0,i+1)};
- const s=C.restore(D,raw);assert.equal(s.node,'t2-end');assert.equal(s.storyRevision,9);assert(C.canOpenChapter(D,s,'snow'));
+ const s=C.restore(D,raw);assert.equal(s.node,'t2-end');assert.equal(s.storyRevision,D.storyRevision);assert(C.canOpenChapter(D,s,'snow'));
  const next=C.beginChapter(D,s,'snow');assert.equal(next.node,'snow-arrive');assert.equal(next.choices['xj-choice'],'luggage');assert.equal(next.choices['snow-choice'],undefined);
 });
 test('new Lu assets replace both previous appearances and only supplied grass scenes add movies',()=>{
@@ -29,8 +29,8 @@ test('the two endings keep distinct objects; new writing does not consume or del
  const a=walk('hand','stretcher','support','rescue','sew'),b=walk('help','luggage','call','stay','write');
  assert(a.path.includes('wuqi-sew-result'));assert(!a.path.includes('wuqi-write-letter'));
  assert(b.path.includes('wuqi-write-letter'));assert(b.path.includes('wuqi-writing'));
- const writing=D.nodes.find(n=>n.id==='wuqi-writing');assert.equal(writing.scene,'memory-page');assert(writing.document.includes('梁守成'));
- assert.equal(D.nodes.find(n=>n.id==='wuqi-write-letter').scene,'old-letter-room');
+ const writing=D.nodes.find(n=>n.id==='wuqi-writing');assert.equal(writing.scene,'memory-page');assert(writing.document.includes('梁叔'));assert(!writing.document.includes('梁守成'));
+ assert.equal(D.nodes.find(n=>n.id==='wuqi-write-letter').scene,'memory-page');
 });
 test('every six-station album has a valid start, checkpoint, image and map entry',()=>{
  assert.equal(D.chapters.length,10);assert.equal(D.nodes.filter(n=>n.choices?.length===2).length,5);
