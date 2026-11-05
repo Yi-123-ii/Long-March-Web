@@ -215,8 +215,8 @@
   },
   {
     "id": "xj-b-handoff",
-    "text": "（梁叔把针线包塞进行装，递到我手里。）",
-    "scene": "liang-sewing-hold",
+    "text": "梁叔收好针线包，托着行装朝我转过身。",
+    "scene": "liang-handoff-first",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "xiangjiang",
@@ -226,16 +226,35 @@
     "id": "xj-b-bag",
     "speaker": "梁叔",
     "text": "这个你先替我拿着，过了江再给我。",
-    "scene": "liang-sewing-hold",
+    "scene": "liang-handoff-first",
     "next": "xj-b-leave",
     "mode": "dialogue",
     "chapter": "xiangjiang",
-    "plannedFilm": "XJ-04"
+    "nativeAudio": true,
+    "video": "assets/chapters/liang-handoff-v033.mp4",
+    "poster": "assets/chapters/liang-handoff-first-v033.png",
+    "hold": "assets/chapters/liang-handoff-hold-v033.png",
+    "duration": 4.096009,
+    "title": "梁叔临时托小满接运行装",
+    "filmId": "XJ-04",
+    "advanceOnEnd": true,
+    "captionCues": [
+      {
+        "text": "这个你先替我拿着，",
+        "start": 0.42,
+        "end": 2.38
+      },
+      {
+        "text": "过了江再给我。",
+        "start": 2.81,
+        "end": 4.01
+      }
+    ]
   },
   {
     "id": "xj-b-leave",
     "text": "后头的喊声又响起来。梁叔转身过去，我抱着他的行装，跟上搬运包裹的队伍。",
-    "scene": "xiang-bank",
+    "scene": "liang-handoff-hold",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "xiangjiang",
@@ -303,7 +322,7 @@
   {
     "id": "xj-ask-liang",
     "text": "",
-    "scene": "needle-pouch",
+    "scene": "xiang-loss-first",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -318,12 +337,36 @@
   {
     "id": "xj-loss",
     "speaker": "转运同志",
-    "text": "（摘下帽子）梁叔回去帮我们抬担架，在江边中了弹。我们没能把他救回来。",
-    "scene": "needle-pouch",
+    "text": "梁叔回去帮我们抬担架，在江边中了弹。我们没能把他救回来。",
+    "scene": "xiang-loss-first",
     "next": "xj-unfinished",
     "mode": "dialogue",
     "chapter": "xiangjiang",
-    "plannedFilm": "XJ-05"
+    "nativeAudio": true,
+    "video": "assets/chapters/xiang-loss-v033.mp4",
+    "poster": "assets/chapters/xiang-loss-first-v033.png",
+    "hold": "assets/chapters/xiang-loss-hold-v033.png",
+    "duration": 7.103991,
+    "title": "转运同志在湘江另一侧报信",
+    "filmId": "XJ-05",
+    "advanceOnEnd": false,
+    "captionPages": [
+      {
+        "text": "梁叔回去帮我们抬担架，",
+        "start": 0.23,
+        "end": 1.85
+      },
+      {
+        "text": "在江边中了弹。",
+        "start": 2.07,
+        "end": 3.43
+      },
+      {
+        "text": "我们没能把他救回来。",
+        "start": 5.23,
+        "end": 6.75
+      }
+    ]
   },
   {
     "id": "xj-unfinished",
@@ -774,7 +817,7 @@
   let within=false;for(const n of nodes){if(n.id===first)within=true;if(within)n.chapter=id;if(n.id===last)within=false;}
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
- const data={nodes,images:{...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'xiang-groups-hold':'assets/chapters/xiang-groups-hold-v032.png','lusheng-stretcher-first':'assets/chapters/lusheng-stretcher-first-v032.png','lusheng-river-pause':'assets/chapters/lusheng-stretcher-pause-v032.png','lusheng-river-hold':'assets/chapters/lusheng-stretcher-hold-v032.png','liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
+ const data={nodes,images:{'liang-handoff-first':'assets/chapters/liang-handoff-first-v033.png','liang-handoff-hold':'assets/chapters/liang-handoff-hold-v033.png','xiang-loss-first':'assets/chapters/xiang-loss-first-v033.png','xiang-loss-hold':'assets/chapters/xiang-loss-hold-v033.png',...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'xiang-groups-hold':'assets/chapters/xiang-groups-hold-v032.png','lusheng-stretcher-first':'assets/chapters/lusheng-stretcher-first-v032.png','lusheng-river-pause':'assets/chapters/lusheng-stretcher-pause-v032.png','lusheng-river-hold':'assets/chapters/lusheng-stretcher-hold-v032.png','liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
   chapters:[
   {
     "id": "yudu",
@@ -847,7 +890,7 @@
     "button": "翻开夹金山这一页"
   }
 ],
-  alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','xiang-groups-hold':'湘江渡口的担架队经过身前，岸边战士仍在接运行装','lusheng-stretcher-first':'陆生侧靠在湘江岸边尚未抬起的担架上，抬手提醒小满挽好袖口','lusheng-river-pause':'陆生说完袖口提醒，仍靠在同一副担架上等候','lusheng-river-hold':'陆生在同一副担架上抬眼看向小满，等待回答名字','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
+  alts:{'liang-handoff-first':'梁叔托着旧布行装在湘江渡口旁临时请小满帮忙','liang-handoff-hold':'小满接住梁叔的行装，梁叔看向身侧的队伍','xiang-loss-first':'转运同志在湘江另一侧蹲到小满面前，身后有人走过','xiang-loss-hold':'同一位转运同志说完后低下视线，仍在石头旁停着','xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','xiang-groups-hold':'湘江渡口的担架队经过身前，岸边战士仍在接运行装','lusheng-stretcher-first':'陆生侧靠在湘江岸边尚未抬起的担架上，抬手提醒小满挽好袖口','lusheng-river-pause':'陆生说完袖口提醒，仍靠在同一副担架上等候','lusheng-river-hold':'陆生在同一副担架上抬眼看向小满，等待回答名字','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
  };
  if(typeof module==='object'&&module.exports)module.exports=data;else root.MARCH_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);

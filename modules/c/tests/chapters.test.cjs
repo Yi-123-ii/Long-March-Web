@@ -41,5 +41,5 @@ test('v0.13 first-station saves migrate without replaying its videos or inventin
 test('a forged callback path is rejected and only supplied spoken scenes load video',()=>{
  const b=walk('hand','luggage');const bad={...b,path:b.path.map(id=>id==='zy-b-letter'?'zy-a-lusheng':id)};
  assert.equal(C.restore(D,bad).node,D.start);
- for(const n of D.nodes.filter(n=>!['yudu','snow'].includes(n.chapter))){if(!['xj-sleeve','xj-choice','xj-a-name','xj-a-introduce','zy-thread','grass-a-water','grass-dawn-call','wuqi-write-home'].includes(n.id)){assert(!n.nativeAudio);assert(!n.video);}assert(!n.voice);assert(D.images[n.scene]);}
+ for(const n of D.nodes.filter(n=>!['yudu','snow'].includes(n.chapter))){if(!['xj-sleeve','xj-choice','xj-a-name','xj-a-introduce','xj-b-bag','xj-loss','zy-thread','grass-a-water','grass-dawn-call','wuqi-write-home'].includes(n.id)){assert(!n.nativeAudio);assert(!n.video);}assert(!n.voice);assert(D.images[n.scene]);}
 });

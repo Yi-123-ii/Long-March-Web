@@ -48,5 +48,11 @@
  "assets/chapters/lusheng-stretcher-v032.mp4": "assets/stream/lusheng-stretcher-v032-100e39e554.mp4",
  "assets/chapters/xiang-groups-first-v032.png": "assets/stream/xiang-groups-first-v032-d4c7b9f08a.webp",
  "assets/chapters/xiang-groups-hold-v032.png": "assets/stream/xiang-groups-hold-v032-1d3409e613.webp",
- "assets/chapters/xiang-groups-v032.mp4": "assets/stream/xiang-groups-v032-78578cb922.mp4"
+ "assets/chapters/xiang-groups-v032.mp4": "assets/stream/xiang-groups-v032-78578cb922.mp4",
+ "assets/chapters/liang-handoff-first-v033.png": "assets/stream/liang-handoff-first-v033-90bd388316.webp",
+ "assets/chapters/liang-handoff-hold-v033.png": "assets/stream/liang-handoff-hold-v033-dff061e20f.webp",
+ "assets/chapters/liang-handoff-v033.mp4": "assets/stream/liang-handoff-v033-cdedf3d5ed.mp4",
+ "assets/chapters/xiang-loss-first-v033.png": "assets/stream/xiang-loss-first-v033-971a4271dd.webp",
+ "assets/chapters/xiang-loss-hold-v033.png": "assets/stream/xiang-loss-hold-v033-3d336f2293.webp",
+ "assets/chapters/xiang-loss-v033.mp4": "assets/stream/xiang-loss-v033-9bf36dd4dc.mp4"
 };if(typeof module==='object'&&module.exports)module.exports=media;else root.JourneyMedia=media;})(typeof window==='undefined'?globalThis:window);
