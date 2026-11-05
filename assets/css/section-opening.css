@@ -2,6 +2,8 @@
 body .section-opening.section-opening {
   --header-height: 88px;
   --title-width: min(43vw, 560px, 75svh);
+  --cover-top-offset: calc(-1 * var(--header-height));
+  --cover-paper: var(--lm-bg, #eef1ed);
   position: relative;
   display: flex;
   flex-direction: row;
@@ -13,8 +15,42 @@ body .section-opening.section-opening {
   padding: 0 6vw;
 }
 body .section-opening.section-opening--overlay {
+  --cover-top-offset: 0px;
+  --cover-paper: rgb(234 209 173 / 38%);
   min-height: 100svh;
   padding-top: var(--header-height);
+}
+
+/* Share the home cover's mist and let the picture continue beneath the lower seam. */
+body .section-opening.section-opening::before,
+body .section-opening.section-opening::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+body .section-opening.section-opening::before {
+  top: var(--cover-top-offset);
+  height: var(--cover-top-band);
+  background: var(--cover-top-mist) center / 100% 100% no-repeat;
+}
+body .section-opening.section-opening::after {
+  bottom: calc(-1 * var(--cover-bottom-overlap));
+  height: var(--cover-bottom-band);
+  background: var(--cover-paper);
+  mask: var(--cover-bottom-mist) center / 100% 100% no-repeat;
+}
+body .section-opening.section-opening--overlay::after { z-index: -1; }
+body .lm-hero.section-opening { background: var(--cover-paper); }
+body .v44-opening.section-opening { --cover-paper: var(--doc-paper); }
+body .section-opening :is(.lm-hero-art, .v44-opening__art, .post-opening__landscape) {
+  bottom: calc(-1 * var(--cover-bottom-overlap));
+}
+.section-opening + :is(.lm-chronicle, .lm-post-main),
+.v44-opening + .v44-bridge > .doc-wrap {
+  position: relative;
+  z-index: 2;
 }
 .section-opening .section-opening__copy {
   position: relative;
@@ -40,9 +76,35 @@ body .section-opening .section-opening__copy h1 img {
   object-fit: contain;
 }
 .section-opening h1 img:not(.legacy-title__art) { display: block; }
-/* Compensate for the transparent margins built into these two artworks. */
-#journey-heading img { transform: translate(-1%, -2%) scale(1.12); }
-#post-title img { transform: scale(1.08); }
+
+/* Map each artwork's visible bounds to the Chronicle lettering within the shared frame. */
+#journey-heading {
+  --art-left: -.90%;
+  --art-top: -11.60%;
+  --art-width: 100.94%;
+  --art-height: 116.59%;
+}
+#legacy-title {
+  --art-left: -3.83%;
+  --art-top: -16.50%;
+  --art-width: 107.52%;
+  --art-height: 124.26%;
+}
+#post-title {
+  --art-left: .49%;
+  --art-top: -1.40%;
+  --art-width: 98.82%;
+  --art-height: 103.87%;
+}
+body .section-opening .section-opening__copy :is(#journey-heading, #legacy-title, #post-title) img {
+  position: absolute;
+  left: var(--art-left);
+  top: var(--art-top);
+  width: var(--art-width);
+  max-width: none;
+  height: var(--art-height);
+  object-fit: fill;
+}
 .section-opening .section-opening__action {
   display: flex;
   align-items: center;
@@ -74,5 +136,9 @@ body .section-opening .section-opening__copy h1 img {
   body .section-opening.section-opening {
     --header-height: 76px;
     --title-width: min(88vw, 460px, 74svh);
+  }
+  body .section-opening.section-opening::after {
+    mask-size: 170% 100%;
+    mask-position: 62% center;
   }
 }

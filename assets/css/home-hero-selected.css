@@ -12,9 +12,9 @@
   position: absolute;
   inset: -88px 0 auto;
   z-index: 1;
-  height: clamp(180px, 15vw, 224px);
+  height: var(--cover-top-band);
   pointer-events: none;
-  background: url("../images/v39/header-sky-mist.svg?v=20261103-even") center / 100% 100% no-repeat;
+  background: var(--cover-top-mist) center / 100% 100% no-repeat;
 }
 .v3-home :is(.a-hero__scenery, .a-hero__shade, .a-hero__grain) {
   top: -88px;
@@ -29,10 +29,13 @@
     linear-gradient(90deg, rgba(18, 25, 26, .51), rgba(18, 25, 26, .29) 30%, transparent 62%),
     linear-gradient(180deg, rgba(18, 25, 26, .32), transparent 28%, transparent 76%, rgba(18, 25, 26, .24));
 }
-/* Uneven mist dissolves into the same paper color as the opening chapter. */
+/* Keep the mist close to the lower edge while the scenery continues into the paper. */
+.v3-home :is(.a-hero__scenery, .a-hero__shade, .v39-hero-cloud) {
+  bottom: calc(-1 * var(--cover-bottom-overlap));
+}
 .v3-home .v39-hero-cloud {
-  height: clamp(240px, 21vw, 320px);
-  background-image: url("../images/v39/cloud-paper-soft.svg");
+  height: var(--cover-bottom-band);
+  background-image: var(--cover-bottom-mist);
 }
 .v3-home .v3-prologue {
   background: linear-gradient(#f6ecdb 100px, #f1e7d7 70%, #eee5d7);
@@ -43,9 +46,8 @@
 }
 @media (max-width: 760px) {
   .v3-home .a-hero { padding-top: 72px; }
-  .v3-home .a-hero::before { top: -76px; height: 170px; }
+  .v3-home .a-hero::before { top: -76px; }
   .v3-home :is(.a-hero__scenery, .a-hero__shade, .a-hero__grain) { top: -76px; }
-  .v3-home .v39-hero-cloud { height: 200px; }
   .v3-home .a-hero__scenery {
     background-position: 88% center;
   }

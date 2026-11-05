@@ -1,0 +1,54 @@
+.site-footer {
+  background: #eef1ed;
+  color: #69786f;
+  font: 400 11px/1.8 var(--v38-reading, "Songti SC", serif);
+  letter-spacing: .5px;
+}
+
+.site-footer__inner {
+  width: min(1240px, calc(100% - 112px));
+  margin-inline: auto;
+  padding-block: 20px;
+  border-top: 1px solid #cdd6ce;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.site-footer__top {
+  display: inline-flex;
+  align-items: center;
+  gap: .45em;
+  min-height: 44px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-footer__top:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer .site-footer__top:focus-visible {
+  outline: 2px solid #973e39;
+  outline-offset: 3px;
+}
+
+@media (min-width: 1600px) {
+  .site-footer__inner { width: min(1360px, calc(100% - 160px)); }
+}
+
+@media (max-width: 900px) {
+  .site-footer__inner { width: calc(100% - 64px); }
+}
+
+@media (max-width: 580px) {
+  .site-footer { font-size: 10px; }
+  .site-footer__inner { width: calc(100% - 40px); padding-block: 11px; }
+}
+
+@media print {
+  .site-footer { display: none; }
+}

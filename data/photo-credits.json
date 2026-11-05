@@ -96,5 +96,21 @@
     "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/20230430_Hua_Hu%2C_Zoig%C3%AA.jpg",
     "date": "2023-04-30 15:07:44",
     "changes": "等比例缩小并转换为 WebP；未重新着色或修复。"
+  },
+  {
+    "id": "huishi",
+    "title": "中国工农红军长征路线示意图（1934年10月—1936年10月）",
+    "localPath": "assets/images/events/long-march-routes-1934-1936.jpg",
+    "width": 2377,
+    "height": 1598,
+    "bytes": 445877,
+    "sha256": "d8557b0434157172b7ce46086c2c410cc9d286137273f75058cac22b11204a0b",
+    "author": "原图未署名；刊载于中央党史和文献研究院官网",
+    "license": "来源页未标注开放许可，版权归原权利人所有",
+    "sourceUrl": "https://www.dswxyjy.org.cn/GB/427277/462086/index.html",
+    "originalUrl": "https://www.dswxyjy.org.cn/NMediaFile/2026/1015/MAIN1792046038844OJPOIPUW4D.jpg",
+    "date": "未标明制图日期",
+    "accessedAt": "2026-11-05",
+    "changes": "使用原始JPEG文件，未裁剪、重新着色、重绘或改写地名；网页等比例展示，另提供原尺寸大图入口。"
   }
 ]

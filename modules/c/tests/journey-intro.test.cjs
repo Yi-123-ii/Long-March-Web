@@ -2,9 +2,9 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 
 function fixture(){
  const nodes=new Map(),events={},frames=new Map();let nextFrame=0;
- function element(id){if(!nodes.has(id))nodes.set(id,{hidden:false,inert:false,textContent:'',src:'assets/prologue/yudu-arrival-v022.mp4',classList:{add(){},remove(){}},setAttribute(){},focus(){},load(){this.paused=true;},paused:true,currentTime:0,pause(){this.paused=true;},play(){this.paused=false;return Promise.resolve();}});return nodes.get(id);}
+ function element(id){if(!nodes.has(id))nodes.set(id,{hidden:false,inert:false,textContent:'',src:'',dataset:{src:'assets/prologue/yudu-arrival-v022.mp4',poster:'poster.webp'},classList:{add(){},remove(){}},setAttribute(){},focus(){},load(){this.paused=true;},paused:true,currentTime:0,pause(){this.paused=true;},play(){this.paused=false;return Promise.resolve();}});return nodes.get(id);}
  const document={hidden:false,getElementById:element,addEventListener:(type,fn)=>{events[type]=fn;}};
- const window={YuduText:require('../assets/yudu-text.js'),addEventListener(){}};
+ const window={YuduText:require('../assets/yudu-text.js'),YuduPresentation:{media:p=>p},JourneyFilms:{prepare(){},load:p=>Promise.resolve(p)},addEventListener(){}};
  const context={document,window,matchMedia:()=>({matches:true}),requestAnimationFrame:fn=>{const id=++nextFrame;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),setTimeout};
  vm.createContext(context);vm.runInContext(fs.readFileSync(path.join(__dirname,'../assets/journey-intro.js'),'utf8'),context);
  return {api:window.JourneyIntro,el:element,document,events,frames};
@@ -41,6 +41,7 @@ test('the confirmed caption streams from the film clock and seeking beyond speec
 
 test('media failure remains skippable and a subsequent replay can open cleanly',async()=>{
  const f=fixture(),first=f.api.open();f.el('intro-video').onerror();
+ await Promise.resolve();
  assert(f.el('intro-video').src.endsWith('.webm'));assert.equal(f.el('intro-error').hidden,true);
  f.el('intro-video').onerror();
  assert.equal(f.el('intro-error').hidden,false);assert.equal(f.el('intro-video').paused,true);

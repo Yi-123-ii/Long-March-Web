@@ -77,7 +77,8 @@ for entry in originals:
         css.append(font_face(entry, entry["file"], available))
         font.close()
         continue
-    filename = entry["file"].replace("-extended-", "-site-")
+    signature = hashlib.sha256((entry["sha256"] + ranges(used)).encode("utf-8")).hexdigest()[:10]
+    filename = entry["file"].replace("-extended-", "-site-").replace(".woff2", f"-{signature}.woff2")
     options = subset.Options()
     options.flavor = "woff2"
     options.layout_features = ["*"]

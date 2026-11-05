@@ -5,6 +5,7 @@ const $=id=>document.getElementById(id),resolve=p=>window.YuduPresentation.media
 let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true,movieReturn=null;
 let textPlan=T.plan(''),lineDone=true,lineInstant=false,lineShown=-1;
 let navigating=false;
+let moviePrepared=false,introPending=false;
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 try{state=C.restore(D,localStorage.getItem(C.SAVE_KEY));}catch{storageNotice=true;}
 const resumeView=new URL(location.href).searchParams.get('resume');
@@ -29,7 +30,7 @@ const cueTimers=new Set(),cuePlayers=new Set();
 const dialogs=[$('sound-dialog'),$('history-dialog'),$('about-dialog')];
 for(const img of document.querySelectorAll('img[src]'))img.src=resolve(img.getAttribute('src'));
 function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,6500);}
-function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(movieReturn||state));}catch{if(!storageNotice){notice('浏览器未能保存进度；本次仍可继续阅读。');storageNotice=true;}}}
+function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(movieReturn||state));}catch{if(!storageNotice){notice('进度暂未保存，本次仍可继续阅读');storageNotice=true;}}}
 function nativeMovie(){return active&&C.current(D,state).nativeAudio===true&&!video.hidden;}
 function volumes(){river.volume=nativeMovie()&&!movieDone?0:state.settings.ambient*.7;video.volume=state.settings.voice;video.muted=false;for(const a of cuePlayers)a.volume=state.settings.ambient*.55;$('voice-volume').value=state.settings.voice*100;$('ambient-volume').value=state.settings.ambient*100;$('voice-value').textContent=Math.round(state.settings.voice*100)+'%';$('ambient-value').textContent=Math.round(state.settings.ambient*100)+'%';$('auto').textContent='自动：'+(state.settings.auto?'开':'关');$('auto').setAttribute('aria-pressed',state.settings.auto);}
 function cancelCues(){for(const t of cueTimers)clearTimeout(t);cueTimers.clear();for(const a of cuePlayers){a.pause();a.src='';}cuePlayers.clear();}
@@ -38,13 +39,13 @@ function cue(kind){
  const moments=kind==='stumble'?[0,260,840]:[0,640,1280,1970];
  for(const ms of moments){const timer=setTimeout(()=>{cueTimers.delete(timer);if(!active||paused)return;const a=new Audio(resolve('assets/audio/yudu/wood-step.ogg'));cuePlayers.add(a);a.volume=state.settings.ambient*.55;a.playbackRate=kind==='stumble'?.84:1+(ms%3)*.025;a.onended=()=>cuePlayers.delete(a);a.onerror=()=>cuePlayers.delete(a);a.play().catch(()=>cuePlayers.delete(a));},ms);cueTimers.add(timer);}
 }
-function playRiver(){if(active&&!paused){const requestEpoch=epoch,source=river.src;river.play().catch(e=>{if(e.name==='AbortError'||!active||paused||requestEpoch!==epoch||source!==river.src)return;notice('环境声未能播放，可从“声音”检查音量并重新进入。');});}}
+function playRiver(){if(active&&!paused){const requestEpoch=epoch,source=river.src;river.play().catch(e=>{if(e.name==='AbortError'||!active||paused||requestEpoch!==epoch||source!==river.src)return;notice('环境声暂未播放，可到“声音”检查音量后重新进入');});}}
 function mapStatus(options){
  const n=C.current(D,state),hasProgress=state.path.length>1,ch=C.chapter(D,state);
  $('restart-map').hidden=!hasProgress;
 
  $('restart-map').textContent=n.end?'查看这一程':n.checkpoint?'继续这一程':'继续上次';
- $('save-description').textContent=hasProgress?'上次停在'+ch.name+'。可以继续上次，也可以回望已走过的章节。':'河边木板有些湿。有人停下来，等你跟上。';
+ $('save-description').textContent=hasProgress?'上次读到'+ch.name+'，可继续阅读或回望已走过的章节':'河岸的队伍正准备启程，有人停下脚步等你同行';
  const buttons=$('chapter-buttons');buttons.replaceChildren();
  for(const c of D.chapters){const allowed=C.canOpenChapter(D,state,c.id),button=document.createElement('button');
   button.textContent=c.name+' · '+c.title;button.disabled=!allowed;button.title=allowed?'走进这一段':'先完成前一段故事';button.dataset.chapter=c.id;button.onclick=()=>enterChapter(c.id);buttons.append(button);
@@ -71,11 +72,11 @@ function chapterView(n){
 }
 function memoryText(){
  const result=[D.memories[state.choices.choice]].filter(Boolean);
- if(state.path.includes('xj-end'))result.push(state.choices['xj-choice']==='stretcher'?'我记住陆生的名字，是在江边。':'我把梁叔没写完的半句话，带过了江。');
- if(state.path.includes('zy-end'))result.push('旧的三针没有拆，新的线接在旁边。');
- if(state.path.includes('snow-end'))result.push(state.choices['snow-choice']==='call'?'风里，我喊他阿禾。他应了一声。':'到了雪山，这回换我等他。');
- if(state.path.includes('grass-end'))result.push(state.choices['grass-choice']==='stay'?'那一夜，我留下来陪陆生等天亮。':'那一夜，我们去接人，也彼此扶着回来。');
- if(state.path.includes('wuqi-end'))result.push(state.choices['wuqi-choice']==='sew'?'针脚还是不齐，袖口总算合住了。':'我写下他的名字，也写他活着时的样子。');
+ if(state.path.includes('xj-end'))result.push(state.choices['xj-choice']==='stretcher'?'在湘江岸边，我记住了陆生的名字':'我带过江的家书里，仍留着梁叔没写完的半句话');
+ if(state.path.includes('zy-end'))result.push('梁叔的三针旧线旁，接上了陈禾新补的针脚');
+ if(state.path.includes('snow-end'))result.push(state.choices['snow-choice']==='call'?'雪山风里，我喊了一声阿禾，听见了他的回应':'到了雪山，这回换我停下来等他');
+ if(state.path.includes('grass-end'))result.push(state.choices['grass-choice']==='stay'?'那一夜，我守在陆生身旁，陪他等到天亮':'那一夜，我们接回掉队的同志，也彼此扶持着回到营地');
+ if(state.path.includes('wuqi-end'))result.push(state.choices['wuqi-choice']==='sew'?'袖口总算补好，歪斜的针脚也记下了同行的情谊':'我写下梁叔的名字，也记下与他同行时的见闻');
  return result.join('\n');
 }
 
@@ -93,7 +94,11 @@ function setPaused(value){
  if(value&&!$('pause-overlay').hidden)$('resume').focus({preventScroll:true});
  else if(!value&&document.activeElement===$('resume'))$('pause').focus({preventScroll:true});
  if(value){river.pause();video.pause();cancelCues();}
- else{lastTick=performance.now();playRiver();if(!video.hidden&&!video.ended&&C.current(D,state).nativeAudio)video.play().catch(()=>{video.controls=true;notice('请点影片上的播放键，或点“重播镜头”重试。');});}
+ else{lastTick=performance.now();playRiver();playMovie();}
+}
+function playMovie(){
+ if(!active||paused||!moviePrepared||movieDone||video.hidden||!C.current(D,state).nativeAudio)return;
+ const token=epoch;video.play().catch(e=>{if(token===epoch&&!paused&&e.name!=='AbortError'){setPaused(true);notice('点击“继续这一程”播放，也可以跳过镜头');}});
 }
 function stopVoice(){voiceDone=true;cancelCues();}
 function updateNext(){
@@ -130,7 +135,7 @@ async function presentStill(path,n,token,cut=false){
   image.loading='eager';image.src=source;image.dataset.scene=n.scene;image.dataset.view=n.view||'wide';
   video.hidden=true;image.hidden=false;
   const film=window.YuduPresentation.upcomingFilm(D,C,state);
-  if(film&&!n.nativeAudio){const nextSource=resolve(film.video||D.video);video.preload='auto';if(video.getAttribute('src')!==nextSource)video.src=nextSource;}
+  if(film&&!n.nativeAudio&&!introPending)window.JourneyFilms.prepare(resolve(film.video||D.video));
  };
  if(cut){$('scene-cut-veil').animate([{opacity:0},{opacity:.72,offset:.33},{opacity:0}],{duration:380,easing:'ease-in-out'});setTimeout(apply,110);}
  else apply();
@@ -138,6 +143,7 @@ async function presentStill(path,n,token,cut=false){
 
 function visual(n){
  const token=epoch,useVideo=n.nativeAudio===true;
+ moviePrepared=false;$('film-loading').hidden=true;
  videoCorner.setEnabled(false);
  movieDone=!useVideo;
  $('story-screen').classList.toggle('film-playing',useVideo);
@@ -157,13 +163,14 @@ function visual(n){
  video.hidden=false;image.hidden=true;volumes();
  video.loop=false;video.muted=!n.nativeAudio;video.volume=state.settings.voice;
  const source=resolve(n.video||D.video);
- video.preload='auto';if(video.getAttribute('src')!==source||video.error)video.src=source;
+ video.preload='auto';
+ if(video.dataset.filmSource!==source||video.error){video.removeAttribute('src');video.load();}
  video.poster=resolve(n.poster||D.images.portrait);video.setAttribute('aria-label',n.title||'于都河岸电影镜头');
  const ready=()=>{
   if(token!==epoch)return;
   video.currentTime=0;
   videoCorner.setEnabled(n.cornerRepair===true);
-  if(!paused)video.play().catch(e=>{if(token===epoch&&e.name!=='AbortError'){setPaused(true);notice('镜头尚未开始播放，点“继续这一程”重试，或选择跳过。');}});
+  playMovie();
  };
  video.onended=()=>{
   if(token!==epoch)return;
@@ -176,19 +183,37 @@ function visual(n){
  video.onerror=()=>{
   if(token!==epoch)return;
   movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
+  $('film-loading').hidden=true;
   videoCorner.setEnabled(false);
   presentStill(n.poster||imagePath,n,token);
-  voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头未能载入，暂显示文字。点“重播镜头”可重试。');
+  voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头暂未载入，可先阅读文字，再点击“重播镜头”重试');
  };
  video.onplaying=()=>{if(token===epoch){video.controls=false;$('voice-state').textContent='';}};
  video.onloadedmetadata=ready;
- if(video.readyState>=1)ready();
+ $('film-loading').hidden=false;
+ window.JourneyFilms.load(source,(loaded,total)=>{
+  if(token!==epoch)return;
+  $('film-loading').textContent='镜头准备中'+(total?' '+Math.min(100,Math.round(loaded/total*100))+'%':'');
+ }).then(url=>{
+  if(token!==epoch)return;
+  $('film-loading').hidden=true;moviePrepared=true;video.dataset.filmSource=source;
+  if(video.getAttribute('src')!==url)video.src=url;
+  if(video.readyState>=1)ready();
+ }).catch(()=>{if(token===epoch)video.onerror();});
 }
 function speak(n){voiceDone=!n.nativeAudio;$('voice-state').textContent='';}
 function render(){
+ // Empty legacy anchors keep old bookmarks valid without adding blank story screens.
+ for(let guard=0;guard<512;guard++){
+  const n=C.current(D,state);if(n.text||n.choices||n.nativeAudio||n.end||n.checkpoint)break;
+  const next=C.advance(D,state);if(next===state)break;state=next;
+ }
  epoch++;elapsed=0;lastTick=performance.now();stopVoice();
- const badge=window.YuduPresentation.speaker(C.current(D,state));
- const n=C.current(D,state);chapterView(n);visual(n);$('watch-invitation').hidden=!!n.nativeAudio||!latestMovie();$('watch-invitation').textContent=latestMovie()?.replayLabel||'重看镜头';$('ending').hidden=!(n.end||n.checkpoint);$('dialogue-panel').hidden=!!(n.end||n.checkpoint);
+ const n=C.current(D,state);
+ // A reply keeps the question on screen; action-only choices keep the last visible context.
+ const previous=!n.text&&n.choices?[...state.path].slice(0,-1).reverse().map(id=>D.nodes.find(x=>x.id===id)).find(x=>x?.text&&x.chapter===n.chapter&&!x.checkpoint&&!x.end):null;
+ const display=previous||n,badge=window.YuduPresentation.speaker(display);
+ chapterView(n);visual(n);$('watch-invitation').hidden=!!n.nativeAudio||!latestMovie();$('watch-invitation').textContent=latestMovie()?.replayLabel||'重看镜头';$('ending').hidden=!(n.end||n.checkpoint);$('dialogue-panel').hidden=!!(n.end||n.checkpoint);
  if(n.end||n.checkpoint){
   const ch=C.chapter(D,state),nextChapter=D.chapters[D.chapters.findIndex(c=>c.id===ch.id)+1];
   $('ending').dataset.chapter=ch.id;
@@ -197,14 +222,14 @@ function render(){
   $('continue-route').textContent=nextChapter?'进入下一站 · '+nextChapter.location:'这一程已走完';$('replay').textContent='重玩这一站';
   window.dispatchEvent(new CustomEvent('journey:chapter-ended',{detail:ch.id}));
   const cards=$('memory-cards');cards.replaceChildren();cards.hidden=!n.end;
-  if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'我记住陆生的名字，是在江边。':'我把梁叔没写完的半句话，带过了江。',state.choices['snow-choice']==='call'?'风里，我喊他阿禾。他应了一声。':'到了雪山，这回换我等他。',state.choices['grass-choice']==='stay'?'那一夜，我留下来陪陆生等天亮。':'那一夜，我们去接人，也彼此扶着回来。',state.choices['wuqi-choice']==='sew'?'针脚还是不齐，袖口总算合住了。':'我写下他的名字，也写他活着时的样子。'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}
+  if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'在湘江岸边，我记住了陆生的名字':'我带过江的家书里，仍留着梁叔没写完的半句话',state.choices['snow-choice']==='call'?'雪山风里，我喊了一声阿禾，听见了他的回应':'到了雪山，这回换我停下来等他',state.choices['grass-choice']==='stay'?'那一夜，我守在陆生身旁，陪他等到天亮':'那一夜，我们接回掉队的同志，也彼此扶持着回到营地',state.choices['wuqi-choice']==='sew'?'袖口总算补好，歪斜的针脚也记下了同行的情谊':'我写下梁叔的名字，也记下与他同行时的见闻'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}
   save();return;
  }
- $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=badge?.name||n.speaker;textPlan=T.plan(n.text);lineInstant=false;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=n.text||'';$('voice-state').textContent='';
+ $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=badge?.name||display.speaker;textPlan=T.plan(display.text);lineInstant=!!previous;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=display.text||'';$('voice-state').textContent='';
  const choices=$('choices');choices.replaceChildren();choices.hidden=!n.choices;$('next').hidden=!!n.choices;$('repeat').disabled=!!n.choices&&n.mode!=='thought';$('repeat').textContent=n.nativeAudio?'重播镜头':'再看一遍';
  if(n.choices){for(const [index,choice] of n.choices.entries()){
   const b=document.createElement('button');b.className='choice-button';b.dataset.choice=choice.id;
-  const mark=document.createElement('span');mark.textContent=n.choices.length===1?'':index?'乙':'甲';b.append(mark,document.createTextNode(choice.label));b.onclick=()=>go(choice.id);choices.append(b);
+  const mark=document.createElement('span');mark.textContent=n.choices.length===1?'':index?'乙':'甲';b.append(mark,document.createTextNode(window.YuduPresentation.choiceLabel(choice.label)));b.onclick=()=>go(choice.id);choices.append(b);
  }}
  minimum=Math.max(2300,(n.text?.length||0)*115,n.nativeAudio?(n.duration*1000+350):0);
  revealText();updateNext();speak(n);cue(n.cue);save();
@@ -223,14 +248,18 @@ async function enter(restart=false,withAlbum=true){
  if(restart)state=C.restart(D,state);movieReturn=null;
  paused=true;river.pause();video.pause();cancelCues();
  const ch=C.chapter(D,state),n=C.current(D,state),picture=resolve(D.images[n.scene]||D.images[ch.image]);
+ introPending=withAlbum&&ch.id==='yudu'&&n.id===ch.start;
+ if(introPending)window.JourneyIntro.prepare();
  const reveal=()=>{
   active=true;paused=true;$('map-screen').hidden=true;$('story-screen').hidden=false;document.body.style.overflow='hidden';
   $('pause-overlay').hidden=true;$('pause').textContent='继续';$('pause').setAttribute('aria-pressed','true');volumes();render();
  };
  if(withAlbum)await window.JourneyFX.open(ch,picture,reveal);else reveal();
- if(withAlbum&&ch.id==='yudu'&&n.id===ch.start)await window.JourneyIntro.open(state.settings.voice);
+ if(introPending){try{await window.JourneyIntro.open(state.settings.voice);}finally{introPending=false;}}
+ const film=window.YuduPresentation.upcomingFilm(D,C,state);
+ if(!n.nativeAudio&&film)window.JourneyFilms.prepare(resolve(film.video||D.video));
  setPaused(document.hidden);$('leave').focus({preventScroll:true});
- if(storageNotice)notice('当前浏览器无法保存进度；可以继续体验这一程。');
+ if(storageNotice)notice('当前浏览器暂时无法保存进度，仍可继续体验这一程');
 }
 
 function leave(focus=true){
@@ -258,9 +287,9 @@ $('sound-open').onclick=()=>openDialog($('sound-dialog'));$('sound-done').onclic
 $('history-open').onclick=()=>{
  const list=$('history-list');list.replaceChildren();
  for(const id of state.path){
-  const n=D.nodes.find(x=>x.id===id);if(!n||n.end)continue;
+  const n=D.nodes.find(x=>x.id===id);if(!n||n.end||(!n.text&&!n.choices&&!n.nativeAudio))continue;
   const li=document.createElement('li'),name=document.createElement('strong'),p=document.createElement('p');
-  if(n.choices){const c=n.choices.find(c=>c.id===state.choices[n.id]);if(!c)continue;name.textContent='你选择了';p.textContent=c.label;p.className='history-choice';}
+  if(n.choices){const c=n.choices.find(c=>c.id===state.choices[n.id]);if(!c)continue;name.textContent='你选择了';p.textContent=window.YuduPresentation.choiceLabel(c.label);p.className='history-choice';}
   else{name.textContent=window.YuduPresentation.speaker(n)?.name||n.speaker;p.textContent=n.text||(n.nativeAudio?(n.title||'于都镜头')+'（影片原声）':'');}
   li.append(name,p);list.append(li);
  }

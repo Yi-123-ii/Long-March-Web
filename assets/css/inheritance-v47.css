@@ -1,8 +1,12 @@
 /* V4.7: a continuous historical reading passage; scoped to the bridge. */
 body.legacy-v41 .v47-spirit {
   padding-block: clamp(48px, 4vw, 52px) 0;
-  background: linear-gradient(180deg, #f1e8d9, #f3eadb 44%, #f6efe3);
+  background: linear-gradient(180deg, var(--doc-paper) var(--cover-bottom-overlap, 0px), #f3eadb 44%, #f6efe3);
   color: #302c27;
+}
+body.legacy-v41 .v44-opening + .v47-spirit > .doc-wrap {
+  position: relative;
+  z-index: 2;
 }
 body.legacy-v41 .v47-spirit__heading {
   display: grid;

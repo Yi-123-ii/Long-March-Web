@@ -114,24 +114,49 @@
     $("#preview-letter").disabled = false;
     applyPaper(form, paperId);
   }
-  const queryEvent = new URLSearchParams(location.search).get("event");
+  const query = new URLSearchParams(location.search);
+  const queryEvent = query.get("event");
+  const readingEvent = query.get("readFrom") === "chronicle" && knownEvent(queryEvent);
+  if (readingEvent) {
+    const dock = $("#chronicle-return");
+    const back = new URL("chronicle.html", location.href);
+    back.searchParams.set("resumeReading", readingEvent.id);
+    back.hash = "event=" + readingEvent.id;
+    $("#chronicle-return-context").textContent = "你刚才读到「" + readingEvent.title + "」";
+    document.querySelectorAll("[data-reading-return]").forEach(link => {
+      link.href = back.href;
+      link.hidden = false;
+    });
+    dock.hidden = false;
+    document.body.classList.add("lm-reading-visitor");
+    window.addEventListener("DOMContentLoaded", () => {
+      const journeyDock = $(".c-game-return");
+      if (!journeyDock) return;
+      // Keep both return paths together when this visit began in the game.
+      const link = dock.querySelector("a");
+      link.title = "返回「" + readingEvent.title + "」继续阅读";
+      journeyDock.append(link);
+      journeyDock.classList.add("c-game-return--reading");
+      dock.remove();
+    });
+  }
   eventId = knownEvent(queryEvent)?.id || knownEvent(draft.eventId)?.id || null;
   function renderContext() {
     const event = knownEvent(eventId);
     $("#event-context").hidden = !event;
     if (event)
       $("#event-context").textContent =
-        "读过「" + event.title + "」之后，想留下一句话。";
+        "读过「" + event.title + "」之后，想写下此刻的感受";
   }
   renderContext();
   $("#character-count").textContent = body.value.length;
   if (draft.body || draft.nickname)
     $("#draft-status").textContent = "已恢复上次草稿";
   if (LM_STORE.recovered)
-    $("#form-error").textContent = "已从备用记录恢复留言，建议在「我的留言」中备份。";
+    $("#form-error").textContent = "已从备用记录恢复留言，可在「我的留言」中导出备份";
   else if (LM_STORE.damaged)
     $("#form-error").textContent =
-      "有部分记录暂时无法读取，能恢复的留言已保留。请先备份，不要清除网站数据。";
+      "已保留可以恢复的留言，部分记录仍无法读取；请先备份现有留言，保留网站数据";
   function saveDraft() {
     clearTimeout(draftTimer);
     const success = LM_STORE.write("draft", {
@@ -185,12 +210,14 @@
   });
   const prompts = {
     today:
-      "今天有哪些寻常的生活，是你想让他们知道的？一顿饭、一间教室，或一次平安的团聚。",
-    thanks: "读过哪一段经历，让你想停下来道一声感谢？用自己的话写下来就好。",
-    question: "隔着岁月，你最想问他们什么？也可以想一想，今天的你会如何回答。",
+      "如果能把今天的生活讲给长征路上的人听，你最想让他们看到怎样的一天？可以从最近一次与家人围坐吃饭写起，也可以讲讲教室里的一个寻常片刻，把熟悉的生活慢慢说给他们听。留下一两个具体的细节，再写写读过这些纪事后，你对这份日常有了怎样的感受，让远方的收信人看见你眼中的今天。",
+    thanks:
+      "读过这些纪事，哪一个人、哪一段经历让你久久记得？回到那个让你停下来的地方，说说是什么打动了你，以及这份触动与你今天的生活有怎样的联系。感谢可以写得很具体：也许是对艰难处境中仍然扶持战友的敬意，也许是对今天能够与亲人平安相伴的珍惜；顺着自己的感受写下去，让收信人知道你为何记住他们。",
+    question:
+      "有时，一段历史最先留给我们的是一个疑问。读到重要的抉择，或某段艰难的行军时，你最想向当时的人了解什么？把问题放回具体的经历中，讲讲它为什么让你在意；如果已经有了自己的理解，也可以写下理由，让疑问与思考一同留在信里，成为下一次走近这段历史的起点。",
   };
   document.querySelectorAll("[data-prompt]").forEach((button) => {
-    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-pressed", String(button.dataset.prompt === "today"));
     button.addEventListener("click", () => {
       document
         .querySelectorAll("[data-prompt]")
@@ -198,6 +225,7 @@
       $("#prompt-hint").textContent = prompts[button.dataset.prompt];
     });
   });
+  $("#prompt-hint").textContent = prompts.today;
   function renderMessages() {
     messages = getMessages().sort((a, b) => b.createdAt - a.createdAt);
     $("#saved-count").textContent = messages.length;
@@ -235,9 +263,9 @@
     delivery.dataset.phase = "delivered";
     delivery.classList.remove("is-delivering");
     delivery.classList.add("is-delivered");
-    $("#delivery-title").textContent = "这份心意，已在此留下。";
+    $("#delivery-title").textContent = "你的信已存入信箱";
     $("#delivery-description").textContent =
-      "留言已保存，可在「我的留言」中查看。";
+      "留言已保存，可到「我的留言」中查看或备份";
     $("#skip-delivery").hidden = true;
     $("#delivery-actions").hidden = false;
     delivery.dataset.locked = "false";
@@ -249,13 +277,13 @@
     const content = body.value.trim(),
       signer = nickname.value.trim();
     if (!content) {
-      $("#form-error").textContent = "先写下想对他们说的话，再封好投递。";
+      $("#form-error").textContent = "请先写下留言内容，再选择邮票和信纸";
       body.focus();
       return null;
     }
     if (content.length > 2000 || signer.length > 20) {
       $("#form-error").textContent =
-        "留言请控制在2000字以内，署名请控制在20字以内。";
+        "留言最多2000字，署名最多20字";
       return null;
     }
     return { body: content, nickname: signer, eventId };
@@ -265,7 +293,7 @@
     $("#paper-choice").hidden = true;
     $("#letter-review").hidden = true;
     $("#prepare-step").textContent = "为这封信，选一枚邮票";
-    $("#prepare-title").textContent = "带着心意，出发吧。";
+    $("#prepare-title").textContent = "挑一枚邮票，寄出这份心意";
   }
   form.addEventListener("submit", event => {
     event.preventDefault();
@@ -286,7 +314,7 @@
     $("#paper-choice").hidden = false;
     $("#letter-review").hidden = true;
     $("#prepare-step").textContent = "为心里的话，挑一张信纸";
-    $("#prepare-title").textContent = "把来路，写进纸间。";
+    $("#prepare-title").textContent = "给这封信选一张合适的纸";
     ($("#paper-options input:checked") || $("#paper-options input"))?.focus();
   }
   $("#choose-paper").addEventListener("click", choosePaper);
@@ -298,7 +326,7 @@
     $("#paper-choice").hidden = true;
     $("#letter-review").hidden = false;
     $("#prepare-step").textContent = paperById(paperId).name + " · " + stamp.name;
-    $("#prepare-title").textContent = "这就是你写下的信。";
+    $("#prepare-title").textContent = "看看写好的信";
     $("#review-stamp").src = stampImage(stamp.id);
     $("#review-stamp-name").textContent = stamp.name;
     $("#review-content").textContent = pendingLetter.body;
@@ -324,7 +352,7 @@
     const latest = getMessages();
     if (latest.length >= 200) {
       $("#prepare-error").textContent =
-        "已保存200封留言，请先备份并整理已有留言。";
+        "已保存200封留言，请先备份并整理已有留言";
       return;
     }
     const message = {
@@ -340,7 +368,7 @@
     };
     if (!LM_STORE.write("messages", [message, ...latest])) {
       $("#prepare-error").textContent =
-        "当前浏览器暂时无法保存，留言仍保留在输入框中。请先复制文字，再检查浏览器存储设置。";
+        "暂时无法保存留言，输入框中的文字仍在；请先复制留存，再检查浏览器的存储设置";
       return;
     }
     sending = true;
@@ -384,7 +412,7 @@
     delivery.dataset.locked = "true";
     $("#delivery-title").textContent = "把写下的话，仔细折好";
     $("#delivery-description").textContent =
-      "留言已保存，正在完成投递。";
+      "留言已保存，正在完成投递";
     $("#skip-delivery").hidden = false;
     $("#delivery-actions").hidden = true;
     delivery.showModal();
@@ -439,14 +467,14 @@
   $("#confirm-delete").addEventListener("click", () => {
     const next = getMessages().filter((m) => m.id !== selectedId);
     if (!LM_STORE.write("messages", next)) {
-      $("#delete-error").textContent = "删除未能保存，请稍后重试。";
+      $("#delete-error").textContent = "删除操作未能保存，请稍后重试";
       return;
     }
     deleteDialog.close();
     letterDialog.close();
     selectedId = null;
     renderMessages();
-    $("#saved-warning").textContent = "这封留言已删除。";
+    $("#saved-warning").textContent = "这封留言已删除";
     tabs[1].focus();
   });
   function asText(message) {
@@ -494,17 +522,17 @@
     if (!file) return;
     $("#import-letters").disabled = true;
     try {
-      if (file.size > 3000000) throw Error("备份文件过大，未导入任何留言。");
+      if (file.size > 3000000) throw Error("备份文件过大，尚未导入留言");
       const parsed = LM_LETTERS.parse(await file.text(), window.LM_EVENTS);
       const merged = LM_LETTERS.merge(getMessages(), parsed);
       if (merged.added && !LM_STORE.write("messages", merged.messages))
-        throw Error("浏览器暂时无法保存，现有留言没有改变。请保留备份文件后重试。");
+        throw Error("浏览器暂时无法保存，请保留备份文件后重试；现有留言未作更改");
       renderMessages();
       $("#saved-warning").textContent = merged.added
-        ? "已导入" + merged.added + "封留言。" + (merged.skipped ? "已跳过" + merged.skipped + "封重复留言。" : "")
-        : "这些留言已经在这里，无需重复导入。";
+        ? "已导入" + merged.added + "封留言" + (merged.skipped ? "，已跳过" + merged.skipped + "封重复留言" : "")
+        : "这些留言已存在，无需重复导入";
     } catch (error) {
-      $("#saved-warning").textContent = error.message || "导入失败，现有留言没有改变。";
+      $("#saved-warning").textContent = error.message || "导入未完成，现有留言未作更改";
     } finally {
       $("#import-letters").disabled = false;
       event.target.value = "";
@@ -513,7 +541,7 @@
   window.addEventListener("storage", (event) => {
     if (event.key === LM_STORE.messageKey || event.key === null) {
       renderMessages();
-      $("#saved-warning").textContent = "留言列表已更新。";
+      $("#saved-warning").textContent = "留言列表已更新";
     }
   });
   window.addEventListener("pageshow", renderMessages);
