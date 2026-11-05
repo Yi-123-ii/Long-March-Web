@@ -210,12 +210,14 @@
   });
   const prompts = {
     today:
-      "今天有哪些寻常的生活，是你想让他们知道的？一顿饭、一间教室，或一次平安的团聚。",
-    thanks: "读过哪一段经历，让你想停下来道一声感谢？用自己的话写下来就好。",
-    question: "隔着岁月，你最想问他们什么？也可以想一想，今天的你会如何回答。",
+      "如果能把今天的生活讲给长征路上的人听，你最想让他们看到怎样的一天？可以从最近一次与家人围坐吃饭写起，也可以讲讲教室里的一个寻常片刻，把熟悉的生活慢慢说给他们听。留下一两个具体的细节，再写写读过这些纪事后，你对这份日常有了怎样的感受，让远方的收信人看见你眼中的今天。",
+    thanks:
+      "读过这些纪事，哪一个人、哪一段经历让你久久记得？回到那个让你停下来的地方，说说是什么打动了你，以及这份触动与你今天的生活有怎样的联系。感谢可以写得很具体：也许是对艰难处境中仍然扶持战友的敬意，也许是对今天能够与亲人平安相伴的珍惜；顺着自己的感受写下去，让收信人知道你为何记住他们。",
+    question:
+      "有时，一段历史最先留给我们的是一个疑问。读到重要的抉择，或某段艰难的行军时，你最想向当时的人了解什么？把问题放回具体的经历中，讲讲它为什么让你在意；如果已经有了自己的理解，也可以写下理由，让疑问与思考一同留在信里，成为下一次走近这段历史的起点。",
   };
   document.querySelectorAll("[data-prompt]").forEach((button) => {
-    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-pressed", String(button.dataset.prompt === "today"));
     button.addEventListener("click", () => {
       document
         .querySelectorAll("[data-prompt]")
@@ -223,6 +225,7 @@
       $("#prompt-hint").textContent = prompts[button.dataset.prompt];
     });
   });
+  $("#prompt-hint").textContent = prompts.today;
   function renderMessages() {
     messages = getMessages().sort((a, b) => b.createdAt - a.createdAt);
     $("#saved-count").textContent = messages.length;
