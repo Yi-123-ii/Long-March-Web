@@ -14,6 +14,9 @@
   $('atlas-chapter').textContent=ch.name;
   $('atlas-photo').src=resolve(D.images[ch.image]);$('atlas-photo').alt=ch.location+'这一程的画面';
   const allowed=currentState&&C.canOpenChapter(D,currentState,id),mark=currentState?.chapterProgress?.[id];$('enter').disabled=!allowed;$('enter').textContent=allowed?(mark&&mark.node!==ch.start?'继续这一站':'翻开这一站'):'前一程走完，这一站就亮起';
+  $('restart-map').hidden=!allowed||!mark||mark.node===ch.start;
+  $('restart-map').textContent='重新开始这一站';
+  $('save-description').textContent=allowed&&mark&&mark.node!==ch.start?(mark.node===ch.end?'这一站已走完，可查看结尾或重新开始':'已保存这一站的进度，重新开始会保留其他站点的进度'):allowed?'从这一站的开头出发':'先走完前一站，再来翻开这一页';
   $('atlas-description').textContent=ch.summary;
   for(const b of pins.querySelectorAll('button')){const selected=b.dataset.chapter===id;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',selected);}
   window.dispatchEvent(new CustomEvent('journey:station-selected',{detail:id}));

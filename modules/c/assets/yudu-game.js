@@ -2,7 +2,7 @@
 'use strict';
 const D=window.YUDU_DATA,C=window.YuduCore,T=window.YuduText;
 const $=id=>document.getElementById(id),resolve=p=>window.YuduPresentation.media(p,window.YUDU_EMBEDDED);
-let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true,movieReturn=null;
+let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true;
 let textPlan=T.plan(''),lineDone=true,lineInstant=false,lineShown=-1;
 let navigating=false;
 let moviePrepared=false,introPending=false;
@@ -30,7 +30,7 @@ const cueTimers=new Set(),cuePlayers=new Set();
 const dialogs=[$('sound-dialog'),$('history-dialog'),$('about-dialog')];
 for(const img of document.querySelectorAll('img[src]'))img.src=resolve(img.getAttribute('src'));
 function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,6500);}
-function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(movieReturn||state));}catch{if(!storageNotice){notice('进度暂未保存，本次仍可继续阅读');storageNotice=true;}}}
+function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(state));}catch{if(!storageNotice){notice('进度暂未保存，本次仍可继续阅读');storageNotice=true;}}}
 function nativeMovie(){return active&&C.current(D,state).nativeAudio===true&&!video.hidden;}
 function volumes(){river.volume=nativeMovie()&&!movieDone?0:state.settings.ambient*.7;video.volume=state.settings.voice;video.muted=false;for(const a of cuePlayers)a.volume=state.settings.ambient*.55;$('voice-volume').value=state.settings.voice*100;$('ambient-volume').value=state.settings.ambient*100;$('voice-value').textContent=Math.round(state.settings.voice*100)+'%';$('ambient-value').textContent=Math.round(state.settings.ambient*100)+'%';$('auto').textContent='自动：'+(state.settings.auto?'开':'关');$('auto').setAttribute('aria-pressed',state.settings.auto);}
 function cancelCues(){for(const t of cueTimers)clearTimeout(t);cueTimers.clear();for(const a of cuePlayers){a.pause();a.src='';}cuePlayers.clear();}
@@ -41,11 +41,6 @@ function cue(kind){
 }
 function playRiver(){if(active&&!paused){const requestEpoch=epoch,source=river.src;river.play().catch(e=>{if(e.name==='AbortError'||!active||paused||requestEpoch!==epoch||source!==river.src)return;notice('环境声暂未播放，可到“声音”检查音量后重新进入');});}}
 function mapStatus(options){
- const n=C.current(D,state),hasProgress=state.path.length>1,ch=C.chapter(D,state);
- $('restart-map').hidden=!hasProgress;
-
- $('restart-map').textContent=n.end?'查看这一程':n.checkpoint?'继续这一程':'继续上次';
- $('save-description').textContent=hasProgress?'上次读到'+ch.name+'，可继续阅读或回望已走过的章节':'河岸的队伍正准备启程，有人停下脚步等你同行';
  const buttons=$('chapter-buttons');buttons.replaceChildren();
  for(const c of D.chapters){const allowed=C.canOpenChapter(D,state,c.id),button=document.createElement('button');
   button.textContent=c.name+' · '+c.title;button.disabled=!allowed;button.title=allowed?'走进这一段':'先完成前一段故事';button.dataset.chapter=c.id;button.onclick=()=>enterChapter(c.id);buttons.append(button);
@@ -80,11 +75,10 @@ function memoryText(){
  return result.join('\n');
 }
 
-function latestMovie(){const chapter=C.chapter(D,state).id;return [...state.path].reverse().map(id=>D.nodes.find(n=>n.id===id)).find(n=>n?.nativeAudio&&n.chapter===chapter);}
-function replayInvitation(){
- if(!active||paused||dialogs.some(d=>d.open))return;
- const invitation=latestMovie();if(!invitation)return;
- movieReturn=state;state={...state,node:invitation.id};render();
+function goBack(){
+ if(!active||paused||navigating||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
+ const next=C.back(D,state);if(next===state)return;
+ state=next;render();volumes();($('previous').disabled?$('next'):$('previous')).focus({preventScroll:true});
 }
 function setPaused(value){
  if(!active)return;
@@ -186,7 +180,7 @@ function visual(n){
   $('film-loading').hidden=true;
   videoCorner.setEnabled(false);
   presentStill(n.poster||imagePath,n,token);
-  voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头暂未载入，可先阅读文字，再点击“重播镜头”重试');
+  voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头暂未载入，可先阅读文字或返回上一幕后重试');
  };
  video.onplaying=()=>{if(token===epoch){video.controls=false;$('voice-state').textContent='';}};
  video.onloadedmetadata=ready;
@@ -213,7 +207,8 @@ function render(){
  // A reply keeps the question on screen; action-only choices keep the last visible context.
  const previous=!n.text&&n.choices?[...state.path].slice(0,-1).reverse().map(id=>D.nodes.find(x=>x.id===id)).find(x=>x?.text&&x.chapter===n.chapter&&!x.checkpoint&&!x.end):null;
  const display=previous||n,badge=window.YuduPresentation.speaker(display);
- chapterView(n);visual(n);$('watch-invitation').hidden=!!n.nativeAudio||!latestMovie();$('watch-invitation').textContent=latestMovie()?.replayLabel||'重看镜头';$('ending').hidden=!(n.end||n.checkpoint);$('dialogue-panel').hidden=!!(n.end||n.checkpoint);
+ chapterView(n);visual(n);$('ending').hidden=!(n.end||n.checkpoint);$('dialogue-panel').hidden=!!(n.end||n.checkpoint);
+ $('previous').disabled=!C.canBack(D,state);$('ending-previous').disabled=!C.canBack(D,state);
  if(n.end||n.checkpoint){
   const ch=C.chapter(D,state),nextChapter=D.chapters[D.chapters.findIndex(c=>c.id===ch.id)+1];
   $('ending').dataset.chapter=ch.id;
@@ -226,7 +221,7 @@ function render(){
   save();return;
  }
  $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=badge?.name||display.speaker;textPlan=T.plan(display.text);lineInstant=!!previous;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=display.text||'';$('voice-state').textContent='';
- const choices=$('choices');choices.replaceChildren();choices.hidden=!n.choices;$('next').hidden=!!n.choices;$('repeat').disabled=!!n.choices&&n.mode!=='thought';$('repeat').textContent=n.nativeAudio?'重播镜头':'再看一遍';
+ const choices=$('choices');choices.replaceChildren();choices.hidden=!n.choices;$('next').hidden=!!n.choices;
  if(n.choices){for(const [index,choice] of n.choices.entries()){
   const b=document.createElement('button');b.className='choice-button';b.dataset.choice=choice.id;
   const mark=document.createElement('span');mark.textContent=n.choices.length===1?'':index?'乙':'甲';b.append(mark,document.createTextNode(window.YuduPresentation.choiceLabel(choice.label)));b.onclick=()=>go(choice.id);choices.append(b);
@@ -237,7 +232,6 @@ function render(){
 function go(choiceId,force=false){
  if(!active||paused||navigating||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
  if(!force&&!C.current(D,state).nativeAudio&&!lineDone){finishText();return;}
- if(movieReturn){state=movieReturn;movieReturn=null;render();return;}
  const entry=C.current(D,state),index=D.chapters.findIndex(c=>c.id===entry.chapter),following=D.chapters[index+1];
  const next=entry.checkpoint&&following?C.openChapter(D,state,following.id):C.advance(D,state,choiceId);if(next===state)return;
  const previous=C.chapter(D,state).id;if(C.chapter(D,next).id!==previous){changeChapter(next);return;}state=next;render();
@@ -245,7 +239,7 @@ function go(choiceId,force=false){
 }
 async function enter(restart=false,withAlbum=true){
  if(navigating||window.JourneyFX.busy)return;
- if(restart)state=C.restart(D,state);movieReturn=null;
+ if(restart)state=C.restart(D,state);
  paused=true;river.pause();video.pause();cancelCues();
  const ch=C.chapter(D,state),n=C.current(D,state),picture=resolve(D.images[n.scene]||D.images[ch.image]);
  introPending=withAlbum&&ch.id==='yudu'&&n.id===ch.start;
@@ -263,7 +257,6 @@ async function enter(restart=false,withAlbum=true){
 }
 
 function leave(focus=true){
- if(movieReturn){state=movieReturn;movieReturn=null;}
  active=false;paused=false;epoch++;stopVoice();river.pause();river.currentTime=0;video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
  $('map-screen').hidden=false;$('story-screen').hidden=true;document.body.style.overflow='';save();mapStatus({keepCamera:!focus});
  // Hiding the map screen also hides the hero, so the browser clamps the document scroll to zero.
@@ -279,9 +272,9 @@ for(const d of dialogs){
  d.addEventListener('close',()=>{const resume=modalResume;modalResume=false;if(resume&&!document.hidden)setPaused(false);else if(active)$('pause-overlay').hidden=!paused;});
  d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});
 }
-$('continue-route').onclick=()=>go(undefined,true);$('enter').onclick=()=>enterChapter(window.AtlasMap.selected());$('restart-map').onclick=()=>enter();$('watch-invitation').onclick=replayInvitation;$('leave').onclick=()=>leave();$('back-map').onclick=()=>leave();$('replay').onclick=()=>enterChapter(C.chapter(D,state).id,true);
+$('continue-route').onclick=()=>go(undefined,true);$('enter').onclick=()=>enterChapter(window.AtlasMap.selected());$('restart-map').onclick=()=>enterChapter(window.AtlasMap.selected(),true);$('leave').onclick=()=>leave();$('back-map').onclick=()=>leave();$('replay').onclick=()=>enterChapter(C.chapter(D,state).id,true);
 $('line').onclick=finishText;$('next').onclick=()=>go();$('pause').onclick=()=>setPaused(!paused);$('resume').onclick=()=>setPaused(false);
-$('repeat').onclick=()=>{if(!active||paused)return;render();};
+$('previous').onclick=goBack;$('ending-previous').onclick=goBack;
 $('auto').onclick=()=>{state.settings.auto=!state.settings.auto;volumes();save();};
 $('sound-open').onclick=()=>openDialog($('sound-dialog'));$('sound-done').onclick=()=>$('sound-dialog').close();
 $('history-open').onclick=()=>{
@@ -302,7 +295,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&active){mo
 window.addEventListener('pagehide',()=>{if(active){river.pause();video.pause();cancelCues();save();}});
 window.addEventListener('journey:leaving-site',()=>{
  save();
- try{sessionStorage.setItem(window.JourneyReturn.KEY,JSON.stringify({version:1,view:active?'story':'map',state:movieReturn||state}));}catch{}
+ try{sessionStorage.setItem(window.JourneyReturn.KEY,JSON.stringify({version:1,view:active?'story':'map',state}));}catch{}
  if(active)setPaused(true);
 });
 window.addEventListener('journey:chapter',e=>enterChapter(e.detail));
