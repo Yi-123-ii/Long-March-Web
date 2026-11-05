@@ -8,7 +8,7 @@
 
 精神内涵按[纪念红军长征胜利80周年大会讲话](https://www.xinhuanet.com/politics/2016-10/21/c_1119765804_2.htm)核对。图下只留文物身份，[照片许可](image-credits.html)从皮带故事内进入。团队实践照片的报道出处继续保留在案例资料中。
 
-历史过渡的两个标题使用本地 WOFF2 子集，仅含这两句所需的17个字。字形取自 [Ma Shan Zheng](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/mashanzheng)，许可见 [SIL OFL 1.1](../../assets/fonts/ma-shan-zheng-OFL.txt)。
+历史过渡的两个标题由矢量笔形重新排字。主标题加重「熠熠不朽」，在「的」处收小字身；副标题让「走下去」放大并上扬。字形取自 [Ma Shan Zheng](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/mashanzheng) 和 [Zhi Mang Xing](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/zhimangxing)，均采用 SIL OFL 1.1。字库许可见 [Ma Shan Zheng](../../assets/fonts/ma-shan-zheng-OFL.txt) 和 [Zhi Mang Xing](../../assets/fonts/zhi-mang-xing-OFL.txt)。
 
 ## 首版叙事意图与空间组织
 

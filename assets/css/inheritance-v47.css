@@ -1,12 +1,4 @@
 /* V4.7: a continuous historical reading passage; scoped to the bridge. */
-@font-face {
-  font-family: "Shanhe Spirit Brush";
-  src: url("../fonts/inheritance-brush.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
 body.legacy-v41 .v47-spirit {
   padding-block: clamp(48px, 4vw, 52px) 0;
   background: linear-gradient(180deg, var(--doc-paper) var(--cover-bottom-overlap, 0px), #f3eadb 44%, #f6efe3);
@@ -19,29 +11,28 @@ body.legacy-v41 .v44-opening + .v47-spirit > .doc-wrap {
 body.legacy-v41 .v47-spirit__heading {
   margin-bottom: 28px;
 }
-body.legacy-v41 :is(.v47-spirit__heading h2, .v47-journey__copy h3) {
-  font-family: "Shanhe Spirit Brush", var(--v38-reading, "Songti SC", serif);
-  font-weight: 400;
-}
 body.legacy-v41 .v47-spirit__heading h2 {
-  color: #283a31;
-  font-size: clamp(50px, 5.1vw, 76px);
-  line-height: 1.16;
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(6px, 1vw, 14px);
+  max-width: 960px;
 }
-body.legacy-v41 .v47-spirit__heading h2 > span:first-child {
-  margin-inline-end: .22em;
-  color: #405143;
-  font-size: .78em;
+body.legacy-v41 :is(.v47-spirit__heading h2, .v47-journey__copy h3) img {
+  display: block;
+  min-width: 0;
+  height: auto;
 }
-body.legacy-v41 .v47-journey__copy h3 {
-  margin-bottom: 18px;
-  color: #79392d;
-  font-size: clamp(32px, 3.25vw, 47px);
-  line-height: 1.2;
+body.legacy-v41 .v47-spirit__heading h2 > img:first-child {
+  width: 25%;
+  max-width: 232px;
 }
-body.legacy-v41 .v47-journey__copy h3 > span:last-child {
-  margin-inline-start: .11em;
-  font-size: 1.12em;
+body.legacy-v41 .v47-spirit__heading h2 > img:last-child {
+  width: 75%;
+  max-width: 700px;
+}
+body.legacy-v41 .v47-journey__copy h3 { margin-bottom: 18px; }
+body.legacy-v41 .v47-journey__copy h3 > img {
+  width: min(100%, 454px);
 }
 body.legacy-v41 .v47-spirit__reading { font-size: 16px; line-height: 1.95; color: #554b40; }
 body.legacy-v41 .v47-spirit__reading p + p { margin-top: 20px; }
@@ -116,8 +107,7 @@ body.legacy-v41 .v47-spirit__handoff > span { color: #904832; font: 400 30px/1 v
 }
 @media (max-width: 760px) {
   body.legacy-v41 .v47-spirit { padding-top: 46px; }
-  body.legacy-v41 .v47-spirit__heading h2 { font-size: clamp(38px, 7.2vw, 55px); }
-  body.legacy-v41 .v47-journey__copy h3 { font-size: clamp(31px, 5.8vw, 42px); }
+  body.legacy-v41 .v47-journey__copy h3 > img { width: min(100%, 388px); }
   body.legacy-v41 .v47-spirit__reading { font-size: 15px; line-height: 2; }
   body.legacy-v41 .v47-spirit__reading .v47-spirit__meaning { font-size: 16px; }
   body.legacy-v41 .v47-spirit__reading p + p { margin-top: 16px; }
@@ -127,6 +117,8 @@ body.legacy-v41 .v47-spirit__handoff > span { color: #904832; font: 400 30px/1 v
   body.legacy-v41 .v47-spirit__handoff { align-items: flex-start; gap: 16px; padding-block: 24px 16px; font-size: 17px; }
   body.legacy-v41 .v47-spirit__handoff > span { padding-top: 7px; font-size: 24px; }
 }
-@media (max-width: 480px) {
-  body.legacy-v41 .v47-spirit__heading h2 > span { display: block; }
+@media (max-width: 560px) {
+  body.legacy-v41 .v47-spirit__heading h2 { flex-direction: column; align-items: flex-start; gap: 2px; }
+  body.legacy-v41 .v47-spirit__heading h2 > img:first-child { width: 38%; max-width: 156px; }
+  body.legacy-v41 .v47-spirit__heading h2 > img:last-child { width: 100%; max-width: 430px; }
 }
