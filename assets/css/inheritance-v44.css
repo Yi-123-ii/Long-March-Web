@@ -37,7 +37,12 @@ body.legacy-v41 .v44-opening {
   display: grid;
   align-items: center;
 }
-body.legacy-v41 .v44-opening__art { position: absolute; inset: calc(-1 * var(--opening-header)) 0 0; z-index: -1; }
+body.legacy-v41 .v44-opening__art {
+  position: absolute;
+  inset: calc(-1 * var(--opening-header)) 0 0;
+  z-index: -1;
+  background: url("../images/v44/legacy-reading-preview.webp") 65% center / cover no-repeat;
+}
 body.legacy-v41 .v44-opening__art picture,
 body.legacy-v41 .v44-opening__art img { display: block; width: 100%; height: 100%; }
 body.legacy-v41 .v44-opening__art img { object-fit: cover; object-position: 65% center; }
@@ -412,6 +417,10 @@ body.legacy-v41 .doc-dialog .doc-media__credit { font-size: 12px; }
     pointer-events: none;
   }
   body.legacy-v41 .v44-opening__art img { object-position: 56% 70%; }
+  body.legacy-v41 .v44-opening__art {
+    background-image: url("../images/v44/legacy-reading-portrait-preview.webp");
+    background-position: 56% 70%;
+  }
   body.legacy-v41 .v44-opening__art figcaption { right: 20px; bottom: 9px; }
   body.legacy-v41 .v44-opening__inner { padding-block: 18px 0; }
   body.legacy-v41 .v44-opening__copy { max-width: 450px; }

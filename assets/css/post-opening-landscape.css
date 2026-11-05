@@ -9,7 +9,9 @@
   inset: calc(-1 * var(--header-height)) 0 0;
   z-index: -1;
   pointer-events: none;
+  background: url("../images/post-office-landscape-preview.webp") center / cover no-repeat;
 }
+.post-opening__landscape picture,
 .post-opening__landscape img {
   display: block;
   width: 100%;
@@ -24,6 +26,7 @@
   background: linear-gradient(90deg, #eef1ed88, #eef1ed33 40%, transparent 62%);
 }
 @media (max-width: 760px) {
+  .post-opening__landscape { background-position: 72% center; }
   .post-opening__landscape img { object-position: 72% center; }
   .post-opening__landscape::after {
     background: radial-gradient(ellipse 86% 35% at 28% 48%, #eef1edb8, transparent);

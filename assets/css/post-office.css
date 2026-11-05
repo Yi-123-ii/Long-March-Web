@@ -128,7 +128,7 @@
 .lm-post-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 310px;
-  gap: 70px;
+  column-gap: 70px;
   padding-bottom: 75px;
 }
 .lm-letter {
@@ -358,6 +358,7 @@
   margin: 17px 0 0;
   min-height: 52px;
 }
+.lm-prompt-hint > [aria-hidden="true"] { display: none; }
 .lm-prompt-hint p { margin: 0; }
 .lm-prompt-hint p + p { margin-top: .65em; }
 .lm-saved-heading {
@@ -524,10 +525,32 @@
 .lm-delivery-dialog #delivery-actions .lm-link {
   font-size: 12px;
 }
+@media (width > 800px) {
+  .lm-post-compose { display: contents; }
+  .lm-post-layout .lm-letter {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .lm-post-layout .lm-letter textarea { flex: 1 0 auto; }
+  .lm-post-send { grid-area: 2 / 1; }
+  .lm-post-aside { grid-area: 1 / 2; }
+
+  /* Overlaid prompts size the row to the longest copy at the current width. */
+  .lm-prompt-hint { display: grid; }
+  .lm-prompt-hint > [data-prompt-panel] {
+    grid-area: 1 / 1;
+    align-self: start;
+  }
+  .lm-prompt-hint > [aria-hidden="true"] {
+    display: block;
+    visibility: hidden;
+  }
+}
 @media (min-width: 1600px) {
   .lm-post-layout {
     grid-template-columns: minmax(0, 1fr) 330px;
-    gap: 100px;
+    column-gap: 100px;
   }
   .lm-letter {
     padding: 38px 55px 30px;
@@ -542,7 +565,7 @@
 @media (max-width: 1100px) {
   .lm-post-layout {
     grid-template-columns: minmax(0, 1fr) 245px;
-    gap: 32px;
+    column-gap: 32px;
   }
   .lm-letter {
     padding: 28px;

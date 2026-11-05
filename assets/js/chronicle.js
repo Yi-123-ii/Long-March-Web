@@ -28,12 +28,13 @@
     if (!art) { node.textContent = event.title; return; }
     const label = el("span", "lm-sr-only", event.title);
     const image = el("img", "");
-    image.src = art.src;
     image.width = art.width;
     image.height = art.height;
     image.alt = "";
     image.decoding = "async";
     image.loading = "lazy";
+    if (!node.closest("dialog")) image.fetchPriority = "low";
+    image.src = art.src;
     image.onerror = () => { label.classList.remove("lm-sr-only"); image.remove(); };
     node.classList.add("lm-stage-title");
     node.replaceChildren(label, image);
@@ -89,14 +90,14 @@
       );
       const art = el("figure", "lm-stage-art");
       const illustration = el("img", "");
-      illustration.src = "assets/images/illustrations/" + event.id + "-v1.webp";
       illustration.alt = "";
       illustration.width = 720;
       illustration.height = 480;
       illustration.loading = "lazy";
       illustration.decoding = "async";
+      illustration.fetchPriority = "low";
       illustration.setAttribute("aria-hidden", "true");
-      illustration.alt = "";
+      illustration.src = "assets/images/illustrations/" + event.id + "-v1.webp";
       art.append(illustration);
       article.append(content, art);
       list.append(article);

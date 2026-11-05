@@ -5,31 +5,28 @@
 <meta name="theme-color" content="#f0dbb4"><meta name="description" content="循着地图翻开行军相册，从于都走向雪山、草地与吴起，在长征背景的故事中记住同行的人">
 <title>同行 · 重走长征路</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-<link rel="preload" href="assets/atlas/heading-eight-fast.webp" as="image" type="image/webp">
-<link rel="preload" href="assets/atlas/terrain-extension-v1.webp" as="image" type="image/webp">
-<link rel="stylesheet" href="../../assets/css/fonts.css?v=20261105-site-copy-glyphs"><link rel="stylesheet" href="assets/yudu.css?v=030"><link rel="stylesheet" href="assets/journey-atlas.css?v=031">
+<link rel="preload" href="assets/atlas/heading-eight-fast.webp" as="image" fetchpriority="high" type="image/webp">
+<link rel="preload" as="image" fetchpriority="high" href="assets/atlas/terrain-extension-preview.webp">
+<link rel="preload" href="assets/atlas/terrain-extension-fast.webp" as="image" fetchpriority="low" type="image/webp">
+<link rel="stylesheet" data-site-fonts="../../assets/css/fonts.css?v=20261105-opening-perf" />
+<noscript><link rel="stylesheet" href="../../assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
+<link rel="stylesheet" href="assets/yudu.css?v=030"><link rel="stylesheet" href="assets/journey-atlas.css?v=031">
 <script defer src="assets/journey-return.js?v=029"></script>
 <script defer src="assets/journey-media.js?v=033"></script>
 <script defer src="assets/yudu-presentation.js?v=029"></script>
 <script defer src="assets/journey-films.js?v=20261104-buffer"></script>
 <link rel="stylesheet" href="assets/journey-film-loader.css?v=20261104-buffer">
-<script defer src="assets/story-legacy-v009.js?v=029"></script><script defer src="assets/late-chapters-data.js?v=029"></script><script defer src="assets/chapters-data.js?v=033"></script><script defer src="assets/yudu-data.js?v=029"></script><script defer src="assets/yudu-core.js?v=030"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=030"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=020"></script><script defer src="assets/yudu-game.js?v=032"></script>
+<script defer fetchpriority="low" src="assets/story-legacy-v009.js?v=029"></script><script defer fetchpriority="low" src="assets/late-chapters-data.js?v=029"></script><script defer fetchpriority="low" src="assets/chapters-data.js?v=033"></script><script defer fetchpriority="low" src="assets/yudu-data.js?v=029"></script><script defer fetchpriority="low" src="assets/yudu-core.js?v=030"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=030"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=020"></script><script defer fetchpriority="low" src="assets/yudu-game.js?v=032"></script>
 <script defer src="assets/site-integration.js?v=023"></script>
-<script defer src="../../assets/js/site-nav.js?v=20261102-unified"></script>
-<link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261102-unified" />
-<link rel="stylesheet" href="../../assets/css/header-unified.css?v=20261105-cover-bands" />
+<script defer src="../../assets/js/site-nav.js?v=20261105-opening-perf"></script>
+<link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261105-opening-perf" />
+<link rel="stylesheet" href="../../assets/css/header-unified.css?v=20261105-opening-perf" />
 <link rel="stylesheet" href="assets/atlas-scroll.css?v=022" />
 <link rel="stylesheet" href="assets/atlas-fullscreen.css?v=20261103" />
-<link rel="stylesheet" href="assets/journey-opening.css?v=20261105-cover-bands" />
+<link rel="stylesheet" href="assets/journey-opening.css?v=20261105-opening-perf" />
 <script defer src="assets/journey-opening.js?v=20261104-directory"></script>
-<script>
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && Element.prototype.animate) {
-    document.documentElement.classList.add('has-opening-motion');
-    window.openingMotionFallback = setTimeout(() => document.documentElement.classList.remove('has-opening-motion'), 8000);
-  }
-</script>
-<link rel="stylesheet" href="../../assets/css/section-opening.css?v=20261105-cover-bands" />
-<script defer src="../../assets/js/section-opening-motion.js?v=20261104-first-frame"></script>
+<link rel="stylesheet" href="../../assets/css/section-opening.css?v=20261105-opening-perf" />
+<script defer src="../../assets/js/section-opening-motion.js?v=20261105-opening-perf"></script>
 </head>
 <body>
 <audio id="ambient-audio" loop preload="none" hidden aria-hidden="true"></audio>
@@ -55,14 +52,14 @@
  <main class="atlas-main" id="journey-map">
   <div id="atlas-window" class="atlas-window" aria-label="长征故事地图，可拖动查看">
    <div id="atlas-canvas" class="atlas-canvas">
-    <img class="atlas-terrain" src="assets/atlas/terrain-v022.webp" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" loading="lazy" draggable="false">
+    <img class="atlas-terrain" src="assets/atlas/terrain-fast.webp" fetchpriority="low" decoding="async" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" loading="lazy" draggable="false">
     <svg class="atlas-routes" viewBox="0 0 1180 620" aria-hidden="true"><path id="atlas-main-route"/><path id="atlas-epilogue-route"/><polyline id="atlas-travel-route" class="atlas-travel-route" hidden/></svg>
     <p class="atlas-epilogue-note">1936年10月 · 历史尾声</p>
     <div id="atlas-pins" class="atlas-pins"></div>
     <svg class="atlas-flag-layer" viewBox="0 0 1180 620" aria-hidden="true"><g id="atlas-flag" hidden><ellipse class="flag-foot" rx="9" ry="3"/><circle class="flag-arrival" r="15"/><path class="flag-pole" d="M0 0V-62"/><path class="flag-cloth" d="M1-60C17-68 25-49 45-59V-30C28-20 18-41 1-30Z"/><circle class="flag-finial" cy="-63" r="2.5"/></g></svg>
    </div>
   </div>
-  <aside class="atlas-card" aria-labelledby="station-title"><div class="atlas-photo-wrap"><img id="atlas-photo" src="assets/yudu/chenhe-first-v011.png" alt="于都河岸的陈禾"></div><div class="atlas-card-copy"><p id="atlas-chapter">第一站 · 于都启程</p><h2 id="station-title">一只伸来的手</h2><p class="atlas-meta"><span id="atlas-date">1934年10月</span><span id="atlas-place">江西于都</span></p><p id="atlas-description">河岸的队伍正准备启程，有人停下脚步等你同行</p><a id="chapter-facts" class="c-chapter-facts" href="../../chronicle.html#event=yudu">读这一程的史实</a><div class="entry-actions"><button id="enter" class="primary">翻开这一站</button><button id="restart-map" class="quiet" hidden>重新开始这一站</button></div><p id="save-description" class="atlas-save"></p></div></aside>
+  <aside class="atlas-card" aria-labelledby="station-title"><div class="atlas-photo-wrap"><img id="atlas-photo" src="assets/stream/chenhe-first-v011-06e04f5e8a.webp" loading="lazy" fetchpriority="low" decoding="async" alt="于都河岸的陈禾"></div><div class="atlas-card-copy"><p id="atlas-chapter">第一站 · 于都启程</p><h2 id="station-title">一只伸来的手</h2><p class="atlas-meta"><span id="atlas-date">1934年10月</span><span id="atlas-place">江西于都</span></p><p id="atlas-description">河岸的队伍正准备启程，有人停下脚步等你同行</p><a id="chapter-facts" class="c-chapter-facts" href="../../chronicle.html#event=yudu">读这一程的史实</a><div class="entry-actions"><button id="enter" class="primary">翻开这一站</button><button id="restart-map" class="quiet" hidden>重新开始这一站</button></div><p id="save-description" class="atlas-save"></p></div></aside>
   <div class="atlas-controls" role="group" aria-label="地图工具">
    <details class="atlas-directory">
     <summary>章节目录</summary>
@@ -81,7 +78,7 @@
 
 <section id="story-screen" class="story-screen" aria-label="长征同行剧情" hidden>
  <div class="visual-stage">
-  <img id="scene-image" loading="lazy" src="assets/yudu/chenhe-first-v011.png" alt="陈禾站在于都河岸，身后战士走向浮桥">
+  <img id="scene-image" loading="lazy" src="assets/stream/chenhe-first-v011-06e04f5e8a.webp" alt="陈禾站在于都河岸，身后战士走向浮桥">
   <video id="scene-video" playsinline preload="none" aria-label="陈禾向你伸手的短镜头" hidden></video>
   <canvas id="video-corner" class="video-corner" aria-hidden="true" hidden></canvas>
   <div id="scene-cut-veil" class="scene-cut-veil" aria-hidden="true"></div><div class="river-light" aria-hidden="true"></div><div class="scene-shade" aria-hidden="true"></div>

@@ -48,5 +48,3 @@
 
 /* V2.1: shared accessible text, used by all sections. */
 .a-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
-@media(prefers-reduced-motion:no-preference){@view-transition{navigation:auto}::view-transition-old(root){animation:180ms ease-in both v21-fade-out}::view-transition-new(root){animation:220ms ease-out both v21-fade-in}@keyframes v21-fade-out{to{opacity:.30}}@keyframes v21-fade-in{from{opacity:.35}to{opacity:1}}}
-@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation-duration:.01ms!important}}
