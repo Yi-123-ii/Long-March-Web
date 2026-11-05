@@ -10,29 +10,26 @@
     <meta name="theme-color" content="#e9eeeb" />
     <title>长征纪事 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261105-site-copy-glyphs" />
+    <link rel="stylesheet" data-site-fonts="assets/css/fonts.css?v=20261105-opening-perf" />
+<noscript><link rel="stylesheet" href="assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/chronicle.css?v=20261105-route-map" />
-    <link rel="preload" href="assets/images/hero-chronicle-snow-v1.webp" as="image" type="image/webp" />
+    <link rel="stylesheet" href="assets/css/chronicle.css?v=20261105-opening-perf" />
+    <link rel="preload" as="image" fetchpriority="high" href="assets/images/hero-chronicle-preview.webp" />
+    <link rel="preload" href="assets/images/hero-chronicle-fast.webp" as="image" media="not all and (max-width: 580px) and (orientation: portrait)" />
+    <link rel="preload" href="assets/images/hero-chronicle-portrait-fast.webp" as="image" media="(max-width: 580px) and (orientation: portrait)" />
     <script defer src="data/events.js?v=20261105-site-copy"></script>
     <script defer src="data/stage-title-art.js?v=20261023-four-fixes"></script>
     <script defer src="assets/js/storage.js?v=20261024-stationery"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/site-nav.js?v=20261102-unified"></script>
-    <script defer src="assets/js/chronicle.js?v=20261105-finish-reading"></script>
+    <script defer src="assets/js/site-nav.js?v=20261105-opening-perf"></script>
+    <script defer src="assets/js/chronicle.js?v=20261105-opening-perf"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
-    <link rel="stylesheet" href="assets/css/site-shell.css" />
+    <link rel="stylesheet" href="assets/css/site-shell.css?v=20261105-opening-perf" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
   <link href="assets/css/v38-reading.css" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/header-unified.css?v=20261105-cover-bands" />
-<script>
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && Element.prototype.animate) {
-    document.documentElement.classList.add('has-opening-motion');
-    window.openingMotionFallback = setTimeout(() => document.documentElement.classList.remove('has-opening-motion'), 8000);
-  }
-</script>
-<link rel="stylesheet" href="assets/css/section-opening.css?v=20261105-cover-bands" />
-<script defer src="assets/js/section-opening-motion.js?v=20261104-first-frame"></script>
+<link rel="stylesheet" href="assets/css/header-unified.css?v=20261105-opening-perf" />
+<link rel="stylesheet" href="assets/css/section-opening.css?v=20261105-opening-perf" />
+<script defer src="assets/js/section-opening-motion.js?v=20261105-opening-perf"></script>
 </head>
   <body class="lm-page" id="top">
     <a class="lm-skip" href="#chronicle">跳至纪事内容</a>
@@ -57,7 +54,7 @@
           aria-label="晨光中的雪岭、云海与背负行装的红军队伍"
         ></div>
         <div class="section-opening__copy">
-          <h1 id="hero-title" class="lm-title-art"><span class="lm-sr-only">山河为卷 脚步为证</span><img src="assets/images/titles/hero-v1.webp" style="clip-path:url(#chronicle-title-letters)" width="1400" height="814" alt="" fetchpriority="high" /></h1>
+          <h1 id="hero-title" class="lm-title-art"><span class="lm-sr-only">山河为卷 脚步为证</span><img src="assets/images/titles/hero-fast.webp" decoding="async" style="clip-path:url(#chronicle-title-letters)" width="840" height="488" alt="" fetchpriority="high" /></h1>
           <a class="section-opening__action" href="#chronicle"
             >翻开这段历程 <span aria-hidden="true">↓</span></a
           >
@@ -70,7 +67,7 @@
       >
         <div class="lm-section-heading">
           <div>
-            <h2 id="chronicle-title" class="lm-title-art"><span class="lm-sr-only">那些走过的路</span><img src="assets/images/titles/chronicle-v2.webp" width="1400" height="293" alt="" /></h2>
+            <h2 id="chronicle-title" class="lm-title-art"><span class="lm-sr-only">那些走过的路</span><img src="assets/images/titles/chronicle-v2.webp" loading="lazy" fetchpriority="low" decoding="async" width="1400" height="293" alt="" /></h2>
           </div>
           <p class="lm-chronicle-intro">
             <span>循着红军足迹，回望长征历程</span>
@@ -123,7 +120,7 @@
       <section id="post-office-invite" class="lm-mail-invite lm-container" aria-labelledby="mail-invite-title">
         <div>
           <p class="lm-eyebrow">读过来路，留下回声</p>
-          <h2 id="mail-invite-title" class="lm-invite-title"><span class="lm-sr-only">如果能寄去一句话，你想对他们说什么？</span><img src="assets/images/titles/mail-invite-v1.webp" width="1400" height="553" alt="" loading="lazy" /></h2>
+          <h2 id="mail-invite-title" class="lm-invite-title"><span class="lm-sr-only">如果能寄去一句话，你想对他们说什么？</span><img src="assets/images/titles/mail-invite-v1.webp" width="1400" height="553" alt="" loading="lazy" decoding="async" fetchpriority="low" /></h2>
         </div>
         <a class="lm-postal-link" href="post-office.html">
           <span class="lm-postal-envelope" aria-hidden="true">

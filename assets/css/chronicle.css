@@ -31,7 +31,14 @@
 .lm-hero-art {
   position: absolute;
   inset: 0;
-  background: url("../images/hero-chronicle-snow-v1.webp") center 52% / cover no-repeat;
+  background:
+    url("../images/hero-chronicle-fast.webp") center 52% / cover no-repeat,
+    url("../images/hero-chronicle-preview.webp") center 52% / cover no-repeat;
+}
+@media (max-width: 580px) and (orientation: portrait) {
+  .lm-hero-art {
+    background-image: url("../images/hero-chronicle-portrait-fast.webp"), url("../images/hero-chronicle-preview.webp");
+  }
 }
 .lm-hero-art::after {
   content: "";

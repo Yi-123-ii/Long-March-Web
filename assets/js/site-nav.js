@@ -1,4 +1,18 @@
 (() => {
+  const fontSheet = document.querySelector('[data-site-fonts]');
+  if (fontSheet) {
+    const useSiteFonts = () => {
+      fontSheet.href = fontSheet.dataset.siteFonts;
+      window.removeEventListener('load', useSiteFonts);
+      window.removeEventListener('scroll', useSiteFonts);
+    };
+    if (document.readyState === 'complete') useSiteFonts();
+    else {
+      window.addEventListener('load', useSiteFonts, { once: true });
+      window.addEventListener('scroll', useSiteFonts, { once: true, passive: true });
+    }
+  }
+
   const header = document.querySelector('.site-header');
   if (!header) return;
   const toggle = header.querySelector('.site-menu-toggle');

@@ -2,7 +2,9 @@
 html { scroll-behavior: smooth; }
 #map-screen {
   isolation: isolate;
-  background: #ead1ad url("atlas/terrain-extension-v1.webp") center top / 100% 200svh no-repeat;
+  background:
+    url("atlas/terrain-extension-fast.webp") center top / 100% 200svh no-repeat,
+    #ead1ad url("atlas/terrain-extension-preview.webp") center top / 100% 200svh no-repeat;
 }
 #map-screen .atlas-main,
 #map-screen .atlas-window { background: transparent; }

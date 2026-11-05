@@ -3,7 +3,7 @@ body .section-opening.section-opening {
   --header-height: 88px;
   --title-width: min(43vw, 560px, 75svh);
   --cover-top-offset: calc(-1 * var(--header-height));
-  --cover-paper: var(--lm-bg, #eef1ed);
+  --cover-fade-rgb: 238 241 237;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -16,7 +16,8 @@ body .section-opening.section-opening {
 }
 body .section-opening.section-opening--overlay {
   --cover-top-offset: 0px;
-  --cover-paper: rgb(234 209 173 / 38%);
+  --cover-fade-rgb: 234 209 173;
+  --cover-fade-opacity: .38;
   min-height: 100svh;
   padding-top: var(--header-height);
 }
@@ -38,12 +39,11 @@ body .section-opening.section-opening::before {
 body .section-opening.section-opening::after {
   bottom: calc(-1 * var(--cover-bottom-overlap));
   height: var(--cover-bottom-band);
-  background: var(--cover-paper);
-  mask: var(--cover-bottom-mist) center / 100% 100% no-repeat;
+  background: var(--cover-bottom-mist);
 }
 body .section-opening.section-opening--overlay::after { z-index: -1; }
-body .lm-hero.section-opening { background: var(--cover-paper); }
-body .v44-opening.section-opening { --cover-paper: var(--doc-paper); }
+body .lm-hero.section-opening { background: var(--lm-bg); }
+body .v44-opening.section-opening { --cover-fade-rgb: 241 232 217; }
 body .section-opening :is(.lm-hero-art, .v44-opening__art, .post-opening__landscape) {
   bottom: calc(-1 * var(--cover-bottom-overlap));
 }
@@ -71,11 +71,11 @@ body .section-opening .section-opening__copy > h1[id] {
   padding: 0;
 }
 body .section-opening .section-opening__copy h1 img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-.section-opening h1 img:not(.legacy-title__art) { display: block; }
 
 /* Map each artwork's visible bounds to the Chronicle lettering within the shared frame. */
 #journey-heading {
@@ -126,19 +126,9 @@ body .section-opening .section-opening__copy :is(#journey-heading, #legacy-title
 }
 .section-opening__action span { font: inherit; }
 .section-opening__action:hover { color: #85382c; }
-.has-opening-motion .section-opening[data-title-motion]:not(.is-motion-revealed) h1,
-.has-opening-motion .section-opening[data-title-motion]:not(.is-motion-revealed) .section-opening__action { opacity: 0; }
-@media (prefers-reduced-motion: reduce) {
-  .has-opening-motion .section-opening[data-title-motion] h1,
-  .has-opening-motion .section-opening[data-title-motion] .section-opening__action { opacity: 1; }
-}
 @media (max-width: 760px) {
   body .section-opening.section-opening {
     --header-height: 76px;
     --title-width: min(88vw, 460px, 74svh);
-  }
-  body .section-opening.section-opening::after {
-    mask-size: 170% 100%;
-    mask-position: 62% center;
   }
 }

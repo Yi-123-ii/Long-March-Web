@@ -3,23 +3,14 @@
   const page = document.querySelector("body.legacy-v41");
   if (!page) return;
 
-  const titleArt = page.querySelector(".legacy-title__art");
-  if (titleArt) {
-    const showTitleArt = () => {
-      if (titleArt.naturalWidth) titleArt.parentElement.classList.add("has-art");
-    };
-    if (titleArt.complete) showTitleArt();
-    else titleArt.addEventListener("load", showTitleArt, { once: true });
-  }
-
   // Shared site-nav.js owns the global menu. This class keeps the V4.1
   // mobile fallback rules from interfering when scripts are available.
   page.classList.add("legacy-nav-ready");
   const start = page.querySelector("[data-doc-start]");
   const bridge = document.getElementById("legacy-bridge");
   if (start && bridge) {
-    start.hidden = false;
-    start.addEventListener("click", () => {
+    start.addEventListener("click", (event) => {
+      event.preventDefault();
       const heading = document.getElementById("legacy-bridge-title");
       heading.setAttribute("tabindex", "-1");
       heading.focus({ preventScroll: true });

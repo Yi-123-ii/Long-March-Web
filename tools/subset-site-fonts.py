@@ -73,12 +73,13 @@ for entry in originals:
     font = TTFont(font_dir / entry["file"], recalcTimestamp=False)
     available = set(font.getBestCmap())
     used = available & characters
-    if "-common." in entry["file"] or not used:
+    if not used or used == available:
         css.append(font_face(entry, entry["file"], available))
         font.close()
         continue
     signature = hashlib.sha256((entry["sha256"] + ranges(used)).encode("utf-8")).hexdigest()[:10]
-    filename = entry["file"].replace("-extended-", "-site-").replace(".woff2", f"-{signature}.woff2")
+    stem = entry["file"].replace("-extended-", "-site-").replace("-common.", "-site-common.")
+    filename = stem.replace(".woff2", f"-{signature}.woff2")
     options = subset.Options()
     options.flavor = "woff2"
     options.layout_features = ["*"]

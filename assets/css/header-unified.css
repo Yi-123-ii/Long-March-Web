@@ -4,7 +4,15 @@
   --cover-bottom-band: clamp(150px, 12vw, 190px);
   --cover-bottom-overlap: 99px;
   --cover-top-mist: url("../images/v39/header-sky-mist.svg?v=20261103-even");
-  --cover-bottom-mist: url("../images/v39/cloud-paper-soft.svg");
+}
+.a-hero, .section-opening {
+  --cover-bottom-mist: linear-gradient(to bottom,
+    rgb(var(--cover-fade-rgb) / 0),
+    rgb(var(--cover-fade-rgb) / calc(.03 * var(--cover-fade-opacity, 1))) 20%,
+    rgb(var(--cover-fade-rgb) / calc(.2 * var(--cover-fade-opacity, 1))) 42%,
+    rgb(var(--cover-fade-rgb) / calc(.57 * var(--cover-fade-opacity, 1))) 62%,
+    rgb(var(--cover-fade-rgb) / calc(.9 * var(--cover-fade-opacity, 1))) 80%,
+    rgb(var(--cover-fade-rgb) / var(--cover-fade-opacity, 1)) 94%);
 }
 .lm-unified-header[data-section="home"] { --header-tagline-image: url("../images/titles/header-home-tagline-v1-compact.webp"); }
 .lm-unified-header[data-section="chronicle"] { --header-tagline-image: url("../images/titles/brand-tagline-v2-compact.webp"); }
