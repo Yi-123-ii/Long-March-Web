@@ -7,6 +7,7 @@
   return null;
  }
  function media(path,embedded,delivery=root.JourneyMedia){return embedded?.[path]||delivery?.[path]||(/\.(mp4|png)$/.test(path)?path+'?v=023':path);}
+ function choiceLabel(label){return label.replace(/。\s*$/u,'').replace(/。/gu,'，');}
  // Buffer one imminent film on the current route, never unchosen branches or later chapters.
  function upcomingFilm(data,core,state){
   let node=core.current(data,state);
@@ -21,6 +22,6 @@
   }
   return null;
  }
- const api={speaker,media,upcomingFilm};
+ const api={speaker,media,upcomingFilm,choiceLabel};
  if(typeof module==='object'&&module.exports)module.exports=api;else root.YuduPresentation=api;
 })(typeof window==='undefined'?globalThis:window);

@@ -30,7 +30,7 @@ const cueTimers=new Set(),cuePlayers=new Set();
 const dialogs=[$('sound-dialog'),$('history-dialog'),$('about-dialog')];
 for(const img of document.querySelectorAll('img[src]'))img.src=resolve(img.getAttribute('src'));
 function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,6500);}
-function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(movieReturn||state));}catch{if(!storageNotice){notice('浏览器未能保存进度；本次仍可继续阅读。');storageNotice=true;}}}
+function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(movieReturn||state));}catch{if(!storageNotice){notice('进度暂未保存，本次仍可继续阅读');storageNotice=true;}}}
 function nativeMovie(){return active&&C.current(D,state).nativeAudio===true&&!video.hidden;}
 function volumes(){river.volume=nativeMovie()&&!movieDone?0:state.settings.ambient*.7;video.volume=state.settings.voice;video.muted=false;for(const a of cuePlayers)a.volume=state.settings.ambient*.55;$('voice-volume').value=state.settings.voice*100;$('ambient-volume').value=state.settings.ambient*100;$('voice-value').textContent=Math.round(state.settings.voice*100)+'%';$('ambient-value').textContent=Math.round(state.settings.ambient*100)+'%';$('auto').textContent='自动：'+(state.settings.auto?'开':'关');$('auto').setAttribute('aria-pressed',state.settings.auto);}
 function cancelCues(){for(const t of cueTimers)clearTimeout(t);cueTimers.clear();for(const a of cuePlayers){a.pause();a.src='';}cuePlayers.clear();}
@@ -39,13 +39,13 @@ function cue(kind){
  const moments=kind==='stumble'?[0,260,840]:[0,640,1280,1970];
  for(const ms of moments){const timer=setTimeout(()=>{cueTimers.delete(timer);if(!active||paused)return;const a=new Audio(resolve('assets/audio/yudu/wood-step.ogg'));cuePlayers.add(a);a.volume=state.settings.ambient*.55;a.playbackRate=kind==='stumble'?.84:1+(ms%3)*.025;a.onended=()=>cuePlayers.delete(a);a.onerror=()=>cuePlayers.delete(a);a.play().catch(()=>cuePlayers.delete(a));},ms);cueTimers.add(timer);}
 }
-function playRiver(){if(active&&!paused){const requestEpoch=epoch,source=river.src;river.play().catch(e=>{if(e.name==='AbortError'||!active||paused||requestEpoch!==epoch||source!==river.src)return;notice('环境声未能播放，可从“声音”检查音量并重新进入。');});}}
+function playRiver(){if(active&&!paused){const requestEpoch=epoch,source=river.src;river.play().catch(e=>{if(e.name==='AbortError'||!active||paused||requestEpoch!==epoch||source!==river.src)return;notice('环境声暂未播放，可到“声音”检查音量后重新进入');});}}
 function mapStatus(options){
  const n=C.current(D,state),hasProgress=state.path.length>1,ch=C.chapter(D,state);
  $('restart-map').hidden=!hasProgress;
 
  $('restart-map').textContent=n.end?'查看这一程':n.checkpoint?'继续这一程':'继续上次';
- $('save-description').textContent=hasProgress?'上次停在'+ch.name+'。可以继续上次，也可以回望已走过的章节。':'河边木板有些湿。有人停下来，等你跟上。';
+ $('save-description').textContent=hasProgress?'上次读到'+ch.name+'，可继续阅读或回望已走过的章节':'河岸的队伍正准备启程，有人停下脚步等你同行';
  const buttons=$('chapter-buttons');buttons.replaceChildren();
  for(const c of D.chapters){const allowed=C.canOpenChapter(D,state,c.id),button=document.createElement('button');
   button.textContent=c.name+' · '+c.title;button.disabled=!allowed;button.title=allowed?'走进这一段':'先完成前一段故事';button.dataset.chapter=c.id;button.onclick=()=>enterChapter(c.id);buttons.append(button);
@@ -72,11 +72,11 @@ function chapterView(n){
 }
 function memoryText(){
  const result=[D.memories[state.choices.choice]].filter(Boolean);
- if(state.path.includes('xj-end'))result.push(state.choices['xj-choice']==='stretcher'?'我记住陆生的名字，是在江边。':'我把梁叔没写完的半句话，带过了江。');
- if(state.path.includes('zy-end'))result.push('旧的三针没有拆，新的线接在旁边。');
- if(state.path.includes('snow-end'))result.push(state.choices['snow-choice']==='call'?'风里，我喊他阿禾。他应了一声。':'到了雪山，这回换我等他。');
- if(state.path.includes('grass-end'))result.push(state.choices['grass-choice']==='stay'?'那一夜，我留下来陪陆生等天亮。':'那一夜，我们去接人，也彼此扶着回来。');
- if(state.path.includes('wuqi-end'))result.push(state.choices['wuqi-choice']==='sew'?'针脚还是不齐，袖口总算合住了。':'我写下他的名字，也写他活着时的样子。');
+ if(state.path.includes('xj-end'))result.push(state.choices['xj-choice']==='stretcher'?'在湘江岸边，我记住了陆生的名字':'我带过江的家书里，仍留着梁叔没写完的半句话');
+ if(state.path.includes('zy-end'))result.push('梁叔的三针旧线旁，接上了陈禾新补的针脚');
+ if(state.path.includes('snow-end'))result.push(state.choices['snow-choice']==='call'?'雪山风里，我喊了一声阿禾，听见了他的回应':'到了雪山，这回换我停下来等他');
+ if(state.path.includes('grass-end'))result.push(state.choices['grass-choice']==='stay'?'那一夜，我守在陆生身旁，陪他等到天亮':'那一夜，我们接回掉队的同志，也彼此扶持着回到营地');
+ if(state.path.includes('wuqi-end'))result.push(state.choices['wuqi-choice']==='sew'?'袖口总算补好，歪斜的针脚也记下了同行的情谊':'我写下梁叔的名字，也记下与他同行时的见闻');
  return result.join('\n');
 }
 
@@ -98,7 +98,7 @@ function setPaused(value){
 }
 function playMovie(){
  if(!active||paused||!moviePrepared||movieDone||video.hidden||!C.current(D,state).nativeAudio)return;
- const token=epoch;video.play().catch(e=>{if(token===epoch&&!paused&&e.name!=='AbortError'){setPaused(true);notice('点“继续这一程”开始播放，或选择跳过镜头。');}});
+ const token=epoch;video.play().catch(e=>{if(token===epoch&&!paused&&e.name!=='AbortError'){setPaused(true);notice('点击“继续这一程”播放，也可以跳过镜头');}});
 }
 function stopVoice(){voiceDone=true;cancelCues();}
 function updateNext(){
@@ -186,7 +186,7 @@ function visual(n){
   $('film-loading').hidden=true;
   videoCorner.setEnabled(false);
   presentStill(n.poster||imagePath,n,token);
-  voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头未能载入，暂显示文字。点“重播镜头”可重试。');
+  voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('镜头暂未载入，可先阅读文字，再点击“重播镜头”重试');
  };
  video.onplaying=()=>{if(token===epoch){video.controls=false;$('voice-state').textContent='';}};
  video.onloadedmetadata=ready;
@@ -222,14 +222,14 @@ function render(){
   $('continue-route').textContent=nextChapter?'进入下一站 · '+nextChapter.location:'这一程已走完';$('replay').textContent='重玩这一站';
   window.dispatchEvent(new CustomEvent('journey:chapter-ended',{detail:ch.id}));
   const cards=$('memory-cards');cards.replaceChildren();cards.hidden=!n.end;
-  if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'我记住陆生的名字，是在江边。':'我把梁叔没写完的半句话，带过了江。',state.choices['snow-choice']==='call'?'风里，我喊他阿禾。他应了一声。':'到了雪山，这回换我等他。',state.choices['grass-choice']==='stay'?'那一夜，我留下来陪陆生等天亮。':'那一夜，我们去接人，也彼此扶着回来。',state.choices['wuqi-choice']==='sew'?'针脚还是不齐，袖口总算合住了。':'我写下他的名字，也写他活着时的样子。'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}
+  if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'在湘江岸边，我记住了陆生的名字':'我带过江的家书里，仍留着梁叔没写完的半句话',state.choices['snow-choice']==='call'?'雪山风里，我喊了一声阿禾，听见了他的回应':'到了雪山，这回换我停下来等他',state.choices['grass-choice']==='stay'?'那一夜，我守在陆生身旁，陪他等到天亮':'那一夜，我们接回掉队的同志，也彼此扶持着回到营地',state.choices['wuqi-choice']==='sew'?'袖口总算补好，歪斜的针脚也记下了同行的情谊':'我写下梁叔的名字，也记下与他同行时的见闻'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}
   save();return;
  }
  $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=badge?.name||display.speaker;textPlan=T.plan(display.text);lineInstant=!!previous;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=display.text||'';$('voice-state').textContent='';
  const choices=$('choices');choices.replaceChildren();choices.hidden=!n.choices;$('next').hidden=!!n.choices;$('repeat').disabled=!!n.choices&&n.mode!=='thought';$('repeat').textContent=n.nativeAudio?'重播镜头':'再看一遍';
  if(n.choices){for(const [index,choice] of n.choices.entries()){
   const b=document.createElement('button');b.className='choice-button';b.dataset.choice=choice.id;
-  const mark=document.createElement('span');mark.textContent=n.choices.length===1?'':index?'乙':'甲';b.append(mark,document.createTextNode(choice.label));b.onclick=()=>go(choice.id);choices.append(b);
+  const mark=document.createElement('span');mark.textContent=n.choices.length===1?'':index?'乙':'甲';b.append(mark,document.createTextNode(window.YuduPresentation.choiceLabel(choice.label)));b.onclick=()=>go(choice.id);choices.append(b);
  }}
  minimum=Math.max(2300,(n.text?.length||0)*115,n.nativeAudio?(n.duration*1000+350):0);
  revealText();updateNext();speak(n);cue(n.cue);save();
@@ -259,7 +259,7 @@ async function enter(restart=false,withAlbum=true){
  const film=window.YuduPresentation.upcomingFilm(D,C,state);
  if(!n.nativeAudio&&film)window.JourneyFilms.prepare(resolve(film.video||D.video));
  setPaused(document.hidden);$('leave').focus({preventScroll:true});
- if(storageNotice)notice('当前浏览器无法保存进度；可以继续体验这一程。');
+ if(storageNotice)notice('当前浏览器暂时无法保存进度，仍可继续体验这一程');
 }
 
 function leave(focus=true){
@@ -289,7 +289,7 @@ $('history-open').onclick=()=>{
  for(const id of state.path){
   const n=D.nodes.find(x=>x.id===id);if(!n||n.end||(!n.text&&!n.choices&&!n.nativeAudio))continue;
   const li=document.createElement('li'),name=document.createElement('strong'),p=document.createElement('p');
-  if(n.choices){const c=n.choices.find(c=>c.id===state.choices[n.id]);if(!c)continue;name.textContent='你选择了';p.textContent=c.label;p.className='history-choice';}
+  if(n.choices){const c=n.choices.find(c=>c.id===state.choices[n.id]);if(!c)continue;name.textContent='你选择了';p.textContent=window.YuduPresentation.choiceLabel(c.label);p.className='history-choice';}
   else{name.textContent=window.YuduPresentation.speaker(n)?.name||n.speaker;p.textContent=n.text||(n.nativeAudio?(n.title||'于都镜头')+'（影片原声）':'');}
   li.append(name,p);list.append(li);
  }

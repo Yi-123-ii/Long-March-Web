@@ -1,5 +1,11 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const P=require('../assets/yudu-presentation.js'),D=require('../assets/yudu-data.js');
+test('short action labels do not rewrite the approved dialogue, question marks or film captions',()=>{
+ const original=D.nodes.find(n=>n.id==='grass-a-tell-name').choices[0].label;
+ assert.equal(original,'我叫小满。你呢？');assert.equal(P.choiceLabel(original),'我叫小满，你呢？');
+ assert.equal(P.choiceLabel('我叫小满。'),'我叫小满');assert.equal(P.choiceLabel('阿禾？'),'阿禾？');
+ assert.equal(D.nodes.find(n=>n.id==='reach').text,'别站在岸上了。来，跟上我们。');
+});
 test('spoken movies and picture dialogue use the same character name rules',()=>{
  for(const node of D.nodes.filter(n=>n.mode==='dialogue'))assert.equal(P.speaker(node)?.name,node.speaker);
  assert.equal(P.speaker({mode:'dialogue',speaker:'陆生'})?.name,'陆生');

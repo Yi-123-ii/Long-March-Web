@@ -1689,12 +1689,76 @@
  Object.assign(images,{'lusheng-river':'assets/chapters/lusheng-river-v015.webp','lusheng-lamp':'assets/chapters/lusheng-lamp-v015.webp','atlas-1936':'assets/atlas-1936.svg'});
  for(const name of ['snow-concern','snow-shelter'])for(const phase of ['first','hold'])images[name+'-'+phase]='assets/chapters/'+name+'-'+phase+'-v015.png';
  const chapters=[
-  {id:'snow',name:'第四站 · 夹金山',title:'这次换你等他',location:'夹金山',date:'1935年6月',start:'snow-arrive',end:'snow-end',ambient:'snow',image:'mountain-pack',ending:'风里有人应声，\n我们再走一段。',summary:'陈禾也有走不动的时候。这一次，你留在他身旁。',button:'继续走进草地'},
-  {id:'grass',name:'第五站 · 草地',title:'一口热的，几个名字',location:'松潘草地一带',date:'1935年8月',start:'grass-arrive',end:'grass-end',ambient:'grass',image:'grass-camp',ending:'天亮了，\n我们还在一起。',summary:'营地里有人守着，接应的人也在往回赶。',button:'随队继续北上'},
-  {id:'north',name:'北上过场',title:'草地之后，还有山口',location:'腊子口—哈达铺—六盘山',date:'1935年9—10月',start:'north-arrive',end:'north-end',ambient:'grass',image:'north-trail',ending:'应一声，\n再往前走。',summary:'知道彼此还在，就接着走。',button:'前往吴起'},
-  {id:'wuqi',name:'第六站 · 吴起',title:'把同行的人记住',location:'陕北吴起',date:'1935年10月19日',start:'wuqi-arrive',end:'wuqi-end',ambient:'room',image:'wuqi-arrival',ending:'有些人到了，\n有些人要被记住。',summary:'行装放下以后，有了补衣、写字的工夫。',button:'翻开1936年的一页'},
-  {id:'epilogue',name:'历史尾声 · 会师',title:'这条路上的更多人',location:'会宁 · 将台堡',date:'1936年10月',start:'epilogue-arrive',end:'journey-end',ambient:'room',image:'atlas-1936',ending:'我记得，\n我们同行过。',summary:'陈禾、梁守成、陆生、小满及具体经历为虚构。故事献给长征路上的人们。'}
- ];
+  {
+    "id": "snow",
+    "name": "第四站 · 夹金山",
+    "title": "这次换你等他",
+    "location": "夹金山",
+    "date": "1935年6月",
+    "start": "snow-arrive",
+    "end": "snow-end",
+    "ambient": "snow",
+    "image": "mountain-pack",
+    "ending": "风里有人应声，\n我们再走一段",
+    "summary": "曾在于都拉住我的人也会疲惫，这一回换我停下来陪他",
+    "button": "继续走进草地"
+  },
+  {
+    "id": "grass",
+    "name": "第五站 · 草地",
+    "title": "一口热的，几个名字",
+    "location": "松潘草地一带",
+    "date": "1935年8月",
+    "start": "grass-arrive",
+    "end": "grass-end",
+    "ambient": "grass",
+    "image": "grass-camp",
+    "ending": "天亮了，\n我们还在一起",
+    "summary": "营地里有人守着，接应的人也在往回赶",
+    "button": "随队继续北上"
+  },
+  {
+    "id": "north",
+    "name": "北上过场",
+    "title": "草地之后，还有山口",
+    "location": "腊子口—哈达铺—六盘山",
+    "date": "1935年9—10月",
+    "start": "north-arrive",
+    "end": "north-end",
+    "ambient": "grass",
+    "image": "north-trail",
+    "ending": "应一声，\n再往前走",
+    "summary": "越过草地以后，彼此的一声回应伴着队伍继续北上",
+    "button": "前往吴起"
+  },
+  {
+    "id": "wuqi",
+    "name": "第六站 · 吴起",
+    "title": "把同行的人记住",
+    "location": "陕北吴起",
+    "date": "1935年10月19日",
+    "start": "wuqi-arrive",
+    "end": "wuqi-end",
+    "ambient": "room",
+    "image": "wuqi-arrival",
+    "ending": "有些人到了，\n有些人要被记住",
+    "summary": "行装放下以后，有了补衣、写字的工夫",
+    "button": "翻开1936年的一页"
+  },
+  {
+    "id": "epilogue",
+    "name": "历史尾声 · 会师",
+    "title": "这条路上的更多人",
+    "location": "会宁 · 将台堡",
+    "date": "1936年10月",
+    "start": "epilogue-arrive",
+    "end": "journey-end",
+    "ambient": "room",
+    "image": "atlas-1936",
+    "ending": "我记得，\n我们同行过",
+    "summary": "人物与具体经历为虚构，这段故事献给长征路上的人们"
+  }
+];
  const alts=Object.fromEntries(names.map(n=>[n,{'mountain-pack':'陈禾在夹金山山脚整理行装','snow-path':'积雪山路上相隔行进的队伍','grass-camp':'湿冷草地上的临时营地','grass-meal':'旧碗、少量稀粥和收好的针线包','lusheng-grass':'陆生在草地营地歇息','chenhe-grass':'陈禾坐在草地营地，疲惫中仍看着同伴','grass-path':'接应队伍经过的草地来路','north-trail':'草地以后继续北上的山路','wuqi-arrival':'抵达陕北吴起的队伍与土路','chenhe-rest':'同一位陈禾在吴起停留处坐下休息','lusheng-wuqi':'同一位陆生在吴起留着水等同伴','memory-page':'新纸、短铅笔和收好的针线包','new-cuff':'陈禾补好的袖口上留下浅色新针脚','old-letter-room':'在屋内另用干布包着的梁叔旧家书','newcomer-later':'后来抵达的年轻战士与留下的空位'}[n]]));
  Object.assign(alts,{'spare-cloth':'同伴送来的可用于补衣的旧棉布与针线包','lusheng-river':'陆生靠稳在湘江边的担架上','lusheng-lamp':'陆生坐在遵义的灯旁','atlas-1936':'从陕北暂歇到会宁、将台堡会师的历史示意图'});
  for(const phase of ['first','hold']){alts['snow-concern-'+phase]='陈禾站在夹金山雪路边，想继续照应小满';alts['snow-shelter-'+phase]='陈禾在背风处靠稳，缓过一口气';}

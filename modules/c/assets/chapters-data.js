@@ -726,12 +726,77 @@
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
  const data={nodes,images:{...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
   chapters:[
-   {id:'yudu',name:'第一站 · 于都',title:'一只伸来的手',location:'江西于都',date:'1934年10月',start:'river',end:'end',ambient:'river',image:'portrait',ending:'路还很远，\n有人与你同行。',summary:'河岸相识、梁叔的枣树和上船的脚步，都留在这一程里。',button:'前往湘江'},
-   {id:'xiangjiang',name:'第二站 · 湘江',title:'少了一个人的位置',location:'广西湘江一线',date:'1934年11月下旬—12月初',start:'xj-arrive',end:'xj-end',ambient:'cold',image:'xiang-bank',ending:'收好针线，\n再跟上队伍。',summary:'梁叔的针线包带过了江，他却没能回来。',button:'前往遵义'},
-   {id:'zunyi',name:'第三站 · 遵义',title:'三针以后',location:'贵州遵义',date:'1935年1月',start:'zy-arrive',end:'zy-end',ambient:'room',image:'zunyi-lamp',ending:'灯挪近一点，\n袖口缝好了。',summary:'旧针脚没有拆，新的线接在旁边。下一程，河流又在面前。',button:'继续看赤水与金沙江'},
-   {id:'rivers',name:'历史转场一',title:'河流又在面前',location:'赤水—金沙江',date:'1935年1—5月',start:'t1-arrive',end:'t1-end',ambient:'cold',image:'jinsha-crossing',ending:'又一条江，\n又一段路。',summary:'从赤水到金沙江，地图上的每一段前进，都隔着实实在在的日子。',button:'继续前往泸定桥'},
-   {id:'luding',name:'历史转场二',title:'有人先把路打开',location:'大渡河 · 泸定桥',date:'1935年5月',start:'t2-arrive',end:'t2-end',ambient:'gorge',image:'luding-bridge',ending:'前头的路，\n有人先走过。',summary:'这一程，先在桥边歇一歇。下一站，是更高的山。雪山篇待续。'}
-  ],
+  {
+    "id": "yudu",
+    "name": "第一站 · 于都",
+    "title": "一只伸来的手",
+    "location": "江西于都",
+    "date": "1934年10月",
+    "start": "river",
+    "end": "end",
+    "ambient": "river",
+    "image": "portrait",
+    "ending": "路还很远，\n有人与你同行",
+    "summary": "于都河畔的相识与互相照应，伴随队伍渡河启程",
+    "button": "前往湘江"
+  },
+  {
+    "id": "xiangjiang",
+    "name": "第二站 · 湘江",
+    "title": "少了一个人的位置",
+    "location": "广西湘江一线",
+    "date": "1934年11月下旬—12月初",
+    "start": "xj-arrive",
+    "end": "xj-end",
+    "ambient": "cold",
+    "image": "xiang-bank",
+    "ending": "收好针线，\n再跟上队伍",
+    "summary": "梁叔的针线包带过了江，他却没能回来",
+    "button": "前往遵义"
+  },
+  {
+    "id": "zunyi",
+    "name": "第三站 · 遵义",
+    "title": "三针以后",
+    "location": "贵州遵义",
+    "date": "1935年1月",
+    "start": "zy-arrive",
+    "end": "zy-end",
+    "ambient": "room",
+    "image": "zunyi-lamp",
+    "ending": "灯挪近一点，\n袖口缝好了",
+    "summary": "新针脚接在旧线旁，灯下补好的袖口将陪我们走向下一程",
+    "button": "继续看赤水与金沙江"
+  },
+  {
+    "id": "rivers",
+    "name": "历史转场一",
+    "title": "河流又在面前",
+    "location": "赤水—金沙江",
+    "date": "1935年1—5月",
+    "start": "t1-arrive",
+    "end": "t1-end",
+    "ambient": "cold",
+    "image": "jinsha-crossing",
+    "ending": "又一条江，\n又一段路",
+    "summary": "从赤水到金沙江，地图上相连的路线隔着数月转战",
+    "button": "继续前往泸定桥"
+  },
+  {
+    "id": "luding",
+    "name": "历史转场二",
+    "title": "有人先把路打开",
+    "location": "大渡河 · 泸定桥",
+    "date": "1935年5月",
+    "start": "t2-arrive",
+    "end": "t2-end",
+    "ambient": "gorge",
+    "image": "luding-bridge",
+    "ending": "前头的路，\n有人先走过",
+    "summary": "跟随后续部队过桥，再向前方的雪山进发",
+    "button": "翻开夹金山这一页"
+  }
+],
   alts:{'xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','lusheng-river':'年轻战士陆生已经靠稳在担架上，疲惫但清醒','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
  };
  if(typeof module==='object'&&module.exports)module.exports=data;else root.MARCH_CHAPTERS=data;
