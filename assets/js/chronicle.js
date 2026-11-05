@@ -163,8 +163,8 @@
     document.querySelector("#detail-position").textContent =
       `${index + 1} / ${events.length}`;
     document.querySelector("#previous-event").disabled = index === 0;
-    document.querySelector("#next-event").disabled =
-      index === events.length - 1;
+    document.querySelector("#next-event").textContent =
+      index === events.length - 1 ? "结束阅读" : "下一段 →";
     read.add(event.id);
     LM_STORE.write("read", [...read]);
     history.replaceState(null, "", "#event=" + event.id);
@@ -206,6 +206,10 @@
   });
   document.querySelector("#next-event").addEventListener("click", () => {
     if (current < events.length - 1) showDetail(current + 1);
+    else {
+      dialog.close();
+      document.querySelector("#chronicle").scrollIntoView({ block: "start" });
+    }
   });
   filters.forEach((button) =>
     button.addEventListener("click", () => {
