@@ -50,11 +50,20 @@ body.legacy-v41 .v44-opening__art {
   position: absolute;
   inset: calc(-1 * var(--opening-header)) 0 0;
   z-index: -1;
-  background: url("../images/v44/legacy-reading-preview.webp") 65% center / cover no-repeat;
+  background: var(--doc-paper);
 }
-body.legacy-v41 .v44-opening__art picture,
-body.legacy-v41 .v44-opening__art img { display: block; width: 100%; height: 100%; }
-body.legacy-v41 .v44-opening__art img { object-fit: cover; object-position: 65% center; }
+body.legacy-v41 .v44-opening__art picture {
+  position: absolute;
+  inset: 0;
+  background: url("../images/v44/legacy-village-interview-preview-v1.webp") 82% center / cover no-repeat;
+}
+body.legacy-v41 .v44-opening__art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 82% center;
+}
 body.legacy-v41 .v44-opening__art figcaption {
   position: absolute;
   z-index: 1;
@@ -453,18 +462,6 @@ body.legacy-v41 .doc-article--case .doc-article__echo h3 {
     min-height: 0;
     padding-bottom: clamp(220px, 63vw, 335px);
   }
-  body.legacy-v41 .v44-opening__art::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 58% 20% at 26% 48%, #f1e8d9ca, transparent);
-    pointer-events: none;
-  }
-  body.legacy-v41 .v44-opening__art img { object-position: 56% 70%; }
-  body.legacy-v41 .v44-opening__art {
-    background-image: url("../images/v44/legacy-reading-portrait-preview.webp");
-    background-position: 56% 70%;
-  }
   body.legacy-v41 .v44-opening__art figcaption { right: 20px; bottom: 9px; }
   body.legacy-v41 .v44-opening__inner { padding-block: 18px 0; }
   body.legacy-v41 .v44-opening__copy { max-width: 450px; }
@@ -494,4 +491,27 @@ body.legacy-v41 .doc-article--case .doc-article__echo h3 {
 @media (prefers-reduced-motion: reduce) {
   body.legacy-v41 :is(.doc-story__cover, .doc-story__read > span) { transition: none; }
   body.legacy-v41 .doc-story__cover:hover .doc-story__read > span { transform: none; }
+}
+
+@media (min-width: 761px) and (max-aspect-ratio: 3/2) {
+  body.legacy-v41 .v44-opening__art picture {
+    top: 25svh;
+    background-position: 77% center;
+    mask-image: linear-gradient(transparent, #000 24%);
+  }
+  body.legacy-v41 .v44-opening__art img { object-position: 77% center; }
+}
+@media (max-width: 760px), (max-width: 900px) and (orientation: portrait) {
+  body.legacy-v41 .v44-opening__art picture {
+    inset-block-start: auto;
+    height: min(70svh, 120vw);
+    background-position: 88% center;
+    mask-image: linear-gradient(transparent, #000 32%);
+  }
+  body.legacy-v41 .v44-opening__art img { object-position: 88% center; }
+  body.legacy-v41 .v44-opening .section-opening__copy {
+    align-self: flex-start;
+    margin-top: clamp(12px, 3svh, 36px);
+    transform: none;
+  }
 }
