@@ -9,15 +9,19 @@
   inset: calc(-1 * var(--header-height)) 0 0;
   z-index: -1;
   pointer-events: none;
-  background: url("../images/post-office-landscape-preview.webp") center / cover no-repeat;
+  background: #eee9de;
 }
-.post-opening__landscape picture,
-.post-opening__landscape img {
+.post-opening__scene {
+  position: absolute;
+  inset: 0;
+  background: url("../images/post-office-two-hands-preview-v1.webp") right center / cover no-repeat;
+}
+.post-opening__scene img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: right center;
 }
 .post-opening__landscape::after {
   content: "";
@@ -26,9 +30,26 @@
   background: linear-gradient(90deg, #eef1ed88, #eef1ed33 40%, transparent 62%);
 }
 @media (max-width: 760px) {
-  .post-opening__landscape { background-position: 72% center; }
-  .post-opening__landscape img { object-position: 72% center; }
   .post-opening__landscape::after {
     background: radial-gradient(ellipse 86% 35% at 28% 48%, #eef1edb8, transparent);
+  }
+}
+@media (min-width: 581px) and (max-aspect-ratio: 3/2) {
+  .post-opening__landscape::after {
+    background: linear-gradient(90deg, #eef1edc4, #eef1ed9e 38%, #eef1ed33 52%, transparent 62%);
+  }
+}
+@media (max-width: 580px) and (orientation: portrait) {
+  .post-opening__scene {
+    top: clamp(90px, 18svh, 152px);
+    background-position: 97% center;
+    mask-image: linear-gradient(transparent 5%, #000 43%);
+  }
+  .post-opening__scene img { object-position: 97% center; }
+  .post-opening__landscape::after { background: none; }
+  .lm-post-page .section-opening .section-opening__copy {
+    align-self: flex-start;
+    margin-top: clamp(12px, 2.5svh, 24px);
+    transform: none;
   }
 }
