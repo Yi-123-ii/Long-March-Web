@@ -2,6 +2,7 @@
  'use strict';
  function speaker(node){
   if(node.end||node.checkpoint)return null;
+  if(node.narration?.src)return {name:'小满',kind:'心声'};
   if(node.mode==='thought')return {name:'小满',kind:'心声'};
   if(node.mode==='dialogue'&&node.speaker)return {name:node.speaker,kind:''};
   return null;

@@ -22,7 +22,34 @@
     "mode": "thought",
     "view": "bridge",
     "cue": "steps",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN001",
+      "src": "assets/audio/xiaoman-narration-v039/XN001.mp3",
+      "duration": 18.685,
+      "cues": [
+        {
+          "text": "肩带翻了边，正硌在锁骨上。",
+          "start": 0.8599999999999965,
+          "end": 3.34
+        },
+        {
+          "text": "我托着铺盖往上提了提，还没走两步，它又坠了下来。",
+          "start": 4.34,
+          "end": 9.24
+        },
+        {
+          "text": "桥边亮着灯，上船的人一个挨着一个往前挪，陈禾就站在木板旁，回头等我。",
+          "start": 10.36,
+          "end": 17.98
+        }
+      ],
+      "sentences": [
+        "XN001-01",
+        "XN001-02",
+        "XN001-03"
+      ]
+    }
   },
   {
     "id": "newcomer",
@@ -74,7 +101,28 @@
         "next": "b-bag"
       }
     ],
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN002",
+      "src": "assets/audio/xiaoman-narration-v039/XN002.mp3",
+      "duration": 9.7775,
+      "cues": [
+        {
+          "text": "身后忽然有人踩滑，背上的铺盖撞到我肩头。",
+          "start": 0.5349999999999966,
+          "end": 4.174999999999997
+        },
+        {
+          "text": "他伸手没够着桥边的木桩，包又往下滑，带得人一歪。",
+          "start": 4.914999999999999,
+          "end": 9.254999999999999
+        }
+      ],
+      "sentences": [
+        "XN002-01",
+        "XN002-02"
+      ]
+    }
   },
   {
     "id": "a-cross",
@@ -84,7 +132,28 @@
     "next": "a-tight",
     "mode": "thought",
     "cue": "steps",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN003",
+      "src": "assets/audio/xiaoman-narration-v039/XN003.mp3",
+      "duration": 11.1175,
+      "cues": [
+        {
+          "text": "旁边的人已经托住了他的铺盖，我握着陈禾的手跨上木板。",
+          "start": 0.11750000000000327,
+          "end": 5.277500000000003
+        },
+        {
+          "text": "船身一晃，他的手也跟着紧了紧，等我站稳才松开。",
+          "start": 6.077500000000001,
+          "end": 10.4775
+        }
+      ],
+      "sentences": [
+        "XN003-01",
+        "XN003-02"
+      ]
+    }
   },
   {
     "id": "a-tight",
@@ -118,7 +187,22 @@
     "next": "b-thanks",
     "mode": "thought",
     "cue": "stumble",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN004",
+      "src": "assets/audio/xiaoman-narration-v039/XN004.mp3",
+      "duration": 6.88,
+      "cues": [
+        {
+          "text": "我托住滑下来的铺盖，那位战士扶着我的肩，挪了两次脚才踩稳。",
+          "start": 0.4000000000000057,
+          "end": 6.200000000000003
+        }
+      ],
+      "sentences": [
+        "XN004-01"
+      ]
+    }
   },
   {
     "id": "b-thanks",
@@ -155,7 +239,22 @@
         "label": "松开手，跟上陈禾。",
         "next": "meet"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN005",
+      "src": "assets/audio/xiaoman-narration-v039/XN005.mp3",
+      "duration": 6.31,
+      "cues": [
+        {
+          "text": "后面的人从身旁挤过去，陈禾还站在桥边，没有往前走。",
+          "start": 0.4000000000000057,
+          "end": 5.640000000000008
+        }
+      ],
+      "sentences": [
+        "XN005-01"
+      ]
+    }
   },
   {
     "id": "meet",
@@ -226,7 +325,28 @@
     "scene": "liang-reminder-first",
     "next": "liang-reminder",
     "mode": "thought",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN006",
+      "src": "assets/audio/xiaoman-narration-v039/XN006.mp3",
+      "duration": 9.0725,
+      "cues": [
+        {
+          "text": "我刚把铺盖往背上托稳，带子的一头又拖进泥里。",
+          "start": 0.37000000000000455,
+          "end": 4.690000000000005
+        },
+        {
+          "text": "梁叔伸手指了指，我这才低头看见。",
+          "start": 5.350000000000001,
+          "end": 8.39
+        }
+      ],
+      "sentences": [
+        "XN006-01",
+        "XN006-02"
+      ]
+    }
   },
   {
     "id": "liang-reminder",
@@ -248,11 +368,26 @@
   {
     "id": "strap-tucked",
     "speaker": "心声",
-    "text": "（把那截带子掖进背带。）",
+    "text": "我把那截带子掖进背带。",
     "scene": "liang-reminder-hold",
     "next": "ask-home",
     "mode": "thought",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN007",
+      "src": "assets/audio/xiaoman-narration-v039/XN007.mp3",
+      "duration": 2.93,
+      "cues": [
+        {
+          "text": "我把那截带子掖进背带。",
+          "start": 0.5375000000000014,
+          "end": 2.3774999999999977
+        }
+      ],
+      "sentences": [
+        "XN007-01"
+      ]
+    }
   },
   {
     "id": "ask-home",
@@ -267,7 +402,28 @@
         "next": "ask-home-spoken-v034"
       }
     ],
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN008",
+      "src": "assets/audio/xiaoman-narration-v039/XN008.mp3",
+      "duration": 12.51,
+      "cues": [
+        {
+          "text": "还没轮到我们上船，梁叔把肩上的行装往上托了托，和我站到旁边。",
+          "start": 0.2874999999999943,
+          "end": 6.207499999999996
+        },
+        {
+          "text": "船帮撞了一下木桩，远处的狗叫声隔着水传过来。",
+          "start": 7.447499999999991,
+          "end": 11.80749999999999
+        }
+      ],
+      "sentences": [
+        "XN008-01",
+        "XN008-02"
+      ]
+    }
   },
   {
     "id": "ask-home-spoken-v034",
@@ -305,7 +461,28 @@
     "scene": "liang-home-hold",
     "next": "departure",
     "mode": "thought",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN009",
+      "src": "assets/audio/xiaoman-narration-v039/XN009.mp3",
+      "duration": 8.395,
+      "cues": [
+        {
+          "text": "船里的人往里挪开，终于空出位置。",
+          "start": 0.4975000000000023,
+          "end": 3.7575000000000074
+        },
+        {
+          "text": "梁叔托着行装走上木板，我跟在他后头。",
+          "start": 4.737499999999997,
+          "end": 8.39500000000001
+        }
+      ],
+      "sentences": [
+        "XN009-01",
+        "XN009-02"
+      ]
+    }
   },
   {
     "id": "departure",
@@ -346,7 +523,28 @@
     "scene": "boarding-hold",
     "next": "end",
     "mode": "thought",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "narration": {
+      "id": "XN010",
+      "src": "assets/audio/xiaoman-narration-v039/XN010.mp3",
+      "duration": 9.3,
+      "cues": [
+        {
+          "text": "身后又有人上船，我扶着船沿往里挪，鞋尖碰到了前面战士的脚。",
+          "start": 0,
+          "end": 5.56
+        },
+        {
+          "text": "他侧过身让了让，船身还在轻轻晃。",
+          "start": 6.14,
+          "end": 8.88
+        }
+      ],
+      "sentences": [
+        "XN010-01",
+        "XN010-02"
+      ]
+    }
   },
   {
     "id": "end",

@@ -11,7 +11,28 @@
     "next": "snow-hold-pack",
     "mode": "observation",
     "chapter": "snow",
-    "historicalTab": "中央红军翻越夹金山"
+    "historicalTab": "中央红军翻越夹金山",
+    "narration": {
+      "id": "XN040",
+      "src": "assets/audio/xiaoman-narration-v039/XN040.mp3",
+      "duration": 8.4525,
+      "cues": [
+        {
+          "text": "陈禾把绳子绕上铺盖，刚一收紧，短的那头就缩了进去。",
+          "start": 0.15750000000000597,
+          "end": 4.617500000000007
+        },
+        {
+          "text": "我伸手替他压住，他只好松开绳子重捆。",
+          "start": 4.977500000000006,
+          "end": 7.917500000000004
+        }
+      ],
+      "sentences": [
+        "XN040-01",
+        "XN040-02"
+      ]
+    }
   },
   {
     "id": "snow-hold-pack",
@@ -185,7 +206,40 @@
     "scene": "snow-path",
     "next": "snow-concern-before",
     "mode": "thought",
-    "chapter": "snow"
+    "chapter": "snow",
+    "narration": {
+      "id": "XN042",
+      "src": "assets/audio/xiaoman-narration-v039/XN042.mp3",
+      "duration": 14.7625,
+      "cues": [
+        {
+          "text": "踩进雪里以后，抬脚也费劲。",
+          "start": 0.2674999999999983,
+          "end": 2.6074999999999875
+        },
+        {
+          "text": "我沿着前人的脚印往上走，走几步就得停下来喘气；",
+          "start": 3.2674999999999983,
+          "end": 7.447499999999991
+        },
+        {
+          "text": "陈禾已经站在路边，肩膀一下一下地起伏。",
+          "start": 7.907499999999999,
+          "end": 11.184999999999986
+        },
+        {
+          "text": "我挪过去，他还看着我的肩带。",
+          "start": 11.367499999999993,
+          "end": 14.287499999999994
+        }
+      ],
+      "sentences": [
+        "XN042-01",
+        "XN042-02",
+        "XN042-03",
+        "XN042-04"
+      ]
+    }
   },
   {
     "id": "snow-concern-before",
@@ -218,7 +272,7 @@
     "speaker": "心声",
     "mode": "thought",
     "scene": "snow-concern-hold",
-    "text": "（他抬起的手又落回胸前。）",
+    "text": "他抬起的手又落回胸前。",
     "choices": [
       {
         "id": "support",
@@ -231,7 +285,22 @@
         "next": "snow-b-call"
       }
     ],
-    "chapter": "snow"
+    "chapter": "snow",
+    "narration": {
+      "id": "XN043",
+      "src": "assets/audio/xiaoman-narration-v039/XN043.mp3",
+      "duration": 2.3475,
+      "cues": [
+        {
+          "text": "他抬起的手又落回胸前。",
+          "start": 0.125,
+          "end": 2.1850000000000023
+        }
+      ],
+      "sentences": [
+        "XN043-01"
+      ]
+    }
   },
   {
     "id": "snow-choice-spoken-v034",
@@ -301,7 +370,28 @@
     "mode": "observation",
     "speaker": "旁白",
     "scene": "snow-path",
-    "next": "snow-a-steady"
+    "next": "snow-a-steady",
+    "narration": {
+      "id": "XN044",
+      "src": "assets/audio/xiaoman-narration-v039/XN044.mp3",
+      "duration": 8.4675,
+      "cues": [
+        {
+          "text": "他把手搭上来，肩上一沉，我赶紧握住他的胳膊。",
+          "start": 0,
+          "end": 4.5
+        },
+        {
+          "text": "两个人站稳以后，才踩着脚印往前挪。",
+          "start": 4.9399999999999995,
+          "end": 7.98
+        }
+      ],
+      "sentences": [
+        "XN044-01",
+        "XN044-02"
+      ]
+    }
   },
   {
     "id": "snow-a-help",
@@ -343,7 +433,28 @@
     "mode": "observation",
     "speaker": "旁白",
     "scene": "snow-path",
-    "next": "snow-a-steady"
+    "next": "snow-a-steady",
+    "narration": {
+      "id": "XN045",
+      "src": "assets/audio/xiaoman-narration-v039/XN045.mp3",
+      "duration": 8.0425,
+      "cues": [
+        {
+          "text": "陈禾抓住我的肩带，先试着迈了一步。",
+          "start": 0.192499999999999,
+          "end": 2.9725
+        },
+        {
+          "text": "我托住他的胳膊，等他把脚落稳，再一起往前挪。",
+          "start": 3.5725,
+          "end": 7.592499999999999
+        }
+      ],
+      "sentences": [
+        "XN045-01",
+        "XN045-02"
+      ]
+    }
   },
   {
     "id": "snow-a-steady",
@@ -368,12 +479,27 @@
   },
   {
     "id": "snow-b-nod",
-    "text": "（陈禾点头。）",
+    "text": "陈禾点头。",
     "scene": "snow-concern-hold",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "snow",
-    "next": "snow-b-insist"
+    "next": "snow-b-insist",
+    "narration": {
+      "id": "XN046",
+      "src": "assets/audio/xiaoman-narration-v039/XN046.mp3",
+      "duration": 1.66,
+      "cues": [
+        {
+          "text": "陈禾点头。",
+          "start": 0.19000000000000128,
+          "end": 1.2700000000000031
+        }
+      ],
+      "sentences": [
+        "XN046-01"
+      ]
+    }
   },
   {
     "id": "snow-b-insist",
@@ -403,7 +529,28 @@
     "scene": "snow-path",
     "next": "snow-b-again",
     "mode": "thought",
-    "chapter": "snow"
+    "chapter": "snow",
+    "narration": {
+      "id": "XN047",
+      "src": "assets/audio/xiaoman-narration-v039/XN047.mp3",
+      "duration": 7.6075,
+      "cues": [
+        {
+          "text": "他说到后头，声音被风盖住了。",
+          "start": 0.10999999999999943,
+          "end": 2.849999999999998
+        },
+        {
+          "text": "我往近处挪了挪，等他喘匀一点，又叫了一声。",
+          "start": 3.289999999999999,
+          "end": 7.229999999999997
+        }
+      ],
+      "sentences": [
+        "XN047-01",
+        "XN047-02"
+      ]
+    }
   },
   {
     "id": "snow-b-again",
@@ -433,7 +580,34 @@
     "scene": "snow-shelter-first",
     "next": "snow-ask-better",
     "mode": "thought",
-    "chapter": "snow"
+    "chapter": "snow",
+    "narration": {
+      "id": "XN048",
+      "src": "assets/audio/xiaoman-narration-v039/XN048.mp3",
+      "duration": 15.77,
+      "cues": [
+        {
+          "text": "绕到石头后面，风声小了些，陈禾扶着包坐下。",
+          "start": 0.14250000000000185,
+          "end": 4.462499999999999
+        },
+        {
+          "text": "我解开水壶，壶口冻住了，晃了两下也倒不出水，只好重新揣进衣里。",
+          "start": 5.022500000000001,
+          "end": 11.382499999999997
+        },
+        {
+          "text": "他松开勒在掌心的绳子，低头揉了揉手。",
+          "start": 12.102500000000003,
+          "end": 15.502500000000001
+        }
+      ],
+      "sentences": [
+        "XN048-01",
+        "XN048-02",
+        "XN048-03"
+      ]
+    }
   },
   {
     "id": "snow-ask-better",
@@ -501,7 +675,28 @@
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "snow",
-    "next": "snow-continue-choice"
+    "next": "snow-continue-choice",
+    "narration": {
+      "id": "XN049",
+      "src": "assets/audio/xiaoman-narration-v039/XN049.mp3",
+      "duration": 9.435,
+      "cues": [
+        {
+          "text": "前头的人陆续起身，拍掉裤腿上的雪。",
+          "start": 0.17249999999999943,
+          "end": 3.292500000000004
+        },
+        {
+          "text": "陈禾压低帽檐，扶着石头站起来，等我背好铺盖才往前走。",
+          "start": 3.9125000000000014,
+          "end": 9.012500000000003
+        }
+      ],
+      "sentences": [
+        "XN049-01",
+        "XN049-02"
+      ]
+    }
   },
   {
     "id": "snow-continue-choice",
@@ -533,7 +728,34 @@
     "next": "grass-meal",
     "mode": "observation",
     "chapter": "grass",
-    "historicalTab": "红军穿越草地，缺粮、湿冷与沼泽影响行军"
+    "historicalTab": "红军穿越草地，缺粮、湿冷与沼泽影响行军",
+    "narration": {
+      "id": "XN050",
+      "src": "assets/audio/xiaoman-narration-v039/XN050.mp3",
+      "duration": 15.875,
+      "cues": [
+        {
+          "text": "我端着碗，喝了两口稀汤才见到碗底那几粒麦子。",
+          "start": 0.197499999999998,
+          "end": 4.297499999999999
+        },
+        {
+          "text": "灶底的湿草烧不起来，烟倒吹得人睁不开眼。",
+          "start": 5.077500000000001,
+          "end": 8.5775
+        },
+        {
+          "text": "陈禾解开一只鞋，脚刚往外抽了一半，又停住，扶着膝盖把鞋穿了回去。",
+          "start": 9.237499999999997,
+          "end": 15.257499999999993
+        }
+      ],
+      "sentences": [
+        "XN050-01",
+        "XN050-02",
+        "XN050-03"
+      ]
+    }
   },
   {
     "id": "grass-meal",
@@ -1971,7 +2193,34 @@
         "label": "把拣出的粮食裹好，放到干些的地方。",
         "next": "grass-choice"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN051",
+      "src": "assets/audio/xiaoman-narration-v039/XN051.mp3",
+      "duration": 14.7775,
+      "cues": [
+        {
+          "text": "解开粮袋，里面受潮的粮食已经结成了团。",
+          "start": 0.36249999999999716,
+          "end": 3.862499999999997
+        },
+        {
+          "text": "我把没沾泥的部分拣到包布上，袋底湿透的地方先翻开晾着。",
+          "start": 4.6825000000000045,
+          "end": 9.722499999999997
+        },
+        {
+          "text": "陈禾挪走脚边的包，让躺在铺盖上的人能把腿伸开。",
+          "start": 10.342500000000001,
+          "end": 14.402500000000003
+        }
+      ],
+      "sentences": [
+        "XN051-01",
+        "XN051-02",
+        "XN051-03"
+      ]
+    }
   },
   {
     "id": "north-pass-v034",
@@ -2060,7 +2309,28 @@
         "label": "扣好领口，踩着前面的脚印走",
         "next": "snow-path"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN041",
+      "src": "assets/audio/xiaoman-narration-v039/XN041.mp3",
+      "duration": 13.5175,
+      "cues": [
+        {
+          "text": "走出林子时，后背已经汗湿，刚松开的领口一灌风，我又赶紧扣上。",
+          "start": 0.3850000000000051,
+          "end": 5.625000000000007
+        },
+        {
+          "text": "坡上没了树，前面的人绕过石头便看不全了，只剩几个帽顶在招手的人旁边慢慢移动。",
+          "start": 6.285000000000004,
+          "end": 13.065000000000012
+        }
+      ],
+      "sentences": [
+        "XN041-01",
+        "XN041-02"
+      ]
+    }
   }
 ];
  for(const [first,last,id]of[['snow-arrive','snow-end','snow'],['grass-arrive','grass-end','grass'],['north-arrive','north-end','north'],['wuqi-arrive','wuqi-end','wuqi'],['epilogue-arrive','journey-end','epilogue']]){let on=false;for(const n of nodes){if(n.id===first)on=true;if(on)n.chapter=id;if(n.id===last)on=false;}}
