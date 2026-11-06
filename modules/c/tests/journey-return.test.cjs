@@ -24,7 +24,7 @@ test('outbound links preserve the history article and letter form while carrying
  assert.equal(letter.searchParams.get('from'),'journey');assert.equal(history.searchParams.get('view'),'story');
 });
 test('a returning tab restores its own original branch even if another game tab advances the shared save',()=>{
- let original=C.create(D);while(!C.current(D,original).choices)original=C.advance(D,original);
+ let original=C.create(D);while(original.node!=='choice')original=C.advance(D,original,C.current(D,original).choices?.[0]?.id);
  original=C.advance(D,original,'help');while(original.node!=='end'){const n=C.current(D,original);original=C.advance(D,original,n.choices?.[0]?.id);}
  const other=C.beginChapter(D,original,'xiangjiang');
  const back=R.restore(D,C,other,JSON.stringify({version:1,view:'story',state:original}));

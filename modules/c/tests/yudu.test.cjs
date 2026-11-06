@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const D=require('../assets/yudu-data.js'),C=require('../assets/yudu-core.js');
-function toChoice(){let s=C.create(D);while(!C.current(D,s).choices)s=C.advance(D,s);return s;}
+function toChoice(){let s=C.create(D);while(C.current(D,s).id!=='choice')s=C.advance(D,s,C.current(D,s).choices?.[0]?.id);return s;}
 function finish(branch,state=toChoice()){let s=C.advance(D,state,branch);let guard=0;while(!C.current(D,s).end&&!C.current(D,s).checkpoint&&guard++<120)s=C.advance(D,s,C.current(D,s).choices?.[0]?.id);assert(C.current(D,s).end||C.current(D,s).checkpoint);return s;}
 test('all story targets exist and every node is reachable',()=>{
  const reached=new Set(),walk=id=>{if(reached.has(id))return;reached.add(id);const n=D.nodes.find(x=>x.id===id);assert(n,id);if(n.next)walk(n.next);for(const r of n.routes||[])walk(r.next);for(const c of n.choices||[])walk(c.next);};
@@ -25,12 +25,12 @@ test('reject corrupt or impossible save paths and preserve settings safely',()=>
 });
 test('replay preserves completed memories but makes a fresh branch',()=>{
  const a=finish('hand'),fresh=C.restart(D,a);assert.equal(fresh.node,'river');assert.deepEqual(fresh.choices,{});assert.deepEqual(fresh.completed,['hand']);
- const b=finish('help',(()=>{let s=fresh;while(!C.current(D,s).choices)s=C.advance(D,s);return s;})());assert.deepEqual(b.completed,['hand','help']);
+ const b=finish('help',(()=>{let s=fresh;while(C.current(D,s).id!=='choice')s=C.advance(D,s,C.current(D,s).choices?.[0]?.id);return s;})());assert.deepEqual(b.completed,['hand','help']);
 });
 
 test('all supplied movie segments keep source audio and lead into matching holds',()=>{
- const voiced=D.nodes.filter(n=>n.nativeAudio);assert.deepEqual(voiced.map(n=>n.id),['reach','introduce','liang-reminder','liang-home','boarding','xj-sleeve','xj-cover-fire-v035','xj-choice','xj-a-name','xj-a-introduce','xj-b-bag','xj-loss','zy-thread','zy-a-lusheng','zy-b-question','zy-b-advice','zy-b-paper','t1-chenhe-route-v036','snow-hold-pack','snow-pack','snow-respond-name','snow-concern','snow-shelter','grass-a-water','grass-dawn-call','wuqi-write-home']);
- for(const n of voiced){assert(n.duration>0);if(n.id==='xj-choice'){assert(!n.advanceOnEnd);assert(n.textAfterMovie);assert.equal(n.choices.length,2);}else if(['wuqi-write-home','xj-loss','zy-a-lusheng'].includes(n.id)){assert.equal(n.advanceOnEnd,false);assert.equal(n.hold,D.images[({'xj-loss':'xiang-loss-hold','wuqi-write-home':'chenhe-memory-hold','zy-a-lusheng':'lusheng-clears-table-hold'})[n.id]]);}else{assert(n.advanceOnEnd);if(n.hold)assert.equal(D.images[D.nodes.find(x=>x.id===n.next).scene],n.hold);}}
+ const voiced=D.nodes.filter(n=>n.nativeAudio);assert.deepEqual(voiced.map(n=>n.id),['reach','introduce','liang-reminder','liang-home','boarding','xj-sleeve','xj-choice','xj-a-name','xj-a-introduce','xj-b-bag','xj-loss','zy-thread','zy-a-lusheng','zy-b-question','zy-b-advice','zy-b-paper','xj-cover-fire-v035','t1-chenhe-route-v036','snow-hold-pack','snow-pack','snow-respond-name','snow-concern','snow-shelter','grass-a-water','grass-dawn-call','wuqi-write-home']);
+ for(const n of voiced){assert(n.duration>0);if(n.id==='xj-choice'){assert(!n.advanceOnEnd);assert(n.textAfterMovie);assert.equal(n.choices.length,2);}else if(n.id==='zy-a-lusheng'){assert(n.textAfterMovie);assert.equal(n.advanceOnEnd,false);assert.equal(D.images[D.nodes.find(x=>x.id===n.next).scene],n.hold);}else if(['wuqi-write-home','xj-loss'].includes(n.id)){assert.equal(n.advanceOnEnd,false);assert.equal(n.hold,D.images[n.id==='xj-loss'?'xiang-loss-hold':'chenhe-memory-hold']);}else{assert(n.advanceOnEnd);if(n.hold)assert.equal(D.images[D.nodes.find(x=>x.id===n.next).scene],n.hold);}}
  const intro=D.nodes.find(n=>n.id==='introduce');assert(intro.text.includes('你呢'));assert.equal(intro.hold,D.images['intro-hold']);
  assert.equal(D.nodes.find(n=>n.id==='boarding').text,'');
  const fs=require('node:fs'),path=require('node:path');for(const p of [D.video,...voiced.filter(n=>n.video).map(n=>n.video),...Object.values(D.images)])assert(fs.statSync(path.join(__dirname,'..',p)).size>1000);
@@ -54,7 +54,7 @@ test('both branches meet Chenhe once, and the single name response is never auto
  for(const branch of ['hand','help']){
   const end=finish(branch);assert.equal(end.path.filter(x=>x==='introduce').length,1);assert.equal(end.choices.name,'tell-name');
  }
- let s=toChoice();s=C.advance(D,s,'hand');while(s.node!=='name')s=C.advance(D,s);
+ let s=toChoice();s=C.advance(D,s,'hand');while(s.node!=='name')s=C.advance(D,s,C.current(D,s).choices?.[0]?.id);
  assert.equal(C.advance(D,s),s);assert.equal(C.current(D,s).choices.length,1);
  const fs=require('node:fs'),path=require('node:path'),html=fs.readFileSync(path.join(__dirname,'../journey.html'),'utf8');
  assert(!html.includes('yudu-thoughts.js'));assert(!html.includes('thought-volume'));

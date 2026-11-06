@@ -21,6 +21,8 @@ if(['map','story'].includes(resumeView)){
 let ambientKey='river';
 const river=$('ambient-audio');river.src=resolve(D.ambiences.river);
 river.loop=true;river.preload='none';
+const playerVoice=$('player-voice');
+playerVoice.preload='none';
 // The hold image is the last decoded movie frame, ready before the cut.
 const warmed=new Set();function warm(paths){for(const p of paths.filter(Boolean)){if(warmed.has(p))continue;warmed.add(p);const img=new Image();img.src=resolve(p);}}
 const video=$('scene-video'),image=$('scene-image');
@@ -32,7 +34,7 @@ for(const img of document.querySelectorAll('img[src]'))img.src=resolve(img.getAt
 function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,6500);}
 function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(state));}catch{if(!storageNotice){notice('进度暂未保存，本次仍可继续阅读');storageNotice=true;}}}
 function nativeMovie(){return active&&C.current(D,state).nativeAudio===true&&!video.hidden;}
-function volumes(){river.volume=nativeMovie()&&!movieDone?0:state.settings.ambient*.7;video.volume=state.settings.voice;video.muted=false;for(const a of cuePlayers)a.volume=state.settings.ambient*.55;$('voice-volume').value=state.settings.voice*100;$('ambient-volume').value=state.settings.ambient*100;$('voice-value').textContent=Math.round(state.settings.voice*100)+'%';$('ambient-value').textContent=Math.round(state.settings.ambient*100)+'%';$('auto').textContent='自动：'+(state.settings.auto?'开':'关');$('auto').setAttribute('aria-pressed',state.settings.auto);}
+function volumes(){river.volume=nativeMovie()&&!movieDone?0:state.settings.ambient*((C.current(D,state)?.voice&&!voiceDone) ? .32 : .7);video.volume=state.settings.voice;playerVoice.volume=state.settings.voice;video.muted=false;for(const a of cuePlayers)a.volume=state.settings.ambient*.55;$('voice-volume').value=state.settings.voice*100;$('ambient-volume').value=state.settings.ambient*100;$('voice-value').textContent=Math.round(state.settings.voice*100)+'%';$('ambient-value').textContent=Math.round(state.settings.ambient*100)+'%';$('auto').textContent='自动：'+(state.settings.auto?'开':'关');$('auto').setAttribute('aria-pressed',state.settings.auto);}
 function cancelCues(){for(const t of cueTimers)clearTimeout(t);cueTimers.clear();for(const a of cuePlayers){a.pause();a.src='';}cuePlayers.clear();}
 function cue(kind){
  cancelCues();if(!kind||paused)return;
@@ -62,6 +64,7 @@ function chapterView(n){
  const ch=C.chapter(D,state);
  $('chapter-label').textContent=ch.name+' · '+ch.title;
  $('scene-place').textContent=n.routePlace||ch.location;$('scene-date').textContent=n.routeDate||ch.date;
+ $('historical-tab').textContent=n.historicalTab||'';$('historical-tab').hidden=!n.historicalTab;
  $('route-progress').hidden=ch.id!=='rivers';$('route-chishui').classList.toggle('passed',(n.routeStep||1)>=1);$('route-jinsha').classList.toggle('passed',(n.routeStep||1)>=2);
  if(ambientKey!==ch.ambient){ambientKey=ch.ambient;river.pause();river.src=resolve(D.ambiences[ambientKey]);river.load();playRiver();}
 }
@@ -87,17 +90,26 @@ function setPaused(value){
  $('story-screen').classList.toggle('is-paused',value);
  if(value&&!$('pause-overlay').hidden)$('resume').focus({preventScroll:true});
  else if(!value&&document.activeElement===$('resume'))$('pause').focus({preventScroll:true});
- if(value){river.pause();video.pause();cancelCues();}
- else{lastTick=performance.now();playRiver();playMovie();}
+ if(value){river.pause();video.pause();playerVoice.pause();cancelCues();}
+ else{lastTick=performance.now();playRiver();playMovie();playVoice();}
 }
 function playMovie(){
  if(!active||paused||!moviePrepared||movieDone||video.hidden||!C.current(D,state).nativeAudio)return;
  const token=epoch;video.play().catch(e=>{if(token===epoch&&!paused&&e.name!=='AbortError'){setPaused(true);notice('点击“继续这一程”播放，也可以跳过镜头');}});
 }
-function stopVoice(){voiceDone=true;cancelCues();}
+function stopVoice(){voiceDone=true;playerVoice.onended=null;playerVoice.onerror=null;playerVoice.ontimeupdate=null;playerVoice.pause();playerVoice.removeAttribute('src');playerVoice.load();cancelCues();}
+function playVoice(){
+ if(!active||paused||voiceDone||!C.current(D,state).voice)return;
+ const token=epoch;
+ playerVoice.play().catch(e=>{
+  if(token!==epoch||paused||e.name==='AbortError')return;
+  if(e.name==='NotAllowedError'){setPaused(true);notice('点击“继续这一程”播放小满的回答');return;}
+  playerVoice.onerror?.();
+ });
+}
 function updateNext(){
  const n=C.current(D,state),playing=n.nativeAudio&&!movieDone;
- const label=playing?'跳过镜头':!lineDone?'显示全文':'继续';
+ const label=playing?'跳过镜头':n.voice&&!voiceDone?'跳过语音':!lineDone?'显示全文':'继续';
  $('next').hidden=!!n.choices&&lineDone&&!playing;
  $('next').replaceChildren(document.createTextNode(label+' '));
  const arrow=document.createElement('span');arrow.textContent='›';$('next').append(arrow);
@@ -105,8 +117,8 @@ function updateNext(){
 function revealText(){
  const n=C.current(D,state);if(n.end||n.checkpoint)return;
  if(n.textAfterMovie&&!movieDone){$('line').hidden=true;$('choices').hidden=true;lineDone=false;return;}
- const progress=n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):elapsed;
- const f=n.nativeAudio&&n.captionPages&&(moviePrepared||!movieDone)?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
+ const progress=n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):n.voice?T.mediaTime(textPlan,playerVoice.currentTime,0,n.voiceDuration):elapsed;
+ const f=n.nativeAudio&&n.captionPages?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
  const frameKey=f.key??f.shown;
  if(frameKey!==lineShown){$('line').textContent=f.text;lineShown=frameKey;}
  const changed=lineDone!==f.complete;lineDone=f.complete;
@@ -172,7 +184,7 @@ function visual(n){
  video.onended=()=>{
   if(token!==epoch||movieDone)return;
   video.pause();
-  movieDone=true;voiceDone=true;lineInstant=true;revealText();
+  moviePrepared=false;movieDone=true;voiceDone=true;lineInstant=true;revealText();
   videoCorner.setEnabled(false);
   if(n.advanceOnEnd)$('story-screen').classList.remove('film-playing');$('voice-state').textContent='';
   updateNext();volumes();
@@ -201,7 +213,15 @@ function visual(n){
   if(video.readyState>=1)ready();
  }).catch(()=>{if(token===epoch)video.onerror();});
 }
-function speak(n){voiceDone=!n.nativeAudio;$('voice-state').textContent='';}
+function speak(n){
+ voiceDone=!n.nativeAudio&&!n.voice;$('voice-state').textContent='';
+ if(!n.voice)return;
+ const token=epoch;playerVoice.src=resolve(n.voice);playerVoice.volume=state.settings.voice;
+ playerVoice.onended=()=>{if(token!==epoch)return;voiceDone=true;lineInstant=true;revealText();updateNext();volumes();};
+ playerVoice.onerror=()=>{if(token!==epoch||voiceDone)return;voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('这句配音暂未载入，可继续阅读文字');};
+ playerVoice.ontimeupdate=()=>{if(token===epoch)revealText();};
+ volumes();updateNext();playVoice();
+}
 function render(){
  // Empty legacy anchors keep old bookmarks valid without adding blank story screens.
  for(let guard=0;guard<512;guard++){
@@ -237,7 +257,7 @@ function render(){
 }
 function go(choiceId,force=false){
  if(!active||paused||navigating||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
- if(!force&&!C.current(D,state).nativeAudio&&!lineDone){finishText();return;}
+ if(!force&&!C.current(D,state).nativeAudio&&!lineDone&&!C.current(D,state).voice){finishText();return;}
  if(C.current(D,state).nativeAudio&&!movieDone&&C.current(D,state).choices){
   if(choiceId)return;video.onended?.();return;
  }
@@ -301,7 +321,7 @@ $('about-open').onclick=()=>openDialog($('about-dialog'));$('history-fact').text
 for(const source of D.sources){const a=document.createElement('a');a.textContent=source.title;a.href=source.url;a.target='_blank';a.rel='noopener';$('source-links').append(a);}
 for(const [key,id]of [['voice','voice-volume'],['ambient','ambient-volume']])$(id).addEventListener('input',e=>{state.settings[key]=Number(e.target.value)/100;volumes();save();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&active){modalResume=false;setPaused(true);}});
-window.addEventListener('pagehide',()=>{if(active){river.pause();video.pause();cancelCues();save();}});
+window.addEventListener('pagehide',()=>{if(active){river.pause();video.pause();playerVoice.pause();cancelCues();save();}});
 window.addEventListener('journey:leaving-site',()=>{
  save();
  try{sessionStorage.setItem(window.JourneyReturn.KEY,JSON.stringify({version:1,view:active?'story':'map',state}));}catch{}

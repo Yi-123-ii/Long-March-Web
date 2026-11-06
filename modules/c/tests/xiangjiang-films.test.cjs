@@ -8,7 +8,7 @@ function walk(target,crossing='stretcher',data=D){
 }
 test('Chenhe’s cover film holds on its own last frame until the player acts',()=>{
  const film=n('xj-cover-fire-v035'),gate=n(film.next),before=walk('xj-three');
- assert.equal(C.advance(D,before).node,film.id);
+ const alias=C.advance(D,before);assert.equal(C.advance(D,alias).node,film.id);
  assert.equal(film.filmId,'XJ-06');assert(film.nativeAudio&&film.advanceOnEnd);
  assert.equal(film.hold,D.images[gate.scene]);
  const at=t=>T.pageFrame(film.captionPages,t).text;
@@ -20,7 +20,7 @@ test('Chenhe’s cover film holds on its own last frame until the player acts',(
  assert.equal(C.restore(D,{...waiting,node:'xj-choice',path:[...waiting.path.slice(0,-1),'xj-choice']}).node,D.start);
  for(const route of ['stretcher','luggage']){
   const state=walk('xj-end',route),i=state.path.indexOf(film.id);
-  assert.deepEqual(state.path.slice(i-1,i+3),['xj-three',film.id,gate.id,'xj-choice']);
+  assert.deepEqual(state.path.slice(i-1,i+3),['xj-cover-v034',film.id,gate.id,'xj-choice']);
  }
 });
 test('old Xiangjiang branches and independent bookmarks restore without inventing the cover action',()=>{
@@ -38,7 +38,7 @@ test('old Xiangjiang branches and independent bookmarks restore without inventin
  const legacy={...D,storyRevision:9,nodes:D.legacyStory.nodes};
  const migrated=C.restore(D,walk('zy-arrive','stretcher',legacy));
  assert.equal(migrated.node,'zy-arrive');assert.equal(migrated.choices['xj-choice'],'stretcher');
- assert(!migrated.path.includes('xj-cover-fire-v035'));
+ assert(migrated.path.includes('xj-cover-fire-v035')); // Rebuilt path retains the already-completed station, so it will not replay the film.
 });
 test('the silent crossing film keeps the original two choices and belongs to both routes',()=>{
  const film=n('xj-choice');assert(film.nativeAudio&&film.textAfterMovie);assert(!film.advanceOnEnd);

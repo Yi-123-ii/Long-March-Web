@@ -33,7 +33,8 @@ test('the rivers chapter arrives at Chishui, departs Jinsha and cannot teleport 
 test('the Chishui film waits for the question and holds before the Jinsha crossing',()=>{
  const ask=walk(D,'t1-ask-route-v036','stretcher');ask.settings.auto=true;
  assert.equal(C.advance(D,ask),ask);
- const playing=C.advance(D,ask,'ask-route'),film=C.current(D,playing);
+ const reply=C.advance(D,ask,'ask-route');assert.equal(C.current(D,reply).voiceId,'XM09');
+ const playing=walk(D,'t1-chenhe-route-v036','stretcher'),film=C.current(D,playing);
  assert.equal(film.filmId,'CS-01');assert(film.nativeAudio&&film.advanceOnEnd);
  assert.equal(D.images[C.current(D,ask).scene],film.poster);
  const at=t=>T.pageFrame(film.captionPages,t).text;
@@ -41,7 +42,7 @@ test('the Chishui film waits for the question and holds before the Jinsha crossi
  assert.equal(at(3.8),'先跟上，别落在后头。');
  const holding=C.advance(D,playing),pack=C.current(D,holding);
  assert.equal(D.images[pack.scene],film.hold);assert.equal(C.advance(D,holding),holding);
- assert.equal(pack.routeStep,1);assert.equal(C.current(D,C.advance(D,holding,'shoulder-pack')).routeStep,2);
+ assert.equal(pack.routeStep,1);const packed=C.advance(D,holding,'shoulder-pack');assert.equal(C.current(D,C.advance(D,packed)).routeStep,2);
  assert.equal(C.restore(D,{...holding,node:'t1-history',path:[...playing.path,'t1-history']}).node,D.start);
 });
 test('saved river crossings restore without new actions and still preserve the old letter branch',()=>{
@@ -51,7 +52,7 @@ test('saved river crossings restore without new actions and still preserve the o
   assert.deepEqual(restored.path,saved.path);assert.deepEqual(restored.chapterProgress,saved.chapterProgress);
   assert.deepEqual(restored.choices,saved.choices);
   const replay=C.beginChapter(D,restored,'rivers');assert.equal(replay.node,'t1-arrive');
-  const current=walk(D,'t1-go',route);
+  const current=walk(D,'t1-end',route);
   assert(current.path.includes('t1-chenhe-route-v036'));
   assert.equal(current.path.includes('t1-letter'),route==='luggage');
  }

@@ -10,12 +10,13 @@
     "view": "wide",
     "next": "strap",
     "mode": "observation",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "historicalTab": "1934年10月，中央红军主力从于都等地出发，开始战略转移"
   },
   {
     "id": "strap",
     "speaker": "心声",
-    "text": "肩带翻折着压在锁骨上，我试着托高铺盖，还是磨得疼。",
+    "text": "肩带翻了边，正硌在锁骨上。我托着铺盖往上提了提，还没走两步，它又坠了下来。桥边亮着灯，上船的人一个挨着一个往前挪，陈禾就站在木板旁，回头等我。",
     "scene": "gathering",
     "next": "newcomer",
     "mode": "thought",
@@ -26,11 +27,17 @@
   {
     "id": "newcomer",
     "speaker": "心声",
-    "text": "前面的人已经上了浮桥，桥边的陈禾正回头看我。",
+    "text": "",
     "scene": "portrait",
-    "next": "reach",
     "mode": "thought",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "choices": [
+      {
+        "id": "continue-newcomer",
+        "label": "走到他面前。",
+        "next": "reach"
+      }
+    ]
   },
   {
     "id": "reach",
@@ -41,17 +48,17 @@
     "mode": "dialogue",
     "nativeAudio": true,
     "duration": 5.088005,
-    "captionStart": 0.18,
-    "captionEnd": 4.65,
     "title": "陈禾在河岸招呼你",
     "replayLabel": "重看招呼",
     "advanceOnEnd": true,
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "captionStart": 0.18,
+    "captionEnd": 4.65
   },
   {
     "id": "choice",
     "speaker": "心声",
-    "text": "身后有人踩滑，铺盖跟着蹭到我背上。那位战士没够着桥边的木桩，松开的绳子也兜不住往下坠的包。",
+    "text": "身后忽然有人踩滑，背上的铺盖撞到我肩头。他伸手没够着桥边的木桩，包又往下滑，带得人一歪。",
     "scene": "hold",
     "mode": "thought",
     "cue": "stumble",
@@ -72,7 +79,7 @@
   {
     "id": "a-cross",
     "speaker": "心声",
-    "text": "旁边已经有人托住那位战士的铺盖，我借着陈禾的手跨上木板。",
+    "text": "旁边的人已经托住了他的铺盖，我握着陈禾的手跨上木板。船身一晃，他的手也跟着紧了紧，等我站稳才松开。",
     "scene": "bridge-step",
     "next": "a-tight",
     "mode": "thought",
@@ -82,7 +89,7 @@
   {
     "id": "a-tight",
     "speaker": "心声",
-    "text": "脚下还在晃，他一直没松手，直到我站稳才转身往前走。",
+    "text": "",
     "scene": "bridge-forward",
     "next": "a-fine",
     "mode": "thought",
@@ -93,14 +100,20 @@
     "speaker": "旁白",
     "text": "",
     "scene": "intro-first",
-    "next": "meet",
     "mode": "observation",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "choices": [
+      {
+        "id": "continue-a-fine",
+        "label": "跟上陈禾。",
+        "next": "meet"
+      }
+    ]
   },
   {
     "id": "b-bag",
     "speaker": "心声",
-    "text": "松开的铺盖压在我胳膊上，那位战士扶着我的肩，脚下还在找落稳的地方。",
+    "text": "我托住滑下来的铺盖，那位战士扶着我的肩，挪了两次脚才踩稳。",
     "scene": "bank-lookback",
     "next": "b-thanks",
     "mode": "thought",
@@ -110,15 +123,18 @@
   {
     "id": "b-thanks",
     "speaker": "小满",
-    "text": "我站得住，你先把包抱稳。",
+    "text": "我能站得住，你先把包抱稳。",
     "scene": "bank-lookback",
     "next": "b-steady",
     "mode": "dialogue",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "voice": "assets/audio/xiaoman-v034/XM01.mp3",
+    "voiceDuration": 2.975,
+    "voiceId": "XM01"
   },
   {
     "id": "b-steady",
-    "text": "（抱紧铺盖）拿住了，你先过去吧。",
+    "text": "好了，你先过去吧。",
     "scene": "bank-lookback",
     "speaker": "战士",
     "mode": "dialogue",
@@ -128,12 +144,18 @@
   {
     "id": "b-this-way",
     "speaker": "心声",
-    "text": "陈禾还在桥边等着，后面的人贴着我们身旁往前走。",
+    "text": "后面的人从身旁挤过去，陈禾还站在桥边，没有往前走。",
     "scene": "hold",
-    "next": "meet",
     "mode": "thought",
     "cue": "steps",
-    "chapter": "yudu"
+    "chapter": "yudu",
+    "choices": [
+      {
+        "id": "continue-b-this-way",
+        "label": "松开手，跟上陈禾。",
+        "next": "meet"
+      }
+    ]
   },
   {
     "id": "meet",
@@ -171,10 +193,22 @@
       {
         "id": "tell-name",
         "label": "我叫小满。",
-        "next": "joined"
+        "next": "name-spoken-v034"
       }
     ],
     "chapter": "yudu"
+  },
+  {
+    "id": "name-spoken-v034",
+    "chapter": "yudu",
+    "scene": "intro-hold",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "我叫小满。",
+    "next": "joined",
+    "voice": "assets/audio/xiaoman-v034/XM02.mp3",
+    "voiceDuration": 1.525,
+    "voiceId": "XM02"
   },
   {
     "id": "joined",
@@ -188,7 +222,7 @@
   {
     "id": "liang-meet",
     "speaker": "心声",
-    "text": "我刚把铺盖托上去，一截带子就拖进了泥里。梁叔在旁边看见，伸手指了指地上。",
+    "text": "我刚把铺盖往背上托稳，带子的一头又拖进泥里。梁叔伸手指了指，我这才低头看见。",
     "scene": "liang-reminder-first",
     "next": "liang-reminder",
     "mode": "thought",
@@ -223,17 +257,29 @@
   {
     "id": "ask-home",
     "speaker": "心声",
-    "text": "前头还在安排人上船，梁叔和我站在一旁等着。远处传来几声狗叫，近处的船帮偶尔撞一下木桩。",
+    "text": "还没轮到我们上船，梁叔把肩上的行装往上托了托，和我站到旁边。船帮撞了一下木桩，远处的狗叫声隔着水传过来。",
     "scene": "liang-home-first",
     "mode": "thought",
     "choices": [
       {
         "id": "ask-liang-home",
         "label": "梁叔，您家里这时候都忙些什么？",
-        "next": "liang-home"
+        "next": "ask-home-spoken-v034"
       }
     ],
     "chapter": "yudu"
+  },
+  {
+    "id": "ask-home-spoken-v034",
+    "chapter": "yudu",
+    "scene": "liang-home-first",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "梁叔，您家里这时候都忙些什么？",
+    "next": "liang-home",
+    "voice": "assets/audio/xiaoman-v034/XM03.mp3",
+    "voiceDuration": 3.08,
+    "voiceId": "XM03"
   },
   {
     "id": "liang-home",
@@ -255,7 +301,7 @@
   {
     "id": "home-after",
     "speaker": "心声",
-    "text": "轮到我们上船了。梁叔托住背后的行装，跟着前面的人走上木板。",
+    "text": "船里的人往里挪开，终于空出位置。梁叔托着行装走上木板，我跟在他后头。",
     "scene": "liang-home-hold",
     "next": "departure",
     "mode": "thought",
@@ -296,7 +342,7 @@
   {
     "id": "aboard",
     "speaker": "心声",
-    "text": "又有人踏进船里，船身随着那一步沉了沉。我扶住船沿，往先上来的战士旁边靠，身后才又空出一块落脚的地方。",
+    "text": "身后又有人上船，我扶着船沿往里挪，鞋尖碰到了前面战士的脚。他侧过身让了让，船身还在轻轻晃。",
     "scene": "boarding-hold",
     "next": "end",
     "mode": "thought",
@@ -306,10 +352,11 @@
     "id": "end",
     "scene": "boarding-hold",
     "chapter": "yudu",
-    "end": true
+    "checkpoint": true,
+    "next": "xj-arrive"
   }
 ];
- const data={version:1,storyRevision:10,title:'一只伸来的手',start:'river',nodes,
+ const data={version:1,storyRevision:13,title:'一只伸来的手',start:'river',nodes,
   memories:{"hand":"河岸上，你先握住了陈禾的手","help":"河岸上，你先回身扶了别人"},
   imageAlt:{'bridge-step':'小满低头看向脚下的浮桥木板，前方战士正往船边走','bridge-forward':'向前延伸的木浮桥与停靠的木船','bank-lookback':'小满回身看向后方已站稳的战士，岸边仍有等候的队伍','liang-reminder-first':'梁叔面向小满提醒收好行装，身后队伍走过浮桥','liang-reminder-hold':'梁叔收回目光，身后仍是于都浮桥与木船','liang-home-first':'同一位梁叔站在浮桥边，准备回答关于家乡的问题','liang-home-hold':'梁叔说起家里的枣树后露出浅笑','boarding-first':'小满低头望向浮桥，前方是停靠的木船','boarding-hold':'小满已经站在木船里，旁边的战士与对岸队伍仍在画面中'},
   images:{'bridge-step':'assets/yudu/bridge-step-v013.png','bridge-forward':'assets/yudu/bridge-forward-v013.png','bank-lookback':'assets/yudu/bank-lookback-v013.png','liang-reminder-first':'assets/yudu/liang-reminder-first-v013.png','liang-reminder-hold':'assets/yudu/liang-reminder-hold-v013.png','liang-home-first':'assets/yudu/liang-home-first-v013.png','liang-home-hold':'assets/yudu/liang-home-hold-v013.png','boarding-first':'assets/yudu/boarding-first-v013.png','boarding-hold':'assets/yudu/boarding-hold-v013.png',gathering:'assets/yudu/yudu-gathering-v011.png','intro-first':'assets/yudu/chenhe-intro-first-v012.png','intro-hold':'assets/yudu/chenhe-intro-hold-v012.png',reachStill:'assets/yudu/chenhe-reach-still-v011.png',portrait:'assets/yudu/chenhe-first-v011.png',hold:'assets/yudu/chenhe-hold-v011.png'},
@@ -317,6 +364,7 @@
   historicalNote:'1934年10月，中央红军在于都集结，分批渡过于都河，开始长征。本作从其中一支队伍的虚构经历展开；不将于都表述为所有红军队伍唯一的长征出发地。',
   sources:[{title:'红军长征集结地为何选择于都 · 中国共产党新闻网',url:'https://cpc.people.com.cn/n1/2024/1011/c443712-40336727.html'}]
  };
+ data.legacyStories={10:typeof module==='object'&&module.exports?require('./story-legacy-v010.js'):root.MARCH_LEGACY_V010,11:typeof module==='object'&&module.exports?require('./story-legacy-v011.js'):root.MARCH_LEGACY_V011,12:typeof module==='object'&&module.exports?require('./story-legacy-v012.js'):root.MARCH_LEGACY_V012};
  data.legacyStory=typeof module==='object'&&module.exports?require('./story-legacy-v009.js'):root.MARCH_LEGACY;
  const extra=typeof module==='object'&&module.exports?require('./chapters-data.js'):root.MARCH_CHAPTERS;
  for(const n of nodes)n.chapter='yudu';

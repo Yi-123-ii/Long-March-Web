@@ -25,7 +25,10 @@
   function draw(){
    if(!enabled||video.hidden||video.readyState<2||!video.videoWidth){canvas.hidden=true;return;}
    const style=getComputedStyle(video),position=style.objectPosition.split(' ').map(v=>v.endsWith('%')?parseFloat(v)/100:.5);
-   const bounds=video.getBoundingClientRect(),parent=canvas.offsetParent.getBoundingClientRect();
+   // A hidden canvas has no offsetParent until its first decoded frame is drawn.
+   const container=canvas.offsetParent||canvas.parentElement;
+   if(!container){canvas.hidden=true;return;}
+   const bounds=video.getBoundingClientRect(),parent=container.getBoundingClientRect();
    const box=cover(video.videoWidth,video.videoHeight,bounds.width,bounds.height,region,position[0],position[1],style.objectFit);
    Object.assign(canvas.style,{left:bounds.left-parent.left+box.left+'px',top:bounds.top-parent.top+box.top+'px',width:box.width+'px',height:box.height+'px'});
    try{

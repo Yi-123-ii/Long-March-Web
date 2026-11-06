@@ -40,10 +40,10 @@
   const nodes=new Map(schema.nodes.map(n=>[n.id,n])),choices={};let n=nodes.get(schema.start);
   for(const id of raw.path.slice(1)){
    if(!n||n.end)return null;
-   const choice=n.choices?.find(c=>c.next===id);
+   const choice=n.choices?.find(c=>c.next===id||c.legacyNext===id);
    if(n.choices&&!choice)return null;
    const next=choice?.next||n.routes?.find(r=>choices[r.choice]===r.equals)?.next||n.next;
-   if(next!==id)return null;
+   if(next!==id&&choice?.legacyNext!==id&&n.legacyNext!==id)return null;
    if(choice)choices[n.id]=choice.id;
    n=nodes.get(id);
   }
@@ -51,18 +51,17 @@
  }
  function upgradeProgress(data,saved){
   const revision=saved.storyRevision||1;
-  if(data.storyRevision!==10||revision<7||revision>9)return saved;
+  if(revision===data.storyRevision||revision<7||revision>12)return saved;
+  const schema=revision>=10?data.legacyStories?.[revision]:data.legacyStory;
   function rewrite(mark){
-   const decisions=legacyDecisions(data.legacyStory,mark);if(!decisions)return null;
+   const decisions=legacyDecisions(schema,mark);if(!decisions)return null;
    let state=create(data),guard=0;
    while(state.node!==mark.node&&guard++<512){
     const n=current(data,state);
     if(n.end)return null;
     const pick=n.choices?.length===1?n.choices[0].id:decisions[n.id];
-    const choice=n.choices?.find(c=>c.id===pick);
-    if(n.choices&&!choice)return null;
-    const legacyNext=choice?.legacyNext||n.legacyNext;
-    const next=legacyNext?enterNode(data,state,legacyNext,choice):advance(data,state,pick);
+    if(n.choices&&!n.choices.some(c=>c.id===pick))return null;
+    const next=advance(data,state,pick);
     if(next===state)return null;state=next;
    }
    return state.node===mark.node?{node:state.node,path:state.path}:null;

@@ -10,7 +10,7 @@ test('all 32 real legacy paths migrate without losing decisions, bookmarks or un
  for(const choice of ['hand','help'])for(const crossing of ['stretcher','luggage'])for(const snow of ['support','call'])for(const grass of ['stay','rescue'])for(const wuqi of ['sew','write']){
   const picks={choice,'xj-choice':crossing,'snow-choice':snow,'grass-choice':grass,'wuqi-choice':wuqi};
   const before=walk(legacy,picks),after=C.restore(D,{...before,choices:{choice:'forged'},settings:{voice:.37,ambient:.24,auto:false}});
-  assert.equal(after.node,before.node);assert.equal(after.storyRevision,10);
+  assert.equal(after.node,before.node);assert.equal(after.storyRevision,13);
   for(const [id,pick]of Object.entries(picks))assert.equal(after.choices[id],pick);
   for(const ch of D.chapters){assert.equal(after.chapterProgress[ch.id].node,before.chapterProgress[ch.id].node);assert(C.canOpenChapter(D,after,ch.id));}
   assert.equal(after.settings.voice,.37);assert.equal(after.settings.ambient,.24);
