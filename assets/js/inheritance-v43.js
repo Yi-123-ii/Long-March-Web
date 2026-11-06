@@ -38,7 +38,7 @@
   const status = page.querySelector(".doc-status");
   const stories = new Map([...page.querySelectorAll("[data-story]")].map(story => [story.dataset.story, story]));
   const closeButton = dialog.querySelector("[data-doc-close]");
-  if (stories.size !== 7) {
+  if (stories.size !== 6) {
     status.textContent = "部分资料暂未载入，可先阅读已显示的故事";
     status.hidden = false;
   }
@@ -48,7 +48,8 @@
 
   function showStory(id, trigger) {
     const story = stories.get(id);
-    const source = story?.querySelector(".doc-article");
+    if (!story) return false;
+    const source = story.querySelector(".doc-article");
     if (!source?.querySelector(".doc-article__title")) {
       status.textContent = "故事暂未载入，请重新打开页面";
       status.hidden = false;
