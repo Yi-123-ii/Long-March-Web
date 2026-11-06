@@ -8,42 +8,31 @@ body.legacy-v41 .v44-opening + .v47-spirit > .doc-wrap {
   position: relative;
   z-index: 2;
 }
-body.legacy-v41 .v47-spirit__heading {
-  margin-bottom: clamp(16px, 2vw, 28px);
+body.legacy-v41 .v47-spirit__heading p {
+  color: #8d493a;
+  font: 500 14px/1.5 var(--v38-ui);
+  letter-spacing: .12em;
 }
-body.legacy-v41 .v48-spirit-title {
-  display: grid;
-  grid-template-columns: minmax(0, 1062fr) minmax(0, 1110fr);
-  gap: clamp(8px, 1.3vw, 18px);
-  width: min(98%, 872px);
-}
-body.legacy-v41 .v48-spirit-title__art {
-  display: block;
-  min-width: 0;
-  height: auto;
-}
-/* The two windows meet at column 1062, the gap between 上 and 信 in the original artwork. */
-body.legacy-v41 .v48-spirit-title__part {
-  --ink-width: 1062;
-  --ink-offset: 0;
-  overflow: hidden;
-}
-body.legacy-v41 .v48-spirit-title__part--tail {
-  --ink-width: 1110;
-  --ink-offset: 1062;
-}
-body.legacy-v41 .v48-spirit-title__art {
-  width: calc(100% * 2172 / var(--ink-width));
-  max-width: none;
-  margin-inline-start: calc(-100% * var(--ink-offset) / var(--ink-width));
+body.legacy-v41 .v47-spirit__heading h2 {
+  margin-block: clamp(20px, 3vw, 30px) 16px;
+  color: #283f35;
+  font: 600 clamp(32px, 2.5vw, 36px)/1.32 var(--v38-reading);
+  letter-spacing: .025em;
 }
 body.legacy-v41 .v47-spirit__reading {
-  color: #554b40;
-  font: 400 clamp(16px, 1.3vw, 17px)/1.9 var(--v38-reading);
+  color: #39463d;
+  font: 400 17px/1.85 var(--v38-reading);
 }
 body.legacy-v41 .v47-spirit__reading p + p {
   margin-top: clamp(16px, 2vw, 24px);
 }
+@media (max-width: 900px) {
+  body.legacy-v41 .v47-spirit__heading h2 { font-size: 30px; }
+  body.legacy-v41 .v47-spirit__reading { font-size: 16px; line-height: 1.8; }
+}
 @media (max-width: 760px) {
   body.legacy-v41 .v47-spirit { padding-top: 46px; }
+}
+@media (max-width: 640px) {
+  body.legacy-v41 .v47-spirit__heading h2 { font-size: clamp(29px, 5.8vw, 38px); }
 }
