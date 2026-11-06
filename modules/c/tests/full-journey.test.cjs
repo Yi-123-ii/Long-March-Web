@@ -22,8 +22,8 @@ test('old saves at the former endpoint can enter the snow chapter without replay
 });
 test('new Lu assets replace both previous appearances and only supplied grass scenes add movies',()=>{
  assert(D.images[D.nodes.find(n=>n.id==='xj-a-lusheng').scene].endsWith('lusheng-stretcher-first-v032.png'));assert(D.images['lusheng-lamp'].endsWith('v015.webp'));
- assert.equal(D.nodes.filter(n=>n.nativeAudio).length,26);
- for(const n of D.nodes.filter(n=>['grass','north','wuqi','epilogue'].includes(n.chapter)&&!['grass-a-water','grass-dawn-call','wuqi-write-home'].includes(n.id))){assert(!n.nativeAudio);assert(!n.video);}
+ assert.equal(D.nodes.filter(n=>n.nativeAudio).length,29);
+ for(const n of D.nodes.filter(n=>['grass','north','wuqi','epilogue'].includes(n.chapter)&&!['grass-a-water','grass-dawn-call','wuqi-water','wuqi-sew','wuqi-sew-still','wuqi-write-home'].includes(n.id))){assert(!n.nativeAudio);assert(!n.video);}
 });
 test('the two endings keep distinct objects; new writing does not consume or deliver the old letter',()=>{
  const a=walk('hand','stretcher','support','rescue','sew'),b=walk('help','luggage','call','stay','write');

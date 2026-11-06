@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 99199576,
-  "webBytes": 21714564,
+  "originalBytes": 109954948,
+  "webBytes": 22954142,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -534,6 +534,50 @@
       "sha256": "71a72142abfadbff6d841c395edbf1f73d1c5c16f9c8a216442a41517e8771f5",
       "originalBytes": 696902,
       "webBytes": 51998
+    },
+    {
+      "source": "assets/chapters/lusheng-saved-water-v040.mp4",
+      "web": "assets/stream/lusheng-saved-water-v040-6e69b7dedc.mp4",
+      "sha256": "3a7205ee9750045613380c1d7248cca3168fdc436eeb8a909141d2679c29171f",
+      "originalBytes": 4908272,
+      "webBytes": 536713,
+      "webDimensions": "960×540"
+    },
+    {
+      "source": "assets/chapters/lusheng-saved-water-first-v040.png",
+      "web": "assets/stream/lusheng-saved-water-first-v040-a64240054d.webp",
+      "sha256": "0b80d50b37d772bb9616bad568288c4947da6faed78ef5cdf1cba9f2fd63b7fd",
+      "originalBytes": 739506,
+      "webBytes": 85958
+    },
+    {
+      "source": "assets/chapters/lusheng-saved-water-hold-v040.png",
+      "web": "assets/stream/lusheng-saved-water-hold-v040-7cb78721bb.webp",
+      "sha256": "5205f62eae082f02bccf89edbf51d7b28d6d6612a0be69029e3ed103bfaa14d6",
+      "originalBytes": 883457,
+      "webBytes": 80632
+    },
+    {
+      "source": "assets/chapters/chenhe-wuqi-sew-v040.mp4",
+      "web": "assets/stream/chenhe-wuqi-sew-v040-971a178238.mp4",
+      "sha256": "f134b307900ab71e58a005db0836616d9721247d5fc1c59a436a3787603aca5c",
+      "originalBytes": 2811438,
+      "webBytes": 421401,
+      "webDimensions": "960×540"
+    },
+    {
+      "source": "assets/chapters/chenhe-wuqi-sew-first-v040.png",
+      "web": "assets/stream/chenhe-wuqi-sew-first-v040-8daca6b7aa.webp",
+      "sha256": "2a098d92f8ae9cbcf4a80cd573369d00cbc1537e3074ee9d3c2489202d0c3d2c",
+      "originalBytes": 634939,
+      "webBytes": 56490
+    },
+    {
+      "source": "assets/chapters/chenhe-wuqi-sew-pause-v040.png",
+      "web": "assets/stream/chenhe-wuqi-sew-pause-v040-35d80bd10c.webp",
+      "sha256": "d946364b2cc92a4bb809ee867835c0652300d5af69a7789122f1760d6c463a95",
+      "originalBytes": 777760,
+      "webBytes": 58384
     }
   ]
 }

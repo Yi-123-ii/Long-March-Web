@@ -73,5 +73,11 @@
  "assets/chapters/chenhe-mountain-pack-first-v037.png": "assets/stream/chenhe-mountain-pack-first-v037-22f9f487cb.webp",
  "assets/chapters/chenhe-mountain-pack-question-v037.png": "assets/stream/chenhe-mountain-pack-question-v037-4846a9e64a.webp",
  "assets/chapters/chenhe-mountain-pack-nickname-v037.png": "assets/stream/chenhe-mountain-pack-nickname-v037-ba8021e64c.webp",
- "assets/chapters/chenhe-mountain-pack-hold-v037.png": "assets/stream/chenhe-mountain-pack-hold-v037-3b11d4f700.webp"
+ "assets/chapters/chenhe-mountain-pack-hold-v037.png": "assets/stream/chenhe-mountain-pack-hold-v037-3b11d4f700.webp",
+ "assets/chapters/lusheng-saved-water-v040.mp4": "assets/stream/lusheng-saved-water-v040-6e69b7dedc.mp4",
+ "assets/chapters/lusheng-saved-water-first-v040.png": "assets/stream/lusheng-saved-water-first-v040-a64240054d.webp",
+ "assets/chapters/lusheng-saved-water-hold-v040.png": "assets/stream/lusheng-saved-water-hold-v040-7cb78721bb.webp",
+ "assets/chapters/chenhe-wuqi-sew-v040.mp4": "assets/stream/chenhe-wuqi-sew-v040-971a178238.mp4",
+ "assets/chapters/chenhe-wuqi-sew-first-v040.png": "assets/stream/chenhe-wuqi-sew-first-v040-8daca6b7aa.webp",
+ "assets/chapters/chenhe-wuqi-sew-pause-v040.png": "assets/stream/chenhe-wuqi-sew-pause-v040-35d80bd10c.webp"
 };if(typeof module==='object'&&module.exports)module.exports=media;else root.JourneyMedia=media;})(typeof window==='undefined'?globalThis:window);

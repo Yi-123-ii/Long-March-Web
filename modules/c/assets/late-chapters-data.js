@@ -1516,17 +1516,36 @@
   {
     "id": "wuqi-water",
     "speaker": "陆生",
-    "text": "小满，给你留了点水，你先喝。",
-    "scene": "lusheng-wuqi",
+    "text": "小满，给你留了点水，你先喝。碗这边缺了一块，你换一边喝。",
+    "scene": "lusheng-saved-water-first",
     "next": "wuqi-water-rim",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "plannedFilm": "WQ-02"
+    "nativeAudio": true,
+    "video": "assets/chapters/lusheng-saved-water-v040.mp4",
+    "poster": "assets/chapters/lusheng-saved-water-first-v040.png",
+    "duration": 7.104,
+    "title": "吴起院门边，陆生给小满留了半碗水",
+    "filmId": "WQ-02",
+    "advanceOnEnd": true,
+    "hold": "assets/chapters/lusheng-saved-water-hold-v040.png",
+    "captionPages": [
+      {
+        "text": "小满，给你留了点水，你先喝。",
+        "start": 0.18,
+        "end": 2.56
+      },
+      {
+        "text": "碗这边缺了一块，你换一边喝。",
+        "start": 3.72,
+        "end": 5.66
+      }
+    ]
   },
   {
     "id": "wuqi-water-rim",
-    "text": "（他指了指碗沿的缺口。）",
-    "scene": "lusheng-wuqi",
+    "text": "",
+    "scene": "lusheng-saved-water-hold",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "wuqi",
@@ -1534,8 +1553,8 @@
   },
   {
     "id": "wuqi-water-warning",
-    "text": "碗这边缺了一块，你换一边喝。",
-    "scene": "lusheng-wuqi",
+    "text": "",
+    "scene": "lusheng-saved-water-hold",
     "speaker": "陆生",
     "mode": "dialogue",
     "chapter": "wuqi",
@@ -1544,13 +1563,13 @@
   {
     "id": "wuqi-water-drink",
     "text": "",
-    "scene": "lusheng-wuqi",
+    "scene": "lusheng-saved-water-hold",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
       {
         "id": "drink",
-        "label": "接过水，避开缺口喝两口。",
+        "label": "端起水碗，避开缺口喝两口。",
         "next": "wuqi-snow-route"
       }
     ],
@@ -1776,17 +1795,37 @@
   {
     "id": "wuqi-sew",
     "speaker": "陈禾",
-    "text": "（缩了一下胳膊）哎，你慢点。",
-    "scene": "chenhe-memory-first",
+    "text": "哎，你慢点。",
+    "scene": "chenhe-wuqi-sew-first",
     "next": "wuqi-sew-reply",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "plannedFilm": "WQ-03"
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-wuqi-sew-v040.mp4",
+    "poster": "assets/chapters/chenhe-wuqi-sew-first-v040.png",
+    "duration": 3.25,
+    "title": "吴起窗下，陈禾提醒小满慢点补袖口",
+    "filmId": "WQ-03",
+    "advanceOnEnd": true,
+    "hold": "assets/chapters/chenhe-wuqi-sew-pause-v040.png",
+    "mediaEnd": 3.25,
+    "captionCues": [
+      {
+        "text": "哎，",
+        "start": 0.2,
+        "end": 0.39
+      },
+      {
+        "text": "你慢点。",
+        "start": 0.59,
+        "end": 1.16
+      }
+    ]
   },
   {
     "id": "wuqi-sew-reply",
     "text": "",
-    "scene": "chenhe-memory-first",
+    "scene": "chenhe-wuqi-sew-pause",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -1801,23 +1840,49 @@
   {
     "id": "wuqi-sew-reply-spoken-v034",
     "chapter": "wuqi",
-    "scene": "chenhe-memory-first",
+    "scene": "chenhe-wuqi-sew-pause",
     "speaker": "小满",
     "mode": "dialogue",
     "text": "我还没下针呢，是你自己先动了。",
     "next": "wuqi-sew-still",
     "voice": "assets/audio/xiaoman-v034/XM28.mp3",
     "voiceDuration": 3.0875,
-    "voiceId": "XM28"
+    "voiceId": "XM28",
+    "advanceOnEnd": true
   },
   {
     "id": "wuqi-sew-still",
-    "text": "（把胳膊放回桌沿）行，你缝吧，我不动了。",
-    "scene": "chenhe-memory-first",
+    "text": "行，你缝吧，我不动了。",
+    "scene": "chenhe-wuqi-sew-pause",
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-sew-result"
+    "next": "wuqi-sew-result",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-wuqi-sew-v040.mp4",
+    "poster": "assets/chapters/chenhe-wuqi-sew-pause-v040.png",
+    "duration": 3.854,
+    "title": "陈禾把胳膊放回桌沿，让小满继续缝",
+    "filmId": "WQ-03",
+    "advanceOnEnd": true,
+    "mediaStart": 3.25,
+    "captionCues": [
+      {
+        "text": "行，",
+        "start": 4.64,
+        "end": 4.91
+      },
+      {
+        "text": "你缝吧，",
+        "start": 5.22,
+        "end": 5.76
+      },
+      {
+        "text": "我不动了。",
+        "start": 6,
+        "end": 6.57
+      }
+    ]
   },
   {
     "id": "wuqi-sew-result",
@@ -2268,10 +2333,10 @@
   {
     "id": "wuqi-water-context-v034",
     "chapter": "wuqi",
-    "scene": "lusheng-wuqi",
+    "scene": "lusheng-saved-water-first",
     "speaker": "旁白",
     "mode": "observation",
-    "text": "陆生坐在门边，见我放下包，朝凳上的半碗水示意了一下。",
+    "text": "陆生坐在门边，旁边的矮凳上放着半碗水。",
     "next": "wuqi-water"
   },
   {
@@ -2420,5 +2485,17 @@
  Object.assign(alts,{'chenhe-memory-first':'白天的吴起借住屋内，陈禾坐在小满对面，桌上是新纸和短铅笔','chenhe-memory-hold':'同一张桌前，陈禾低头看向新纸，提醒小满记下梁叔家的枣树'});
  Object.assign(images,{"chenhe-mountain-pack-first": "assets/chapters/chenhe-mountain-pack-first-v037.png", "chenhe-mountain-pack-question": "assets/chapters/chenhe-mountain-pack-question-v037.png", "chenhe-mountain-pack-nickname": "assets/chapters/chenhe-mountain-pack-nickname-v037.png", "chenhe-mountain-pack-hold": "assets/chapters/chenhe-mountain-pack-hold-v037.png", "snow-wet-clothes": "assets/chapters/snow-wet-clothes-v037.webp"});
  Object.assign(alts,{"chenhe-mountain-pack-first": "陈禾在夹金山山脚低头整理铺盖绳", "chenhe-mountain-pack-question": "陈禾从铺盖上抬起头，看向帮忙的小满", "chenhe-mountain-pack-nickname": "陈禾说起母亲叫他的乳名，停下来看着小满", "chenhe-mountain-pack-hold": "陈禾低头收紧铺盖绳", "snow-wet-clothes": "背着铺盖的战士走出树林，沿着泥雪山路继续上行"});
+ Object.assign(images,{
+  'lusheng-saved-water-first':'assets/chapters/lusheng-saved-water-first-v040.png',
+  'lusheng-saved-water-hold':'assets/chapters/lusheng-saved-water-hold-v040.png',
+  'chenhe-wuqi-sew-first':'assets/chapters/chenhe-wuqi-sew-first-v040.png',
+  'chenhe-wuqi-sew-pause':'assets/chapters/chenhe-wuqi-sew-pause-v040.png'
+ });
+ Object.assign(alts,{
+  'lusheng-saved-water-first':'陆生坐在吴起借住屋的门边，半碗水放在身旁的矮凳上',
+  'lusheng-saved-water-hold':'陆生坐在凳旁看向小满，水碗仍放在原处',
+  'chenhe-wuqi-sew-first':'吴起借住屋的窗边，陈禾坐在桌前等小满补袖口',
+  'chenhe-wuqi-sew-pause':'陈禾在桌前停下来，等小满回话'
+ });
  const data={nodes,images,alts,chapters};if(typeof module==='object'&&module.exports)module.exports=data;else root.LATE_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);
