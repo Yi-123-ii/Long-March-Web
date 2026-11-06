@@ -11,7 +11,34 @@
     "next": "xj-offer-sleeve",
     "mode": "observation",
     "chapter": "xiangjiang",
-    "historicalTab": "中央红军在湘江一线激战，突破第四道封锁线"
+    "historicalTab": "中央红军在湘江一线激战，突破第四道封锁线",
+    "narration": {
+      "id": "XN011",
+      "src": "assets/audio/xiaoman-narration-v039/XN011.mp3",
+      "duration": 12.8525,
+      "cues": [
+        {
+          "text": "河那边又响起枪声，岸上的人低下头，贴着土坎往前挪。",
+          "start": 0.16000000000000014,
+          "end": 4.8199999999999985
+        },
+        {
+          "text": "梁叔拉我在坎后蹲下，把针线包摊在膝上；",
+          "start": 5.539999999999999,
+          "end": 8.8
+        },
+        {
+          "text": "见我还在扯袖口的断线，他伸手按住了。",
+          "start": 9.64,
+          "end": 12.559999999999999
+        }
+      ],
+      "sentences": [
+        "XN011-01",
+        "XN011-02",
+        "XN011-03"
+      ]
+    }
   },
   {
     "id": "xj-offer-sleeve",
@@ -75,7 +102,34 @@
     "next": "xj-cover-v034",
     "mode": "thought",
     "chapter": "xiangjiang",
-    "legacyNext": "xj-choice"
+    "legacyNext": "xj-choice",
+    "narration": {
+      "id": "XN012",
+      "src": "assets/audio/xiaoman-narration-v039/XN012.mp3",
+      "duration": 13.91,
+      "cues": [
+        {
+          "text": "炮声从远处传来，坎沿的土簌簌落在膝头。",
+          "start": 0.26750000000000185,
+          "end": 4.3675
+        },
+        {
+          "text": "梁叔刚收好针，陈禾已经伏到我身旁，帽檐沾着湿泥。",
+          "start": 4.947500000000002,
+          "end": 9.767500000000002
+        },
+        {
+          "text": "近处又响了一阵枪，我赶紧把胳膊收进怀里。",
+          "start": 10.3475,
+          "end": 13.627500000000001
+        }
+      ],
+      "sentences": [
+        "XN012-01",
+        "XN012-02",
+        "XN012-03"
+      ]
+    }
   },
   {
     "chapter": "xiangjiang",
@@ -112,7 +166,34 @@
     "duration": 4.096009,
     "textAfterMovie": true,
     "title": "湘江渡口的担架与行装转运",
-    "filmId": "XJ-02"
+    "filmId": "XJ-02",
+    "narration": {
+      "id": "XN013",
+      "src": "assets/audio/xiaoman-narration-v039/XN013.mp3",
+      "duration": 12.1425,
+      "cues": [
+        {
+          "text": "趁枪声稍歇，旁边的人开始往河边抬担架。",
+          "start": 0.13750000000000284,
+          "end": 3.7974999999999994
+        },
+        {
+          "text": "行装组也在招手，几个捆好的包还搁在岸边。",
+          "start": 4.317500000000003,
+          "end": 7.897500000000001
+        },
+        {
+          "text": "我把刚补过的袖口往上拢了拢，起身跟过去。",
+          "start": 8.557499999999997,
+          "end": 11.957500000000003
+        }
+      ],
+      "sentences": [
+        "XN013-01",
+        "XN013-02",
+        "XN013-03"
+      ]
+    }
   },
   {
     "id": "xj-a-lusheng",
@@ -121,7 +202,28 @@
     "scene": "lusheng-stretcher-first",
     "next": "xj-a-name",
     "mode": "thought",
-    "chapter": "xiangjiang"
+    "chapter": "xiangjiang",
+    "narration": {
+      "id": "XN014",
+      "src": "assets/audio/xiaoman-narration-v039/XN014.mp3",
+      "duration": 10.6475,
+      "cues": [
+        {
+          "text": "担架还没抬起来，我走到后头蹲下，手背碰到了垂着的布边。",
+          "start": 0,
+          "end": 4.635000000000005
+        },
+        {
+          "text": "上面躺着个年轻战士，见我伸手去握把手，朝我的袖子指了一下。",
+          "start": 5.335000000000001,
+          "end": 10.535000000000004
+        }
+      ],
+      "sentences": [
+        "XN014-01",
+        "XN014-02"
+      ]
+    }
   },
   {
     "id": "xj-a-name",
@@ -234,7 +336,28 @@
     "scene": "xiang-bank",
     "next": "xj-shallows-v034",
     "mode": "thought",
-    "chapter": "xiangjiang"
+    "chapter": "xiangjiang",
+    "narration": {
+      "id": "XN015",
+      "src": "assets/audio/xiaoman-narration-v039/XN015.mp3",
+      "duration": 6.0775,
+      "cues": [
+        {
+          "text": "陈禾在前头握住把手，回头看了我一眼。",
+          "start": 0,
+          "end": 3.227499999999992
+        },
+        {
+          "text": "等我点头，两个人才一起起身。",
+          "start": 3.6474999999999937,
+          "end": 5.66749999999999
+        }
+      ],
+      "sentences": [
+        "XN015-01",
+        "XN015-02"
+      ]
+    }
   },
   {
     "chapter": "xiangjiang",
@@ -249,7 +372,34 @@
         "label": "握稳把手，跟着陈禾的步子走。",
         "next": "xj-release-v034"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN016",
+      "src": "assets/audio/xiaoman-narration-v039/XN016.mp3",
+      "duration": 16.1975,
+      "cues": [
+        {
+          "text": "担架的重量压在掌根上，走到浅水里，前面的人还堵着。",
+          "start": 0.10999999999998522,
+          "end": 4.969999999999999
+        },
+        {
+          "text": "水从鞋口灌进来，河面接连溅起几团水花，枪声跟着压过来。",
+          "start": 5.590000000000003,
+          "end": 10.569999999999993
+        },
+        {
+          "text": "陈禾低下身子，脚却没挪，直到前面空出位置才往前走。",
+          "start": 11.11,
+          "end": 15.86999999999999
+        }
+      ],
+      "sentences": [
+        "XN016-01",
+        "XN016-02",
+        "XN016-03"
+      ]
+    }
   },
   {
     "id": "xj-b-handoff",
@@ -258,7 +408,22 @@
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "xiangjiang",
-    "next": "xj-b-bag"
+    "next": "xj-b-bag",
+    "narration": {
+      "id": "XN017",
+      "src": "assets/audio/xiaoman-narration-v039/XN017.mp3",
+      "duration": 3.555,
+      "cues": [
+        {
+          "text": "梁叔收好针线包，托着行装朝我转过身。",
+          "start": 0.3125,
+          "end": 3.1724999999999994
+        }
+      ],
+      "sentences": [
+        "XN017-01"
+      ]
+    }
   },
   {
     "id": "xj-b-bag",
@@ -296,7 +461,28 @@
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "xiangjiang",
-    "next": "xj-pack-cross-v034"
+    "next": "xj-pack-cross-v034",
+    "narration": {
+      "id": "XN018",
+      "src": "assets/audio/xiaoman-narration-v039/XN018.mp3",
+      "duration": 6.975,
+      "cues": [
+        {
+          "text": "后头又在叫人，梁叔转身往那边去了。",
+          "start": 0.13749999999998863,
+          "end": 2.957499999999996
+        },
+        {
+          "text": "我把他的包往怀里抱紧，跟上前面搬行装的人。",
+          "start": 3.3499999999999943,
+          "end": 6.797499999999999
+        }
+      ],
+      "sentences": [
+        "XN018-01",
+        "XN018-02"
+      ]
+    }
   },
   {
     "chapter": "xiangjiang",
@@ -311,7 +497,28 @@
         "label": "抱稳包，沿着前面空出的地方过去。",
         "next": "xj-b-letter"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN019",
+      "src": "assets/audio/xiaoman-narration-v039/XN019.mp3",
+      "duration": 10.0075,
+      "cues": [
+        {
+          "text": "我抱着梁叔的包往水边挪，背后的人还在催。",
+          "start": 0,
+          "end": 3.82
+        },
+        {
+          "text": "包被挤得滑下来一点，腾不出手扶木桩，我只好把下巴抵在包布上。",
+          "start": 4.3,
+          "end": 9.42
+        }
+      ],
+      "sentences": [
+        "XN019-01",
+        "XN019-02"
+      ]
+    }
   },
   {
     "id": "xj-b-letter",
@@ -321,7 +528,28 @@
     "next": "xj-b-protect",
     "mode": "thought",
     "document": "娘，等有了落脚的地方……",
-    "chapter": "xiangjiang"
+    "chapter": "xiangjiang",
+    "narration": {
+      "id": "XN020",
+      "src": "assets/audio/xiaoman-narration-v039/XN020.mp3",
+      "duration": 9.2425,
+      "cues": [
+        {
+          "text": "到了对岸，包布已经湿了一大片。",
+          "start": 0.4924999999999997,
+          "end": 2.9525000000000006
+        },
+        {
+          "text": "我把黏在上面的纸角轻轻揭开，才看出是一封没写完的信。",
+          "start": 3.8324999999999996,
+          "end": 8.4925
+        }
+      ],
+      "sentences": [
+        "XN020-01",
+        "XN020-02"
+      ]
+    }
   },
   {
     "id": "xj-b-protect",
@@ -341,7 +569,7 @@
   {
     "id": "xj-wait",
     "speaker": "心声",
-    "text": "渡口还得给后面的人让路，我和陈禾退到石头后面。过来的战士裤腿都湿透了，一走，鞋里就往外冒水。河上断断续续响着枪声，我听见脚步近了，便抬头看一眼。\n\n陈禾把行装往身边拢了拢，石头旁留下一块空地。",
+    "text": "渡口还得给后面的人让路，我和陈禾退到石头后面。过来的战士裤腿都湿透了，一走，鞋里就往外冒水。河上断断续续响着枪声，我听见脚步近了，便抬头看一眼。陈禾把行装往身边拢了拢，石头旁留下一块空地。",
     "scene": "chenhe-wait",
     "next": "xj-news-a",
     "mode": "thought",
@@ -352,7 +580,40 @@
         "next": "xj-news-b"
       }
     ],
-    "chapter": "xiangjiang"
+    "chapter": "xiangjiang",
+    "narration": {
+      "id": "XN022",
+      "src": "assets/audio/xiaoman-narration-v039/XN022.mp3",
+      "duration": 19.975,
+      "cues": [
+        {
+          "text": "渡口还得给后面的人让路，我和陈禾退到石头后面。",
+          "start": 0.4175000000000004,
+          "end": 4.2775
+        },
+        {
+          "text": "过来的战士裤腿都湿透了，一走，鞋里就往外冒水。",
+          "start": 4.677499999999998,
+          "end": 8.817500000000003
+        },
+        {
+          "text": "河上断断续续响着枪声，我听见脚步近了，便抬头看一眼。",
+          "start": 9.637500000000003,
+          "end": 14.6175
+        },
+        {
+          "text": "陈禾把行装往身边拢了拢，石头旁留下一块空地。",
+          "start": 15.3975,
+          "end": 19.4375
+        }
+      ],
+      "sentences": [
+        "XN022-01",
+        "XN022-02",
+        "XN022-03",
+        "XN022-04"
+      ]
+    }
   },
   {
     "id": "xj-news-a",
@@ -367,7 +628,28 @@
         "label": "接住包，抬头问他。",
         "next": "xj-ask-liang"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN023",
+      "src": "assets/audio/xiaoman-narration-v039/XN023.mp3",
+      "duration": 11.28,
+      "cues": [
+        {
+          "text": "转运同志从渡口过来，在石头旁停下，把一个布包递给我。",
+          "start": 0.3825000000000074,
+          "end": 4.722500000000004
+        },
+        {
+          "text": "露在他掌外的包角已经磨白，我认得，是梁叔的针线包。",
+          "start": 6.102500000000006,
+          "end": 10.542500000000004
+        }
+      ],
+      "sentences": [
+        "XN023-01",
+        "XN023-02"
+      ]
+    }
   },
   {
     "id": "xj-news-b",
@@ -446,7 +728,22 @@
     "scene": "sleeve-three",
     "next": "xj-last-stitches",
     "mode": "thought",
-    "chapter": "xiangjiang"
+    "chapter": "xiangjiang",
+    "narration": {
+      "id": "XN024",
+      "src": "assets/audio/xiaoman-narration-v039/XN024.mp3",
+      "duration": 5.4325,
+      "cues": [
+        {
+          "text": "我低头翻开袖口，裂口边上还留着他刚缝的三针。",
+          "start": 0.3825000000000003,
+          "end": 4.902499999999996
+        }
+      ],
+      "sentences": [
+        "XN024-01"
+      ]
+    }
   },
   {
     "id": "xj-last-stitches",
@@ -463,11 +760,44 @@
   {
     "id": "xj-silence",
     "speaker": "心声",
-    "text": "（陈禾在旁边蹲下。）\n\n背后有人扛着包挤过去，湿衣服擦过我的肩。陈禾往里拖了拖脚边的行装，给他们让出路，才在我旁边坐下。\n\n等集合声喊到第二遍，他才起身。",
+    "text": "陈禾在旁边蹲下。背后有人扛着包挤过去，湿衣服擦过我的肩。陈禾往里拖了拖脚边的行装，给他们让出路，才在我旁边坐下。等集合声喊到第二遍，他才起身。",
     "scene": "chenhe-wait",
     "next": "xj-pack",
     "mode": "thought",
-    "chapter": "xiangjiang"
+    "chapter": "xiangjiang",
+    "narration": {
+      "id": "XN025",
+      "src": "assets/audio/xiaoman-narration-v039/XN025.mp3",
+      "duration": 15.3825,
+      "cues": [
+        {
+          "text": "陈禾在旁边蹲下。",
+          "start": 0.28999999999999915,
+          "end": 1.6700000000000017
+        },
+        {
+          "text": "背后有人扛着包挤过去，湿衣服擦过我的肩。",
+          "start": 2.549999999999997,
+          "end": 5.849999999999994
+        },
+        {
+          "text": "陈禾往里拖了拖脚边的行装，给他们让出路，才在我旁边坐下。",
+          "start": 6.769999999999996,
+          "end": 11.269999999999996
+        },
+        {
+          "text": "等集合声喊到第二遍，他才起身。",
+          "start": 12.069999999999993,
+          "end": 14.929999999999993
+        }
+      ],
+      "sentences": [
+        "XN025-01",
+        "XN025-02",
+        "XN025-03",
+        "XN025-04"
+      ]
+    }
   },
   {
     "id": "xj-pack",
@@ -494,12 +824,51 @@
   {
     "id": "zy-arrive",
     "speaker": "旁白",
-    "text": "门边晾着几双湿袜子，水滴落在地上。我卸下行装，抬起胳膊时袖口又绷住了；江边那道裂口，只靠梁叔的三针撑到现在。\n\n油灯搁在桌角，凑近了能闻见一股油味。陈禾把我的袖口往亮处拉了拉，手里的针停了一会儿，又抬头看了眼灯。",
+    "text": "门边晾着几双湿袜子，水滴落在地上，发出嗒嗒的轻响。我卸下行装，抬起胳膊时袖口又绷住了；江边那道裂口，只靠梁叔的三针撑到现在。油灯搁在桌角，凑近了能闻见一股淡淡的油味。陈禾把我的袖口往亮处拉了拉，手里的针停了一会儿，又抬头看了眼灯。",
     "scene": "zunyi-lamp",
     "next": "zy-ask-sewing",
     "mode": "observation",
     "chapter": "zunyi",
-    "historicalTab": "1月15日至17日，遵义会议召开，集中解决当时具有决定意义的军事和组织问题"
+    "historicalTab": "1月15日至17日，遵义会议召开，集中解决当时具有决定意义的军事和组织问题",
+    "narration": {
+      "id": "XN027",
+      "src": "assets/audio/xiaoman-narration-v039/XN027.mp3",
+      "duration": 25.6775,
+      "cues": [
+        {
+          "text": "门边晾着几双湿袜子，水滴落在地上，发出嗒嗒的轻响。",
+          "start": 0,
+          "end": 4.76
+        },
+        {
+          "text": "我卸下行装，抬起胳膊时袖口又绷住了；",
+          "start": 5.4,
+          "end": 9.36
+        },
+        {
+          "text": "江边那道裂口，只靠梁叔的三针撑到现在。",
+          "start": 9.88,
+          "end": 13.5
+        },
+        {
+          "text": "油灯搁在桌角，凑近了能闻见一股淡淡的油味。",
+          "start": 14.18,
+          "end": 18.24
+        },
+        {
+          "text": "陈禾把我的袖口往亮处拉了拉，手里的针停了一会儿，又抬头看了眼灯。",
+          "start": 19.04,
+          "end": 25.32
+        }
+      ],
+      "sentences": [
+        "XN027-01",
+        "XN027-02",
+        "XN027-03",
+        "XN027-04",
+        "XN027-05"
+      ]
+    }
   },
   {
     "id": "zy-ask-sewing",
@@ -614,7 +983,28 @@
     "advanceOnEnd": false,
     "filmId": "ZY-02",
     "title": "陆生挪开桌边的布包",
-    "textAfterMovie": true
+    "textAfterMovie": true,
+    "narration": {
+      "id": "XN028",
+      "src": "assets/audio/xiaoman-narration-v039/XN028.mp3",
+      "duration": 8.2425,
+      "cues": [
+        {
+          "text": "陆生挪开桌边的包，我把灯再往前推了推。",
+          "start": 0.0224999999999973,
+          "end": 3.942499999999999
+        },
+        {
+          "text": "陈禾放低胳膊，不用再举着袖口找光了。",
+          "start": 4.322499999999998,
+          "end": 7.602499999999999
+        }
+      ],
+      "sentences": [
+        "XN028-01",
+        "XN028-02"
+      ]
+    }
   },
   {
     "id": "zy-a-return",
@@ -623,7 +1013,22 @@
     "scene": "lusheng-clears-table-hold",
     "next": "zy-a-move-bag",
     "mode": "thought",
-    "chapter": "zunyi"
+    "chapter": "zunyi",
+    "narration": {
+      "id": "XN029",
+      "src": "assets/audio/xiaoman-narration-v039/XN029.mp3",
+      "duration": 5.66,
+      "cues": [
+        {
+          "text": "包放到了脚下，陆生想伸一伸腿，又碰到了它。",
+          "start": 0.3999999999999986,
+          "end": 5.299999999999997
+        }
+      ],
+      "sentences": [
+        "XN029-01"
+      ]
+    }
   },
   {
     "id": "zy-a-move-bag",
@@ -647,7 +1052,28 @@
     "scene": "keepsakes",
     "next": "zy-b-offer",
     "mode": "thought",
-    "chapter": "zunyi"
+    "chapter": "zunyi",
+    "narration": {
+      "id": "XN030",
+      "src": "assets/audio/xiaoman-narration-v039/XN030.mp3",
+      "duration": 10.48,
+      "cues": [
+        {
+          "text": "陈禾松开我的袖口，我把怀里的旧信拿出来，放到他面前。",
+          "start": 0.2600000000000051,
+          "end": 4.560000000000002
+        },
+        {
+          "text": "裹了这么久，信纸展开后还是皱的，折痕处已经有些起毛。",
+          "start": 5.280000000000001,
+          "end": 10.020000000000003
+        }
+      ],
+      "sentences": [
+        "XN030-01",
+        "XN030-02"
+      ]
+    }
   },
   {
     "id": "zy-b-offer",
@@ -816,12 +1242,33 @@
     "scene": "sleeve-mended",
     "next": "zy-depart",
     "mode": "thought",
-    "chapter": "zunyi"
+    "chapter": "zunyi",
+    "narration": {
+      "id": "XN031",
+      "src": "assets/audio/xiaoman-narration-v039/XN031.mp3",
+      "duration": 8.6875,
+      "cues": [
+        {
+          "text": "我伸了伸胳膊，袖口这回没再勒着。",
+          "start": 0.1599999999999966,
+          "end": 2.8999999999999986
+        },
+        {
+          "text": "陈禾接上的新线挨着梁叔留下的三针，两段针脚还分得出来。",
+          "start": 3.167499999999997,
+          "end": 8.339999999999996
+        }
+      ],
+      "sentences": [
+        "XN031-01",
+        "XN031-02"
+      ]
+    }
   },
   {
     "id": "zy-depart",
     "speaker": "心声",
-    "text": "门外响起磕鞋泥的声音。合好的针线包放在桌沿，我放下袖口，伸手去拿。",
+    "text": "门外响起磕鞋泥的啪啪声。合好的针线包放在桌沿，我放下袖口，伸手去拿。",
     "scene": "chenhe-sewing-hold",
     "mode": "thought",
     "choices": [
@@ -831,7 +1278,28 @@
         "next": "zy-door-v034"
       }
     ],
-    "chapter": "zunyi"
+    "chapter": "zunyi",
+    "narration": {
+      "id": "XN032",
+      "src": "assets/audio/xiaoman-narration-v039/XN032.mp3",
+      "duration": 7.385,
+      "cues": [
+        {
+          "text": "门外响起磕鞋泥的啪啪声。",
+          "start": 0.21249999999999858,
+          "end": 2.1524999999999963
+        },
+        {
+          "text": "合好的针线包放在桌沿，我放下袖口，伸手去拿。",
+          "start": 2.612499999999997,
+          "end": 7.112499999999997
+        }
+      ],
+      "sentences": [
+        "XN032-01",
+        "XN032-02"
+      ]
+    }
   },
   {
     "id": "zy-end",
@@ -851,7 +1319,28 @@
     "routeDate": "1935年1—3月",
     "routeStep": 1,
     "chapter": "rivers",
-    "historicalTab": "中央红军四渡赤水，在围追堵截中灵活机动"
+    "historicalTab": "中央红军四渡赤水，在围追堵截中灵活机动",
+    "narration": {
+      "id": "XN034",
+      "src": "assets/audio/xiaoman-narration-v039/XN034.mp3",
+      "duration": 11.04,
+      "cues": [
+        {
+          "text": "跟着队伍拐上小路，我又看见那截歪树根，昨天刚从这里走过。",
+          "start": 0.03999999999999204,
+          "end": 5.219999999999999
+        },
+        {
+          "text": "袜子还没晾干，贴在脚底磨得疼，我赶上陈禾，问了一句。",
+          "start": 5.5,
+          "end": 10.819999999999993
+        }
+      ],
+      "sentences": [
+        "XN034-01",
+        "XN034-02"
+      ]
+    }
   },
   {
     "id": "t1-familiar",
@@ -915,7 +1404,28 @@
     "routePlace": "金沙江",
     "routeDate": "1935年5月上旬",
     "routeStep": 2,
-    "chapter": "rivers"
+    "chapter": "rivers",
+    "narration": {
+      "id": "XN036",
+      "src": "assets/audio/xiaoman-narration-v039/XN036.mp3",
+      "duration": 9.0625,
+      "cues": [
+        {
+          "text": "船刚离岸，一股水拍上船帮，打湿了衣襟。",
+          "start": 0.32750000000000057,
+          "end": 3.5474999999999994
+        },
+        {
+          "text": "我低头掀开包布看了看，针线包还干着，只湿了外头露着的一角。",
+          "start": 4.0275,
+          "end": 8.627500000000001
+        }
+      ],
+      "sentences": [
+        "XN036-01",
+        "XN036-02"
+      ]
+    }
   },
   {
     "id": "t1-dry",
@@ -945,7 +1455,28 @@
     "routePlace": "金沙江",
     "routeDate": "1935年5月上旬",
     "routeStep": 2,
-    "chapter": "rivers"
+    "chapter": "rivers",
+    "narration": {
+      "id": "XN037",
+      "src": "assets/audio/xiaoman-narration-v039/XN037.mp3",
+      "duration": 7.2425,
+      "cues": [
+        {
+          "text": "旧信裹在更里面，没沾着水。",
+          "start": 0.245000000000001,
+          "end": 2.585000000000001
+        },
+        {
+          "text": "我沿着折痕展开一点，纸已经磨薄了，便没再往下翻。",
+          "start": 2.905000000000001,
+          "end": 6.844999999999999
+        }
+      ],
+      "sentences": [
+        "XN037-01",
+        "XN037-02"
+      ]
+    }
   },
   {
     "id": "t1-go",
@@ -982,7 +1513,34 @@
     "scene": "luding-bridge",
     "next": "t2-cross",
     "mode": "observation",
-    "chapter": "luding"
+    "chapter": "luding",
+    "narration": {
+      "id": "XN038",
+      "src": "assets/audio/xiaoman-narration-v039/XN038.mp3",
+      "duration": 11.5225,
+      "cues": [
+        {
+          "text": "新补的桥板旁还留着焦黑的木头。",
+          "start": 0.24249999999999972,
+          "end": 2.5824999999999996
+        },
+        {
+          "text": "我扶着铁索往前挪，掌心蹭上一层湿灰，脚下也随着前面的人晃起来。",
+          "start": 2.9624999999999986,
+          "end": 8.362499999999997
+        },
+        {
+          "text": "陈禾放慢脚步，等我跨过板缝。",
+          "start": 8.942500000000003,
+          "end": 11.182499999999997
+        }
+      ],
+      "sentences": [
+        "XN038-01",
+        "XN038-02",
+        "XN038-03"
+      ]
+    }
   },
   {
     "id": "t2-cross",
@@ -991,7 +1549,28 @@
     "scene": "luding-bridge",
     "next": "t2-wait",
     "mode": "thought",
-    "chapter": "luding"
+    "chapter": "luding",
+    "narration": {
+      "id": "XN039",
+      "src": "assets/audio/xiaoman-narration-v039/XN039.mp3",
+      "duration": 8.7825,
+      "cues": [
+        {
+          "text": "快到桥头，后面又有担架过来。",
+          "start": 0.19999999999999574,
+          "end": 2.479999999999997
+        },
+        {
+          "text": "风掀起盖在伤员身上的军衣，抬担架的人腾出一只手按住，我赶紧往旁边靠。",
+          "start": 3.0,
+          "end": 8.339999999999996
+        }
+      ],
+      "sentences": [
+        "XN039-01",
+        "XN039-02"
+      ]
+    }
   },
   {
     "id": "t2-wait",
@@ -1057,7 +1636,22 @@
     "speaker": "旁白",
     "mode": "observation",
     "text": "对岸的人迎上来接过担架，我这才松开把手，手指还蜷着，一时伸不直。",
-    "next": "xj-wait"
+    "next": "xj-wait",
+    "narration": {
+      "id": "XN021",
+      "src": "assets/audio/xiaoman-narration-v039/XN021.mp3",
+      "duration": 6.9525,
+      "cues": [
+        {
+          "text": "对岸的人迎上来接过担架，我这才松开把手，手指还蜷着，一时伸不直。",
+          "start": 0.46999999999999886,
+          "end": 6.25
+        }
+      ],
+      "sentences": [
+        "XN021-01"
+      ]
+    }
   },
   {
     "id": "xj-gather-v034",
@@ -1066,7 +1660,28 @@
     "speaker": "旁白",
     "mode": "observation",
     "text": "走出几步，陈禾回头等我。路边抬担架的人正弯腰换手，我侧身从他们旁边过去，衣里的针线包隔着布抵住肋下。",
-    "next": "xj-end"
+    "next": "xj-end",
+    "narration": {
+      "id": "XN026",
+      "src": "assets/audio/xiaoman-narration-v039/XN026.mp3",
+      "duration": 11.0975,
+      "cues": [
+        {
+          "text": "走出几步，陈禾回头等我。",
+          "start": 0.22749999999999204,
+          "end": 3.207499999999996
+        },
+        {
+          "text": "路边抬担架的人正弯腰换手，我侧身从他们旁边过去，衣里的针线包隔着布抵住肋下。",
+          "start": 4.027499999999989,
+          "end": 10.947499999999991
+        }
+      ],
+      "sentences": [
+        "XN026-01",
+        "XN026-02"
+      ]
+    }
   },
   {
     "id": "zy-door-v034",
@@ -1081,7 +1696,34 @@
         "label": "背好行装，走到队伍里。",
         "next": "zy-end"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN033",
+      "src": "assets/audio/xiaoman-narration-v039/XN033.mp3",
+      "duration": 10.9875,
+      "cues": [
+        {
+          "text": "门口有人蹲着换鞋，把还没晾干的袜子卷进包里。",
+          "start": 0,
+          "end": 3.9875000000000114
+        },
+        {
+          "text": "陈禾扶住门，让我先过；",
+          "start": 4.272500000000008,
+          "end": 6.407500000000013
+        },
+        {
+          "text": "袖口蹭到门框，我抬了抬胳膊，这回没挂住。",
+          "start": 6.690000000000012,
+          "end": 10.627500000000012
+        }
+      ],
+      "sentences": [
+        "XN033-01",
+        "XN033-02",
+        "XN033-03"
+      ]
+    }
   },
   {
     "id": "xj-cover-fire-v035",
@@ -1193,7 +1835,28 @@
         "label": "背紧行装，跟上前面的人",
         "next": "t1-chishui-wait-v034"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN035",
+      "src": "assets/audio/xiaoman-narration-v039/XN035.mp3",
+      "duration": 9.1325,
+      "cues": [
+        {
+          "text": "到了河边，船还没回来，身旁的人已经靠着包坐下。",
+          "start": 0,
+          "end": 4.26
+        },
+        {
+          "text": "我刚把一边肩带卸开，前头又动了，赶紧把它拽回肩上。",
+          "start": 4.68,
+          "end": 8.7
+        }
+      ],
+      "sentences": [
+        "XN035-01",
+        "XN035-02"
+      ]
+    }
   }
 ];
  for(const [first,last,id] of [['xj-arrive','xj-end','xiangjiang'],['zy-arrive','zy-end','zunyi'],['t1-arrive','t1-end','rivers'],['t2-arrive','t2-end','luding']]){
