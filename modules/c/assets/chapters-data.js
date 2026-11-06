@@ -69,17 +69,62 @@
   {
     "id": "xj-three",
     "speaker": "心声",
-    "text": "袖口暂时缝住了一截，梁叔收起针，旁边又传来喊人抬担架的声音。",
+    "text": "炮声从远处传来，坎沿的土簌簌落在膝头。梁叔刚收好针，陈禾已经伏到我身旁，帽檐沾着湿泥。近处又响了一阵枪，我赶紧把胳膊收进怀里。",
     "scene": "liang-sewing-hold",
-    "next": "xj-choice",
+    "next": "xj-cover-fire-v035",
+    "legacyNext": "xj-choice",
     "mode": "thought",
+    "chapter": "xiangjiang"
+  },
+  {
+    "id": "xj-cover-fire-v035",
+    "speaker": "陈禾",
+    "text": "别站起来！等这阵过去，担架先走。",
+    "scene": "chenhe-xiang-cover-first",
+    "next": "xj-cover-wait-v035",
+    "mode": "dialogue",
+    "chapter": "xiangjiang",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-xiang-cover-v035.mp4",
+    "poster": "assets/chapters/chenhe-xiang-cover-first-v035.png",
+    "hold": "assets/chapters/chenhe-xiang-cover-hold-v035.png",
+    "duration": 5.088,
+    "captionPages": [
+      {
+        "text": "别站起来！",
+        "start": 1.7,
+        "end": 2.55
+      },
+      {
+        "text": "等这阵过去，担架先走。",
+        "start": 2.8,
+        "end": 4.5
+      }
+    ],
+    "title": "陈禾在湘江岸边示意小满伏低",
+    "filmId": "XJ-06",
+    "advanceOnEnd": true
+  },
+  {
+    "id": "xj-cover-wait-v035",
+    "speaker": "心声",
+    "text": "",
+    "scene": "chenhe-xiang-cover-hold",
+    "mode": "thought",
+    "choices": [
+      {
+        "id": "stay-low",
+        "label": "伏低，等陈禾示意再起身",
+        "next": "xj-choice"
+      }
+    ],
     "chapter": "xiangjiang"
   },
   {
     "id": "xj-choice",
     "speaker": "心声",
     "mode": "thought",
-    "text": "行装组也在招手，搬到河边的包裹还没运完。",
+    "text": "趁枪声稍歇，旁边的人开始往河边抬担架。行装组也在招手，几个捆好的包还搁在岸边。我把刚补过的袖口往上拢了拢，起身跟过去。",
     "scene": "xiang-groups-hold",
     "choices": [
       {
@@ -878,6 +923,8 @@
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
  const data={nodes,images:{
+   'chenhe-xiang-cover-first':'assets/chapters/chenhe-xiang-cover-first-v035.png',
+   'chenhe-xiang-cover-hold':'assets/chapters/chenhe-xiang-cover-hold-v035.png',
    'lusheng-clears-table-first':'assets/chapters/lusheng-clears-table-first-v034.png',
    'lusheng-clears-table-hold':'assets/chapters/lusheng-clears-table-hold-v034.png',
    'chenhe-unfinished-letter-first':'assets/chapters/chenhe-unfinished-letter-first-v034.png',
@@ -958,6 +1005,8 @@
   }
 ],
   alts:{
+   'chenhe-xiang-cover-first':'陈禾伏在湘江岸边的土坎后，朝河面望去',
+   'chenhe-xiang-cover-hold':'陈禾仍伏在土坎后，回头看向小满',
    'lusheng-clears-table-first':'陆生坐在遵义借住屋里，双手扶着桌边的布包',
    'lusheng-clears-table-hold':'陆生把包移到脚边，低头看向被挡住的腿',
    'chenhe-unfinished-letter-first':'陈禾坐在遵义借住屋的油灯旁，桌前放着梁叔的旧信',

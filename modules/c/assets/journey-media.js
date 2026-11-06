@@ -62,5 +62,8 @@
  "assets/chapters/chenhe-unfinished-letter-first-v034.png": "assets/stream/chenhe-unfinished-letter-first-v034-7ba7257523.webp",
  "assets/chapters/chenhe-unfinished-letter-pause-v034.png": "assets/stream/chenhe-unfinished-letter-pause-v034-ed3135b919.webp",
  "assets/chapters/chenhe-unfinished-letter-lamp-v034.png": "assets/stream/chenhe-unfinished-letter-lamp-v034-b333782171.webp",
- "assets/chapters/chenhe-unfinished-letter-hold-v034.png": "assets/stream/chenhe-unfinished-letter-hold-v034-92b4465f45.webp"
+ "assets/chapters/chenhe-unfinished-letter-hold-v034.png": "assets/stream/chenhe-unfinished-letter-hold-v034-92b4465f45.webp",
+ "assets/chapters/chenhe-xiang-cover-v035.mp4": "assets/stream/chenhe-xiang-cover-v035-f45db6d313.mp4",
+ "assets/chapters/chenhe-xiang-cover-first-v035.png": "assets/stream/chenhe-xiang-cover-first-v035-dab9b5a466.webp",
+ "assets/chapters/chenhe-xiang-cover-hold-v035.png": "assets/stream/chenhe-xiang-cover-hold-v035-a16ced455f.webp"
 };if(typeof module==='object'&&module.exports)module.exports=media;else root.JourneyMedia=media;})(typeof window==='undefined'?globalThis:window);

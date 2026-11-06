@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 80334876,
-  "webBytes": 18637118,
+  "originalBytes": 85063252,
+  "webBytes": 19676675,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -456,6 +456,27 @@
       "sha256": "4cb8ea9c2584a486585794f667464c69a7f823f9f09ba7fa6ba4f861e9d42c84",
       "originalBytes": 674078,
       "webBytes": 53000
+    },
+    {
+      "source": "assets/chapters/chenhe-xiang-cover-v035.mp4",
+      "web": "assets/stream/chenhe-xiang-cover-v035-f45db6d313.mp4",
+      "sha256": "b67a1381b705ac064548d7bdd9c394566c1aa806d6bb516fe4782a50d74111a2",
+      "originalBytes": 3511189,
+      "webBytes": 927751
+    },
+    {
+      "source": "assets/chapters/chenhe-xiang-cover-first-v035.png",
+      "web": "assets/stream/chenhe-xiang-cover-first-v035-dab9b5a466.webp",
+      "sha256": "cbcfe1d76b5e94fc7f9dc7948185b6fd37ec2af3c4ccb158882a044227ef2d02",
+      "originalBytes": 526317,
+      "webBytes": 52442
+    },
+    {
+      "source": "assets/chapters/chenhe-xiang-cover-hold-v035.png",
+      "web": "assets/stream/chenhe-xiang-cover-hold-v035-a16ced455f.webp",
+      "sha256": "fc479086d65f2b27723d8b291f8f2cd767aa0ee33059725a11beb8ec9c5b414f",
+      "originalBytes": 690870,
+      "webBytes": 59364
     }
   ]
 }

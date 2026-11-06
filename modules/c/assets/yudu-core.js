@@ -21,11 +21,14 @@
   const n=current(data,state);if(!n||n.end)return state;
   const choice=n.choices?.find(c=>c.id===choiceId);
   if(n.choices&&!choice)return state;
-  const next=choice?choice.next:target(data,state,n);
-  if(!data.nodes.some(x=>x.id===next))throw new Error('Unknown story node: '+next);
+  return enterNode(data,state,choice?choice.next:target(data,state,n),choice);
+ }
+ function enterNode(data,state,next,choice){
+  const destination=data.nodes.find(x=>x.id===next);
+  if(!destination)throw new Error('Unknown story node: '+next);
   const result={...remember(data,state),node:next,path:[...state.path,next],choices:{...state.choices}};
-  if(choice)result.choices[n.id]=choice.id;
-  if(data.nodes.find(x=>x.id===next).end||data.nodes.find(x=>x.id===next).checkpoint){
+  if(choice)result.choices[state.node]=choice.id;
+  if(destination.end||destination.checkpoint){
    result.completed=[...new Set([...state.completed,result.choices.choice])].filter(x=>data.memories[x]);
   }
   return remember(data,result);
@@ -57,7 +60,8 @@
     if(n.end)return null;
     const pick=n.choices?.length===1?n.choices[0].id:decisions[n.id];
     if(n.choices&&!n.choices.some(c=>c.id===pick))return null;
-    const next=advance(data,state,pick);if(next===state)return null;state=next;
+    const next=n.legacyNext?enterNode(data,state,n.legacyNext):advance(data,state,pick);
+    if(next===state)return null;state=next;
    }
    return state.node===mark.node?{node:state.node,path:state.path}:null;
   }
@@ -87,7 +91,8 @@
    for(const id of saved.path.slice(1)){
     const n=current(data,state),choice=n.choices?.find(c=>c.next===id);
     if(n.choices&&!choice)return fresh;
-    const candidate=advance(data,state,choice?.id);
+    // Saved paths may include the former connection without the newly inserted action.
+    const candidate=!n.choices&&n.legacyNext===id?enterNode(data,state,id):advance(data,state,choice?.id);
     if(candidate.node!==id||candidate===state)return fresh;
     state=candidate;
    }
