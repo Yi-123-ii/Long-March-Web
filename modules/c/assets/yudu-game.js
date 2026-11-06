@@ -106,7 +106,7 @@ function revealText(){
  const n=C.current(D,state);if(n.end||n.checkpoint)return;
  if(n.textAfterMovie&&!movieDone){$('line').hidden=true;$('choices').hidden=true;lineDone=false;return;}
  const progress=n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):elapsed;
- const f=n.nativeAudio&&n.captionPages?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
+ const f=n.nativeAudio&&n.captionPages&&(moviePrepared||!movieDone)?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
  const frameKey=f.key??f.shown;
  if(frameKey!==lineShown){$('line').textContent=f.text;lineShown=frameKey;}
  const changed=lineDone!==f.complete;lineDone=f.complete;
@@ -182,7 +182,7 @@ function visual(n){
  video.ontimeupdate=()=>{if(token===epoch&&!movieDone&&n.mediaEnd&&video.currentTime>=n.mediaEnd)video.onended?.();};
  video.onerror=()=>{
   if(token!==epoch)return;
-  movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
+  moviePrepared=false;movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
   $('film-loading').hidden=true;
   videoCorner.setEnabled(false);
   presentStill(n.poster||imagePath,n,token);

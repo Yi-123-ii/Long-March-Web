@@ -59,8 +59,10 @@
     const n=current(data,state);
     if(n.end)return null;
     const pick=n.choices?.length===1?n.choices[0].id:decisions[n.id];
-    if(n.choices&&!n.choices.some(c=>c.id===pick))return null;
-    const next=n.legacyNext?enterNode(data,state,n.legacyNext):advance(data,state,pick);
+    const choice=n.choices?.find(c=>c.id===pick);
+    if(n.choices&&!choice)return null;
+    const legacyNext=choice?.legacyNext||n.legacyNext;
+    const next=legacyNext?enterNode(data,state,legacyNext,choice):advance(data,state,pick);
     if(next===state)return null;state=next;
    }
    return state.node===mark.node?{node:state.node,path:state.path}:null;
@@ -89,10 +91,11 @@
    }
    let state=fresh;
    for(const id of saved.path.slice(1)){
-    const n=current(data,state),choice=n.choices?.find(c=>c.next===id);
+    const n=current(data,state),choice=n.choices?.find(c=>c.next===id||c.legacyNext===id);
     if(n.choices&&!choice)return fresh;
     // Saved paths may include the former connection without the newly inserted action.
-    const candidate=!n.choices&&n.legacyNext===id?enterNode(data,state,id):advance(data,state,choice?.id);
+    const legacyNext=choice?.legacyNext||n.legacyNext;
+    const candidate=legacyNext===id?enterNode(data,state,id,choice):advance(data,state,choice?.id);
     if(candidate.node!==id||candidate===state)return fresh;
     state=candidate;
    }
