@@ -1,4 +1,13 @@
 /* Inheritance exhibition: opening, archival bridge, and documentary walls. */
+@font-face {
+  font-family: "Shanhe Inheritance Titles";
+  src: url("../fonts/shanhe-inheritance-titles.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+4EFB, U+4F20, U+627F, U+8D23;
+}
+
 body.legacy-v41 {
   --doc-paper: #f1e8d9;
   --doc-ink: #292f2b;
@@ -210,6 +219,11 @@ body.legacy-v41 .v44-story-layout .doc-heading {
 body.legacy-v41 .v44-story-layout .doc-heading h2 {
   font-size: clamp(32px, 4vw, 58px);
   line-height: 1.25;
+}
+body.legacy-v41 :is(#people-title, #practices-title) {
+  color: var(--legacy-ink);
+  font-family: "Shanhe Inheritance Titles", var(--v38-ui, serif);
+  font-weight: 400;
 }
 body.legacy-v41 .v44-story-layout .doc-heading > p {
   max-width: 31em;
