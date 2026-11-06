@@ -10,6 +10,10 @@
 
 2026年11月6日调整历史过渡题字。主标题「长征路上熠熠不朽的精神」采用等宽字格和统一字高，所有笔形直排在同一基线，窄屏分两行时按同一比例缩放。副标题沿用粗笔、斜向飞白与收锋。字形取自 [Ma Shan Zheng](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/mashanzheng) 和 [Zhi Mang Xing](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/zhimangxing)，均采用 SIL OFL 1.1。字库许可见 [Ma Shan Zheng](../../assets/fonts/ma-shan-zheng-OFL.txt) 和 [Zhi Mang Xing](../../assets/fonts/zhi-mang-xing-OFL.txt)。
 
+## V4.8 单行题字
+
+主标题改为「长征路上，信念不朽」。采用用户指定的第二张单行草案 B「碑意行草」，由内置 ImageGen 按深松墨、方折起笔、收锋飞白和同一水平重心生成。网站资源只裁去上下透明空边，保留原有笔形与透明通道。页面标题以真实文本提供给辅助技术。
+
 ## 首版叙事意图与空间组织
 
 主标题为“走过的路，留下的精神”。原来的三栏年份序列整体撤去，改为三个相互接续、构图不同的历史片段。顺序依据“判断方向—扶持同伴—关切群众”的叙事展开，不按事件年份排列。
