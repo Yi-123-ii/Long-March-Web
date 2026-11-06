@@ -17,20 +17,19 @@ function validText(value) {
 function photo(image, caption = "") {
   return `<span class="doc-media" style="--doc-photo-width: ${image.width}px; --doc-photo-ratio: ${image.width} / ${image.height}">
         <span class="doc-media__frame">
-          <img src="${escape(image.file)}" width="${image.width}" height="${image.height}" alt="${escape(image.alt)}" loading="lazy" decoding="async">
+          <img src="${escape(image.file)}" width="${image.width}" height="${image.height}" alt="${escape(image.alt)}" loading="lazy" decoding="async" fetchpriority="low">
           <span class="doc-media__unavailable" hidden>图像暂未载入</span>
         </span>${caption ? `
         <span class="doc-media__credit">${escape(caption)}</span>` : ""}
       </span>`;
 }
 
+function paragraphs(texts) {
+  return texts.map(text => `\n              <p>${escape(text)}</p>`).join("");
+}
+
 function renderStory(story, index) {
   const number = String(index + 1).padStart(2, "0");
-  const sections = story.sections.map(section => `
-          <section class="doc-article__section">
-            <h3>${escape(section.title)}</h3>
-            <p>${escape(section.text)}</p>
-          </section>`).join("");
   return `
       <details class="doc-story" data-story="${story.id}">
         <summary class="doc-story__cover">
@@ -42,13 +41,22 @@ function renderStory(story, index) {
             <span class="doc-story__read">阅读故事 <span aria-hidden="true">＋</span></span>
           </span>
         </summary>
-        <article class="doc-article">
-          <header class="doc-article__header">
-            <p class="doc-kicker"><span>${number}</span> ${escape(story.name)} · ${escape(story.theme)}</p>
-            <h2 class="doc-article__title">${escape(story.title)}</h2>
-          </header>
-          ${photo(story.image, story.image.caption)}
-          <div class="doc-article__reading">${sections}
+        <article class="doc-article doc-article--case">
+          <div class="doc-article__lead">
+            <header class="doc-article__header">
+              <p class="doc-kicker"><span>${number}</span> ${escape(story.caseName)} · ${escape(story.theme)}</p>
+              <h2 class="doc-article__title">${escape(story.title)}</h2>
+            </header>
+            ${photo(story.image, story.image.caption)}
+          </div>
+          <div class="doc-article__reading">
+            <section class="doc-article__narrative">
+              <h3 class="doc-article__label">事例纪实</h3>${paragraphs(story.caseNarrative)}
+            </section>
+            <section class="doc-article__echo">
+              <p class="doc-article__label">精神回响</p>
+              <h3>${escape(story.spiritTitle)}</h3>${paragraphs(story.spiritNarrative)}
+            </section>
           </div>
         </article>
       </details>`;
@@ -62,12 +70,14 @@ for (const [key, marker] of [["people", "PEOPLE"], ["practices", "PRACTICES"]]) 
   for (const story of stories) {
     if (!/^[a-z][a-z0-9-]*$/.test(story.id) || ids.has(story.id)) throw new Error("案例编号错误");
     ids.add(story.id);
-    for (const field of ["name", "identity", "theme", "teaser", "title", "location"]) {
+    for (const field of ["name", "identity", "theme", "teaser", "caseName", "title", "spiritTitle", "location"]) {
       if (!validText(story[field])) throw new Error(`${story.id} 缺少 ${field}`);
     }
-    if (!Array.isArray(story.sections) || story.sections.length < 3 ||
-        story.sections.some(section => !validText(section.title) || !validText(section.text))) {
-      throw new Error(`${story.id} 缺少完整故事`);
+    for (const field of ["caseNarrative", "spiritNarrative"]) {
+      const texts = story[field];
+      if (!Array.isArray(texts) || texts.length === 0 || !texts.every(validText)) {
+        throw new Error(`${story.id} 缺少完整的 ${field}`);
+      }
     }
     for (const source of [story.source, ...(story.additionalSources ?? [])]) {
       if (!source || !validText(source.publisher) || !validText(source.title) ||
@@ -76,7 +86,7 @@ for (const [key, marker] of [["people", "PEOPLE"], ["practices", "PRACTICES"]]) 
       }
     }
     const image = story.image;
-    if (!image || !/^assets\/images\/v4[34]\/[a-z0-9-]+\.(?:webp|jpeg)$/.test(image.file) ||
+    if (!image || !/^assets\/images\/v4[349]\/[a-z0-9-]+\.(?:webp|jpeg)$/.test(image.file) ||
         !validText(image.caption) || !validText(image.alt) ||
         (key === "practices" && !validText(image.credit)) ||
         !Number.isSafeInteger(image.width) || image.width < 1 ||

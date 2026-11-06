@@ -379,6 +379,57 @@ body.legacy-v41 .doc-status {
 }
 body.legacy-v41 .doc-dialog .doc-media__credit { font-size: 12px; }
 
+body.legacy-v41 .doc-article--case {
+  padding: clamp(24px, 4vw, 48px) clamp(22px, 4vw, 48px) max(48px, env(safe-area-inset-bottom));
+}
+body.legacy-v41 .doc-article--case .doc-article__lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+}
+body.legacy-v41 .doc-article--case .doc-article__header { margin-bottom: 0; }
+body.legacy-v41 .doc-article--case .doc-article__title {
+  font-size: clamp(28px, 3.2vw, 39px);
+}
+body.legacy-v41 .doc-article--case .doc-article__reading {
+  width: min(100%, 39em);
+  margin-block-start: clamp(30px, 4vw, 50px);
+  font: 400 clamp(16px, 1.5vw, 17.5px)/1.9 var(--v38-reading);
+}
+body.legacy-v41 .doc-article--case .doc-article__reading p { margin: 0; }
+body.legacy-v41 .doc-article--case .doc-article__reading p + p { margin-top: .88em; }
+body.legacy-v41 .doc-article--case .doc-article__label {
+  color: var(--doc-red);
+  font: 600 13px/1.5 var(--v38-ui);
+  letter-spacing: .12em;
+}
+body.legacy-v41 .doc-article--case .doc-article__narrative > h3 { margin: 0 0 14px; }
+body.legacy-v41 .doc-article--case .doc-article__echo {
+  margin-top: clamp(40px, 5vw, 60px);
+}
+body.legacy-v41 .doc-article--case .doc-article__echo::before {
+  content: "";
+  display: block;
+  width: 38px;
+  height: 2px;
+  margin-bottom: 17px;
+  background: var(--doc-red);
+}
+body.legacy-v41 .doc-article--case .doc-article__echo h3 {
+  margin: 6px 0 16px;
+  color: var(--legacy-ink);
+  font: 600 clamp(22px, 2.2vw, 28px)/1.45 var(--v38-ui);
+  text-wrap: balance;
+}
+
+@media (width > 760px) {
+  body.legacy-v41 .doc-dialog .doc-article--case .doc-article__lead {
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+  }
+}
+
 @media (max-width: 760px) {
   body.legacy-v41 { --opening-header: 76px; }
   body.legacy-v41 .doc-wrap { width: calc(100% - 40px); }
@@ -422,6 +473,7 @@ body.legacy-v41 .doc-dialog .doc-media__credit { font-size: 12px; }
   body.legacy-v41 .doc-dialog__scroll { height: 100%; max-height: none; }
   body.legacy-v41 .doc-dialog__bar { padding-top: max(6px, env(safe-area-inset-top)); }
   body.legacy-v41 .doc-article { padding-bottom: max(28px, env(safe-area-inset-bottom)); }
+  body.legacy-v41 .doc-article--case { padding-bottom: max(44px, env(safe-area-inset-bottom)); }
   body.legacy-v41:not(.legacy-nav-ready) .site-header { height: auto !important; }
   body.legacy-v41:not(.legacy-nav-ready) .site-header .site-nav { display: flex; }
 }
