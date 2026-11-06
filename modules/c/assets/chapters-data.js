@@ -69,17 +69,62 @@
   {
     "id": "xj-three",
     "speaker": "心声",
-    "text": "袖口暂时缝住了一截，梁叔收起针，旁边又传来喊人抬担架的声音。",
+    "text": "炮声从远处传来，坎沿的土簌簌落在膝头。梁叔刚收好针，陈禾已经伏到我身旁，帽檐沾着湿泥。近处又响了一阵枪，我赶紧把胳膊收进怀里。",
     "scene": "liang-sewing-hold",
-    "next": "xj-choice",
+    "next": "xj-cover-fire-v035",
+    "legacyNext": "xj-choice",
     "mode": "thought",
+    "chapter": "xiangjiang"
+  },
+  {
+    "id": "xj-cover-fire-v035",
+    "speaker": "陈禾",
+    "text": "别站起来！等这阵过去，担架先走。",
+    "scene": "chenhe-xiang-cover-first",
+    "next": "xj-cover-wait-v035",
+    "mode": "dialogue",
+    "chapter": "xiangjiang",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-xiang-cover-v035.mp4",
+    "poster": "assets/chapters/chenhe-xiang-cover-first-v035.png",
+    "hold": "assets/chapters/chenhe-xiang-cover-hold-v035.png",
+    "duration": 5.088,
+    "captionPages": [
+      {
+        "text": "别站起来！",
+        "start": 1.7,
+        "end": 2.55
+      },
+      {
+        "text": "等这阵过去，担架先走。",
+        "start": 2.8,
+        "end": 4.5
+      }
+    ],
+    "title": "陈禾在湘江岸边示意小满伏低",
+    "filmId": "XJ-06",
+    "advanceOnEnd": true
+  },
+  {
+    "id": "xj-cover-wait-v035",
+    "speaker": "心声",
+    "text": "",
+    "scene": "chenhe-xiang-cover-hold",
+    "mode": "thought",
+    "choices": [
+      {
+        "id": "stay-low",
+        "label": "伏低，等陈禾示意再起身",
+        "next": "xj-choice"
+      }
+    ],
     "chapter": "xiangjiang"
   },
   {
     "id": "xj-choice",
     "speaker": "心声",
     "mode": "thought",
-    "text": "行装组也在招手，搬到河边的包裹还没运完。",
+    "text": "趁枪声稍歇，旁边的人开始往河边抬担架。行装组也在招手，几个捆好的包还搁在岸边。我把刚补过的袖口往上拢了拢，起身跟过去。",
     "scene": "xiang-groups-hold",
     "choices": [
       {
@@ -514,18 +559,26 @@
   {
     "id": "zy-a-lusheng",
     "speaker": "心声",
-    "text": "陆生把桌边的包挪到脚下，灯这才有地方再往前移。陈禾不用再举着袖口找光，低下头接着缝。",
-    "scene": "lusheng-lamp",
+    "text": "陆生挪开桌边的包，我把灯再往前推了推。陈禾放低胳膊，不用再举着袖口找光了。",
+    "scene": "lusheng-clears-table-first",
     "next": "zy-a-return",
     "mode": "thought",
     "chapter": "zunyi",
-    "plannedFilm": "ZY-02"
+    "nativeAudio": true,
+    "video": "assets/chapters/lusheng-clears-table-v034.mp4",
+    "poster": "assets/chapters/lusheng-clears-table-first-v034.png",
+    "hold": "assets/chapters/lusheng-clears-table-hold-v034.png",
+    "duration": 4.096,
+    "advanceOnEnd": false,
+    "filmId": "ZY-02",
+    "title": "陆生挪开桌边的布包",
+    "textAfterMovie": true
   },
   {
     "id": "zy-a-return",
     "speaker": "心声",
-    "text": "凳子下面被那个包占着，陆生动了动腿，没能伸开。",
-    "scene": "lusheng-lamp",
+    "text": "包放到了脚下，陆生想伸一伸腿，又碰到了它。",
+    "scene": "lusheng-clears-table-hold",
     "next": "zy-a-move-bag",
     "mode": "thought",
     "chapter": "zunyi"
@@ -533,7 +586,7 @@
   {
     "id": "zy-a-move-bag",
     "text": "",
-    "scene": "lusheng-lamp",
+    "scene": "lusheng-clears-table-hold",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -548,8 +601,8 @@
   {
     "id": "zy-b-letter",
     "speaker": "心声",
-    "text": "陈禾把袖口还给我时，我拿出怀里那封家书，放到他面前。信在干布里裹了一路，展开后仍皱得厉害。",
-    "scene": "keepsakes",
+    "text": "陈禾松开我的袖口，我把怀里的旧信拿出来，放到他面前。裹了这么久，信纸展开后还是皱的，折痕处已经有些起毛。",
+    "scene": "chenhe-unfinished-letter-first",
     "next": "zy-b-offer",
     "mode": "thought",
     "chapter": "zunyi"
@@ -557,7 +610,7 @@
   {
     "id": "zy-b-offer",
     "text": "",
-    "scene": "keepsakes",
+    "scene": "chenhe-unfinished-letter-first",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -571,18 +624,33 @@
   },
   {
     "id": "zy-b-question",
-    "text": "（抬头看向信纸）你打算写什么？",
-    "scene": "chenhe-sewing-hold",
+    "text": "你打算写什么？",
+    "scene": "chenhe-unfinished-letter-first",
     "speaker": "陈禾",
     "mode": "dialogue",
-    "plannedFilm": "ZY-03",
     "chapter": "zunyi",
-    "next": "zy-b-answer"
+    "next": "zy-b-answer",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-unfinished-letter-v034.mp4",
+    "poster": "assets/chapters/chenhe-unfinished-letter-first-v034.png",
+    "hold": "assets/chapters/chenhe-unfinished-letter-pause-v034.png",
+    "duration": 7.104,
+    "advanceOnEnd": true,
+    "filmId": "ZY-03",
+    "title": "陈禾问小满打算写什么",
+    "mediaEnd": 2.15,
+    "captionCues": [
+      {
+        "text": "你打算写什么？",
+        "start": 0.3,
+        "end": 1.22
+      }
+    ]
   },
   {
     "id": "zy-b-answer",
     "text": "",
-    "scene": "chenhe-sewing-hold",
+    "scene": "chenhe-unfinished-letter-pause",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -597,16 +665,33 @@
   {
     "id": "zy-b-advice",
     "text": "那就先收着吧。",
-    "scene": "chenhe-sewing-hold",
+    "scene": "chenhe-unfinished-letter-pause",
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "zunyi",
-    "next": "zy-b-move-lamp"
+    "next": "zy-b-move-lamp",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-unfinished-letter-v034.mp4",
+    "poster": "assets/chapters/chenhe-unfinished-letter-pause-v034.png",
+    "hold": "assets/chapters/chenhe-unfinished-letter-lamp-v034.png",
+    "duration": 7.104,
+    "advanceOnEnd": true,
+    "filmId": "ZY-03",
+    "title": "陈禾劝小满先收好旧信",
+    "mediaStart": 2.15,
+    "mediaEnd": 5.02,
+    "captionCues": [
+      {
+        "text": "那就先收着吧。",
+        "start": 3.32,
+        "end": 4.19
+      }
+    ]
   },
   {
     "id": "zy-b-move-lamp",
-    "text": "（陈禾把灯往旁边挪开。）",
-    "scene": "chenhe-sewing-hold",
+    "text": "",
+    "scene": "chenhe-unfinished-letter-lamp",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "zunyi",
@@ -615,17 +700,38 @@
   {
     "id": "zy-b-paper",
     "text": "纸别挨着火。",
-    "scene": "chenhe-sewing-hold",
+    "scene": "chenhe-unfinished-letter-lamp",
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "zunyi",
-    "next": "zy-b-fold"
+    "next": "zy-b-fold",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-unfinished-letter-v034.mp4",
+    "poster": "assets/chapters/chenhe-unfinished-letter-lamp-v034.png",
+    "hold": "assets/chapters/chenhe-unfinished-letter-hold-v034.png",
+    "duration": 7.104,
+    "advanceOnEnd": true,
+    "filmId": "ZY-03",
+    "title": "陈禾提醒把信纸放远些",
+    "mediaStart": 5.02,
+    "captionPages": [
+      {
+        "text": "那就先收着吧。",
+        "start": 3.32,
+        "end": 4.19
+      },
+      {
+        "text": "纸别挨着火。",
+        "start": 5.27,
+        "end": 6.22
+      }
+    ]
   },
   {
     "id": "zy-b-fold",
     "speaker": "心声",
     "text": "",
-    "scene": "keepsakes",
+    "scene": "chenhe-unfinished-letter-hold",
     "mode": "thought",
     "chapter": "zunyi",
     "choices": [
@@ -644,14 +750,13 @@
     "scene": "sleeve-mended",
     "next": "zy-depart",
     "mode": "thought",
-    "chapter": "zunyi",
-    "plannedFilm": "ZY-04"
+    "chapter": "zunyi"
   },
   {
     "id": "zy-depart",
     "speaker": "心声",
-    "text": "门外响起磕鞋泥的声音，陈禾把合好的针线包推回我手边。",
-    "scene": "chenhe-sewing-hold",
+    "text": "门外响起磕鞋泥的声音。合好的针线包放在桌沿，我放下袖口，伸手去拿。",
+    "scene": "sleeve-mended",
     "mode": "thought",
     "choices": [
       {
@@ -672,7 +777,7 @@
   {
     "id": "t1-arrive",
     "speaker": "旁白",
-    "text": "鞋底的泥还没刮干净，前头又在叫人出发。我踩着留下来的脚印绕过水坑，河边的木船还在往上装人。",
+    "text": "跟着队伍拐上小路，我又看见那截歪树根，昨天刚从这里走过。袜子还没晾干，贴在脚底磨得疼，我赶上陈禾，问了一句。",
     "scene": "chishui-trail",
     "next": "t1-familiar",
     "mode": "observation",
@@ -686,12 +791,81 @@
     "speaker": "旁白",
     "text": "",
     "scene": "chishui-trail",
-    "next": "t1-history",
+    "next": "t1-ask-route-v036",
+    "legacyNext": "t1-history",
     "mode": "observation",
     "routePlace": "赤水河一带",
     "routeDate": "1935年1—3月",
     "routeStep": 1,
     "chapter": "rivers"
+  },
+  {
+    "id": "t1-ask-route-v036",
+    "speaker": "小满",
+    "text": "",
+    "scene": "chenhe-chishui-route-first",
+    "mode": "thought",
+    "routePlace": "赤水河一带",
+    "routeDate": "1935年1—3月",
+    "routeStep": 1,
+    "chapter": "rivers",
+    "choices": [
+      {
+        "id": "ask-route",
+        "label": "刚从这边过来，怎么又往回走？",
+        "next": "t1-chenhe-route-v036"
+      }
+    ]
+  },
+  {
+    "id": "t1-chenhe-route-v036",
+    "speaker": "陈禾",
+    "text": "前头改了路。先跟上，别落在后头。",
+    "scene": "chenhe-chishui-route-first",
+    "next": "t1-shoulder-pack-v036",
+    "mode": "dialogue",
+    "routePlace": "赤水河一带",
+    "routeDate": "1935年1—3月",
+    "routeStep": 1,
+    "chapter": "rivers",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-chishui-route-v036.mp4",
+    "poster": "assets/chapters/chenhe-chishui-route-first-v036.png",
+    "hold": "assets/chapters/chenhe-chishui-route-hold-v036.png",
+    "duration": 4.096,
+    "captionPages": [
+      {
+        "text": "前头改了路。",
+        "start": 1.3,
+        "end": 2
+      },
+      {
+        "text": "先跟上，别落在后头。",
+        "start": 2.34,
+        "end": 3.65
+      }
+    ],
+    "title": "赤水山路上，陈禾回头招呼小满跟上",
+    "filmId": "CS-01",
+    "advanceOnEnd": true
+  },
+  {
+    "id": "t1-shoulder-pack-v036",
+    "speaker": "旁白",
+    "text": "到了河边，船还没回来，身旁的人已经靠着包坐下。我刚把一边肩带卸开，前头又动了，赶紧把它拽回肩上。",
+    "scene": "chenhe-chishui-route-hold",
+    "mode": "observation",
+    "routePlace": "赤水河一带",
+    "routeDate": "1935年1—3月",
+    "routeStep": 1,
+    "chapter": "rivers",
+    "choices": [
+      {
+        "id": "shoulder-pack",
+        "label": "背紧行装，跟上前面的人",
+        "next": "t1-history"
+      }
+    ]
   },
   {
     "id": "t1-history",
@@ -817,7 +991,18 @@
   let within=false;for(const n of nodes){if(n.id===first)within=true;if(within)n.chapter=id;if(n.id===last)within=false;}
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
- const data={nodes,images:{'liang-handoff-first':'assets/chapters/liang-handoff-first-v033.png','liang-handoff-hold':'assets/chapters/liang-handoff-hold-v033.png','xiang-loss-first':'assets/chapters/xiang-loss-first-v033.png','xiang-loss-hold':'assets/chapters/xiang-loss-hold-v033.png',...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'xiang-groups-hold':'assets/chapters/xiang-groups-hold-v032.png','lusheng-stretcher-first':'assets/chapters/lusheng-stretcher-first-v032.png','lusheng-river-pause':'assets/chapters/lusheng-stretcher-pause-v032.png','lusheng-river-hold':'assets/chapters/lusheng-stretcher-hold-v032.png','liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
+ const data={nodes,images:{
+   'chenhe-chishui-route-first':'assets/chapters/chenhe-chishui-route-first-v036.png',
+   'chenhe-chishui-route-hold':'assets/chapters/chenhe-chishui-route-hold-v036.png',
+   'chenhe-xiang-cover-first':'assets/chapters/chenhe-xiang-cover-first-v035.png',
+   'chenhe-xiang-cover-hold':'assets/chapters/chenhe-xiang-cover-hold-v035.png',
+   'lusheng-clears-table-first':'assets/chapters/lusheng-clears-table-first-v034.png',
+   'lusheng-clears-table-hold':'assets/chapters/lusheng-clears-table-hold-v034.png',
+   'chenhe-unfinished-letter-first':'assets/chapters/chenhe-unfinished-letter-first-v034.png',
+   'chenhe-unfinished-letter-pause':'assets/chapters/chenhe-unfinished-letter-pause-v034.png',
+   'chenhe-unfinished-letter-lamp':'assets/chapters/chenhe-unfinished-letter-lamp-v034.png',
+   'chenhe-unfinished-letter-hold':'assets/chapters/chenhe-unfinished-letter-hold-v034.png',
+   'liang-handoff-first':'assets/chapters/liang-handoff-first-v033.png','liang-handoff-hold':'assets/chapters/liang-handoff-hold-v033.png','xiang-loss-first':'assets/chapters/xiang-loss-first-v033.png','xiang-loss-hold':'assets/chapters/xiang-loss-hold-v033.png',...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'xiang-groups-hold':'assets/chapters/xiang-groups-hold-v032.png','lusheng-stretcher-first':'assets/chapters/lusheng-stretcher-first-v032.png','lusheng-river-pause':'assets/chapters/lusheng-stretcher-pause-v032.png','lusheng-river-hold':'assets/chapters/lusheng-stretcher-hold-v032.png','liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
   chapters:[
   {
     "id": "yudu",
@@ -872,7 +1057,7 @@
     "ambient": "cold",
     "image": "jinsha-crossing",
     "ending": "又一条江，\n又一段路",
-    "summary": "从赤水到金沙江，地图上相连的路线隔着数月转战",
+    "summary": "中央红军在四渡赤水中灵活调动，逐步争取战场主动，随后转战金沙江",
     "button": "继续前往泸定桥"
   },
   {
@@ -890,7 +1075,18 @@
     "button": "翻开夹金山这一页"
   }
 ],
-  alts:{'liang-handoff-first':'梁叔托着旧布行装在湘江渡口旁临时请小满帮忙','liang-handoff-hold':'小满接住梁叔的行装，梁叔看向身侧的队伍','xiang-loss-first':'转运同志在湘江另一侧蹲到小满面前，身后有人走过','xiang-loss-hold':'同一位转运同志说完后低下视线，仍在石头旁停着','xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','xiang-groups-hold':'湘江渡口的担架队经过身前，岸边战士仍在接运行装','lusheng-stretcher-first':'陆生侧靠在湘江岸边尚未抬起的担架上，抬手提醒小满挽好袖口','lusheng-river-pause':'陆生说完袖口提醒，仍靠在同一副担架上等候','lusheng-river-hold':'陆生在同一副担架上抬眼看向小满，等待回答名字','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
+  alts:{
+   'chenhe-chishui-route-first':'陈禾背着铺盖走在赤水的泥泞山路上，回头望向小满',
+   'chenhe-chishui-route-hold':'陈禾侧身跟上队伍，湿泥路沿着山坡伸向远处',
+   'chenhe-xiang-cover-first':'陈禾伏在湘江岸边的土坎后，朝河面望去',
+   'chenhe-xiang-cover-hold':'陈禾仍伏在土坎后，回头看向小满',
+   'lusheng-clears-table-first':'陆生坐在遵义借住屋里，双手扶着桌边的布包',
+   'lusheng-clears-table-hold':'陆生把包移到脚边，低头看向被挡住的腿',
+   'chenhe-unfinished-letter-first':'陈禾坐在遵义借住屋的油灯旁，桌前放着梁叔的旧信',
+   'chenhe-unfinished-letter-pause':'陈禾问完后坐在灯旁，等小满回答',
+   'chenhe-unfinished-letter-lamp':'陈禾伸手挪动油灯，旧信仍放在桌上',
+   'chenhe-unfinished-letter-hold':'陈禾说完后扶着油灯，旧信仍放在桌上',
+   'liang-handoff-first':'梁叔托着旧布行装在湘江渡口旁临时请小满帮忙','liang-handoff-hold':'小满接住梁叔的行装，梁叔看向身侧的队伍','xiang-loss-first':'转运同志在湘江另一侧蹲到小满面前，身后有人走过','xiang-loss-hold':'同一位转运同志说完后低下视线，仍在石头旁停着','xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','xiang-groups-hold':'湘江渡口的担架队经过身前，岸边战士仍在接运行装','lusheng-stretcher-first':'陆生侧靠在湘江岸边尚未抬起的担架上，抬手提醒小满挽好袖口','lusheng-river-pause':'陆生说完袖口提醒，仍靠在同一副担架上等候','lusheng-river-hold':'陆生在同一副担架上抬眼看向小满，等待回答名字','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
  };
  if(typeof module==='object'&&module.exports)module.exports=data;else root.MARCH_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);

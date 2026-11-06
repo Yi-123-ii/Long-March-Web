@@ -54,5 +54,19 @@
  "assets/chapters/liang-handoff-v033.mp4": "assets/stream/liang-handoff-v033-cdedf3d5ed.mp4",
  "assets/chapters/xiang-loss-first-v033.png": "assets/stream/xiang-loss-first-v033-971a4271dd.webp",
  "assets/chapters/xiang-loss-hold-v033.png": "assets/stream/xiang-loss-hold-v033-3d336f2293.webp",
- "assets/chapters/xiang-loss-v033.mp4": "assets/stream/xiang-loss-v033-9bf36dd4dc.mp4"
+ "assets/chapters/xiang-loss-v033.mp4": "assets/stream/xiang-loss-v033-9bf36dd4dc.mp4",
+ "assets/chapters/lusheng-clears-table-v034.mp4": "assets/stream/lusheng-clears-table-v034-8e450b6962.mp4",
+ "assets/chapters/lusheng-clears-table-first-v034.png": "assets/stream/lusheng-clears-table-first-v034-75c1f61228.webp",
+ "assets/chapters/lusheng-clears-table-hold-v034.png": "assets/stream/lusheng-clears-table-hold-v034-45a3b53ec7.webp",
+ "assets/chapters/chenhe-unfinished-letter-v034.mp4": "assets/stream/chenhe-unfinished-letter-v034-71b05f4270.mp4",
+ "assets/chapters/chenhe-unfinished-letter-first-v034.png": "assets/stream/chenhe-unfinished-letter-first-v034-7ba7257523.webp",
+ "assets/chapters/chenhe-unfinished-letter-pause-v034.png": "assets/stream/chenhe-unfinished-letter-pause-v034-ed3135b919.webp",
+ "assets/chapters/chenhe-unfinished-letter-lamp-v034.png": "assets/stream/chenhe-unfinished-letter-lamp-v034-b333782171.webp",
+ "assets/chapters/chenhe-unfinished-letter-hold-v034.png": "assets/stream/chenhe-unfinished-letter-hold-v034-92b4465f45.webp",
+ "assets/chapters/chenhe-xiang-cover-v035.mp4": "assets/stream/chenhe-xiang-cover-v035-f45db6d313.mp4",
+ "assets/chapters/chenhe-xiang-cover-first-v035.png": "assets/stream/chenhe-xiang-cover-first-v035-dab9b5a466.webp",
+ "assets/chapters/chenhe-xiang-cover-hold-v035.png": "assets/stream/chenhe-xiang-cover-hold-v035-a16ced455f.webp",
+ "assets/chapters/chenhe-chishui-route-v036.mp4": "assets/stream/chenhe-chishui-route-v036-b4499d168d.mp4",
+ "assets/chapters/chenhe-chishui-route-first-v036.png": "assets/stream/chenhe-chishui-route-first-v036-4768a4cbc4.webp",
+ "assets/chapters/chenhe-chishui-route-hold-v036.png": "assets/stream/chenhe-chishui-route-hold-v036-dba534d767.webp"
 };if(typeof module==='object'&&module.exports)module.exports=media;else root.JourneyMedia=media;})(typeof window==='undefined'?globalThis:window);

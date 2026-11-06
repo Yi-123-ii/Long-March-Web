@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 71395696,
-  "webBytes": 16743856,
+  "originalBytes": 89049887,
+  "webBytes": 20607844,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -400,6 +400,104 @@
       "sha256": "6dbed5ebd6f7230b2c929056ec152d2c73a8856e778472689f4cc32553ff0f12",
       "originalBytes": 2125003,
       "webBytes": 714327
+    },
+    {
+      "source": "assets/chapters/lusheng-clears-table-v034.mp4",
+      "web": "assets/stream/lusheng-clears-table-v034-8e450b6962.mp4",
+      "sha256": "cc3a1025f9b4cd7fd52a34e6b48a67a19bb0d3848f26cbacc7da483d794e026f",
+      "originalBytes": 2212707,
+      "webBytes": 699315
+    },
+    {
+      "source": "assets/chapters/lusheng-clears-table-first-v034.png",
+      "web": "assets/stream/lusheng-clears-table-first-v034-75c1f61228.webp",
+      "sha256": "ffb4f3b1bc277934bfd2065a5ff8c2eefab7a0641a97c43be6178886176c4858",
+      "originalBytes": 530213,
+      "webBytes": 49836
+    },
+    {
+      "source": "assets/chapters/lusheng-clears-table-hold-v034.png",
+      "web": "assets/stream/lusheng-clears-table-hold-v034-45a3b53ec7.webp",
+      "sha256": "35fe0c87cd68a48e7c37bd6e5b21ca0d0628deb0f193e377fa014429dcc212ee",
+      "originalBytes": 637166,
+      "webBytes": 52672
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-v034.mp4",
+      "web": "assets/stream/chenhe-unfinished-letter-v034-71b05f4270.mp4",
+      "sha256": "5c6c7480c24f88a1bc43df61a2a75a050885a66fc969b6a9464a9c094fa79a9a",
+      "originalBytes": 2914814,
+      "webBytes": 874525
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-first-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-first-v034-7ba7257523.webp",
+      "sha256": "1217a63059aeab9fbf328a47caa1bec51cfccd238aca082dd0eb2da7013a1919",
+      "originalBytes": 580908,
+      "webBytes": 51716
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-pause-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-pause-v034-ed3135b919.webp",
+      "sha256": "753fc0ebd9d3360eda45cae42d43db8305e5cb64af97e958b6267553637868e9",
+      "originalBytes": 716549,
+      "webBytes": 58484
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-lamp-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-lamp-v034-b333782171.webp",
+      "sha256": "d201fe8cb5343b95d8346ab6845ec2d79e992cc0af34ddd2f12d12b9c56e74e9",
+      "originalBytes": 672745,
+      "webBytes": 53714
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-hold-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-hold-v034-92b4465f45.webp",
+      "sha256": "4cb8ea9c2584a486585794f667464c69a7f823f9f09ba7fa6ba4f861e9d42c84",
+      "originalBytes": 674078,
+      "webBytes": 53000
+    },
+    {
+      "source": "assets/chapters/chenhe-xiang-cover-v035.mp4",
+      "web": "assets/stream/chenhe-xiang-cover-v035-f45db6d313.mp4",
+      "sha256": "b67a1381b705ac064548d7bdd9c394566c1aa806d6bb516fe4782a50d74111a2",
+      "originalBytes": 3511189,
+      "webBytes": 927751
+    },
+    {
+      "source": "assets/chapters/chenhe-xiang-cover-first-v035.png",
+      "web": "assets/stream/chenhe-xiang-cover-first-v035-dab9b5a466.webp",
+      "sha256": "cbcfe1d76b5e94fc7f9dc7948185b6fd37ec2af3c4ccb158882a044227ef2d02",
+      "originalBytes": 526317,
+      "webBytes": 52442
+    },
+    {
+      "source": "assets/chapters/chenhe-xiang-cover-hold-v035.png",
+      "web": "assets/stream/chenhe-xiang-cover-hold-v035-a16ced455f.webp",
+      "sha256": "fc479086d65f2b27723d8b291f8f2cd767aa0ee33059725a11beb8ec9c5b414f",
+      "originalBytes": 690870,
+      "webBytes": 59364
+    },
+    {
+      "source": "assets/chapters/chenhe-chishui-route-v036.mp4",
+      "web": "assets/stream/chenhe-chishui-route-v036-b4499d168d.mp4",
+      "sha256": "4316a4ed28f7c0e0ef8925c9a94dc51d517713b002e68243130811d6f5217697",
+      "originalBytes": 2682055,
+      "webBytes": 824539
+    },
+    {
+      "source": "assets/chapters/chenhe-chishui-route-first-v036.png",
+      "web": "assets/stream/chenhe-chishui-route-first-v036-4768a4cbc4.webp",
+      "sha256": "77b84c2cbad4841499cae1ad85f82a5826f6d30ee8afbca3c00930d02045b7c6",
+      "originalBytes": 591327,
+      "webBytes": 51786
+    },
+    {
+      "source": "assets/chapters/chenhe-chishui-route-hold-v036.png",
+      "web": "assets/stream/chenhe-chishui-route-hold-v036-dba534d767.webp",
+      "sha256": "8307fd3843387a475097ebb5d3a4fe62d43ff5275515e774a3ba3d831627fff3",
+      "originalBytes": 713253,
+      "webBytes": 54844
     }
   ]
 }
