@@ -8,7 +8,7 @@
 
 精神内涵按[纪念红军长征胜利80周年大会讲话](https://www.xinhuanet.com/politics/2016-10/21/c_1119765804_2.htm)核对。图下只留文物身份，[照片许可](image-credits.html)从皮带故事内进入。团队实践照片的报道出处继续保留在案例资料中。
 
-2026年11月6日按首页题字的粗笔、斜向飞白与收锋重排两个标题。主标题以首页既有「长征」题字的透明轮廓起笔。余字为重新编排的矢量字样，在字形轮廓内制作露纸笔纹。字形取自 [Ma Shan Zheng](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/mashanzheng) 和 [Zhi Mang Xing](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/zhimangxing)，均采用 SIL OFL 1.1。字库许可见 [Ma Shan Zheng](../../assets/fonts/ma-shan-zheng-OFL.txt) 和 [Zhi Mang Xing](../../assets/fonts/zhi-mang-xing-OFL.txt)。
+2026年11月6日调整历史过渡题字。主标题「长征路上熠熠不朽的精神」采用等宽字格和统一字高，所有笔形直排在同一基线，窄屏分两行时按同一比例缩放。副标题沿用粗笔、斜向飞白与收锋。字形取自 [Ma Shan Zheng](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/mashanzheng) 和 [Zhi Mang Xing](https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/zhimangxing)，均采用 SIL OFL 1.1。字库许可见 [Ma Shan Zheng](../../assets/fonts/ma-shan-zheng-OFL.txt) 和 [Zhi Mang Xing](../../assets/fonts/zhi-mang-xing-OFL.txt)。
 
 ## 首版叙事意图与空间组织
 
