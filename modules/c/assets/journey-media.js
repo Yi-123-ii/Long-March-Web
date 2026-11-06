@@ -69,7 +69,7 @@
  "assets/chapters/chenhe-chishui-route-v036.mp4": "assets/stream/chenhe-chishui-route-v036-b4499d168d.mp4",
  "assets/chapters/chenhe-chishui-route-first-v036.png": "assets/stream/chenhe-chishui-route-first-v036-4768a4cbc4.webp",
  "assets/chapters/chenhe-chishui-route-hold-v036.png": "assets/stream/chenhe-chishui-route-hold-v036-dba534d767.webp",
- "assets/chapters/chenhe-mountain-pack-v037.mp4": "assets/stream/chenhe-mountain-pack-v037-0bd06baee6.mp4",
+ "assets/chapters/chenhe-mountain-pack-v037.mp4": "assets/stream/chenhe-mountain-pack-v037-882ff2d87b.mp4",
  "assets/chapters/chenhe-mountain-pack-first-v037.png": "assets/stream/chenhe-mountain-pack-first-v037-22f9f487cb.webp",
  "assets/chapters/chenhe-mountain-pack-question-v037.png": "assets/stream/chenhe-mountain-pack-question-v037-4846a9e64a.webp",
  "assets/chapters/chenhe-mountain-pack-nickname-v037.png": "assets/stream/chenhe-mountain-pack-nickname-v037-ba8021e64c.webp",

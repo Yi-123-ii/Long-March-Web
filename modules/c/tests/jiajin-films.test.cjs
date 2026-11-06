@@ -38,7 +38,8 @@ test('both snow routes share one film and require the two player replies', () =>
   for (const [id, choice, next] of [['snow-ask-home','ask-pack-history','snow-pack'],['snow-nickname','ask-nickname','snow-respond-name']]) {
     const waiting = walk(D, id); waiting.settings.auto = true;
     assert.equal(C.advance(D, waiting), waiting);
-    const reply=C.advance(D,waiting,choice);assert(C.current(D,reply).voice);
+    const reply=C.advance(D,waiting,choice),spoken=C.current(D,reply);
+    assert(spoken.voice&&spoken.advanceOnEnd);
     assert.equal(C.advance(D,reply).node,next);
   }
   assert.equal(T.pageFrame(clips[1].captionPages, 7.5).text, '阿禾，你又给捆歪了！');

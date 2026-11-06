@@ -64,7 +64,8 @@
     "next": "snow-pack",
     "voice": "assets/audio/xiaoman-v034/XM10.mp3",
     "voiceDuration": 1.9125,
-    "voiceId": "XM10"
+    "voiceId": "XM10",
+    "advanceOnEnd": true
   },
   {
     "id": "snow-pack",
@@ -128,7 +129,8 @@
     "next": "snow-respond-name",
     "voice": "assets/audio/xiaoman-v034/XM11.mp3",
     "voiceDuration": 1.18,
-    "voiceId": "XM11"
+    "voiceId": "XM11",
+    "advanceOnEnd": true
   },
   {
     "id": "snow-respond-name",

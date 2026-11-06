@@ -118,7 +118,7 @@ function revealText(){
  const n=C.current(D,state);if(n.end||n.checkpoint)return;
  if(n.textAfterMovie&&!movieDone){$('line').hidden=true;$('choices').hidden=true;lineDone=false;return;}
  const progress=n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):n.voice?T.mediaTime(textPlan,playerVoice.currentTime,0,n.voiceDuration):elapsed;
- const f=n.nativeAudio&&n.captionPages?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
+ const f=n.nativeAudio&&n.captionPages&&(moviePrepared||!movieDone)?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
  const frameKey=f.key??f.shown;
  if(frameKey!==lineShown){$('line').textContent=f.text;lineShown=frameKey;}
  const changed=lineDone!==f.complete;lineDone=f.complete;
@@ -217,7 +217,11 @@ function speak(n){
  voiceDone=!n.nativeAudio&&!n.voice;$('voice-state').textContent='';
  if(!n.voice)return;
  const token=epoch;playerVoice.src=resolve(n.voice);playerVoice.volume=state.settings.voice;
- playerVoice.onended=()=>{if(token!==epoch)return;voiceDone=true;lineInstant=true;revealText();updateNext();volumes();};
+ playerVoice.onended=()=>{
+  if(token!==epoch)return;
+  voiceDone=true;lineInstant=true;revealText();updateNext();volumes();
+  if(n.advanceOnEnd)go(undefined,true);
+ };
  playerVoice.onerror=()=>{if(token!==epoch||voiceDone)return;voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('这句配音暂未载入，可继续阅读文字');};
  playerVoice.ontimeupdate=()=>{if(token===epoch)revealText();};
  volumes();updateNext();playVoice();
