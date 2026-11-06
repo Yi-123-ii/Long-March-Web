@@ -24,12 +24,11 @@
     <script defer src="assets/js/site-nav.js?v=20261105-opening-perf"></script>
     <script defer src="assets/js/post-office.js?v=20261105-letter-layout"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
-    <link rel="stylesheet" href="assets/css/site-shell.css?v=20261105-opening-perf" />
+    <link rel="stylesheet" href="assets/css/site-shell.css?v=20261106-title-motion" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
   <link href="assets/css/v38-reading.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/header-unified.css?v=20261105-opening-perf" />
 <link rel="stylesheet" href="assets/css/section-opening.css?v=20261105-opening-perf" />
-<script defer src="assets/js/section-opening-motion.js?v=20261105-opening-perf"></script>
 <link rel="stylesheet" href="assets/css/post-opening-landscape.css?v=20261105-opening-perf" />
 </head>
   <body class="lm-page lm-post-page" id="top">
@@ -47,7 +46,7 @@
       </nav>
     </header>
     <main>
-      <section class="section-opening" data-title-motion="settle" aria-labelledby="post-title">
+      <section class="section-opening" aria-labelledby="post-title">
         <div class="post-opening__landscape" aria-hidden="true">
           <picture>
             <source media="(max-width: 580px) and (orientation: portrait)" srcset="assets/images/post-office-landscape-portrait-fast.webp" width="940" height="941" />
@@ -55,7 +54,7 @@
           </picture>
         </div>
         <div class="section-opening__copy">
-          <h1 id="post-title"><span class="lm-sr-only">隔着岁月 说给你听</span><img src="assets/images/titles/post-eight-fast.webp" width="840" height="560" decoding="async" alt="" fetchpriority="high" /></h1>
+          <h1 id="post-title" data-title-motion="settle"><span class="lm-sr-only">隔着岁月 说给你听</span><img onload="this.dataset.titleReady = ''" src="assets/images/titles/post-eight-fast.webp" width="840" height="560" decoding="async" alt="" fetchpriority="high" /></h1>
           <a class="section-opening__action" id="post-entry" href="#post-desk">写下留言 <span aria-hidden="true">↓</span></a>
         </div>
       </section>

@@ -40,11 +40,7 @@
   background-image: var(--cover-bottom-mist);
 }
 .v3-home .a-hero__copy { animation: none; }
-.v3-home .a-hero__title { animation: home-letter-arrive .42s ease-out; }
-@keyframes home-letter-arrive {
-  from { opacity: .8; }
-  to { opacity: 1; }
-}
+.v3-home .a-hero__title { animation: none; }
 .v3-home .v3-prologue {
   background: linear-gradient(#f6ecdb 100px, #f1e7d7 70%, #eee5d7);
 }

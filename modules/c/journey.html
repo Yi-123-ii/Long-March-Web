@@ -19,14 +19,13 @@
 <script defer fetchpriority="low" src="assets/story-legacy-v009.js?v=029"></script><script defer fetchpriority="low" src="assets/late-chapters-data.js?v=029"></script><script defer fetchpriority="low" src="assets/chapters-data.js?v=033"></script><script defer fetchpriority="low" src="assets/yudu-data.js?v=029"></script><script defer fetchpriority="low" src="assets/yudu-core.js?v=030"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=030"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=020"></script><script defer fetchpriority="low" src="assets/yudu-game.js?v=032"></script>
 <script defer src="assets/site-integration.js?v=023"></script>
 <script defer src="../../assets/js/site-nav.js?v=20261105-opening-perf"></script>
-<link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261105-opening-perf" />
+<link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261106-title-motion" />
 <link rel="stylesheet" href="../../assets/css/header-unified.css?v=20261105-opening-perf" />
 <link rel="stylesheet" href="assets/atlas-scroll.css?v=022" />
 <link rel="stylesheet" href="assets/atlas-fullscreen.css?v=20261103" />
 <link rel="stylesheet" href="assets/journey-opening.css?v=20261105-opening-perf" />
 <script defer src="assets/journey-opening.js?v=20261104-directory"></script>
 <link rel="stylesheet" href="../../assets/css/section-opening.css?v=20261105-opening-perf" />
-<script defer src="../../assets/js/section-opening-motion.js?v=20261105-opening-perf"></script>
 </head>
 <body>
 <audio id="ambient-audio" loop preload="none" hidden aria-hidden="true"></audio>
@@ -43,9 +42,9 @@
         <a href="../../post-office.html">山河邮局</a>
       </nav>
     </header>
- <section class="journey-opening section-opening section-opening--overlay" data-title-motion="ink" aria-labelledby="journey-heading">
+ <section class="journey-opening section-opening section-opening--overlay" aria-labelledby="journey-heading">
   <div class="section-opening__copy">
-   <h1 id="journey-heading"><span class="a-sr-only">循迹山河<br>重走长征</span><img src="assets/atlas/heading-eight-fast.webp" width="1536" height="1024" alt="" fetchpriority="high"></h1>
+   <h1 id="journey-heading" data-title-motion="ink"><span class="a-sr-only">循迹山河<br>重走长征</span><img onload="this.dataset.titleReady = ''" src="assets/atlas/heading-eight-fast.webp" width="1536" height="1024" alt="" fetchpriority="high"></h1>
    <a class="journey-opening__entry section-opening__action" href="#journey-map">展开长征地图 <span aria-hidden="true">↓</span></a>
   </div>
  </section>
