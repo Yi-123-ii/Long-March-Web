@@ -18,7 +18,7 @@
    const snapshot=JSON.parse(raw);if(snapshot?.version!==1||!['map','story'].includes(snapshot.view)||!snapshot.state)return null;
    const state=core.restore(data,snapshot.state);
    if(state.node!==snapshot.state.node)return null;
-   const migrated=state.storyRevision===10&&snapshot.state.storyRevision>=7&&snapshot.state.storyRevision<=9;
+   const migrated=state.storyRevision===data.storyRevision&&snapshot.state.storyRevision>=7&&snapshot.state.storyRevision<data.storyRevision;
    if(!migrated&&state.path.length!==snapshot.state.path?.length)return null;
    return {state,view:snapshot.view};
   }catch{return null;}

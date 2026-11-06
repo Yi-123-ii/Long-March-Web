@@ -50,9 +50,10 @@ test('Chen pauses for the reply and the same film continues with source-clock su
   assert.equal(node('zy-b-move-lamp').text, '');
   const answer = C.restore(D, JSON.stringify(walk('luggage','zy-b-answer')));
   assert.equal(C.advance(D, answer).node, 'zy-b-answer');
-  assert.equal(C.advance(D, answer, 'not-yet').node, 'zy-b-advice');
+  const reply=C.advance(D,answer,'not-yet');assert.equal(C.current(D,reply).voiceId,'XM08');
+  assert.equal(C.advance(D,reply).node,'zy-b-advice');
   assert.equal(C.back(D, answer).node, 'zy-b-question');
   assert.equal(T.pageFrame(paper.captionPages, paper.mediaStart).text, advice.text);
   assert.equal(T.pageFrame(paper.captionPages, paper.duration).text, paper.text);
-  assert.equal(D.storyRevision, 10);
+  assert.equal(D.storyRevision, 12);
 });

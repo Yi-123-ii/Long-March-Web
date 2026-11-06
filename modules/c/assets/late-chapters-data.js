@@ -6,11 +6,12 @@
   {
     "id": "snow-arrive",
     "speaker": "旁白",
-    "text": "铺盖一头长、一头短，陈禾刚把绳子绕上去，短的那头就往里缩。我替他压住，等他重新捆。",
+    "text": "陈禾把绳子绕上铺盖，刚一收紧，短的那头就缩了进去。我伸手替他压住，他只好松开绳子重捆。",
     "scene": "mountain-pack",
     "next": "snow-hold-pack",
     "mode": "observation",
-    "chapter": "snow"
+    "chapter": "snow",
+    "historicalTab": "中央红军翻越夹金山"
   },
   {
     "id": "snow-hold-pack",
@@ -24,17 +25,35 @@
   },
   {
     "id": "snow-ask-home",
-    "text": "你以前也捆成这样？",
+    "text": "",
     "scene": "mountain-pack",
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-pack"
+    "choices": [
+      {
+        "id": "continue-snow-ask-home",
+        "label": "你以前也捆成这样？",
+        "next": "snow-ask-home-spoken-v034"
+      }
+    ]
+  },
+  {
+    "id": "snow-ask-home-spoken-v034",
+    "chapter": "snow",
+    "scene": "mountain-pack",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "你以前也捆成这样？",
+    "next": "snow-pack",
+    "voice": "assets/audio/xiaoman-v034/XM10.mp3",
+    "voiceDuration": 1.9125,
+    "voiceId": "XM10"
   },
   {
     "id": "snow-pack",
     "speaker": "陈禾",
-    "text": "在家的时候，我娘还得替我重捆。看见我弄成这样，隔着院子就喊，阿禾，你又给捆歪了！",
+    "text": "在家也得我娘替我重捆。她隔着院子就喊，阿禾，你又给捆歪了！",
     "scene": "mountain-pack",
     "next": "snow-nickname",
     "mode": "dialogue",
@@ -50,10 +69,22 @@
       {
         "id": "ask-nickname",
         "label": "阿禾？",
-        "next": "snow-respond-name"
+        "next": "snow-nickname-spoken-v034"
       }
     ],
     "chapter": "snow"
+  },
+  {
+    "id": "snow-nickname-spoken-v034",
+    "chapter": "snow",
+    "scene": "mountain-pack",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "阿禾？",
+    "next": "snow-respond-name",
+    "voice": "assets/audio/xiaoman-v034/XM11.mp3",
+    "voiceDuration": 1.18,
+    "voiceId": "XM11"
   },
   {
     "id": "snow-respond-name",
@@ -74,7 +105,7 @@
       {
         "id": "climb",
         "label": "背好铺盖，跟随队伍上山。",
-        "next": "snow-path"
+        "next": "snow-wet-v034"
       }
     ],
     "chapter": "snow"
@@ -82,7 +113,7 @@
   {
     "id": "snow-path",
     "speaker": "心声",
-    "text": "脚下开始有雪，说话也越来越费劲。陈禾在路边停住，我走到他旁边时，他的目光还落在我的肩带上。",
+    "text": "踩进雪里以后，抬脚也费劲。我沿着前人的脚印往上走，走几步就得停下来喘气；陈禾已经站在路边，肩膀一下一下地起伏。我挪过去，他还看着我的肩带。",
     "scene": "snow-path",
     "next": "snow-concern-before",
     "mode": "thought",
@@ -124,7 +155,7 @@
       {
         "id": "support",
         "label": "我这儿没事，你先搭住我。",
-        "next": "snow-a-route"
+        "next": "snow-choice-spoken-v034"
       },
       {
         "id": "call",
@@ -133,6 +164,18 @@
       }
     ],
     "chapter": "snow"
+  },
+  {
+    "id": "snow-choice-spoken-v034",
+    "chapter": "snow",
+    "scene": "snow-concern-hold",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "我这儿没事，你先搭住我。",
+    "next": "snow-a-route",
+    "voice": "assets/audio/xiaoman-v034/XM12.mp3",
+    "voiceDuration": 2.385,
+    "voiceId": "XM12"
   },
   {
     "id": "snow-a-route",
@@ -157,7 +200,10 @@
     "scene": "snow-concern-hold",
     "next": "snow-a-hand-chen",
     "mode": "dialogue",
-    "chapter": "snow"
+    "chapter": "snow",
+    "voice": "assets/audio/xiaoman-v034/XM13.mp3",
+    "voiceDuration": 2.1825,
+    "voiceId": "XM13"
   },
   {
     "id": "snow-a-hand-chen",
@@ -175,11 +221,14 @@
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-a-hand-step"
+    "next": "snow-a-hand-step",
+    "voice": "assets/audio/xiaoman-v034/XM14.mp3",
+    "voiceDuration": 3.02,
+    "voiceId": "XM14"
   },
   {
     "id": "snow-a-hand-step",
-    "text": "他的手搭上来，压住我半边肩膀。我扶着他的胳膊，等两个人都站稳了才往前走。",
+    "text": "他把手搭上来，肩上一沉，我赶紧握住他的胳膊。两个人站稳以后，才踩着脚印往前挪。",
     "chapter": "snow",
     "mode": "observation",
     "speaker": "旁白",
@@ -193,7 +242,10 @@
     "scene": "snow-concern-hold",
     "next": "snow-a-help-yudu",
     "mode": "dialogue",
-    "chapter": "snow"
+    "chapter": "snow",
+    "voice": "assets/audio/xiaoman-v034/XM15.mp3",
+    "voiceDuration": 1.9875,
+    "voiceId": "XM15"
   },
   {
     "id": "snow-a-help-yudu",
@@ -211,11 +263,14 @@
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-a-help-step"
+    "next": "snow-a-help-step",
+    "voice": "assets/audio/xiaoman-v034/XM16.mp3",
+    "voiceDuration": 4.02,
+    "voiceId": "XM16"
   },
   {
     "id": "snow-a-help-step",
-    "text": "陈禾抓住我的肩带，脚下试了试，才跟着往前迈步。前面的人还没走远，我们慢慢跟上去。",
+    "text": "陈禾抓住我的肩带，先试着迈了一步。我托住他的胳膊，等他把脚落稳，再一起往前挪。",
     "chapter": "snow",
     "mode": "observation",
     "speaker": "旁白",
@@ -238,7 +293,10 @@
     "scene": "snow-concern-hold",
     "next": "snow-b-nod",
     "mode": "dialogue",
-    "chapter": "snow"
+    "chapter": "snow",
+    "voice": "assets/audio/xiaoman-v034/XM17.mp3",
+    "voiceDuration": 2.24,
+    "voiceId": "XM17"
   },
   {
     "id": "snow-b-nod",
@@ -256,7 +314,10 @@
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-b-heard"
+    "next": "snow-b-heard",
+    "voice": "assets/audio/xiaoman-v034/XM18.mp3",
+    "voiceDuration": 2.49,
+    "voiceId": "XM18"
   },
   {
     "id": "snow-b-heard",
@@ -270,7 +331,7 @@
   {
     "id": "snow-b-answer",
     "speaker": "心声",
-    "text": "风声夹在他说话的声音里，我又往他那边靠近些。等他喘过这口气，我才再叫他。",
+    "text": "他说到后头，声音被风盖住了。我往近处挪了挪，等他喘匀一点，又叫了一声。",
     "scene": "snow-path",
     "next": "snow-b-again",
     "mode": "thought",
@@ -283,7 +344,10 @@
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-b-here"
+    "next": "snow-b-here",
+    "voice": "assets/audio/xiaoman-v034/XM19.mp3",
+    "voiceDuration": 1.4525,
+    "voiceId": "XM19"
   },
   {
     "id": "snow-b-here",
@@ -297,7 +361,7 @@
   {
     "id": "snow-shelter-before",
     "speaker": "心声",
-    "text": "到了石头后面，耳边的风声小下去，陈禾终于能靠着坐一会儿。他松开铺盖绳，掌心留下了一道压痕。",
+    "text": "绕到石头后面，风声小了些，陈禾扶着包坐下。我解开水壶，壶口冻住了，晃了两下也倒不出水，只好重新揣进衣里。他松开勒在掌心的绳子，低头揉了揉手。",
     "scene": "snow-shelter-first",
     "next": "snow-ask-better",
     "mode": "thought",
@@ -313,10 +377,22 @@
       {
         "id": "ask-better",
         "label": "现在好点没有？",
-        "next": "snow-shelter"
+        "next": "snow-ask-better-spoken-v034"
       }
     ],
     "chapter": "snow"
+  },
+  {
+    "id": "snow-ask-better-spoken-v034",
+    "chapter": "snow",
+    "scene": "snow-shelter-first",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "现在好点没有？",
+    "next": "snow-shelter",
+    "voice": "assets/audio/xiaoman-v034/XM20.mp3",
+    "voiceDuration": 1.215,
+    "voiceId": "XM20"
   },
   {
     "id": "snow-shelter",
@@ -352,7 +428,7 @@
   },
   {
     "id": "snow-continue",
-    "text": "前头有人起身，拍着裤腿上的雪。陈禾把帽檐拉低了些，等我重新背好铺盖，才跟我一起站起来。",
+    "text": "前头的人陆续起身，拍掉裤腿上的雪。陈禾压低帽檐，扶着石头站起来，等我背好铺盖才往前走。",
     "scene": "snow-path",
     "speaker": "旁白",
     "mode": "observation",
@@ -384,16 +460,17 @@
   {
     "id": "grass-arrive",
     "speaker": "旁白",
-    "text": "碗沿还烫着，里面却没多少粥。我等它凉一点，陈禾把脱到一半的鞋又穿了回去。",
+    "text": "我端着碗，喝了两口稀汤才见到碗底那几粒麦子。灶底的湿草烧不起来，烟倒吹得人睁不开眼。陈禾解开一只鞋，脚刚往外抽了一半，又停住，扶着膝盖把鞋穿了回去。",
     "scene": "grass-meal",
     "next": "grass-meal",
     "mode": "observation",
-    "chapter": "grass"
+    "chapter": "grass",
+    "historicalTab": "红军穿越草地，缺粮、湿冷与沼泽影响行军"
   },
   {
     "id": "grass-meal",
     "speaker": "心声",
-    "text": "（他扶着膝盖坐了一会儿。）",
+    "text": "",
     "scene": "grass-meal",
     "next": "grass-sit",
     "mode": "thought",
@@ -409,7 +486,7 @@
       {
         "id": "sit-down",
         "label": "把碗放稳，在旁边坐下。",
-        "next": "grass-choice"
+        "next": "grass-grain-v034"
       }
     ],
     "chapter": "grass"
@@ -419,11 +496,11 @@
     "speaker": "心声",
     "mode": "thought",
     "scene": "grass-camp",
-    "text": "卫生员正在给陆生掖衣服，水碗放在铺盖边上。接应队的人走过来，问还有谁能跟着出去，外面还有掉队的同志没回来。\n\n陈禾已经背起行装。留在营地的人往陆生那边挪了挪，腾出卫生员走动的地方。",
+    "text": "卫生员蹲在铺盖旁，替躺着的战士掖好衣服。接应队的人从外面回来，还没放下行装，就在找能跟着出去的人，草地上还有同志没接回来。\n\n陈禾背起包，站到接应队旁边。我往铺盖边靠了靠，给卫生员让出路。",
     "choices": [
       {
         "id": "stay",
-        "label": "留在营地，帮忙照看陆生。",
+        "label": "留在营地，照看这位战士。",
         "next": "grass-a-route"
       },
       {
@@ -437,7 +514,7 @@
   {
     "id": "grass-a-route",
     "speaker": "心声",
-    "text": "我在陆生旁边坐下，水碗放得离他近了些。他睁眼看过来，手还攥着肩头的衣服。",
+    "text": "我在铺盖边蹲下，把水往陆生手边推了推。他睁开眼，手还攥着盖在肩上的衣服。",
     "scene": "lusheng-grass",
     "next": "grass-a-old",
     "mode": "thought",
@@ -500,7 +577,7 @@
   },
   {
     "id": "grass-a-seen",
-    "text": "他看了看针脚，点一下头，又把眼睛合上。",
+    "text": "陆生看过袖口，点了点头，把攥着衣服的手松开。",
     "scene": "lusheng-grass",
     "speaker": "旁白",
     "mode": "observation",
@@ -526,14 +603,26 @@
       {
         "id": "say-name",
         "label": "我叫小满。你呢？",
-        "next": "grass-a-new-repeat"
+        "next": "grass-a-tell-name-spoken-v034"
       }
     ],
     "chapter": "grass"
   },
   {
+    "id": "grass-a-tell-name-spoken-v034",
+    "chapter": "grass",
+    "scene": "lusheng-grass",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "我叫小满。你呢？",
+    "next": "grass-a-new-repeat",
+    "voice": "assets/audio/xiaoman-v034/XM21.mp3",
+    "voiceDuration": 1.87,
+    "voiceId": "XM21"
+  },
+  {
     "id": "grass-a-new-repeat",
-    "text": "我叫陆生。你刚才说小什么？没听清。",
+    "text": "我叫陆生。刚才没听清，你叫小什么来着？",
     "scene": "lusheng-grass",
     "speaker": "陆生",
     "mode": "dialogue",
@@ -550,10 +639,22 @@
       {
         "id": "repeat-name",
         "label": "小满。",
-        "next": "grass-a-new-nod"
+        "next": "grass-a-repeat-name-spoken-v034"
       }
     ],
     "chapter": "grass"
+  },
+  {
+    "id": "grass-a-repeat-name-spoken-v034",
+    "chapter": "grass",
+    "scene": "lusheng-grass",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "小满。",
+    "next": "grass-a-new-nod",
+    "voice": "assets/audio/xiaoman-v034/XM22.mp3",
+    "voiceDuration": 0.89,
+    "voiceId": "XM22"
   },
   {
     "id": "grass-a-new-nod",
@@ -585,6 +686,10 @@
     "poster": "assets/chapters/lusheng-night-first-v020.png",
     "hold": "assets/chapters/lusheng-night-hold-v020.png",
     "duration": 6.08,
+    "title": "草地夜里，陆生醒来让小满放下水碗",
+    "replayLabel": "重看陆生",
+    "advanceOnEnd": true,
+    "chapter": "grass",
     "captionCues": [
       {
         "text": "放下吧，",
@@ -601,16 +706,12 @@
         "start": 5.14,
         "end": 5.9
       }
-    ],
-    "title": "草地夜里，陆生醒来让小满放下水碗",
-    "replayLabel": "重看陆生",
-    "advanceOnEnd": true,
-    "chapter": "grass"
+    ]
   },
   {
     "id": "grass-a-return",
     "speaker": "心声",
-    "text": "我把水放回他手边。\n\n陆生睡着以后，又醒了两回。第二回，他伸手碰到碗边，我便扶着碗让他喝了几口。\n\n卫生员过来摸了摸他的额头，在旁边蹲了一会儿才走。压在陆生肩头的衣服又滑下来一点。",
+    "text": "我把水放回他手边。\n\n后半夜，陆生醒过两回。有一回他伸手摸到碗边，我托着碗让他喝了几口，等他躺好，再把水碗放回原处。\n\n卫生员过来摸了摸他的额头，蹲了一会儿才走。我跟着看过去，盖在陆生肩头的衣服又滑下来了。",
     "scene": "lusheng-night-hold",
     "next": "grass-a-cover",
     "mode": "thought",
@@ -633,7 +734,7 @@
   },
   {
     "id": "grass-a-chen-return",
-    "text": "卫生员接住人以后，陈禾才把背上的包卸下来。他的手还撑在膝盖上，我往旁边挪了些，给他留出一块地方。",
+    "text": "卫生员把人接过去，陈禾才卸下背上的包。他还撑着膝盖没直起身，我往里挪了挪，把身旁的位置空出来。",
     "scene": "chenhe-grass",
     "speaker": "旁白",
     "mode": "observation",
@@ -658,7 +759,7 @@
   {
     "id": "grass-b-path",
     "speaker": "心声",
-    "text": "前面的人从泥里拔出鞋，回身指着自己的脚印，让我们照着走。草丛里传来一声应答，随后便只剩咳嗽声。",
+    "text": "前面的人用长棍试着落脚，回身让我踩他的脚印。我刚迈过去，旁边的草皮便陷下一块，水从裂口冒出来。再往前，草里有人应了一声，紧接着咳起来。",
     "scene": "grass-path",
     "next": "grass-b-call-out",
     "mode": "thought",
@@ -682,7 +783,7 @@
   {
     "id": "grass-b-foot",
     "speaker": "心声",
-    "text": "同行的同志接过那位战士的铺盖，替陈禾扶住人。陈禾刚腾出手，脚下便晃了一下，我赶紧扶住他。",
+    "text": "同行的人把铺盖接过去，又换下陈禾，扶住那位战士。陈禾刚松手，身子也跟着晃了一下，我连忙托住他的胳膊。",
     "scene": "grass-path",
     "next": "grass-b-support",
     "mode": "thought",
@@ -706,7 +807,7 @@
   {
     "id": "grass-b-names",
     "speaker": "心声",
-    "text": "被接住的战士搭着陈禾的肩，没走几步又停下来换气。他抹掉嘴边沾着的草屑，朝我们看过来。",
+    "text": "接应的人扶住他的胳膊，把人带到脚下稳些的地方，陈禾才凑过去让他搭住肩。走出没几步，他又站不住了，只能靠着陈禾缓一缓。他抹掉嘴边的草屑，抬头看向我。",
     "scene": "grass-path",
     "next": "grass-b-ask-names",
     "mode": "thought",
@@ -732,10 +833,22 @@
       {
         "id": "tell-names",
         "label": "我叫小满，他叫陈禾。",
-        "next": "grass-b-home-street"
+        "next": "grass-b-tell-names-spoken-v034"
       }
     ],
     "chapter": "grass"
+  },
+  {
+    "id": "grass-b-tell-names-spoken-v034",
+    "chapter": "grass",
+    "scene": "grass-path",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "我叫小满，他叫陈禾。",
+    "next": "grass-b-home-street",
+    "voice": "assets/audio/xiaoman-v034/XM23.mp3",
+    "voiceDuration": 2.135,
+    "voiceId": "XM23"
   },
   {
     "id": "grass-b-home-street",
@@ -767,10 +880,19 @@
   {
     "id": "grass-b-return",
     "speaker": "心声",
-    "text": "营地方向有人喊话，带路的同志应了一声，回头示意我们往那边走。",
+    "text": "营地方向传来喊声，带路的人应着回头，招呼我们跟上。",
     "scene": "grass-path",
-    "next": "grass-b-old",
+    "next": "grass-b-camp-v034",
     "mode": "thought",
+    "chapter": "grass"
+  },
+  {
+    "chapter": "grass",
+    "scene": "lusheng-grass",
+    "speaker": "旁白",
+    "mode": "observation",
+    "id": "grass-b-camp-v034",
+    "text": "我们走到铺盖旁，躺着的战士听见声音，转过头看了一眼。",
     "routes": [
       {
         "choice": "xj-choice",
@@ -778,7 +900,7 @@
         "next": "grass-b-new"
       }
     ],
-    "chapter": "grass"
+    "next": "grass-b-old"
   },
   {
     "id": "grass-b-old",
@@ -823,10 +945,22 @@
       {
         "id": "new-name",
         "label": "我叫小满。你呢？",
-        "next": "grass-b-lusheng-name"
+        "next": "grass-b-player-name-spoken-v034"
       }
     ],
     "chapter": "grass"
+  },
+  {
+    "id": "grass-b-player-name-spoken-v034",
+    "chapter": "grass",
+    "scene": "lusheng-grass",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "我叫小满。你呢？",
+    "next": "grass-b-lusheng-name",
+    "voice": "assets/audio/xiaoman-v034/XM21.mp3",
+    "voiceDuration": 1.87,
+    "voiceId": "XM21"
   },
   {
     "id": "grass-b-lusheng-name",
@@ -885,7 +1019,10 @@
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-dawn-hand-joke"
+    "next": "grass-dawn-hand-joke",
+    "voice": "assets/audio/xiaoman-v034/XM24.mp3",
+    "voiceDuration": 4.535,
+    "voiceId": "XM24"
   },
   {
     "id": "grass-dawn-hand-joke",
@@ -905,11 +1042,23 @@
     "choices": [
       {
         "id": "loose-shoes",
-        "label": "指给他看：你鞋带又松了。",
-        "next": "grass-dawn-tie-shoes"
+        "label": "指指他的鞋：你鞋带又松了。",
+        "next": "grass-dawn-shoes-spoken-v034"
       }
     ],
     "chapter": "grass"
+  },
+  {
+    "id": "grass-dawn-shoes-spoken-v034",
+    "chapter": "grass",
+    "scene": "chenhe-grass",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "你鞋带又松了。",
+    "next": "grass-dawn-tie-shoes",
+    "voice": "assets/audio/xiaoman-v034/XM25.mp3",
+    "voiceDuration": 1.5275,
+    "voiceId": "XM25"
   },
   {
     "id": "grass-dawn-tie-shoes",
@@ -923,7 +1072,7 @@
   {
     "id": "grass-dawn-help",
     "speaker": "心声",
-    "text": "铺盖的绳头又落在脚边，我刚弯腰，陈禾已经伸手捡了起来。他把绳头塞进背带里，示意我扶一下铺盖。",
+    "text": "绳头又垂到脚边，我刚要去捡，陈禾先伸了手。他让我托一下铺盖，把那截绳头塞进了背带里。",
     "scene": "chenhe-grass",
     "next": "grass-dawn-hold-pack",
     "mode": "thought",
@@ -956,6 +1105,10 @@
     "poster": "assets/chapters/chenhe-dawn-first-v020.png",
     "hold": "assets/chapters/chenhe-dawn-hold-v020.png",
     "duration": 9.088005,
+    "title": "天亮后的营地，陈禾说起小时候",
+    "replayLabel": "重看田埂的回忆",
+    "advanceOnEnd": true,
+    "chapter": "grass",
     "captionPages": [
       {
         "text": "你在山上喊那几声，跟我娘似的。",
@@ -972,11 +1125,7 @@
         "start": 7.28,
         "end": 8.62
       }
-    ],
-    "title": "天亮后的营地，陈禾说起小时候",
-    "replayLabel": "重看田埂的回忆",
-    "advanceOnEnd": true,
-    "chapter": "grass"
+    ]
   },
   {
     "id": "grass-dawn-home",
@@ -1006,13 +1155,13 @@
     "id": "grass-end",
     "scene": "grass-camp",
     "checkpoint": true,
-    "next": "north-arrive",
+    "next": "north-pass-v034",
     "chapter": "grass"
   },
   {
     "id": "north-arrive",
     "speaker": "旁白",
-    "text": "走到路边，陆生扶着石沿给肩上的包换了个位置。同行的战士伸手接过去，让他先往前走。",
+    "text": "陆生在路边停下，扶着石头调整肩上的包。同行的战士接过来，推了推他的胳膊，让他先走。",
     "scene": "north-trail",
     "next": "north-lusheng",
     "mode": "observation",
@@ -1052,27 +1201,27 @@
   {
     "id": "wuqi-arrive",
     "speaker": "旁白",
-    "text": "院里的地面是干的。陈禾靠着门框坐下，身后的铺盖还没卸，一边肩带已经从肩头滑了下来。",
+    "text": "踩进院子，鞋底终于没再往外冒水。陈禾靠着门框坐下，铺盖还在背上，一边肩带已经滑了下来。我扶住门槛，腿弯发紧，没能一下蹲下去。",
     "scene": "chenhe-rest",
     "next": "wuqi-rest",
     "mode": "observation",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "historicalTab": "中共中央率领的中央红军到达吴起镇"
   },
   {
     "id": "wuqi-rest",
     "speaker": "心声",
-    "text": "（放下自己的行装，在他旁边蹲下。）",
+    "text": "",
     "scene": "chenhe-rest",
-    "next": "wuqi-water",
     "mode": "thought",
-    "routes": [
+    "chapter": "wuqi",
+    "choices": [
       {
-        "choice": "grass-choice",
-        "equals": "rescue",
-        "next": "wuqi-cloth"
+        "id": "continue-wuqi-rest",
+        "label": "放下自己的行装，在他旁边蹲下。",
+        "next": "wuqi-rest-route-v034"
       }
-    ],
-    "chapter": "wuqi"
+    ]
   },
   {
     "id": "wuqi-water",
@@ -1120,7 +1269,7 @@
   {
     "id": "wuqi-cloth",
     "speaker": "心声",
-    "text": "草地上接回来的那位战士也到了，手里拿着一块旧衣上裁下的布。",
+    "text": "草地上接回来的那位战士走进院子，把一块从旧衣上裁下的布展开给我们看。",
     "scene": "spare-cloth",
     "next": "wuqi-cloth-ask",
     "mode": "thought",
@@ -1161,12 +1310,15 @@
   },
   {
     "id": "wuqi-cloth-street",
-    "text": "你那天说的，街口那家铺子，后来怎么了？",
+    "text": "你那天说到街口那家铺子，还没说完呢。后来怎么了？",
     "scene": "spare-cloth",
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-cloth-answer"
+    "next": "wuqi-cloth-answer",
+    "voice": "assets/audio/xiaoman-v034/XM26.mp3",
+    "voiceDuration": 5.24,
+    "voiceId": "XM26"
   },
   {
     "id": "wuqi-cloth-answer",
@@ -1246,7 +1398,7 @@
       {
         "id": "put-pack",
         "label": "把铺盖放到他脚边。",
-        "next": "wuqi-enter-room"
+        "next": "wuqi-unpack-v034"
       }
     ],
     "chapter": "wuqi"
@@ -1267,7 +1419,10 @@
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-answer-name"
+    "next": "wuqi-answer-name",
+    "voice": "assets/audio/xiaoman-v034/XM27.mp3",
+    "voiceDuration": 1.155,
+    "voiceId": "XM27"
   },
   {
     "id": "wuqi-answer-name",
@@ -1288,7 +1443,7 @@
       {
         "id": "sit-near",
         "label": "在他旁边坐下。",
-        "next": "wuqi-enter-room"
+        "next": "wuqi-unpack-v034"
       }
     ],
     "chapter": "wuqi"
@@ -1348,10 +1503,22 @@
       {
         "id": "not-started",
         "label": "我还没下针呢，是你自己先动了。",
-        "next": "wuqi-sew-still"
+        "next": "wuqi-sew-reply-spoken-v034"
       }
     ],
     "chapter": "wuqi"
+  },
+  {
+    "id": "wuqi-sew-reply-spoken-v034",
+    "chapter": "wuqi",
+    "scene": "chenhe-memory-first",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "我还没下针呢，是你自己先动了。",
+    "next": "wuqi-sew-still",
+    "voice": "assets/audio/xiaoman-v034/XM28.mp3",
+    "voiceDuration": 3.0875,
+    "voiceId": "XM28"
   },
   {
     "id": "wuqi-sew-still",
@@ -1365,9 +1532,9 @@
   {
     "id": "wuqi-sew-result",
     "speaker": "心声",
-    "text": "剪断线头以后，陈禾伸直胳膊试了试，袖口已经不绷着了。他把那几针歪着的线翻过来看，又把胳膊放回桌上。",
+    "text": "我剪掉线头，陈禾伸了伸胳膊，把袖口翻过来，看了看那几针歪线。他没说什么，只把胳膊重新搁到桌上，这回倒是没再乱动。",
     "scene": "new-cuff",
-    "next": "wuqi-sew-old",
+    "next": "wuqi-sew-confirm",
     "mode": "thought",
     "chapter": "wuqi"
   },
@@ -1392,16 +1559,16 @@
     "speaker": "旁白",
     "text": "",
     "scene": "lusheng-wuqi",
-    "next": "wuqi-sew-confirm",
+    "next": "wuqi-back-yard",
     "mode": "observation",
     "chapter": "wuqi"
   },
   {
     "id": "wuqi-sew-letter",
     "speaker": "心声",
-    "text": "我把旧信摊到膝上，纸还是从前的样子，停在那半句话上。",
+    "text": "收好针线，我又把旧信摊到膝上。折痕已经快磨透了，里面还是那半句话。",
     "scene": "old-letter-room",
-    "next": "wuqi-sew-confirm",
+    "next": "wuqi-sew-letter-wrap-v034",
     "mode": "thought",
     "document": "娘，等有了落脚的地方……",
     "chapter": "wuqi"
@@ -1416,7 +1583,7 @@
       {
         "id": "remember-stitches",
         "label": "把针线收回包里。",
-        "next": "wuqi-back-yard"
+        "next": "wuqi-sew-old"
       }
     ],
     "chapter": "wuqi"
@@ -1424,11 +1591,17 @@
   {
     "id": "wuqi-write",
     "speaker": "心声",
-    "text": "我铺平新纸，用那半截铅笔写下“梁叔”。接着写的，是他在湘江边替我补袖口的事。",
+    "text": "我把新纸铺平，拿起那半截铅笔，先写了“梁叔”。再往下，是江边那三针，还有他让我过江后再找他补衣服的话。",
     "scene": "chenhe-memory-first",
-    "next": "wuqi-write-home",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "choices": [
+      {
+        "id": "continue-wuqi-write",
+        "label": "接着往下写。",
+        "next": "wuqi-write-home"
+      }
+    ]
   },
   {
     "id": "wuqi-write-home",
@@ -1442,6 +1615,17 @@
     "poster": "assets/chapters/chenhe-memory-first-v021.png",
     "hold": "assets/chapters/chenhe-memory-hold-v021.png",
     "duration": 6.08,
+    "title": "吴起的桌边，陈禾提醒记下梁叔家的枣树",
+    "replayLabel": "重看枣树的回忆",
+    "advanceOnEnd": false,
+    "routes": [
+      {
+        "choice": "xj-choice",
+        "equals": "luggage",
+        "next": "wuqi-write-letter"
+      }
+    ],
+    "chapter": "wuqi",
     "captionPages": [
       {
         "text": "还有他家那棵枣树，也写上吧。",
@@ -1453,23 +1637,12 @@
         "start": 4.48,
         "end": 5.6
       }
-    ],
-    "title": "吴起的桌边，陈禾提醒记下梁叔家的枣树",
-    "replayLabel": "重看枣树的回忆",
-    "advanceOnEnd": false,
-    "routes": [
-      {
-        "choice": "xj-choice",
-        "equals": "luggage",
-        "next": "wuqi-write-letter"
-      }
-    ],
-    "chapter": "wuqi"
+    ]
   },
   {
     "id": "wuqi-write-lusheng",
     "speaker": "心声",
-    "text": "最后一行写完，我正要折起纸，陆生从旁边伸手扶住纸角。",
+    "text": "最后一行刚写完，陆生便凑近了些。我正要折纸，他伸手按住纸角。",
     "scene": "chenhe-memory-hold",
     "next": "wuqi-read-wait",
     "mode": "thought",
@@ -1502,18 +1675,24 @@
   {
     "id": "wuqi-write-letter",
     "speaker": "心声",
-    "text": "旧信裹在干布里，放在桌子的另一边。我把江边传来的消息也写在新纸上，注明是转运的同志回来告诉我们的。",
+    "text": "梁叔的旧信还裹在干布里，放在桌子另一边。我另起一行，记下江边传来的消息，也写上是谁告诉我们的，免得往后记混。",
     "scene": "memory-page",
-    "next": "wuqi-writing",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "choices": [
+      {
+        "id": "continue-wuqi-write-letter",
+        "label": "继续写下记得的事。",
+        "next": "wuqi-writing"
+      }
+    ]
   },
   {
     "id": "wuqi-writing",
     "speaker": "心声",
     "mode": "thought",
     "scene": "memory-page",
-    "text": "纸上已经有了梁叔的名字和那棵枣树。陈禾坐在对面，脚边放着刚收好的行装。",
+    "text": "笔尖已经写钝了，我把铅笔搁到一旁。梁叔的名字下面写着那棵枣树，陈禾还坐在对面，脚边搁着行装。",
     "document": "梁叔。\n在湘江边替我补了三针。\n他家后头有棵枣树。",
     "choices": [
       {
@@ -1542,7 +1721,7 @@
   {
     "id": "wuqi-later-route",
     "speaker": "心声",
-    "text": "陆生坐在门边，正帮端饭的同志叠碗。我挨着陈禾坐下时，门外又有人背着行装进来。",
+    "text": "门边的陆生正帮着收碗，摞好的碗碰得轻轻响。我挨着陈禾坐下，门外又来了人，背上的铺盖还没卸。",
     "scene": "newcomer-later",
     "next": "wuqi-later-help",
     "mode": "thought",
@@ -1558,7 +1737,7 @@
   {
     "id": "wuqi-later-help",
     "speaker": "心声",
-    "text": "新来的战士停在门边，滑下来的铺盖绳扫到我的手背。他伸手去够，另一边的背带又拧住了。",
+    "text": "新来的战士停在门边，伸手去够滑下来的铺盖绳，另一边的背带却越扯越紧。垂下的绳头正好扫到我手背。",
     "scene": "newcomer-later",
     "next": "wuqi-help-newcomer",
     "mode": "thought",
@@ -1598,14 +1777,26 @@
       {
         "id": "ask-newcomer",
         "label": "你叫什么？坐这儿吧。",
-        "next": "wuqi-hear-newcomer"
+        "next": "wuqi-ask-newcomer-spoken-v034"
       }
     ],
     "chapter": "wuqi"
   },
   {
+    "id": "wuqi-ask-newcomer-spoken-v034",
+    "chapter": "wuqi",
+    "scene": "newcomer-later",
+    "speaker": "小满",
+    "mode": "dialogue",
+    "text": "你叫什么？坐这儿吧。",
+    "next": "wuqi-hear-newcomer",
+    "voice": "assets/audio/xiaoman-v034/XM29.mp3",
+    "voiceDuration": 2.16,
+    "voiceId": "XM29"
+  },
+  {
     "id": "wuqi-hear-newcomer",
-    "text": "听清名字后，我重复了一遍，往凳子里让了些。他把包放在脚边，在我旁边坐下。",
+    "text": "他报了名字，我跟着念了一遍，往凳子里让了让。他这才把包放下，坐到我旁边。",
     "scene": "newcomer-later",
     "speaker": "旁白",
     "mode": "observation",
@@ -1617,7 +1808,7 @@
     "speaker": "心声",
     "mode": "thought",
     "scene": "chenhe-rest",
-    "text": "陈禾拍掉帽子上的土，重新戴好。陆生把叠好的碗交回去，往身后的门框上靠了靠。",
+    "text": "陈禾拍掉帽上的土，重新戴好。陆生把摞好的碗交出去，也在门框边坐下。",
     "choices": [
       {
         "id": "other-armies",
@@ -1646,20 +1837,28 @@
   {
     "id": "epilogue-huining",
     "speaker": "行军纪事",
-    "text": "1936年10月9日，红一、红四方面军在会宁会师。",
+    "text": "红一、红四方面军在会宁会师。",
     "scene": "atlas-1936",
-    "next": "epilogue-jiangtai",
     "mode": "fact",
-    "chapter": "epilogue"
+    "chapter": "epilogue",
+    "routeDate": "1936年10月9日",
+    "choices": [
+      {
+        "id": "continue-epilogue-huining",
+        "label": "继续翻页。",
+        "next": "epilogue-jiangtai"
+      }
+    ]
   },
   {
     "id": "epilogue-jiangtai",
     "speaker": "行军纪事",
-    "text": "1936年10月22日，红一、红二方面军在将台堡会师。红军三大主力胜利会师。",
+    "text": "红一、红二方面军在将台堡会师。红军三大主力胜利会师。",
     "scene": "atlas-1936",
     "next": "epilogue-remember",
     "mode": "fact",
-    "chapter": "epilogue"
+    "chapter": "epilogue",
+    "routeDate": "1936年10月22日"
   },
   {
     "id": "epilogue-remember",
@@ -1681,6 +1880,110 @@
     "scene": "atlas-1936",
     "end": true,
     "chapter": "epilogue"
+  },
+  {
+    "id": "snow-wet-v034",
+    "chapter": "snow",
+    "scene": "snow-path",
+    "speaker": "旁白",
+    "mode": "observation",
+    "text": "走出林子时，后背已经汗湿，刚松开的领口一灌风，我又赶紧扣上。坡上没了树，前面的人绕过石头便看不全了，只剩几个帽顶在招手的人旁边慢慢移动。",
+    "choices": [
+      {
+        "id": "button-collar",
+        "label": "扣好领口，踩着前面的脚印走。",
+        "next": "snow-path"
+      }
+    ]
+  },
+  {
+    "id": "grass-grain-v034",
+    "chapter": "grass",
+    "scene": "grass-meal",
+    "speaker": "旁白",
+    "mode": "observation",
+    "text": "解开粮袋，里面受潮的粮食已经结成了团。我把没沾泥的部分拣到包布上，袋底湿透的地方先翻开晾着。陈禾挪走脚边的包，让躺在铺盖上的人能把腿伸开。",
+    "choices": [
+      {
+        "id": "wrap-grain",
+        "label": "把拣出的粮食裹好，放到干些的地方。",
+        "next": "grass-choice"
+      }
+    ]
+  },
+  {
+    "id": "north-pass-v034",
+    "chapter": "north",
+    "scene": "north-trail",
+    "speaker": "旁白",
+    "mode": "observation",
+    "routePlace": "腊子口后方",
+    "routeDate": "1935年9月",
+    "text": "山口的枪声一直没停，担架队也堵在坡下。我抱着包坐了半夜，想换个姿势，才发现手指扣在带子上，已经麻了。",
+    "choices": [
+      {
+        "id": "make-way-stretcher",
+        "label": "松开手，替后面过来的担架让出路。",
+        "next": "north-passage-v034"
+      }
+    ],
+    "historicalTab": "9月16日至17日，红军激战腊子口，打通北上通道"
+  },
+  {
+    "id": "north-passage-v034",
+    "chapter": "north",
+    "scene": "north-trail",
+    "speaker": "旁白",
+    "mode": "observation",
+    "routePlace": "腊子口后续通行",
+    "routeDate": "1935年9月",
+    "text": "前面不断有人下来，裤腿蹭满了土，擦着我们的包挤过去。等天色泛白，队伍才开始往山口走。经过木桥时，我看见桥边的石头崩掉一角，碎屑还散在脚下。",
+    "next": "north-arrive"
+  },
+  {
+    "id": "wuqi-rest-route-v034",
+    "chapter": "wuqi",
+    "scene": "chenhe-rest",
+    "text": "",
+    "next": "wuqi-water-context-v034",
+    "routes": [
+      {
+        "choice": "grass-choice",
+        "equals": "rescue",
+        "next": "wuqi-cloth"
+      }
+    ]
+  },
+  {
+    "id": "wuqi-water-context-v034",
+    "chapter": "wuqi",
+    "scene": "lusheng-wuqi",
+    "speaker": "旁白",
+    "mode": "observation",
+    "text": "陆生坐在门边，见我放下包，朝凳上的半碗水示意了一下。",
+    "next": "wuqi-water"
+  },
+  {
+    "id": "wuqi-unpack-v034",
+    "chapter": "wuqi",
+    "scene": "needle-pouch",
+    "speaker": "旁白",
+    "mode": "observation",
+    "text": "我把行装放到膝上，解开绳子，干泥便落了一点在手背上。针线包还藏在里层，外头的布已经磨薄了，得用手托着才能拿出来。",
+    "next": "wuqi-enter-room"
+  },
+  {
+    "id": "wuqi-sew-letter-wrap-v034",
+    "chapter": "wuqi",
+    "scene": "old-letter-room",
+    "text": "",
+    "choices": [
+      {
+        "id": "wrap-old-letter",
+        "label": "把信重新裹好，放进行装内层。",
+        "next": "wuqi-back-yard"
+      }
+    ]
   }
 ];
  for(const [first,last,id]of[['snow-arrive','snow-end','snow'],['grass-arrive','grass-end','grass'],['north-arrive','north-end','north'],['wuqi-arrive','wuqi-end','wuqi'],['epilogue-arrive','journey-end','epilogue']]){let on=false;for(const n of nodes){if(n.id===first)on=true;if(on)n.chapter=id;if(n.id===last)on=false;}}
@@ -1723,7 +2026,7 @@
     "title": "草地之后，还有山口",
     "location": "腊子口—哈达铺—六盘山",
     "date": "1935年9—10月",
-    "start": "north-arrive",
+    "start": "north-pass-v034",
     "end": "north-end",
     "ambient": "grass",
     "image": "north-trail",

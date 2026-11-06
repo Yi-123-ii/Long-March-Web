@@ -73,3 +73,7 @@ dialog{width:min(520px,calc(100vw - 32px));max-height:80dvh;padding:27px 31px;co
 /* Navigation remains available beside the reading controls at narrow widths. */
 .reading-controls{flex-wrap:wrap}.reading-controls>div{flex-wrap:wrap;column-gap:20px;row-gap:0}.subtle:disabled{opacity:.38}.ending-navigation{display:flex;gap:24px;flex-wrap:wrap}.dialog-heading .close-dialog{min-width:60px;min-height:44px;white-space:nowrap}
 @media(max-width:600px){.reading-controls{gap:6px}.reading-controls>div{column-gap:14px}.reading-controls .next{margin-left:auto}.ending .ending-navigation{margin-top:10px}}
+
+/* Unvoiced historical context appears only when entering a dated scene. */
+.historical-tab{position:absolute;top:177px;left:6vw;max-width:min(540px,80vw);padding:10px 14px;border-left:2px solid #ceb887;background:rgba(13,29,32,.72);color:#eee5d2;font-size:13px;line-height:1.65;z-index:3;pointer-events:none}
+@media(max-width:600px){.historical-tab{top:48px;left:6vw;max-width:88vw;padding:6px 10px;font-size:11px;line-height:1.5}}

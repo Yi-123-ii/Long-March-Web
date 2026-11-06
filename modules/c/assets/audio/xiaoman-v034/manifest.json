@@ -1,0 +1,956 @@
+{
+  "speaker": "小满",
+  "generated_by": "即梦 用户提供",
+  "status": "integrated_into_story_revision_11",
+  "clips": [
+    {
+      "id": "XM01",
+      "batch": "01-于都",
+      "text": "我能站得住，你先把包抱稳。",
+      "scene": "于都扶身后战士，先稳住对方",
+      "delivery": "稳一点，声音不大",
+      "source_file": "jimeng-2026-11-06-8470.wav",
+      "source_start": 0.0,
+      "source_end": 2.975,
+      "duration": 2.975,
+      "wav": "wav/XM01.wav",
+      "mp3": "mp3/XM01.mp3",
+      "asr_reference_text": "我能站得住你先把包包闻",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 0.0,
+        "silence": null,
+        "method": "source_start"
+      },
+      "right_boundary": {
+        "cut": 2.975,
+        "silence": [
+          2.535,
+          3.415
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM02",
+      "batch": "01-于都",
+      "text": "我叫小满。",
+      "scene": "于都自我介绍；湘江向陆生介绍时复用",
+      "delivery": "简单自然，不强调每个字",
+      "source_file": "jimeng-2026-11-06-8470.wav",
+      "source_start": 2.975,
+      "source_end": 4.5,
+      "duration": 1.525,
+      "wav": "wav/XM02.wav",
+      "mp3": "mp3/XM02.mp3",
+      "asr_reference_text": "我叫小满",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 2.975,
+        "silence": [
+          2.535,
+          3.415
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 4.5,
+        "silence": [
+          4.055,
+          4.945
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM03",
+      "batch": "01-于都",
+      "text": "梁叔，您家里这时候都忙些什么？",
+      "scene": "于都等船，问梁叔家里的事",
+      "delivery": "闲谈，有一点好奇",
+      "source_file": "jimeng-2026-11-06-8470.wav",
+      "source_start": 4.5,
+      "source_end": 7.58,
+      "duration": 3.08,
+      "wav": "wav/XM03.wav",
+      "mp3": "mp3/XM03.mp3",
+      "asr_reference_text": "梁叔您家里这时候都忙些什么",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 4.5,
+        "silence": [
+          4.055,
+          4.945
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 7.58,
+        "silence": [
+          7.285,
+          7.875
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM04",
+      "batch": "02-湘江",
+      "text": "梁叔呢？他还在后头吗？",
+      "scene": "向转运同志问梁叔",
+      "delivery": "问清楚，不预先演成知道牺牲",
+      "source_file": "jimeng-2026-11-06-5397.wav",
+      "source_start": 0.0,
+      "source_end": 2.4675,
+      "duration": 2.4675,
+      "wav": "wav/XM04.wav",
+      "mp3": "mp3/XM04.mp3",
+      "asr_reference_text": "梁叔她还在后头吗",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 0.0,
+        "silence": null,
+        "method": "source_start"
+      },
+      "right_boundary": {
+        "cut": 2.4675000000000002,
+        "silence": [
+          1.945,
+          2.99
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM05",
+      "batch": "02-湘江",
+      "text": "过江前他还说，到了这边再给我补。",
+      "scene": "听完消息，看着袖口",
+      "delivery": "比上一句慢一点，说完停住",
+      "source_file": "jimeng-2026-11-06-5397.wav",
+      "source_start": 2.4675,
+      "source_end": 5.605,
+      "duration": 3.1375,
+      "wav": "wav/XM05.wav",
+      "mp3": "mp3/XM05.mp3",
+      "asr_reference_text": "故将钱她还说到了这边再给我补",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 2.4675000000000002,
+        "silence": [
+          1.945,
+          2.99
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 5.605,
+        "silence": [
+          5.445,
+          5.765
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM06",
+      "batch": "03-遵义和赤水",
+      "text": "你以前跟梁叔学过补衣服？",
+      "scene": "陈禾低头缝衣时询问",
+      "delivery": "平常问话，不沉重回忆",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 0.0,
+      "source_end": 2.15,
+      "duration": 2.15,
+      "wav": "wav/XM06.wav",
+      "mp3": "mp3/XM06.mp3",
+      "asr_reference_text": "你以前跟梁叔学过补衣服",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 0.0,
+        "silence": null,
+        "method": "source_start"
+      },
+      "right_boundary": {
+        "cut": 2.15,
+        "silence": [
+          1.855,
+          2.445
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM07",
+      "batch": "03-遵义和赤水",
+      "text": "这是梁叔没写完的家书，要不我替他接着写？",
+      "scene": "湘江行装线，拿出旧信",
+      "delivery": "试着商量，留正常停顿",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 2.15,
+      "source_end": 6.2325,
+      "duration": 4.0825,
+      "wav": "wav/XM07.wav",
+      "mp3": "mp3/XM07.mp3",
+      "asr_reference_text": "只是梁叔没写完的家书要不我替他接着写",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 2.15,
+        "silence": [
+          1.855,
+          2.445
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 6.2325,
+        "silence": [
+          5.96,
+          6.505
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM08",
+      "batch": "03-遵义和赤水",
+      "text": "还没想好。",
+      "scene": "陈禾问打算写什么之后",
+      "delivery": "直接回答，不额外叹气",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 6.2325,
+      "source_end": 7.395,
+      "duration": 1.1625,
+      "wav": "wav/XM08.wav",
+      "mp3": "mp3/XM08.mp3",
+      "asr_reference_text": "还没想好",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 6.2325,
+        "silence": [
+          5.96,
+          6.505
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 7.395,
+        "silence": [
+          7.14,
+          7.65
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM09",
+      "batch": "03-遵义和赤水",
+      "text": "刚从这边过来，怎么又往回走？",
+      "scene": "赤水途中认出走过的路",
+      "delivery": "有一点气息，问话而非抱怨",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 7.395,
+      "source_end": 10.135,
+      "duration": 2.74,
+      "wav": "wav/XM09.wav",
+      "mp3": "mp3/XM09.mp3",
+      "asr_reference_text": "刚从这边过来怎么又往回走",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 7.395,
+        "silence": [
+          7.14,
+          7.65
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 10.135,
+        "silence": [
+          9.86,
+          10.41
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM10",
+      "batch": "04-夹金山",
+      "text": "你以前也捆成这样？",
+      "scene": "山脚看陈禾重新捆铺盖",
+      "delivery": "随口问，有一点熟络",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 10.135,
+      "source_end": 12.0475,
+      "duration": 1.9125,
+      "wav": "wav/XM10.wav",
+      "mp3": "mp3/XM10.mp3",
+      "asr_reference_text": "你以前也捆成这样",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 10.135,
+        "silence": [
+          9.86,
+          10.41
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 12.0475,
+        "silence": [
+          11.56,
+          12.535
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM11",
+      "batch": "04-夹金山",
+      "text": "阿禾？",
+      "scene": "山脚第一次听到乳名",
+      "delivery": "轻声确认，略微上扬，不担忧",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 12.0475,
+      "source_end": 13.2275,
+      "duration": 1.18,
+      "wav": "wav/XM11.wav",
+      "mp3": "mp3/XM11.mp3",
+      "asr_reference_text": "阿禾",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 12.0475,
+        "silence": [
+          11.56,
+          12.535
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 13.2275,
+        "silence": [
+          12.97,
+          13.485
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM12",
+      "batch": "04-夹金山",
+      "text": "我这儿没事，你先搭住我。",
+      "scene": "雪山选择搀扶陈禾",
+      "delivery": "带一点喘息，仍说完整",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 13.2275,
+      "source_end": 15.6125,
+      "duration": 2.385,
+      "wav": "wav/XM12.wav",
+      "mp3": "mp3/XM12.mp3",
+      "asr_reference_text": "我这儿没事你先搭住我",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 13.2275,
+        "silence": [
+          12.97,
+          13.485
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 15.6125,
+        "silence": [
+          15.335,
+          15.89
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM13",
+      "batch": "04-夹金山",
+      "text": "手给我，你先搭过来。",
+      "scene": "于都握手线，雪山请陈禾搭肩",
+      "delivery": "稳住对方，略有气息",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 15.6125,
+      "source_end": 17.795,
+      "duration": 2.1825,
+      "wav": "wav/XM13.wav",
+      "mp3": "mp3/XM13.mp3",
+      "asr_reference_text": "手给我你先搭过来",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 15.6125,
+        "silence": [
+          15.335,
+          15.89
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 17.795,
+        "silence": [
+          17.585,
+          18.005
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM14",
+      "batch": "04-夹金山",
+      "text": "你在于都拉我的时候，可没这么客气。",
+      "scene": "于都握手线，回答陈禾的客气",
+      "delivery": "熟人之间轻轻顶一句，不笑出声",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 17.795,
+      "source_end": 20.815,
+      "duration": 3.02,
+      "wav": "wav/XM14.wav",
+      "mp3": "mp3/XM14.mp3",
+      "asr_reference_text": "你在于都拉我的时候可没这么客气",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 17.795,
+        "silence": [
+          17.585,
+          18.005
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 20.814999999999998,
+        "silence": [
+          20.595,
+          21.035
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM15",
+      "batch": "04-夹金山",
+      "text": "我站得住，你搭这儿。",
+      "scene": "于都扶人线，雪山接住陈禾",
+      "delivery": "平实，不喊口号",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 20.815,
+      "source_end": 22.8025,
+      "duration": 1.9875,
+      "wav": "wav/XM15.wav",
+      "mp3": "mp3/XM15.mp3",
+      "asr_reference_text": "我站得住你搭这儿",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 20.814999999999998,
+        "silence": [
+          20.595,
+          21.035
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 22.802500000000002,
+        "silence": [
+          22.485,
+          23.12
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM16",
+      "batch": "04-夹金山",
+      "text": "那个人的包我不是接住了？你先搭过来再说。",
+      "scene": "于都扶人线，陈禾提起于都后",
+      "delivery": "先回应，再催他搭过来，不炫耀",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 22.8025,
+      "source_end": 26.8225,
+      "duration": 4.02,
+      "wav": "wav/XM16.wav",
+      "mp3": "mp3/XM16.mp3",
+      "asr_reference_text": "那个人的包我不是接住了你先搭过来再说",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 22.802500000000002,
+        "silence": [
+          22.485,
+          23.12
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 26.822499999999998,
+        "silence": [
+          26.365,
+          27.28
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM17",
+      "batch": "04-夹金山",
+      "text": "阿禾，你听得见吗？",
+      "scene": "雪山叫名路线，确认陈禾应声",
+      "delivery": "靠近说，稍急，不大喊",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 26.8225,
+      "source_end": 29.0625,
+      "duration": 2.24,
+      "wav": "wav/XM17.wav",
+      "mp3": "mp3/XM17.mp3",
+      "asr_reference_text": "阿禾你听得见吗",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 26.822499999999998,
+        "silence": [
+          26.365,
+          27.28
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 29.0625,
+        "silence": [
+          28.85,
+          29.275
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM18",
+      "batch": "04-夹金山",
+      "text": "别光点头，应我一声。",
+      "scene": "陈禾只点头之后",
+      "delivery": "比上一句更坚持，不训人",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 29.0625,
+      "source_end": 31.5525,
+      "duration": 2.49,
+      "wav": "wav/XM18.wav",
+      "mp3": "mp3/XM18.mp3",
+      "asr_reference_text": "别光点头好用我一声",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 29.0625,
+        "silence": [
+          28.85,
+          29.275
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 31.552500000000002,
+        "silence": [
+          30.91,
+          32.195
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM19",
+      "batch": "04-夹金山",
+      "text": "阿禾？",
+      "scene": "雪山再叫一声",
+      "delivery": "轻一些，等回应；与山脚同字台词分开录",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 31.5525,
+      "source_end": 33.005,
+      "duration": 1.4525,
+      "wav": "wav/XM19.wav",
+      "mp3": "mp3/XM19.mp3",
+      "asr_reference_text": "阿河",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 31.552500000000002,
+        "silence": [
+          30.91,
+          32.195
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 33.004999999999995,
+        "silence": [
+          32.72,
+          33.29
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM20",
+      "batch": "04-夹金山",
+      "text": "现在好点没有？",
+      "scene": "背风处坐下后",
+      "delivery": "轻声询问，不端着安慰",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 33.005,
+      "source_end": 34.22,
+      "duration": 1.215,
+      "wav": "wav/XM20.wav",
+      "mp3": "mp3/XM20.mp3",
+      "asr_reference_text": "现在好点没有",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 33.004999999999995,
+        "silence": [
+          32.72,
+          33.29
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 34.22,
+        "silence": [
+          34.03,
+          34.41
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM21",
+      "batch": "05-草地",
+      "text": "我叫小满。你呢？",
+      "scene": "草地初识陆生的两处路线均可复用",
+      "delivery": "自然回答再问回去",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 34.22,
+      "source_end": 36.09,
+      "duration": 1.87,
+      "wav": "wav/XM21.wav",
+      "mp3": "mp3/XM21.mp3",
+      "asr_reference_text": "我叫小满你呢",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 34.22,
+        "silence": [
+          34.03,
+          34.41
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 36.09,
+        "silence": [
+          35.85,
+          36.33
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM22",
+      "batch": "05-草地",
+      "text": "小满。",
+      "scene": "陆生没听清，重复名字",
+      "delivery": "稍清楚一点，不逐字拖长",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 36.09,
+      "source_end": 36.98,
+      "duration": 0.89,
+      "wav": "wav/XM22.wav",
+      "mp3": "mp3/XM22.mp3",
+      "asr_reference_text": "小满",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 36.09,
+        "silence": [
+          35.85,
+          36.33
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 36.980000000000004,
+        "silence": [
+          36.735,
+          37.225
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM23",
+      "batch": "05-草地",
+      "text": "我叫小满，他叫陈禾。",
+      "scene": "接应路线，向救回的战士介绍",
+      "delivery": "让对方听清，不大声",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 36.98,
+      "source_end": 39.115,
+      "duration": 2.135,
+      "wav": "wav/XM23.wav",
+      "mp3": "mp3/XM23.mp3",
+      "asr_reference_text": "我叫小满他叫陈河",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 36.980000000000004,
+        "silence": [
+          36.735,
+          37.225
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 39.115,
+        "silence": [
+          38.81,
+          39.42
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM24",
+      "batch": "05-草地",
+      "text": "那木板一晃，我两只脚都站不稳，不攥着你怎么办？",
+      "scene": "于都握手线的营地回忆",
+      "delivery": "顺着话接，有一点熟人语气",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 39.115,
+      "source_end": 43.65,
+      "duration": 4.535,
+      "wav": "wav/XM24.wav",
+      "mp3": "mp3/XM24.mp3",
+      "asr_reference_text": "那木板一晃我两只脚都站不稳不赚着你怎么办",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 39.115,
+        "silence": [
+          38.81,
+          39.42
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 43.65,
+        "silence": [
+          43.315,
+          43.985
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM25",
+      "batch": "05-草地",
+      "text": "你鞋带又松了。",
+      "scene": "回忆后指陈禾鞋带",
+      "delivery": "随口提醒，不接着笑",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 43.65,
+      "source_end": 45.1775,
+      "duration": 1.5275,
+      "wav": "wav/XM25.wav",
+      "mp3": "mp3/XM25.mp3",
+      "asr_reference_text": "你鞋带又松了",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 43.65,
+        "silence": [
+          43.315,
+          43.985
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 45.177499999999995,
+        "silence": [
+          44.875,
+          45.48
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM26",
+      "batch": "06-吴起",
+      "text": "你那天说到街口那家铺子，还没说完呢。后来怎么了？",
+      "scene": "草地救援线，追问那位战士",
+      "delivery": "认真接着上次的话问，不像采访",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 45.1775,
+      "source_end": 50.4175,
+      "duration": 5.24,
+      "wav": "wav/XM26.wav",
+      "mp3": "mp3/XM26.mp3",
+      "asr_reference_text": "你那天说到街口那家铺子还没说完呢后来怎么了",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 45.177499999999995,
+        "silence": [
+          44.875,
+          45.48
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 50.417500000000004,
+        "silence": [
+          50.11,
+          50.725
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM27",
+      "batch": "06-吴起",
+      "text": "阿禾。",
+      "scene": "雪山叫名线，到吴起后叫陈禾",
+      "delivery": "安静、熟悉的招呼，不是疑问，也不担忧",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 50.4175,
+      "source_end": 51.5725,
+      "duration": 1.155,
+      "wav": "wav/XM27.wav",
+      "mp3": "mp3/XM27.mp3",
+      "asr_reference_text": "阿河",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 50.417500000000004,
+        "silence": [
+          50.11,
+          50.725
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 51.5725,
+        "silence": [
+          51.29,
+          51.855
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM28",
+      "batch": "06-吴起",
+      "text": "我还没下针呢，是你自己先动了。",
+      "scene": "补衣路线，陈禾先缩手之后",
+      "delivery": "熟人之间轻轻回一句，不夸张逗笑",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 51.5725,
+      "source_end": 54.66,
+      "duration": 3.0875,
+      "wav": "wav/XM28.wav",
+      "mp3": "mp3/XM28.mp3",
+      "asr_reference_text": "我还没下针呢是你自己先动了",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 51.5725,
+        "silence": [
+          51.29,
+          51.855
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 54.66,
+        "silence": [
+          54.425,
+          54.895
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    },
+    {
+      "id": "XM29",
+      "batch": "06-吴起",
+      "text": "你叫什么？坐这儿吧。",
+      "scene": "向后来进院子的战士招呼",
+      "delivery": "朴实，给人让位置，不像主持人",
+      "source_file": "jimeng-2026-11-06-4441.wav",
+      "source_start": 54.66,
+      "source_end": 56.82,
+      "duration": 2.16,
+      "wav": "wav/XM29.wav",
+      "mp3": "mp3/XM29.mp3",
+      "asr_reference_text": "你叫什么坐这儿吧",
+      "asr_is_not_human_transcript": true,
+      "left_boundary": {
+        "cut": 54.66,
+        "silence": [
+          54.425,
+          54.895
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "right_boundary": {
+        "cut": 56.82,
+        "silence": [
+          56.495,
+          57.145
+        ],
+        "method": "asr_plus_local_silence"
+      },
+      "source_samples_preserved": true,
+      "content_review": "aligned_to_script_not_listening_verified"
+    }
+  ],
+  "confirmed_extra_word": "XM01: 我能站得住"
+}
