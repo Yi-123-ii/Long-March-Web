@@ -22,12 +22,24 @@ body.legacy-v41 :is(.v47-spirit__heading h2, .v47-journey__copy h3) img {
   min-width: 0;
   height: auto;
 }
-body.legacy-v41 .v47-spirit__heading h2 > img:first-child {
-  width: 25%;
-  max-width: 232px;
+body.legacy-v41 .v47-lettering__opening {
+  display: flex;
+  align-items: flex-end;
+  width: 26%;
+  max-width: 240px;
+  min-width: 0;
+}
+body.legacy-v41 .v47-lettering__long-march {
+  width: 58%;
+  aspect-ratio: 2.05;
+  background-color: #3d503e;
+  mask: url("../images/home-title-brush-fast.webp") center / 114% auto no-repeat;
+}
+body.legacy-v41 .v47-lettering__opening > img {
+  width: 42%;
 }
 body.legacy-v41 .v47-spirit__heading h2 > img:last-child {
-  width: 75%;
+  width: 74%;
   max-width: 700px;
 }
 body.legacy-v41 .v47-journey__copy h3 { margin-bottom: 18px; }
@@ -118,7 +130,7 @@ body.legacy-v41 .v47-spirit__handoff > span { color: #904832; font: 400 30px/1 v
   body.legacy-v41 .v47-spirit__handoff > span { padding-top: 7px; font-size: 24px; }
 }
 @media (max-width: 560px) {
-  body.legacy-v41 .v47-spirit__heading h2 { flex-direction: column; align-items: flex-start; gap: 2px; }
-  body.legacy-v41 .v47-spirit__heading h2 > img:first-child { width: 38%; max-width: 156px; }
+  body.legacy-v41 .v47-spirit__heading h2 { flex-direction: column; align-items: flex-start; gap: 4px; }
+  body.legacy-v41 .v47-lettering__opening { width: 43%; max-width: 174px; }
   body.legacy-v41 .v47-spirit__heading h2 > img:last-child { width: 100%; max-width: 430px; }
 }
