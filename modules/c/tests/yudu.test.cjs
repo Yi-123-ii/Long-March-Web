@@ -29,7 +29,7 @@ test('replay preserves completed memories but makes a fresh branch',()=>{
 });
 
 test('all supplied movie segments keep source audio and lead into matching holds',()=>{
- const voiced=D.nodes.filter(n=>n.nativeAudio);assert.deepEqual(voiced.map(n=>n.id),['reach','introduce','liang-reminder','liang-home','boarding','xj-sleeve','xj-cover-fire-v035','xj-choice','xj-a-name','xj-a-introduce','xj-b-bag','xj-loss','zy-thread','zy-a-lusheng','zy-b-question','zy-b-advice','zy-b-paper','snow-concern','snow-shelter','grass-a-water','grass-dawn-call','wuqi-write-home']);
+ const voiced=D.nodes.filter(n=>n.nativeAudio);assert.deepEqual(voiced.map(n=>n.id),['reach','introduce','liang-reminder','liang-home','boarding','xj-sleeve','xj-cover-fire-v035','xj-choice','xj-a-name','xj-a-introduce','xj-b-bag','xj-loss','zy-thread','zy-a-lusheng','zy-b-question','zy-b-advice','zy-b-paper','t1-chenhe-route-v036','snow-concern','snow-shelter','grass-a-water','grass-dawn-call','wuqi-write-home']);
  for(const n of voiced){assert(n.duration>0);if(n.id==='xj-choice'){assert(!n.advanceOnEnd);assert(n.textAfterMovie);assert.equal(n.choices.length,2);}else if(['wuqi-write-home','xj-loss','zy-a-lusheng'].includes(n.id)){assert.equal(n.advanceOnEnd,false);assert.equal(n.hold,D.images[({'xj-loss':'xiang-loss-hold','wuqi-write-home':'chenhe-memory-hold','zy-a-lusheng':'lusheng-clears-table-hold'})[n.id]]);}else{assert(n.advanceOnEnd);if(n.hold)assert.equal(D.images[D.nodes.find(x=>x.id===n.next).scene],n.hold);}}
  const intro=D.nodes.find(n=>n.id==='introduce');assert(intro.text.includes('你呢'));assert.equal(intro.hold,D.images['intro-hold']);
  assert.equal(D.nodes.find(n=>n.id==='boarding').text,'');

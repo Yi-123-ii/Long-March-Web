@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 85063252,
-  "webBytes": 19676675,
+  "originalBytes": 89049887,
+  "webBytes": 20607844,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -477,6 +477,27 @@
       "sha256": "fc479086d65f2b27723d8b291f8f2cd767aa0ee33059725a11beb8ec9c5b414f",
       "originalBytes": 690870,
       "webBytes": 59364
+    },
+    {
+      "source": "assets/chapters/chenhe-chishui-route-v036.mp4",
+      "web": "assets/stream/chenhe-chishui-route-v036-b4499d168d.mp4",
+      "sha256": "4316a4ed28f7c0e0ef8925c9a94dc51d517713b002e68243130811d6f5217697",
+      "originalBytes": 2682055,
+      "webBytes": 824539
+    },
+    {
+      "source": "assets/chapters/chenhe-chishui-route-first-v036.png",
+      "web": "assets/stream/chenhe-chishui-route-first-v036-4768a4cbc4.webp",
+      "sha256": "77b84c2cbad4841499cae1ad85f82a5826f6d30ee8afbca3c00930d02045b7c6",
+      "originalBytes": 591327,
+      "webBytes": 51786
+    },
+    {
+      "source": "assets/chapters/chenhe-chishui-route-hold-v036.png",
+      "web": "assets/stream/chenhe-chishui-route-hold-v036-dba534d767.webp",
+      "sha256": "8307fd3843387a475097ebb5d3a4fe62d43ff5275515e774a3ba3d831627fff3",
+      "originalBytes": 713253,
+      "webBytes": 54844
     }
   ]
 }

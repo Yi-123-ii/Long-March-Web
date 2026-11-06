@@ -777,7 +777,7 @@
   {
     "id": "t1-arrive",
     "speaker": "旁白",
-    "text": "鞋底的泥还没刮干净，前头又在叫人出发。我踩着留下来的脚印绕过水坑，河边的木船还在往上装人。",
+    "text": "跟着队伍拐上小路，我又看见那截歪树根，昨天刚从这里走过。袜子还没晾干，贴在脚底磨得疼，我赶上陈禾，问了一句。",
     "scene": "chishui-trail",
     "next": "t1-familiar",
     "mode": "observation",
@@ -791,12 +791,81 @@
     "speaker": "旁白",
     "text": "",
     "scene": "chishui-trail",
-    "next": "t1-history",
+    "next": "t1-ask-route-v036",
+    "legacyNext": "t1-history",
     "mode": "observation",
     "routePlace": "赤水河一带",
     "routeDate": "1935年1—3月",
     "routeStep": 1,
     "chapter": "rivers"
+  },
+  {
+    "id": "t1-ask-route-v036",
+    "speaker": "小满",
+    "text": "",
+    "scene": "chenhe-chishui-route-first",
+    "mode": "thought",
+    "routePlace": "赤水河一带",
+    "routeDate": "1935年1—3月",
+    "routeStep": 1,
+    "chapter": "rivers",
+    "choices": [
+      {
+        "id": "ask-route",
+        "label": "刚从这边过来，怎么又往回走？",
+        "next": "t1-chenhe-route-v036"
+      }
+    ]
+  },
+  {
+    "id": "t1-chenhe-route-v036",
+    "speaker": "陈禾",
+    "text": "前头改了路。先跟上，别落在后头。",
+    "scene": "chenhe-chishui-route-first",
+    "next": "t1-shoulder-pack-v036",
+    "mode": "dialogue",
+    "routePlace": "赤水河一带",
+    "routeDate": "1935年1—3月",
+    "routeStep": 1,
+    "chapter": "rivers",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-chishui-route-v036.mp4",
+    "poster": "assets/chapters/chenhe-chishui-route-first-v036.png",
+    "hold": "assets/chapters/chenhe-chishui-route-hold-v036.png",
+    "duration": 4.096,
+    "captionPages": [
+      {
+        "text": "前头改了路。",
+        "start": 1.3,
+        "end": 2
+      },
+      {
+        "text": "先跟上，别落在后头。",
+        "start": 2.34,
+        "end": 3.65
+      }
+    ],
+    "title": "赤水山路上，陈禾回头招呼小满跟上",
+    "filmId": "CS-01",
+    "advanceOnEnd": true
+  },
+  {
+    "id": "t1-shoulder-pack-v036",
+    "speaker": "旁白",
+    "text": "到了河边，船还没回来，身旁的人已经靠着包坐下。我刚把一边肩带卸开，前头又动了，赶紧把它拽回肩上。",
+    "scene": "chenhe-chishui-route-hold",
+    "mode": "observation",
+    "routePlace": "赤水河一带",
+    "routeDate": "1935年1—3月",
+    "routeStep": 1,
+    "chapter": "rivers",
+    "choices": [
+      {
+        "id": "shoulder-pack",
+        "label": "背紧行装，跟上前面的人",
+        "next": "t1-history"
+      }
+    ]
   },
   {
     "id": "t1-history",
@@ -923,6 +992,8 @@
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
  const data={nodes,images:{
+   'chenhe-chishui-route-first':'assets/chapters/chenhe-chishui-route-first-v036.png',
+   'chenhe-chishui-route-hold':'assets/chapters/chenhe-chishui-route-hold-v036.png',
    'chenhe-xiang-cover-first':'assets/chapters/chenhe-xiang-cover-first-v035.png',
    'chenhe-xiang-cover-hold':'assets/chapters/chenhe-xiang-cover-hold-v035.png',
    'lusheng-clears-table-first':'assets/chapters/lusheng-clears-table-first-v034.png',
@@ -986,7 +1057,7 @@
     "ambient": "cold",
     "image": "jinsha-crossing",
     "ending": "又一条江，\n又一段路",
-    "summary": "从赤水到金沙江，地图上相连的路线隔着数月转战",
+    "summary": "中央红军在四渡赤水中灵活调动，逐步争取战场主动，随后转战金沙江",
     "button": "继续前往泸定桥"
   },
   {
@@ -1005,6 +1076,8 @@
   }
 ],
   alts:{
+   'chenhe-chishui-route-first':'陈禾背着铺盖走在赤水的泥泞山路上，回头望向小满',
+   'chenhe-chishui-route-hold':'陈禾侧身跟上队伍，湿泥路沿着山坡伸向远处',
    'chenhe-xiang-cover-first':'陈禾伏在湘江岸边的土坎后，朝河面望去',
    'chenhe-xiang-cover-hold':'陈禾仍伏在土坎后，回头看向小满',
    'lusheng-clears-table-first':'陆生坐在遵义借住屋里，双手扶着桌边的布包',
