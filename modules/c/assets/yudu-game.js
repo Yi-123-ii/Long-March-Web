@@ -184,7 +184,7 @@ function visual(n){
  video.onended=()=>{
   if(token!==epoch||movieDone)return;
   video.pause();
-  movieDone=true;voiceDone=true;lineInstant=true;revealText();
+  moviePrepared=false;movieDone=true;voiceDone=true;lineInstant=true;revealText();
   videoCorner.setEnabled(false);
   if(n.advanceOnEnd)$('story-screen').classList.remove('film-playing');$('voice-state').textContent='';
   updateNext();volumes();
@@ -194,7 +194,7 @@ function visual(n){
  video.ontimeupdate=()=>{if(token===epoch&&!movieDone&&n.mediaEnd&&video.currentTime>=n.mediaEnd)video.onended?.();};
  video.onerror=()=>{
   if(token!==epoch)return;
-  movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
+  moviePrepared=false;movieDone=true;video.hidden=true;image.hidden=false;$('story-screen').classList.remove('film-playing');
   $('film-loading').hidden=true;
   videoCorner.setEnabled(false);
   presentStill(n.poster||imagePath,n,token);

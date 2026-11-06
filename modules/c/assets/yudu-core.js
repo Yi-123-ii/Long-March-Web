@@ -40,10 +40,10 @@
   const nodes=new Map(schema.nodes.map(n=>[n.id,n])),choices={};let n=nodes.get(schema.start);
   for(const id of raw.path.slice(1)){
    if(!n||n.end)return null;
-   const choice=n.choices?.find(c=>c.next===id);
+   const choice=n.choices?.find(c=>c.next===id||c.legacyNext===id);
    if(n.choices&&!choice)return null;
    const next=choice?.next||n.routes?.find(r=>choices[r.choice]===r.equals)?.next||n.next;
-   if(next!==id&&n.legacyNext!==id)return null;
+   if(next!==id&&choice?.legacyNext!==id&&n.legacyNext!==id)return null;
    if(choice)choices[n.id]=choice.id;
    n=nodes.get(id);
   }
@@ -51,7 +51,7 @@
  }
  function upgradeProgress(data,saved){
   const revision=saved.storyRevision||1;
-  if(revision===data.storyRevision||revision<7||revision>11)return saved;
+  if(revision===data.storyRevision||revision<7||revision>12)return saved;
   const schema=revision>=10?data.legacyStories?.[revision]:data.legacyStory;
   function rewrite(mark){
    const decisions=legacyDecisions(schema,mark);if(!decisions)return null;
@@ -90,10 +90,11 @@
    }
    let state=fresh;
    for(const id of saved.path.slice(1)){
-    const n=current(data,state),choice=n.choices?.find(c=>c.next===id);
+    const n=current(data,state),choice=n.choices?.find(c=>c.next===id||c.legacyNext===id);
     if(n.choices&&!choice)return fresh;
     // Saved paths may include the former connection without the newly inserted action.
-    const candidate=!n.choices&&n.legacyNext===id?enterNode(data,state,id):advance(data,state,choice?.id);
+    const legacyNext=choice?.legacyNext||n.legacyNext;
+    const candidate=legacyNext===id?enterNode(data,state,id,choice):advance(data,state,choice?.id);
     if(candidate.node!==id||candidate===state)return fresh;
     state=candidate;
    }

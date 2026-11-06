@@ -55,5 +55,5 @@ test('Chen pauses for the reply and the same film continues with source-clock su
   assert.equal(C.back(D, answer).node, 'zy-b-question');
   assert.equal(T.pageFrame(paper.captionPages, paper.mediaStart).text, advice.text);
   assert.equal(T.pageFrame(paper.captionPages, paper.duration).text, paper.text);
-  assert.equal(D.storyRevision, 12);
+  assert.equal(D.storyRevision, 13);
 });

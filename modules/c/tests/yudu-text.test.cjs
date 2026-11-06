@@ -7,7 +7,7 @@ test('Wuqi memory film holds its two confirmed sentences and leaves both history
  assert.equal(T.pageFrame(n.captionPages,4.47).text,T.pageFrame(n.captionPages,3).text);assert.equal(T.pageFrame(n.captionPages,4.48).text,'');
  assert.equal(T.pageFrame(n.captionPages,5.7).text,'他自己老爱说。');assert(T.pageFrame(n.captionPages,n.duration).complete);
  assert.equal(P.speaker(n).name,'陈禾');assert.equal(n.advanceOnEnd,false);assert.equal(n.next,'wuqi-write-lusheng');
- assert.deepEqual(n.routes,[{choice:'xj-choice',equals:'luggage',next:'wuqi-write-letter'}]);assert.equal(D.storyRevision,12);
+ assert.deepEqual(n.routes,[{choice:'xj-choice',equals:'luggage',next:'wuqi-write-letter'}]);assert.equal(D.storyRevision,13);
  assert(!D.nodes.some(x=>(x.video||'').includes('6099')));
 });
 test('Chenhe dawn captions replace one sentence at a time and retain it through pauses',()=>{
@@ -38,7 +38,7 @@ test('Chenhe keeps the changed dialogue and does not ask for the lamp during the
  const paused='梁叔教过。到我手上……就是不听使唤。';assert.equal(at(4.6).text,paused);assert.equal(at(7.2).text,paused);
  assert(at(7.97).complete);assert.equal(at(0).text,'');assert.deepEqual(at(4),at(4));
  const light=D.nodes.find(x=>x.id===n.next);assert.equal(D.images[light.scene],n.hold);assert.equal(light.choices[0].id,'hold-light');
- assert(!light.text.includes('灯挪近点啊'));assert.equal(D.storyRevision,12);
+ assert(!light.text.includes('灯挪近点啊'));assert.equal(D.storyRevision,13);
 });
 test('Liang captions follow four spoken phrases and hold their text during pauses and replay',()=>{
  const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js');

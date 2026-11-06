@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 89049887,
-  "webBytes": 20607844,
+  "originalBytes": 99199576,
+  "webBytes": 22634110,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -498,6 +498,41 @@
       "sha256": "8307fd3843387a475097ebb5d3a4fe62d43ff5275515e774a3ba3d831627fff3",
       "originalBytes": 713253,
       "webBytes": 54844
+    },
+    {
+      "source": "assets/chapters/chenhe-mountain-pack-v037.mp4",
+      "web": "assets/stream/chenhe-mountain-pack-v037-0bd06baee6.mp4",
+      "sha256": "3cda8c8f2fae2e340918c344f75e6b535fb5ede05c0049f7732604139157faf8",
+      "originalBytes": 7378319,
+      "webBytes": 1811764
+    },
+    {
+      "source": "assets/chapters/chenhe-mountain-pack-first-v037.png",
+      "web": "assets/stream/chenhe-mountain-pack-first-v037-22f9f487cb.webp",
+      "sha256": "24b6471c0bf8969a200ad5a399ef0468ea4da6249eccbfa577a3ab5474329c43",
+      "originalBytes": 594882,
+      "webBytes": 52426
+    },
+    {
+      "source": "assets/chapters/chenhe-mountain-pack-question-v037.png",
+      "web": "assets/stream/chenhe-mountain-pack-question-v037-4846a9e64a.webp",
+      "sha256": "37da4a890261ec3911b2df2818f38453c5c55b9d84de27aa8dd6ba3f4a1ffd46",
+      "originalBytes": 711846,
+      "webBytes": 53396
+    },
+    {
+      "source": "assets/chapters/chenhe-mountain-pack-nickname-v037.png",
+      "web": "assets/stream/chenhe-mountain-pack-nickname-v037-ba8021e64c.webp",
+      "sha256": "f3b708f43908951e5096bbfadd8f93d74f75130f77f5d4354315d27ae4f4aebe",
+      "originalBytes": 767740,
+      "webBytes": 56682
+    },
+    {
+      "source": "assets/chapters/chenhe-mountain-pack-hold-v037.png",
+      "web": "assets/stream/chenhe-mountain-pack-hold-v037-3b11d4f700.webp",
+      "sha256": "71a72142abfadbff6d841c395edbf1f73d1c5c16f9c8a216442a41517e8771f5",
+      "originalBytes": 696902,
+      "webBytes": 51998
     }
   ]
 }

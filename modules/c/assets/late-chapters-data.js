@@ -7,7 +7,7 @@
     "id": "snow-arrive",
     "speaker": "旁白",
     "text": "陈禾把绳子绕上铺盖，刚一收紧，短的那头就缩了进去。我伸手替他压住，他只好松开绳子重捆。",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-first",
     "next": "snow-hold-pack",
     "mode": "observation",
     "chapter": "snow",
@@ -16,32 +16,48 @@
   {
     "id": "snow-hold-pack",
     "text": "你先压住，别松手。",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-first",
     "speaker": "陈禾",
     "mode": "dialogue",
-    "plannedFilm": "JS-03",
     "chapter": "snow",
-    "next": "snow-ask-home"
+    "next": "snow-ask-home",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-mountain-pack-v037.mp4",
+    "poster": "assets/chapters/chenhe-mountain-pack-first-v037.png",
+    "hold": "assets/chapters/chenhe-mountain-pack-question-v037.png",
+    "duration": 2.1,
+    "captionPages": [
+      {
+        "text": "你先压住，别松手。",
+        "start": 0.24,
+        "end": 1.4
+      }
+    ],
+    "title": "夹金山山脚，陈禾请小满压住铺盖",
+    "filmId": "JS-03",
+    "advanceOnEnd": true,
+    "mediaEnd": 2.1
   },
   {
     "id": "snow-ask-home",
     "text": "",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-question",
     "speaker": "小满",
     "mode": "dialogue",
     "chapter": "snow",
     "choices": [
       {
-        "id": "continue-snow-ask-home",
+        "id": "ask-pack-history",
         "label": "你以前也捆成这样？",
-        "next": "snow-ask-home-spoken-v034"
+        "next": "snow-ask-home-spoken-v034",
+        "legacyNext": "snow-pack"
       }
     ]
   },
   {
     "id": "snow-ask-home-spoken-v034",
     "chapter": "snow",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-question",
     "speaker": "小满",
     "mode": "dialogue",
     "text": "你以前也捆成这样？",
@@ -54,22 +70,50 @@
     "id": "snow-pack",
     "speaker": "陈禾",
     "text": "在家也得我娘替我重捆。她隔着院子就喊，阿禾，你又给捆歪了！",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-question",
     "next": "snow-nickname",
     "mode": "dialogue",
-    "chapter": "snow"
+    "chapter": "snow",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-mountain-pack-v037.mp4",
+    "poster": "assets/chapters/chenhe-mountain-pack-question-v037.png",
+    "hold": "assets/chapters/chenhe-mountain-pack-nickname-v037.png",
+    "duration": 7.1,
+    "captionPages": [
+      {
+        "text": "在家也得我娘替我重捆。",
+        "start": 2.63,
+        "end": 4.15
+      },
+      {
+        "text": "她隔着院子就喊，",
+        "start": 5.08,
+        "end": 5.9
+      },
+      {
+        "text": "阿禾，你又给捆歪了！",
+        "start": 6.18,
+        "end": 7.15
+      }
+    ],
+    "title": "陈禾说起在家时母亲帮他捆铺盖",
+    "filmId": "JS-03",
+    "advanceOnEnd": true,
+    "mediaStart": 2.1,
+    "mediaEnd": 9.2
   },
   {
     "id": "snow-nickname",
     "speaker": "心声",
     "mode": "thought",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-nickname",
     "text": "",
     "choices": [
       {
         "id": "ask-nickname",
         "label": "阿禾？",
-        "next": "snow-nickname-spoken-v034"
+        "next": "snow-nickname-spoken-v034",
+        "legacyNext": "snow-respond-name"
       }
     ],
     "chapter": "snow"
@@ -77,7 +121,7 @@
   {
     "id": "snow-nickname-spoken-v034",
     "chapter": "snow",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-nickname",
     "speaker": "小满",
     "mode": "dialogue",
     "text": "阿禾？",
@@ -89,23 +133,45 @@
   {
     "id": "snow-respond-name",
     "text": "哎。先别松，马上好了。",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-nickname",
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-ready"
+    "next": "snow-ready",
+    "nativeAudio": true,
+    "video": "assets/chapters/chenhe-mountain-pack-v037.mp4",
+    "poster": "assets/chapters/chenhe-mountain-pack-nickname-v037.png",
+    "hold": "assets/chapters/chenhe-mountain-pack-hold-v037.png",
+    "duration": 3.888,
+    "captionPages": [
+      {
+        "text": "哎。",
+        "start": 10.5,
+        "end": 10.73
+      },
+      {
+        "text": "先别松，马上好了。",
+        "start": 11.34,
+        "end": 12.57
+      }
+    ],
+    "title": "陈禾应了一声，低头继续理绳子",
+    "filmId": "JS-03",
+    "advanceOnEnd": true,
+    "mediaStart": 9.2
   },
   {
     "id": "snow-ready",
     "text": "",
-    "scene": "mountain-pack",
+    "scene": "chenhe-mountain-pack-hold",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
       {
         "id": "climb",
         "label": "背好铺盖，跟随队伍上山。",
-        "next": "snow-wet-v034"
+        "next": "snow-wet-v034",
+        "legacyNext": "snow-path"
       }
     ],
     "chapter": "snow"
@@ -1884,17 +1950,11 @@
   {
     "id": "snow-wet-v034",
     "chapter": "snow",
-    "scene": "snow-path",
+    "scene": "snow-wet-clothes",
     "speaker": "旁白",
     "mode": "observation",
-    "text": "走出林子时，后背已经汗湿，刚松开的领口一灌风，我又赶紧扣上。坡上没了树，前面的人绕过石头便看不全了，只剩几个帽顶在招手的人旁边慢慢移动。",
-    "choices": [
-      {
-        "id": "button-collar",
-        "label": "扣好领口，踩着前面的脚印走。",
-        "next": "snow-path"
-      }
-    ]
+    "text": "",
+    "next": "snow-wet-clothes-v037"
   },
   {
     "id": "grass-grain-v034",
@@ -1984,6 +2044,21 @@
         "next": "wuqi-back-yard"
       }
     ]
+  },
+  {
+    "id": "snow-wet-clothes-v037",
+    "speaker": "旁白",
+    "text": "走出林子时，后背已经汗湿，刚松开的领口一灌风，我又赶紧扣上。坡上没了树，前面的人绕过石头便看不全了，只剩几个帽顶在招手的人旁边慢慢移动。",
+    "scene": "snow-wet-clothes",
+    "mode": "observation",
+    "chapter": "snow",
+    "choices": [
+      {
+        "id": "follow-footprints",
+        "label": "扣好领口，踩着前面的脚印走",
+        "next": "snow-path"
+      }
+    ]
   }
 ];
  for(const [first,last,id]of[['snow-arrive','snow-end','snow'],['grass-arrive','grass-end','grass'],['north-arrive','north-end','north'],['wuqi-arrive','wuqi-end','wuqi'],['epilogue-arrive','journey-end','epilogue']]){let on=false;for(const n of nodes){if(n.id===first)on=true;if(on)n.chapter=id;if(n.id===last)on=false;}}
@@ -2071,5 +2146,7 @@
  }
  Object.assign(images,{'chenhe-memory-first':'assets/chapters/chenhe-memory-first-v021.png','chenhe-memory-hold':'assets/chapters/chenhe-memory-hold-v021.png'});
  Object.assign(alts,{'chenhe-memory-first':'白天的吴起借住屋内，陈禾坐在小满对面，桌上是新纸和短铅笔','chenhe-memory-hold':'同一张桌前，陈禾低头看向新纸，提醒小满记下梁叔家的枣树'});
+ Object.assign(images,{"chenhe-mountain-pack-first": "assets/chapters/chenhe-mountain-pack-first-v037.png", "chenhe-mountain-pack-question": "assets/chapters/chenhe-mountain-pack-question-v037.png", "chenhe-mountain-pack-nickname": "assets/chapters/chenhe-mountain-pack-nickname-v037.png", "chenhe-mountain-pack-hold": "assets/chapters/chenhe-mountain-pack-hold-v037.png", "snow-wet-clothes": "assets/chapters/snow-wet-clothes-v037.webp"});
+ Object.assign(alts,{"chenhe-mountain-pack-first": "陈禾在夹金山山脚低头整理铺盖绳", "chenhe-mountain-pack-question": "陈禾从铺盖上抬起头，看向帮忙的小满", "chenhe-mountain-pack-nickname": "陈禾说起母亲叫他的乳名，停下来看着小满", "chenhe-mountain-pack-hold": "陈禾低头收紧铺盖绳", "snow-wet-clothes": "背着铺盖的战士走出树林，沿着泥雪山路继续上行"});
  const data={nodes,images,alts,chapters};if(typeof module==='object'&&module.exports)module.exports=data;else root.LATE_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);

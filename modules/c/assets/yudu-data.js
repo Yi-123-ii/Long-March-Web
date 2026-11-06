@@ -356,7 +356,7 @@
     "next": "xj-arrive"
   }
 ];
- const data={version:1,storyRevision:12,title:'一只伸来的手',start:'river',nodes,
+ const data={version:1,storyRevision:13,title:'一只伸来的手',start:'river',nodes,
   memories:{"hand":"河岸上，你先握住了陈禾的手","help":"河岸上，你先回身扶了别人"},
   imageAlt:{'bridge-step':'小满低头看向脚下的浮桥木板，前方战士正往船边走','bridge-forward':'向前延伸的木浮桥与停靠的木船','bank-lookback':'小满回身看向后方已站稳的战士，岸边仍有等候的队伍','liang-reminder-first':'梁叔面向小满提醒收好行装，身后队伍走过浮桥','liang-reminder-hold':'梁叔收回目光，身后仍是于都浮桥与木船','liang-home-first':'同一位梁叔站在浮桥边，准备回答关于家乡的问题','liang-home-hold':'梁叔说起家里的枣树后露出浅笑','boarding-first':'小满低头望向浮桥，前方是停靠的木船','boarding-hold':'小满已经站在木船里，旁边的战士与对岸队伍仍在画面中'},
   images:{'bridge-step':'assets/yudu/bridge-step-v013.png','bridge-forward':'assets/yudu/bridge-forward-v013.png','bank-lookback':'assets/yudu/bank-lookback-v013.png','liang-reminder-first':'assets/yudu/liang-reminder-first-v013.png','liang-reminder-hold':'assets/yudu/liang-reminder-hold-v013.png','liang-home-first':'assets/yudu/liang-home-first-v013.png','liang-home-hold':'assets/yudu/liang-home-hold-v013.png','boarding-first':'assets/yudu/boarding-first-v013.png','boarding-hold':'assets/yudu/boarding-hold-v013.png',gathering:'assets/yudu/yudu-gathering-v011.png','intro-first':'assets/yudu/chenhe-intro-first-v012.png','intro-hold':'assets/yudu/chenhe-intro-hold-v012.png',reachStill:'assets/yudu/chenhe-reach-still-v011.png',portrait:'assets/yudu/chenhe-first-v011.png',hold:'assets/yudu/chenhe-hold-v011.png'},
@@ -364,7 +364,7 @@
   historicalNote:'1934年10月，中央红军在于都集结，分批渡过于都河，开始长征。本作从其中一支队伍的虚构经历展开；不将于都表述为所有红军队伍唯一的长征出发地。',
   sources:[{title:'红军长征集结地为何选择于都 · 中国共产党新闻网',url:'https://cpc.people.com.cn/n1/2024/1011/c443712-40336727.html'}]
  };
- data.legacyStories={10:typeof module==='object'&&module.exports?require('./story-legacy-v010.js'):root.MARCH_LEGACY_V010,11:typeof module==='object'&&module.exports?require('./story-legacy-v011.js'):root.MARCH_LEGACY_V011};
+ data.legacyStories={10:typeof module==='object'&&module.exports?require('./story-legacy-v010.js'):root.MARCH_LEGACY_V010,11:typeof module==='object'&&module.exports?require('./story-legacy-v011.js'):root.MARCH_LEGACY_V011,12:typeof module==='object'&&module.exports?require('./story-legacy-v012.js'):root.MARCH_LEGACY_V012};
  data.legacyStory=typeof module==='object'&&module.exports?require('./story-legacy-v009.js'):root.MARCH_LEGACY;
  const extra=typeof module==='object'&&module.exports?require('./chapters-data.js'):root.MARCH_CHAPTERS;
  for(const n of nodes)n.chapter='yudu';

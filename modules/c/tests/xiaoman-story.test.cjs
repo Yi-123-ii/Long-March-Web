@@ -10,7 +10,7 @@ test('all 32 revision 10 saves retain their five decisions and all station bookm
  for(const choice of ['hand','help'])for(const crossing of ['stretcher','luggage'])for(const snow of ['support','call'])for(const grass of ['stay','rescue'])for(const ending of ['sew','write']){
   const picks={choice,'xj-choice':crossing,'snow-choice':snow,'grass-choice':grass,'wuqi-choice':ending};
   const old=walk(prior,picks),current=C.restore(D,{...old,choices:{choice:'forged'}});
-  assert.equal(current.node,'journey-end');assert.equal(current.storyRevision,12);
+  assert.equal(current.node,'journey-end');assert.equal(current.storyRevision,13);
   for(const [id,pick]of Object.entries(picks))assert.equal(current.choices[id],pick);
   for(const ch of D.chapters){assert(C.canOpenChapter(D,current,ch.id));assert.equal(current.chapterProgress[ch.id].node,old.chapterProgress[ch.id].node);}
   assert(current.path.includes('xj-cover-v034'));assert(current.path.includes('north-pass-v034'));
@@ -45,6 +45,15 @@ test('29 unique player recordings are attached only to direct speech and chosen 
   for(const c of n.choices){const reply=by.get(c.next);if(reply.voice)assert.equal(reply.speaker,'小满');}
  }
  for(const n of D.nodes.filter(n=>n.mode==='observation'||n.mode==='fact'||n.mode==='thought'))assert(!n.voice);
+});
+test('the published revision 12 preview resumes across the two mountain questions and the former wet-clothes still',()=>{
+ const preview={...D,storyRevision:12,nodes:D.legacyStories[12].nodes};
+ const picks={choice:'help','xj-choice':'luggage','snow-choice':'call','grass-choice':'stay','wuqi-choice':'write'};
+ for(const target of ['snow-ask-home','snow-nickname','snow-wet-v034','t1-ask-route-v036','wuqi-write-home']){
+  const old=walk(preview,picks,target),restored=C.restore(D,old);
+  assert.equal(restored.node,target);assert.equal(restored.choices['xj-choice'],'luggage');
+  for(const chapter of D.chapters.filter(ch=>C.canOpenChapter(preview,old,ch.id)))assert(C.canOpenChapter(D,restored,chapter.id));
+ }
 });
 test('old movies remain present and ZY04 stays static while the completed letter movie waits for a player response',()=>{
  const at=id=>D.nodes.find(n=>n.id===id);
