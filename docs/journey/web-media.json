@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 71395696,
-  "webBytes": 16743856,
+  "originalBytes": 80334876,
+  "webBytes": 18637118,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -400,6 +400,62 @@
       "sha256": "6dbed5ebd6f7230b2c929056ec152d2c73a8856e778472689f4cc32553ff0f12",
       "originalBytes": 2125003,
       "webBytes": 714327
+    },
+    {
+      "source": "assets/chapters/lusheng-clears-table-v034.mp4",
+      "web": "assets/stream/lusheng-clears-table-v034-8e450b6962.mp4",
+      "sha256": "cc3a1025f9b4cd7fd52a34e6b48a67a19bb0d3848f26cbacc7da483d794e026f",
+      "originalBytes": 2212707,
+      "webBytes": 699315
+    },
+    {
+      "source": "assets/chapters/lusheng-clears-table-first-v034.png",
+      "web": "assets/stream/lusheng-clears-table-first-v034-75c1f61228.webp",
+      "sha256": "ffb4f3b1bc277934bfd2065a5ff8c2eefab7a0641a97c43be6178886176c4858",
+      "originalBytes": 530213,
+      "webBytes": 49836
+    },
+    {
+      "source": "assets/chapters/lusheng-clears-table-hold-v034.png",
+      "web": "assets/stream/lusheng-clears-table-hold-v034-45a3b53ec7.webp",
+      "sha256": "35fe0c87cd68a48e7c37bd6e5b21ca0d0628deb0f193e377fa014429dcc212ee",
+      "originalBytes": 637166,
+      "webBytes": 52672
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-v034.mp4",
+      "web": "assets/stream/chenhe-unfinished-letter-v034-71b05f4270.mp4",
+      "sha256": "5c6c7480c24f88a1bc43df61a2a75a050885a66fc969b6a9464a9c094fa79a9a",
+      "originalBytes": 2914814,
+      "webBytes": 874525
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-first-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-first-v034-7ba7257523.webp",
+      "sha256": "1217a63059aeab9fbf328a47caa1bec51cfccd238aca082dd0eb2da7013a1919",
+      "originalBytes": 580908,
+      "webBytes": 51716
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-pause-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-pause-v034-ed3135b919.webp",
+      "sha256": "753fc0ebd9d3360eda45cae42d43db8305e5cb64af97e958b6267553637868e9",
+      "originalBytes": 716549,
+      "webBytes": 58484
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-lamp-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-lamp-v034-b333782171.webp",
+      "sha256": "d201fe8cb5343b95d8346ab6845ec2d79e992cc0af34ddd2f12d12b9c56e74e9",
+      "originalBytes": 672745,
+      "webBytes": 53714
+    },
+    {
+      "source": "assets/chapters/chenhe-unfinished-letter-hold-v034.png",
+      "web": "assets/stream/chenhe-unfinished-letter-hold-v034-92b4465f45.webp",
+      "sha256": "4cb8ea9c2584a486585794f667464c69a7f823f9f09ba7fa6ba4f861e9d42c84",
+      "originalBytes": 674078,
+      "webBytes": 53000
     }
   ]
 }

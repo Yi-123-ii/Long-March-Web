@@ -54,5 +54,13 @@
  "assets/chapters/liang-handoff-v033.mp4": "assets/stream/liang-handoff-v033-cdedf3d5ed.mp4",
  "assets/chapters/xiang-loss-first-v033.png": "assets/stream/xiang-loss-first-v033-971a4271dd.webp",
  "assets/chapters/xiang-loss-hold-v033.png": "assets/stream/xiang-loss-hold-v033-3d336f2293.webp",
- "assets/chapters/xiang-loss-v033.mp4": "assets/stream/xiang-loss-v033-9bf36dd4dc.mp4"
+ "assets/chapters/xiang-loss-v033.mp4": "assets/stream/xiang-loss-v033-9bf36dd4dc.mp4",
+ "assets/chapters/lusheng-clears-table-v034.mp4": "assets/stream/lusheng-clears-table-v034-8e450b6962.mp4",
+ "assets/chapters/lusheng-clears-table-first-v034.png": "assets/stream/lusheng-clears-table-first-v034-75c1f61228.webp",
+ "assets/chapters/lusheng-clears-table-hold-v034.png": "assets/stream/lusheng-clears-table-hold-v034-45a3b53ec7.webp",
+ "assets/chapters/chenhe-unfinished-letter-v034.mp4": "assets/stream/chenhe-unfinished-letter-v034-71b05f4270.mp4",
+ "assets/chapters/chenhe-unfinished-letter-first-v034.png": "assets/stream/chenhe-unfinished-letter-first-v034-7ba7257523.webp",
+ "assets/chapters/chenhe-unfinished-letter-pause-v034.png": "assets/stream/chenhe-unfinished-letter-pause-v034-ed3135b919.webp",
+ "assets/chapters/chenhe-unfinished-letter-lamp-v034.png": "assets/stream/chenhe-unfinished-letter-lamp-v034-b333782171.webp",
+ "assets/chapters/chenhe-unfinished-letter-hold-v034.png": "assets/stream/chenhe-unfinished-letter-hold-v034-92b4465f45.webp"
 };if(typeof module==='object'&&module.exports)module.exports=media;else root.JourneyMedia=media;})(typeof window==='undefined'?globalThis:window);
