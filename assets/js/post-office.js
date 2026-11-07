@@ -243,13 +243,29 @@
       );
       const time = text("time", "", dateFormat.format(message.createdAt));
       time.dateTime = new Date(message.createdAt).toISOString();
+      const top = text("span", "lm-preview-top", "");
+      top.append(time);
+      const stamp = stampById(message.stampId);
+      if (stamp) {
+        const mark = text("span", "lm-stamp lm-preview-stamp", "");
+        const image = document.createElement("img");
+        image.src = stampImage(stamp.id);
+        image.alt = "";
+        image.width = 240;
+        image.height = 300;
+        image.loading = "lazy";
+        image.decoding = "async";
+        mark.append(image, text("span", "", stamp.name));
+        top.append(mark);
+        button.setAttribute("aria-label", button.getAttribute("aria-label") + "，邮票" + stamp.name);
+      }
       const excerpt = text("p", "lm-preview-body", message.body);
       const bottom = text("span", "lm-preview-bottom", "");
       bottom.append(
         text("span", "", message.nickname || "一位无名来信人"),
         text("span", "", "展开留言 ↗"),
       );
-      button.append(time, excerpt, bottom);
+      button.append(top, excerpt, bottom);
       button.addEventListener("click", () => openLetter(message.id));
       list.append(button);
     });

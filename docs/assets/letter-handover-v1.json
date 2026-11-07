@@ -1,0 +1,9 @@
+{
+  "asset": "assets/images/couriers/letter-handover-v1.webp",
+  "date": "2026-11-07",
+  "input": "用户提供的男女邮差共同交接一封信的双人插画",
+  "mode": "built-in image_gen transparent background edit",
+  "prompt": "Use case: background-extraction. Edit target: the attached illustration of a male and female postal courier jointly holding one envelope. Remove ONLY the off-white background and blank margins, making it truly transparent. Preserve both complete figures, the exact existing poses, faces, clothing, hats, satchels, shoes, envelope, watercolor brush texture and muted green and cream palette. Keep their shared envelope and hand positions unchanged. No new people or objects, no text, no checkerboard, no painted backdrop, no ground shadow. Return a tightly framed clean alpha cutout of both full-body couriers together, with a small safe transparent margin so no shoes, hats or bags are clipped.",
+  "webPreparation": "裁除透明余边，缩小为384×512，保留透明通道并编码为WebP",
+  "display": "仅替换写信区邮箱右侧的两张独立人物插画"
+}
