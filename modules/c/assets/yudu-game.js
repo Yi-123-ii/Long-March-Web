@@ -5,6 +5,7 @@ const $=id=>document.getElementById(id),resolve=p=>window.YuduPresentation.media
 let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true;
 let textPlan=T.plan(''),lineDone=true,lineInstant=false,lineShown=-1;
 let narrationSkipped=false;
+let narrationUnavailable=false;
 let navigating=false;
 let moviePrepared=false,introPending=false;
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -19,9 +20,8 @@ if(['map','story'].includes(resumeView)){
  }catch{/* The existing local save remains the fallback when session storage is unavailable. */}
  const cleanURL=new URL(location.href);cleanURL.searchParams.delete('resume');history.replaceState(null,'',cleanURL);
 }
-let ambientKey='river';
-const river=$('ambient-audio');river.src=resolve(D.ambiences.river);
-river.loop=true;river.preload='none';
+let ambientKey='';
+const soundscape=window.JourneySoundscape.create($('ambient-audio'),{onError:error=>{if(!active||paused)return;if(error?.name==='NotAllowedError'){setPaused(true);notice('点击“继续这一程”播放声音');}else notice('环境声暂未播放，可到“声音”检查音量后重新进入');}});
 const playerVoice=$('player-voice');
 playerVoice.preload='none';
 // The hold image is the last decoded movie frame, ready before the cut.
@@ -37,14 +37,14 @@ function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(state));}catc
 function nativeMovie(){return active&&C.current(D,state).nativeAudio===true&&!video.hidden;}
 function voiceSource(n){return n?.voice||n?.narration?.src;}
 function narrationActive(n){return !!n.narration&&(!n.nativeAudio||movieDone);}
-function volumes(){river.volume=nativeMovie()&&!movieDone?0:state.settings.ambient*((voiceSource(C.current(D,state))&&!voiceDone) ? .32 : .7);video.volume=state.settings.voice;playerVoice.volume=state.settings.voice;video.muted=false;for(const a of cuePlayers)a.volume=state.settings.ambient*.55;$('voice-volume').value=state.settings.voice*100;$('ambient-volume').value=state.settings.ambient*100;$('voice-value').textContent=Math.round(state.settings.voice*100)+'%';$('ambient-value').textContent=Math.round(state.settings.ambient*100)+'%';$('auto').textContent='自动：'+(state.settings.auto?'开':'关');$('auto').setAttribute('aria-pressed',state.settings.auto);}
+function volumes(){const speaking=state.settings.voice>0&&!!voiceSource(C.current(D,state))&&!voiceDone,filming=C.current(D,state).nativeAudio&&!movieDone;soundscape.setVolume(filming?0:state.settings.ambient*(speaking?.2:.7));video.volume=state.settings.voice;playerVoice.volume=state.settings.voice;video.muted=false;for(const a of cuePlayers)a.volume=filming?0:state.settings.ambient*(speaking?.12:.3);$('voice-volume').value=state.settings.voice*100;$('ambient-volume').value=state.settings.ambient*100;$('voice-value').textContent=Math.round(state.settings.voice*100)+'%';$('ambient-value').textContent=Math.round(state.settings.ambient*100)+'%';$('auto').textContent='自动：'+(state.settings.auto?'开':'关');$('auto').setAttribute('aria-pressed',state.settings.auto);}
 function cancelCues(){for(const t of cueTimers)clearTimeout(t);cueTimers.clear();for(const a of cuePlayers){a.pause();a.src='';}cuePlayers.clear();}
 function cue(kind){
- cancelCues();if(!kind||paused)return;
+ cancelCues();if(!kind||paused||C.current(D,state).nativeAudio&&!movieDone)return;
  const moments=kind==='stumble'?[0,260,840]:[0,640,1280,1970];
- for(const ms of moments){const timer=setTimeout(()=>{cueTimers.delete(timer);if(!active||paused)return;const a=new Audio(resolve('assets/audio/yudu/wood-step.ogg'));cuePlayers.add(a);a.volume=state.settings.ambient*.55;a.playbackRate=kind==='stumble'?.84:1+(ms%3)*.025;a.onended=()=>cuePlayers.delete(a);a.onerror=()=>cuePlayers.delete(a);a.play().catch(()=>cuePlayers.delete(a));},ms);cueTimers.add(timer);}
+ for(const ms of moments){const timer=setTimeout(()=>{cueTimers.delete(timer);if(!active||paused)return;const a=new Audio(resolve('assets/audio/yudu/wood-step.ogg'));cuePlayers.add(a);a.volume=state.settings.ambient*(voiceSource(C.current(D,state))&&!voiceDone?.12:.3);a.playbackRate=kind==='stumble'?.84:1+(ms%3)*.025;a.onended=()=>cuePlayers.delete(a);a.onerror=()=>cuePlayers.delete(a);a.play().catch(()=>cuePlayers.delete(a));},ms);cueTimers.add(timer);}
 }
-function playRiver(){if(active&&!paused){const requestEpoch=epoch,source=river.src;river.play().catch(e=>{if(e.name==='AbortError'||!active||paused||requestEpoch!==epoch||source!==river.src)return;notice('环境声暂未播放，可到“声音”检查音量后重新进入');});}}
+function playRiver(){if(active&&!paused)soundscape.play();}
 function mapStatus(options){
  const buttons=$('chapter-buttons');buttons.replaceChildren();
  for(const c of D.chapters){const allowed=C.canOpenChapter(D,state,c.id),button=document.createElement('button');
@@ -69,7 +69,8 @@ function chapterView(n){
  $('scene-place').textContent=n.routePlace||ch.location;$('scene-date').textContent=n.routeDate||ch.date;
  $('historical-tab').textContent=n.historicalTab||'';$('historical-tab').hidden=!n.historicalTab;
  $('route-progress').hidden=ch.id!=='rivers';$('route-chishui').classList.toggle('passed',(n.routeStep||1)>=1);$('route-jinsha').classList.toggle('passed',(n.routeStep||1)>=2);
- if(ambientKey!==ch.ambient){ambientKey=ch.ambient;river.pause();river.src=resolve(D.ambiences[ambientKey]);river.load();playRiver();}
+ const nextAmbient=window.JourneySoundscape.ambienceFor(n,ch);
+ if(ambientKey!==nextAmbient){ambientKey=nextAmbient;soundscape.select(resolve(window.JourneySoundscape.files[ambientKey]||D.ambiences[ambientKey]));playRiver();}
 }
 function memoryText(){
  const result=[D.memories[state.choices.choice]].filter(Boolean);
@@ -93,7 +94,7 @@ function setPaused(value){
  $('story-screen').classList.toggle('is-paused',value);
  if(value&&!$('pause-overlay').hidden)$('resume').focus({preventScroll:true});
  else if(!value&&document.activeElement===$('resume'))$('pause').focus({preventScroll:true});
- if(value){river.pause();video.pause();playerVoice.pause();cancelCues();}
+ if(value){soundscape.pause();video.pause();playerVoice.pause();cancelCues();}
  else{lastTick=performance.now();playRiver();playMovie();playVoice();}
 }
 function playMovie(){
@@ -123,7 +124,7 @@ function revealText(){
  if(n.textAfterMovie&&!movieDone){$('line').hidden=true;$('choices').hidden=true;lineDone=false;return;}
  const narrating=narrationActive(n);
  const progress=narrating?T.cueTime(textPlan,playerVoice.currentTime,n.narration.cues):n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):n.voice?(n.voiceCues?T.cueTime(textPlan,playerVoice.currentTime,n.voiceCues):T.mediaTime(textPlan,playerVoice.currentTime,0,n.voiceDuration)):elapsed;
- const f=narrating&&n.narration.pages?T.pageFrame(n.narration.pages,narrationSkipped?Infinity:playerVoice.currentTime,lineInstant||reduceMotion):!narrating&&n.nativeAudio&&n.captionPages&&(moviePrepared||!movieDone)?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
+ const f=narrationUnavailable?T.frame(textPlan,textPlan.duration,true):narrating&&n.narration.pages?T.pageFrame(n.narration.pages,narrationSkipped?Infinity:playerVoice.currentTime,lineInstant||reduceMotion):!narrating&&n.nativeAudio&&n.captionPages&&(moviePrepared||!movieDone)?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
  const frameKey=f.key??f.shown;
  if(frameKey!==lineShown){$('line').textContent=f.text;lineShown=frameKey;}
  const changed=lineDone!==f.complete;lineDone=f.complete;
@@ -225,7 +226,7 @@ function speak(n){
  if(!voiceSource(n))return;
  const token=epoch;playerVoice.src=resolve(voiceSource(n));playerVoice.volume=state.settings.voice;
  playerVoice.onended=()=>{if(token!==epoch)return;voiceDone=true;lineInstant=true;revealText();updateNext();volumes();if(n.advanceOnEnd&&(!n.nativeAudio||movieDone))go(undefined,true);};
- playerVoice.onerror=()=>{if(token!==epoch||voiceDone)return;voiceDone=true;lineInstant=true;revealText();updateNext();volumes();notice('这句配音暂未载入，可继续阅读文字');};
+ playerVoice.onerror=()=>{if(token!==epoch||voiceDone)return;voiceDone=true;narrationUnavailable=!!n.narration?.pages;lineInstant=true;revealText();updateNext();volumes();notice('这句配音暂未载入，可继续阅读文字');};
  playerVoice.ontimeupdate=()=>{if(token===epoch)revealText();};
  volumes();updateNext();playVoice();
 }
@@ -235,7 +236,7 @@ function render(){
   const n=C.current(D,state);if(n.text||n.choices||n.nativeAudio||n.end||n.checkpoint)break;
   const next=C.advance(D,state);if(next===state)break;state=next;
  }
- epoch++;elapsed=0;lastTick=performance.now();stopVoice();narrationSkipped=false;
+ epoch++;elapsed=0;lastTick=performance.now();stopVoice();narrationSkipped=false;narrationUnavailable=false;
  const n=C.current(D,state);
  // A reply keeps the question on screen; action-only choices keep the last visible context.
  const previous=!n.text&&n.choices?[...state.path].slice(0,-1).reverse().map(id=>D.nodes.find(x=>x.id===id)).find(x=>x?.text&&x.chapter===n.chapter&&!x.checkpoint&&!x.end):null;
@@ -278,7 +279,7 @@ function go(choiceId,force=false){
 async function enter(restart=false,withAlbum=true){
  if(navigating||window.JourneyFX.busy)return;
  if(restart)state=C.restart(D,state);
- paused=true;river.pause();video.pause();cancelCues();
+ paused=true;soundscape.pause();video.pause();cancelCues();
  const ch=C.chapter(D,state),n=C.current(D,state),picture=resolve(D.images[n.scene]||D.images[ch.image]);
  introPending=withAlbum&&ch.id==='yudu'&&n.id===ch.start;
  if(introPending)window.JourneyIntro.prepare();
@@ -295,7 +296,7 @@ async function enter(restart=false,withAlbum=true){
 }
 
 function leave(focus=true){
- active=false;paused=false;epoch++;stopVoice();river.pause();river.currentTime=0;video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
+ active=false;paused=false;epoch++;stopVoice();soundscape.stop();video.pause();video.controls=false;video.onended=null;video.onerror=null;video.onloadedmetadata=null;video.onplaying=null;
  $('map-screen').hidden=false;$('story-screen').hidden=true;document.body.style.overflow='';save();mapStatus({keepCamera:!focus});
  // Hiding the map screen also hides the hero, so the browser clamps the document scroll to zero.
  // Restore the actual map before either the next route animation or manual return.
@@ -332,7 +333,7 @@ $('about-open').onclick=()=>openDialog($('about-dialog'));$('history-fact').text
 for(const source of D.sources){const a=document.createElement('a');a.textContent=source.title;a.href=source.url;a.target='_blank';a.rel='noopener';$('source-links').append(a);}
 for(const [key,id]of [['voice','voice-volume'],['ambient','ambient-volume']])$(id).addEventListener('input',e=>{state.settings[key]=Number(e.target.value)/100;volumes();save();});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&active){modalResume=false;setPaused(true);}});
-window.addEventListener('pagehide',()=>{if(active){river.pause();video.pause();playerVoice.pause();cancelCues();save();}});
+window.addEventListener('pagehide',()=>{if(active){soundscape.pause();video.pause();playerVoice.pause();cancelCues();save();}});
 window.addEventListener('journey:leaving-site',()=>{
  save();
  try{sessionStorage.setItem(window.JourneyReturn.KEY,JSON.stringify({version:1,view:active?'story':'map',state}));}catch{}

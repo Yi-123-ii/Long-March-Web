@@ -1128,7 +1128,7 @@
   {
     "id": "grass-a-water",
     "speaker": "陆生",
-    "text": "放下吧，我想喝了叫你。",
+    "text": "你一直端着？放下吧，我想喝了叫你。",
     "scene": "lusheng-night-first",
     "next": "grass-a-return",
     "mode": "dialogue",
@@ -1143,19 +1143,60 @@
     "chapter": "grass",
     "captionCues": [
       {
+        "text": "你一直端着？",
+        "start": 1.38,
+        "end": 2.37
+      },
+      {
         "text": "放下吧，",
-        "start": 1.68,
-        "end": 2.5
+        "start": 3.78,
+        "end": 4.5
       },
       {
         "text": "我想喝了",
-        "start": 3.47,
-        "end": 4.45
+        "start": 5.02,
+        "end": 5.58
       },
       {
         "text": "叫你。",
-        "start": 5.14,
-        "end": 5.9
+        "start": 5.58,
+        "end": 5.92
+      }
+    ],
+    "captionPages": [
+      {
+        "text": "你一直端着？",
+        "start": 0,
+        "end": 3.65,
+        "cues": [
+          {
+            "text": "你一直端着？",
+            "start": 1.38,
+            "end": 2.37
+          }
+        ]
+      },
+      {
+        "text": "放下吧，我想喝了叫你。",
+        "start": 3.65,
+        "end": 6.08,
+        "cues": [
+          {
+            "text": "放下吧，",
+            "start": 3.78,
+            "end": 4.5
+          },
+          {
+            "text": "我想喝了",
+            "start": 5.02,
+            "end": 5.58
+          },
+          {
+            "text": "叫你。",
+            "start": 5.58,
+            "end": 5.92
+          }
+        ]
       }
     ]
   },
@@ -3746,7 +3787,7 @@
   {
     "id": "wuqi-unpack-v034",
     "chapter": "wuqi",
-    "scene": "needle-pouch",
+    "scene": "wuqi-unpack-v051",
     "speaker": "旁白",
     "mode": "observation",
     "text": "我把行装放到膝上，解开绳子，干泥便落了一点在手背上。针线包还藏在里层，外头的布已经磨薄了，得用手托着才能拿出来。",
@@ -3826,7 +3867,7 @@
  for(const [first,last,id]of[['snow-arrive','snow-end','snow'],['grass-arrive','grass-end','grass'],['north-arrive','north-end','north'],['wuqi-arrive','wuqi-end','wuqi'],['epilogue-arrive','journey-end','epilogue']]){let on=false;for(const n of nodes){if(n.id===first)on=true;if(on)n.chapter=id;if(n.id===last)on=false;}}
  const names=['spare-cloth','mountain-pack','snow-path','grass-camp','grass-meal','lusheng-grass','chenhe-grass','grass-path','north-trail','wuqi-arrival','chenhe-rest','lusheng-wuqi','memory-page','new-cuff','old-letter-room','newcomer-later'];
  const images=Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v015.webp']));
- Object.assign(images,{'lusheng-river':'assets/chapters/lusheng-river-v015.webp','lusheng-lamp':'assets/chapters/lusheng-lamp-v015.webp','atlas-1936':'assets/chapters/epilogue-atlas-v050.webp'});
+ Object.assign(images,{'lusheng-river':'assets/chapters/lusheng-river-v015.webp','lusheng-lamp':'assets/chapters/lusheng-lamp-v015.webp','atlas-1936':'assets/chapters/epilogue-atlas-v050.webp','wuqi-unpack-v051':'assets/chapters/wuqi-unpack-v051.webp'});
  for(const name of ['snow-concern','snow-shelter'])for(const phase of ['first','hold'])images[name+'-'+phase]='assets/chapters/'+name+'-'+phase+'-v015.png';
  const chapters=[
   {
@@ -3935,5 +3976,6 @@
   'chenhe-wuqi-sew-first':'吴起借住屋的窗边，陈禾坐在桌前等小满补袖口',
   'chenhe-wuqi-sew-pause':'陈禾在桌前停下来，等小满回话'
  });
+ alts['wuqi-unpack-v051']='小满在吴起院落低头解开膝上的行囊，针线包仍藏在内层粗布中';
  const data={nodes,images,alts,chapters};if(typeof module==='object'&&module.exports)module.exports=data;else root.LATE_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);

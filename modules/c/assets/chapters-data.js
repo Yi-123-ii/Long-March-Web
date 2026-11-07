@@ -1049,7 +1049,7 @@
     "id": "zy-b-letter",
     "speaker": "心声",
     "text": "陈禾松开我的袖口，我把怀里的旧信拿出来，放到他面前。裹了这么久，信纸展开后还是皱的，折痕处已经有些起毛。",
-    "scene": "keepsakes",
+    "scene": "chenhe-unfinished-letter-first",
     "next": "zy-b-offer",
     "mode": "thought",
     "document": "娘，等有了落脚的地方……",
@@ -1079,7 +1079,7 @@
   {
     "id": "zy-b-offer",
     "text": "",
-    "scene": "keepsakes",
+    "scene": "chenhe-unfinished-letter-first",
     "speaker": "心声",
     "mode": "thought",
     "document": "娘，等有了落脚的地方……",
@@ -1095,7 +1095,7 @@
   {
     "id": "zy-b-offer-spoken-v034",
     "chapter": "zunyi",
-    "scene": "keepsakes",
+    "scene": "chenhe-unfinished-letter-first",
     "speaker": "小满",
     "mode": "dialogue",
     "text": "这是梁叔没写完的家书，要不我替他接着写？",
@@ -1432,7 +1432,7 @@
     "id": "t1-dry",
     "speaker": "心声",
     "text": "",
-    "scene": "needle-pouch",
+    "scene": "jinsha-pack-v051",
     "mode": "thought",
     "routePlace": "金沙江",
     "routeDate": "1935年5月上旬",
@@ -1450,7 +1450,7 @@
     "id": "t1-letter",
     "speaker": "心声",
     "text": "旧信裹在更里面，没沾着水。我沿着折痕展开一点，纸已经磨薄了，便没再往下翻。",
-    "scene": "keepsakes",
+    "scene": "jinsha-pack-v051",
     "next": "t1-go",
     "mode": "thought",
     "routePlace": "金沙江",
@@ -1483,7 +1483,7 @@
     "id": "t1-go",
     "speaker": "心声",
     "text": "",
-    "scene": "jinsha-crossing",
+    "scene": "jinsha-pack-v051",
     "mode": "thought",
     "routePlace": "金沙江",
     "routeDate": "1935年5月上旬",
@@ -1864,7 +1864,7 @@
   let within=false;for(const n of nodes){if(n.id===first)within=true;if(within)n.chapter=id;if(n.id===last)within=false;}
  }
  const names=['xiang-bank','liang-sewing','lusheng-river','keepsakes','needle-pouch','chenhe-wait','zunyi-lamp','lusheng-lamp','sleeve-three','sleeve-mended','chishui-trail','jinsha-crossing','luding-bridge','luding-bank'];
- const data={nodes,images:{'liang-handoff-first':'assets/chapters/liang-handoff-first-v033.png','liang-handoff-hold':'assets/chapters/liang-handoff-hold-v033.png','xiang-loss-first':'assets/chapters/xiang-loss-first-v033.png','xiang-loss-hold':'assets/chapters/xiang-loss-hold-v033.png',...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'xiang-groups-hold':'assets/chapters/xiang-groups-hold-v032.png','lusheng-stretcher-first':'assets/chapters/lusheng-stretcher-first-v032.png','lusheng-river-pause':'assets/chapters/lusheng-stretcher-pause-v032.png','lusheng-river-hold':'assets/chapters/lusheng-stretcher-hold-v032.png','liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
+ const data={nodes,images:{'jinsha-pack-v051':'assets/chapters/jinsha-pack-v051.webp','liang-handoff-first':'assets/chapters/liang-handoff-first-v033.png','liang-handoff-hold':'assets/chapters/liang-handoff-hold-v033.png','xiang-loss-first':'assets/chapters/xiang-loss-first-v033.png','xiang-loss-hold':'assets/chapters/xiang-loss-hold-v033.png',...Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v014.webp'])),'xiang-groups-hold':'assets/chapters/xiang-groups-hold-v032.png','lusheng-stretcher-first':'assets/chapters/lusheng-stretcher-first-v032.png','lusheng-river-pause':'assets/chapters/lusheng-stretcher-pause-v032.png','lusheng-river-hold':'assets/chapters/lusheng-stretcher-hold-v032.png','liang-sewing':'assets/chapters/liang-sewing-first-v018.png','liang-sewing-hold':'assets/chapters/liang-sewing-hold-v018.png','zunyi-lamp':'assets/chapters/chenhe-sewing-first-v019.png','chenhe-sewing-hold':'assets/chapters/chenhe-sewing-hold-v019.png'},
   chapters:[
   {
     "id": "yudu",
@@ -1937,7 +1937,7 @@
     "button": "翻开夹金山这一页"
   }
 ],
-  alts:{'liang-handoff-first':'梁叔托着旧布行装在湘江渡口旁临时请小满帮忙','liang-handoff-hold':'小满接住梁叔的行装，梁叔看向身侧的队伍','xiang-loss-first':'转运同志在湘江另一侧蹲到小满面前，身后有人走过','xiang-loss-hold':'同一位转运同志说完后低下视线，仍在石头旁停着','xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','xiang-groups-hold':'湘江渡口的担架队经过身前，岸边战士仍在接运行装','lusheng-stretcher-first':'陆生侧靠在湘江岸边尚未抬起的担架上，抬手提醒小满挽好袖口','lusheng-river-pause':'陆生说完袖口提醒，仍靠在同一副担架上等候','lusheng-river-hold':'陆生在同一副担架上抬眼看向小满，等待回答名字','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
+  alts:{'jinsha-pack-v051':'小满坐在金沙江渡船内低头查看膝上的包裹，针线包仍裹在干布中，船舷外是江水与峡谷','liang-handoff-first':'梁叔托着旧布行装在湘江渡口旁临时请小满帮忙','liang-handoff-hold':'小满接住梁叔的行装，梁叔看向身侧的队伍','xiang-loss-first':'转运同志在湘江另一侧蹲到小满面前，身后有人走过','xiang-loss-hold':'同一位转运同志说完后低下视线，仍在石头旁停着','xiang-bank':'湿冷的湘江岸边，队伍与转运伤员的同志在等候过江','liang-sewing':'梁叔在湘江岸边替小满补袖口，背后战士继续走过','liang-sewing-hold':'梁叔补好三针后低下头，仍是同一片湘江岸边和过往的战士','xiang-groups-hold':'湘江渡口的担架队经过身前，岸边战士仍在接运行装','lusheng-stretcher-first':'陆生侧靠在湘江岸边尚未抬起的担架上，抬手提醒小满挽好袖口','lusheng-river-pause':'陆生说完袖口提醒，仍靠在同一副担架上等候','lusheng-river-hold':'陆生在同一副担架上抬眼看向小满，等待回答名字','keepsakes':'受潮的未完成家书与梁叔的旧针线包','needle-pouch':'收进干布中的同一个旧针线包','chenhe-wait':'陈禾在渐暗的湘江岸边陪小满等人','zunyi-lamp':'陈禾在遵义借住屋里低头缝衣，油灯照着桌面和小满伸出的袖口','chenhe-sewing-hold':'陈禾在同一张桌前抬起头请小满挪近灯，手里仍捏着袖口','lusheng-lamp':'同一位陆生坐稳在遵义屋里，灯在身旁照着','sleeve-three':'破开的灰布袖口上留下三针旧线','sleeve-mended':'同一片灰布袖口上旧线仍在，旁边接上新的补线','chishui-trail':'雨后的赤水河谷泥路，背着铺盖的战士向前行进','jinsha-crossing':'金沙江河谷与小木船，队伍在江边等候','luding-bridge':'战斗后已铺木板的泸定铁索桥通路，桥下是大渡河','luding-bank':'泸定桥边，照应后续队伍的战士留出通道'}
  };
  Object.assign(data.images,{"chenhe-chishui-route-first": "assets/chapters/chenhe-chishui-route-first-v036.png", "chenhe-chishui-route-hold": "assets/chapters/chenhe-chishui-route-hold-v036.png", "chenhe-xiang-cover-first": "assets/chapters/chenhe-xiang-cover-first-v035.png", "chenhe-xiang-cover-hold": "assets/chapters/chenhe-xiang-cover-hold-v035.png", "lusheng-clears-table-first": "assets/chapters/lusheng-clears-table-first-v034.png", "lusheng-clears-table-hold": "assets/chapters/lusheng-clears-table-hold-v034.png", "chenhe-unfinished-letter-first": "assets/chapters/chenhe-unfinished-letter-first-v034.png", "chenhe-unfinished-letter-pause": "assets/chapters/chenhe-unfinished-letter-pause-v034.png", "chenhe-unfinished-letter-lamp": "assets/chapters/chenhe-unfinished-letter-lamp-v034.png", "chenhe-unfinished-letter-hold": "assets/chapters/chenhe-unfinished-letter-hold-v034.png"});
  Object.assign(data.alts,{"chenhe-chishui-route-first": "陈禾背着铺盖走在赤水的泥泞山路上，回头望向小满", "chenhe-chishui-route-hold": "陈禾侧身跟上队伍，湿泥路沿着山坡伸向远处", "chenhe-xiang-cover-first": "陈禾伏在湘江岸边的土坎后，朝河面望去", "chenhe-xiang-cover-hold": "陈禾仍伏在土坎后，回头看向小满", "lusheng-clears-table-first": "陆生坐在遵义借住屋里，双手扶着桌边的布包", "lusheng-clears-table-hold": "陆生把包移到脚边，低头看向被挡住的腿", "chenhe-unfinished-letter-first": "陈禾坐在遵义借住屋的油灯旁，桌前放着梁叔的旧信", "chenhe-unfinished-letter-pause": "陈禾问完后坐在灯旁，等小满回答", "chenhe-unfinished-letter-lamp": "陈禾伸手挪动油灯，旧信仍放在桌上", "chenhe-unfinished-letter-hold": "陈禾说完后扶着油灯，旧信仍放在桌上"});
