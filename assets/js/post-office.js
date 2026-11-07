@@ -43,6 +43,7 @@
     node.classList.add("lm-stationery");
     if (paperById(id)) node.dataset.paper = id;
     else delete node.dataset.paper;
+    node.toggleAttribute("data-paper-illustrated", Boolean(paperById(id)?.ornament));
   }
   stamps.forEach(stamp => {
     const label = text("label", "lm-stamp-option", "");
@@ -367,10 +368,15 @@
   function beginPosting() {
     stopPacking();
     delivery.classList.remove("is-packing");
-    delivery.dataset.phase = "posting";
-    delivery.classList.add("is-delivering");
+    delivery.dataset.phase = "handoff";
     $("#delivery-title").textContent = deliveryCopy[3];
-    deliveryTimer = setTimeout(finishDelivery, 3100);
+    // Keep both scenes mounted in one fixed frame while the mailbox fades in.
+    deliveryTimer = setTimeout(() => {
+      delivery.dataset.phase = "posting";
+      delivery.classList.add("is-delivering");
+      // Allow the five-second posting motion to finish, then hold its result.
+      deliveryTimer = setTimeout(finishDelivery, 5800);
+    }, 1000);
   }
   function startPacking() {
     stopPacking();
@@ -379,16 +385,15 @@
     const paper = $(".lm-packing-paper"), envelope = $(".lm-packing-envelope");
     const pocket = $(".lm-packing-pocket"), flap = $(".lm-packing-flap");
     const seal = $(".lm-packing-seal"), stamp = $("#packed-stamp");
-    const duration = 7.65; // 封口完成后稍作停留，再进入信箱投递。
+    const duration = 8.4; // 贴票封缄后停留，再平滑切换到信箱。
     let time = 0, previous = 0;
     const ease = (start, end) => {
       const value = Math.max(0, Math.min(1, (time - start) / (end - start)));
       return value * value * (3 - 2 * value);
     };
     const resize = () => {
-      const scale = Math.min(art.clientWidth / 580, 1);
+      const scale = Math.min(art.clientWidth / 580, art.clientHeight / 440, 1);
       world.style.transform = "translateX(-50%) scale(" + scale + ")";
-      art.style.height = 440 * scale + "px";
     };
     const draw = () => {
       const upper = ease(.55, 1.85), lower = ease(2.05, 3.35);
@@ -460,6 +465,7 @@
       $('[data-fold-panel="' + part + '"]').replaceChildren(face, text("i", "lm-packing-reverse", ""));
     });
     $(".lm-packing-paper").dataset.paper = paperId;
+    $(".lm-packing-paper").toggleAttribute("data-paper-illustrated", Boolean(paperById(paperId)?.ornament));
     $("#packed-stamp").src = stampImage(stampId);
     document.querySelectorAll(".lm-postbox-stamp").forEach(image => image.src = stampImage(stampId));
     prepare.close();

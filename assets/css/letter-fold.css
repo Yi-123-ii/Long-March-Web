@@ -29,3 +29,22 @@
 .lm-packing-pocket { position:absolute; z-index:3; left:158px; top:270px; width:264px; height:132px; box-sizing:border-box; background:linear-gradient(160deg,#e8d5af,#d9c296); clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%); border:1px solid #b9a17a; opacity:0; }
 .lm-packing-stamp { position:absolute; z-index:5; left:375px; top:318px; width:29px; height:36px; border:2px dotted #fffbed; opacity:0; }
 .lm-packing-seal { position:absolute; z-index:5; left:278px; top:337px; width:24px; height:24px; display:grid; place-items:center; border-radius:50%; border:2px solid #af7463; background:#945046; color:#f3e0c4; box-shadow:0 1px 3px #57332c30; font:12px SimSun,serif; opacity:0; }
+
+/* One stable frame prevents the modal and its captions jumping between scenes. */
+#delivery-dialog .lm-delivery-scene { --delivery-stage-height: min(382px, calc(100dvh - var(--delivery-reserve, 350px)), calc((100vw - 88px) * .758621)); position: relative; height: max(110px, var(--delivery-stage-height)); isolation: isolate; }
+#delivery-dialog:has([data-reading-return]:not([hidden])) { --delivery-reserve: 380px; }
+#delivery-dialog .lm-delivery-scene > .lm-packing-art { display: block; position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 1; visibility: visible; transition: opacity .9s ease, visibility 0s; }
+#delivery-dialog .lm-delivery-scene > .lm-delivery-art { display: flex; position: absolute; inset: 0; height: 100%; margin: 0; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility 0s .9s; }
+#delivery-dialog:not([data-phase="packing"]) .lm-delivery-scene > .lm-packing-art { opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility 0s .9s; }
+#delivery-dialog:not([data-phase="packing"]) .lm-delivery-scene > .lm-delivery-art { opacity: 1; visibility: visible; transition: opacity .9s ease, visibility 0s; }
+#delivery-dialog .lm-delivery-scene .lm-postbox-model { width: clamp(100px, calc(var(--delivery-stage-height) * .72), 215px); }
+#delivery-dialog .lm-delivery-controls { height: 154px; padding-top: 6px; display: flex; flex-direction: column; align-items: center; }
+#delivery-dialog:has([data-reading-return]:not([hidden])) .lm-delivery-controls { height: 184px; }
+#delivery-dialog #delivery-description { margin: 0 0 12px; font-size: 12px; color: var(--lm-muted); }
+#delivery-dialog #delivery-actions { gap: 12px; }
+#delivery-dialog.is-delivered #delivery-title, #delivery-dialog.is-delivered .lm-delivery-controls { animation: lm-delivery-confirm .6s ease-out both; }
+.lm-packing-paper[data-paper-illustrated] .lm-mini-letter { padding-top: 60px; }
+.lm-packing-paper[data-paper-illustrated] .lm-mini-heading { margin-bottom: 8px; }
+.lm-packing-paper[data-paper-illustrated] .lm-mini-body { max-height: 84px; }
+@keyframes lm-delivery-confirm { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { #delivery-dialog * { transition: none !important; animation: none !important; } }

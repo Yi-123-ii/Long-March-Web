@@ -3,6 +3,16 @@
 [data-paper="river"] { --paper-image: url("../images/stationery/river-v1.webp"); --paper-color: #f7f7ee; --paper-line: #b7c8c4; }
 [data-paper="snow"] { --paper-image: url("../images/stationery/snow-v1.webp"); --paper-color: #f5f6f1; --paper-line: #becbd1; }
 [data-paper="spark"] { --paper-image: url("../images/stationery/spark-v1.webp"); --paper-color: #f8f0dc; --paper-line: #cdbd99; }
+[data-paper="pine-message"] { --paper-image: url("../images/stationery/pine-message-v1.webp"); --paper-top-image: url("../images/stationery/pine-message-top-v1.webp"); --paper-footer-image: url("../images/stationery/pine-message-bottom-v1.webp"); --paper-color: #f7f4e9; --paper-line: #a4a087; }
+[data-paper="cloud-water"] { --paper-image: url("../images/stationery/cloud-water-v1.webp"); --paper-top-image: url("../images/stationery/cloud-water-top-v1.webp"); --paper-footer-image: url("../images/stationery/cloud-water-bottom-v1.webp"); --paper-color: #f8f5ed; --paper-line: #b1b39b; }
+[data-paper="frost-echo"] { --paper-image: url("../images/stationery/frost-echo-v1.webp"); --paper-top-image: url("../images/stationery/frost-echo-top-v1.webp"); --paper-footer-image: url("../images/stationery/frost-echo-bottom-v1.webp"); --paper-color: #f8f6ef; --paper-line: #b8b9af; }
+[data-paper="mountain-lamp"] { --paper-image: url("../images/stationery/mountain-lamp-v1.webp"); --paper-top-image: url("../images/stationery/mountain-lamp-top-v1.webp"); --paper-footer-image: url("../images/stationery/mountain-lamp-bottom-v1.webp"); --paper-color: #fbf5e8; --paper-line: #c6ab77; }
+[data-paper="plank-song"] { --paper-image: url("../images/stationery/plank-song-v1.webp"); --paper-top-image: url("../images/stationery/plank-song-top-v1.webp"); --paper-footer-image: url("../images/stationery/plank-song-bottom-v1.webp"); --paper-color: #f7f5e9; --paper-line: #b3b79e; }
+[data-paper="dawn-letter"] { --paper-image: url("../images/stationery/dawn-letter-v1.webp"); --paper-top-image: url("../images/stationery/dawn-letter-top-v1.webp"); --paper-footer-image: url("../images/stationery/dawn-letter-bottom-v1.webp"); --paper-color: #fbf6e9; --paper-line: #baad90; }
+[data-paper="willow-thought"] { --paper-image: url("../images/stationery/willow-thought-v1.webp"); --paper-top-image: url("../images/stationery/willow-thought-top-v1.webp"); --paper-footer-image: url("../images/stationery/willow-thought-bottom-v1.webp"); --paper-color: #f8f6ec; --paper-line: #b4b79e; }
+[data-paper="clear-stream"] { --paper-image: url("../images/stationery/clear-stream-v1.webp"); --paper-top-image: url("../images/stationery/clear-stream-top-v1.webp"); --paper-footer-image: url("../images/stationery/clear-stream-bottom-v1.webp"); --paper-color: #f8f6ef; --paper-line: #b6baaa; }
+[data-paper="distant-mountain"] { --paper-image: url("../images/stationery/distant-mountain-v1.webp"); --paper-top-image: url("../images/stationery/distant-mountain-top-v1.webp"); --paper-footer-image: url("../images/stationery/distant-mountain-bottom-v1.webp"); --paper-color: #f8f5ea; --paper-line: #b5b5a0; }
+[data-paper="moon-home"] { --paper-image: url("../images/stationery/moon-home-v1.webp"); --paper-top-image: url("../images/stationery/moon-home-top-v1.webp"); --paper-footer-image: url("../images/stationery/moon-home-bottom-v1.webp"); --paper-color: #f8f5eb; --paper-line: #b7b19d; }
 .lm-mailbox-scene .lm-postbox-envelope, .lm-mailbox-scene .lm-postbox-receipt { display: none; }
 .lm-stamp-groups { display: flex; gap: 12px; margin: -4px 0 16px; }
 .lm-stamp-groups button { border-bottom: 2px solid transparent; padding: 8px 4px; color: #778370; font-size: 15px; }
@@ -35,6 +45,9 @@
 .lm-stationery[data-paper] { position: relative; isolation: isolate; background: var(--paper-color); border-color: var(--paper-line); padding-bottom: 140px; }
 .lm-stationery[data-paper]::before { content: ""; position: absolute; z-index: -1; inset: auto 0 0; height: 128px; background: var(--paper-image) center bottom / 100% auto no-repeat; border: 0; pointer-events: none; mask-image: linear-gradient(transparent, #000 26%, #000); }
 .lm-stationery[data-paper]::after { content: ""; position: absolute; z-index: -1; inset: 9px; border: 1px solid var(--paper-line); opacity: .6; pointer-events: none; }
+.lm-stationery[data-paper][data-paper-illustrated] { padding-top: 92px; padding-bottom: 190px; }
+.lm-stationery[data-paper][data-paper-illustrated]::before { height: 180px; background: var(--paper-footer-image) center bottom / 100% 100% no-repeat; mask-image: none; }
+.lm-stationery[data-paper][data-paper-illustrated]::after { background: var(--paper-top-image) top center / 100% 76px no-repeat; opacity: .8; }
 .lm-review-paper[data-paper] { padding-bottom: 110px; }
 .lm-review-top { margin-bottom: 4px; }
 .lm-review-top .lm-stamp { width: 50px; }
@@ -74,6 +87,9 @@
 @keyframes lm-stationery-close { 0%,40% { transform: rotateX(0); z-index: 1; opacity: 0; } 53%,78% { transform: rotateX(0); z-index: 1; opacity: 1; } 79% { z-index: 6; opacity: 1; } 93%,100% { transform: rotateX(-180deg); z-index: 6; opacity: 1; background: #eee0b9; } }
 @keyframes lm-stationery-seal { 0%,92% { opacity: 0; } 99%,100% { opacity: 1; } }
 @media (max-width: 580px) {
+  .lm-stationery[data-paper][data-paper-illustrated] { padding-top: 76px; padding-bottom: 160px; }
+  .lm-stationery[data-paper][data-paper-illustrated]::before { height: 150px; }
+  .lm-stationery[data-paper][data-paper-illustrated]::after { background-size: 100% 60px; }
   .lm-stamp-options { max-height: 42dvh; }
   .lm-stamp-option { padding: 8px 5px; }
   .lm-stamp-option .lm-stamp { width: 67px; }

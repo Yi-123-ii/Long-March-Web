@@ -123,16 +123,16 @@
 }
 .lm-letter {
   padding: 35px 42px 27px;
-  background: #f8f0dc;
+  background: #faf9f2;
   box-shadow: 0 8px 35px #4f605210;
-  border: 1px solid #d8c9a1;
+  border: 1px solid #dfdfcf;
   position: relative;
 }
 .lm-letter::before {
   content: "";
   position: absolute;
   inset: 7px;
-  border: 1px solid #b7a87933;
+  border: 1px solid #b6bda929;
   pointer-events: none;
 }
 .lm-letter-top {

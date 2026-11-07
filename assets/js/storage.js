@@ -55,7 +55,7 @@ window.LM_STORE = (() => {
     v.createdAt <= 8640000000000000 &&
     (v.eventId === null || typeof v.eventId === "string") &&
     (v.stampId === undefined || ["yudu", "luding", "snow", "city", "xiangjiang", "zunyi", "chishui", "reunion", "rail", "harvest", "stars", "energy", "snow-echo", "grass-glow", "bridge-onward", "wujiang-dawn", "jinsha-crossing", "iron-chain", "shaanbei-reunion", "city-dawn", "field-song", "cloud-bridge", "school-mountains", "white-coats", "smart-dawn", "new-village"].includes(v.stampId)) &&
-    (v.paperId === undefined || ["mountain", "river", "snow", "spark"].includes(v.paperId));
+    (v.paperId === undefined || ["mountain", "river", "snow", "spark", "pine-message", "cloud-water", "frost-echo", "mountain-lamp", "plank-song", "dawn-letter", "willow-thought", "clear-stream", "distant-mountain", "moon-home"].includes(v.paperId));
   function readMessages() {
     try {
       const raw = localStorage.getItem(prefix + "messages:v1");

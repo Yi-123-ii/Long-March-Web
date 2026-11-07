@@ -1,0 +1,361 @@
+{
+  "suppliedBy": "website owner",
+  "date": "2026-11-07",
+  "method": "Straighten the supplied paper and retain its artwork; replace sample text and rules with blank paper texture for real letter content",
+  "size": [
+    640,
+    896
+  ],
+  "designs": [
+    {
+      "id": "pine-message",
+      "name": "松风寄远",
+      "caption": "松风翻岭，把思念送往远方",
+      "source": "codex-clipboard-017743eb-9df0-4e71-a90c-a2d7c2f58a50.png",
+      "sourceSHA256": "87d68dce9ff174bacd7462b6b5e0f6213b823e8742982b4f37a496701d6383d2",
+      "cornersTLTRBRBL": [
+        [
+          201,
+          153
+        ],
+        [
+          845,
+          122
+        ],
+        [
+          883,
+          958
+        ],
+        [
+          234,
+          989
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        188,
+        605,
+        660
+      ],
+      "output": "assets/images/stationery/pine-message-v1.webp",
+      "header": "assets/images/stationery/pine-message-top-v1.webp",
+      "footer": "assets/images/stationery/pine-message-bottom-v1.webp",
+      "bytes": 68994
+    },
+    {
+      "id": "cloud-water",
+      "name": "云水来笺",
+      "caption": "一湾云水，载来山河回信",
+      "source": "codex-clipboard-40bbb533-8ba6-4f11-8a5a-9aec8eaee725.png",
+      "sourceSHA256": "b95f52b614116274cd4e560219e204580d2cbc22cb5b9788cd2848a3e3529ed0",
+      "cornersTLTRBRBL": [
+        [
+          209,
+          156
+        ],
+        [
+          862,
+          123
+        ],
+        [
+          884,
+          980
+        ],
+        [
+          220,
+          1013
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        150,
+        605,
+        625
+      ],
+      "output": "assets/images/stationery/cloud-water-v1.webp",
+      "header": "assets/images/stationery/cloud-water-top-v1.webp",
+      "footer": "assets/images/stationery/cloud-water-bottom-v1.webp",
+      "bytes": 77722
+    },
+    {
+      "id": "frost-echo",
+      "name": "霜岭回音",
+      "caption": "素雪千重，回响仍在山间",
+      "source": "codex-clipboard-3f34b3a9-61c4-4a3b-bbbb-a794283975e1.png",
+      "sourceSHA256": "72ff9cfdc60f8aecefc3497fddc9ac7193f86235a8c0a993d362c348409c39de",
+      "cornersTLTRBRBL": [
+        [
+          208,
+          149
+        ],
+        [
+          861,
+          119
+        ],
+        [
+          892,
+          958
+        ],
+        [
+          236,
+          982
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        185,
+        605,
+        660
+      ],
+      "output": "assets/images/stationery/frost-echo-v1.webp",
+      "header": "assets/images/stationery/frost-echo-top-v1.webp",
+      "footer": "assets/images/stationery/frost-echo-bottom-v1.webp",
+      "bytes": 53782
+    },
+    {
+      "id": "mountain-lamp",
+      "name": "山灯未熄",
+      "caption": "一盏微光，仍照归途与初心",
+      "source": "codex-clipboard-9b737e9e-f341-4df6-be8b-60dafad3ab30.png",
+      "sourceSHA256": "0cd1124ea49a67c6e2044136e5afdac47d8f7cca6a365de48b9c8119548c486d",
+      "cornersTLTRBRBL": [
+        [
+          196,
+          171
+        ],
+        [
+          845,
+          145
+        ],
+        [
+          875,
+          972
+        ],
+        [
+          226,
+          999
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        175,
+        605,
+        640
+      ],
+      "output": "assets/images/stationery/mountain-lamp-v1.webp",
+      "header": "assets/images/stationery/mountain-lamp-top-v1.webp",
+      "footer": "assets/images/stationery/mountain-lamp-bottom-v1.webp",
+      "bytes": 62208
+    },
+    {
+      "id": "plank-song",
+      "name": "栈道闻歌",
+      "caption": "沿山而行，把回响写进云间",
+      "source": "codex-clipboard-67887195-0695-4192-a0a7-895a13a5eaea.png",
+      "sourceSHA256": "31131081f4e7e97f5da7f46dce52c303be86df3cef9d9e5afd618b9d429f08c9",
+      "cornersTLTRBRBL": [
+        [
+          197,
+          170
+        ],
+        [
+          840,
+          137
+        ],
+        [
+          882,
+          990
+        ],
+        [
+          231,
+          1023
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        180,
+        605,
+        615
+      ],
+      "output": "assets/images/stationery/plank-song-v1.webp",
+      "header": "assets/images/stationery/plank-song-top-v1.webp",
+      "footer": "assets/images/stationery/plank-song-bottom-v1.webp",
+      "bytes": 77980
+    },
+    {
+      "id": "dawn-letter",
+      "name": "晓岚有信",
+      "caption": "晨光穿雾，把心意寄向山河",
+      "source": "codex-clipboard-99bc27ae-3fd2-43da-88e4-42ab1f4782d5.png",
+      "sourceSHA256": "5e2f8bf7279ddc44379237a23d0a6fcfc1419aa651bdcb2a206474b7b1ca8376",
+      "cornersTLTRBRBL": [
+        [
+          203,
+          177
+        ],
+        [
+          850,
+          147
+        ],
+        [
+          882,
+          981
+        ],
+        [
+          237,
+          1010
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        180,
+        605,
+        650
+      ],
+      "output": "assets/images/stationery/dawn-letter-v1.webp",
+      "header": "assets/images/stationery/dawn-letter-top-v1.webp",
+      "footer": "assets/images/stationery/dawn-letter-bottom-v1.webp",
+      "bytes": 48032
+    },
+    {
+      "id": "willow-thought",
+      "name": "柳岸寄思",
+      "caption": "柳影轻摇，把思念写进水波",
+      "source": "codex-clipboard-323fce62-1ad6-4401-ac43-a909aac05b7c.png",
+      "sourceSHA256": "6a89751e015fc276da4a0011a569c545f89498b7f9f630a4a80027157ae0a2a6",
+      "cornersTLTRBRBL": [
+        [
+          217,
+          141
+        ],
+        [
+          868,
+          118
+        ],
+        [
+          901,
+          970
+        ],
+        [
+          247,
+          995
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        180,
+        605,
+        625
+      ],
+      "output": "assets/images/stationery/willow-thought-v1.webp",
+      "header": "assets/images/stationery/willow-thought-top-v1.webp",
+      "footer": "assets/images/stationery/willow-thought-bottom-v1.webp",
+      "bytes": 73052
+    },
+    {
+      "id": "clear-stream",
+      "name": "清溪望远",
+      "caption": "一溪澄明，映照远行心绪",
+      "source": "codex-clipboard-a4fa2703-444c-43f5-ac29-e710eff6d3d8.png",
+      "sourceSHA256": "0958b1d7b4d9ca61354602cd50083b7c186af9ed101ac97615a8de778ca7a278",
+      "cornersTLTRBRBL": [
+        [
+          242,
+          134
+        ],
+        [
+          850,
+          110
+        ],
+        [
+          880,
+          954
+        ],
+        [
+          269,
+          978
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        175,
+        605,
+        650
+      ],
+      "output": "assets/images/stationery/clear-stream-v1.webp",
+      "header": "assets/images/stationery/clear-stream-top-v1.webp",
+      "footer": "assets/images/stationery/clear-stream-bottom-v1.webp",
+      "bytes": 74418
+    },
+    {
+      "id": "distant-mountain",
+      "name": "远山知音",
+      "caption": "层峦静立，听一纸真情回响",
+      "source": "codex-clipboard-3525b052-bb18-4977-8f14-6e9555b4de31.png",
+      "sourceSHA256": "6ca1f0afc128d8f5666803ba48940710c8b8416f624e1510bdd210fdda19f0fc",
+      "cornersTLTRBRBL": [
+        [
+          225,
+          161
+        ],
+        [
+          849,
+          135
+        ],
+        [
+          881,
+          942
+        ],
+        [
+          256,
+          965
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        175,
+        605,
+        650
+      ],
+      "output": "assets/images/stationery/distant-mountain-v1.webp",
+      "header": "assets/images/stationery/distant-mountain-top-v1.webp",
+      "footer": "assets/images/stationery/distant-mountain-bottom-v1.webp",
+      "bytes": 49112
+    },
+    {
+      "id": "moon-home",
+      "name": "月照归程",
+      "caption": "一轮清辉，照见未改初心",
+      "source": "codex-clipboard-69755983-447a-4373-a414-1bbd05e483fc.png",
+      "sourceSHA256": "75f7d4d1edbbf7b14bd6a532840c3f663dd5eaadd32c667013b570a1071e61ba",
+      "cornersTLTRBRBL": [
+        [
+          246,
+          164
+        ],
+        [
+          828,
+          135
+        ],
+        [
+          867,
+          924
+        ],
+        [
+          278,
+          952
+        ]
+      ],
+      "blankBodyBox": [
+        36,
+        175,
+        605,
+        635
+      ],
+      "output": "assets/images/stationery/moon-home-v1.webp",
+      "header": "assets/images/stationery/moon-home-top-v1.webp",
+      "footer": "assets/images/stationery/moon-home-bottom-v1.webp",
+      "bytes": 73352
+    }
+  ]
+}

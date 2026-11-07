@@ -11,18 +11,18 @@
 <noscript><link rel="stylesheet" href="assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
 
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261107-delivery-captions" />
-    <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261107-papers-smooth-delivery" />
+    <link rel="stylesheet" href="assets/css/postbox.css?v=20261107-papers-smooth-delivery" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261107-letter-handover" />
-    <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/letter-fold.css?v=20261107-three-fold" />
+    <link rel="stylesheet" href="assets/css/stationery.css?v=20261107-papers-smooth-delivery" />
+    <link rel="stylesheet" href="assets/css/letter-fold.css?v=20261107-papers-smooth-delivery" />
     <script defer src="data/events.js?v=20261105-site-copy"></script>
-    <script defer src="data/postal-designs.js?v=20261107-expanded-stamps"></script>
-    <script defer src="assets/js/storage.js?v=20261107-expanded-stamps"></script>
+    <script defer src="data/postal-designs.js?v=20261107-papers-smooth-delivery"></script>
+    <script defer src="assets/js/storage.js?v=20261107-papers-smooth-delivery"></script>
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261107-home-origin"></script>
-    <script defer src="assets/js/post-office.js?v=20261107-delivery-captions"></script>
+    <script defer src="assets/js/post-office.js?v=20261107-papers-smooth-delivery"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-home-return" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
@@ -251,6 +251,7 @@
       data-locked="true"
     >
       <button id="close-delivery" class="lm-close" type="button" aria-label="关闭投递弹窗">×</button>
+      <div class="lm-delivery-scene">
       <div class="lm-packing-art" aria-hidden="true">
         <div class="lm-packing-world">
           <div class="lm-packing-ground"></div>
@@ -267,13 +268,16 @@
         </div>
       </div>
       <div class="lm-delivery-art" aria-hidden="true"><div class="lm-postbox-model" data-postbox></div></div>
+      </div>
       <h2 id="delivery-title" aria-live="polite" aria-atomic="true">字落信笺，心意渐成</h2>
+      <div class="lm-delivery-controls">
       <p id="delivery-description">留言已保存，正在完成投递</p>
       <button id="skip-delivery" class="lm-link">跳过动画</button>
       <div id="delivery-actions" hidden>
         <button id="view-sent" class="lm-button">查看我的留言 ↗</button
         ><button id="write-another" class="lm-link">再写一段</button>
         <a data-reading-return class="lm-link" href="chronicle.html" hidden>返回长征纪事继续阅读 ↗</a>
+      </div>
       </div>
     </dialog>
     <dialog
