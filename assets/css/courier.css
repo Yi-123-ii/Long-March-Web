@@ -3,7 +3,7 @@
 .lm-stamp img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .lm-stamp span { font-family: var(--lm-reading); font-size: 9px; line-height: 1.4; letter-spacing: 1px; }
 .lm-aside-courier { position: absolute; width: 95px; height: auto; object-fit: contain; bottom: 37px; right: -5px; pointer-events: none; }
-.lm-mailbox-scene .lm-aside-courier { width: calc(var(--desk-mailbox-width, 235px) * .4); right: calc(50% - var(--desk-mailbox-width, 235px) * .68); bottom: calc(50% - var(--desk-mailbox-width, 235px) * 2 / 3 + 12px); }
+.lm-mailbox-scene .lm-aside-courier { width: calc(var(--desk-mailbox-width, 235px) * .4); right: calc(50% - var(--desk-mailbox-width, 235px) * .68); bottom: calc(50% - var(--desk-mailbox-width, 235px) * 2 / 3); }
 .lm-mailbox-scene .lm-aside-courier.lm-aside-courier--female { left: calc(50% - var(--desk-mailbox-width, 235px) * .68); right: auto; }
 .lm-empty-courier { display: block; width: 110px; height: auto; margin: 0 auto 18px; }
 .lm-prepare-dialog { width: min(760px, calc(100% - 32px)); padding: 36px 34px 25px; overflow-y: auto; }
