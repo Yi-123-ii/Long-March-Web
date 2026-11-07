@@ -22,7 +22,7 @@
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261105-opening-perf"></script>
-    <script defer src="assets/js/post-office.js?v=20261105-letter-layout"></script>
+    <script defer src="assets/js/post-office.js?v=20261107-stamp-heading"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=20261106-title-motion" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
@@ -214,8 +214,8 @@
     <dialog id="prepare-dialog" class="lm-dialog lm-prepare-dialog" aria-labelledby="prepare-title">
       <button class="lm-close" data-close aria-label="返回修改留言">×</button>
       <div class="lm-prepare-heading">
-        <p class="lm-eyebrow" id="prepare-step">为这封信，选一枚邮票</p>
-        <h2 id="prepare-title">挑一枚邮票，寄出这份心意</h2>
+        <p class="lm-eyebrow" id="prepare-step" hidden></p>
+        <h2 id="prepare-title">为这封信挑一枚邮票，寄出这份心意</h2>
       </div>
       <section id="stamp-choice">
         <div class="lm-stamp-groups" role="group" aria-label="邮票题材">

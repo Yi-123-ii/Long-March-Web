@@ -286,8 +286,8 @@
     $("#stamp-choice").hidden = false;
     $("#paper-choice").hidden = true;
     $("#letter-review").hidden = true;
-    $("#prepare-step").textContent = "为这封信，选一枚邮票";
-    $("#prepare-title").textContent = "挑一枚邮票，寄出这份心意";
+    $("#prepare-step").hidden = true;
+    $("#prepare-title").textContent = "为这封信挑一枚邮票，寄出这份心意";
   }
   form.addEventListener("submit", event => {
     event.preventDefault();
@@ -307,6 +307,7 @@
     $("#stamp-choice").hidden = true;
     $("#paper-choice").hidden = false;
     $("#letter-review").hidden = true;
+    $("#prepare-step").hidden = false;
     $("#prepare-step").textContent = "为心里的话，挑一张信纸";
     $("#prepare-title").textContent = "给这封信选一张合适的纸";
     ($("#paper-options input:checked") || $("#paper-options input"))?.focus();
@@ -319,6 +320,7 @@
     $("#stamp-choice").hidden = true;
     $("#paper-choice").hidden = true;
     $("#letter-review").hidden = false;
+    $("#prepare-step").hidden = false;
     $("#prepare-step").textContent = paperById(paperId).name + " · " + stamp.name;
     $("#prepare-title").textContent = "看看写好的信";
     $("#review-stamp").src = stampImage(stamp.id);
