@@ -4,6 +4,9 @@
 .lm-post-page .section-opening {
   isolation: isolate;
 }
+.lm-post-page .section-opening + .lm-post-main {
+  margin-top: calc(var(--cover-bottom-overlap, 99px) + 12px);
+}
 .post-opening__landscape {
   position: absolute;
   inset: calc(-1 * var(--header-height)) 0 0;
