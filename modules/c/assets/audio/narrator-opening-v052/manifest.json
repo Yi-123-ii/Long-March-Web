@@ -1,0 +1,206 @@
+{
+  "version": "0.52",
+  "node": "river",
+  "id": "NR001",
+  "source": "jimeng-2026-11-07-7027.wav",
+  "source_sha256": "1dc59cbd8aaf8c47203e6ede363798fbe1af2ab0b2a99a4c0fca25b8a2daef04",
+  "source_duration": 24.572125,
+  "retained_source_range": [
+    0,
+    23.02
+  ],
+  "processing": "Only remove the platform spoken footer after the narration; no speed or pitch change. Full original WAV and separated footer backed up outside runtime.",
+  "text": "1934年10月，江西于都。\n\n第五次反“围剿”失利后，中央红军被迫进行战略转移。主力部队在于都河畔集结，准备趁夜渡河。\n\n你叫小满，是队伍里的一名新战士。此刻，你背着行装，站在岸边，等着和大家一起出发。",
+  "pages": [
+    {
+      "text": "1934年10月，江西于都。",
+      "start": 0,
+      "end": 3.98,
+      "cues": [
+        {
+          "text": "1934年10月，江西于都。",
+          "start": 0.52,
+          "end": 3.48
+        }
+      ]
+    },
+    {
+      "text": "第五次反“围剿”失利后，中央红军被迫进行战略转移。主力部队在于都河畔集结，准备趁夜渡河。",
+      "start": 3.98,
+      "end": 13.88,
+      "cues": [
+        {
+          "text": "第五次反“围剿”失利后，",
+          "start": 4.37,
+          "end": 6.15
+        },
+        {
+          "text": "中央红军被迫进行战略转移。",
+          "start": 6.61,
+          "end": 9.1
+        },
+        {
+          "text": "主力部队在于都河畔集结，",
+          "start": 9.62,
+          "end": 11.94
+        },
+        {
+          "text": "准备趁夜渡河。",
+          "start": 12.12,
+          "end": 13.58
+        }
+      ]
+    },
+    {
+      "text": "你叫小满，是队伍里的一名新战士。此刻，你背着行装，站在岸边，等着和大家一起出发。",
+      "start": 13.88,
+      "end": 23.02,
+      "cues": [
+        {
+          "text": "你叫小满，",
+          "start": 14.17,
+          "end": 15.15
+        },
+        {
+          "text": "是队伍里的一名新战士。",
+          "start": 15.51,
+          "end": 17.41
+        },
+        {
+          "text": "此刻，你背着行装，",
+          "start": 18.01,
+          "end": 19.69
+        },
+        {
+          "text": "站在岸边，",
+          "start": 19.92,
+          "end": 20.75
+        },
+        {
+          "text": "等着和大家一起出发。",
+          "start": 21.1,
+          "end": 22.83
+        }
+      ]
+    }
+  ],
+  "cues": [
+    {
+      "text": "1934年10月，江西于都。",
+      "start": 0.52,
+      "end": 3.48
+    },
+    {
+      "text": "第五次反“围剿”失利后，",
+      "start": 4.37,
+      "end": 6.15
+    },
+    {
+      "text": "中央红军被迫进行战略转移。",
+      "start": 6.61,
+      "end": 9.1
+    },
+    {
+      "text": "主力部队在于都河畔集结，",
+      "start": 9.62,
+      "end": 11.94
+    },
+    {
+      "text": "准备趁夜渡河。",
+      "start": 12.12,
+      "end": 13.58
+    },
+    {
+      "text": "你叫小满，",
+      "start": 14.17,
+      "end": 15.15
+    },
+    {
+      "text": "是队伍里的一名新战士。",
+      "start": 15.51,
+      "end": 17.41
+    },
+    {
+      "text": "此刻，你背着行装，",
+      "start": 18.01,
+      "end": 19.69
+    },
+    {
+      "text": "站在岸边，",
+      "start": 19.92,
+      "end": 20.75
+    },
+    {
+      "text": "等着和大家一起出发。",
+      "start": 21.1,
+      "end": 22.83
+    }
+  ],
+  "previous_recording": "../narrator-v047/NR001.mp3",
+  "source_backup": "outputs/于都扩充开场旁白-20261107/jimeng-2026-11-07-7027.wav",
+  "output_sha256": "6823b0f384e2b88ef9ecd59712b8f8c7385d9aed9aadd33a6ba50e54960a99c6",
+  "probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "mp3",
+        "codec_long_name": "MP3 (MPEG audio layer 3)",
+        "codec_type": "audio",
+        "codec_tag_string": "[0][0][0][0]",
+        "codec_tag": "0x0000",
+        "mime_codec_string": "mp4a.40.34",
+        "sample_fmt": "fltp",
+        "sample_rate": "24000",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/14112000",
+        "start_pts": 649740,
+        "start_time": "0.046042",
+        "duration_ts": 324858240,
+        "duration": "23.020000",
+        "bit_rate": "89040",
+        "disposition": {
+          "default": 0,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0,
+          "multilayer": 0
+        }
+      }
+    ],
+    "format": {
+      "filename": "C:\\Users\\lsr\\Documents\\Codex\\2026-10-25\\90-c-github-https-github-com\\work\\journey-dialogue-cd03-20261107\\modules\\c\\assets\\audio\\narrator-opening-v052\\NR001.mp3",
+      "nb_streams": 1,
+      "nb_programs": 0,
+      "nb_stream_groups": 0,
+      "format_name": "mp3",
+      "format_long_name": "MP2/3 (MPEG audio layer 2/3)",
+      "start_time": "0.046042",
+      "duration": "23.020000",
+      "size": "257013",
+      "bit_rate": "89318",
+      "probe_score": 51,
+      "tags": {
+        "encoder": "Lavf62.12.102"
+      }
+    }
+  }
+}

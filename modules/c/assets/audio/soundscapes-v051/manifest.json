@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "generated": "2026-11-07",
+  "cash_cost_cny": 0,
+  "tracks": [
+    {
+      "id": "river",
+      "label": "于都河岸 · 水流、船边低语与木板脚步",
+      "file": "river.ogg",
+      "src": "assets/audio/soundscapes-v051/river.ogg",
+      "duration": 46.0,
+      "rms": 0.02619142457842827,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "rivulet",
+        "wharf",
+        "original-wood-step"
+      ],
+      "bytes": 441442,
+      "sha256": "9a9198dc7a6e69931ec34f05d9ba42fe8e400f8e631807f91c946c161ac10937"
+    },
+    {
+      "id": "cold",
+      "label": "渡江后的河岸 · 流水与远风",
+      "file": "cold.ogg",
+      "src": "assets/audio/soundscapes-v051/cold.ogg",
+      "duration": 46.0,
+      "rms": 0.0198063887655735,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "rivulet",
+        "winter-wind"
+      ],
+      "bytes": 169461,
+      "sha256": "53cce09f809db531ee953e53befcee30abca8cd888949120fb681c0f030af6b5"
+    },
+    {
+      "id": "battle",
+      "label": "湘江渡口 · 流水与疏落的远处枪声",
+      "file": "battle.ogg",
+      "src": "assets/audio/soundscapes-v051/battle.ogg",
+      "duration": 46.0,
+      "rms": 0.02016870118677616,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "rivulet",
+        "winter-wind",
+        "gunfire"
+      ],
+      "bytes": 169167,
+      "sha256": "c225c192d6d5adcf55e5d0dfcbb2b0f6f44d414e54cc1f0784a14d75ad28a779"
+    },
+    {
+      "id": "room",
+      "label": "遵义夜屋 · 窗外细雨与低声纸响",
+      "file": "room.ogg",
+      "src": "assets/audio/soundscapes-v051/room.ogg",
+      "duration": 46.0,
+      "rms": 0.04215700179338455,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "rain-window",
+        "paper",
+        "original-room"
+      ],
+      "bytes": 171554,
+      "sha256": "6fdc97ff1455f9160eb638fc678b873351f89ef16bce6c835e4a82ff5b83699c"
+    },
+    {
+      "id": "gorge",
+      "label": "江峡与泸定桥 · 水流与山口风",
+      "file": "gorge.ogg",
+      "src": "assets/audio/soundscapes-v051/gorge.ogg",
+      "duration": 46.0,
+      "rms": 0.04355377331376076,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "rivulet",
+        "winter-wind"
+      ],
+      "bytes": 440752,
+      "sha256": "e6c4b06cccf671d2bb753cea68020798829eb0c5d2df31655231d79da69ec003"
+    },
+    {
+      "id": "snow",
+      "label": "夹金山 · 有强弱变化的寒风",
+      "file": "snow.ogg",
+      "src": "assets/audio/soundscapes-v051/snow.ogg",
+      "duration": 46.0,
+      "rms": 0.028945457190275192,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "winter-wind"
+      ],
+      "bytes": 215025,
+      "sha256": "e21bbae9fb5ddc76520c0bcb72ee67f04f48a750b1923f16f42a228ffa5398a0"
+    },
+    {
+      "id": "grass",
+      "label": "草地 · 贴地的湿冷风声",
+      "file": "grass.ogg",
+      "src": "assets/audio/soundscapes-v051/grass.ogg",
+      "duration": 46.0,
+      "rms": 0.03254326060414314,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "winter-wind",
+        "rain-window"
+      ],
+      "bytes": 165609,
+      "sha256": "6ef8df51264b21333538487c5fdc96216ac7a688a28683be1298f7de30bbea4a"
+    },
+    {
+      "id": "north",
+      "label": "北上山路 · 山口的低风",
+      "file": "north.ogg",
+      "src": "assets/audio/soundscapes-v051/north.ogg",
+      "duration": 46.0,
+      "rms": 0.03710915893316269,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "winter-wind"
+      ],
+      "bytes": 190851,
+      "sha256": "f32dd1aa288fe28306b059f859fc7b47136c5d0e06b5feb9d5c88c47b847073b"
+    },
+    {
+      "id": "courtyard",
+      "label": "吴起院落 · 轻风、远鸟与零星脚步",
+      "file": "courtyard.ogg",
+      "src": "assets/audio/soundscapes-v051/courtyard.ogg",
+      "duration": 46.0,
+      "rms": 0.02738824672996998,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "breeze",
+        "winter-wind",
+        "original-wood-step"
+      ],
+      "bytes": 282106,
+      "sha256": "73ab0f817467e4ab6eb5e4873a74d1286be9ad199f5c7117330fd4653d7c3fb5"
+    },
+    {
+      "id": "dayroom",
+      "label": "吴起屋内 · 屋外微风与轻纸响",
+      "file": "dayroom.ogg",
+      "src": "assets/audio/soundscapes-v051/dayroom.ogg",
+      "duration": 46.0,
+      "rms": 0.04112539440393448,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "breeze",
+        "paper",
+        "original-room"
+      ],
+      "bytes": 171758,
+      "sha256": "64e8dc1fd1c914ab2663f4e09f44bae96403b3de5a672e275729d0aa633c2f2a"
+    },
+    {
+      "id": "remembrance",
+      "label": "会师尾声 · 收敛的山风与极轻鸟声",
+      "file": "remembrance.ogg",
+      "src": "assets/audio/soundscapes-v051/remembrance.ogg",
+      "duration": 46.0,
+      "rms": 0.032528650015592575,
+      "peak": 0.23999999463558197,
+      "sources": [
+        "winter-wind",
+        "breeze"
+      ],
+      "bytes": 166057,
+      "sha256": "d1c76e34493ee6d2f5c1116970c6afc60a0711c06d7b4ade702d316484f2645a"
+    }
+  ],
+  "sources": [
+    {
+      "id": "breeze",
+      "page": "https://commons.wikimedia.org/wiki/File:Gentle_breeze_and_birds_singing.ogg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Gentle_breeze_and_birds_singing.ogg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "file": "breeze.ogg",
+      "license": "PD",
+      "author": "ezwa",
+      "sha256": "399c31051dfe42f5f5af4bb2334b16aee9263ceaf594158654fa6f06d036d483",
+      "bytes": 422735
+    },
+    {
+      "id": "rain-window",
+      "page": "https://commons.wikimedia.org/wiki/File:Rain_against_the_window.ogg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Rain_against_the_window.ogg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "file": "rain-window.ogg",
+      "license": "PD",
+      "author": "cori",
+      "sha256": "85be295e9936fbf003ae5dbc0e106b77e60854ea4b19bfb7b232420f291a737e",
+      "bytes": 1208332
+    },
+    {
+      "id": "paper",
+      "page": "https://commons.wikimedia.org/wiki/File:Book_paper_pages_assorted.ogg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Book_paper_pages_assorted.ogg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "file": "paper.ogg",
+      "license": "PD",
+      "author": "stephan",
+      "sha256": "7725928b65296676cff33f2d2c6f1489e810acf27c1a48a9c452263c26fd2a08",
+      "bytes": 2474211
+    },
+    {
+      "id": "winter-wind",
+      "page": "https://freesound.org/people/klangfabrik/sounds/117504/",
+      "url": "https://cdn.freesound.org/previews/117/117504_181941-hq.mp3",
+      "file": "winter-wind.mp3",
+      "license": "CC0-1.0",
+      "author": "klangfabrik",
+      "sha256": "21d58a65a60a3da3246ebd27575adedda6285c1f20ce483d3417dda2235c76e4",
+      "bytes": 9647561
+    },
+    {
+      "id": "gunfire",
+      "page": "https://commons.wikimedia.org/wiki/File:Gunshots_8.ogg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Gunshots_8.ogg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "file": "gunfire.ogg",
+      "license": "PD",
+      "author": "aradlaw",
+      "sha256": "0107c3a14e256c2a4c2e94f7494df6994edba75f4de05fced2d8900cf19b4c0b",
+      "bytes": 84809
+    },
+    {
+      "id": "rivulet",
+      "author": "stephan",
+      "license": "PD",
+      "page": "https://commons.wikimedia.org/wiki/File:Welling_rivulet_in_the_woods.ogg",
+      "file": "rivulet.ogg",
+      "sha256": "d296af602af87be13c68963801f375340173a4b1a803dc91724def93bc26e2eb"
+    },
+    {
+      "id": "wharf",
+      "author": "ezwa",
+      "license": "PD",
+      "page": "https://commons.wikimedia.org/wiki/File:Boat_by_a_wharf_1.ogg",
+      "file": "wharf.ogg",
+      "sha256": "9556aac99f2e7dad7cf42e2b5de39257337304251cdfcad09b2c52a30c05651c"
+    },
+    {
+      "id": "original-wood-step",
+      "author": "Project original procedural foley",
+      "license": "project-original"
+    },
+    {
+      "id": "original-room",
+      "author": "Project original procedural room tone",
+      "license": "project-original"
+    }
+  ],
+  "processing": "Field-recording extracts, EQ, quiet foley layers, conservative RMS/peak gain, 2s circular overlap. No voice cloning or music purchase. Original source files retained locally."
+}

@@ -22,12 +22,12 @@ test('Chenhe dawn captions replace one sentence at a time and retain it through 
  assert.equal(at(0).text,'');assert.equal(T.pageFrame(n.captionPages,4,true).text,n.captionPages[1].text);
  assert(!T.pageFrame(n.captionPages,4,true).complete);
 });
-test('Lu night caption keeps the confirmed words and does not start before he speaks',()=>{
+test('Lu night captions include his opening question and follow both spoken turns without revealing the next turn early',()=>{
  const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js'),n=D.nodes.find(x=>x.id==='grass-a-water'),p=T.plan(n.text);
- assert.equal(n.text,'放下吧，我想喝了叫你。');assert.equal(n.captionCues.map(c=>c.text).join(''),n.text);
- assert.equal(P.speaker(n).name,'陆生');assert.equal(T.frame(p,T.cueTime(p,1.67,n.captionCues)).text,'');
- assert.equal(T.frame(p,T.cueTime(p,3,n.captionCues)).text,'放下吧，');
- assert(T.frame(p,T.cueTime(p,5.91,n.captionCues)).complete);
+ assert.equal(n.text,'你一直端着？放下吧，我想喝了叫你。');assert.equal(n.captionCues.map(c=>c.text).join(''),n.text);
+ assert.equal(P.speaker(n).name,'陆生');assert.equal(T.pageFrame(n.captionPages,1.37).text,'');
+ assert.equal(T.pageFrame(n.captionPages,3).text,'你一直端着？');assert.equal(T.pageFrame(n.captionPages,3.7).text,'');assert.equal(T.pageFrame(n.captionPages,4.9).text,'放下吧，');
+ assert(T.frame(p,T.cueTime(p,5.93,n.captionCues)).complete);
 });
 test('Chenhe keeps the changed dialogue and does not ask for the lamp during the long pause',()=>{
  const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js');
