@@ -790,15 +790,17 @@
 
 @media (width > 800px) {
   html:has(.lm-post-page) { scroll-padding-top: 16px; }
+  .lm-post-main { --desk-view-height: 100svh; }
+  .lm-post-page:has(.site-home-return:not([hidden])) .lm-post-main { --desk-view-height: calc(100svh - 64px); }
   .lm-post-main:has(#write-panel:not([hidden])) { min-height: calc(100svh + 32px); }
   .lm-post-tabs { margin-bottom: 14px; }
   .lm-post-tabs button { padding-block: 10px; }
 
-  .lm-post-layout .lm-letter { padding-block: 22px; min-height: calc(100svh - 174px); }
+  .lm-post-layout .lm-letter { padding-block: 22px; min-height: calc(var(--desk-view-height) - 174px); }
   .lm-letter-top { margin-bottom: 8px; }
   .lm-letter-vignette { width: 75px; height: 60px; }
   .lm-salutation { margin-bottom: 10px; }
-  .lm-post-layout .lm-letter textarea { min-height: clamp(144px, 29svh, 250px); }
+  .lm-post-layout .lm-letter textarea { min-height: clamp(144px, calc(var(--desk-view-height) * .29), 250px); }
   .lm-letter-meta { margin-top: 12px; }
   .lm-signature { margin-top: 16px; }
   .lm-send-row { flex-direction: row; align-items: center; gap: 12px; margin-top: 10px; }
@@ -806,7 +808,7 @@
 
   .lm-post-aside { padding-top: 0; display: flex; flex-direction: column; }
   .lm-mailbox-scene {
-    --desk-mailbox-width: clamp(64px, calc(50svh - 237px), 220px);
+    --desk-mailbox-width: clamp(64px, calc(var(--desk-view-height) * .5 - 237px), 220px);
     flex: 1;
     height: auto;
   }
