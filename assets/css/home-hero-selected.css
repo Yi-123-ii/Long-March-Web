@@ -21,10 +21,28 @@
   top: -88px;
 }
 .v3-home .a-hero__scenery {
-  background-image: url("../images/home-panorama-fast.webp"), url("../images/home-panorama-preview.webp");
+  --hero-image: url("../images/home-panorama-fast.webp");
+  background-image: none;
   background-position: center center;
+  isolation: isolate;
   opacity: 1;
 }
+.v3-home .a-hero__scenery::before,
+.v3-home .a-hero__scenery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-position: inherit;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.v3-home .a-hero__scenery::before {
+  background-image: url("../images/home-panorama-preview.webp");
+  filter: blur(16px);
+  clip-path: inset(0);
+}
+.v3-home .a-hero__scenery::after { background-image: var(--hero-image); }
 .v3-home .a-hero__shade {
   background:
     linear-gradient(90deg, rgba(18, 25, 26, .51), rgba(18, 25, 26, .29) 30%, transparent 62%),
@@ -46,7 +64,7 @@
 }
 @media (max-width: 580px) and (orientation: portrait) {
   .v3-home .a-hero__scenery {
-    background-image: url("../images/home-panorama-portrait-fast.webp"), url("../images/home-panorama-preview.webp");
+    --hero-image: url("../images/home-panorama-portrait-fast.webp");
   }
 }
 .v3-home .v3-prologue::after {
