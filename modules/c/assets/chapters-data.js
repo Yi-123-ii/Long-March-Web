@@ -1052,6 +1052,7 @@
     "scene": "keepsakes",
     "next": "zy-b-offer",
     "mode": "thought",
+    "document": "娘，等有了落脚的地方……",
     "chapter": "zunyi",
     "narration": {
       "id": "XN030",
@@ -1081,6 +1082,7 @@
     "scene": "keepsakes",
     "speaker": "心声",
     "mode": "thought",
+    "document": "娘，等有了落脚的地方……",
     "choices": [
       {
         "id": "offer-letter",
@@ -1232,8 +1234,7 @@
         "label": "沿着原来的折痕收好，包回干布里。",
         "next": "zy-mended"
       }
-    ],
-    "document": "娘，等有了落脚的地方……"
+    ]
   },
   {
     "id": "zy-mended",

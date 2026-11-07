@@ -23,8 +23,8 @@ function walk(data, target, snowChoice) {
   return state;
 }
 
-test('both snow routes share one film and require the two player replies', () => {
-  const clips = ['snow-hold-pack','snow-pack','snow-respond-name'].map(node);
+test('both snow routes share one film and retain the first player reply', () => {
+  const clips = ['snow-hold-pack','snow-pack'].map(node);
   assert.equal(new Set(clips.map(clip => clip.video)).size, 1);
   for (const [index, clip] of clips.entries()) {
     assert(clip.nativeAudio && clip.advanceOnEnd);
@@ -35,19 +35,29 @@ test('both snow routes share one film and require the two player replies', () =>
       assert.equal(clip.mediaStart, clips[index - 1].mediaEnd);
     }
   }
-  for (const [id, choice, next] of [['snow-ask-home','ask-pack-history','snow-pack'],['snow-nickname','ask-nickname','snow-respond-name']]) {
+  for (const [id, choice, next] of [['snow-ask-home','ask-pack-history','snow-pack']]) {
     const waiting = walk(D, id); waiting.settings.auto = true;
     assert.equal(C.advance(D, waiting), waiting);
     const reply=C.advance(D,waiting,choice),spoken=C.current(D,reply);
     assert(spoken.voice&&spoken.advanceOnEnd);
     assert.equal(C.advance(D,reply).node,next);
   }
-  assert.equal(T.pageFrame(clips[1].captionPages, 7.5).text, '阿禾，你又给捆歪了！');
+  assert.equal(T.pageFrame(clips[1].captionPages, 7, true).text, '你又给捆歪了！');
   for (const branch of ['support','call']) {
     const state = walk(D, 'snow-end', branch);
     assert(state.path.includes('snow-wet-clothes-v037'));
     assert.equal(state.choices['snow-choice'], branch);
   }
+});
+
+test('saves inside the retired nickname exchange keep their station progress and can advance to the climb',()=>{
+ const prior={...D,nodes:D.nodes.map(n=>n.id==='snow-nickname'?{...n,choices:[{id:'ask-nickname',next:'snow-nickname-spoken-v034'}]}:n)};
+ for(const target of ['snow-nickname','snow-nickname-spoken-v034','snow-respond-name','grass-arrive']){
+  const old=walk(prior,target,'call'),restored=C.restore(D,old);
+  assert.equal(restored.node,target);assert.deepEqual(restored.path,old.path);assert.deepEqual(restored.chapterProgress,old.chapterProgress);
+  assert(C.canOpenChapter(D,restored,'snow'));assert.equal(restored.choices['snow-nickname'],undefined);
+  if(target!=='grass-arrive'){let s=restored;while(s.node!=='snow-ready')s=C.advance(D,s);assert.equal(C.current(D,s).choices[0].id,'climb');}
+ }
 });
 
 test('older snow saves resume past the added still without recording an action at it', () => {

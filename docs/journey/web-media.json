@@ -13,8 +13,8 @@
     "quality": 87,
     "dimensions": "original"
   },
-  "originalBytes": 109954948,
-  "webBytes": 22954142,
+  "originalBytes": 116467332,
+  "webBytes": 24581098,
   "files": [
     {
       "source": "assets/prologue/yudu-arrival-v022.mp4",
@@ -578,6 +578,14 @@
       "sha256": "d946364b2cc92a4bb809ee867835c0652300d5af69a7789122f1760d6c463a95",
       "originalBytes": 777760,
       "webBytes": 58384
+    },
+    {
+      "source": "assets/chapters/chenhe-mountain-pack-original6751-v046.mp4",
+      "web": "assets/stream/chenhe-mountain-pack-original6751-v046-56864e498c.mp4",
+      "sha256": "56864e498c98323d252d7c0289bf5be543faa5a28605a02e13a35909d0e1c0aa",
+      "originalBytes": 6512384,
+      "webBytes": 1626956,
+      "webDimensions": "960×540"
     }
   ]
 }
