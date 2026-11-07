@@ -32,14 +32,14 @@ test('legacy migration does not accept a fabricated cross-branch path or fabrica
  const fresh=C.create(legacy);fresh.chapterProgress.snow={node:'snow-arrive',path:['river','snow-arrive']};
  assert(!C.canOpenChapter(D,C.restore(D,fresh),'snow'));
 });
-test('approved words replace the old incoherent replies and supplied film slots are no longer pending',()=>{
+test('approved words replace the old incoherent replies and remaining film slots stay static',()=>{
  const n=id=>D.nodes.find(n=>n.id===id);
  assert.equal(n('name').choices[0].label,'我叫小满。');
  assert.equal(n('ask-home').choices[0].label,'梁叔，您家里这时候都忙些什么？');
  assert.equal(n('xj-loss').speaker,'转运同志');assert(n('xj-loss').text.includes('梁叔回去帮我们抬担架，在江边中了弹。我们没能把他救回来。'));
  assert.equal(n('snow-a-help-yudu').text,'你之前在于都也是这么说的。');
  assert.equal(n('wuqi-cloth-answer').text,'你说卖吃的那家吗？早搬了。');
- const pending=D.nodes.filter(n=>n.plannedFilm);assert.equal(pending.length,0);
+ const pending=D.nodes.filter(n=>n.plannedFilm);assert.equal(pending.length,1);
  for(const node of pending){assert(!node.nativeAudio);assert(!node.video);assert(D.images[node.scene]);}
  assert.equal(D.nodes.filter(n=>n.choices?.length===2).length,5);
 });
