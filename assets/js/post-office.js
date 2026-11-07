@@ -27,7 +27,11 @@
   const stampImage = id => "assets/images/stamps/" + id + "-v1.webp";
   const paperImage = id => "assets/images/stationery/" + id + "-v1.webp";
   let stampId = null, paperId = null, pendingLetter = null;
-  const packingTimers = [];
+  let packingFrame = 0, packingResizeObserver;
+  function stopPacking() {
+    cancelAnimationFrame(packingFrame);
+    packingResizeObserver?.disconnect();
+  }
   function applyPaper(node, id) {
     node.classList.add("lm-stationery");
     if (paperById(id)) node.dataset.paper = id;
@@ -252,7 +256,7 @@
   }
   function finishDelivery() {
     clearTimeout(deliveryTimer);
-    packingTimers.splice(0).forEach(clearTimeout);
+    stopPacking();
     delivery.classList.remove("is-packing");
     delivery.dataset.phase = "delivered";
     delivery.classList.remove("is-delivering");
@@ -336,11 +340,61 @@
   });
   prepare.addEventListener("close", () => { if (!sending) $("#send-letter").focus(); });
   function beginPosting() {
+    stopPacking();
     delivery.classList.remove("is-packing");
     delivery.dataset.phase = "posting";
     delivery.classList.add("is-delivering");
     $("#delivery-title").textContent = "把这份心意，轻轻放进信箱";
     deliveryTimer = setTimeout(finishDelivery, 3100);
+  }
+  function startPacking() {
+    stopPacking();
+    const art = $(".lm-packing-art"), world = $(".lm-packing-world");
+    const top = $(".lm-packing-top"), bottom = $(".lm-packing-bottom");
+    const paper = $(".lm-packing-paper"), envelope = $(".lm-packing-envelope");
+    const pocket = $(".lm-packing-pocket"), flap = $(".lm-packing-flap");
+    const seal = $(".lm-packing-seal"), stamp = $("#packed-stamp");
+    const duration = 7.65; // 封口完成后稍作停留，再进入信箱投递。
+    let time = 0, previous = 0;
+    const ease = (start, end) => {
+      const value = Math.max(0, Math.min(1, (time - start) / (end - start)));
+      return value * value * (3 - 2 * value);
+    };
+    const resize = () => {
+      const scale = Math.min(art.clientWidth / 580, 1);
+      world.style.transform = "translateX(-50%) scale(" + scale + ")";
+      art.style.height = 440 * scale + "px";
+    };
+    const draw = () => {
+      const upper = ease(.55, 1.85), lower = ease(2.05, 3.35);
+      const arrival = ease(3.45, 4.05), insert = ease(4.2, 5.7), close = ease(5.9, 6.9);
+      top.style.transform = "translateZ(" + .6 * upper + "px) rotateX(" + -180 * upper + "deg)";
+      bottom.style.transform = "translateZ(" + 1.2 * lower + "px) rotateX(" + 180 * lower + "deg)";
+      paper.style.transform = "translateY(" + 158 * insert + "px)";
+      top.style.boxShadow = "0 0 " + 4 * Math.sin(Math.PI * upper) + "px #52432e12";
+      bottom.style.boxShadow = "0 0 " + 4 * Math.sin(Math.PI * lower) + "px #52432e12";
+      for (const layer of [envelope, pocket, flap]) layer.style.opacity = arrival;
+      envelope.style.transform = "translateY(" + 14 * (1 - arrival) + "px)";
+      pocket.style.transform = envelope.style.transform;
+      flap.style.transform = envelope.style.transform + " rotateX(" + 180 * close + "deg)";
+      flap.style.zIndex = close > .5 ? "4" : "0";
+      seal.style.opacity = stamp.style.opacity = ease(6.9, 7.2);
+      seal.style.transform = "scale(" + (.86 + .14 * ease(6.9, 7.2)) + ")";
+      const title = time < 3.45 ? "把写下的话，仔细折好" : time < 5.9 ? "装进信封，留下今天的邮票" : "封好心意，交给邮差";
+      if ($("#delivery-title").textContent !== title) $("#delivery-title").textContent = title;
+    };
+    const tick = now => {
+      if (previous) time = Math.min(duration, time + Math.min((now - previous) / 1000, .08));
+      previous = now;
+      draw();
+      if (time >= duration) beginPosting();
+      else packingFrame = requestAnimationFrame(tick);
+    };
+    resize();
+    packingResizeObserver = new ResizeObserver(resize);
+    packingResizeObserver.observe(art);
+    draw();
+    packingFrame = requestAnimationFrame(tick);
   }
   $("#confirm-dispatch").addEventListener("click", () => {
     if (sending || !pendingLetter || !stampById(stampId) || !paperById(paperId)) return;
@@ -376,11 +430,11 @@
       text("div", "lm-mini-body", message.body),
       text("p", "lm-mini-signer", message.nickname || "一位无名来信人"));
     ["top", "center", "bottom"].forEach(part => {
-      const face = text("div", "lm-fold-face", "");
+      const face = text("div", "lm-packing-face", "");
       face.append(miniature.cloneNode(true));
-      $(".lm-fold-" + part).replaceChildren(face, text("i", "lm-fold-back", ""));
+      $('[data-fold-panel="' + part + '"]').replaceChildren(face, text("i", "lm-packing-reverse", ""));
     });
-    $(".lm-fold-paper").dataset.paper = paperId;
+    $(".lm-packing-paper").dataset.paper = paperId;
     $("#packed-stamp").src = stampImage(stampId);
     document.querySelectorAll(".lm-postbox-stamp").forEach(image => image.src = stampImage(stampId));
     prepare.close();
@@ -414,10 +468,7 @@
     if (matchMedia("(prefers-reduced-motion: reduce)").matches)
       finishDelivery();
     else {
-      delivery.classList.add("is-packing");
-      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "装进信封，留下今天的邮票", 3200));
-      packingTimers.push(setTimeout(() => $("#delivery-title").textContent = "封好心意，交给邮差", 5100));
-      packingTimers.push(setTimeout(beginPosting, 6300));
+      startPacking();
     }
   });
   $("#skip-delivery").addEventListener("click", finishDelivery);

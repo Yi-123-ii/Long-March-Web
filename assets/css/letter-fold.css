@@ -1,0 +1,31 @@
+/* 与确认预览共用三折比例，展开时不绘制折线或分片阴影。 */
+#delivery-dialog .lm-packing-art { position:relative; width:100%; height:365px; margin:0 auto 12px; overflow:hidden; transform:none; perspective:none; }
+.lm-packing-world { position:absolute; left:50%; top:0; width:580px; height:440px; transform-origin:top center; perspective:1100px; }
+.lm-packing-ground { position:absolute; left:150px; top:406px; width:280px; height:28px; background:radial-gradient(ellipse,#3d42342b,transparent 70%); }
+.lm-packing-envelope { position:absolute; left:158px; top:270px; width:264px; height:132px; background:linear-gradient(150deg,#c7ae82,#d9c296); border:1px solid #baa37b; border-radius:2px; opacity:0; }
+.lm-packing-flap { position:absolute; left:158px; top:183px; width:264px; height:87px; transform-origin:center bottom; transform-style:preserve-3d; opacity:0; }
+.lm-packing-flap > * { position:absolute; inset:0; backface-visibility:hidden; clip-path:polygon(0 100%,50% 0,100% 100%); background:linear-gradient(180deg,#ddc79f,#c5ab80); }
+.lm-packing-flap > i { transform:rotateY(180deg); background:linear-gradient(0deg,#e5cfa7,#d9be91); }
+.lm-packing-position { position:absolute; z-index:2; left:174px; top:18px; width:232px; height:318px; perspective:1100px; }
+.lm-packing-paper { position:relative; width:100%; height:100%; transform-style:preserve-3d; }
+.lm-packing-panel { position:absolute; width:232px; height:106px; transform-style:preserve-3d; }
+.lm-packing-center { top:106px; transform:translateZ(0); transform-style:flat; background:var(--paper-color,#f9f5e9); }
+.lm-packing-top { top:0; transform-origin:center bottom; }
+.lm-packing-bottom { top:212px; transform-origin:center top; }
+.lm-packing-face,.lm-packing-reverse { position:absolute; inset:0; box-sizing:border-box; backface-visibility:hidden; border-inline:1px solid #cbbf9e7a; background:var(--paper-color,#f9f5e9); }
+.lm-packing-face { overflow:hidden; }
+.lm-packing-center .lm-packing-face { backface-visibility:visible; }
+.lm-packing-center .lm-packing-reverse { display:none; }
+.lm-packing-top .lm-packing-face { border-top:1px solid #cbbf9e7a; }
+.lm-packing-bottom .lm-packing-face { border-bottom:1px solid #cbbf9e7a; }
+.lm-packing-reverse { display:block; transform:rotateY(180deg); border-block:1px solid #cbbf9e66; background:linear-gradient(112deg,#ffffff42,transparent 60%),var(--paper-color,#f2ebd9); }
+.lm-packing-paper .lm-mini-letter { width:232px; height:318px; box-sizing:border-box; padding:20px 24px 50px; font-size:11px; }
+.lm-packing-center .lm-mini-letter { top:-106px; }
+.lm-packing-bottom .lm-mini-letter { top:-212px; }
+.lm-packing-paper .lm-mini-heading { margin-bottom:23px; font-size:9px; }
+.lm-packing-paper .lm-mini-salutation { font-size:12px; }
+.lm-packing-paper .lm-mini-body { line-height:21px; max-height:147px; background:repeating-linear-gradient(transparent 0 20px,#89957f28 20px 21px); }
+.lm-packing-paper .lm-mini-signer { font-size:10px; }
+.lm-packing-pocket { position:absolute; z-index:3; left:158px; top:270px; width:264px; height:132px; box-sizing:border-box; background:linear-gradient(160deg,#e8d5af,#d9c296); clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%); border:1px solid #b9a17a; opacity:0; }
+.lm-packing-stamp { position:absolute; z-index:5; left:375px; top:318px; width:29px; height:36px; border:2px dotted #fffbed; opacity:0; }
+.lm-packing-seal { position:absolute; z-index:5; left:278px; top:337px; width:24px; height:24px; display:grid; place-items:center; border-radius:50%; border:2px solid #af7463; background:#945046; color:#f3e0c4; box-shadow:0 1px 3px #57332c30; font:12px SimSun,serif; opacity:0; }

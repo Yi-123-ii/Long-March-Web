@@ -16,13 +16,14 @@
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
+    <link rel="stylesheet" href="assets/css/letter-fold.css?v=20261107-three-fold" />
     <script defer src="data/events.js?v=20261105-site-copy"></script>
     <script defer src="data/postal-designs.js?v=20261024-stationery"></script>
     <script defer src="assets/js/storage.js?v=20261024-stationery"></script>
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261107-home-origin"></script>
-    <script defer src="assets/js/post-office.js?v=20261107-paper-heading"></script>
+    <script defer src="assets/js/post-office.js?v=20261107-three-fold"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-home-return" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
@@ -256,8 +257,19 @@
       data-locked="true"
     >
       <div class="lm-packing-art" aria-hidden="true">
-        <div class="lm-pack-envelope"><div class="lm-pack-back"></div><div class="lm-pack-front"></div><div class="lm-pack-flap"></div><img id="packed-stamp" width="240" height="300" alt="" /><i></i></div>
-        <div class="lm-fold-paper"><div class="lm-fold-center"></div><div class="lm-fold-top"></div><div class="lm-fold-bottom"></div></div>
+        <div class="lm-packing-world">
+          <div class="lm-packing-ground"></div>
+          <div class="lm-packing-envelope"></div>
+          <div class="lm-packing-flap"><div></div><i></i></div>
+          <div class="lm-packing-position"><div class="lm-packing-paper">
+            <div class="lm-packing-panel lm-packing-center" data-fold-panel="center"></div>
+            <div class="lm-packing-panel lm-packing-top" data-fold-panel="top"></div>
+            <div class="lm-packing-panel lm-packing-bottom" data-fold-panel="bottom"></div>
+          </div></div>
+          <div class="lm-packing-pocket"></div>
+          <img id="packed-stamp" class="lm-packing-stamp" width="240" height="300" alt="" />
+          <div class="lm-packing-seal">山</div>
+        </div>
       </div>
       <div class="lm-delivery-art" aria-hidden="true"><div class="lm-postbox-model" data-postbox></div></div>
       <div class="lm-delivery-courier" aria-hidden="true"><img src="assets/images/couriers/river-v1.webp" width="240" height="320" alt="" /></div>
