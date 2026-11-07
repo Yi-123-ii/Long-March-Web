@@ -786,7 +786,7 @@
     "speaker": "心声",
     "mode": "thought",
     "scene": "grass-camp",
-    "text": "卫生员蹲在铺盖旁，替躺着的战士掖好衣服。接应队的人从外面回来，还没放下行装，就在找能跟着出去的人，草地上还有同志没接回来。\n\n陈禾背起包，站到接应队旁边。我往铺盖边靠了靠，给卫生员让出路。",
+    "text": "卫生员蹲在铺盖旁，替躺着的战士掖好衣服。接应队的人从外面回来，还没放下行装，就在找能跟着出去的人，草地上还有同志没接回来。陈禾背起包，站到接应队旁边。我往铺盖边靠了靠，给卫生员让出路。",
     "choices": [
       {
         "id": "stay",
@@ -799,7 +799,40 @@
         "next": "grass-b-path"
       }
     ],
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN052",
+      "src": "assets/audio/xiaoman-narration-v041/XN052.mp3",
+      "duration": 18.1475,
+      "cues": [
+        {
+          "text": "卫生员蹲在铺盖旁，替躺着的战士掖好衣服。",
+          "start": 0.37999999999999967,
+          "end": 4.12
+        },
+        {
+          "text": "接应队的人从外面回来，还没放下行装，就在找能跟着出去的人，草地上还有同志没接回来。",
+          "start": 4.9,
+          "end": 11.58
+        },
+        {
+          "text": "陈禾背起包，站到接应队旁边。",
+          "start": 12.18,
+          "end": 14.46
+        },
+        {
+          "text": "我往铺盖边靠了靠，给卫生员让出路。",
+          "start": 15.06,
+          "end": 17.7
+        }
+      ],
+      "sentences": [
+        "XN052-01",
+        "XN052-02",
+        "XN052-03",
+        "XN052-04"
+      ]
+    }
   },
   {
     "id": "grass-a-route",
@@ -815,7 +848,28 @@
         "next": "grass-a-new"
       }
     ],
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN053",
+      "src": "assets/audio/xiaoman-narration-v041/XN053.mp3",
+      "duration": 6.8725,
+      "cues": [
+        {
+          "text": "我在铺盖边蹲下，把水往陆生手边推了推。",
+          "start": 0.23249999999999815,
+          "end": 3.3125
+        },
+        {
+          "text": "他睁开眼，手还攥着盖在肩上的衣服。",
+          "start": 3.8324999999999996,
+          "end": 6.432499999999997
+        }
+      ],
+      "sentences": [
+        "XN053-01",
+        "XN053-02"
+      ]
+    }
   },
   {
     "id": "grass-a-old",
@@ -872,7 +926,22 @@
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "grass",
-    "next": "grass-a-night"
+    "next": "grass-a-night",
+    "narration": {
+      "id": "XN054",
+      "src": "assets/audio/xiaoman-narration-v041/XN054.mp3",
+      "duration": 4.54,
+      "cues": [
+        {
+          "text": "陆生看过袖口，点了点头，把攥着衣服的手松开。",
+          "start": 0.16000000000000014,
+          "end": 4.080000000000002
+        }
+      ],
+      "sentences": [
+        "XN054-01"
+      ]
+    }
   },
   {
     "id": "grass-a-new",
@@ -948,12 +1017,27 @@
   },
   {
     "id": "grass-a-new-nod",
-    "text": "（陆生点头，松开压着铺盖的手。）",
+    "text": "陆生点头，松开压着铺盖的手。",
     "scene": "lusheng-grass",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "grass",
-    "next": "grass-a-night"
+    "next": "grass-a-night",
+    "narration": {
+      "id": "XN055",
+      "src": "assets/audio/xiaoman-narration-v041/XN055.mp3",
+      "duration": 2.9525,
+      "cues": [
+        {
+          "text": "陆生点头，松开压着铺盖的手。",
+          "start": 0,
+          "end": 2.6799999999999997
+        }
+      ],
+      "sentences": [
+        "XN055-01"
+      ]
+    }
   },
   {
     "id": "grass-a-night",
@@ -962,7 +1046,22 @@
     "scene": "lusheng-night-first",
     "next": "grass-a-water",
     "mode": "thought",
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN056",
+      "src": "assets/audio/xiaoman-narration-v041/XN056.mp3",
+      "duration": 3.0075,
+      "cues": [
+        {
+          "text": "我端起水碗，往陆生那边挪了一点。",
+          "start": 0,
+          "end": 2.6074999999999946
+        }
+      ],
+      "sentences": [
+        "XN056-01"
+      ]
+    }
   },
   {
     "id": "grass-a-water",
@@ -1001,11 +1100,50 @@
   {
     "id": "grass-a-return",
     "speaker": "心声",
-    "text": "我把水放回他手边。\n\n后半夜，陆生醒过两回。有一回他伸手摸到碗边，我托着碗让他喝了几口，等他躺好，再把水碗放回原处。\n\n卫生员过来摸了摸他的额头，蹲了一会儿才走。我跟着看过去，盖在陆生肩头的衣服又滑下来了。",
+    "text": "我把水放回他手边。后半夜，陆生醒过两回。有一回他伸手摸到碗边，我托着碗让他喝了几口，等他躺好，再把水碗放回原处。卫生员过来摸了摸他的额头，蹲了一会儿才走。我跟着看过去，盖在陆生肩头的衣服又滑下来了。",
     "scene": "lusheng-night-hold",
     "next": "grass-a-cover",
     "mode": "thought",
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN057",
+      "src": "assets/audio/xiaoman-narration-v041/XN057.mp3",
+      "duration": 21.235,
+      "cues": [
+        {
+          "text": "我把水放回他手边。",
+          "start": 0.22000000000000597,
+          "end": 1.5400000000000063
+        },
+        {
+          "text": "后半夜，陆生醒过两回。",
+          "start": 2.219999999999999,
+          "end": 4.780000000000001
+        },
+        {
+          "text": "有一回他伸手摸到碗边，我托着碗让他喝了几口，等他躺好，再把水碗放回原处。",
+          "start": 5.540000000000006,
+          "end": 11.540000000000006
+        },
+        {
+          "text": "卫生员过来摸了摸他的额头，蹲了一会儿才走。",
+          "start": 12.840000000000003,
+          "end": 15.920000000000002
+        },
+        {
+          "text": "我跟着看过去，盖在陆生肩头的衣服又滑下来了。",
+          "start": 16.500000000000007,
+          "end": 20.980000000000004
+        }
+      ],
+      "sentences": [
+        "XN057-01",
+        "XN057-02",
+        "XN057-03",
+        "XN057-04",
+        "XN057-05"
+      ]
+    }
   },
   {
     "id": "grass-a-cover",
@@ -1024,12 +1162,33 @@
   },
   {
     "id": "grass-a-chen-return",
-    "text": "卫生员把人接过去，陈禾才卸下背上的包。他还撑着膝盖没直起身，我往里挪了挪，把身旁的位置空出来。",
+    "text": "卫生员把人接过去，陈禾才卸下背上的包。他还撑着膝盖没直起身，我往里挪了挪。",
     "scene": "chenhe-grass",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "grass",
-    "next": "grass-a-room"
+    "next": "grass-a-room",
+    "narration": {
+      "id": "XN058",
+      "src": "assets/audio/xiaoman-narration-v041/XN058.mp3",
+      "duration": 7.055,
+      "cues": [
+        {
+          "text": "卫生员把人接过去，陈禾才卸下背上的包。",
+          "start": 0,
+          "end": 3.404999999999994
+        },
+        {
+          "text": "他还撑着膝盖没直起身，我往里挪了挪。",
+          "start": 3.767499999999991,
+          "end": 6.884999999999998
+        }
+      ],
+      "sentences": [
+        "XN058-01",
+        "XN058-02"
+      ]
+    }
   },
   {
     "id": "grass-a-room",
@@ -1053,7 +1212,34 @@
     "scene": "grass-path",
     "next": "grass-b-call-out",
     "mode": "thought",
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN059",
+      "src": "assets/audio/xiaoman-narration-v041/XN059.mp3",
+      "duration": 12.895,
+      "cues": [
+        {
+          "text": "前面的人用长棍试着落脚，回身让我踩他的脚印。",
+          "start": 0,
+          "end": 3.832499999999996
+        },
+        {
+          "text": "我刚迈过去，旁边的草皮便陷下一块，水从裂口冒出来。",
+          "start": 4.135000000000005,
+          "end": 8.852500000000006
+        },
+        {
+          "text": "再往前，草里有人应了一声，紧接着咳起来。",
+          "start": 9.017500000000013,
+          "end": 12.532500000000013
+        }
+      ],
+      "sentences": [
+        "XN059-01",
+        "XN059-02",
+        "XN059-03"
+      ]
+    }
   },
   {
     "id": "grass-b-call-out",
@@ -1077,7 +1263,28 @@
     "scene": "grass-path",
     "next": "grass-b-support",
     "mode": "thought",
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN062",
+      "src": "assets/audio/xiaoman-narration-v041/XN062.mp3",
+      "duration": 12.7025,
+      "cues": [
+        {
+          "text": "同行的人把铺盖接过去，又换下陈禾，扶住那位战士。",
+          "start": 0.3400000000000003,
+          "end": 5.58
+        },
+        {
+          "text": "陈禾刚松手，身子也跟着晃了一下，我连忙托住他的胳膊。",
+          "start": 6.719999999999999,
+          "end": 12.239999999999998
+        }
+      ],
+      "sentences": [
+        "XN062-01",
+        "XN062-02"
+      ]
+    }
   },
   {
     "id": "grass-b-support",
@@ -1102,7 +1309,34 @@
     "next": "grass-b-ask-names",
     "mode": "thought",
     "chapter": "grass",
-    "plannedFilm": "CD-03"
+    "plannedFilm": "CD-03",
+    "narration": {
+      "id": "XN060",
+      "src": "assets/audio/xiaoman-narration-v041/XN060.mp3",
+      "duration": 14.521583333333334,
+      "cues": [
+        {
+          "text": "接应的人扶住他的胳膊，把人带到脚下稳些的地方，陈禾才凑过去让他搭住肩。",
+          "start": 0.31750000000000966,
+          "end": 5.877500000000012
+        },
+        {
+          "text": "走出没几步，他又站不住了，只能靠着陈禾缓一缓。",
+          "start": 5.987500000000011,
+          "end": 9.717500000000015
+        },
+        {
+          "text": "他抹掉嘴边的草屑，抬头看向我。",
+          "start": 10.197500000000005,
+          "end": 12.637500000000017
+        }
+      ],
+      "sentences": [
+        "XN060-01",
+        "XN060-02",
+        "XN060-03"
+      ]
+    }
   },
   {
     "id": "grass-b-ask-names",
@@ -1151,12 +1385,27 @@
   },
   {
     "id": "grass-b-breath",
-    "text": "（他停下来，扶住陈禾的胳膊。）",
+    "text": "他停下来，扶住陈禾的胳膊。",
     "scene": "grass-path",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "grass",
-    "next": "grass-b-rest-first"
+    "next": "grass-b-rest-first",
+    "narration": {
+      "id": "XN061",
+      "src": "assets/audio/xiaoman-narration-v041/XN061.mp3",
+      "duration": 3.82,
+      "cues": [
+        {
+          "text": "他停下来，扶住陈禾的胳膊。",
+          "start": 0,
+          "end": 3.32
+        }
+      ],
+      "sentences": [
+        "XN061-01"
+      ]
+    }
   },
   {
     "id": "grass-b-rest-first",
@@ -1174,7 +1423,22 @@
     "scene": "grass-path",
     "next": "grass-b-camp-v034",
     "mode": "thought",
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN063",
+      "src": "assets/audio/xiaoman-narration-v041/XN063.mp3",
+      "duration": 6.3775,
+      "cues": [
+        {
+          "text": "营地方向传来喊声，带路的人应着回头，招呼我们跟上。",
+          "start": 0.3774999999999977,
+          "end": 5.677499999999998
+        }
+      ],
+      "sentences": [
+        "XN063-01"
+      ]
+    }
   },
   {
     "chapter": "grass",
@@ -1190,7 +1454,22 @@
         "next": "grass-b-new"
       }
     ],
-    "next": "grass-b-old"
+    "next": "grass-b-old",
+    "narration": {
+      "id": "XN064",
+      "src": "assets/audio/xiaoman-narration-v041/XN064.mp3",
+      "duration": 6.375,
+      "cues": [
+        {
+          "text": "我们走到铺盖旁，躺着的战士听见声音，转过头看了一眼。",
+          "start": 0.4600000000000044,
+          "end": 5.720000000000002
+        }
+      ],
+      "sentences": [
+        "XN064-01"
+      ]
+    }
   },
   {
     "id": "grass-b-old",
@@ -1275,7 +1554,28 @@
         "next": "grass-dawn-call"
       }
     ],
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN065",
+      "src": "assets/audio/xiaoman-narration-v041/XN065.mp3",
+      "duration": 8.4775,
+      "cues": [
+        {
+          "text": "天亮后，我们挪到营地边上歇脚。",
+          "start": 0.485000000000003,
+          "end": 3.645000000000003
+        },
+        {
+          "text": "陈禾坐在我旁边，脚边的空碗倒扣着。",
+          "start": 4.2450000000000045,
+          "end": 7.884999999999998
+        }
+      ],
+      "sentences": [
+        "XN065-01",
+        "XN065-02"
+      ]
+    }
   },
   {
     "id": "grass-dawn-yudu",
@@ -1352,12 +1652,27 @@
   },
   {
     "id": "grass-dawn-tie-shoes",
-    "text": "（陈禾低头系鞋带。）",
+    "text": "陈禾低头系鞋带。",
     "scene": "chenhe-grass",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "grass",
-    "next": "grass-dawn-end"
+    "next": "grass-dawn-end",
+    "narration": {
+      "id": "XN066",
+      "src": "assets/audio/xiaoman-narration-v041/XN066.mp3",
+      "duration": 2.5675,
+      "cues": [
+        {
+          "text": "陈禾低头系鞋带。",
+          "start": 0.427500000000002,
+          "end": 1.9875000000000043
+        }
+      ],
+      "sentences": [
+        "XN066-01"
+      ]
+    }
   },
   {
     "id": "grass-dawn-help",
@@ -1366,7 +1681,28 @@
     "scene": "chenhe-grass",
     "next": "grass-dawn-hold-pack",
     "mode": "thought",
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN067",
+      "src": "assets/audio/xiaoman-narration-v041/XN067.mp3",
+      "duration": 10.65,
+      "cues": [
+        {
+          "text": "绳头又垂到脚边，我刚要去捡，陈禾先伸了手。",
+          "start": 0.3999999999999986,
+          "end": 5.299999999999997
+        },
+        {
+          "text": "他让我托一下铺盖，把那截绳头塞进了背带里。",
+          "start": 6.060000000000002,
+          "end": 10.119999999999997
+        }
+      ],
+      "sentences": [
+        "XN067-01",
+        "XN067-02"
+      ]
+    }
   },
   {
     "id": "grass-dawn-hold-pack",
@@ -1439,7 +1775,28 @@
         "next": "grass-end"
       }
     ],
-    "chapter": "grass"
+    "chapter": "grass",
+    "narration": {
+      "id": "XN068",
+      "src": "assets/audio/xiaoman-narration-v041/XN068.mp3",
+      "duration": 8.9375,
+      "cues": [
+        {
+          "text": "我擦掉碗沿的草屑，把碗递给正在收拾炊具的同志。",
+          "start": 0.3100000000000023,
+          "end": 4.837499999999999
+        },
+        {
+          "text": "陈禾已经背好行装，在前头等我。",
+          "start": 5.517499999999998,
+          "end": 8.4375
+        }
+      ],
+      "sentences": [
+        "XN068-01",
+        "XN068-02"
+      ]
+    }
   },
   {
     "id": "grass-end",
@@ -2303,7 +2660,28 @@
         "next": "north-passage-v034"
       }
     ],
-    "historicalTab": "9月16日至17日，红军激战腊子口，打通北上通道"
+    "historicalTab": "9月16日至17日，红军激战腊子口，打通北上通道",
+    "narration": {
+      "id": "XN069",
+      "src": "assets/audio/xiaoman-narration-v041/XN069.mp3",
+      "duration": 12.3825,
+      "cues": [
+        {
+          "text": "山口的枪声一直没停，担架队也堵在坡下。",
+          "start": 0.28000000000000114,
+          "end": 4.3999999999999915
+        },
+        {
+          "text": "我抱着包坐了半夜，想换个姿势，才发现手指扣在带子上，已经麻了。",
+          "start": 5.3799999999999955,
+          "end": 11.980000000000004
+        }
+      ],
+      "sentences": [
+        "XN069-01",
+        "XN069-02"
+      ]
+    }
   },
   {
     "id": "north-passage-v034",
@@ -2314,7 +2692,34 @@
     "routePlace": "腊子口后续通行",
     "routeDate": "1935年9月",
     "text": "前面不断有人下来，裤腿蹭满了土，擦着我们的包挤过去。等天色泛白，队伍才开始往山口走。经过木桥时，我看见桥边的石头崩掉一角，碎屑还散在脚下。",
-    "next": "north-arrive"
+    "next": "north-arrive",
+    "narration": {
+      "id": "XN070",
+      "src": "assets/audio/xiaoman-narration-v041/XN070.mp3",
+      "duration": 17.3525,
+      "cues": [
+        {
+          "text": "前面不断有人下来，裤腿蹭满了土，擦着我们的包挤过去。",
+          "start": 0.31749999999999545,
+          "end": 5.717499999999987
+        },
+        {
+          "text": "等天色泛白，队伍才开始往山口走。",
+          "start": 6.8374999999999915,
+          "end": 10.477499999999992
+        },
+        {
+          "text": "经过木桥时，我看见桥边的石头崩掉一角，碎屑还散在脚下。",
+          "start": 11.117499999999993,
+          "end": 17.017499999999984
+        }
+      ],
+      "sentences": [
+        "XN070-01",
+        "XN070-02",
+        "XN070-03"
+      ]
+    }
   },
   {
     "id": "wuqi-rest-route-v034",
