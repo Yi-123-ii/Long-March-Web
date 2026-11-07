@@ -33,6 +33,27 @@
   const paperById = id => papers.find(paper => paper.id === id);
   const stampImage = id => "assets/images/stamps/" + id + "-v1.webp";
   const paperPreviewImage = id => "assets/images/stationery/" + id + "-preview-v1.webp";
+  const fullPaperTextures = new Map();
+  function previewTexture(id) {
+    const image = $("#paper-options input[value='" + id + "']")?.closest("label").querySelector("img");
+    return image?.naturalWidth ? image.currentSrc : new URL(paperPreviewImage(id), location.href).href;
+  }
+  function fullPaperTexture(id) {
+    if (fullPaperTextures.has(id)) return fullPaperTextures.get(id);
+    const image = new Image();
+    image.decoding = "async";
+    image.fetchPriority = "high";
+    const loaded = new Promise(resolve => {
+      image.onload = async () => {
+        try { await image.decode(); resolve(image.currentSrc); }
+        catch { fullPaperTextures.delete(id); resolve(null); }
+      };
+      image.onerror = () => { fullPaperTextures.delete(id); resolve(null); };
+    });
+    fullPaperTextures.set(id, loaded);
+    image.src = "assets/images/stationery/" + id + "-v1.webp";
+    return loaded;
+  }
   let stampId = null, paperId = null, pendingLetter = null;
   let packingFrame = 0, packingResizeObserver;
   function stopPacking() {
@@ -40,10 +61,36 @@
     packingResizeObserver?.disconnect();
   }
   function applyPaper(node, id) {
+    const paper = paperById(id);
+    node.querySelector(":scope > .lm-paper-art")?.remove();
     node.classList.add("lm-stationery");
-    if (paperById(id)) node.dataset.paper = id;
+    if (paper) node.dataset.paper = id;
     else delete node.dataset.paper;
-    node.toggleAttribute("data-paper-illustrated", Boolean(paperById(id)?.ornament));
+    node.toggleAttribute("data-paper-illustrated", Boolean(paper?.ornament));
+    if (!paper) return;
+    const art = text("div", "lm-paper-art", "");
+    art.setAttribute("aria-hidden", "true");
+    const source = previewTexture(id);
+    function slice(name, start, height) {
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.classList.add("lm-paper-art-" + name);
+      svg.setAttribute("viewBox", "0 " + start + " 640 " + height);
+      svg.setAttribute("preserveAspectRatio", "none");
+      const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+      image.setAttribute("width", "640"); image.setAttribute("height", "896");
+      image.setAttribute("href", source);
+      svg.append(image); art.append(svg);
+    }
+    if (paper.ornament) slice("header", 0, 180);
+    const footerStart = paper.footerStart ?? 640;
+    slice("footer", footerStart, 896 - footerStart);
+    node.prepend(art);
+    // The already decoded chooser image is visible immediately. Full-size art
+    // replaces it only after decoding, without clearing the displayed picture.
+    fullPaperTexture(id).then(source => {
+      if (!source || node.dataset.paper !== id) return;
+      art.querySelectorAll("image").forEach(image => image.setAttribute("href", source));
+    });
   }
   stamps.forEach(stamp => {
     const label = text("label", "lm-stamp-option", "");
@@ -78,11 +125,15 @@
     image.dataset.src = paperPreviewImage(paper.id); image.alt = ""; image.width = 240; image.height = 336;
     const status = text("span", "lm-paper-sample-status", "图案载入中");
     image.addEventListener("load", () => {
-      if (image.naturalWidth) art.dataset.state = "ready";
+      if (image.naturalWidth) {
+        art.dataset.state = "ready";
+        if (paperId === paper.id) $("#preview-letter").disabled = false;
+      }
     });
     image.addEventListener("error", () => {
       art.dataset.state = "error";
       status.textContent = "图案未载入，点此重试";
+      if (paperId === paper.id) $("#preview-letter").disabled = true;
     });
     label.addEventListener("click", () => {
       if (art.dataset.state !== "error") return;
@@ -95,7 +146,8 @@
     radio.addEventListener("change", () => {
       paperId = paper.id;
       $("#paper-selection").textContent = "已选：" + paper.name;
-      $("#preview-letter").disabled = false;
+      $("#preview-letter").disabled = art.dataset.state !== "ready";
+      fullPaperTexture(paper.id);
       // 书写区固定使用默认纸面，款式只应用于正式信件。
       saveDraft();
     });
@@ -358,6 +410,9 @@
       const image = art.querySelector("img");
       image.src = image.dataset.src;
     });
+    const selectedArt = $("#paper-options input:checked")?.closest("label").querySelector(".lm-paper-sample");
+    $("#preview-letter").disabled = selectedArt?.dataset.state !== "ready";
+    if (paperById(paperId)) fullPaperTexture(paperId);
     $("#stamp-choice").hidden = true;
     $("#paper-choice").hidden = false;
     $("#letter-review").hidden = true;
@@ -477,6 +532,7 @@
     sending = true;
     const miniature = text("div", "lm-mini-letter", "");
     miniature.dataset.paper = paperId;
+    miniature.style.backgroundImage = 'url("' + previewTexture(paperId) + '")';
     const miniStamp = document.createElement("img");
     miniStamp.src = stampImage(stampId); miniStamp.alt = "";
     miniature.append(text("span", "lm-mini-heading", "山河邮局"), miniStamp,
@@ -490,6 +546,11 @@
     });
     $(".lm-packing-paper").dataset.paper = paperId;
     $(".lm-packing-paper").toggleAttribute("data-paper-illustrated", Boolean(paperById(paperId)?.ornament));
+    const packedPaperId = paperId;
+    fullPaperTexture(packedPaperId).then(source => {
+      if (!source || $(".lm-packing-paper").dataset.paper !== packedPaperId) return;
+      document.querySelectorAll(".lm-packing-paper .lm-mini-letter").forEach(node => node.style.backgroundImage = 'url("' + source + '")');
+    });
     $("#packed-stamp").src = stampImage(stampId);
     document.querySelectorAll(".lm-postbox-stamp").forEach(image => image.src = stampImage(stampId));
     prepare.close();
