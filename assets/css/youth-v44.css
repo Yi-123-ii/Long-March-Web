@@ -55,9 +55,14 @@ body.legacy-v41 {
   letter-spacing: .015em;
 }
 
-.v44-youth .v44-youth__title span {
-  color: var(--youth-rust);
-  white-space: nowrap;
+.v44-youth .v44-youth__title picture,
+.v44-youth .v44-youth__title img {
+  display: block;
+}
+
+.v44-youth .v44-youth__title img {
+  width: 100%;
+  height: auto;
 }
 
 .v44-youth .v44-youth__intro {
@@ -298,6 +303,10 @@ body.legacy-v41 {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .v44-youth .v44-youth__title picture {
+    max-width: 360px;
+  }
+
   .v44-youth .v44-youth__paths {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 18px;
@@ -324,12 +333,6 @@ body.legacy-v41 {
   .v44-youth .v44-youth__letter-link {
     grid-column: 2;
     justify-self: start;
-  }
-}
-
-@media (max-width: 355px) {
-  .v44-youth .v44-youth__title span {
-    display: block;
   }
 }
 
