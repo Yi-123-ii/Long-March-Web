@@ -24,7 +24,10 @@ body.legacy-v41 .v47-spirit__reading {
   font: 400 17px/1.85 var(--v38-reading);
 }
 body.legacy-v41 .v47-spirit__reading p + p {
-  margin-top: clamp(16px, 2vw, 24px);
+  margin-top: clamp(14px, 1.4vw, 20px);
+}
+body.legacy-v41 .v47-spirit + .doc-people {
+  padding-block-start: clamp(24px, 2.5vw, 36px);
 }
 @media (max-width: 900px) {
   body.legacy-v41 .v47-spirit__heading h2 { font-size: 30px; }

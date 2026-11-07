@@ -55,14 +55,14 @@ body.legacy-v41 .v44-opening__art {
 body.legacy-v41 .v44-opening__art picture {
   position: absolute;
   inset: 0;
-  background: url("../images/v44/legacy-village-interview-preview-v1.webp") 82% center / cover no-repeat;
+  background: url("../images/v44/legacy-village-interview-wide-preview-v2.webp") 74% center / cover no-repeat;
 }
 body.legacy-v41 .v44-opening__art img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 82% center;
+  object-position: 74% center;
 }
 body.legacy-v41 .v44-opening__art figcaption {
   position: absolute;
@@ -500,6 +500,14 @@ body.legacy-v41 .doc-article--case .doc-article__echo h3 {
     mask-image: linear-gradient(transparent, #000 24%);
   }
   body.legacy-v41 .v44-opening__art img { object-position: 77% center; }
+}
+@media (width > 760px) and (aspect-ratio < 19/10) and (orientation: landscape) {
+  body.legacy-v41 .v44-opening__art picture {
+    top: 0;
+    background: url("../images/v44/legacy-village-interview-tall-preview-v2.webp") 60% center / cover no-repeat;
+    mask-image: none;
+  }
+  body.legacy-v41 .v44-opening__art img { object-position: 60% center; }
 }
 @media (max-width: 760px), (max-width: 900px) and (orientation: portrait) {
   body.legacy-v41 .v44-opening__art picture {
