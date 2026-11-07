@@ -380,7 +380,7 @@
       flap.style.zIndex = close > .5 ? "4" : "0";
       seal.style.opacity = stamp.style.opacity = ease(6.9, 7.2);
       seal.style.transform = "scale(" + (.86 + .14 * ease(6.9, 7.2)) + ")";
-      const title = time < 3.45 ? "把写下的话，仔细折好" : time < 5.9 ? "装进信封，留下今天的邮票" : "封好心意，交给邮差";
+      const title = time < 3.45 ? "把写下的话，仔细折好" : time < 5.9 ? "装进信封，贴上选好的邮票" : "封好心意，交给邮差";
       if ($("#delivery-title").textContent !== title) $("#delivery-title").textContent = title;
     };
     const tick = now => {
