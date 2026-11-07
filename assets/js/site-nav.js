@@ -15,10 +15,20 @@
 
   const homeReturn = document.querySelector('[data-home-return]');
   if (homeReturn && new URLSearchParams(location.search).get('from') === 'home') {
-    homeReturn.hidden = false;
-    homeReturn.querySelector('button').addEventListener('click', () => {
-      homeReturn.hidden = true;
-    });
+    const homeUrl = new URL(homeReturn.querySelector('a').href);
+    const referrer = document.referrer ? new URL(document.referrer) : null;
+    const fromHome = referrer?.origin === homeUrl.origin &&
+      [homeUrl.pathname, new URL('.', homeUrl).pathname].includes(referrer.pathname);
+    const sameVisit = history.state?.shanheHomeReturn === location.pathname;
+    if (fromHome || sameVisit) {
+      homeReturn.hidden = false;
+      try {
+        history.replaceState({ ...history.state, shanheHomeReturn: location.pathname }, '');
+      } catch { /* The return link also works when history state cannot be saved. */ }
+      homeReturn.querySelector('button').addEventListener('click', () => {
+        homeReturn.hidden = true;
+      });
+    }
   }
 
   const header = document.querySelector('.site-header');
