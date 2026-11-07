@@ -13,6 +13,14 @@
     }
   }
 
+  const homeReturn = document.querySelector('[data-home-return]');
+  if (homeReturn && new URLSearchParams(location.search).get('from') === 'home') {
+    homeReturn.hidden = false;
+    homeReturn.querySelector('button').addEventListener('click', () => {
+      homeReturn.hidden = true;
+    });
+  }
+
   const header = document.querySelector('.site-header');
   if (!header) return;
   const toggle = header.querySelector('.site-menu-toggle');

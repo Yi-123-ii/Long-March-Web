@@ -21,14 +21,14 @@
     <script defer src="assets/js/storage.js?v=20261024-stationery"></script>
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/site-nav.js?v=20261105-opening-perf"></script>
+    <script defer src="assets/js/site-nav.js?v=20261107-home-return"></script>
     <script defer src="assets/js/post-office.js?v=20261107-paper-heading"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
-    <link rel="stylesheet" href="assets/css/site-shell.css?v=20261106-title-motion" />
+    <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-home-return" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
   <link href="assets/css/v38-reading.css" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/css/header-unified.css?v=20261105-opening-perf" />
-<link rel="stylesheet" href="assets/css/section-opening.css?v=20261107-return-home" />
+<link rel="stylesheet" href="assets/css/section-opening.css?v=20261107-home-return" />
 <link rel="stylesheet" href="assets/css/post-opening-landscape.css?v=20261107-desk-spacing" />
 </head>
   <body class="lm-page lm-post-page" id="top">
@@ -47,7 +47,6 @@
     </header>
     <main>
       <section class="section-opening" aria-labelledby="post-title">
-        <a class="section-opening__back" href="index.html#chapter-post">← 返回首页</a>
         <div class="post-opening__landscape" aria-hidden="true">
           <div class="post-opening__scene">
             <img src="assets/images/post-office-two-hands-v1.webp" width="1672" height="941" alt="" decoding="async" fetchpriority="high" />
@@ -317,5 +316,10 @@
         请启用 JavaScript 以使用草稿保存和留言投递功能
       </p></noscript
     >
-  </body>
+  <nav class="site-home-return" data-home-return aria-label="返回首页提示" hidden>
+  <span>继续浏览其他板块</span>
+  <a href="index.html#chapter-post">返回首页 ↗</a>
+  <button type="button" aria-label="关闭返回首页提示">×</button>
+</nav>
+</body>
 </html>
