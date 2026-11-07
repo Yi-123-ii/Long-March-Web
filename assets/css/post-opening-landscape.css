@@ -1,68 +1,51 @@
 .lm-post-page .site-header.lm-unified-header {
-  background: transparent !important;
+  background: var(--lm-bg) !important;
 }
-.lm-post-page .section-opening {
+.lm-post-page .section-opening.section-opening {
   isolation: isolate;
+  gap: clamp(32px, 6vw, 96px);
+  background: var(--lm-bg);
+}
+.lm-post-page .section-opening.section-opening::before,
+.lm-post-page .section-opening.section-opening::after {
+  content: none;
 }
 .lm-post-page .section-opening + .lm-post-main {
-  margin-top: calc(var(--cover-bottom-overlap, 99px) + 12px);
+  margin-top: 24px;
 }
-.post-opening__landscape {
-  position: absolute;
-  inset: calc(-1 * var(--header-height)) 0 0;
-  z-index: -1;
-  pointer-events: none;
-  background: #eee9de;
+.lm-post-page .section-opening .section-opening__copy {
+  flex: 0 0 var(--title-width);
 }
-.post-opening__scene {
-  position: absolute;
-  inset: 0;
-  isolation: isolate;
-}
-.post-opening__scene::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: url("../images/post-office-two-hands-preview-v1.webp") right center / cover no-repeat;
-  filter: blur(16px);
-  clip-path: inset(0);
-  pointer-events: none;
-}
-.post-opening__scene img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: right center;
-}
-.post-opening__landscape::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, #eef1ed88, #eef1ed33 40%, transparent 62%);
+.post-opening__intro {
+  position: relative;
+  z-index: 2;
+  flex: 0 1 auto;
+  width: clamp(280px, 31vw, 480px);
+  margin: 0 0 0 auto;
+  transform: translateY(clamp(-62px, -6svh, -24px));
+  color: var(--lm-muted);
+  font: 400 clamp(14px, 1.05vw, 17px)/2.1 var(--lm-reading);
+  letter-spacing: .04em;
+  text-align: justify;
 }
 @media (max-width: 760px) {
-  .post-opening__landscape::after {
-    background: radial-gradient(ellipse 86% 35% at 28% 48%, #eef1edb8, transparent);
+  .lm-post-page .section-opening.section-opening {
+    flex-direction: column;
+    justify-content: center;
+    gap: 36px;
+    padding-block: clamp(24px, 5svh, 48px) 48px;
   }
-}
-@media (min-width: 581px) and (max-aspect-ratio: 3/2) {
-  .post-opening__landscape::after {
-    background: linear-gradient(90deg, #eef1edc4, #eef1ed9e 38%, #eef1ed33 52%, transparent 62%);
-  }
-}
-@media (max-width: 580px) and (orientation: portrait) {
-  .post-opening__scene {
-    top: clamp(90px, 18svh, 152px);
-    mask-image: linear-gradient(transparent 5%, #000 43%);
-  }
-  .post-opening__scene::before { background-position: 97% center; }
-  .post-opening__scene img { object-position: 97% center; }
-  .post-opening__landscape::after { background: none; }
   .lm-post-page .section-opening .section-opening__copy {
-    align-self: flex-start;
-    margin-top: clamp(12px, 2.5svh, 24px);
+    flex: none;
+    margin: 0;
     transform: none;
+  }
+  .post-opening__intro {
+    flex: none;
+    width: min(100%, 34em);
+    margin: 0;
+    transform: none;
+    font-size: 14px;
+    line-height: 2;
   }
 }
