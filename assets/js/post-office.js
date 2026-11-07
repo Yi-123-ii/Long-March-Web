@@ -32,7 +32,7 @@
   const stampById = id => stamps.find(stamp => stamp.id === id);
   const paperById = id => papers.find(paper => paper.id === id);
   const stampImage = id => "assets/images/stamps/" + id + "-v1.webp";
-  const paperImage = id => "assets/images/stationery/" + id + "-v1.webp";
+  const paperPreviewImage = id => "assets/images/stationery/" + id + "-preview-v1.webp";
   let stampId = null, paperId = null, pendingLetter = null;
   let packingFrame = 0, packingResizeObserver;
   function stopPacking() {
@@ -72,10 +72,25 @@
     radio.type = "radio"; radio.name = "letter-paper"; radio.value = paper.id;
     const art = text("span", "lm-paper-sample", "");
     art.setAttribute("aria-hidden", "true");
+    art.dataset.state = "idle";
     const image = document.createElement("img");
-    image.loading = "lazy";
-    image.src = paperImage(paper.id); image.alt = ""; image.width = 640; image.height = 896;
-    art.append(image, text("span", "", "致长征路上的你们："));
+    image.loading = "eager"; image.decoding = "async"; image.fetchPriority = "high";
+    image.dataset.src = paperPreviewImage(paper.id); image.alt = ""; image.width = 240; image.height = 336;
+    const status = text("span", "lm-paper-sample-status", "图案载入中");
+    image.addEventListener("load", () => {
+      if (image.naturalWidth) art.dataset.state = "ready";
+    });
+    image.addEventListener("error", () => {
+      art.dataset.state = "error";
+      status.textContent = "图案未载入，点此重试";
+    });
+    label.addEventListener("click", () => {
+      if (art.dataset.state !== "error") return;
+      art.dataset.state = "loading";
+      status.textContent = "图案载入中";
+      image.src = image.dataset.src + "?retry=" + Date.now();
+    });
+    art.append(image, text("span", "lm-paper-sample-salutation", "致长征路上的你们："), status);
     label.append(radio, art, text("strong", "", paper.name), text("small", "", paper.caption));
     radio.addEventListener("change", () => {
       paperId = paper.id;
@@ -334,6 +349,15 @@
   });
   function choosePaper() {
     if (!stampById(stampId)) return;
+    // A native dialog starts hidden: explicitly load small previews when opened
+    // instead of relying on the browser's lazy-image visibility detection.
+    document.querySelectorAll("#paper-options .lm-paper-sample").forEach(art => {
+      if (art.dataset.state === "ready" || art.dataset.state === "loading") return;
+      art.dataset.state = "loading";
+      art.querySelector(".lm-paper-sample-status").textContent = "图案载入中";
+      const image = art.querySelector("img");
+      image.src = image.dataset.src;
+    });
     $("#stamp-choice").hidden = true;
     $("#paper-choice").hidden = false;
     $("#letter-review").hidden = true;

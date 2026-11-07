@@ -35,6 +35,12 @@
 .lm-paper-sample img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .lm-paper-sample span { position: absolute; top: 24%; left: 13%; right: 12%; font: 6px/1.7 var(--lm-reading); color: #5a6b53; text-align: left; }
 .lm-paper-sample::after { content: ""; position: absolute; left: 13%; right: 13%; top: 38%; bottom: 25%; background: repeating-linear-gradient(transparent 0 12px,#77887233 12px 13px); }
+.lm-paper-sample:not([data-state="ready"]) { background: #f8f7ee; }
+.lm-paper-sample:not([data-state="ready"]) img { visibility: hidden; }
+.lm-paper-sample[data-state="ready"] img { visibility: visible; }
+.lm-paper-sample:not([data-state="ready"])::after, .lm-paper-sample:not([data-state="ready"]) .lm-paper-sample-salutation { display: none; }
+.lm-paper-sample .lm-paper-sample-status { position: absolute; inset: 0; display: grid; place-items: center; padding: 8px; font: 10px/1.7 var(--lm-reading); text-align: center; color: #65745f; }
+.lm-paper-sample[data-state="ready"] .lm-paper-sample-status { display: none; }
 .lm-paper-option:hover .lm-paper-sample, .lm-paper-option:has(input:checked) .lm-paper-sample { transform: rotate(0); }
 .lm-paper-option strong { font-family: var(--lm-reading); font-size: 17px; font-weight: 400; }
 .lm-paper-option small { font-size: 10px; color: #697960; margin-top: 5px; }
