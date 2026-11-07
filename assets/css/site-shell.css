@@ -107,6 +107,14 @@
   text-decoration: none;
   border-bottom: 1px solid #8a9a85;
 }
+[data-post-return] > a { gap: .35em; }
+[data-post-source] > span { min-width: 0; }
+[data-post-source] > a { flex-shrink: 0; }
+.lm-post-page:has([data-post-source]:not([hidden])) { padding-bottom: 76px; }
+.lm-post-page.c-game-visitor:has([data-post-source]:not([hidden])) { padding-bottom: 165px; }
+.lm-post-page:has(.c-game-return) [data-post-source] {
+  bottom: max(94px, calc(env(safe-area-inset-bottom) + 74px));
+}
 .site-home-return > a:hover { color: #973e39; }
 .site-home-return > button {
   flex-shrink: 0;
@@ -127,4 +135,17 @@
   .site-home-return:not([hidden]) { gap: 10px; padding-left: 12px; }
   .site-home-return > span { font-size: 12px; }
   .site-home-return > :is(a, button) { min-height: 44px; }
+  [data-post-source] > button { width: 44px; }
+}
+@media (max-width: 600px) {
+  .lm-post-page.c-game-visitor:has([data-post-source]:not([hidden])) { padding-bottom: 190px; }
+  .lm-post-page:has(.c-game-return) [data-post-source] {
+    bottom: max(120px, calc(env(safe-area-inset-bottom) + 108px));
+  }
+}
+@media (max-width: 360px) {
+  .site-home-return[data-post-source]:not([hidden]) {
+    gap: 7px;
+    padding-inline: 8px;
+  }
 }

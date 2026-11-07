@@ -168,7 +168,7 @@
       index === events.length - 1 ? "结束阅读" : "下一段 →";
     read.add(event.id);
     LM_STORE.write("read", [...read]);
-    history.replaceState(null, "", "#event=" + event.id);
+    history.replaceState(history.state, "", "#event=" + event.id);
     dialog.scrollTop = 0;
   }
   function openEvent(id) {
@@ -229,14 +229,16 @@
     search.focus();
   });
   function rememberReading() {
+    const snapshot = {
+      eventId: events[current].id,
+      articleScroll: dialog.scrollTop,
+      pageScroll: window.scrollY,
+      year,
+      query: search.value,
+    };
     try {
-      sessionStorage.setItem(readingReturnKey, JSON.stringify({
-        eventId: events[current].id,
-        articleScroll: dialog.scrollTop,
-        pageScroll: window.scrollY,
-        year,
-        query: search.value,
-      }));
+      sessionStorage.setItem(readingReturnKey, JSON.stringify(snapshot));
+      history.replaceState({ ...history.state, shanheChronicleReading: snapshot }, "");
     } catch {
       // The return URL still opens the same article when storage is unavailable.
     }
@@ -245,10 +247,13 @@
   document.querySelector("#detail-mail").addEventListener("auxclick", rememberReading);
   const resumeId = new URLSearchParams(location.search).get("resumeReading");
   let resumeReading = null;
-  if (resumeId) {
+  const fromHistory = performance.getEntriesByType("navigation")[0]?.type === "back_forward"
+    ? history.state?.shanheChronicleReading : null;
+  if (resumeId || fromHistory) {
     try {
-      const saved = JSON.parse(sessionStorage.getItem(readingReturnKey));
-      if (saved?.eventId === resumeId && events.some(event => event.id === resumeId)
+      const saved = resumeId ? JSON.parse(sessionStorage.getItem(readingReturnKey)) : fromHistory;
+      const expectedId = resumeId || location.hash.slice("#event=".length);
+      if (saved?.eventId === expectedId && events.some(event => event.id === expectedId)
         && Number.isFinite(saved.articleScroll) && saved.articleScroll >= 0
         && Number.isFinite(saved.pageScroll) && saved.pageScroll >= 0) {
         resumeReading = saved;
@@ -263,9 +268,11 @@
     } catch {
       // A missing or damaged snapshot falls back to the article's beginning.
     }
-    const url = new URL(location.href);
-    url.searchParams.delete("resumeReading");
-    history.replaceState(history.state, "", url);
+    if (resumeId) {
+      const url = new URL(location.href);
+      url.searchParams.delete("resumeReading");
+      history.replaceState(history.state, "", url);
+    }
   }
   render();
   const deepLink = location.hash.match(/^#event=([a-z]+)$/);
@@ -278,7 +285,7 @@
         dialog.addEventListener(type, stopRestoring, { once: true, passive: true });
       const restore = () => {
         if (interrupted || !dialog.open || events[current].id !== resumeReading.eventId) return;
-        window.scrollTo(0, resumeReading.pageScroll);
+        window.scrollTo({ top: resumeReading.pageScroll, behavior: "instant" });
         dialog.scrollTop = resumeReading.articleScroll;
       };
       requestAnimationFrame(restore);

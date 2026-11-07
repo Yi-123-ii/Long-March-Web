@@ -227,7 +227,12 @@
   }
   const query = new URLSearchParams(location.search);
   const queryEvent = query.get("event");
-  const readingEvent = query.get("readFrom") === "chronicle" && knownEvent(queryEvent);
+  const hasChronicleReturn = history.state?.shanhePostReturn?.source === "chronicle";
+  const referrer = document.referrer && new URL(document.referrer);
+  const chronicleUrl = new URL("chronicle.html", location.href);
+  const fromChronicle = hasChronicleReturn || (referrer?.origin === chronicleUrl.origin &&
+    referrer.pathname === chronicleUrl.pathname);
+  const readingEvent = fromChronicle && query.get("readFrom") === "chronicle" && knownEvent(queryEvent);
   if (readingEvent) {
     const dock = $("#chronicle-return");
     const back = new URL("chronicle.html", location.href);
@@ -238,9 +243,9 @@
       link.href = back.href;
       link.hidden = false;
     });
-    dock.hidden = false;
-    document.body.classList.add("lm-reading-visitor");
-    window.addEventListener("DOMContentLoaded", () => {
+    dock.hidden = hasChronicleReturn;
+    if (!hasChronicleReturn) document.body.classList.add("lm-reading-visitor");
+    if (!hasChronicleReturn) window.addEventListener("DOMContentLoaded", () => {
       const journeyDock = $(".c-game-return");
       if (!journeyDock) return;
       // Keep both return paths together when this visit began in the game.
