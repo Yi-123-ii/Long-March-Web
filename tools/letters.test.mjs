@@ -70,15 +70,20 @@ test("插画邮票随留言保留，兼容没有邮票的旧留言", () => {
   assert.equal(store.messageValid({ ...withStamp, paperId: "invalid" }), false);
 });
 
-test("十二枚邮票及四款信纸均可保存与备份，保留旧款编号", async () => {
+test("二十六枚邮票及四款信纸均可保存与备份，保留旧款编号", async () => {
   const context = vm.createContext({ window: {} });
   vm.runInContext(await readFile(new URL("../data/postal-designs.js", import.meta.url), "utf8"), context);
   const { stamps, papers } = context.window.LM_POSTAL;
-  assert.equal(stamps.length, 12); assert.equal(papers.length, 4);
-  assert.equal(stamps.filter(stamp => stamp.group === "history").length, 7);
+  assert.equal(stamps.length, 26); assert.equal(papers.length, 4);
+  assert.equal(new Set(stamps.map(stamp => stamp.id)).size, 26);
+  assert.equal(stamps.filter(stamp => stamp.group === "history").length, 14);
+  assert.equal(stamps.filter(stamp => stamp.group === "today").length, 12);
+  for (const id of ["yudu", "xiangjiang", "zunyi", "chishui", "luding", "snow", "reunion", "city", "rail", "harvest", "stars", "energy"])
+    assert.ok(stamps.some(stamp => stamp.id === id), "旧款邮票编号保留：" + id);
   const { store, letters } = app();
   const records = stamps.map((stamp, i) => ({ ...record("design-" + i), stampId: stamp.id, paperId: papers[i % papers.length].id }));
   assert.equal(store.write("messages", records), true);
+  assert.deepEqual(plain(app().letters.parse(letters.serialize(store.readMessages())).messages), plain(records));
   assert.deepEqual(plain(letters.parse(letters.serialize(records)).messages), plain(records));
 });
 test("旧版文本备份保留多行正文和署名，支持批量导入与重复检测", () => {

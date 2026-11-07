@@ -83,7 +83,10 @@
     document.querySelectorAll(".lm-stamp-option").forEach(label => label.hidden = label.dataset.group !== group);
     $("#stamp-options").scrollTop = 0;
   }
-  document.querySelectorAll("[data-stamp-group]").forEach(button => button.addEventListener("click", () => filterStamps(button.dataset.stampGroup)));
+  document.querySelectorAll("[data-stamp-group]").forEach(button => {
+    button.querySelector("span").textContent = stamps.filter(stamp => stamp.group === button.dataset.stampGroup).length;
+    button.addEventListener("click", () => filterStamps(button.dataset.stampGroup));
+  });
   const dateFormat = new Intl.DateTimeFormat("zh-CN", {
     year: "numeric",
     month: "long",

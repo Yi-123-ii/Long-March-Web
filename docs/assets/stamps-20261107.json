@@ -1,0 +1,403 @@
+{
+  "suppliedBy": "website owner",
+  "date": "2026-11-07",
+  "method": "Extract and straighten the inner illustration; reuse the website's existing perforated stamp frame",
+  "outputSize": [
+    400,
+    500
+  ],
+  "designs": [
+    {
+      "id": "snow-echo",
+      "name": "雪岭回声",
+      "caption": "翻越千峰，信念始终向前",
+      "group": "history",
+      "source": "codex-clipboard-f440ced7-d7dc-4dfe-a7cd-95a5750611c0.png",
+      "sourceSHA256": "accbe63182c2b1adfa02e448cc1a0aae99223203560a3e7cddec3ae0702aeece",
+      "cornersTLTRBRBL": [
+        [
+          288,
+          193
+        ],
+        [
+          771,
+          163
+        ],
+        [
+          804,
+          775
+        ],
+        [
+          325,
+          801
+        ]
+      ],
+      "output": "assets/images/stamps/snow-echo-v1.webp",
+      "bytes": 60614
+    },
+    {
+      "id": "grass-glow",
+      "name": "草地微光",
+      "caption": "穿过泥泞，把希望带向远方",
+      "group": "history",
+      "source": "codex-clipboard-080d9294-e33e-418f-9be7-ce3b63c0d730.png",
+      "sourceSHA256": "db6d851f00973c65666906b6470b78bec45ae104a70c6985b5395ea624062ad8",
+      "cornersTLTRBRBL": [
+        [
+          287,
+          220
+        ],
+        [
+          770,
+          192
+        ],
+        [
+          805,
+          769
+        ],
+        [
+          322,
+          796
+        ]
+      ],
+      "output": "assets/images/stamps/grass-glow-v1.webp",
+      "bytes": 42876
+    },
+    {
+      "id": "bridge-onward",
+      "name": "渡桥向前",
+      "caption": "一桥飞架，踏出新的方向",
+      "group": "history",
+      "source": "codex-clipboard-8acd8bfa-f925-4f5b-a2e3-efbe92f07233.png",
+      "sourceSHA256": "83c7fac8cc570cfca1328b3a85c74cea1dd8b70d715abf9f3bc956007b532d74",
+      "cornersTLTRBRBL": [
+        [
+          290,
+          220
+        ],
+        [
+          762,
+          186
+        ],
+        [
+          800,
+          775
+        ],
+        [
+          317,
+          806
+        ]
+      ],
+      "output": "assets/images/stamps/bridge-onward-v1.webp",
+      "bytes": 48214
+    },
+    {
+      "id": "city-dawn",
+      "name": "晨光满城",
+      "caption": "千窗映暖，照亮寻常日子",
+      "group": "today",
+      "source": "codex-clipboard-bdb8405d-eb3e-4e53-8fb1-5b391d7f6798.png",
+      "sourceSHA256": "c9fbe20f6b925f0bcd8fcea4dac1d100f03374c6576c2ffb40ebf99d852bc895",
+      "cornersTLTRBRBL": [
+        [
+          257,
+          237
+        ],
+        [
+          766,
+          197
+        ],
+        [
+          808,
+          793
+        ],
+        [
+          303,
+          823
+        ]
+      ],
+      "output": "assets/images/stamps/city-dawn-v1.webp",
+      "bytes": 66164
+    },
+    {
+      "id": "field-song",
+      "name": "田野新歌",
+      "caption": "稻谷盈野，风里都是丰收",
+      "group": "today",
+      "source": "codex-clipboard-258ff5f5-00ee-498b-b596-22dbc5fd228c.png",
+      "sourceSHA256": "0db7383cdf10209b241a7c76d7baeeb9eff0d66525e2e0f7fc0a3f9ee1396f78",
+      "cornersTLTRBRBL": [
+        [
+          270,
+          226
+        ],
+        [
+          758,
+          188
+        ],
+        [
+          803,
+          768
+        ],
+        [
+          309,
+          794
+        ]
+      ],
+      "output": "assets/images/stamps/field-song-v1.webp",
+      "bytes": 56218
+    },
+    {
+      "id": "cloud-bridge",
+      "name": "云桥远行",
+      "caption": "山河相连，脚步通向未来",
+      "group": "today",
+      "source": "codex-clipboard-b2dbc545-bf44-40bb-9d7d-ca37fd6ed56e.png",
+      "sourceSHA256": "ccc9e826a1a1e15bdfd5ec843f879e261fedd6cb1464bc095c3c3efc54641b47",
+      "cornersTLTRBRBL": [
+        [
+          297,
+          230
+        ],
+        [
+          754,
+          197
+        ],
+        [
+          791,
+          753
+        ],
+        [
+          336,
+          783
+        ]
+      ],
+      "output": "assets/images/stamps/cloud-bridge-v1.webp",
+      "bytes": 54036
+    },
+    {
+      "id": "wujiang-dawn",
+      "name": "乌江晨渡",
+      "caption": "一篙破浪，驶向新的转机",
+      "group": "history",
+      "source": "codex-clipboard-c009be73-cffe-4a34-92fd-9e2a579cdd76.png",
+      "sourceSHA256": "84a5226712faf32144a8d0fc58dbf5e53ca412b7a439a63274297e9b15777eed",
+      "cornersTLTRBRBL": [
+        [
+          225,
+          305
+        ],
+        [
+          669,
+          269
+        ],
+        [
+          715,
+          836
+        ],
+        [
+          265,
+          870
+        ]
+      ],
+      "output": "assets/images/stamps/wujiang-dawn-v1.webp",
+      "bytes": 49218
+    },
+    {
+      "id": "jinsha-crossing",
+      "name": "金沙飞渡",
+      "caption": "大河无声，转战更见从容",
+      "group": "history",
+      "source": "codex-clipboard-d54658f5-ff85-4429-8892-9fb4b235414a.png",
+      "sourceSHA256": "280b47960f2eae46122802aa370a54978ec803d83f3762acbe7f0fc8e57cbca8",
+      "cornersTLTRBRBL": [
+        [
+          212,
+          298
+        ],
+        [
+          693,
+          265
+        ],
+        [
+          724,
+          842
+        ],
+        [
+          245,
+          875
+        ]
+      ],
+      "output": "assets/images/stamps/jinsha-crossing-v1.webp",
+      "bytes": 64456
+    },
+    {
+      "id": "iron-chain",
+      "name": "铁索天险",
+      "caption": "惊涛之上，踏出必胜之路",
+      "group": "history",
+      "source": "codex-clipboard-2090d4d7-6b30-43de-bb13-81776bb63bc5.png",
+      "sourceSHA256": "519b029227e2f322dd172902e5933f32f693f0900abec87eee63fca1b1215897",
+      "cornersTLTRBRBL": [
+        [
+          231,
+          322
+        ],
+        [
+          694,
+          296
+        ],
+        [
+          730,
+          856
+        ],
+        [
+          264,
+          883
+        ]
+      ],
+      "output": "assets/images/stamps/iron-chain-v1.webp",
+      "bytes": 66782
+    },
+    {
+      "id": "shaanbei-reunion",
+      "name": "陕北会师",
+      "caption": "历尽千程，希望终有归处",
+      "group": "history",
+      "source": "codex-clipboard-f5cbf361-b56e-4089-bdbb-71741b0d45d5.png",
+      "sourceSHA256": "aeaf8a358f9b182b4646107e2ac9b8a81ead3829e9e8adcc11598c157b09d997",
+      "cornersTLTRBRBL": [
+        [
+          235,
+          298
+        ],
+        [
+          693,
+          260
+        ],
+        [
+          727,
+          804
+        ],
+        [
+          270,
+          833
+        ]
+      ],
+      "output": "assets/images/stamps/shaanbei-reunion-v1.webp",
+      "bytes": 57636
+    },
+    {
+      "id": "school-mountains",
+      "name": "书声越岭",
+      "caption": "琅琅书声，翻过山峦抵达远方",
+      "group": "today",
+      "source": "codex-clipboard-35dd94da-bba8-4404-85e6-b9418ee8e1dc.png",
+      "sourceSHA256": "13aa99e41a0b8b234b64f5463cd1341da0b44a38463b8b7861debdc76cba4f14",
+      "cornersTLTRBRBL": [
+        [
+          248,
+          266
+        ],
+        [
+          692,
+          238
+        ],
+        [
+          721,
+          825
+        ],
+        [
+          278,
+          847
+        ]
+      ],
+      "output": "assets/images/stamps/school-mountains-v1.webp",
+      "bytes": 69636
+    },
+    {
+      "id": "white-coats",
+      "name": "白衣同行",
+      "caption": "守护万家，把温暖送到身边",
+      "group": "today",
+      "source": "codex-clipboard-a7b4e8e0-3615-4aea-b013-e47f8697140e.png",
+      "sourceSHA256": "46bc5fe7e6b36589fb22d552fc2a7adc4e242a6ed83228627f9ec745ee580331",
+      "cornersTLTRBRBL": [
+        [
+          251,
+          265
+        ],
+        [
+          691,
+          240
+        ],
+        [
+          722,
+          799
+        ],
+        [
+          279,
+          821
+        ]
+      ],
+      "output": "assets/images/stamps/white-coats-v1.webp",
+      "bytes": 75092
+    },
+    {
+      "id": "smart-dawn",
+      "name": "智造晨光",
+      "caption": "创新如潮，点亮奋进的明天",
+      "group": "today",
+      "source": "codex-clipboard-cee1a031-7c3f-4c54-9cb4-594f4aa3409d.png",
+      "sourceSHA256": "c34ca83543f8bfd89eeac81fae0bc79b34db34b6b2044c0ca7124e9b1f7b5fc7",
+      "cornersTLTRBRBL": [
+        [
+          221,
+          288
+        ],
+        [
+          678,
+          255
+        ],
+        [
+          716,
+          806
+        ],
+        [
+          257,
+          839
+        ]
+      ],
+      "output": "assets/images/stamps/smart-dawn-v1.webp",
+      "bytes": 55666
+    },
+    {
+      "id": "new-village",
+      "name": "青山新居",
+      "caption": "村落焕新，日子向着光亮生长",
+      "group": "today",
+      "source": "codex-clipboard-ecbc0a5c-a2a2-4d7f-ae72-dfa1060c0a75.png",
+      "sourceSHA256": "e9773247f0c8f90b8984261d56bb87cbe1a67003cdd63a6ff9baf1a577e4bdfa",
+      "cornersTLTRBRBL": [
+        [
+          251,
+          285
+        ],
+        [
+          685,
+          262
+        ],
+        [
+          717,
+          798
+        ],
+        [
+          281,
+          820
+        ]
+      ],
+      "output": "assets/images/stamps/new-village-v1.webp",
+      "bytes": 67380
+    }
+  ]
+}
