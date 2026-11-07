@@ -307,9 +307,8 @@
     $("#stamp-choice").hidden = true;
     $("#paper-choice").hidden = false;
     $("#letter-review").hidden = true;
-    $("#prepare-step").hidden = false;
-    $("#prepare-step").textContent = "为心里的话，挑一张信纸";
-    $("#prepare-title").textContent = "给这封信选一张合适的纸";
+    $("#prepare-step").hidden = true;
+    $("#prepare-title").textContent = "为这封信挑一张合适的信纸";
     ($("#paper-options input:checked") || $("#paper-options input"))?.focus();
   }
   $("#choose-paper").addEventListener("click", choosePaper);
