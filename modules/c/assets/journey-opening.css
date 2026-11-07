@@ -2,9 +2,25 @@
 html { scroll-behavior: smooth; }
 #map-screen {
   isolation: isolate;
-  background:
-    url("atlas/terrain-extension-fast.webp") center top / 100% 200svh no-repeat,
-    #ead1ad url("atlas/terrain-extension-preview.webp") center top / 100% 200svh no-repeat;
+  background: #ead1ad;
+}
+#map-screen::before,
+#map-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 200svh;
+  z-index: -1;
+  background: center top / 100% 200svh no-repeat;
+  pointer-events: none;
+}
+#map-screen::before {
+  background-image: url("atlas/terrain-extension-preview.webp");
+  filter: blur(16px);
+  clip-path: inset(0);
+}
+#map-screen::after {
+  background-image: url("atlas/terrain-extension-fast.webp");
 }
 #map-screen .atlas-main,
 #map-screen .atlas-window { background: transparent; }

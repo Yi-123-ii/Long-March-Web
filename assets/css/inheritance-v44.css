@@ -53,9 +53,21 @@ body.legacy-v41 .v44-opening__art {
   background: var(--doc-paper);
 }
 body.legacy-v41 .v44-opening__art picture {
+  --hero-preview: url("../images/v44/legacy-village-interview-wide-preview-v2.webp");
+  --hero-position: 74% center;
   position: absolute;
   inset: 0;
-  background: url("../images/v44/legacy-village-interview-wide-preview-v2.webp") 74% center / cover no-repeat;
+  isolation: isolate;
+}
+body.legacy-v41 .v44-opening__art picture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--hero-preview) var(--hero-position) / cover no-repeat;
+  filter: blur(16px);
+  clip-path: inset(0);
+  pointer-events: none;
 }
 body.legacy-v41 .v44-opening__art img {
   display: block;
@@ -496,7 +508,7 @@ body.legacy-v41 .doc-article--case .doc-article__echo h3 {
 @media (min-width: 761px) and (max-aspect-ratio: 3/2) {
   body.legacy-v41 .v44-opening__art picture {
     top: 25svh;
-    background-position: 77% center;
+    --hero-position: 77% center;
     mask-image: linear-gradient(transparent, #000 24%);
   }
   body.legacy-v41 .v44-opening__art img { object-position: 77% center; }
@@ -504,7 +516,8 @@ body.legacy-v41 .doc-article--case .doc-article__echo h3 {
 @media (width > 760px) and (aspect-ratio < 19/10) and (orientation: landscape) {
   body.legacy-v41 .v44-opening__art picture {
     top: 0;
-    background: url("../images/v44/legacy-village-interview-tall-preview-v2.webp") 60% center / cover no-repeat;
+    --hero-preview: url("../images/v44/legacy-village-interview-tall-preview-v2.webp");
+    --hero-position: 60% center;
     mask-image: none;
   }
   body.legacy-v41 .v44-opening__art img { object-position: 60% center; }
@@ -513,7 +526,7 @@ body.legacy-v41 .doc-article--case .doc-article__echo h3 {
   body.legacy-v41 .v44-opening__art picture {
     inset-block-start: auto;
     height: min(70svh, 120vw);
-    background-position: 88% center;
+    --hero-position: 88% center;
     mask-image: linear-gradient(transparent, #000 32%);
   }
   body.legacy-v41 .v44-opening__art img { object-position: 88% center; }
