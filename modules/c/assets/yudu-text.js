@@ -34,7 +34,7 @@
   if(!pages.length)return {...frame(plan(''),0),key:'empty'};
   let index=0;
   while(index+1<pages.length&&currentTime>=pages[index+1].start)index++;
-  const page=pages[index],line=plan(page.text),result=frame(line,mediaTime(line,currentTime,page.start,page.end),instant);
+  const page=pages[index],line=plan(page.text),progress=page.cues?cueTime(line,currentTime,page.cues):mediaTime(line,currentTime,page.start,page.end),result=frame(line,progress,instant);
   return {...result,key:index+':'+result.shown,complete:index===pages.length-1&&result.complete};
  }
  const api={plan,frame,mediaTime,cueTime,pageFrame};

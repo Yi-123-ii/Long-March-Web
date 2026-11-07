@@ -1,0 +1,143 @@
+{
+  "speaker": "旁白",
+  "generated_by": "即梦 用户提供",
+  "source_file": "jimeng-2026-11-07-1768.wav",
+  "source_sha256": "8d3a025ff1380e5a445d2226b59f5259815fc54bb1badfa8038146dc09211db9",
+  "paragraph_count": 5,
+  "clips": [
+    {
+      "id": "NR001",
+      "node": "river",
+      "file": "NR001.mp3",
+      "text": "1934年10月，江西于都。",
+      "duration": 3.0225,
+      "cues": [
+        {
+          "text": "1934年10月，江西于都。",
+          "start": 0.22000000000000003,
+          "end": 2.58
+        }
+      ],
+      "sentence_ids": [
+        "NR001-01"
+      ],
+      "source_start": 0.3,
+      "source_end": 3.3225,
+      "source_sample_range": [
+        7200,
+        79740
+      ],
+      "sha256": "4ef2f78877e758750c57353cb2da546448a4c30d855a5057fac806177f28575a"
+    },
+    {
+      "id": "NR002",
+      "node": "epilogue-arrive",
+      "file": "NR002.mp3",
+      "text": "相册翻到下一页，地图上标出了会宁。",
+      "duration": 4.395,
+      "cues": [
+        {
+          "text": "相册翻到下一页，地图上标出了会宁。",
+          "start": 0.21750000000000025,
+          "end": 3.7575000000000003
+        }
+      ],
+      "sentence_ids": [
+        "NR002-01"
+      ],
+      "source_start": 3.3225,
+      "source_end": 7.7175,
+      "source_sample_range": [
+        79740,
+        185220
+      ],
+      "sha256": "4eba9855276b35fdd401e80a2b1e5afdecdc0424ed7677b47a2e023e56230464"
+    },
+    {
+      "id": "NR003",
+      "node": "epilogue-huining",
+      "file": "NR003.mp3",
+      "text": "红一、红四方面军在会宁会师。",
+      "duration": 3.48,
+      "cues": [
+        {
+          "text": "红一、红四方面军在会宁会师。",
+          "start": 0.1825000000000001,
+          "end": 2.9225000000000003
+        }
+      ],
+      "sentence_ids": [
+        "NR003-01"
+      ],
+      "source_start": 7.7175,
+      "source_end": 11.1975,
+      "source_sample_range": [
+        185220,
+        268740
+      ],
+      "sha256": "3c8b8e33aa694d2f23bcfddebf1f356959b947323dd0cfec2e65282989da7e68"
+    },
+    {
+      "id": "NR004",
+      "node": "epilogue-jiangtai",
+      "file": "NR004.mp3",
+      "text": "红一、红二方面军在将台堡会师。红军三大主力胜利会师。",
+      "duration": 6.775,
+      "cues": [
+        {
+          "text": "红一、红二方面军在将台堡会师。",
+          "start": 0.1225000000000005,
+          "end": 3.182500000000001
+        },
+        {
+          "text": "红军三大主力胜利会师。",
+          "start": 3.8625000000000007,
+          "end": 6.202499999999999
+        }
+      ],
+      "sentence_ids": [
+        "NR004-01",
+        "NR004-02"
+      ],
+      "source_start": 11.1975,
+      "source_end": 17.9725,
+      "source_sample_range": [
+        268740,
+        431340
+      ],
+      "sha256": "3775d9793ac0a41f2e5480714c7894abaf556058c09cd81d59837a6589b4c100"
+    },
+    {
+      "id": "NR005",
+      "node": "epilogue-remember",
+      "file": "NR005.mp3",
+      "text": "1936—2026\n纪念红军长征胜利90周年",
+      "duration": 5.9375,
+      "cues": [
+        {
+          "text": "1936—2026\n",
+          "start": 0.14750000000000085,
+          "end": 2.5874999999999986
+        },
+        {
+          "text": "纪念红军长征胜利90周年",
+          "start": 3.0474999999999994,
+          "end": 5.747499999999999
+        }
+      ],
+      "sentence_ids": [
+        "NR005-01",
+        "NR005-02"
+      ],
+      "source_start": 17.9725,
+      "source_end": 23.91,
+      "source_sample_range": [
+        431340,
+        573840
+      ],
+      "sha256": "8810c5514f2d3cb557362abfb919a64af350e2ea271fae8df833456128130b69"
+    }
+  ],
+  "editing_note": "Source retained locally; cuts lie in quiet pauses. No pitch or speed changes. Display dates retain original numeric form; natural spoken dates use Chinese readings. Original Xiaoman recordings remain unchanged.",
+  "sentence_count": 7
+}

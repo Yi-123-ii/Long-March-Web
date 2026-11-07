@@ -36,13 +36,13 @@ test('all 32 previous voiced-preview saves retain their branch choices and later
  }
 });
 test('28 active player recordings stay on direct speech and all 29 original clips remain available',()=>{
- const clips=require('../assets/audio/xiaoman-v034/manifest.json').clips,voices=D.nodes.filter(n=>n.voice),by=new Map(D.nodes.map(n=>[n.id,n]));
+ const clips=require('../assets/audio/xiaoman-v034/manifest.json').clips,voices=D.nodes.filter(n=>n.voiceId?.startsWith('XM')),by=new Map(D.nodes.map(n=>[n.id,n]));
  assert.equal(new Set(voices.map(n=>n.voiceId)).size,28);assert.equal(clips.length,29);
  assert.equal(by.get('b-thanks').text,'我能站得住，你先把包抱稳。');
  for(const n of voices){const clip=clips.find(c=>c.id===n.voiceId);assert.equal(n.text,clip.text);assert.equal(n.speaker,'小满');assert.equal(n.mode,'dialogue');assert(!n.nativeAudio);assert(!n.choices);assert(n.voiceDuration>0);assert(fs.statSync(path.join(__dirname,'..',n.voice)).size>1000);}
  for(const n of D.nodes.filter(n=>n.choices)){
-  assert(!n.voice,'option prompts must stay silent');
-  for(const c of n.choices){const reply=by.get(c.next);if(reply.voice)assert.equal(reply.speaker,'小满');}
+  if(!n.text)assert(!n.voice,'empty option prompts must stay silent');
+  for(const c of n.choices){const reply=by.get(c.next);if(reply.voiceId?.startsWith('XM'))assert.equal(reply.speaker,'小满');}
  }
  for(const n of D.nodes.filter(n=>n.mode==='observation'||n.mode==='fact'||n.mode==='thought'))assert(!n.voice);
 });

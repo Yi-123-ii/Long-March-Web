@@ -30,7 +30,7 @@ test('the fourth recording part adds 19 scene narrations and 39 sentence cues on
   assert(fs.statSync(path.join(__dirname,'..',v.src)).size>1000);
   let end=0;for(const cue of v.cues){assert(cue.start>=end-.001,n.id);assert(cue.end>cue.start);assert(cue.end<=v.duration+.001);end=cue.end;}
  }
- assert.equal(D.nodes.filter(n=>n.narration&&Number(n.narration.id.slice(2))<=70).length,70);
+ assert.equal(D.nodes.filter(n=>n.narration&&/^XN/.test(n.narration.id)&&Number(n.narration.id.slice(2))<=70).length,70);
  assert.equal(by.get('grass-choice').narration.id,'XN052');
  assert.equal(by.get('grass-a-chen-return').text,'卫生员把人接过去，陈禾才卸下背上的包。他还撑着膝盖没直起身，我往里挪了挪。');
  assert.equal(by.get('north-passage-v034').narration.id,'XN070');
@@ -47,7 +47,7 @@ test('new narration follows the active latest-main scenes without reviving obsol
  assert.equal(M.missing_third_part_second_half.length,0);
  for(let i=1;i<=51;i++)assert(paragraphIds.has('XN'+String(i).padStart(3,'0')));
  for(const id of M.missing_third_part_second_half)assert(!paragraphIds.has(id));
- assert.equal(D.storyRevision,13);assert.equal(new Set(D.nodes.filter(n=>n.voice).map(n=>n.voiceId)).size,28);
+ assert.equal(D.storyRevision,13);assert.equal(new Set(D.nodes.filter(n=>n.voiceId?.startsWith('XM')).map(n=>n.voiceId)).size,28);
  // Existing saves and all five decisions still traverse the complete real graph.
  for(const choice of ['hand','help'])for(const xj of ['stretcher','luggage'])for(const snow of ['support','call'])for(const grass of ['stay','rescue'])for(const wuqi of ['sew','write']){
   const picks={choice,'xj-choice':xj,'snow-choice':snow,'grass-choice':grass,'wuqi-choice':wuqi};let s=C.create(D),guard=0;

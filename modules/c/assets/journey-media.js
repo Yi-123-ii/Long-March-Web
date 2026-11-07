@@ -80,5 +80,6 @@
  "assets/chapters/chenhe-wuqi-sew-v040.mp4": "assets/stream/chenhe-wuqi-sew-v040-971a178238.mp4",
  "assets/chapters/chenhe-wuqi-sew-first-v040.png": "assets/stream/chenhe-wuqi-sew-first-v040-8daca6b7aa.webp",
  "assets/chapters/chenhe-wuqi-sew-pause-v040.png": "assets/stream/chenhe-wuqi-sew-pause-v040-35d80bd10c.webp",
- "assets/chapters/chenhe-mountain-pack-original6751-v046.mp4": "assets/stream/chenhe-mountain-pack-original6751-v046-56864e498c.mp4"
+ "assets/chapters/chenhe-mountain-pack-original6751-v046.mp4": "assets/stream/chenhe-mountain-pack-original6751-v046-56864e498c.mp4",
+ "assets/chapters/grass-rescue-cd03-v049.mp4": "assets/stream/grass-rescue-cd03-v049-89ce1a2e9a.mp4"
 };if(typeof module==='object'&&module.exports)module.exports=media;else root.JourneyMedia=media;})(typeof window==='undefined'?globalThis:window);
