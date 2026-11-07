@@ -73,7 +73,7 @@
       paperId = paper.id;
       $("#paper-selection").textContent = "已选：" + paper.name;
       $("#preview-letter").disabled = false;
-      applyPaper(form, paperId);
+      // 书写区固定使用默认纸面，款式只应用于正式信件。
       saveDraft();
     });
     $("#paper-options").append(label);
@@ -116,7 +116,6 @@
     $("#paper-options input[value='" + paperId + "']").checked = true;
     $("#paper-selection").textContent = "已选：" + paperById(paperId).name;
     $("#preview-letter").disabled = false;
-    applyPaper(form, paperId);
   }
   const query = new URLSearchParams(location.search);
   const queryEvent = query.get("event");

@@ -123,16 +123,16 @@
 }
 .lm-letter {
   padding: 35px 42px 27px;
-  background: #faf9f2;
+  background: #f8f0dc;
   box-shadow: 0 8px 35px #4f605210;
-  border: 1px solid #dfdfcf;
+  border: 1px solid #d8c9a1;
   position: relative;
 }
 .lm-letter::before {
   content: "";
   position: absolute;
   inset: 7px;
-  border: 1px solid #b6bda929;
+  border: 1px solid #b7a87933;
   pointer-events: none;
 }
 .lm-letter-top {
@@ -204,8 +204,8 @@
   background: repeating-linear-gradient(
     transparent 0px,
     transparent 35px,
-    #d8ddcb 35px,
-    #d8ddcb 36px
+    #d8cfb5 35px,
+    #d8cfb5 36px
   );
   font-family: var(--lm-serif);
   font-size: 17px;
