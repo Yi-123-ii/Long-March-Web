@@ -512,8 +512,21 @@
   padding: 18px 28px 32px;
   overflow: hidden;
 }
-.lm-delivery-dialog h2 {
-  font-size: 28px;
+#delivery-dialog #delivery-title {
+  font-family: var(--lm-reading);
+  font-size: clamp(15px, 1.2vw, 17px);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: .03em;
+  max-width: 28em;
+  min-height: 3.4em;
+  margin: 8px auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#delivery-dialog:not([data-phase="delivered"]) #delivery-description {
+  display: none;
 }
 .lm-delivery-dialog > p {
   font-size: 12px;

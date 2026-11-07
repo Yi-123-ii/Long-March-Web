@@ -13,6 +13,13 @@
     deleteDialog = $("#delete-dialog");
   const tabs = [$("#write-tab"), $("#saved-tab")];
   const panels = [$("#write-panel"), $("#saved-panel")];
+  const deliveryCopy = [
+    "字落信笺，心意渐成",
+    "信笺入封，邮票寄情",
+    "一纸封缄，将心意妥帖珍藏",
+    "信件启程，穿越山河与岁月",
+    "来信已妥善收录于山河邮局，感谢你留下这份心意",
+  ];
   const getMessages = () => LM_STORE.readMessages();
   const knownEvent = (id) => window.LM_EVENTS.find((e) => e.id === id);
   let messages = getMessages(),
@@ -279,7 +286,7 @@
     delivery.dataset.phase = "delivered";
     delivery.classList.remove("is-delivering");
     delivery.classList.add("is-delivered");
-    $("#delivery-title").textContent = "你的信已存入信箱";
+    $("#delivery-title").textContent = deliveryCopy[4];
     $("#delivery-description").textContent =
       "留言已保存，可到「我的留言」中查看或备份";
     $("#skip-delivery").hidden = true;
@@ -362,7 +369,7 @@
     delivery.classList.remove("is-packing");
     delivery.dataset.phase = "posting";
     delivery.classList.add("is-delivering");
-    $("#delivery-title").textContent = "把这份心意，轻轻放进信箱";
+    $("#delivery-title").textContent = deliveryCopy[3];
     deliveryTimer = setTimeout(finishDelivery, 3100);
   }
   function startPacking() {
@@ -398,7 +405,7 @@
       flap.style.zIndex = close > .5 ? "4" : "0";
       seal.style.opacity = stamp.style.opacity = ease(6.9, 7.2);
       seal.style.transform = "scale(" + (.86 + .14 * ease(6.9, 7.2)) + ")";
-      const title = time < 3.45 ? "把写下的话，仔细折好" : time < 5.9 ? "装进信封，贴上选好的邮票" : "封好心意，交给邮差";
+      const title = deliveryCopy[time < 3.45 ? 0 : time < 5.9 ? 1 : 2];
       if ($("#delivery-title").textContent !== title) $("#delivery-title").textContent = title;
     };
     const tick = now => {
@@ -477,7 +484,7 @@
     delivery.classList.remove("is-delivered", "is-delivering", "is-packing");
     delivery.dataset.phase = "packing";
     delivery.dataset.locked = "true";
-    $("#delivery-title").textContent = "把写下的话，仔细折好";
+    $("#delivery-title").textContent = deliveryCopy[0];
     $("#delivery-description").textContent =
       "留言已保存，正在完成投递";
     $("#skip-delivery").hidden = false;
