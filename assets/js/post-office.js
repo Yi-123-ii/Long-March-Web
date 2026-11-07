@@ -55,6 +55,35 @@
     return loaded;
   }
   let stampId = null, paperId = null, pendingLetter = null;
+  let paperPreviewsReady;
+  function preloadPaperPreviews() {
+    if (paperPreviewsReady) return paperPreviewsReady;
+    paperPreviewsReady = (async () => {
+      let bundled = {};
+      try {
+        const response = await fetch("data/paper-previews.json?v=20261107-preload");
+        if (response.ok) {
+          const value = await response.json();
+          if (value && typeof value === "object" && !Array.isArray(value)) bundled = value;
+        }
+      } catch { /* Individual preview files remain a fallback. */ }
+      const images = Array.from(document.querySelectorAll("#paper-options img"));
+      images.forEach(image => {
+        const art = image.closest(".lm-paper-sample");
+        const id = image.closest("label").querySelector("input").value;
+        art.dataset.state = "loading";
+        const embedded = bundled[id];
+        image.src = typeof embedded === "string" && embedded.startsWith("data:image/webp;base64,") ? embedded : image.dataset.src;
+      });
+      await Promise.all(images.map(async image => {
+        try {
+          await image.decode();
+          image.closest(".lm-paper-sample").dataset.state = "ready";
+        } catch { /* The image error handler exposes a retry only on failure. */ }
+      }));
+    })();
+    return paperPreviewsReady;
+  }
   let packingFrame = 0, packingResizeObserver;
   function stopPacking() {
     cancelAnimationFrame(packingFrame);
@@ -123,7 +152,7 @@
     const image = document.createElement("img");
     image.loading = "eager"; image.decoding = "async"; image.fetchPriority = "high";
     image.dataset.src = paperPreviewImage(paper.id); image.alt = ""; image.width = 240; image.height = 336;
-    const status = text("span", "lm-paper-sample-status", "图案载入中");
+    const status = text("span", "lm-paper-sample-status", "");
     image.addEventListener("load", () => {
       if (image.naturalWidth) {
         art.dataset.state = "ready";
@@ -138,7 +167,7 @@
     label.addEventListener("click", () => {
       if (art.dataset.state !== "error") return;
       art.dataset.state = "loading";
-      status.textContent = "图案载入中";
+      status.textContent = "";
       image.src = image.dataset.src + "?retry=" + Date.now();
     });
     art.append(image, text("span", "lm-paper-sample-salutation", "致长征路上的你们："), status);
@@ -153,6 +182,7 @@
     });
     $("#paper-options").append(label);
   });
+  form.addEventListener("focusin", preloadPaperPreviews, { once: true });
   function filterStamps(group) {
     document.querySelectorAll("[data-stamp-group]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.stampGroup === group)));
     document.querySelectorAll(".lm-stamp-option").forEach(label => label.hidden = label.dataset.group !== group);
@@ -380,6 +410,7 @@
     return { body: content, nickname: signer, eventId };
   }
   function chooseStamp() {
+    preloadPaperPreviews();
     $("#stamp-choice").hidden = false;
     $("#paper-choice").hidden = true;
     $("#letter-review").hidden = true;
@@ -399,17 +430,17 @@
     chooseStamp();
     $("#stamp-options input:checked")?.focus();
   });
-  function choosePaper() {
+  async function choosePaper() {
     if (!stampById(stampId)) return;
-    // A native dialog starts hidden: explicitly load small previews when opened
-    // instead of relying on the browser's lazy-image visibility detection.
-    document.querySelectorAll("#paper-options .lm-paper-sample").forEach(art => {
-      if (art.dataset.state === "ready" || art.dataset.state === "loading") return;
-      art.dataset.state = "loading";
-      art.querySelector(".lm-paper-sample-status").textContent = "图案载入中";
-      const image = art.querySelector("img");
-      image.src = image.dataset.src;
-    });
+    const button = $("#choose-paper");
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    try { await preloadPaperPreviews(); }
+    finally {
+      button.disabled = !stampById(stampId);
+      button.removeAttribute("aria-busy");
+    }
+    if (!prepare.open) return;
     const selectedArt = $("#paper-options input:checked")?.closest("label").querySelector(".lm-paper-sample");
     $("#preview-letter").disabled = selectedArt?.dataset.state !== "ready";
     if (paperById(paperId)) fullPaperTexture(paperId);

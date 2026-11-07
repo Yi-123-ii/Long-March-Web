@@ -85,9 +85,11 @@ const fonts = JSON.parse(
 vm.runInContext(await readFile(path.join(root, "data/postal-designs.js"), "utf8"), context);
 for (const stamp of context.window.LM_POSTAL.stamps)
   await access(path.join(root, "assets/images/stamps", stamp.id + "-v1.webp"));
+const paperPreviews = JSON.parse(await readFile(path.join(root, "data/paper-previews.json"), "utf8"));
 for (const paper of context.window.LM_POSTAL.papers) {
   await access(path.join(root, "assets/images/stationery", paper.id + "-v1.webp"));
   await access(path.join(root, "assets/images/stationery", paper.id + "-preview-v1.webp"));
+  if (!paperPreviews[paper.id]?.startsWith("data:image/webp;base64,")) throw Error("信纸预览包缺失：" + paper.id);
 }
 for (const font of fonts) {
   await access(path.join(root, "assets/fonts", font.file));
