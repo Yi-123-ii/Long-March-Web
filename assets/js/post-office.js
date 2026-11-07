@@ -472,11 +472,15 @@
     }
   });
   $("#skip-delivery").addEventListener("click", finishDelivery);
+  function closeDelivery() {
+    if (sending) finishDelivery();
+    delivery.close();
+    $("#send-letter").focus();
+  }
+  $("#close-delivery").addEventListener("click", closeDelivery);
   delivery.addEventListener("cancel", (event) => {
-    if (sending) {
-      event.preventDefault();
-      finishDelivery();
-    }
+    event.preventDefault();
+    closeDelivery();
   });
   $("#view-sent").addEventListener("click", () => {
     delivery.close();

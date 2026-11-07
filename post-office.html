@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/post-office.css?v=20261107-desk-screen-v2" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261023-brand-mail" />
-    <link rel="stylesheet" href="assets/css/courier.css?v=20261024-stationery" />
+    <link rel="stylesheet" href="assets/css/courier.css?v=20261107-courier-pair" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/letter-fold.css?v=20261107-three-fold" />
     <script defer src="data/events.js?v=20261105-site-copy"></script>
@@ -23,7 +23,7 @@
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261107-home-origin"></script>
-    <script defer src="assets/js/post-office.js?v=20261107-desk-screen"></script>
+    <script defer src="assets/js/post-office.js?v=20261107-delivery-close"></script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-home-return" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
@@ -131,7 +131,8 @@
           <aside class="lm-post-aside">
             <div class="lm-mailbox-scene" aria-hidden="true">
               <div class="lm-postbox-model" data-postbox></div>
-              <img class="lm-aside-courier" src="assets/images/couriers/mountain-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="320" alt="" />
+              <img class="lm-aside-courier lm-aside-courier--male" src="assets/images/couriers/mountain-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="320" alt="" />
+              <img class="lm-aside-courier lm-aside-courier--female" src="assets/images/couriers/river-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="320" alt="" />
               <span class="lm-mailbox-caption">山河无言，心意有声</span>
             </div>
             <div class="lm-prompts">
@@ -256,6 +257,7 @@
       aria-labelledby="delivery-title"
       data-locked="true"
     >
+      <button id="close-delivery" class="lm-close" type="button" aria-label="关闭投递弹窗">×</button>
       <div class="lm-packing-art" aria-hidden="true">
         <div class="lm-packing-world">
           <div class="lm-packing-ground"></div>
@@ -272,7 +274,6 @@
         </div>
       </div>
       <div class="lm-delivery-art" aria-hidden="true"><div class="lm-postbox-model" data-postbox></div></div>
-      <div class="lm-delivery-courier" aria-hidden="true"><img src="assets/images/couriers/river-v1.webp" width="240" height="320" alt="" /></div>
       <h2 id="delivery-title" aria-live="polite">正在封好这份心意</h2>
       <p id="delivery-description">留言已保存，正在完成投递</p>
       <button id="skip-delivery" class="lm-link">跳过动画</button>

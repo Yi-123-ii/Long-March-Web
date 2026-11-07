@@ -3,6 +3,8 @@
 .lm-stamp img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .lm-stamp span { font-family: var(--lm-reading); font-size: 9px; line-height: 1.4; letter-spacing: 1px; }
 .lm-aside-courier { position: absolute; width: 95px; height: auto; object-fit: contain; bottom: 37px; right: -5px; pointer-events: none; }
+.lm-mailbox-scene .lm-aside-courier { width: calc(var(--desk-mailbox-width, 235px) * .4); right: calc(50% - var(--desk-mailbox-width, 235px) * .68); bottom: calc(50% - var(--desk-mailbox-width, 235px) * 2 / 3 + 12px); }
+.lm-mailbox-scene .lm-aside-courier.lm-aside-courier--female { left: calc(50% - var(--desk-mailbox-width, 235px) * .68); right: auto; }
 .lm-empty-courier { display: block; width: 110px; height: auto; margin: 0 auto 18px; }
 .lm-prepare-dialog { width: min(760px, calc(100% - 32px)); padding: 36px 34px 25px; overflow-y: auto; }
 .lm-prepare-heading { padding-right: 30px; }
@@ -31,12 +33,10 @@
 .lm-postbox-stamp { position: absolute; z-index: 2; width: 17%; height: auto; aspect-ratio: 4 / 5; right: 5%; top: 8%; object-fit: cover; border: 1px dotted #fffbed; }
 .lm-delivery-dialog { position: fixed; width: min(560px, calc(100% - 32px)); max-height: 90dvh; overflow-y: auto; }
 .lm-delivery-dialog h2 { font-family: var(--lm-reading); font-size: 27px; font-weight: 400; }
-.lm-delivery-dialog .lm-delivery-courier { position: absolute; left: 35px; top: 155px; pointer-events: none; }
-.lm-delivery-courier img { display: block; width: 76px; height: auto; }
+.lm-delivery-dialog .lm-close { top:10px; right:10px; width:44px; height:44px; z-index:10; background:transparent; }
 .lm-packing-art { position: relative; width: min(100%, 370px); height: 320px; margin: 0 auto 12px; perspective: 1000px; }
 .lm-delivery-dialog:not([data-phase="packing"]) .lm-packing-art { display: none; }
-.lm-delivery-dialog[data-phase="packing"] .lm-delivery-art,
-.lm-delivery-dialog[data-phase="packing"] .lm-delivery-courier { display: none; }
+.lm-delivery-dialog[data-phase="packing"] .lm-delivery-art { display: none; }
 .lm-fold-paper { position: absolute; z-index: 2; width: 190px; height: 216px; top: 20px; left: calc(50% - 95px); transform-style: preserve-3d; }
 .lm-fold-paper > div { position: absolute; width: 100%; height: 72px; background: #fffdf0; border: 1px solid #dedbc7; transform-style: preserve-3d; }
 .lm-fold-paper span { display: block; padding: 10px 15px; height: 100%; overflow: hidden; font-size: 9px; line-height: 16px; white-space: pre-wrap; overflow-wrap: anywhere; text-align: left; color: #52654b; background: repeating-linear-gradient(transparent 0 15px, #dce0ce 15px 16px); backface-visibility: hidden; }
@@ -60,7 +60,11 @@
 @keyframes lm-paper-pack { 0%,44% { transform: translateY(0) scale(1); opacity: 1; } 56% { transform: translateY(-9px) scale(.88); opacity: 1; } 72%,100% { transform: translateY(126px) scale(.88); opacity: 1; } }
 @keyframes lm-envelope-close { 0%,73% { transform: rotateX(0); z-index: 1; } 74% { z-index: 6; } 91%,100% { transform: rotateX(-180deg); z-index: 6; background: #eee0b9; } }
 @keyframes lm-envelope-seal { 0%,90% { opacity: 0; } 97%,100% { opacity: 1; } }
+@media (max-width: 800px) {
+  .lm-mailbox-scene { --desk-mailbox-width: 160px; }
+}
 @media (max-width: 580px) {
+  .lm-mailbox-scene { --desk-mailbox-width: 215px; }
   .lm-stamp { width: 58px; min-height: 0; }
   .lm-stamp span { font-size: 7px; }
   .lm-aside-courier { right: max(0px, calc(50% - 145px)); width: 80px; bottom: 35px; }
@@ -77,8 +81,6 @@
   .lm-review-content { font-size: 15px; }
   .lm-delivery-dialog { padding: 15px 18px 24px; }
   .lm-delivery-dialog h2 { font-size: 23px; }
-  .lm-delivery-dialog .lm-delivery-courier { left: 5px; top: 145px; }
-  .lm-delivery-courier img { width: 65px; }
   .lm-packing-art { height: 310px; }
 }
 @media (prefers-reduced-motion: reduce) {
