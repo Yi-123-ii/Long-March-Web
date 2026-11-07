@@ -24,9 +24,10 @@ test('Chenhe dawn captions replace one sentence at a time and retain it through 
 });
 test('Lu night caption keeps the confirmed words and does not start before he speaks',()=>{
  const D=require('../assets/yudu-data.js'),P=require('../assets/yudu-presentation.js'),n=D.nodes.find(x=>x.id==='grass-a-water'),p=T.plan(n.text);
- assert.equal(n.text,'放下吧，我想喝了叫你。');assert.equal(n.captionCues.map(c=>c.text).join(''),n.text);
+ assert.equal(n.text,'你一直端着。放下吧，我想喝了叫你。');assert.equal(n.captionCues.map(c=>c.text).join(''),n.text);
  assert.equal(P.speaker(n).name,'陆生');assert.equal(T.frame(p,T.cueTime(p,1.67,n.captionCues)).text,'');
- assert.equal(T.frame(p,T.cueTime(p,3,n.captionCues)).text,'放下吧，');
+ assert.equal(T.frame(p,T.cueTime(p,3,n.captionCues)).text,'你一直端着。');
+ assert.equal(T.frame(p,T.cueTime(p,3.7,n.captionCues)).text,'你一直端着。放下吧，');
  assert(T.frame(p,T.cueTime(p,5.91,n.captionCues)).complete);
 });
 test('Chenhe keeps the changed dialogue and does not ask for the lamp during the long pause',()=>{

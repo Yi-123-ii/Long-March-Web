@@ -6,25 +6,26 @@
 <title>同行 · 重走长征路</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="preload" href="assets/atlas/heading-eight-fast.webp" as="image" fetchpriority="high" type="image/webp">
-<link rel="preload" href="assets/atlas/terrain-extension-fast.webp" as="image" fetchpriority="high" type="image/webp">
+<link rel="preload" as="image" fetchpriority="high" href="assets/atlas/terrain-extension-preview.webp">
+<link rel="preload" href="assets/atlas/terrain-extension-fast.webp" as="image" fetchpriority="low" type="image/webp">
 <link rel="stylesheet" data-site-fonts="../../assets/css/fonts.css?v=20261105-opening-perf" />
 <noscript><link rel="stylesheet" href="../../assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
 <link rel="stylesheet" href="assets/yudu.css?v=038"><link rel="stylesheet" href="assets/journey-atlas.css?v=031">
 <script defer src="assets/journey-return.js?v=038"></script>
-<script defer src="assets/journey-media.js?v=046"></script>
+<script defer src="assets/journey-media.js?v=20261107-grass-cd03-water-line"></script>
 <script defer src="assets/yudu-presentation.js?v=040"></script>
 <script defer src="assets/journey-films.js?v=20261104-buffer"></script>
 <link rel="stylesheet" href="assets/journey-film-loader.css?v=20261104-buffer">
-<script defer fetchpriority="low" src="assets/story-legacy-v009.js?v=029"></script><script defer fetchpriority="low" src="assets/story-legacy-v010.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v011.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v012.js?v=038"></script><script defer fetchpriority="low" src="assets/late-chapters-data.js?v=046"></script><script defer fetchpriority="low" src="assets/chapters-data.js?v=043"></script><script defer fetchpriority="low" src="assets/yudu-data.js?v=040"></script><script defer fetchpriority="low" src="assets/yudu-core.js?v=038"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=030"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=038"></script><script defer fetchpriority="low" src="assets/yudu-game.js?v=040"></script>
+<script defer fetchpriority="low" src="assets/story-legacy-v009.js?v=029"></script><script defer fetchpriority="low" src="assets/story-legacy-v010.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v011.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v012.js?v=038"></script><script defer fetchpriority="low" src="assets/late-chapters-data.js?v=20261107-grass-cd03-water-line"></script><script defer fetchpriority="low" src="assets/chapters-data.js?v=040"></script><script defer fetchpriority="low" src="assets/yudu-data.js?v=040"></script><script defer fetchpriority="low" src="assets/yudu-core.js?v=038"></script><script defer src="assets/yudu-text.js?v=020"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=030"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=038"></script><script defer fetchpriority="low" src="assets/yudu-game.js?v=040"></script>
 <script defer src="assets/site-integration.js?v=023"></script>
-<script defer src="../../assets/js/site-nav.js?v=20261107-home-origin"></script>
-<link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261107-home-return" />
+<script defer src="../../assets/js/site-nav.js?v=20261105-opening-perf"></script>
+<link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261106-title-motion" />
 <link rel="stylesheet" href="../../assets/css/header-unified.css?v=20261105-opening-perf" />
 <link rel="stylesheet" href="assets/atlas-scroll.css?v=022" />
 <link rel="stylesheet" href="assets/atlas-fullscreen.css?v=20261103" />
-<link rel="stylesheet" href="assets/journey-opening.css?v=20261107-smooth-preview" />
+<link rel="stylesheet" href="assets/journey-opening.css?v=20261105-opening-perf" />
 <script defer src="assets/journey-opening.js?v=20261104-directory"></script>
-<link rel="stylesheet" href="../../assets/css/section-opening.css?v=20261107-home-return" />
+<link rel="stylesheet" href="../../assets/css/section-opening.css?v=20261105-opening-perf" />
 </head>
 <body>
 <audio id="player-voice" preload="none" hidden aria-hidden="true"></audio>
@@ -109,9 +110,4 @@
 <dialog id="history-dialog" aria-labelledby="history-title"><div class="dialog-heading"><h2 id="history-title">这一段，我们记得</h2><button class="quiet close-dialog" aria-label="关闭对白记录">关闭 ×</button></div><ol id="history-list" class="history-list"></ol><p class="dialog-note">回看已走过的故事分支时，画面与声音会暂时停下</p></dialog>
 <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-heading"><h2 id="about-title">关于这一程</h2><button class="quiet close-dialog" aria-label="关闭关于说明">✕</button></div><p>你将以新战士“小满”的视角翻开行军相册，在长征背景的故事中认识陈禾与更多同行者</p><p id="history-fact"></p><p>六站故事从于都延伸至湘江、遵义与夹金山，经过草地抵达吴起，并以1936年的会师作为历史尾声；人物与场景为AI创作的虚构情境，已有剧情镜头、赤水转场和第一站导入影片保留原声，小满的对白和已配音的自述、心声使用即梦合成配音，其余段落以文字呈现</p><p id="source-links"></p><p class="dialog-note">选择用于展开不同的故事分支，不设置得分；地图展示叙事路线，不作为精确行军轨迹</p></dialog>
 <noscript>请开启浏览器 JavaScript 以阅读互动剧情</noscript>
-<nav class="site-home-return" data-home-return aria-label="返回首页提示" hidden>
-  <span>继续浏览重走长征板块</span>
-  <a href="../../index.html#chapter-journey">返回首页 ↗</a>
-  <button type="button" aria-label="关闭返回首页提示">×</button>
-</nav>
 </body></html>
