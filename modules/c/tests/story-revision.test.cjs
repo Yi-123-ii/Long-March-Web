@@ -39,7 +39,7 @@ test('approved words replace the old incoherent replies and remaining film slots
  assert.equal(n('xj-loss').speaker,'转运同志');assert(n('xj-loss').text.includes('梁叔回去帮我们抬担架，在江边中了弹。我们没能把他救回来。'));
  assert.equal(n('snow-a-help-yudu').text,'你之前在于都也是这么说的。');
  assert.equal(n('wuqi-cloth-answer').text,'你说卖吃的那家吗？早搬了。');
- const pending=D.nodes.filter(n=>n.plannedFilm);assert.equal(pending.length,1);
+ const pending=D.nodes.filter(n=>n.plannedFilm);assert.equal(pending.length,0);
  for(const node of pending){assert(!node.nativeAudio);assert(!node.video);assert(D.images[node.scene]);}
  assert.equal(D.nodes.filter(n=>n.choices?.length===2).length,5);
 });

@@ -1,0 +1,9 @@
+/* Only the approved epilogue artwork and its reading surface change color. */
+.story-screen.epilogue-scene,.epilogue-scene .visual-stage,.epilogue-scene #scene-image{background:#28322f}
+.epilogue-scene .scene-shade{background:linear-gradient(180deg,#15231e22,transparent 25%,transparent 51%,#19272699)}
+.epilogue-scene .dialogue-panel{background:linear-gradient(transparent,#202d2bc9 25%,#17262bf0)}
+.epilogue-scene .dialogue-text{max-width:980px}
+@media(max-width:600px){
+ .epilogue-scene .dialogue-panel{background:#202d2b}
+ .epilogue-scene .scene-shade{background:linear-gradient(transparent 80%,#202d2b)}
+}

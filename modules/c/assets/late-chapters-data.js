@@ -319,12 +319,23 @@
   },
   {
     "id": "snow-a-hand-chen",
-    "text": "（抬头）你自己站稳了。",
+    "text": "你自己站稳了。",
     "scene": "snow-concern-hold",
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-a-hand-yudu"
+    "next": "snow-a-hand-yudu",
+    "stageDirection": "抬头",
+    "voice": "assets/audio/character-voices-v049/CH01.mp3",
+    "voiceId": "CH01",
+    "voiceDuration": 1.57,
+    "voiceCues": [
+      {
+        "text": "你自己站稳了。",
+        "start": 0.24000000000000005,
+        "end": 1.04
+      }
+    ]
   },
   {
     "id": "snow-a-hand-yudu",
@@ -387,7 +398,17 @@
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-a-help-reply"
+    "next": "snow-a-help-reply",
+    "voice": "assets/audio/character-voices-v049/CH02.mp3",
+    "voiceId": "CH02",
+    "voiceDuration": 2.24,
+    "voiceCues": [
+      {
+        "text": "你之前在于都也是这么说的。",
+        "start": 0.27,
+        "end": 2.11
+      }
+    ]
   },
   {
     "id": "snow-a-help-reply",
@@ -495,7 +516,17 @@
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-b-answer"
+    "next": "snow-b-answer",
+    "voice": "assets/audio/character-voices-v049/CH03.mp3",
+    "voiceId": "CH03",
+    "voiceDuration": 2.32,
+    "voiceCues": [
+      {
+        "text": "听见了，你别喊那么大声。",
+        "start": 0.1899999999999995,
+        "end": 1.9699999999999998
+      }
+    ]
   },
   {
     "id": "snow-b-answer",
@@ -541,12 +572,23 @@
   },
   {
     "id": "snow-b-here",
-    "text": "（抬眼）在呢。",
+    "text": "在呢。",
     "scene": "snow-concern-hold",
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-shelter-before"
+    "next": "snow-shelter-before",
+    "stageDirection": "抬眼",
+    "voice": "assets/audio/character-voices-v049/CH04.mp3",
+    "voiceId": "CH04",
+    "voiceDuration": 0.6025,
+    "voiceCues": [
+      {
+        "text": "在呢。",
+        "start": 0.23000000000000043,
+        "end": 0.5100000000000007
+      }
+    ]
   },
   {
     "id": "snow-shelter-before",
@@ -853,7 +895,17 @@
     "scene": "lusheng-grass",
     "next": "grass-a-sit-close",
     "mode": "dialogue",
-    "chapter": "grass"
+    "chapter": "grass",
+    "voice": "assets/audio/character-voices-v049/LS01.mp3",
+    "voiceId": "LS01",
+    "voiceDuration": 2.46,
+    "voiceCues": [
+      {
+        "text": "小满？又是你啊。",
+        "start": 0.24500000000000005,
+        "end": 2.2
+      }
+    ]
   },
   {
     "id": "grass-a-sit-close",
@@ -877,7 +929,17 @@
     "speaker": "陆生",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-a-show-cuff"
+    "next": "grass-a-show-cuff",
+    "voice": "assets/audio/character-voices-v049/LS02.mp3",
+    "voiceId": "LS02",
+    "voiceDuration": 2.05,
+    "voiceCues": [
+      {
+        "text": "你那袖口补好了没有？",
+        "start": 0.4800000000000004,
+        "end": 1.6000000000000005
+      }
+    ]
   },
   {
     "id": "grass-a-show-cuff",
@@ -925,7 +987,17 @@
     "scene": "lusheng-grass",
     "next": "grass-a-tell-name",
     "mode": "dialogue",
-    "chapter": "grass"
+    "chapter": "grass",
+    "voice": "assets/audio/character-voices-v049/LS03.mp3",
+    "voiceId": "LS03",
+    "voiceDuration": 1.5775,
+    "voiceCues": [
+      {
+        "text": "你叫什么名字？",
+        "start": 0.1900000000000004,
+        "end": 1.21
+      }
+    ]
   },
   {
     "id": "grass-a-tell-name",
@@ -961,7 +1033,22 @@
     "speaker": "陆生",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-a-repeat-name"
+    "next": "grass-a-repeat-name",
+    "voice": "assets/audio/character-voices-v049/LS04.mp3",
+    "voiceId": "LS04",
+    "voiceDuration": 4.0425,
+    "voiceCues": [
+      {
+        "text": "我叫陆生。",
+        "start": 0.07249999999999979,
+        "end": 0.9524999999999997
+      },
+      {
+        "text": "刚才没听清，你叫小什么来着？",
+        "start": 1.7924999999999995,
+        "end": 3.892499999999999
+      }
+    ]
   },
   {
     "id": "grass-a-repeat-name",
@@ -1235,7 +1322,7 @@
     "id": "grass-b-foot",
     "speaker": "心声",
     "text": "同行的人把铺盖接过去，又换下陈禾，扶住那位战士。陈禾刚松手，身子也跟着晃了一下，我连忙托住他的胳膊。",
-    "scene": "grass-path",
+    "scene": "grass-rescue-hold-v049",
     "next": "grass-b-support",
     "mode": "thought",
     "chapter": "grass",
@@ -1280,11 +1367,10 @@
     "id": "grass-b-names",
     "speaker": "心声",
     "text": "接应的人扶住他的胳膊，把人带到脚下稳些的地方，陈禾才凑过去让他搭住肩。走出没几步，他又站不住了，只能靠着陈禾缓一缓。他抹掉嘴边的草屑，抬头看向我。",
-    "scene": "grass-path",
+    "scene": "grass-rescue-first-v049",
     "next": "grass-b-ask-names",
     "mode": "thought",
     "chapter": "grass",
-    "plannedFilm": "CD-03",
     "narration": {
       "id": "XN060",
       "src": "assets/audio/xiaoman-narration-v041/XN060.mp3",
@@ -1316,16 +1402,33 @@
   {
     "id": "grass-b-ask-names",
     "text": "你们俩叫什么名字？",
-    "scene": "grass-path",
+    "scene": "grass-rescue-first-v049",
     "speaker": "战士",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-b-tell-names"
+    "next": "grass-b-tell-names",
+    "video": "assets/chapters/grass-rescue-cd03-v049.mp4",
+    "poster": "assets/chapters/grass-rescue-first-v049.webp",
+    "hold": "assets/chapters/grass-rescue-question-v049.webp",
+    "nativeAudio": true,
+    "advanceOnEnd": true,
+    "filmId": "CD-03",
+    "title": "草地接应，陈禾扶着获救战士同行",
+    "duration": 3.6,
+    "mediaStart": 0,
+    "mediaEnd": 3.6,
+    "captionPages": [
+      {
+        "text": "你们俩叫什么名字？",
+        "start": 1.65,
+        "end": 2.86
+      }
+    ]
   },
   {
     "id": "grass-b-tell-names",
     "text": "",
-    "scene": "grass-path",
+    "scene": "grass-rescue-question-v049",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -1340,28 +1443,61 @@
   {
     "id": "grass-b-tell-names-spoken-v034",
     "chapter": "grass",
-    "scene": "grass-path",
+    "scene": "grass-rescue-question-v049",
     "speaker": "小满",
     "mode": "dialogue",
     "text": "我叫小满，他叫陈禾。",
     "next": "grass-b-home-street",
     "voice": "assets/audio/xiaoman-v034/XM23.mp3",
     "voiceDuration": 2.135,
-    "voiceId": "XM23"
+    "voiceId": "XM23",
+    "advanceOnEnd": true
   },
   {
     "id": "grass-b-home-street",
-    "text": "等出去了，到我家坐坐。我家那条街，街口原来有家卖吃的——",
-    "scene": "grass-path",
+    "text": "等出去了，到我家坐坐。我家那条街，街口有家卖吃的——",
+    "scene": "grass-rescue-question-v049",
     "speaker": "战士",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-b-breath"
+    "next": "grass-b-breath",
+    "video": "assets/chapters/grass-rescue-cd03-v049.mp4",
+    "poster": "assets/chapters/grass-rescue-question-v049.webp",
+    "hold": "assets/chapters/grass-rescue-breath-v049.webp",
+    "nativeAudio": true,
+    "advanceOnEnd": true,
+    "filmId": "CD-03",
+    "title": "草地接应，陈禾扶着获救战士同行",
+    "duration": 6.6,
+    "mediaStart": 3.6,
+    "mediaEnd": 10.2,
+    "captionPages": [
+      {
+        "text": "等出去了，",
+        "start": 4.54,
+        "end": 5.4
+      },
+      {
+        "text": "到我家坐坐。",
+        "start": 5.7,
+        "end": 6.68
+      },
+      {
+        "text": "我家那条街，",
+        "start": 7.14,
+        "end": 8.04
+      },
+      {
+        "text": "街口有家卖吃的——",
+        "start": 8.4,
+        "end": 10.04
+      }
+    ]
   },
   {
     "id": "grass-b-breath",
     "text": "他停下来，扶住陈禾的胳膊。",
-    "scene": "grass-path",
+    "scene": "grass-rescue-breath-v049",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "grass",
@@ -1380,16 +1516,39 @@
       "sentences": [
         "XN061-01"
       ]
-    }
+    },
+    "advanceOnEnd": true
   },
   {
     "id": "grass-b-rest-first",
     "text": "你先喘口气，回去慢慢说。",
-    "scene": "grass-path",
+    "scene": "grass-rescue-breath-v049",
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-b-foot"
+    "next": "grass-b-foot",
+    "video": "assets/chapters/grass-rescue-cd03-v049.mp4",
+    "poster": "assets/chapters/grass-rescue-breath-v049.webp",
+    "hold": "assets/chapters/grass-rescue-hold-v049.webp",
+    "nativeAudio": true,
+    "advanceOnEnd": true,
+    "filmId": "CD-03",
+    "title": "草地接应，陈禾扶着获救战士同行",
+    "duration": 4.816667000000001,
+    "mediaStart": 10.2,
+    "mediaEnd": 15.016667,
+    "captionPages": [
+      {
+        "text": "你先喘口气，",
+        "start": 10.25,
+        "end": 10.97
+      },
+      {
+        "text": "回去慢慢说。",
+        "start": 11.36,
+        "end": 12.05
+      }
+    ]
   },
   {
     "id": "grass-b-return",
@@ -1453,7 +1612,22 @@
     "scene": "lusheng-grass",
     "next": "grass-b-drink",
     "mode": "dialogue",
-    "chapter": "grass"
+    "chapter": "grass",
+    "voice": "assets/audio/character-voices-v049/LS05.mp3",
+    "voiceId": "LS05",
+    "voiceDuration": 2.6875,
+    "voiceCues": [
+      {
+        "text": "小满，坐这儿吧。",
+        "start": 0.21000000000000085,
+        "end": 1.33
+      },
+      {
+        "text": "水还剩一点。",
+        "start": 1.5300000000000011,
+        "end": 2.41
+      }
+    ]
   },
   {
     "id": "grass-b-drink",
@@ -1477,7 +1651,22 @@
     "scene": "lusheng-grass",
     "next": "grass-b-player-name",
     "mode": "dialogue",
-    "chapter": "grass"
+    "chapter": "grass",
+    "voice": "assets/audio/character-voices-v049/LS06.mp3",
+    "voiceId": "LS06",
+    "voiceDuration": 2.4625,
+    "voiceCues": [
+      {
+        "text": "你坐这儿吧。",
+        "start": 0.16249999999999964,
+        "end": 0.8224999999999998
+      },
+      {
+        "text": "我还不知道你叫什么。",
+        "start": 1.1225000000000005,
+        "end": 2.2424999999999997
+      }
+    ]
   },
   {
     "id": "grass-b-player-name",
@@ -1513,7 +1702,17 @@
     "speaker": "陆生",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-dawn-route"
+    "next": "grass-dawn-route",
+    "voice": "assets/audio/character-voices-v049/LS07.mp3",
+    "voiceId": "LS07",
+    "voiceDuration": 1.4125,
+    "voiceCues": [
+      {
+        "text": "我叫陆生。",
+        "start": 0.11999999999999922,
+        "end": 0.9399999999999995
+      }
+    ]
   },
   {
     "id": "grass-dawn-route",
@@ -1575,7 +1774,17 @@
     "scene": "chenhe-grass",
     "next": "grass-dawn-hand-reply",
     "mode": "dialogue",
-    "chapter": "grass"
+    "chapter": "grass",
+    "voice": "assets/audio/character-voices-v049/CH06.mp3",
+    "voiceId": "CH06",
+    "voiceDuration": 3.33,
+    "voiceCues": [
+      {
+        "text": "你那天在于都，手攥得可真紧。",
+        "start": 0.2524999999999995,
+        "end": 2.8125
+      }
+    ]
   },
   {
     "id": "grass-dawn-hand-reply",
@@ -1596,7 +1805,17 @@
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "grass",
-    "next": "grass-dawn-shoes"
+    "next": "grass-dawn-shoes",
+    "voice": "assets/audio/character-voices-v049/CH07.mp3",
+    "voiceId": "CH07",
+    "voiceDuration": 4.595,
+    "voiceCues": [
+      {
+        "text": "你倒是攥稳了，再拽两下，我也得跟着下去。",
+        "start": 0.40249999999999986,
+        "end": 4.082500000000001
+      }
+    ]
   },
   {
     "id": "grass-dawn-shoes",
@@ -1847,7 +2066,17 @@
         "next": "north-end"
       }
     ],
-    "chapter": "north"
+    "chapter": "north",
+    "voice": "assets/audio/character-voices-v049/CH08.mp3",
+    "voiceId": "CH08",
+    "voiceDuration": 1.8475,
+    "voiceCues": [
+      {
+        "text": "小满，跟上。",
+        "start": 0.24749999999999872,
+        "end": 1.447499999999998
+      }
+    ]
   },
   {
     "id": "north-end",
@@ -2016,7 +2245,17 @@
     "speaker": "战士",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-cloth-thanks"
+    "next": "wuqi-cloth-thanks",
+    "voice": "assets/audio/character-voices-v049/SF03.mp3",
+    "voiceId": "SF03",
+    "voiceDuration": 2.8725,
+    "voiceCues": [
+      {
+        "text": "你们看看，这块还能不能用？",
+        "start": 0.6149999999999984,
+        "end": 2.42
+      }
+    ]
   },
   {
     "id": "wuqi-cloth-thanks",
@@ -2025,7 +2264,22 @@
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-cloth-look"
+    "next": "wuqi-cloth-look",
+    "voice": "assets/audio/character-voices-v049/CH09.mp3",
+    "voiceId": "CH09",
+    "voiceDuration": 1.66,
+    "voiceCues": [
+      {
+        "text": "用得上，",
+        "start": 0.2799999999999976,
+        "end": 0.6600000000000001
+      },
+      {
+        "text": "谢了。",
+        "start": 1.1600000000000001,
+        "end": 1.5199999999999996
+      }
+    ]
   },
   {
     "id": "wuqi-cloth-look",
@@ -2061,7 +2315,22 @@
     "speaker": "战士",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-cloth-put-down"
+    "next": "wuqi-cloth-put-down",
+    "voice": "assets/audio/character-voices-v049/SF04.mp3",
+    "voiceId": "SF04",
+    "voiceDuration": 3.2175,
+    "voiceCues": [
+      {
+        "text": "你说卖吃的那家吗？",
+        "start": 0.45250000000000057,
+        "end": 1.7475000000000005
+      },
+      {
+        "text": "早搬了。",
+        "start": 2.227500000000001,
+        "end": 2.9875000000000007
+      }
+    ]
   },
   {
     "id": "wuqi-cloth-put-down",
@@ -2228,7 +2497,17 @@
     "speaker": "陈禾",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-sit-near"
+    "next": "wuqi-sit-near",
+    "voice": "assets/audio/character-voices-v049/CH10.mp3",
+    "voiceId": "CH10",
+    "voiceDuration": 0.425,
+    "voiceCues": [
+      {
+        "text": "哎。",
+        "start": 0.16499999999999915,
+        "end": 0.26500000000000057
+      }
+    ]
   },
   {
     "id": "wuqi-sit-near",
@@ -2603,7 +2882,22 @@
     "speaker": "陆生",
     "mode": "dialogue",
     "chapter": "wuqi",
-    "next": "wuqi-read-turn"
+    "next": "wuqi-read-turn",
+    "voice": "assets/audio/character-voices-v049/LS08.mp3",
+    "voiceId": "LS08",
+    "voiceDuration": 2.595,
+    "voiceCues": [
+      {
+        "text": "等一下，",
+        "start": 0.3874999999999993,
+        "end": 0.7225000000000001
+      },
+      {
+        "text": "这行我还没看完。",
+        "start": 1.3874999999999993,
+        "end": 2.3674999999999997
+      }
+    ]
   },
   {
     "id": "wuqi-read-turn",
@@ -2927,7 +3221,23 @@
     "scene": "atlas-1936",
     "next": "epilogue-huining",
     "mode": "observation",
-    "chapter": "epilogue"
+    "chapter": "epilogue",
+    "narration": {
+      "id": "NR002",
+      "speaker": "旁白",
+      "src": "assets/audio/narrator-v047/NR002.mp3",
+      "duration": 4.395,
+      "cues": [
+        {
+          "text": "相册翻到下一页，地图上标出了会宁。",
+          "start": 0.21750000000000025,
+          "end": 3.7575000000000003
+        }
+      ],
+      "sentences": [
+        "NR002-01"
+      ]
+    }
   },
   {
     "id": "epilogue-huining",
@@ -2943,7 +3253,23 @@
         "label": "继续翻页。",
         "next": "epilogue-jiangtai"
       }
-    ]
+    ],
+    "narration": {
+      "id": "NR003",
+      "speaker": "旁白",
+      "src": "assets/audio/narrator-v047/NR003.mp3",
+      "duration": 3.48,
+      "cues": [
+        {
+          "text": "红一、红四方面军在会宁会师。",
+          "start": 0.1825000000000001,
+          "end": 2.9225000000000003
+        }
+      ],
+      "sentences": [
+        "NR003-01"
+      ]
+    }
   },
   {
     "id": "epilogue-jiangtai",
@@ -2953,14 +3279,36 @@
     "next": "epilogue-remember",
     "mode": "fact",
     "chapter": "epilogue",
-    "routeDate": "1936年10月22日"
+    "routeDate": "1936年10月22日",
+    "narration": {
+      "id": "NR004",
+      "speaker": "旁白",
+      "src": "assets/audio/narrator-v047/NR004.mp3",
+      "duration": 6.775,
+      "cues": [
+        {
+          "text": "红一、红二方面军在将台堡会师。",
+          "start": 0.1225000000000005,
+          "end": 3.182500000000001
+        },
+        {
+          "text": "红军三大主力胜利会师。",
+          "start": 3.8625000000000007,
+          "end": 6.202499999999999
+        }
+      ],
+      "sentences": [
+        "NR004-01",
+        "NR004-02"
+      ]
+    }
   },
   {
     "id": "epilogue-remember",
     "speaker": "纪念",
     "mode": "fact",
     "scene": "atlas-1936",
-    "text": "1936—2026\n纪念红军长征胜利90周年",
+    "text": "再看这张地图，你会记起湘江岸边的枪声，也会记起陈禾在渡口伸来的手；会记起梁叔那封没写完的家书，也会记起陆生留给你的半碗水。\n\n长征迎来了会师，却不是每一个出发的人都能抵达。记住胜利，也要记住那些在饥寒和战火中，仍然尽力照应同伴的普通战士。\n\n这一程到这里暂告一段落。合上相册以后，你还可以去长征纪事里读一读真实的历史，或在山河邮局给他们写一封信。把今天想说的话留下来，也把这些一路同行的人记在心里。\n\n1936—2026\n纪念红军长征胜利90周年",
     "choices": [
       {
         "id": "look-back",
@@ -2968,7 +3316,260 @@
         "next": "journey-end"
       }
     ],
-    "chapter": "epilogue"
+    "chapter": "epilogue",
+    "narration": {
+      "id": "NR006",
+      "speaker": "旁白",
+      "src": "assets/audio/narrator-ending-v050/ending-v050.mp3",
+      "duration": 59.4375,
+      "cues": [
+        {
+          "text": "再看这张地图，",
+          "start": 0.235,
+          "end": 1.44
+        },
+        {
+          "text": "你会记起湘江岸边的枪声，",
+          "start": 1.86,
+          "end": 4.24
+        },
+        {
+          "text": "也会记起陈禾在渡口伸来的手；",
+          "start": 4.8,
+          "end": 8.46
+        },
+        {
+          "text": "会记起梁叔那封没写完的家书，",
+          "start": 8.92,
+          "end": 12.46
+        },
+        {
+          "text": "也会记起陆生留给你的半碗水。\n\n",
+          "start": 12.96,
+          "end": 16.66
+        },
+        {
+          "text": "长征迎来了会师，",
+          "start": 17.86,
+          "end": 19.58
+        },
+        {
+          "text": "却不是每一个出发的人都能抵达。",
+          "start": 20.06,
+          "end": 23.16
+        },
+        {
+          "text": "记住胜利，",
+          "start": 23.74,
+          "end": 24.84
+        },
+        {
+          "text": "也要记住那些在饥寒和战火中，",
+          "start": 25.22,
+          "end": 28.02
+        },
+        {
+          "text": "仍然尽力照应同伴的普通战士。\n\n",
+          "start": 28.3,
+          "end": 31.5
+        },
+        {
+          "text": "这一程到这里暂告一段落。",
+          "start": 32.14,
+          "end": 35.2
+        },
+        {
+          "text": "合上相册以后，",
+          "start": 35.62,
+          "end": 36.82
+        },
+        {
+          "text": "你还可以去长征纪事里读一读真实的历史，",
+          "start": 37.235,
+          "end": 41.06
+        },
+        {
+          "text": "或在山河邮局给他们写一封信。",
+          "start": 41.58,
+          "end": 44.84
+        },
+        {
+          "text": "把今天想说的话留下来，",
+          "start": 45.79,
+          "end": 48.08
+        },
+        {
+          "text": "也把这些一路同行的人",
+          "start": 48.475,
+          "end": 50.9
+        },
+        {
+          "text": "记在心里。\n\n",
+          "start": 51.3,
+          "end": 52.66
+        },
+        {
+          "text": "1936—2026\n",
+          "start": 53.6475,
+          "end": 56.0875
+        },
+        {
+          "text": "纪念红军长征胜利90周年",
+          "start": 56.5475,
+          "end": 59.2475
+        }
+      ],
+      "pages": [
+        {
+          "text": "再看这张地图，你会记起湘江岸边的枪声，也会记起陈禾在渡口伸来的手；会记起梁叔那封没写完的家书，也会记起陆生留给你的半碗水。",
+          "start": 0,
+          "end": 17.43,
+          "cues": [
+            {
+              "text": "再看这张地图，",
+              "start": 0.235,
+              "end": 1.44
+            },
+            {
+              "text": "你会记起湘江岸边的枪声，",
+              "start": 1.86,
+              "end": 4.24
+            },
+            {
+              "text": "也会记起陈禾在渡口伸来的手；",
+              "start": 4.8,
+              "end": 8.46
+            },
+            {
+              "text": "会记起梁叔那封没写完的家书，",
+              "start": 8.92,
+              "end": 12.46
+            },
+            {
+              "text": "也会记起陆生留给你的半碗水。",
+              "start": 12.96,
+              "end": 16.66
+            }
+          ]
+        },
+        {
+          "text": "长征迎来了会师，却不是每一个出发的人都能抵达。记住胜利，也要记住那些在饥寒和战火中，仍然尽力照应同伴的普通战士。",
+          "start": 17.43,
+          "end": 32.03,
+          "cues": [
+            {
+              "text": "长征迎来了会师，",
+              "start": 17.86,
+              "end": 19.58
+            },
+            {
+              "text": "却不是每一个出发的人都能抵达。",
+              "start": 20.06,
+              "end": 23.16
+            },
+            {
+              "text": "记住胜利，",
+              "start": 23.74,
+              "end": 24.84
+            },
+            {
+              "text": "也要记住那些在饥寒和战火中，",
+              "start": 25.22,
+              "end": 28.02
+            },
+            {
+              "text": "仍然尽力照应同伴的普通战士。",
+              "start": 28.3,
+              "end": 31.5
+            }
+          ]
+        },
+        {
+          "text": "这一程到这里暂告一段落。合上相册以后，你还可以去长征纪事里读一读真实的历史，或在山河邮局给他们写一封信。把今天想说的话留下来，也把这些一路同行的人记在心里。",
+          "start": 32.03,
+          "end": 53.5,
+          "cues": [
+            {
+              "text": "这一程到这里暂告一段落。",
+              "start": 32.14,
+              "end": 35.2
+            },
+            {
+              "text": "合上相册以后，",
+              "start": 35.62,
+              "end": 36.82
+            },
+            {
+              "text": "你还可以去长征纪事里读一读真实的历史，",
+              "start": 37.235,
+              "end": 41.06
+            },
+            {
+              "text": "或在山河邮局给他们写一封信。",
+              "start": 41.58,
+              "end": 44.84
+            },
+            {
+              "text": "把今天想说的话留下来，",
+              "start": 45.79,
+              "end": 48.08
+            },
+            {
+              "text": "也把这些一路同行的人",
+              "start": 48.475,
+              "end": 50.9
+            },
+            {
+              "text": "记在心里。",
+              "start": 51.3,
+              "end": 52.66
+            }
+          ]
+        },
+        {
+          "text": "1936—2026\n纪念红军长征胜利90周年",
+          "start": 53.5,
+          "end": 59.4375,
+          "cues": [
+            {
+              "text": "1936—2026\n",
+              "start": 53.6475,
+              "end": 56.0875
+            },
+            {
+              "text": "纪念红军长征胜利90周年",
+              "start": 56.5475,
+              "end": 59.2475
+            }
+          ]
+        }
+      ],
+      "sentences": [
+        "NR006-01",
+        "NR006-02",
+        "NR006-03",
+        "NR006-04",
+        "NR006-05",
+        "NR006-06",
+        "NR006-07",
+        "NR006-08",
+        "NR006-09",
+        "NR006-10",
+        "NR006-11",
+        "NR006-12",
+        "NR006-13",
+        "NR006-14",
+        "NR006-15",
+        "NR006-16",
+        "NR006-17",
+        "NR006-18",
+        "NR006-19"
+      ],
+      "source_ids": [
+        "4864",
+        "NR005"
+      ]
+    }
   },
   {
     "id": "journey-end",
@@ -3225,7 +3826,7 @@
  for(const [first,last,id]of[['snow-arrive','snow-end','snow'],['grass-arrive','grass-end','grass'],['north-arrive','north-end','north'],['wuqi-arrive','wuqi-end','wuqi'],['epilogue-arrive','journey-end','epilogue']]){let on=false;for(const n of nodes){if(n.id===first)on=true;if(on)n.chapter=id;if(n.id===last)on=false;}}
  const names=['spare-cloth','mountain-pack','snow-path','grass-camp','grass-meal','lusheng-grass','chenhe-grass','grass-path','north-trail','wuqi-arrival','chenhe-rest','lusheng-wuqi','memory-page','new-cuff','old-letter-room','newcomer-later'];
  const images=Object.fromEntries(names.map(n=>[n,'assets/chapters/'+n+'-v015.webp']));
- Object.assign(images,{'lusheng-river':'assets/chapters/lusheng-river-v015.webp','lusheng-lamp':'assets/chapters/lusheng-lamp-v015.webp','atlas-1936':'assets/atlas-1936.svg'});
+ Object.assign(images,{'lusheng-river':'assets/chapters/lusheng-river-v015.webp','lusheng-lamp':'assets/chapters/lusheng-lamp-v015.webp','atlas-1936':'assets/chapters/epilogue-atlas-v050.webp'});
  for(const name of ['snow-concern','snow-shelter'])for(const phase of ['first','hold'])images[name+'-'+phase]='assets/chapters/'+name+'-'+phase+'-v015.png';
  const chapters=[
   {
@@ -3299,7 +3900,20 @@
   }
 ];
  const alts=Object.fromEntries(names.map(n=>[n,{'mountain-pack':'陈禾在夹金山山脚整理行装','snow-path':'积雪山路上相隔行进的队伍','grass-camp':'湿冷草地上的临时营地','grass-meal':'旧碗、少量稀粥和收好的针线包','lusheng-grass':'陆生在草地营地歇息','chenhe-grass':'陈禾坐在草地营地，疲惫中仍看着同伴','grass-path':'接应队伍经过的草地来路','north-trail':'草地以后继续北上的山路','wuqi-arrival':'抵达陕北吴起的队伍与土路','chenhe-rest':'同一位陈禾在吴起停留处坐下休息','lusheng-wuqi':'同一位陆生在吴起留着水等同伴','memory-page':'新纸、短铅笔和收好的针线包','new-cuff':'陈禾补好的袖口上留下浅色新针脚','old-letter-room':'在屋内另用干布包着的梁叔旧家书','newcomer-later':'后来抵达的年轻战士与留下的空位'}[n]]));
- Object.assign(alts,{'spare-cloth':'同伴送来的可用于补衣的旧棉布与针线包','lusheng-river':'陆生靠稳在湘江边的担架上','lusheng-lamp':'陆生坐在遵义的灯旁','atlas-1936':'从陕北暂歇到会宁、将台堡会师的历史示意图'});
+
+ Object.assign(images,{
+ "grass-rescue-first-v049": "assets/chapters/grass-rescue-first-v049.webp",
+ "grass-rescue-question-v049": "assets/chapters/grass-rescue-question-v049.webp",
+ "grass-rescue-breath-v049": "assets/chapters/grass-rescue-breath-v049.webp",
+ "grass-rescue-hold-v049": "assets/chapters/grass-rescue-hold-v049.webp"
+});
+ Object.assign(alts,{
+ "grass-rescue-first-v049": "草地接应途中，陈禾扶住获救战士，与第一人称视角的小满交谈",
+ "grass-rescue-question-v049": "草地接应途中，陈禾扶住获救战士，与第一人称视角的小满交谈",
+ "grass-rescue-breath-v049": "草地接应途中，陈禾扶住获救战士，与第一人称视角的小满交谈",
+ "grass-rescue-hold-v049": "草地接应途中，陈禾扶住获救战士，与第一人称视角的小满交谈"
+});
+ Object.assign(alts,{'spare-cloth':'同伴送来的可用于补衣的旧棉布与针线包','lusheng-river':'陆生靠稳在湘江边的担架上','lusheng-lamp':'陆生坐在遵义的灯旁','atlas-1936':'暖色山河画卷中，会宁城墙、红军队伍与红旗融入秋日西北山地，标注吴起、会宁和将台堡的会师纪事节点及1936—2026纪念字样；路线为叙事示意'});
  for(const phase of ['first','hold']){alts['snow-concern-'+phase]='陈禾站在夹金山雪路边，想继续照应小满';alts['snow-shelter-'+phase]='陈禾在背风处靠稳，缓过一口气';}
  for(const name of ['lusheng-night','chenhe-dawn'])for(const phase of ['first','hold']){
   images[name+'-'+phase]='assets/chapters/'+name+'-'+phase+'-v020.png';

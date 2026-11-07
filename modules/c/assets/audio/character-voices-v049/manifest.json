@@ -1,0 +1,667 @@
+{
+  "generated_by": "即梦 用户提供",
+  "clip_count": 23,
+  "active_clip_count": 20,
+  "sources": [
+    {
+      "file": "jimeng-2026-11-07-9422.wav",
+      "sha256": "45ffa038eb9083c4641fc35d57ee9d69d58461d1dd590b1bf34790580d6f816e",
+      "duration": 22.772083333333335,
+      "notice_start": 21.205
+    },
+    {
+      "file": "jimeng-2026-11-07-5640.wav",
+      "sha256": "b87cc49012602c3dde7b08453eeaa54b0bc0099b55f9665516bb161a8e2e0300",
+      "duration": 21.380083333333335,
+      "notice_start": 19.5875
+    },
+    {
+      "file": "jimeng-2026-11-07-8037.wav",
+      "sha256": "16643c376c5bc40adc83cf016b2e8a3fc388b0109f210b6d445f9f1d03912cb6",
+      "duration": 3.7880833333333332,
+      "notice_start": 2.055
+    },
+    {
+      "file": "jimeng-2026-11-07-1605.wav",
+      "sha256": "ceb129acfda7220e63116ef731c88e6097f749038140803fe7716c9b8328b76c",
+      "duration": 16.292083333333334,
+      "notice_start": 14.55
+    }
+  ],
+  "clips": [
+    {
+      "id": "CH01",
+      "node": "snow-a-hand-chen",
+      "text": "你自己站稳了。",
+      "speaker": "陈禾",
+      "file": "CH01.mp3",
+      "src": "assets/audio/character-voices-v049/CH01.mp3",
+      "duration": 1.57,
+      "cues": [
+        {
+          "text": "你自己站稳了。",
+          "start": 0.24000000000000005,
+          "end": 1.04
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 0.3,
+      "source_end": 1.87,
+      "source_sample_range": [
+        7200,
+        44880
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "2f303d8a985b61e68e2ab5c509f716b6f2259b5098a331424c74882e46b5f9b5"
+    },
+    {
+      "id": "CH02",
+      "node": "snow-a-help-yudu",
+      "text": "你之前在于都也是这么说的。",
+      "speaker": "陈禾",
+      "file": "CH02.mp3",
+      "src": "assets/audio/character-voices-v049/CH02.mp3",
+      "duration": 2.24,
+      "cues": [
+        {
+          "text": "你之前在于都也是这么说的。",
+          "start": 0.27,
+          "end": 2.11
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 1.87,
+      "source_end": 4.11,
+      "source_sample_range": [
+        44880,
+        98640
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "77252e64dff96d91105690631cba1387d6bc30fdca85e5d3233eca08f39423fa"
+    },
+    {
+      "id": "CH03",
+      "node": "snow-b-heard",
+      "text": "听见了，你别喊那么大声。",
+      "speaker": "陈禾",
+      "file": "CH03.mp3",
+      "src": "assets/audio/character-voices-v049/CH03.mp3",
+      "duration": 2.32,
+      "cues": [
+        {
+          "text": "听见了，你别喊那么大声。",
+          "start": 0.1899999999999995,
+          "end": 1.9699999999999998
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 4.11,
+      "source_end": 6.43,
+      "source_sample_range": [
+        98640,
+        154320
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "282b34935c216eac9f314408ce56fcdc59a12be6d6b901fd029c00818c907af4"
+    },
+    {
+      "id": "CH04",
+      "node": "snow-b-here",
+      "text": "在呢。",
+      "speaker": "陈禾",
+      "file": "CH04.mp3",
+      "src": "assets/audio/character-voices-v049/CH04.mp3",
+      "duration": 0.6025,
+      "cues": [
+        {
+          "text": "在呢。",
+          "start": 0.23000000000000043,
+          "end": 0.5100000000000007
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 6.43,
+      "source_end": 7.0325,
+      "source_sample_range": [
+        154320,
+        168780
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "428b0d7b9f6f1974b7017bc6766e8ef17378f6786465ad9c80859256ff8c2e72"
+    },
+    {
+      "id": "CH05",
+      "node": "grass-b-rest-first",
+      "text": "你先喘口气，回去慢慢说。",
+      "speaker": "陈禾",
+      "file": "CH05.mp3",
+      "src": "assets/audio/character-voices-v049/CH05.mp3",
+      "duration": 2.315,
+      "cues": [
+        {
+          "text": "你先喘口气，回去慢慢说。",
+          "start": 0.20750000000000046,
+          "end": 1.8675000000000006
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 7.0325,
+      "source_end": 9.3475,
+      "source_sample_range": [
+        168780,
+        224340
+      ],
+      "active": false,
+      "inactive_reason": "Use the supplied CD-03 native movie voice; keep the recording as a backup.",
+      "sha256": "d3c068a70e6f1c42b45d3462c4a330ef8a155af25b8c0207c96efcf599d4e482"
+    },
+    {
+      "id": "CH06",
+      "node": "grass-dawn-hand",
+      "text": "你那天在于都，手攥得可真紧。",
+      "speaker": "陈禾",
+      "file": "CH06.mp3",
+      "src": "assets/audio/character-voices-v049/CH06.mp3",
+      "duration": 3.33,
+      "cues": [
+        {
+          "text": "你那天在于都，手攥得可真紧。",
+          "start": 0.2524999999999995,
+          "end": 2.8125
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 9.3475,
+      "source_end": 12.6775,
+      "source_sample_range": [
+        224340,
+        304260
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "720e74724a41739ee16edb0bda9447892833e93e5f3bf5c1aa28d7b203804e42"
+    },
+    {
+      "id": "CH07",
+      "node": "grass-dawn-hand-joke",
+      "text": "你倒是攥稳了，再拽两下，我也得跟着下去。",
+      "speaker": "陈禾",
+      "file": "CH07.mp3",
+      "src": "assets/audio/character-voices-v049/CH07.mp3",
+      "duration": 4.595,
+      "cues": [
+        {
+          "text": "你倒是攥稳了，再拽两下，我也得跟着下去。",
+          "start": 0.40249999999999986,
+          "end": 4.082500000000001
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 12.6775,
+      "source_end": 17.2725,
+      "source_sample_range": [
+        304260,
+        414540
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "8c4c2706f362700d5876458d783456910e790575978ef53d4c1785d838271667"
+    },
+    {
+      "id": "CH08",
+      "node": "north-answer",
+      "text": "小满，跟上。",
+      "speaker": "陈禾",
+      "file": "CH08.mp3",
+      "src": "assets/audio/character-voices-v049/CH08.mp3",
+      "duration": 1.8475,
+      "cues": [
+        {
+          "text": "小满，跟上。",
+          "start": 0.24749999999999872,
+          "end": 1.447499999999998
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 17.2725,
+      "source_end": 19.12,
+      "source_sample_range": [
+        414540,
+        458880
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "bf46629ed484c97abf14a3eac37e4a1ec7e57cb4d43debb37264aa1222068c50"
+    },
+    {
+      "id": "CH09",
+      "node": "wuqi-cloth-thanks",
+      "text": "用得上，谢了。",
+      "speaker": "陈禾",
+      "file": "CH09.mp3",
+      "src": "assets/audio/character-voices-v049/CH09.mp3",
+      "duration": 1.66,
+      "cues": [
+        {
+          "text": "用得上，",
+          "start": 0.2799999999999976,
+          "end": 0.6600000000000001
+        },
+        {
+          "text": "谢了。",
+          "start": 1.1600000000000001,
+          "end": 1.5199999999999996
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 19.12,
+      "source_end": 20.78,
+      "source_sample_range": [
+        458880,
+        498720
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "8b749fedc8f5b0ba91ab2063e365a691c2990f671eb93d6794d65495c33f3aa2"
+    },
+    {
+      "id": "CH10",
+      "node": "wuqi-answer-name",
+      "text": "哎。",
+      "speaker": "陈禾",
+      "file": "CH10.mp3",
+      "src": "assets/audio/character-voices-v049/CH10.mp3",
+      "duration": 0.425,
+      "cues": [
+        {
+          "text": "哎。",
+          "start": 0.16499999999999915,
+          "end": 0.26500000000000057
+        }
+      ],
+      "source": "jimeng-2026-11-07-9422.wav",
+      "source_start": 20.78,
+      "source_end": 21.205,
+      "source_sample_range": [
+        498720,
+        508920
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "1ddfc51056e6418c2070de17957beeb8a165fbbaf92ad39ccb835cd80c5c7366"
+    },
+    {
+      "id": "LS01",
+      "node": "grass-a-old",
+      "text": "小满？又是你啊。",
+      "speaker": "陆生",
+      "file": "LS01.mp3",
+      "src": "assets/audio/character-voices-v049/LS01.mp3",
+      "duration": 2.46,
+      "cues": [
+        {
+          "text": "小满？又是你啊。",
+          "start": 0.24500000000000005,
+          "end": 2.2
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 0.3,
+      "source_end": 2.76,
+      "source_sample_range": [
+        7200,
+        66240
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "f9f150652c2c69e650972af41fe9f0843d863081b8b123b11cb8db6ab952dd03"
+    },
+    {
+      "id": "LS02",
+      "node": "grass-a-cuff",
+      "text": "你那袖口补好了没有？",
+      "speaker": "陆生",
+      "file": "LS02.mp3",
+      "src": "assets/audio/character-voices-v049/LS02.mp3",
+      "duration": 2.05,
+      "cues": [
+        {
+          "text": "你那袖口补好了没有？",
+          "start": 0.4800000000000004,
+          "end": 1.6000000000000005
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 2.76,
+      "source_end": 4.81,
+      "source_sample_range": [
+        66240,
+        115440
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "ea71c17c8032498a9b5dcbfa8b588b3f4fd00b23bde308db7039461fd9c06650"
+    },
+    {
+      "id": "LS03",
+      "node": "grass-a-new",
+      "text": "你叫什么名字？",
+      "speaker": "陆生",
+      "file": "LS03.mp3",
+      "src": "assets/audio/character-voices-v049/LS03.mp3",
+      "duration": 1.5775,
+      "cues": [
+        {
+          "text": "你叫什么名字？",
+          "start": 0.1900000000000004,
+          "end": 1.21
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 4.81,
+      "source_end": 6.3875,
+      "source_sample_range": [
+        115440,
+        153300
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "75cd6a969c30663b880535614375525ebef404aeb1eb7d4b8bb78b0786702868"
+    },
+    {
+      "id": "LS04",
+      "node": "grass-a-new-repeat",
+      "text": "我叫陆生。刚才没听清，你叫小什么来着？",
+      "speaker": "陆生",
+      "file": "LS04.mp3",
+      "src": "assets/audio/character-voices-v049/LS04.mp3",
+      "duration": 4.0425,
+      "cues": [
+        {
+          "text": "我叫陆生。",
+          "start": 0.07249999999999979,
+          "end": 0.9524999999999997
+        },
+        {
+          "text": "刚才没听清，你叫小什么来着？",
+          "start": 1.7924999999999995,
+          "end": 3.892499999999999
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 6.3875,
+      "source_end": 10.43,
+      "source_sample_range": [
+        153300,
+        250320
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "9271da627e1e6ad0b06addb7e2e41f8f7ad3da2b772e4b34e73b0ce99675670c"
+    },
+    {
+      "id": "LS05",
+      "node": "grass-b-old",
+      "text": "小满，坐这儿吧。水还剩一点。",
+      "speaker": "陆生",
+      "file": "LS05.mp3",
+      "src": "assets/audio/character-voices-v049/LS05.mp3",
+      "duration": 2.6875,
+      "cues": [
+        {
+          "text": "小满，坐这儿吧。",
+          "start": 0.21000000000000085,
+          "end": 1.33
+        },
+        {
+          "text": "水还剩一点。",
+          "start": 1.5300000000000011,
+          "end": 2.41
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 10.43,
+      "source_end": 13.1175,
+      "source_sample_range": [
+        250320,
+        314820
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "63a178fafd870fba819c77d3150e7bf1c78200c0717595a9b057c21465f3e588"
+    },
+    {
+      "id": "LS06",
+      "node": "grass-b-new",
+      "text": "你坐这儿吧。我还不知道你叫什么。",
+      "speaker": "陆生",
+      "file": "LS06.mp3",
+      "src": "assets/audio/character-voices-v049/LS06.mp3",
+      "duration": 2.4625,
+      "cues": [
+        {
+          "text": "你坐这儿吧。",
+          "start": 0.16249999999999964,
+          "end": 0.8224999999999998
+        },
+        {
+          "text": "我还不知道你叫什么。",
+          "start": 1.1225000000000005,
+          "end": 2.2424999999999997
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 13.1175,
+      "source_end": 15.58,
+      "source_sample_range": [
+        314820,
+        373920
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "98c02d63fa6fb84238e89b2f18be189063d245e48b9057bd29ef368b3d364e79"
+    },
+    {
+      "id": "LS07",
+      "node": "grass-b-lusheng-name",
+      "text": "我叫陆生。",
+      "speaker": "陆生",
+      "file": "LS07.mp3",
+      "src": "assets/audio/character-voices-v049/LS07.mp3",
+      "duration": 1.4125,
+      "cues": [
+        {
+          "text": "我叫陆生。",
+          "start": 0.11999999999999922,
+          "end": 0.9399999999999995
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 15.58,
+      "source_end": 16.9925,
+      "source_sample_range": [
+        373920,
+        407820
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "bafb781cbd43bc036b8250eb15bf6ada085b66ee0e9000830cd3ffe9f809b10e"
+    },
+    {
+      "id": "LS08",
+      "node": "wuqi-read-wait",
+      "text": "等一下，这行我还没看完。",
+      "speaker": "陆生",
+      "file": "LS08.mp3",
+      "src": "assets/audio/character-voices-v049/LS08.mp3",
+      "duration": 2.595,
+      "cues": [
+        {
+          "text": "等一下，",
+          "start": 0.3874999999999993,
+          "end": 0.7225000000000001
+        },
+        {
+          "text": "这行我还没看完。",
+          "start": 1.3874999999999993,
+          "end": 2.3674999999999997
+        }
+      ],
+      "source": "jimeng-2026-11-07-5640.wav",
+      "source_start": 16.9925,
+      "source_end": 19.5875,
+      "source_sample_range": [
+        407820,
+        470100
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "e20c6aee3722ace6c4416f1a14e9e2a63b4bcb0aac1856077314451be450e8ec"
+    },
+    {
+      "id": "YD01",
+      "node": "b-steady",
+      "text": "好了，你先过去吧。",
+      "speaker": "战士",
+      "file": "YD01.mp3",
+      "src": "assets/audio/character-voices-v049/YD01.mp3",
+      "duration": 1.855,
+      "cues": [
+        {
+          "text": "好了，",
+          "start": 0.195,
+          "end": 0.47000000000000003
+        },
+        {
+          "text": "你先过去吧。",
+          "start": 0.96,
+          "end": 1.53
+        }
+      ],
+      "source": "jimeng-2026-11-07-8037.wav",
+      "source_start": 0.2,
+      "source_end": 2.055,
+      "source_sample_range": [
+        4800,
+        49320
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "896131f6952ed1d09f9cbff92683a23d148ec590c46ff2dc920c61e8d521c118"
+    },
+    {
+      "id": "SF01",
+      "node": "grass-b-ask-names",
+      "text": "你们俩叫什么名字？",
+      "speaker": "战士",
+      "file": "SF01.mp3",
+      "src": "assets/audio/character-voices-v049/SF01.mp3",
+      "duration": 1.9475,
+      "cues": [
+        {
+          "text": "你们俩叫什么名字？",
+          "start": 0.21500000000000002,
+          "end": 1.495
+        }
+      ],
+      "source": "jimeng-2026-11-07-1605.wav",
+      "source_start": 0.25,
+      "source_end": 2.1975,
+      "source_sample_range": [
+        6000,
+        52740
+      ],
+      "active": false,
+      "inactive_reason": "Use the supplied CD-03 native movie voice; keep the recording as a backup.",
+      "sha256": "a07186f8c7d73b0a656229313fe6d086df9e064c1cce57354f52063a4295ed1e"
+    },
+    {
+      "id": "SF02",
+      "node": "grass-b-home-street",
+      "text": "等出去了，到我家坐坐。我家那条街，街口原来有家卖吃的——",
+      "speaker": "战士",
+      "file": "SF02.mp3",
+      "src": "assets/audio/character-voices-v049/SF02.mp3",
+      "duration": 6.2625,
+      "cues": [
+        {
+          "text": "等出去了，到我家坐坐。我家那条街，街口原来有家卖吃的——",
+          "start": 0.4525000000000001,
+          "end": 5.6475
+        }
+      ],
+      "source": "jimeng-2026-11-07-1605.wav",
+      "source_start": 2.1975,
+      "source_end": 8.46,
+      "source_sample_range": [
+        52740,
+        203040
+      ],
+      "active": false,
+      "inactive_reason": "Use the supplied CD-03 native movie voice; keep the recording as a backup.",
+      "sha256": "07c9b9c16d25a46e53d8f2889bf3e4a11ddbfb66e9fdbb5ab8aaf8cae246ce13"
+    },
+    {
+      "id": "SF03",
+      "node": "wuqi-cloth-ask",
+      "text": "你们看看，这块还能不能用？",
+      "speaker": "战士",
+      "file": "SF03.mp3",
+      "src": "assets/audio/character-voices-v049/SF03.mp3",
+      "duration": 2.8725,
+      "cues": [
+        {
+          "text": "你们看看，这块还能不能用？",
+          "start": 0.6149999999999984,
+          "end": 2.42
+        }
+      ],
+      "source": "jimeng-2026-11-07-1605.wav",
+      "source_start": 8.46,
+      "source_end": 11.3325,
+      "source_sample_range": [
+        203040,
+        271980
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "4d7d8b832c53a2636b9f8ecc5f233928003d6247167bcc34e2805c451896dfa5"
+    },
+    {
+      "id": "SF04",
+      "node": "wuqi-cloth-answer",
+      "text": "你说卖吃的那家吗？早搬了。",
+      "speaker": "战士",
+      "file": "SF04.mp3",
+      "src": "assets/audio/character-voices-v049/SF04.mp3",
+      "duration": 3.2175,
+      "cues": [
+        {
+          "text": "你说卖吃的那家吗？",
+          "start": 0.45250000000000057,
+          "end": 1.7475000000000005
+        },
+        {
+          "text": "早搬了。",
+          "start": 2.227500000000001,
+          "end": 2.9875000000000007
+        }
+      ],
+      "source": "jimeng-2026-11-07-1605.wav",
+      "source_start": 11.3325,
+      "source_end": 14.55,
+      "source_sample_range": [
+        271980,
+        349200
+      ],
+      "active": true,
+      "inactive_reason": null,
+      "sha256": "0a48f6a096adfd0c08f2315903984556c1eb999612b60be3dfd97d573c4e8847"
+    }
+  ],
+  "note": "Every source and PCM slice retained locally. No speed or pitch change. Source-final Ah reply was confirmed by a cropped recognition pass; video-covered clips are retained as inactive backups. Automated ASR guides cuts; it is not a manual listening record."
+}

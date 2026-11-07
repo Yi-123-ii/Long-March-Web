@@ -4,6 +4,7 @@ const D=window.YUDU_DATA,C=window.YuduCore,T=window.YuduText;
 const $=id=>document.getElementById(id),resolve=p=>window.YuduPresentation.media(p,window.YUDU_EMBEDDED);
 let state=C.create(D),active=false,paused=false,epoch=0,elapsed=0,lastTick=performance.now(),minimum=0,voiceDone=true,modalResume=false,storageNotice=false,noticeTimer,movieDone=true;
 let textPlan=T.plan(''),lineDone=true,lineInstant=false,lineShown=-1;
+let narrationSkipped=false;
 let navigating=false;
 let moviePrepared=false,introPending=false;
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -106,7 +107,7 @@ function playVoice(){
  const token=epoch;
  playerVoice.play().catch(e=>{
   if(token!==epoch||paused||e.name==='AbortError')return;
-  if(e.name==='NotAllowedError'){setPaused(true);notice('点击“继续这一程”播放小满的声音');return;}
+  if(e.name==='NotAllowedError'){setPaused(true);notice('点击“继续这一程”播放'+(n.voice?n.speaker:(n.narration?.speaker||'小满'))+'的声音');return;}
   playerVoice.onerror?.();
  });
 }
@@ -121,8 +122,8 @@ function revealText(){
  const n=C.current(D,state);if(n.end||n.checkpoint)return;
  if(n.textAfterMovie&&!movieDone){$('line').hidden=true;$('choices').hidden=true;lineDone=false;return;}
  const narrating=narrationActive(n);
- const progress=narrating?T.cueTime(textPlan,playerVoice.currentTime,n.narration.cues):n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):n.voice?T.mediaTime(textPlan,playerVoice.currentTime,0,n.voiceDuration):elapsed;
- const f=!narrating&&n.nativeAudio&&n.captionPages&&(moviePrepared||!movieDone)?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
+ const progress=narrating?T.cueTime(textPlan,playerVoice.currentTime,n.narration.cues):n.nativeAudio?(n.captionCues?T.cueTime(textPlan,video.currentTime,n.captionCues):T.mediaTime(textPlan,video.currentTime,n.captionStart??.12,n.captionEnd??Math.max(.2,n.duration-.30))):n.voice?(n.voiceCues?T.cueTime(textPlan,playerVoice.currentTime,n.voiceCues):T.mediaTime(textPlan,playerVoice.currentTime,0,n.voiceDuration)):elapsed;
+ const f=narrating&&n.narration.pages?T.pageFrame(n.narration.pages,narrationSkipped?Infinity:playerVoice.currentTime,lineInstant||reduceMotion):!narrating&&n.nativeAudio&&n.captionPages&&(moviePrepared||!movieDone)?T.pageFrame(n.captionPages,video.currentTime,lineInstant||reduceMotion):T.frame(textPlan,progress,lineInstant||reduceMotion);
  const frameKey=f.key??f.shown;
  if(frameKey!==lineShown){$('line').textContent=f.text;lineShown=frameKey;}
  const changed=lineDone!==f.complete;lineDone=f.complete;
@@ -153,6 +154,7 @@ async function presentStill(path,n,token,cut=false){
 }
 
 function visual(n){
+ $('story-screen').classList.toggle('epilogue-scene',n.scene==='atlas-1936');
  const token=epoch,useVideo=n.nativeAudio===true;
  moviePrepared=false;$('film-loading').hidden=true;
  videoCorner.setEnabled(false);
@@ -233,7 +235,7 @@ function render(){
   const n=C.current(D,state);if(n.text||n.choices||n.nativeAudio||n.end||n.checkpoint)break;
   const next=C.advance(D,state);if(next===state)break;state=next;
  }
- epoch++;elapsed=0;lastTick=performance.now();stopVoice();
+ epoch++;elapsed=0;lastTick=performance.now();stopVoice();narrationSkipped=false;
  const n=C.current(D,state);
  // A reply keeps the question on screen; action-only choices keep the last visible context.
  const previous=!n.text&&n.choices?[...state.path].slice(0,-1).reverse().map(id=>D.nodes.find(x=>x.id===id)).find(x=>x?.text&&x.chapter===n.chapter&&!x.checkpoint&&!x.end):null;
@@ -263,7 +265,7 @@ function render(){
 function go(choiceId,force=false){
  if(!active||paused||navigating||window.JourneyFX.busy||dialogs.some(d=>d.open))return;
  const current=C.current(D,state);
- if(current.narration&&movieDone&&!voiceDone&&!choiceId&&current.choices){stopVoice();lineInstant=true;revealText();updateNext();volumes();return;}
+ if(current.narration&&movieDone&&!voiceDone&&!choiceId&&current.choices){narrationSkipped=!!current.narration.pages;stopVoice();lineInstant=true;revealText();updateNext();volumes();return;}
  if(!force&&!current.nativeAudio&&!lineDone&&!voiceSource(current)){finishText();return;}
  if(C.current(D,state).nativeAudio&&!movieDone&&C.current(D,state).choices){
   if(choiceId)return;video.onended?.();return;
@@ -317,6 +319,8 @@ $('history-open').onclick=()=>{
  const list=$('history-list');list.replaceChildren();
  for(const id of state.path){
   const n=D.nodes.find(x=>x.id===id);if(!n||n.end||(!n.text&&!n.choices&&!n.nativeAudio))continue;
+  // The closing narration is readable before its final action is chosen.
+  if(n.narration?.pages&&n.choices){const entry=document.createElement('li'),label=document.createElement('strong'),text=document.createElement('p');label.textContent=n.narration.speaker||n.speaker;text.textContent=n.text;entry.append(label,text);list.append(entry);}
   const li=document.createElement('li'),name=document.createElement('strong'),p=document.createElement('p');
   if(n.choices){const c=n.choices.find(c=>c.id===state.choices[n.id]);if(!c)continue;name.textContent='你选择了';p.textContent=window.YuduPresentation.choiceLabel(c.label);p.className='history-choice';}
   else{name.textContent=window.YuduPresentation.speaker(n)?.name||n.speaker;p.textContent=n.text||(n.nativeAudio?(n.title||'于都镜头')+'（影片原声）':'');}

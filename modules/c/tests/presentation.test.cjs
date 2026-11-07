@@ -11,7 +11,7 @@ test('spoken movies and picture dialogue use the same character name rules',()=>
  assert.equal(P.speaker({mode:'dialogue',speaker:'陆生'})?.name,'陆生');
  assert.deepEqual(P.speaker({mode:'thought',speaker:'心声'}),{name:'小满',kind:'心声'});
  for(const node of D.nodes.filter(n=>(n.end||n.checkpoint||['fact','observation'].includes(n.mode))&&!n.narration))assert.equal(P.speaker(node),null);
- for(const node of D.nodes.filter(n=>n.narration))assert.equal(P.speaker(node)?.name,'小满');
+ for(const node of D.nodes.filter(n=>n.narration))assert.equal(P.speaker(node)?.name,node.narration.speaker||'小满');
 });
 
 test('lookahead buffers one upcoming film, respects route choices and stops at chapter boundaries',()=>{

@@ -11,7 +11,23 @@
     "next": "strap",
     "mode": "observation",
     "chapter": "yudu",
-    "historicalTab": "1934年10月，中央红军主力从于都等地出发，开始战略转移"
+    "historicalTab": "1934年10月，中央红军主力从于都等地出发，开始战略转移",
+    "narration": {
+      "id": "NR001",
+      "speaker": "旁白",
+      "src": "assets/audio/narrator-v047/NR001.mp3",
+      "duration": 3.0225,
+      "cues": [
+        {
+          "text": "1934年10月，江西于都。",
+          "start": 0.22000000000000003,
+          "end": 2.58
+        }
+      ],
+      "sentences": [
+        "NR001-01"
+      ]
+    }
   },
   {
     "id": "strap",
@@ -223,7 +239,22 @@
     "speaker": "战士",
     "mode": "dialogue",
     "chapter": "yudu",
-    "next": "b-this-way"
+    "next": "b-this-way",
+    "voice": "assets/audio/character-voices-v049/YD01.mp3",
+    "voiceId": "YD01",
+    "voiceDuration": 1.855,
+    "voiceCues": [
+      {
+        "text": "好了，",
+        "start": 0.195,
+        "end": 0.47000000000000003
+      },
+      {
+        "text": "你先过去吧。",
+        "start": 0.96,
+        "end": 1.53
+      }
+    ]
   },
   {
     "id": "b-this-way",

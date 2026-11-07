@@ -7,7 +7,7 @@ test('fifth-part audio includes the two complete retakes at their original scene
  assert(m.source_files.some(s=>s.file==='jimeng-2026-11-07-8793.wav'));
  for(const row of m.nodes){const n=by.get(row.node),v=n.narration,c=m.clips.find(c=>c.id===row.id);assert.equal(v.id,c.id);assert.equal(n.text,c.text);assert.equal(v.cues.map(c=>c.text).join(''),n.text);assert(!n.nativeAudio&&!n.voice);assert(fs.statSync(path.join(__dirname,'..',v.src)).size>1000);let end=0;for(const q of v.cues){assert(q.start>=end-.001);assert(q.end>q.start&&q.end<=v.duration+.001);end=q.end;}}
  assert.equal(by.get('wuqi-water-rim').narration.id,'XN077');assert.equal(by.get('wuqi-water').filmId,'WQ-02');
- assert.equal(D.nodes.filter(n=>n.narration).length,92);assert.equal(new Set(D.nodes.filter(n=>n.voice).map(n=>n.voiceId)).size,28);
+ assert.equal(D.nodes.filter(n=>n.narration?.id.startsWith('XN')).length,92);assert.equal(new Set(D.nodes.filter(n=>n.voiceId?.startsWith('XM')).map(n=>n.voiceId)).size,28);
 });
 test('6751 keeps its original dialogue and plays the rest continuously without an unsupported nickname question',()=>{
  const by=new Map(D.nodes.map(n=>[n.id,n])),clips=['snow-hold-pack','snow-pack'].map(id=>by.get(id));
