@@ -43,21 +43,21 @@
     "chapter": "snow",
     "next": "snow-ask-home",
     "nativeAudio": true,
-    "video": "assets/chapters/chenhe-mountain-pack-v037.mp4",
-    "poster": "assets/chapters/chenhe-mountain-pack-first-v037.png",
-    "hold": "assets/chapters/chenhe-mountain-pack-question-v037.png",
-    "duration": 2.1,
+    "video": "assets/chapters/chenhe-mountain-pack-original6751-v046.mp4",
+    "poster": "assets/chapters/chenhe-mountain-pack-first-v046.webp",
+    "hold": "assets/chapters/chenhe-mountain-pack-question-v046.webp",
+    "duration": 2.125,
     "captionPages": [
       {
         "text": "你先压住，别松手。",
-        "start": 0.24,
-        "end": 1.4
+        "start": 0.12,
+        "end": 1.48
       }
     ],
     "title": "夹金山山脚，陈禾请小满压住铺盖",
     "filmId": "JS-03",
     "advanceOnEnd": true,
-    "mediaEnd": 2.1
+    "mediaEnd": 2.125
   },
   {
     "id": "snow-ask-home",
@@ -91,97 +91,72 @@
   {
     "id": "snow-pack",
     "speaker": "陈禾",
-    "text": "在家也得我娘替我重捆。她隔着院子就喊，阿禾，你又给捆歪了！",
+    "text": "在家也得我娘替我重捆。她隔着院子就喊，你又给捆歪了！哎。先别松，马上好了。",
     "scene": "chenhe-mountain-pack-question",
     "next": "snow-nickname",
     "mode": "dialogue",
     "chapter": "snow",
     "nativeAudio": true,
-    "video": "assets/chapters/chenhe-mountain-pack-v037.mp4",
-    "poster": "assets/chapters/chenhe-mountain-pack-question-v037.png",
-    "hold": "assets/chapters/chenhe-mountain-pack-nickname-v037.png",
-    "duration": 7.1,
+    "video": "assets/chapters/chenhe-mountain-pack-original6751-v046.mp4",
+    "poster": "assets/chapters/chenhe-mountain-pack-question-v046.webp",
+    "hold": "assets/chapters/chenhe-mountain-pack-hold-v046.webp",
+    "duration": 10.891667,
     "captionPages": [
       {
         "text": "在家也得我娘替我重捆。",
-        "start": 2.63,
-        "end": 4.15
+        "start": 2.46,
+        "end": 4.04
       },
       {
         "text": "她隔着院子就喊，",
-        "start": 5.08,
-        "end": 5.9
+        "start": 5.04,
+        "end": 5.82
       },
       {
-        "text": "阿禾，你又给捆歪了！",
-        "start": 6.18,
-        "end": 7.15
+        "text": "你又给捆歪了！",
+        "start": 6.26,
+        "end": 7.06
+      },
+      {
+        "text": "哎。",
+        "start": 10.32,
+        "end": 10.64
+      },
+      {
+        "text": "先别松，马上好了。",
+        "start": 11.28,
+        "end": 12.42
       }
     ],
     "title": "陈禾说起在家时母亲帮他捆铺盖",
     "filmId": "JS-03",
     "advanceOnEnd": true,
-    "mediaStart": 2.1,
-    "mediaEnd": 9.2
+    "mediaStart": 2.125,
+    "mediaEnd": 13.016667
   },
   {
     "id": "snow-nickname",
-    "speaker": "心声",
+    "chapter": "snow",
+    "scene": "chenhe-mountain-pack-hold",
     "mode": "thought",
-    "scene": "chenhe-mountain-pack-nickname",
     "text": "",
-    "choices": [
-      {
-        "id": "ask-nickname",
-        "label": "阿禾？",
-        "next": "snow-nickname-spoken-v034",
-        "legacyNext": "snow-respond-name"
-      }
-    ],
-    "chapter": "snow"
+    "next": "snow-nickname-spoken-v034"
   },
   {
     "id": "snow-nickname-spoken-v034",
     "chapter": "snow",
-    "scene": "chenhe-mountain-pack-nickname",
-    "speaker": "小满",
-    "mode": "dialogue",
-    "text": "阿禾？",
-    "next": "snow-respond-name",
-    "voice": "assets/audio/xiaoman-v034/XM11.mp3",
-    "voiceDuration": 1.18,
-    "voiceId": "XM11",
-    "advanceOnEnd": true
+    "scene": "chenhe-mountain-pack-hold",
+    "mode": "thought",
+    "text": "",
+    "next": "snow-respond-name"
   },
   {
     "id": "snow-respond-name",
-    "text": "哎。先别松，马上好了。",
-    "scene": "chenhe-mountain-pack-nickname",
-    "speaker": "陈禾",
-    "mode": "dialogue",
     "chapter": "snow",
-    "next": "snow-ready",
-    "nativeAudio": true,
-    "video": "assets/chapters/chenhe-mountain-pack-v037.mp4",
-    "poster": "assets/chapters/chenhe-mountain-pack-nickname-v037.png",
-    "hold": "assets/chapters/chenhe-mountain-pack-hold-v037.png",
-    "duration": 3.888,
-    "captionPages": [
-      {
-        "text": "哎。",
-        "start": 10.5,
-        "end": 10.73
-      },
-      {
-        "text": "先别松，马上好了。",
-        "start": 11.34,
-        "end": 12.57
-      }
-    ],
-    "title": "陈禾应了一声，低头继续理绳子",
-    "filmId": "JS-03",
-    "advanceOnEnd": true,
-    "mediaStart": 9.2
+    "scene": "chenhe-mountain-pack-hold",
+    "mode": "thought",
+    "text": "",
+    "next": "snow-ready"
   },
   {
     "id": "snow-ready",
@@ -1812,7 +1787,28 @@
     "scene": "north-trail",
     "next": "north-lusheng",
     "mode": "observation",
-    "chapter": "north"
+    "chapter": "north",
+    "narration": {
+      "id": "XN071",
+      "src": "assets/audio/xiaoman-narration-v045/XN071.mp3",
+      "duration": 7.315,
+      "cues": [
+        {
+          "text": "陆生在路边停下，扶着石头调整肩上的包。",
+          "start": 0,
+          "end": 3.42
+        },
+        {
+          "text": "同行的战士接过来，推了推他的胳膊，让他先走。",
+          "start": 3.8,
+          "end": 7.08
+        }
+      ],
+      "sentences": [
+        "XN071-01",
+        "XN071-02"
+      ]
+    }
   },
   {
     "id": "north-lusheng",
@@ -1821,7 +1817,22 @@
     "scene": "north-trail",
     "next": "north-answer",
     "mode": "thought",
-    "chapter": "north"
+    "chapter": "north",
+    "narration": {
+      "id": "XN072",
+      "src": "assets/audio/xiaoman-narration-v045/XN072.mp3",
+      "duration": 3.57,
+      "cues": [
+        {
+          "text": "我在后头停了一下，前面的陈禾已经回过头来。",
+          "start": 0.1250000000000009,
+          "end": 3.405000000000001
+        }
+      ],
+      "sentences": [
+        "XN072-01"
+      ]
+    }
   },
   {
     "id": "north-answer",
@@ -1853,7 +1864,34 @@
     "next": "wuqi-rest",
     "mode": "observation",
     "chapter": "wuqi",
-    "historicalTab": "中共中央率领的中央红军到达吴起镇"
+    "historicalTab": "中共中央率领的中央红军到达吴起镇",
+    "narration": {
+      "id": "XN073",
+      "src": "assets/audio/xiaoman-narration-v045/XN073.mp3",
+      "duration": 10.9725,
+      "cues": [
+        {
+          "text": "踩进院子，鞋底终于没再往外冒水。",
+          "start": 0.17499999999999893,
+          "end": 2.7349999999999977
+        },
+        {
+          "text": "陈禾靠着门框坐下，铺盖还在背上，一边肩带已经滑了下来。",
+          "start": 3.1549999999999976,
+          "end": 7.535
+        },
+        {
+          "text": "我扶住门槛，腿弯发紧，没能一下蹲下去。",
+          "start": 7.875,
+          "end": 10.754999999999999
+        }
+      ],
+      "sentences": [
+        "XN073-01",
+        "XN073-02",
+        "XN073-03"
+      ]
+    }
   },
   {
     "id": "wuqi-rest",
@@ -1901,12 +1939,27 @@
   },
   {
     "id": "wuqi-water-rim",
-    "text": "",
+    "text": "他指了指碗沿的缺口。",
     "scene": "lusheng-saved-water-hold",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "wuqi",
-    "next": "wuqi-water-warning"
+    "next": "wuqi-water-warning",
+    "narration": {
+      "id": "XN077",
+      "src": "assets/audio/xiaoman-narration-v045/XN077.mp3",
+      "duration": 1.7225,
+      "cues": [
+        {
+          "text": "他指了指碗沿的缺口。",
+          "start": 0,
+          "end": 1.5324999999999989
+        }
+      ],
+      "sentences": [
+        "XN077-01"
+      ]
+    }
   },
   {
     "id": "wuqi-water-warning",
@@ -1939,7 +1992,22 @@
     "scene": "spare-cloth",
     "next": "wuqi-cloth-ask",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN074",
+      "src": "assets/audio/xiaoman-narration-v045/XN074.mp3",
+      "duration": 5.59,
+      "cues": [
+        {
+          "text": "草地上接回来的那位战士走进院子，把一块从旧衣上裁下的布展开给我们看。",
+          "start": 0.18249999999999744,
+          "end": 5.282499999999999
+        }
+      ],
+      "sentences": [
+        "XN074-01"
+      ]
+    }
   },
   {
     "id": "wuqi-cloth-ask",
@@ -1997,7 +2065,7 @@
   },
   {
     "id": "wuqi-cloth-put-down",
-    "text": "（他把布放到陈禾膝上，在台阶边坐下。）",
+    "text": "他把布放到陈禾膝上，在台阶边坐下。",
     "scene": "spare-cloth",
     "speaker": "旁白",
     "mode": "observation",
@@ -2009,7 +2077,22 @@
         "equals": "luggage",
         "next": "wuqi-lusheng-new"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN075",
+      "src": "assets/audio/xiaoman-narration-v045/XN075.mp3",
+      "duration": 2.955,
+      "cues": [
+        {
+          "text": "他把布放到陈禾膝上，在台阶边坐下。",
+          "start": 0.032500000000002416,
+          "end": 2.8725000000000023
+        }
+      ],
+      "sentences": [
+        "XN075-01"
+      ]
+    }
   },
   {
     "id": "wuqi-lusheng-old",
@@ -2048,11 +2131,38 @@
   {
     "id": "wuqi-snow-support",
     "speaker": "心声",
-    "text": "剩下那边背带卡在衣领旁，陈禾抬了抬胳膊，没能褪出来。我托住铺盖，让他慢慢把手臂抽出来。\n\n（陈禾揉了揉肩膀。）",
+    "text": "剩下那边背带卡在衣领旁，陈禾抬了抬胳膊，没能褪出来。我托住铺盖，让他慢慢把手臂抽出来。陈禾揉了揉肩膀。",
     "scene": "chenhe-rest",
     "next": "wuqi-put-pack",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN078",
+      "src": "assets/audio/xiaoman-narration-v045/XN078.mp3",
+      "duration": 8.9625,
+      "cues": [
+        {
+          "text": "剩下那边背带卡在衣领旁，陈禾抬了抬胳膊，没能褪出来。",
+          "start": 0,
+          "end": 4.3700000000000045
+        },
+        {
+          "text": "我托住铺盖，让他慢慢把手臂抽出来。",
+          "start": 4.517499999999998,
+          "end": 7.310000000000002
+        },
+        {
+          "text": "陈禾揉了揉肩膀。",
+          "start": 7.482500000000002,
+          "end": 8.79
+        }
+      ],
+      "sentences": [
+        "XN078-01",
+        "XN078-02",
+        "XN078-03"
+      ]
+    }
   },
   {
     "id": "wuqi-put-pack",
@@ -2076,7 +2186,28 @@
     "scene": "chenhe-rest",
     "next": "wuqi-call-name",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN079",
+      "src": "assets/audio/xiaoman-narration-v045/XN079.mp3",
+      "duration": 7.27,
+      "cues": [
+        {
+          "text": "陈禾把铺盖卸在身旁，靠着墙闭上眼睛。",
+          "start": 0,
+          "end": 3.427499999999995
+        },
+        {
+          "text": "帽子还扣在他膝上，我凑近些，叫了他一声。",
+          "start": 3.6499999999999915,
+          "end": 7.007499999999993
+        }
+      ],
+      "sentences": [
+        "XN079-01",
+        "XN079-02"
+      ]
+    }
   },
   {
     "id": "wuqi-call-name",
@@ -2147,7 +2278,28 @@
         "next": "wuqi-write"
       }
     ],
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN081",
+      "src": "assets/audio/xiaoman-narration-v045/XN081.mp3",
+      "duration": 5.9475,
+      "cues": [
+        {
+          "text": "陈禾在对面落座，把开线的袖口翻给我看。",
+          "start": 0,
+          "end": 3.0775000000000006
+        },
+        {
+          "text": "桌上放着一张新纸，旁边是半截铅笔。",
+          "start": 3.2325000000000017,
+          "end": 5.8174999999999955
+        }
+      ],
+      "sentences": [
+        "XN081-01",
+        "XN081-02"
+      ]
+    }
   },
   {
     "id": "wuqi-sew",
@@ -2248,7 +2400,28 @@
     "scene": "new-cuff",
     "next": "wuqi-sew-confirm",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN082",
+      "src": "assets/audio/xiaoman-narration-v045/XN082.mp3",
+      "duration": 8.785,
+      "cues": [
+        {
+          "text": "我剪掉线头，陈禾伸了伸胳膊，把袖口翻过来，看了看那几针歪线。",
+          "start": 0,
+          "end": 4.769999999999996
+        },
+        {
+          "text": "他没说什么，只把胳膊重新搁到桌上，这回倒是没再乱动。",
+          "start": 4.999999999999986,
+          "end": 8.749999999999986
+        }
+      ],
+      "sentences": [
+        "XN082-01",
+        "XN082-02"
+      ]
+    }
   },
   {
     "id": "wuqi-sew-old",
@@ -2283,7 +2456,28 @@
     "next": "wuqi-sew-letter-wrap-v034",
     "mode": "thought",
     "document": "娘，等有了落脚的地方……",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN083",
+      "src": "assets/audio/xiaoman-narration-v045/XN083.mp3",
+      "duration": 5.8325,
+      "cues": [
+        {
+          "text": "收好针线，我又把旧信摊到膝上。",
+          "start": 0,
+          "end": 2.3249999999999886
+        },
+        {
+          "text": "折痕已经快磨透了，里面还是那半句话。",
+          "start": 2.5449999999999875,
+          "end": 5.804999999999993
+        }
+      ],
+      "sentences": [
+        "XN083-01",
+        "XN083-02"
+      ]
+    }
   },
   {
     "id": "wuqi-sew-confirm",
@@ -2313,7 +2507,28 @@
         "label": "接着往下写。",
         "next": "wuqi-write-home"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN084",
+      "src": "assets/audio/xiaoman-narration-v045/XN084.mp3",
+      "duration": 12.545,
+      "cues": [
+        {
+          "text": "我把新纸铺平，拿起那半截铅笔，先写了“梁叔”。",
+          "start": 0,
+          "end": 5.3
+        },
+        {
+          "text": "再往下，是江边那三针，还有他让我过江后再找他补衣服的话。",
+          "start": 6.2700000000000005,
+          "end": 12.325
+        }
+      ],
+      "sentences": [
+        "XN084-01",
+        "XN084-02"
+      ]
+    }
   },
   {
     "id": "wuqi-write-home",
@@ -2358,7 +2573,28 @@
     "scene": "chenhe-memory-hold",
     "next": "wuqi-read-wait",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN085",
+      "src": "assets/audio/xiaoman-narration-v045/XN085.mp3",
+      "duration": 7.32,
+      "cues": [
+        {
+          "text": "最后一行刚写完，陆生便凑近了些。",
+          "start": 0.09750000000000014,
+          "end": 2.9574999999999996
+        },
+        {
+          "text": "我正要折纸，他伸手按住纸角。",
+          "start": 3.6174999999999997,
+          "end": 6.629999999999999
+        }
+      ],
+      "sentences": [
+        "XN085-01",
+        "XN085-02"
+      ]
+    }
   },
   {
     "id": "wuqi-read-wait",
@@ -2397,7 +2633,28 @@
         "label": "继续写下记得的事。",
         "next": "wuqi-writing"
       }
-    ]
+    ],
+    "narration": {
+      "id": "XN086",
+      "src": "assets/audio/xiaoman-narration-v045/XN086.mp3",
+      "duration": 11.515,
+      "cues": [
+        {
+          "text": "梁叔的旧信还裹在干布里，放在桌子另一边。",
+          "start": 0.4299999999999997,
+          "end": 3.9899999999999984
+        },
+        {
+          "text": "我另起一行，记下江边传来的消息，也写上是谁告诉我们的，免得往后记混。",
+          "start": 4.849999999999998,
+          "end": 10.989999999999998
+        }
+      ],
+      "sentences": [
+        "XN086-01",
+        "XN086-02"
+      ]
+    }
   },
   {
     "id": "wuqi-writing",
@@ -2413,7 +2670,28 @@
         "next": "wuqi-back-yard"
       }
     ],
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN087",
+      "src": "assets/audio/xiaoman-narration-v045/XN087.mp3",
+      "duration": 10.395,
+      "cues": [
+        {
+          "text": "笔尖已经写钝了，我把铅笔搁到一旁。",
+          "start": 0.3149999999999977,
+          "end": 4.055
+        },
+        {
+          "text": "梁叔的名字下面写着那棵枣树，陈禾还坐在对面，脚边搁着行装。",
+          "start": 4.734999999999999,
+          "end": 10.055
+        }
+      ],
+      "sentences": [
+        "XN087-01",
+        "XN087-02"
+      ]
+    }
   },
   {
     "id": "wuqi-back-yard",
@@ -2444,7 +2722,28 @@
         "next": "wuqi-later-name"
       }
     ],
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN088",
+      "src": "assets/audio/xiaoman-narration-v045/XN088.mp3",
+      "duration": 10.3425,
+      "cues": [
+        {
+          "text": "门边的陆生正帮着收碗，摞好的碗碰得轻轻响。",
+          "start": 0.04000000000000625,
+          "end": 4.6200000000000045
+        },
+        {
+          "text": "我挨着陈禾坐下，门外又来了人，背上的铺盖还没卸。",
+          "start": 5.060000000000002,
+          "end": 9.940000000000005
+        }
+      ],
+      "sentences": [
+        "XN088-01",
+        "XN088-02"
+      ]
+    }
   },
   {
     "id": "wuqi-later-help",
@@ -2453,7 +2752,28 @@
     "scene": "newcomer-later",
     "next": "wuqi-help-newcomer",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN089",
+      "src": "assets/audio/xiaoman-narration-v045/XN089.mp3",
+      "duration": 9.6225,
+      "cues": [
+        {
+          "text": "新来的战士停在门边，伸手去够滑下来的铺盖绳，另一边的背带却越扯越紧。",
+          "start": 0.21750000000000114,
+          "end": 6.737500000000004
+        },
+        {
+          "text": "垂下的绳头正好扫到我手背。",
+          "start": 7.372499999999999,
+          "end": 9.432500000000001
+        }
+      ],
+      "sentences": [
+        "XN089-01",
+        "XN089-02"
+      ]
+    }
   },
   {
     "id": "wuqi-help-newcomer",
@@ -2477,7 +2797,28 @@
     "scene": "newcomer-later",
     "next": "wuqi-ask-newcomer",
     "mode": "thought",
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN090",
+      "src": "assets/audio/xiaoman-narration-v045/XN090.mp3",
+      "duration": 4.715,
+      "cues": [
+        {
+          "text": "新来的战士站在门口，朝院里看了看。",
+          "start": 0,
+          "end": 2.6200000000000045
+        },
+        {
+          "text": "我抬手示意他过来。",
+          "start": 3.000000000000014,
+          "end": 4.359999999999999
+        }
+      ],
+      "sentences": [
+        "XN090-01",
+        "XN090-02"
+      ]
+    }
   },
   {
     "id": "wuqi-ask-newcomer",
@@ -2513,7 +2854,28 @@
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "wuqi",
-    "next": "wuqi-close"
+    "next": "wuqi-close",
+    "narration": {
+      "id": "XN091",
+      "src": "assets/audio/xiaoman-narration-v045/XN091.mp3",
+      "duration": 7.685,
+      "cues": [
+        {
+          "text": "他报了名字，我跟着念了一遍，往凳子里让了让。",
+          "start": 0.18500000000000227,
+          "end": 4.045000000000016
+        },
+        {
+          "text": "他这才把包放下，坐到我旁边。",
+          "start": 4.605000000000018,
+          "end": 7.445000000000007
+        }
+      ],
+      "sentences": [
+        "XN091-01",
+        "XN091-02"
+      ]
+    }
   },
   {
     "id": "wuqi-close",
@@ -2528,7 +2890,28 @@
         "next": "wuqi-end"
       }
     ],
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "narration": {
+      "id": "XN092",
+      "src": "assets/audio/xiaoman-narration-v045/XN092.mp3",
+      "duration": 7.34,
+      "cues": [
+        {
+          "text": "陈禾拍掉帽上的土，重新戴好。",
+          "start": 0.11999999999999034,
+          "end": 2.6599999999999966
+        },
+        {
+          "text": "陆生把摞好的碗交出去，也在门框边坐下。",
+          "start": 3.519999999999996,
+          "end": 7.200000000000003
+        }
+      ],
+      "sentences": [
+        "XN092-01",
+        "XN092-02"
+      ]
+    }
   },
   {
     "id": "wuqi-end",
@@ -2741,8 +3124,23 @@
     "scene": "lusheng-saved-water-first",
     "speaker": "旁白",
     "mode": "observation",
-    "text": "陆生坐在门边，旁边的矮凳上放着半碗水。",
-    "next": "wuqi-water"
+    "text": "陆生坐在门边，见我放下包，朝凳上的半碗水示意了一下。",
+    "next": "wuqi-water",
+    "narration": {
+      "id": "XN076",
+      "src": "assets/audio/xiaoman-narration-v045/XN076.mp3",
+      "duration": 4.565,
+      "cues": [
+        {
+          "text": "陆生坐在门边，见我放下包，朝凳上的半碗水示意了一下。",
+          "start": 0,
+          "end": 4.317499999999999
+        }
+      ],
+      "sentences": [
+        "XN076-01"
+      ]
+    }
   },
   {
     "id": "wuqi-unpack-v034",
@@ -2751,7 +3149,28 @@
     "speaker": "旁白",
     "mode": "observation",
     "text": "我把行装放到膝上，解开绳子，干泥便落了一点在手背上。针线包还藏在里层，外头的布已经磨薄了，得用手托着才能拿出来。",
-    "next": "wuqi-enter-room"
+    "next": "wuqi-enter-room",
+    "narration": {
+      "id": "XN080",
+      "src": "assets/audio/xiaoman-narration-v045/XN080.mp3",
+      "duration": 9.62,
+      "cues": [
+        {
+          "text": "我把行装放到膝上，解开绳子，干泥便落了一点在手背上。",
+          "start": 0,
+          "end": 4.357500000000002
+        },
+        {
+          "text": "针线包还藏在里层，外头的布已经磨薄了，得用手托着才能拿出来。",
+          "start": 4.4950000000000045,
+          "end": 9.5775
+        }
+      ],
+      "sentences": [
+        "XN080-01",
+        "XN080-02"
+      ]
+    }
   },
   {
     "id": "wuqi-sew-letter-wrap-v034",
@@ -2888,7 +3307,7 @@
  }
  Object.assign(images,{'chenhe-memory-first':'assets/chapters/chenhe-memory-first-v021.png','chenhe-memory-hold':'assets/chapters/chenhe-memory-hold-v021.png'});
  Object.assign(alts,{'chenhe-memory-first':'白天的吴起借住屋内，陈禾坐在小满对面，桌上是新纸和短铅笔','chenhe-memory-hold':'同一张桌前，陈禾低头看向新纸，提醒小满记下梁叔家的枣树'});
- Object.assign(images,{"chenhe-mountain-pack-first": "assets/chapters/chenhe-mountain-pack-first-v037.png", "chenhe-mountain-pack-question": "assets/chapters/chenhe-mountain-pack-question-v037.png", "chenhe-mountain-pack-nickname": "assets/chapters/chenhe-mountain-pack-nickname-v037.png", "chenhe-mountain-pack-hold": "assets/chapters/chenhe-mountain-pack-hold-v037.png", "snow-wet-clothes": "assets/chapters/snow-wet-clothes-v037.webp"});
+ Object.assign(images,{"chenhe-mountain-pack-first": "assets/chapters/chenhe-mountain-pack-first-v046.webp", "chenhe-mountain-pack-question": "assets/chapters/chenhe-mountain-pack-question-v046.webp", "chenhe-mountain-pack-nickname": "assets/chapters/chenhe-mountain-pack-hold-v046.webp", "chenhe-mountain-pack-hold": "assets/chapters/chenhe-mountain-pack-hold-v046.webp", "snow-wet-clothes": "assets/chapters/snow-wet-clothes-v037.webp"});
  Object.assign(alts,{"chenhe-mountain-pack-first": "陈禾在夹金山山脚低头整理铺盖绳", "chenhe-mountain-pack-question": "陈禾从铺盖上抬起头，看向帮忙的小满", "chenhe-mountain-pack-nickname": "陈禾说起母亲叫他的乳名，停下来看着小满", "chenhe-mountain-pack-hold": "陈禾低头收紧铺盖绳", "snow-wet-clothes": "背着铺盖的战士走出树林，沿着泥雪山路继续上行"});
  Object.assign(images,{
   'lusheng-saved-water-first':'assets/chapters/lusheng-saved-water-first-v040.png',
