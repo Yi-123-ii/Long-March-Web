@@ -12,11 +12,11 @@
 <noscript><link rel="stylesheet" href="../../assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
 <link rel="stylesheet" href="assets/yudu.css?v=038"><link rel="stylesheet" href="assets/epilogue-v050.css?v=050"><link rel="stylesheet" href="assets/journey-atlas.css?v=031">
 <script defer src="assets/journey-return.js?v=053"></script>
-<script defer src="assets/journey-media.js?v=053"></script>
+<script defer src="assets/journey-media.js?v=056"></script>
 <script defer src="assets/yudu-presentation.js?v=053"></script>
 <script defer src="assets/journey-films.js?v=20261104-buffer"></script>
 <link rel="stylesheet" href="assets/journey-film-loader.css?v=20261104-buffer">
-<script defer fetchpriority="low" src="assets/story-legacy-v009.js?v=029"></script><script defer fetchpriority="low" src="assets/story-legacy-v010.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v011.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v012.js?v=038"></script><script defer fetchpriority="low" src="assets/late-chapters-data.js?v=051"></script><script defer fetchpriority="low" src="assets/chapters-data.js?v=051"></script><script defer fetchpriority="low" src="assets/yudu-data.js?v=053"></script><script defer fetchpriority="low" src="assets/yudu-core.js?v=038"></script><script defer src="assets/yudu-text.js?v=050"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=030"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=038"></script><script defer src="assets/journey-soundscape.js?v=051"></script><script defer fetchpriority="low" src="assets/yudu-game.js?v=055"></script>
+<script defer fetchpriority="low" src="assets/story-legacy-v009.js?v=029"></script><script defer fetchpriority="low" src="assets/story-legacy-v010.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v011.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v012.js?v=038"></script><script defer fetchpriority="low" src="assets/late-chapters-data.js?v=056"></script><script defer fetchpriority="low" src="assets/chapters-data.js?v=051"></script><script defer fetchpriority="low" src="assets/yudu-data.js?v=053"></script><script defer fetchpriority="low" src="assets/yudu-core.js?v=038"></script><script defer src="assets/yudu-text.js?v=050"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=030"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=038"></script><script defer src="assets/journey-soundscape.js?v=051"></script><script defer fetchpriority="low" src="assets/yudu-game.js?v=056"></script>
 <script defer src="assets/site-integration.js?v=023"></script>
 <script defer src="../../assets/js/site-nav.js?v=20261107-home-origin"></script>
 <link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261107-home-return" />
@@ -27,6 +27,7 @@
 <script defer src="assets/journey-opening.js?v=20261104-directory"></script>
 <link rel="stylesheet" href="../../assets/css/section-opening.css?v=20261107-home-return" />
 <link rel="stylesheet" href="assets/review-v053.css?v=053">
+<link rel="stylesheet" href="assets/review-v056.css?v=056">
 </head>
 <body>
 <audio id="player-voice" preload="none" hidden aria-hidden="true"></audio>
@@ -88,7 +89,7 @@
  </div>
  <header class="story-header"><button id="leave" class="glass">‹ 地图</button><span id="chapter-label">第一站 · 于都启程</span><div><button id="history-open" class="glass">回看文字</button><button id="sound-open" class="glass">声音</button></div></header>
  <div id="dialogue-panel" class="dialogue-panel">
-  <div class="dialogue-inner"><div class="speaker-row"><span class="speaker-line"></span><h2 id="speaker">旁白</h2><span id="voice-state" class="voice-state"></span></div><p id="line" class="dialogue-text" aria-hidden="true" title="点击显示整句"></p><p id="line-accessible" class="sr-only" aria-live="polite" aria-atomic="true"></p><blockquote id="document-text" class="document-text" hidden></blockquote>
+  <div class="dialogue-inner"><div class="speaker-row"><span class="speaker-line"></span><h2 id="speaker">旁白</h2><span id="voice-state" class="voice-state"></span></div><p id="line" class="dialogue-text" aria-hidden="true" title="点击显示整句"></p><p id="line-accessible" class="sr-only" aria-live="polite" aria-atomic="true"></p><blockquote id="document-text" class="document-text" hidden></blockquote><button id="read-scene-document" class="read-scene-document" aria-haspopup="dialog" aria-controls="scene-document-dialog" hidden>查看纸上的字</button>
    <div id="choices" class="choices" aria-label="选择接下来的行动" hidden></div>
    <div class="reading-controls"><div><button id="previous" class="subtle" disabled>‹ 返回上一幕</button><button id="pause" class="subtle" aria-pressed="false">暂停</button><button id="auto" class="subtle" aria-pressed="false">自动：关</button></div><button id="next" class="next">继续 <span aria-hidden="true">›</span></button></div>
   </div>
@@ -109,6 +110,7 @@
 
 <dialog id="sound-dialog" aria-labelledby="sound-title"><div class="dialog-heading"><h2 id="sound-title">声音设置</h2><button class="quiet close-dialog" aria-label="关闭声音设置">✕</button></div><label class="range-label" for="voice-volume">人物声音 <output id="voice-value">90%</output></label><input id="voice-volume" type="range" min="0" max="100" value="90"><label class="range-label" for="ambient-volume">环境声音 <output id="ambient-value">45%</output></label><input id="ambient-volume" type="range" min="0" max="100" value="45"><p class="dialog-note">人物音量控制视频原声、角色对白、已配音的自述与心声以及旁白，环境音量控制河流、风声等背景声音</p><button id="sound-done" class="primary">回到故事</button></dialog>
 <dialog id="history-dialog" aria-labelledby="history-title"><div class="dialog-heading"><h2 id="history-title">这一段，我们记得</h2><button class="quiet close-dialog" aria-label="关闭对白记录">关闭 ×</button></div><ol id="history-list" class="history-list"></ol><p class="dialog-note">回看已走过的故事分支时，画面与声音会暂时停下</p></dialog>
+<dialog id="scene-document-dialog" class="scene-document-dialog" aria-labelledby="scene-document-title"><div class="dialog-heading"><h2 id="scene-document-title">小满写下的见闻</h2><button class="quiet close-dialog" aria-label="关闭纸上见闻">关闭 ×</button></div><p id="scene-document-content" class="scene-document-copy"></p></dialog>
 <dialog id="about-dialog" aria-labelledby="about-title"><div class="dialog-heading"><h2 id="about-title">关于这一程</h2><button class="quiet close-dialog" aria-label="关闭关于说明">✕</button></div><p>你将以新战士“小满”的视角翻开行军相册，在长征背景的故事中认识陈禾与更多同行者</p><p id="history-fact"></p><p>六站故事从于都延伸至湘江、遵义与夹金山，经过草地抵达吴起，并以1936年的会师作为历史尾声；人物与场景为AI创作的虚构情境，已有剧情镜头、赤水转场和第一站导入影片保留原声，角色对白、已配音的自述与心声，以及开场和尾声旁白使用即梦合成配音，行动选项以文字呈现</p><p id="source-links"></p><p class="dialog-note">选择用于展开不同的故事分支，不设置得分；地图展示叙事路线，不作为精确行军轨迹</p></dialog>
 <noscript>请开启浏览器 JavaScript 以阅读互动剧情</noscript>
 <nav class="site-home-return" data-home-return aria-label="返回首页提示" hidden>

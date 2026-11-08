@@ -1,0 +1,6 @@
+/* The written page belongs to the scene; its readable copy opens on request. */
+.read-scene-document{display:block;color:#e7d3a7;background:#182b2da6;border:1px solid #c9b88e70;border-radius:2px;padding:9px 16px;margin:0 0 18px;font:14px var(--sans);min-height:42px}
+.read-scene-document:hover{background:#344a45;border-color:#e7d3a7}
+.scene-document-dialog{background:#efe1c4;color:#463b2d;border-color:#b6a17a;width:min(560px,calc(100vw - 32px))}
+.scene-document-copy{white-space:pre-line;margin:15px 0 8px;padding:20px 5px;border-top:1px solid #9b815e50;font:clamp(18px,2vw,23px)/2.3 var(--serif)}
+@media(max-width:600px){.read-scene-document{font-size:13px;margin-bottom:14px}.scene-document-dialog{padding:22px}.scene-document-copy{font-size:18px;line-height:2.1}}

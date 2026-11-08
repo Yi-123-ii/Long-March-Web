@@ -32,7 +32,7 @@ const video=$('scene-video'),image=$('scene-image');
 const videoCorner=window.VideoCorner.attach(video,$('video-corner'));
 video.preload='none';
 const cueTimers=new Set(),cuePlayers=new Set();
-const dialogs=[$('sound-dialog'),$('history-dialog'),$('about-dialog')];
+const dialogs=[$('sound-dialog'),$('history-dialog'),$('about-dialog'),$('scene-document-dialog')];
 for(const img of document.querySelectorAll('img[src]'))img.src=resolve(img.getAttribute('src'));
 function notice(text){$('notice').textContent=text;$('notice').hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>$('notice').hidden=true,6500);}
 function save(){try{localStorage.setItem(C.SAVE_KEY,JSON.stringify(state));}catch{if(!storageNotice){notice('进度暂未保存，本次仍可继续阅读');storageNotice=true;}}}
@@ -133,7 +133,8 @@ function revealText(){
  const changed=lineDone!==f.complete;lineDone=f.complete;
  $('line').classList.toggle('is-revealing',!lineDone);
  $('line').hidden=!textPlan.glyphs.length;
- $('choices').hidden=!n.choices||!lineDone||(n.nativeAudio&&!movieDone);$('document-text').hidden=!n.document||!lineDone;
+ $('choices').hidden=!n.choices||!lineDone||(n.nativeAudio&&!movieDone);$('document-text').hidden=!n.document||!!n.documentInScene||!lineDone;
+ $('read-scene-document').hidden=!n.documentInScene||!n.document||!lineDone;
  if(changed){updateNext();if(lineDone&&n.choices&&document.activeElement===$('next'))$('choices').querySelector('button')?.focus({preventScroll:true});}
 }
 function finishText(){
@@ -258,7 +259,7 @@ function render(){
   if(n.end){const entries=[D.memories[state.choices.choice],state.choices['xj-choice']==='stretcher'?'在湘江岸边，我记住了陆生的名字':'我带过江的家书里，仍留着梁叔没写完的半句话',state.choices['snow-choice']==='call'?'雪山风里，我喊了一声阿禾，听见了他的回应':'到了雪山，这回换我停下来等他',state.choices['grass-choice']==='stay'?'那一夜，我守在陆生身旁，陪他等到天亮':'那一夜，我们接回掉队的同志，也彼此扶持着回到营地',state.choices['wuqi-choice']==='sew'?'袖口总算补好，歪斜的针脚也记下了同行的情谊':'我写下梁叔的名字，也记下与他同行时的见闻'];for(const text of entries){const li=document.createElement('li');li.textContent=text;cards.append(li);}}
   save();return;
  }
- $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('speaker').textContent=badge?.name||display.speaker;textPlan=T.plan(display.text);lineInstant=!!previous;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=display.text||'';$('voice-state').textContent='';
+ $('document-text').hidden=true;$('document-text').textContent=n.document||'';$('read-scene-document').hidden=true;$('speaker').textContent=badge?.name||display.speaker;textPlan=T.plan(display.text);lineInstant=!!previous;lineDone=!textPlan.glyphs.length;lineShown=-1;$('line-accessible').textContent=display.text||'';$('voice-state').textContent='';
  const choices=$('choices');choices.replaceChildren();choices.hidden=!n.choices;$('next').hidden=!!n.choices;
  if(n.choices){for(const [index,choice] of n.choices.entries()){
   const b=document.createElement('button');b.className='choice-button';b.dataset.choice=choice.id;
@@ -324,6 +325,10 @@ $('line').onclick=finishText;$('next').onclick=()=>go();$('pause').onclick=()=>s
 $('previous').onclick=goBack;$('ending-previous').onclick=goBack;
 $('auto').onclick=()=>{state.settings.auto=!state.settings.auto;volumes();save();};
 $('sound-open').onclick=()=>openDialog($('sound-dialog'));$('sound-done').onclick=()=>$('sound-dialog').close();
+$('read-scene-document').onclick=()=>{
+ const n=C.current(D,state);if(!n.documentInScene||!n.document)return;
+ $('scene-document-content').textContent=n.document;openDialog($('scene-document-dialog'));
+};
 $('history-open').onclick=()=>{
  const list=$('history-list');list.replaceChildren();
  for(const id of state.path){

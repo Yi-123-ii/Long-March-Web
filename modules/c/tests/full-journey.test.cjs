@@ -29,8 +29,8 @@ test('the two endings keep distinct objects; new writing does not consume or del
  const a=walk('hand','stretcher','support','rescue','sew'),b=walk('help','luggage','call','stay','write');
  assert(a.path.includes('wuqi-sew-result'));assert(!a.path.includes('wuqi-write-letter'));
  assert(b.path.includes('wuqi-write-letter'));assert(b.path.includes('wuqi-writing'));
- const writing=D.nodes.find(n=>n.id==='wuqi-writing');assert.equal(writing.scene,'memory-page');assert(writing.document.includes('梁叔'));assert(!writing.document.includes('梁守成'));
- assert.equal(D.nodes.find(n=>n.id==='wuqi-write-letter').scene,'memory-page');
+ const writing=D.nodes.find(n=>n.id==='wuqi-writing');assert.equal(writing.scene,'wuqi-writing-v056');assert(writing.document.includes('梁叔'));assert(!writing.document.includes('梁守成'));
+ assert.equal(D.nodes.find(n=>n.id==='wuqi-write-letter').scene,writing.scene);
 });
 test('every six-station album has a valid start, checkpoint, image and map entry',()=>{
  assert.equal(D.chapters.length,10);assert.equal(D.nodes.filter(n=>n.choices?.length===2).length,5);
