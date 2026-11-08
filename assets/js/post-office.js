@@ -31,30 +31,55 @@
   const { stamps, papers } = window.LM_POSTAL;
   const stampById = id => stamps.find(stamp => stamp.id === id);
   const paperById = id => papers.find(paper => paper.id === id);
-  const stampImage = id => "assets/images/stamps/" + id + "-v1.webp";
+  const stampTextures = new Map();
+  const stampImage = id => stampTextures.get(id) || "assets/images/stamps/" + id + "-v1.webp";
   const paperPreviewImage = id => "assets/images/stationery/" + id + "-preview-v1.webp";
   const fullPaperTextures = new Map();
-  function previewTexture(id) {
-    const image = $("#paper-options input[value='" + id + "']")?.closest("label").querySelector("img");
-    return image?.naturalWidth ? image.currentSrc : new URL(paperPreviewImage(id), location.href).href;
-  }
+  const readyPaperTextures = new Map();
   function fullPaperTexture(id) {
     if (fullPaperTextures.has(id)) return fullPaperTextures.get(id);
-    const image = new Image();
-    image.decoding = "async";
-    image.fetchPriority = "high";
-    const loaded = new Promise(resolve => {
-      image.onload = async () => {
-        try { await image.decode(); resolve(image.currentSrc); }
-        catch { fullPaperTextures.delete(id); resolve(null); }
-      };
-      image.onerror = () => { fullPaperTextures.delete(id); resolve(null); };
-    });
+    const loaded = (async () => {
+      let source;
+      try {
+        const response = await fetch("assets/images/stationery/" + id + "-v1.webp", { priority: "high" });
+        if (!response.ok) throw Error("paper-image");
+        source = URL.createObjectURL(await response.blob());
+        const image = new Image();
+        image.decoding = "async";
+        image.src = source;
+        await image.decode();
+        readyPaperTextures.set(id, source);
+        return source;
+      } catch {
+        if (source) URL.revokeObjectURL(source);
+        fullPaperTextures.delete(id);
+        return null;
+      }
+    })();
     fullPaperTextures.set(id, loaded);
-    image.src = "assets/images/stationery/" + id + "-v1.webp";
     return loaded;
   }
   let stampId = null, paperId = null, pendingLetter = null;
+  let stampPreviewsReady, preparingStamps = false, letterOpenSequence = 0;
+  function preloadStampPreviews() {
+    if (stampPreviewsReady) return stampPreviewsReady;
+    stampPreviewsReady = (async () => {
+      let bundled = {};
+      try {
+        const response = await fetch("data/stamp-previews.json?v=20261107-ready-art");
+        if (response.ok) bundled = await response.json();
+      } catch { /* Use original image files if the bundle cannot be fetched. */ }
+      const images = Array.from(document.querySelectorAll("#stamp-options img"));
+      await Promise.all(images.map(async image => {
+        const id = image.closest("label").querySelector("input").value;
+        const embedded = bundled?.[id];
+        image.src = typeof embedded === "string" && embedded.startsWith("data:image/webp;base64,") ? embedded : "assets/images/stamps/" + id + "-v1.webp";
+        await image.decode();
+        stampTextures.set(id, image.currentSrc);
+      }));
+    })().catch(() => { stampPreviewsReady = null; });
+    return stampPreviewsReady;
+  }
   let paperPreviewsReady;
   function preloadPaperPreviews() {
     if (paperPreviewsReady) return paperPreviewsReady;
@@ -89,8 +114,9 @@
     cancelAnimationFrame(packingFrame);
     packingResizeObserver?.disconnect();
   }
-  function applyPaper(node, id) {
+  function applyPaper(node, id, source) {
     const paper = paperById(id);
+    if (paper && !source) return;
     node.querySelector(":scope > .lm-paper-art")?.remove();
     node.classList.add("lm-stationery");
     if (paper) node.dataset.paper = id;
@@ -99,7 +125,6 @@
     if (!paper) return;
     const art = text("div", "lm-paper-art", "");
     art.setAttribute("aria-hidden", "true");
-    const source = previewTexture(id);
     function slice(name, start, height) {
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svg.classList.add("lm-paper-art-" + name);
@@ -114,12 +139,6 @@
     const footerStart = paper.footerStart ?? 640;
     slice("footer", footerStart, 896 - footerStart);
     node.prepend(art);
-    // The already decoded chooser image is visible immediately. Full-size art
-    // replaces it only after decoding, without clearing the displayed picture.
-    fullPaperTexture(id).then(source => {
-      if (!source || node.dataset.paper !== id) return;
-      art.querySelectorAll("image").forEach(image => image.setAttribute("href", source));
-    });
   }
   stamps.forEach(stamp => {
     const label = text("label", "lm-stamp-option", "");
@@ -128,8 +147,8 @@
     const art = text("span", "lm-stamp", "");
     art.setAttribute("aria-hidden", "true");
     const image = document.createElement("img");
-    image.loading = "lazy";
-    image.src = stampImage(stamp.id); image.alt = ""; image.width = 240; image.height = 300;
+    image.loading = "eager"; image.decoding = "async";
+    image.alt = ""; image.width = 180; image.height = 225;
     art.append(image, text("span", "", stamp.name));
     label.append(radio, art, text("strong", "", stamp.name), text("small", "", stamp.caption));
     label.dataset.group = stamp.group;
@@ -182,7 +201,7 @@
     });
     $("#paper-options").append(label);
   });
-  form.addEventListener("focusin", preloadPaperPreviews, { once: true });
+  form.addEventListener("focusin", () => { preloadStampPreviews(); preloadPaperPreviews(); }, { once: true });
   function filterStamps(group) {
     document.querySelectorAll("[data-stamp-group]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.stampGroup === group)));
     document.querySelectorAll(".lm-stamp-option").forEach(label => label.hidden = label.dataset.group !== group);
@@ -415,6 +434,7 @@
     return { body: content, nickname: signer, eventId };
   }
   function chooseStamp() {
+    preloadStampPreviews();
     preloadPaperPreviews();
     $("#stamp-choice").hidden = false;
     $("#paper-choice").hidden = true;
@@ -422,9 +442,23 @@
     $("#prepare-step").hidden = true;
     $("#prepare-title").textContent = "为这封信挑一枚邮票，寄出这份心意";
   }
-  form.addEventListener("submit", event => {
+  form.addEventListener("submit", async event => {
     event.preventDefault();
-    if (sending) return;
+    if (sending || preparingStamps || !validateLetter()) return;
+    preparingStamps = true;
+    $("#send-letter").disabled = true;
+    $("#send-letter").setAttribute("aria-busy", "true");
+    try { await preloadStampPreviews(); }
+    finally {
+      preparingStamps = false;
+      $("#send-letter").disabled = false;
+      $("#send-letter").removeAttribute("aria-busy");
+    }
+    if (stampTextures.size !== stamps.length) {
+      $("#form-error").textContent = "邮票图案暂未载入，请再试一次";
+      return;
+    }
+    if (panels[0].hidden) return;
     pendingLetter = validateLetter();
     if (!pendingLetter) return;
     chooseStamp();
@@ -458,9 +492,21 @@
   }
   $("#choose-paper").addEventListener("click", choosePaper);
   $("#change-paper").addEventListener("click", choosePaper);
-  $("#preview-letter").addEventListener("click", () => {
+  $("#preview-letter").addEventListener("click", async () => {
     const stamp = stampById(stampId);
     if (!pendingLetter || !stamp || !paperById(paperId)) return;
+    const requestedPaper = paperId, button = $("#preview-letter");
+    button.disabled = true;
+    button.setAttribute("aria-busy", "true");
+    let source;
+    try { source = await fullPaperTexture(requestedPaper); }
+    finally { button.disabled = false; button.removeAttribute("aria-busy"); }
+    if (!prepare.open || paperId !== requestedPaper) return;
+    if (!source) {
+      $("#prepare-error").textContent = "清晰信纸暂未载入，请再试一次";
+      return;
+    }
+    $("#prepare-error").textContent = "";
     $("#stamp-choice").hidden = true;
     $("#paper-choice").hidden = true;
     $("#letter-review").hidden = false;
@@ -475,7 +521,7 @@
     const event = knownEvent(pendingLetter.eventId);
     $("#review-context").hidden = !event;
     if (event) $("#review-context").textContent = "读过「" + event.title + "」之后";
-    applyPaper($("#review-sheet"), paperId);
+    applyPaper($("#review-sheet"), requestedPaper, source);
     $(".lm-review-window").scrollTop = 0;
     $(".lm-review-window").focus();
   });
@@ -542,7 +588,7 @@
     packingFrame = requestAnimationFrame(tick);
   }
   $("#confirm-dispatch").addEventListener("click", () => {
-    if (sending || !pendingLetter || !stampById(stampId) || !paperById(paperId)) return;
+    if (sending || !pendingLetter || !stampById(stampId) || !paperById(paperId) || !readyPaperTextures.has(paperId)) return;
     const latest = getMessages();
     if (latest.length >= 200) {
       $("#prepare-error").textContent =
@@ -568,7 +614,7 @@
     sending = true;
     const miniature = text("div", "lm-mini-letter", "");
     miniature.dataset.paper = paperId;
-    miniature.style.backgroundImage = 'url("' + previewTexture(paperId) + '")';
+    miniature.style.backgroundImage = 'url("' + readyPaperTextures.get(paperId) + '")';
     const miniStamp = document.createElement("img");
     miniStamp.src = stampImage(stampId); miniStamp.alt = "";
     miniature.append(text("span", "lm-mini-heading", "山河邮局"), miniStamp,
@@ -582,11 +628,6 @@
     });
     $(".lm-packing-paper").dataset.paper = paperId;
     $(".lm-packing-paper").toggleAttribute("data-paper-illustrated", Boolean(paperById(paperId)?.ornament));
-    const packedPaperId = paperId;
-    fullPaperTexture(packedPaperId).then(source => {
-      if (!source || $(".lm-packing-paper").dataset.paper !== packedPaperId) return;
-      document.querySelectorAll(".lm-packing-paper .lm-mini-letter").forEach(node => node.style.backgroundImage = 'url("' + source + '")');
-    });
     $("#packed-stamp").src = stampImage(stampId);
     document.querySelectorAll(".lm-postbox-stamp").forEach(image => image.src = stampImage(stampId));
     prepare.close();
@@ -644,16 +685,25 @@
     switchTab(0);
     body.focus();
   });
-  function openLetter(id) {
+  async function openLetter(id) {
     const message = messages.find((m) => m.id === id);
     if (!message) return;
+    const sequence = ++letterOpenSequence;
+    const paper = paperById(message.paperId);
+    const source = paper ? await fullPaperTexture(paper.id) : null;
+    if (sequence !== letterOpenSequence || panels[1].hidden) return;
+    if (paper && !source) {
+      $("#saved-warning").textContent = "清晰信纸暂未载入，请再试一次";
+      return;
+    }
+    $("#saved-warning").textContent = "";
     selectedId = id;
     $("#letter-date").textContent = dateFormat.format(message.createdAt);
     $("#letter-content").textContent = message.body;
     $("#letter-signer").textContent = message.nickname || "一位无名来信人";
     const event = knownEvent(message.eventId);
     const stamp = stampById(message.stampId);
-    applyPaper($("#letter-dialog .lm-dialog-body"), message.paperId);
+    applyPaper($("#letter-dialog .lm-dialog-body"), message.paperId, source);
     $("#letter-stamp").hidden = !stamp;
     if (stamp) { $("#letter-stamp img").src = stampImage(stamp.id); $("#letter-stamp img").alt = stamp.name + "插画邮票"; $("#letter-stamp span").textContent = stamp.name; }
     $("#letter-context").hidden = !event;
