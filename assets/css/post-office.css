@@ -153,6 +153,7 @@
     #d8cfb5 35px,
     #d8cfb5 36px
   );
+  background-attachment: local;
   font-family: var(--lm-serif);
   font-size: 17px;
   line-height: 36px;
@@ -201,11 +202,12 @@
   margin-top: 23px;
 }
 .lm-send-row > p {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.9;
   color: var(--lm-muted);
   margin: 0;
 }
+.lm-send-row > p span { display: block; }
 .lm-send-row > .lm-button {
   white-space: nowrap;
   flex-shrink: 0;

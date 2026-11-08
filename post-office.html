@@ -11,7 +11,7 @@
 <noscript><link rel="stylesheet" href="assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
 
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261108-writing-return" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261108-local-letter" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261107-papers-smooth-delivery" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261107-letter-handover" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261107-paper-display" />
@@ -87,6 +87,7 @@
                 >给长征路上的人们的留言，最多2000字</label
               ><textarea
                 id="letter-body"
+                aria-describedby="letter-storage-notice"
                 maxlength="2000"
                 placeholder="今天的山河，与你们走过时已经很不一样了……"
                 required
@@ -109,8 +110,9 @@
             <div class="lm-post-send">
               <p id="form-error" class="lm-form-error" role="alert"></p>
               <div class="lm-send-row">
-                <p>
-                  投递后，可在「我的留言」中查看和备份
+                <p id="letter-storage-notice">
+                  <span>留言仅保存在当前设备的此浏览器中，不会上传到服务器</span>
+                  <span>更换设备或清除浏览器数据前，请在「我的留言」中导出备份</span>
                 </p>
                 <button
                   class="lm-button"
