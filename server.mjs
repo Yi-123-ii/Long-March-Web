@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFile } from "node:child_process";
+import { buildPageStyles } from "./tools/build-page-styles.mjs";
 const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 5173);
 const types = {
@@ -10,6 +11,7 @@ const types = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".webp": "image/webp",
+  ".avif": "image/avif",
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".mp4": "video/mp4",
@@ -45,6 +47,7 @@ const server = http
         res.end("Forbidden");
         return;
       }
+      if (target.endsWith('.html')) await buildPageStyles();
       const body = await readFile(target);
       const headers = {
         "Content-Type":

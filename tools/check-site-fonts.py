@@ -18,6 +18,9 @@ root = Path(__file__).resolve().parent.parent
 font_dir = root / "assets/fonts"
 manifest = json.loads((font_dir / "manifest.json").read_text(encoding="utf-8"))
 css = (root / "assets/css/fonts.css").read_text(encoding="utf-8")
+input_css = root / "assets/css/fonts-input.css"
+if input_css.exists():
+    css += input_css.read_text(encoding="utf-8")
 coverage = {}
 for block in re.findall(r"@font-face\s*{([^}]+)}", css):
     family = re.search(r'font-family:\s*"([^"]+)"', block)[1]

@@ -21,7 +21,7 @@
   top: -88px;
 }
 .v3-home .a-hero__scenery {
-  --hero-image: url("../images/home-panorama-fast.webp");
+  --hero-image: image-set(url("../images/home-panorama-fast.avif") type("image/avif"), url("../images/home-panorama-fast.webp") type("image/webp"));
   background-image: none;
   background-position: center center;
   isolation: isolate;
@@ -64,7 +64,7 @@
 }
 @media (max-width: 580px) and (orientation: portrait) {
   .v3-home .a-hero__scenery {
-    --hero-image: url("../images/home-panorama-portrait-fast.webp");
+    --hero-image: image-set(url("../images/home-panorama-portrait-fast.avif") type("image/avif"), url("../images/home-panorama-portrait-fast.webp") type("image/webp"));
   }
 }
 .v3-home .v3-prologue::after {

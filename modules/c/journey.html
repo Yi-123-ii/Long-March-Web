@@ -2,36 +2,32 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script defer src="../../assets/js/deferred-images.js?v=20261108-cold-entry"></script>
+<noscript><style>img[data-defer-src]{display:none}</style></noscript>
 <meta name="theme-color" content="#f0dbb4"><meta name="description" content="循着地图翻开行军相册，从于都走向雪山、草地与吴起，在长征背景的故事中记住同行的人">
 <title>同行 · 重走长征路</title>
 <script src="assets/journey-resume.js?v=055"></script>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="preload" href="assets/atlas/heading-eight-fast.webp" as="image" fetchpriority="high" type="image/webp">
-<link rel="preload" href="assets/atlas/terrain-extension-fast.webp" as="image" fetchpriority="high" type="image/webp">
+<link rel="preload" href="assets/atlas/terrain-extension-fast.avif" as="image" fetchpriority="high" type="image/avif">
 
 <!-- first-paint-fonts -->
 <link rel="preload" href="../../assets/fonts/shanhe-ui-critical-common-5d254210e5.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../../assets/fonts/shanhe-reading-critical-common-ade03e2366.woff2" as="font" type="font/woff2" crossorigin />
 <!-- /first-paint-fonts -->
-<link rel="stylesheet" href="../../assets/css/fonts.css?v=20261108-stable-fonts" />
-<link rel="stylesheet" href="assets/yudu.css?v=038"><link rel="stylesheet" href="assets/epilogue-v050.css?v=050"><link rel="stylesheet" href="assets/journey-atlas.css?v=031">
+<link rel="stylesheet" href="../../assets/css/fonts.css?v=20261108-cold-entry" />
+<link rel="stylesheet" data-page-styles href="../../assets/css/pages/journey.css?v=9e7dfc4e96e9" />
 <script defer src="assets/journey-return.js?v=059"></script>
 <script defer src="assets/journey-media.js?v=056"></script>
 <script defer src="assets/yudu-presentation.js?v=053"></script>
 <script defer src="assets/journey-films.js?v=20261104-buffer"></script>
-<link rel="stylesheet" href="assets/journey-film-loader.css?v=20261104-buffer">
+
 <script defer fetchpriority="low" src="assets/story-legacy-v009.js?v=029"></script><script defer fetchpriority="low" src="assets/story-legacy-v010.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v011.js?v=038"></script><script defer fetchpriority="low" src="assets/story-legacy-v012.js?v=038"></script><script defer fetchpriority="low" src="assets/late-chapters-data.js?v=056"></script><script defer fetchpriority="low" src="assets/chapters-data.js?v=051"></script><script defer fetchpriority="low" src="assets/yudu-data.js?v=053"></script><script defer fetchpriority="low" src="assets/yudu-core.js?v=038"></script><script defer src="assets/yudu-text.js?v=050"></script><script defer src="assets/atlas-route.js?v=022"></script><script defer src="assets/atlas-map.js?v=057"></script><script defer src="assets/journey-fx.js"></script><script defer src="assets/journey-intro.js?v=20261105-site-copy"></script><script defer src="assets/soldier-pointer.js?v=031"></script><script defer src="assets/video-corner.js?v=038"></script><script defer src="assets/journey-soundscape.js?v=051"></script><script defer fetchpriority="low" src="assets/yudu-game.js?v=057"></script>
 <script defer src="assets/site-integration.js?v=057"></script>
 <script defer src="../../assets/js/site-nav.js?v=20261108-stable-fonts"></script>
-<link rel="stylesheet" href="../../assets/css/site-shell.css?v=20261107-home-return" />
-<link rel="stylesheet" href="../../assets/css/header-unified.css?v=20261105-opening-perf" />
-<link rel="stylesheet" href="assets/atlas-scroll.css?v=022" />
-<link rel="stylesheet" href="assets/atlas-fullscreen.css?v=20261103" />
-<link rel="stylesheet" href="assets/journey-opening.css?v=20261107-smooth-preview" />
+
 <script defer src="assets/journey-opening.js?v=20261104-directory"></script>
-<link rel="stylesheet" href="../../assets/css/section-opening.css?v=20261107-home-return" />
-<link rel="stylesheet" href="assets/review-v053.css?v=053">
-<link rel="stylesheet" href="assets/review-v056.css?v=056">
+
 </head>
 <body>
 <audio id="player-voice" preload="none" hidden aria-hidden="true"></audio>
@@ -58,7 +54,7 @@
  <main class="atlas-main" id="journey-map">
   <div id="atlas-window" class="atlas-window" aria-label="长征故事地图，可拖动查看">
    <div id="atlas-canvas" class="atlas-canvas">
-    <img class="atlas-terrain" src="assets/atlas/terrain-fast.webp" fetchpriority="low" decoding="async" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" loading="lazy" draggable="false">
+    <img class="atlas-terrain" data-defer-src="assets/atlas/terrain-fast.avif" onerror="this.onerror=null;this.src='assets/atlas/terrain-fast.webp'" fetchpriority="low" decoding="async" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" loading="lazy" draggable="false"><noscript><img class="atlas-terrain" src="assets/atlas/terrain-fast.webp" fetchpriority="low" decoding="async" alt="于都河岸、湘江峡谷、遵义木楼、夹金山雪峰、草地与陕北村落交织的山河长卷" loading="lazy" draggable="false"></noscript>
     <svg class="atlas-routes" viewBox="0 0 1180 620" aria-hidden="true"><path id="atlas-main-route"/><path id="atlas-epilogue-route"/><polyline id="atlas-travel-route" class="atlas-travel-route" hidden/></svg>
     <p class="atlas-epilogue-note">1936年10月 · 历史尾声</p>
     <div id="atlas-pins" class="atlas-pins"></div>

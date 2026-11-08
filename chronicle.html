@@ -2,6 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+<script defer src="assets/js/deferred-images.js?v=20261108-cold-entry"></script>
+<noscript><style>img[data-defer-src]{display:none}</style></noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
@@ -11,21 +13,22 @@
     <title>长征纪事 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
 
+<link rel="preload" href="assets/images/titles/hero-fast.webp" as="image" type="image/webp" fetchpriority="high" />
 <!-- first-paint-fonts -->
 <link rel="preload" href="assets/fonts/shanhe-ui-critical-common-5d254210e5.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/shanhe-reading-critical-common-ade03e2366.woff2" as="font" type="font/woff2" crossorigin />
 <!-- /first-paint-fonts -->
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261108-stable-fonts" />
-    <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/chronicle.css?v=20261107-smooth-preview" />
-    <link rel="preload" href="assets/images/hero-chronicle-fast.webp" as="image" fetchpriority="high" media="not all and (max-width: 580px) and (orientation: portrait)" />
-    <link rel="preload" href="assets/images/hero-chronicle-portrait-fast.webp" as="image" fetchpriority="high" media="(max-width: 580px) and (orientation: portrait)" />
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261108-cold-entry" />
+    <link rel="stylesheet" data-page-styles href="assets/css/pages/chronicle.css?v=8b3981cb1264" />
+
+    <link rel="preload" href="assets/images/hero-chronicle-fast.avif" as="image" fetchpriority="high" media="not all and (max-width: 580px) and (orientation: portrait)" type="image/avif" />
+    <link rel="preload" href="assets/images/hero-chronicle-portrait-fast.avif" as="image" fetchpriority="high" media="(max-width: 580px) and (orientation: portrait)" type="image/avif" />
     <script defer src="data/events.js?v=20261105-site-copy"></script>
     <script defer src="data/stage-title-art.js?v=20261023-four-fixes"></script>
     <script defer src="assets/js/storage.js?v=20261107-papers-smooth-delivery"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261108-stable-fonts"></script>
-    <script defer src="assets/js/chronicle.js?v=20261108-reading-history"></script>
+    <script defer src="assets/js/chronicle.js?v=20261108-cold-entry"></script>
     <script>
       if (new URLSearchParams(location.search).get("directory") === "preview") {
         const style = document.createElement("link");
@@ -38,11 +41,7 @@
       }
     </script>
     <script defer src="modules/c/assets/journey-return.js?v=059"></script>
-    <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-home-return" />
-    <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
-  <link href="assets/css/v38-reading.css" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/header-unified.css?v=20261105-opening-perf" />
-<link rel="stylesheet" href="assets/css/section-opening.css?v=20261107-home-return" />
+
 </head>
   <body class="lm-page" id="top">
     <a class="lm-skip" href="#chronicle">跳至纪事内容</a>
@@ -80,7 +79,7 @@
       >
         <div class="lm-section-heading">
           <div>
-            <h2 id="chronicle-title" class="lm-title-art"><span class="lm-sr-only">那些走过的路</span><img src="assets/images/titles/chronicle-v2.webp" loading="lazy" fetchpriority="low" decoding="async" width="1400" height="293" alt="" /></h2>
+            <h2 id="chronicle-title" class="lm-title-art"><span class="lm-sr-only">那些走过的路</span><img data-defer-src="assets/images/titles/chronicle-v2.webp" loading="lazy" fetchpriority="low" decoding="async" width="1400" height="293" alt="" /><noscript><img src="assets/images/titles/chronicle-v2.webp" loading="lazy" fetchpriority="low" decoding="async" width="1400" height="293" alt="" /></noscript></h2>
           </div>
           <p class="lm-chronicle-intro">
             <span>循着红军足迹，回望长征历程</span>
@@ -133,7 +132,7 @@
       <section id="post-office-invite" class="lm-mail-invite lm-container" aria-labelledby="mail-invite-title">
         <div>
           <p class="lm-eyebrow">读过来路，留下回声</p>
-          <h2 id="mail-invite-title" class="lm-invite-title"><span class="lm-sr-only">如果能寄去一句话，你想对他们说什么？</span><img src="assets/images/titles/mail-invite-v1.webp" width="1400" height="553" alt="" loading="lazy" decoding="async" fetchpriority="low" /></h2>
+          <h2 id="mail-invite-title" class="lm-invite-title"><span class="lm-sr-only">如果能寄去一句话，你想对他们说什么？</span><img data-defer-src="assets/images/titles/mail-invite-v1.webp" width="1400" height="553" alt="" loading="lazy" decoding="async" fetchpriority="low" /><noscript><img src="assets/images/titles/mail-invite-v1.webp" width="1400" height="553" alt="" loading="lazy" decoding="async" fetchpriority="low" /></noscript></h2>
         </div>
         <a class="lm-postal-link" href="post-office.html" data-post-entry="chronicle">
           <span class="lm-postal-envelope" aria-hidden="true">

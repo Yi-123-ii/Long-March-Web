@@ -2,12 +2,15 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+<script defer src="assets/js/deferred-images.js?v=20261108-cold-entry"></script>
+<noscript><style>img[data-defer-src]{display:none}</style></noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="给长征路上的人们写一封来自今天的信" />
     <meta name="theme-color" content="#e9eeeb" />
     <title>山河邮局 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
 
+<link rel="preload" href="assets/images/titles/post-eight-fast.avif" as="image" type="image/avif" fetchpriority="high" />
 <!-- first-paint-fonts -->
 <link rel="preload" href="assets/fonts/shanhe-ui-critical-common-5d254210e5.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/shanhe-reading-critical-common-ade03e2366.woff2" as="font" type="font/woff2" crossorigin />
@@ -17,14 +20,10 @@
 <link rel="preload" href="assets/fonts/shanhe-reading-critical-06-0e525c5e32.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/shanhe-reading-critical-07-34164fc130.woff2" as="font" type="font/woff2" crossorigin />
 <!-- /first-paint-fonts -->
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261108-stable-fonts" />
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261108-cold-entry" />
 
-    <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261108-bulk-delete" />
-    <link rel="stylesheet" href="assets/css/postbox.css?v=20261107-papers-smooth-delivery" />
-    <link rel="stylesheet" href="assets/css/courier.css?v=20261107-letter-handover" />
-    <link rel="stylesheet" href="assets/css/stationery.css?v=20261107-paper-display" />
-    <link rel="stylesheet" href="assets/css/letter-fold.css?v=20261107-papers-smooth-delivery" />
+    <link rel="stylesheet" data-page-styles href="assets/css/pages/post-office.css?v=fa40071a28df" />
+
     <script defer src="data/events.js?v=20261105-site-copy"></script>
     <script defer src="data/postal-designs.js?v=20261107-paper-display"></script>
     <script defer src="assets/js/storage.js?v=20261107-papers-smooth-delivery"></script>
@@ -33,12 +32,7 @@
     <script defer src="assets/js/site-nav.js?v=20261108-stable-fonts"></script>
     <script defer src="assets/js/post-office.js?v=20261108-bulk-delete"></script>
     <script defer src="modules/c/assets/journey-return.js?v=059"></script>
-    <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-post-return" />
-    <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
-  <link href="assets/css/v38-reading.css" rel="stylesheet"/>
-<link rel="stylesheet" href="assets/css/header-unified.css?v=20261105-opening-perf" />
-<link rel="stylesheet" href="assets/css/section-opening.css?v=20261107-home-return" />
-<link rel="stylesheet" href="assets/css/post-opening-landscape.css?v=20261107-centered-cover" />
+
 </head>
   <body class="lm-page lm-post-page" id="top">
     <a class="lm-skip" href="#letter-form">跳至写留言</a>
@@ -57,7 +51,7 @@
     <main>
       <section class="section-opening" aria-labelledby="post-title">
         <div class="section-opening__copy">
-          <h1 id="post-title" data-title-motion="ink"><span class="lm-sr-only">隔着岁月 说给你听</span><img onload="this.dataset.titleReady = ''" src="assets/images/titles/post-eight-fast.webp" width="840" height="560" decoding="async" alt="" fetchpriority="high" /></h1>
+          <h1 id="post-title" data-title-motion="ink"><span class="lm-sr-only">隔着岁月 说给你听</span><img onload="this.dataset.titleReady = ''" src="assets/images/titles/post-eight-fast.avif" onerror="this.onerror=null;this.src='assets/images/titles/post-eight-fast.webp'" width="840" height="560" decoding="async" alt="" fetchpriority="high" /></h1>
           <a class="section-opening__action" id="post-entry" href="#post-desk">写下留言 <span aria-hidden="true">↓</span></a>
         </div>
         <p class="post-opening__intro">岁月流转，山河依旧。昔日长征路上的烽火硝烟早已散入历史深处，那些跋涉于万里征途的身影，却始终镌刻在岁月的记忆里。时光隔开了彼此的年代，却未曾阻断心灵的回响。如今，我们以文字为桥，以书信为媒，将今日山河的崭新模样、对革命先辈的深切敬意，以及那些未曾得到解答的追问，一一写进信笺。让思绪穿越漫长岁月，让未曾谋面的你我，在字里行间完成一场跨越时空的相逢。</p>
@@ -88,7 +82,7 @@
             <form id="letter-form" class="lm-letter" novalidate>
               <div class="lm-letter-top">
                 <span>山河邮局</span>
-                <img class="lm-letter-vignette" src="assets/images/letter-corner-v1.webp" loading="lazy" fetchpriority="low" decoding="async" width="360" height="288" alt="" aria-hidden="true" />
+                <img class="lm-letter-vignette" data-defer-src="assets/images/letter-corner-v1.webp" loading="lazy" fetchpriority="low" decoding="async" width="360" height="288" alt="" aria-hidden="true" /><noscript><img class="lm-letter-vignette" src="assets/images/letter-corner-v1.webp" loading="lazy" fetchpriority="low" decoding="async" width="360" height="288" alt="" aria-hidden="true" /></noscript>
               </div>
               <p class="lm-salutation">致长征路上的你们：</p>
               <p id="event-context" class="lm-event-context" hidden></p>
@@ -137,7 +131,7 @@
           <aside class="lm-post-aside">
             <div class="lm-mailbox-scene" aria-hidden="true">
               <div class="lm-postbox-model" data-postbox></div>
-              <img class="lm-aside-courier lm-aside-courier--pair" src="assets/images/couriers/letter-handover-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="384" height="512" alt="" />
+              <img class="lm-aside-courier lm-aside-courier--pair" data-defer-src="assets/images/couriers/letter-handover-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="384" height="512" alt="" /><noscript><img class="lm-aside-courier lm-aside-courier--pair" src="assets/images/couriers/letter-handover-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="384" height="512" alt="" /></noscript>
             </div>
             <div class="lm-prompts">
               <h2>不知道从哪里落笔？</h2>
@@ -196,7 +190,7 @@
         </div>
         <div id="saved-list" class="lm-saved-list"></div>
         <div id="empty-letters" class="lm-empty">
-          <img class="lm-empty-courier" src="assets/images/couriers/city-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="320" alt="" />
+          <img class="lm-empty-courier" data-defer-src="assets/images/couriers/city-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="320" alt="" /><noscript><img class="lm-empty-courier" src="assets/images/couriers/city-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="320" alt="" /></noscript>
           <h3>信箱正等着你的第一封信</h3>
           <p>把读过历史后的感受写下来，给长征路上的人们留一封信</p>
           <button id="start-writing" class="lm-button">写下第一段留言 ↗</button>
@@ -211,8 +205,8 @@
       </div>
     </footer>
     <template id="postbox-template">
-      <img class="lm-postbox-shell" src="assets/images/mailbox-cabinet-v2.webp" loading="lazy" decoding="async" fetchpriority="low" width="720" height="960" alt="" />
-      <div class="lm-postbox-mail-path"><div class="lm-postbox-envelope"><img class="lm-postbox-stamp" src="assets/images/stamps/yudu-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="300" alt="" /><i></i></div></div>
+      <img class="lm-postbox-shell" data-defer-src="assets/images/mailbox-cabinet-v2.webp" loading="lazy" decoding="async" fetchpriority="low" width="720" height="960" alt="" /><noscript><img class="lm-postbox-shell" src="assets/images/mailbox-cabinet-v2.webp" loading="lazy" decoding="async" fetchpriority="low" width="720" height="960" alt="" /></noscript>
+      <div class="lm-postbox-mail-path"><div class="lm-postbox-envelope"><img class="lm-postbox-stamp" data-defer-src="assets/images/stamps/yudu-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="300" alt="" /><noscript><img class="lm-postbox-stamp" src="assets/images/stamps/yudu-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="300" alt="" /></noscript><i></i></div></div>
       <span class="lm-postbox-label">山河邮局<small>留言投递</small></span>
       <span class="lm-postbox-receipt">已投递</span>
     </template>

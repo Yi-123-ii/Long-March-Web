@@ -20,7 +20,7 @@ html { scroll-behavior: smooth; }
   clip-path: inset(0);
 }
 #map-screen::after {
-  background-image: url("atlas/terrain-extension-fast.webp");
+  background-image: image-set(url("atlas/terrain-extension-fast.avif") type("image/avif"), url("atlas/terrain-extension-fast.webp") type("image/webp"));
 }
 #map-screen .atlas-main,
 #map-screen .atlas-window { background: transparent; }

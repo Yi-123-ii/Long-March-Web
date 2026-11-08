@@ -34,7 +34,10 @@
     image.decoding = "async";
     image.loading = "lazy";
     if (!node.closest("dialog")) image.fetchPriority = "low";
-    image.src = art.src;
+    if (!node.closest("dialog") && window.LM_IMAGES) {
+      image.dataset.deferSrc = art.src;
+      window.LM_IMAGES.observe(image);
+    } else image.src = art.src;
     image.onerror = () => { label.classList.remove("lm-sr-only"); image.remove(); };
     node.classList.add("lm-stage-title");
     node.replaceChildren(label, image);
@@ -97,7 +100,11 @@
       illustration.decoding = "async";
       illustration.fetchPriority = "low";
       illustration.setAttribute("aria-hidden", "true");
-      illustration.src = "assets/images/illustrations/" + event.id + "-v1.webp";
+      const illustrationSource = "assets/images/illustrations/" + event.id + "-v1.webp";
+      if (window.LM_IMAGES) {
+        illustration.dataset.deferSrc = illustrationSource;
+        window.LM_IMAGES.observe(illustration);
+      } else illustration.src = illustrationSource;
       art.append(illustration);
       article.append(content, art);
       list.append(article);

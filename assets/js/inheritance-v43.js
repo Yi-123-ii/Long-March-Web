@@ -22,9 +22,10 @@
     root.querySelectorAll(".doc-media img").forEach(image => {
       const showFallback = () => {
         image.hidden = true;
-        image.nextElementSibling.hidden = false;
+        image.parentElement.querySelector('.doc-media__unavailable').hidden = false;
       };
-      if (image.complete && !image.naturalWidth) showFallback();
+      if (image.dataset.deferSrc) image.addEventListener("error", showFallback, { once: true });
+      else if (image.complete && !image.naturalWidth) showFallback();
       else image.addEventListener("error", showFallback, { once: true });
     });
   }

@@ -29,7 +29,7 @@
   background: linear-gradient(180deg, var(--lm-bg), rgb(238 241 237 / 88%) 15%, rgb(238 241 237 / 40%) 52%, transparent);
 }
 .lm-hero-art {
-  --hero-image: url("../images/hero-chronicle-fast.webp");
+  --hero-image: image-set(url("../images/hero-chronicle-fast.avif") type("image/avif"), url("../images/hero-chronicle-fast.webp") type("image/webp"));
   position: absolute;
   inset: 0;
 }
@@ -44,7 +44,7 @@
 }
 @media (max-width: 580px) and (orientation: portrait) {
   .lm-hero-art {
-    --hero-image: url("../images/hero-chronicle-portrait-fast.webp");
+    --hero-image: image-set(url("../images/hero-chronicle-portrait-fast.avif") type("image/avif"), url("../images/hero-chronicle-portrait-fast.webp") type("image/webp"));
   }
 }
 .lm-hero-art::after {
