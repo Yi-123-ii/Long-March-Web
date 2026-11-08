@@ -11,7 +11,7 @@
 <noscript><link rel="stylesheet" href="assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
 
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
-    <link rel="stylesheet" href="assets/css/post-office.css?v=20261108-local-letter" />
+    <link rel="stylesheet" href="assets/css/post-office.css?v=20261108-bulk-delete" />
     <link rel="stylesheet" href="assets/css/postbox.css?v=20261107-papers-smooth-delivery" />
     <link rel="stylesheet" href="assets/css/courier.css?v=20261107-letter-handover" />
     <link rel="stylesheet" href="assets/css/stationery.css?v=20261107-paper-display" />
@@ -22,7 +22,7 @@
     <script defer src="assets/js/letter-backup.js?v=20261105-site-copy"></script>
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261108-writing-return"></script>
-    <script defer src="assets/js/post-office.js?v=20261108-writing-return"></script>
+    <script defer src="assets/js/post-office.js?v=20261108-bulk-delete"></script>
     <script defer src="modules/c/assets/journey-return.js?v=053"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-post-return" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />
@@ -170,12 +170,21 @@
             <p>查看、备份或导入你的留言</p>
           </div>
           <div class="lm-backup-actions">
+            <button id="manage-letters" class="lm-link" hidden>批量删除</button>
             <button id="export-all" class="lm-link" hidden>备份留言 ↓</button>
             <button id="import-letters" class="lm-link">导入留言 ↑</button>
             <input id="import-file" type="file" accept=".json,.txt,application/json,text/plain" hidden />
           </div>
         </div>
         <p id="saved-warning" class="lm-form-error" role="status"></p>
+        <div id="bulk-letter-tools" class="lm-bulk-tools" role="group" aria-label="批量管理留言" hidden>
+          <label><input id="select-all-letters" type="checkbox" />全选</label>
+          <span id="bulk-selection-count" role="status">已选择 0 封留言</span>
+          <div class="lm-bulk-actions">
+            <button id="cancel-letter-selection" class="lm-link" type="button">取消选择</button>
+            <button id="delete-selected-letters" class="lm-button lm-button-danger" type="button" disabled>删除所选</button>
+          </div>
+        </div>
         <div id="saved-list" class="lm-saved-list"></div>
         <div id="empty-letters" class="lm-empty">
           <img class="lm-empty-courier" src="assets/images/couriers/city-v1.webp" loading="lazy" decoding="async" fetchpriority="low" width="240" height="320" alt="" />
@@ -303,7 +312,7 @@
       <div class="lm-dialog-body">
         <p class="lm-eyebrow">删除留言</p>
         <h2 id="delete-title">确定删除这段留言？</h2>
-        <p>删除后无法从本页恢复，如需留存请先保存为文本</p>
+        <p id="delete-description">删除后无法从本页恢复，如需留存请先保存为文本</p>
         <p id="delete-error" class="lm-form-error" role="alert"></p>
         <div class="lm-confirm-actions">
           <button data-close class="lm-button lm-button-light" autofocus>

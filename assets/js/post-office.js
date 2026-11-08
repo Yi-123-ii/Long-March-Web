@@ -21,6 +21,8 @@
     "来信已妥善收录于山河邮局，感谢你留下这份心意",
   ];
   const getMessages = () => LM_STORE.readMessages();
+  let bulkMode = false, pendingDelete = null;
+  const bulkSelected = new Set();
   const knownEvent = (id) => window.LM_EVENTS.find((e) => e.id === id);
   let messages = getMessages(),
     eventId = null,
@@ -303,6 +305,10 @@
     if (draftTimer) saveDraft();
   });
   function switchTab(index) {
+    if (index === 0 && bulkMode) {
+      bulkMode = false;
+      bulkSelected.clear();
+    }
     tabs.forEach((tab, i) => {
       tab.setAttribute("aria-selected", String(i === index));
       tab.tabIndex = i === index ? 0 : -1;
@@ -341,14 +347,18 @@
   });
   function renderMessages() {
     messages = getMessages().sort((a, b) => b.createdAt - a.createdAt);
+    const available = new Set(messages.map(message => message.id));
+    for (const id of bulkSelected) if (!available.has(id)) bulkSelected.delete(id);
+    if (!messages.length) bulkMode = false;
     $("#saved-count").textContent = messages.length;
     $("#empty-letters").hidden = messages.length > 0;
     $("#export-all").hidden = messages.length === 0;
+    syncBulkControls();
     const list = $("#saved-list");
     list.replaceChildren();
     messages.forEach((message) => {
-      const button = text("button", "lm-letter-preview", "");
-      button.type = "button";
+      const button = text(bulkMode ? "label" : "button", "lm-letter-preview" + (bulkMode ? " lm-letter-preview--select" : ""), "");
+      if (!bulkMode) button.type = "button";
       button.setAttribute(
         "aria-label",
         "查看" +
@@ -376,15 +386,61 @@
       }
       const excerpt = text("p", "lm-preview-body", message.body);
       const bottom = text("span", "lm-preview-bottom", "");
+      const action = text("span", "", bulkMode ? (bulkSelected.has(message.id) ? "已选择" : "选择留言") : "展开留言 ↗");
       bottom.append(
         text("span", "", message.nickname || "一位无名来信人"),
-        text("span", "", "展开留言 ↗"),
+        action,
       );
       button.append(top, excerpt, bottom);
-      button.addEventListener("click", () => openLetter(message.id));
+      if (bulkMode) {
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "lm-letter-select";
+        checkbox.value = message.id;
+        checkbox.checked = bulkSelected.has(message.id);
+        checkbox.setAttribute("aria-label", "选择" + button.getAttribute("aria-label").slice(2));
+        button.removeAttribute("aria-label");
+        checkbox.addEventListener("change", () => {
+          if (checkbox.checked) bulkSelected.add(message.id);
+          else bulkSelected.delete(message.id);
+          action.textContent = checkbox.checked ? "已选择" : "选择留言";
+          syncBulkControls();
+        });
+        button.prepend(checkbox);
+      } else button.addEventListener("click", () => openLetter(message.id));
       list.append(button);
     });
   }
+  function syncBulkControls() {
+    $("#manage-letters").hidden = bulkMode || messages.length === 0;
+    $("#bulk-letter-tools").hidden = !bulkMode;
+    $("#bulk-selection-count").textContent = "已选择 " + bulkSelected.size + " 封留言";
+    $("#select-all-letters").checked = messages.length > 0 && bulkSelected.size === messages.length;
+    $("#select-all-letters").indeterminate = bulkSelected.size > 0 && bulkSelected.size < messages.length;
+    $("#delete-selected-letters").disabled = bulkSelected.size === 0;
+  }
+  $("#manage-letters").addEventListener("click", () => {
+    bulkMode = true;
+    bulkSelected.clear();
+    ++letterOpenSequence;
+    $("#saved-warning").textContent = "";
+    renderMessages();
+    $("#select-all-letters").focus({ preventScroll: true });
+  });
+  $("#cancel-letter-selection").addEventListener("click", () => {
+    bulkMode = false;
+    bulkSelected.clear();
+    renderMessages();
+    $("#manage-letters").focus({ preventScroll: true });
+  });
+  $("#select-all-letters").addEventListener("change", event => {
+    bulkSelected.clear();
+    if (event.target.checked) messages.forEach(message => bulkSelected.add(message.id));
+    renderMessages();
+  });
+  $("#delete-selected-letters").addEventListener("click", () => {
+    if (bulkMode && bulkSelected.size) confirmDeletion([...bulkSelected], true);
+  });
   function finishDelivery() {
     clearTimeout(deliveryTimer);
     stopPacking();
@@ -675,7 +731,7 @@
     const sequence = ++letterOpenSequence;
     const paper = paperById(message.paperId);
     const source = paper ? await fullPaperTexture(paper.id) : null;
-    if (sequence !== letterOpenSequence || panels[1].hidden) return;
+    if (sequence !== letterOpenSequence || panels[1].hidden || bulkMode) return;
     if (paper && !source) {
       $("#saved-warning").textContent = "清晰信纸暂未载入，请再试一次";
       return;
@@ -696,22 +752,37 @@
         "读过「" + event.title + "」之后的留言";
     letterDialog.showModal();
   }
-  $("#delete-letter").addEventListener("click", () => {
+  function confirmDeletion(ids, bulk) {
+    pendingDelete = { ids: new Set(ids), bulk };
+    $("#delete-title").textContent = bulk ? "确定删除所选的 " + ids.length + " 封留言？" : "确定删除这段留言？";
+    $("#delete-description").textContent = bulk
+      ? "删除后无法从本页恢复，如需留存请先取消并备份留言"
+      : "删除后无法从本页恢复，如需留存请先保存为文本";
     $("#delete-error").textContent = "";
     deleteDialog.showModal();
+  }
+  deleteDialog.addEventListener("close", () => { pendingDelete = null; });
+  $("#delete-letter").addEventListener("click", () => {
+    if (selectedId) confirmDeletion([selectedId], false);
   });
   $("#confirm-delete").addEventListener("click", () => {
-    const next = getMessages().filter((m) => m.id !== selectedId);
+    if (!pendingDelete) return;
+    const deletion = pendingDelete;
+    // Filter the latest records so other tabs' newly saved letters are retained.
+    const latest = getMessages();
+    const next = latest.filter(message => !deletion.ids.has(message.id));
     if (!LM_STORE.write("messages", next)) {
       $("#delete-error").textContent = "删除操作未能保存，请稍后重试";
       return;
     }
     deleteDialog.close();
-    letterDialog.close();
+    if (letterDialog.open) letterDialog.close();
     selectedId = null;
+    bulkMode = false;
+    bulkSelected.clear();
     renderMessages();
-    $("#saved-warning").textContent = "这封留言已删除";
-    tabs[1].focus();
+    $("#saved-warning").textContent = deletion.bulk ? "已删除 " + (latest.length - next.length) + " 封留言" : "这封留言已删除";
+    (deletion.bulk && messages.length ? $("#manage-letters") : tabs[1]).focus({ preventScroll: true });
   });
   function asText(message) {
     const event = knownEvent(message.eventId);
