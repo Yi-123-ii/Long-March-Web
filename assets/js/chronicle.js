@@ -171,13 +171,19 @@
     history.replaceState(history.state, "", "#event=" + event.id);
     dialog.scrollTop = 0;
   }
-  function openEvent(id) {
+  function openEvent(id, fromHistory = false) {
     const index = events.findIndex((e) => e.id === id);
     if (index < 0) return;
     if (!dialog.open) {
       focusId = id;
       focusWasReadButton =
         document.activeElement?.classList.contains("lm-event-read");
+      if (!fromHistory) {
+        const listState = { ...history.state, shanheChronicleDetail: false,
+          shanheChronicleList: { year, query: search.value, scroll: window.scrollY } };
+        history.replaceState(listState, "", location.pathname + location.search + "#chronicle");
+        history.pushState({ ...listState, shanheChronicleDetail: true }, "", "#event=" + id);
+      }
     }
     showDetail(index);
     if (!dialog.open) {
@@ -187,11 +193,9 @@
     }
   }
   dialog.addEventListener("close", () => {
-    history.replaceState(
-      null,
-      "",
-      location.pathname + location.search + "#chronicle",
-    );
+    // Consume the detail entry on every exit, including Escape and the close button.
+    // Browser Back has already reached the list entry and must not go back again.
+    if (history.state?.shanheChronicleDetail) history.back();
     render();
     document
       .querySelector(
@@ -277,7 +281,7 @@
   render();
   const deepLink = location.hash.match(/^#event=([a-z]+)$/);
   if (deepLink) {
-    openEvent(deepLink[1]);
+    openEvent(deepLink[1], Boolean(history.state?.shanheChronicleDetail));
     if (resumeReading && deepLink[1] === resumeReading.eventId) {
       let interrupted = false;
       const stopRestoring = () => { interrupted = true; };
@@ -295,8 +299,25 @@
       ]).then(() => requestAnimationFrame(restore));
     }
   }
-  window.addEventListener("hashchange", () => {
+  function syncReadingHistory() {
     const match = location.hash.match(/^#event=([a-z]+)$/);
-    if (match) openEvent(match[1]);
-  });
+    if (match) {
+      if (!dialog.open || events[current].id !== match[1]) openEvent(match[1], true);
+      return;
+    }
+    const saved = history.state?.shanheChronicleList;
+    if (saved) {
+      year = saved.year;
+      search.value = saved.query;
+      filters.forEach(button => {
+        const active = button.dataset.filter === year;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+    if (dialog.open) dialog.close();
+    if (saved) requestAnimationFrame(() => window.scrollTo({ top: saved.scroll, behavior: "instant" }));
+  }
+  window.addEventListener("popstate", syncReadingHistory);
+  window.addEventListener("hashchange", syncReadingHistory);
 })();
