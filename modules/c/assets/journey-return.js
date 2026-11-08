@@ -32,12 +32,12 @@
  function valid(){try{return sessionStorage.getItem(VISIT_KEY)===token;}catch{return false;}}
  function clear(){try{sessionStorage.removeItem(VISIT_KEY);sessionStorage.removeItem(KEY);}catch{}}
  const view=back.searchParams.get('resume'),style=document.createElement('link');
- style.rel='stylesheet';style.href=new URL('journey-return.css',script).href;document.head.append(style);
- const dock=document.createElement('nav'),note=document.createElement('span'),link=document.createElement('a');
- dock.className='c-game-return';dock.setAttribute('aria-label','返回正在进行的游戏');note.textContent='阅读或写信之后，还可以回来继续这一程';
- link.href=back.href;link.textContent=view==='map'?'返回游戏地图':'返回游戏，继续这一站';dock.append(note,link);document.body.append(dock);document.body.classList.add('c-game-visitor');
+ style.rel='stylesheet';style.href=new URL('journey-return.css?v=053',script).href;document.head.append(style);
+ const dock=document.createElement('nav'),note=document.createElement('span'),link=document.createElement('a'),close=document.createElement('button');
+ dock.className='c-game-return';dock.setAttribute('aria-label','返回正在进行的游戏');note.textContent='继续浏览当前板块';
+ link.href=back.href;link.textContent=view==='map'?'返回游戏地图':'返回游戏 ↗';close.type='button';close.textContent='×';close.setAttribute('aria-label','关闭返回游戏提示');close.onclick=()=>{try{sessionStorage.removeItem(VISIT_KEY);}catch{}dock.remove();document.body.classList.remove('c-game-visitor');};dock.append(note,link,close);document.body.append(dock);document.body.classList.add('c-game-visitor');
  const articleBar=document.querySelector('#event-dialog .lm-article-bar');
- if(articleBar){const inner=link.cloneNode(true);inner.className='c-game-return-dialog';articleBar.insertBefore(inner,articleBar.querySelector('[data-close]'));}
+ if(articleBar){const article=articleBar.closest('dialog');const placeDock=()=>{(article.open?article:document.body).append(dock);};new MutationObserver(placeDock).observe(article,{attributes:true,attributeFilter:['open']});placeDock();}
  function carry(a){
   if(!valid())return;
   const url=new URL(a.href,location.href);if(url.origin!==back.origin)return;
