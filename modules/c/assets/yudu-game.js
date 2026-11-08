@@ -13,10 +13,11 @@ const typographyReady=document.fonts?Promise.allSettled(['400 18px "Shanhe Readi
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 try{state=C.restore(D,localStorage.getItem(C.SAVE_KEY));}catch{storageNotice=true;}
 const resumeView=new URL(location.href).searchParams.get('resume');
+let returnMapView=null;
 if(['map','story'].includes(resumeView)){
  try{
   const snapshot=window.JourneyReturn.restore(D,C,state,sessionStorage.getItem(window.JourneyReturn.KEY));
-  if(snapshot?.view===resumeView)state=snapshot.state;
+  if(snapshot?.view===resumeView){state=snapshot.state;returnMapView=snapshot.mapView;}
   sessionStorage.removeItem(window.JourneyReturn.KEY);
   sessionStorage.removeItem(window.JourneyReturn.VISIT_KEY);
  }catch{/* The existing local save remains the fallback when session storage is unavailable. */}
@@ -349,7 +350,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&active){mo
 window.addEventListener('pagehide',()=>{if(active){soundscape.pause();video.pause();playerVoice.pause();cancelCues();save();}});
 window.addEventListener('journey:leaving-site',()=>{
  save();
- try{sessionStorage.setItem(window.JourneyReturn.KEY,JSON.stringify({version:1,view:active?'story':'map',state}));}catch{}
+ try{sessionStorage.setItem(window.JourneyReturn.KEY,JSON.stringify({version:1,view:active?'story':'map',state,mapView:active?null:window.AtlasMap.captureView()}));}catch{}
  if(active)setPaused(true);
 });
 window.addEventListener('journey:chapter',e=>enterChapter(e.detail));
@@ -370,5 +371,9 @@ setInterval(()=>{
  if(state.settings.auto&&!n.choices&&!n.end&&!n.checkpoint&&voiceDone&&movieDone&&lineDone&&elapsed>=minimum)go();
 },35);
 volumes();mapStatus();
+if(resumeView==='map'){
+ window.AtlasMap.restoreView(returnMapView);
+ $('journey-map').scrollIntoView({block:'start',behavior:'instant'});
+}
 if(resumeView==='story')enter(false,false);
 })();

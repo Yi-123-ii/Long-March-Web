@@ -20,12 +20,13 @@
   const url=new URL(a.href,document.baseURI);if(url.origin!==base.origin||![new URL('chronicle.html',base).pathname,new URL('post-office.html',base).pathname].includes(url.pathname))return;
   const ending=document.getElementById('ending'),story=document.getElementById('story-screen');
   const eligible=['ending-history','ending-post'].includes(a.id)&&ending&&!ending.hidden&&story&&!story.hidden;
-  if(!eligible){a.href=R.ordinary(url.href).href;try{sessionStorage.removeItem(R.VISIT_KEY);sessionStorage.removeItem(R.KEY);}catch{}return;}
+  const mapVisit=a.id==='chapter-facts'&&story&&story.hidden;
+  if(!eligible&&!mapVisit){a.href=R.ordinary(url.href).href;try{sessionStorage.removeItem(R.VISIT_KEY);sessionStorage.removeItem(R.KEY);}catch{}return;}
   const token=root.crypto?.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2);
   root.dispatchEvent(new CustomEvent('journey:leaving-site'));
-  // A tab-local marker belongs to this deliberate ending-page visit, never to the save.
+  // A tab-local marker belongs only to this deliberate map/ending visit, never to the save.
   try{sessionStorage.setItem(R.VISIT_KEY,token);}catch{a.href=R.ordinary(url.href).href;return;}
-  a.href=R.outbound(url.href,'story',token).href;
+  a.href=R.outbound(url.href,mapVisit?'map':'story',token).href;
  },true);
  update();
  const initialEnding=document.getElementById('ending');

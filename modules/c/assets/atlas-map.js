@@ -98,7 +98,14 @@
   frame=requestAnimationFrame(tick);return promise;
  }
  $('skip-travel').onclick=()=>journey?.finish();
- window.AtlasMap={selected:()=>chosen,travel,get travelling(){return !!journey;},skipTravel(){journey?.finish();},update(state,{keepCamera=false}={}){
+ window.AtlasMap={selected:()=>chosen,
+ captureView:()=>({selected:chosen,zoom,overview,left:viewport.scrollLeft,top:viewport.scrollTop}),
+ restoreView(view){
+  if(!view||!byId(view.selected))return;
+  if(Number.isFinite(view.zoom))zoom=Math.max(.8,Math.min(2.8,view.zoom));
+  overview=view.overview===true;select(view.selected);position();
+  viewport.scrollTo({left:Number.isFinite(view.left)?view.left:0,top:Number.isFinite(view.top)?view.top:0,behavior:'instant'});
+ },travel,get travelling(){return !!journey;},skipTravel(){journey?.finish();},update(state,{keepCamera=false}={}){
   currentState=state;const ch=C.chapter(D,state),n=C.current(D,state),index=D.chapters.findIndex(c=>c.id===ch.id);
   for(const b of pins.querySelectorAll('button')){const c=byId(b.dataset.chapter),allowed=C.canOpenChapter(D,state,c.id),mark=state.chapterProgress?.[c.id];b.disabled=!allowed;b.dataset.status=mark?.node===c.end?'completed':mark||state.path.includes(c.start)?'visited':allowed?'available':'locked';b.title=allowed?c.name+'：'+c.title:'先走过前一段故事';}
   $('atlas-progress').textContent=n.end?'这一程，已走到会师的日子':'脚步停在'+ch.location;

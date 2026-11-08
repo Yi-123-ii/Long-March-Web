@@ -2,6 +2,12 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const R=require('../assets/journey-return.js'),C=require('../assets/yudu-core.js'),D=require('../assets/yudu-data.js');
 const asset='https://example.test/Long-March-Web/modules/c/assets/journey-return.js?v=017';
 
+test('map return keeps the selected map card and camera separately from story progress',()=>{
+ const original=C.create(D),mapView={selected:'north',zoom:1.25,overview:false,left:420,top:85};
+ const back=R.restore(D,C,original,JSON.stringify({version:1,view:'map',state:original,mapView}));
+ assert.equal(back.view,'map');assert.deepEqual(back.mapView,mapView);assert.equal(back.state.node,original.node);
+});
+
 test('return links are restricted to the same site game entry, including repository subpaths',()=>{
  const url=R.destination('https://example.test/Long-March-Web/chronicle.html?from=journey&view=story&journeyReturn=visit-1&returnTo=https://evil.test#event=jiajin',asset,'visit-1');
  assert.equal(url.href,'https://example.test/Long-March-Web/modules/c/journey.html?resume=story');
