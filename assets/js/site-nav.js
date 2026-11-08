@@ -1,6 +1,6 @@
 (() => {
   const postVisitParam = 'postVisit';
-  const pendingPostVisit = 'shanhe:pending-post-visit';
+  const pendingPostVisit = 'shanhe:pending-post-writing-visit';
   const sourceLabels = { chronicle: '长征纪事', inheritance: '精神传承' };
   const isSameTabClick = event => event.button === 0 &&
     !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey &&
@@ -30,7 +30,7 @@
   function setupPostReturn(prompt) {
     const url = new URL(location.href);
     const token = url.searchParams.get(postVisitParam);
-    let visit = history.state?.shanhePostReturn;
+    let visit = history.state?.shanhePostWritingReturn;
     if (token) {
       url.searchParams.delete(postVisitParam);
       try {
@@ -44,7 +44,7 @@
           }
         }
       } catch { /* The ordinary post office remains available. */ }
-      history.replaceState({ ...history.state, shanhePostReturn: visit }, '', url);
+      history.replaceState({ ...history.state, shanhePostWritingReturn: visit }, '', url);
     }
     if (!visit) return false;
 
@@ -59,7 +59,7 @@
     link.href = visit.href;
     link.firstChild.textContent = label + ' ';
     const saveEntry = () => {
-      history.replaceState({ ...history.state, shanhePostReturn: visit }, '');
+      history.replaceState({ ...history.state, shanhePostWritingReturn: visit }, '');
     };
     const show = () => {
       try {
@@ -72,7 +72,7 @@
       event.preventDefault();
       if (returning) return;
       returning = true;
-      history.go(-(history.state?.shanhePostReturn || visit).distance);
+      history.go(-(history.state?.shanhePostWritingReturn || visit).distance);
     };
     const dismiss = () => {
       const hadFocus = prompt.contains(document.activeElement);
@@ -87,20 +87,17 @@
         ?.focus({ preventScroll: true });
     };
     link.addEventListener('click', returnToSource);
-    document.querySelectorAll('[data-reading-return]').forEach(readingLink => {
-      readingLink.addEventListener('click', returnToSource);
-    });
     closeButton.addEventListener('click', dismiss);
     prompt.addEventListener('keydown', event => {
       if (event.key === 'Escape') dismiss();
     });
     const syncEntry = () => {
-      visit = history.state?.shanhePostReturn || visit;
+      visit = history.state?.shanhePostWritingReturn || visit;
       show();
     };
     window.addEventListener('popstate', syncEntry);
     window.addEventListener('hashchange', () => {
-      const entry = history.state?.shanhePostReturn;
+      const entry = history.state?.shanhePostWritingReturn;
       // Native fragment links create entries within the same visit.
       visit = entry || { ...visit, distance: visit.distance + 1 };
       if (!entry) saveEntry();
