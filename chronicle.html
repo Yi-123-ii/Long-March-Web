@@ -22,6 +22,17 @@
     <script defer src="assets/js/site.js"></script>
     <script defer src="assets/js/site-nav.js?v=20261107-post-return"></script>
     <script defer src="assets/js/chronicle.js?v=20261108-reading-history"></script>
+    <script>
+      if (new URLSearchParams(location.search).get("directory") === "preview") {
+        const style = document.createElement("link");
+        style.rel = "stylesheet";
+        style.href = "assets/css/chronicle-directory-preview.css?v=20261108";
+        document.head.append(style);
+        const script = document.createElement("script");
+        script.src = "assets/js/chronicle-directory-preview.js?v=20261108";
+        document.addEventListener("DOMContentLoaded", () => document.head.append(script), { once: true });
+      }
+    </script>
     <script defer src="modules/c/assets/journey-return.js?v=20261105-site-copy"></script>
     <link rel="stylesheet" href="assets/css/site-shell.css?v=20261107-home-return" />
     <link rel="stylesheet" href="assets/css/site-footer.css?v=20261105-background" />

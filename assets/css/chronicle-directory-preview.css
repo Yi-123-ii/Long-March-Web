@@ -1,0 +1,28 @@
+.has-chronicle-directory .lm-history-layout { grid-template-columns: 158px minmax(0, 1fr); gap: 36px; }
+.has-chronicle-directory .lm-history-aside { padding-top: 8px; top: 24px; }
+.has-chronicle-directory .lm-aside-date { display: block; font-family: var(--lm-number); font-size: 20px; font-weight: 400; letter-spacing: 1px; line-height: 1.5; white-space: nowrap; }
+.lm-event-directory { margin-top: 26px; }
+.lm-event-directory h3 { color: var(--lm-muted); font-size: 12px; font-weight: 400; letter-spacing: 2px; margin: 0 0 12px 13px; }
+.lm-event-directory ol { margin: 0; padding: 0; list-style: none; border-left: 1px solid var(--lm-line); }
+.lm-event-directory a { display: block; position: relative; margin-left: -1px; padding: 8px 0 9px 13px; border-left: 2px solid transparent; color: var(--lm-muted); line-height: 1.35; transition: color 160ms; }
+.lm-event-directory a small { display: block; margin-bottom: 4px; font-family: var(--lm-number); font-size: 11px; letter-spacing: .5px; }
+.lm-event-directory a span { font-family: var(--lm-reading); font-size: 14px; }
+.lm-event-directory a:hover, .lm-event-directory a[aria-current] { color: var(--lm-red); border-left-color: currentColor; }
+.has-chronicle-directory .lm-read-count { margin: 22px 0 0; padding-top: 15px; width: 100%; }
+.has-chronicle-directory .lm-read-count > span { font-size: 30px; }
+.has-chronicle-directory .lm-history-aside > p { display: none; }
+.has-chronicle-directory .lm-event { scroll-margin-top: 24px; }
+@media (max-width: 760px) {
+  .has-chronicle-directory .lm-history-layout { display: block; }
+  .has-chronicle-directory .lm-history-aside { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-top: 0; }
+  .has-chronicle-directory .lm-aside-date::after { content: none; }
+  .has-chronicle-directory .lm-read-count { width: auto; margin: 0; padding: 0; }
+  .lm-event-directory { width: 100%; min-width: 0; order: 3; margin: 0; }
+  .lm-event-directory h3 { margin-left: 0; }
+  .lm-event-directory ol { display: flex; overflow-x: auto; border: 0; padding-bottom: 8px; gap: 8px; }
+  .lm-event-directory li { flex: 0 0 auto; }
+  .lm-event-directory a { padding: 8px 10px; margin: 0; border: 1px solid var(--lm-line); }
+  .lm-event-directory a small { font-size: 10px; }
+  .lm-event-directory a span { font-size: 13px; }
+  .lm-event-directory a[aria-current] { border-color: currentColor; }
+}
