@@ -20,7 +20,7 @@
    if(state.node!==snapshot.state.node)return null;
    const migrated=state.storyRevision===data.storyRevision&&snapshot.state.storyRevision>=7&&snapshot.state.storyRevision<data.storyRevision;
    if(!migrated&&state.path.length!==snapshot.state.path?.length)return null;
-   return {state,view:snapshot.view};
+   return {state,view:snapshot.view,mapView:snapshot.view==='map'?snapshot.mapView:null};
   }catch{return null;}
  }
  const api={KEY,VISIT_KEY,ordinary,outbound,destination,restore};
@@ -32,12 +32,14 @@
  function valid(){try{return sessionStorage.getItem(VISIT_KEY)===token;}catch{return false;}}
  function clear(){try{sessionStorage.removeItem(VISIT_KEY);sessionStorage.removeItem(KEY);}catch{}}
  const view=back.searchParams.get('resume'),style=document.createElement('link');
+ // Article close/Escape belong to the chronicle; only the explicit return link leaves it.
  style.rel='stylesheet';style.href=new URL('journey-return.css?v=053',script).href;document.head.append(style);
+ let dockDismissed=false;
  const dock=document.createElement('nav'),note=document.createElement('span'),link=document.createElement('a'),close=document.createElement('button');
- dock.className='c-game-return';dock.setAttribute('aria-label','返回正在进行的游戏');note.textContent='继续浏览当前板块';
- link.href=back.href;link.textContent=view==='map'?'返回游戏地图':'返回游戏 ↗';close.type='button';close.textContent='×';close.setAttribute('aria-label','关闭返回游戏提示');close.onclick=()=>{try{sessionStorage.removeItem(VISIT_KEY);}catch{}dock.remove();document.body.classList.remove('c-game-visitor');};dock.append(note,link,close);document.body.append(dock);document.body.classList.add('c-game-visitor');
+ dock.className='c-game-return';dock.setAttribute('aria-label','返回正在进行的游戏');note.textContent=new URL(location.href).pathname.endsWith('/chronicle.html')?'继续浏览长征纪事板块':'继续浏览山河邮局板块';
+ link.href=back.href;link.textContent=view==='map'?'返回游戏地图':'返回游戏 ↗';close.type='button';close.textContent='×';close.setAttribute('aria-label','关闭返回游戏提示');close.onclick=()=>{dockDismissed=true;dock.remove();document.body.classList.remove('c-game-visitor');};dock.append(note,link,close);document.body.append(dock);document.body.classList.add('c-game-visitor');
  const articleBar=document.querySelector('#event-dialog .lm-article-bar');
- if(articleBar){const article=articleBar.closest('dialog');const placeDock=()=>{(article.open?article:document.body).append(dock);};new MutationObserver(placeDock).observe(article,{attributes:true,attributeFilter:['open']});placeDock();}
+ if(articleBar){const article=articleBar.closest('dialog');const placeDock=()=>{if(!dockDismissed&&valid())(article.open?article:document.body).append(dock);};new MutationObserver(placeDock).observe(article,{attributes:true,attributeFilter:['open']});placeDock();}
  function carry(a){
   if(!valid())return;
   const url=new URL(a.href,location.href);if(url.origin!==back.origin)return;
