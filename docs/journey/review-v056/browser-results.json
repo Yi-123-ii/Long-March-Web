@@ -1,0 +1,109 @@
+{
+  "ui": [
+    {
+      "name": "grass-dawn-route new scene decoded",
+      "ok": true
+    },
+    {
+      "name": "grass-dawn-end new scene decoded",
+      "ok": true
+    },
+    {
+      "name": "wuqi-read-wait new scene decoded",
+      "ok": true
+    },
+    {
+      "name": "Lu voice uses normalized recording",
+      "ok": true
+    },
+    {
+      "name": "wuqi-hear-newcomer new scene decoded",
+      "ok": true
+    },
+    {
+      "name": "wuqi-later-route new scene decoded",
+      "ok": true
+    },
+    {
+      "name": "no floating document quote",
+      "ok": true
+    },
+    {
+      "name": "notes dialog opens",
+      "ok": true
+    },
+    {
+      "name": "notes exact",
+      "ok": true
+    },
+    {
+      "name": "dialog retains soldier cursor",
+      "ok": true
+    },
+    {
+      "name": "notes dialog closes",
+      "ok": true
+    },
+    {
+      "name": "writing ends directly at courtyard",
+      "ok": true
+    },
+    {
+      "name": "back skips empty repeated anchor",
+      "ok": true
+    },
+    {
+      "name": "notes dialog fits mobile",
+      "ok": true
+    },
+    {
+      "name": "escape closes paper",
+      "ok": true
+    },
+    {
+      "name": "station ending restore does not show old story",
+      "ok": true
+    },
+    {
+      "name": "no JavaScript errors",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "films": [
+    {
+      "id": "zy-thread",
+      "normalized": true,
+      "loaded": true,
+      "width": 1280,
+      "height": 720,
+      "duration": 8.104,
+      "ambienceMuted": true,
+      "speaker": "陈禾"
+    },
+    {
+      "id": "wuqi-write-home",
+      "normalized": true,
+      "loaded": true,
+      "width": 1280,
+      "height": 720,
+      "duration": 6.1,
+      "ambienceMuted": true,
+      "speaker": "陈禾"
+    },
+    {
+      "id": "grass-b-home-street",
+      "normalized": true,
+      "loaded": true,
+      "width": 960,
+      "height": 540,
+      "duration": 15.2,
+      "ambienceMuted": true,
+      "speaker": "战士"
+    },
+    {
+      "id": "interrupted-caption",
+      "text": "街口有家卖吃的……"
+    }
+  ]
+}

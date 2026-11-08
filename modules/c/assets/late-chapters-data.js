@@ -1496,7 +1496,7 @@
   },
   {
     "id": "grass-b-home-street",
-    "text": "等出去了，到我家坐坐。我家那条街，街口有家卖吃的——",
+    "text": "等出去了，到我家坐坐。我家那条街，街口有家卖吃的……",
     "scene": "grass-rescue-question-v049",
     "speaker": "战士",
     "mode": "dialogue",
@@ -1529,7 +1529,7 @@
         "end": 8.04
       },
       {
-        "text": "街口有家卖吃的——",
+        "text": "街口有家卖吃的……",
         "start": 8.4,
         "end": 10.04
       }
@@ -1759,7 +1759,7 @@
     "id": "grass-dawn-route",
     "speaker": "心声",
     "text": "天亮后，我们挪到营地边上歇脚。陈禾坐在我旁边，脚边的空碗倒扣着。",
-    "scene": "grass-meal",
+    "scene": "grass-rest-v056",
     "next": "grass-dawn-yudu",
     "mode": "thought",
     "routes": [
@@ -2001,7 +2001,7 @@
     "id": "grass-dawn-end",
     "speaker": "心声",
     "mode": "thought",
-    "scene": "grass-meal",
+    "scene": "grass-depart-v056",
     "text": "我擦掉碗沿的草屑，把碗递给正在收拾炊具的同志。陈禾已经背好行装，在前头等我。",
     "choices": [
       {
@@ -2890,7 +2890,7 @@
     "id": "wuqi-write-lusheng",
     "speaker": "心声",
     "text": "最后一行刚写完，陆生便凑近了些。我正要折纸，他伸手按住纸角。",
-    "scene": "chenhe-memory-hold",
+    "scene": "wuqi-reading-v056",
     "next": "wuqi-read-wait",
     "mode": "thought",
     "chapter": "wuqi",
@@ -2919,7 +2919,7 @@
   {
     "id": "wuqi-read-wait",
     "text": "等一下，这行我还没看完。",
-    "scene": "memory-page",
+    "scene": "wuqi-reading-v056",
     "speaker": "陆生",
     "mode": "dialogue",
     "chapter": "wuqi",
@@ -2943,7 +2943,7 @@
   {
     "id": "wuqi-read-turn",
     "text": "",
-    "scene": "memory-page",
+    "scene": "wuqi-reading-v056",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -2959,7 +2959,7 @@
     "id": "wuqi-write-letter",
     "speaker": "心声",
     "text": "梁叔的旧信还裹在干布里，放在桌子另一边。我另起一行，记下江边传来的消息，也写上是谁告诉我们的，免得往后记混。",
-    "scene": "memory-page",
+    "scene": "wuqi-writing-v056",
     "mode": "thought",
     "chapter": "wuqi",
     "choices": [
@@ -2995,13 +2995,13 @@
     "id": "wuqi-writing",
     "speaker": "心声",
     "mode": "thought",
-    "scene": "memory-page",
+    "scene": "wuqi-writing-v056",
     "text": "笔尖已经写钝了，我把铅笔搁到一旁。梁叔的名字下面写着那棵枣树，陈禾还坐在对面，脚边搁着行装。",
     "document": "梁叔。\n在湘江边替我补了三针。\n他家后头有棵枣树。",
     "choices": [
       {
         "id": "write-names",
-        "label": "把写好的纸折起来，收进包里。",
+        "label": "把纸收进包里，和陈禾回到院子里。",
         "next": "wuqi-back-yard"
       }
     ],
@@ -3026,7 +3026,8 @@
         "XN087-01",
         "XN087-02"
       ]
-    }
+    },
+    "documentInScene": true
   },
   {
     "id": "wuqi-back-yard",
@@ -3034,20 +3035,14 @@
     "scene": "chenhe-memory-hold",
     "speaker": "心声",
     "mode": "thought",
-    "choices": [
-      {
-        "id": "back-yard",
-        "label": "收好东西，和陈禾回到院子里。",
-        "next": "wuqi-later-route"
-      }
-    ],
-    "chapter": "wuqi"
+    "chapter": "wuqi",
+    "next": "wuqi-later-route"
   },
   {
     "id": "wuqi-later-route",
     "speaker": "心声",
     "text": "门边的陆生正帮着收碗，摞好的碗碰得轻轻响。我挨着陈禾坐下，门外又来了人，背上的铺盖还没卸。",
-    "scene": "newcomer-later",
+    "scene": "yard-arrive-v056",
     "next": "wuqi-later-help",
     "mode": "thought",
     "routes": [
@@ -3084,7 +3079,7 @@
     "id": "wuqi-later-help",
     "speaker": "心声",
     "text": "新来的战士停在门边，伸手去够滑下来的铺盖绳，另一边的背带却越扯越紧。垂下的绳头正好扫到我手背。",
-    "scene": "newcomer-later",
+    "scene": "yard-arrive-v056",
     "next": "wuqi-help-newcomer",
     "mode": "thought",
     "chapter": "wuqi",
@@ -3113,7 +3108,7 @@
   {
     "id": "wuqi-help-newcomer",
     "text": "",
-    "scene": "newcomer-later",
+    "scene": "yard-arrive-v056",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -3129,7 +3124,7 @@
     "id": "wuqi-later-name",
     "speaker": "心声",
     "text": "新来的战士站在门口，朝院里看了看。我抬手示意他过来。",
-    "scene": "newcomer-later",
+    "scene": "yard-arrive-v056",
     "next": "wuqi-ask-newcomer",
     "mode": "thought",
     "chapter": "wuqi",
@@ -3158,7 +3153,7 @@
   {
     "id": "wuqi-ask-newcomer",
     "text": "",
-    "scene": "newcomer-later",
+    "scene": "yard-arrive-v056",
     "speaker": "心声",
     "mode": "thought",
     "choices": [
@@ -3173,7 +3168,7 @@
   {
     "id": "wuqi-ask-newcomer-spoken-v034",
     "chapter": "wuqi",
-    "scene": "newcomer-later",
+    "scene": "yard-arrive-v056",
     "speaker": "小满",
     "mode": "dialogue",
     "text": "你叫什么？坐这儿吧。",
@@ -3185,7 +3180,7 @@
   {
     "id": "wuqi-hear-newcomer",
     "text": "他报了名字，我跟着念了一遍，往凳子里让了让。他这才把包放下，坐到我旁边。",
-    "scene": "newcomer-later",
+    "scene": "yard-seated-v056",
     "speaker": "旁白",
     "mode": "observation",
     "chapter": "wuqi",
@@ -3216,7 +3211,7 @@
     "id": "wuqi-close",
     "speaker": "心声",
     "mode": "thought",
-    "scene": "chenhe-rest",
+    "scene": "yard-seated-v056",
     "text": "陈禾拍掉帽上的土，重新戴好。陆生把摞好的碗交出去，也在门框边坐下。",
     "choices": [
       {
@@ -3822,7 +3817,7 @@
     "choices": [
       {
         "id": "wrap-old-letter",
-        "label": "把信重新裹好，放进行装内层。",
+        "label": "把信裹好收回行装，和陈禾回到院子里。",
         "next": "wuqi-back-yard"
       }
     ]
@@ -3977,5 +3972,7 @@
   'chenhe-wuqi-sew-pause':'陈禾在桌前停下来，等小满回话'
  });
  alts['wuqi-unpack-v051']='小满在吴起院落低头解开膝上的行囊，针线包仍藏在内层粗布中';
+ Object.assign(images,{"grass-rest-v056":"assets/chapters/review-v056/grass-rest.webp","grass-depart-v056":"assets/chapters/review-v056/grass-depart.webp","wuqi-writing-v056":"assets/chapters/review-v056/wuqi-writing.webp","wuqi-reading-v056":"assets/chapters/review-v056/wuqi-reading.webp","yard-arrive-v056":"assets/chapters/review-v056/yard-arrive.webp","yard-seated-v056":"assets/chapters/review-v056/yard-seated.webp"});
+ Object.assign(alts,{"grass-rest-v056":"清晨营地边，陈禾坐在小满身旁，脚边两只空碗倒扣，湿草上搁着行装","grass-depart-v056":"小满归还空碗，炊事同志收拾碗具，陈禾背好铺盖在前方等候","wuqi-writing-v056":"吴起借住屋内，陈禾坐在桌对面，纸上用铅笔写下梁叔、江边三针和枣树的见闻","wuqi-reading-v056":"陆生坐在桌边按住写过字的纸角阅读，陈禾仍坐在对面","yard-arrive-v056":"吴起院里陈禾坐在左侧长凳，陆生在门边收碗，新战士背着行装来到院门前","yard-seated-v056":"新战士卸下铺盖坐到小满右侧，陈禾坐在对面，陆生在门框边歇脚"});
  const data={nodes,images,alts,chapters};if(typeof module==='object'&&module.exports)module.exports=data;else root.LATE_CHAPTERS=data;
 })(typeof window==='undefined'?globalThis:window);
