@@ -238,6 +238,12 @@ body.legacy-v41 .v44-story-layout .doc-heading > p {
   color: var(--doc-muted);
   font-size: 16px;
 }
+body.legacy-v41 .v44-story-layout .doc-heading > .doc-practices__intro {
+  max-width: none;
+}
+.doc-practices__intro > span {
+  display: inline-block;
+}
 body.legacy-v41 :is(.doc-people__stories, .doc-practices__stories) {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
