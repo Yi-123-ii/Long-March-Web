@@ -111,20 +111,6 @@
     return true;
   }
 
-  const fontSheet = document.querySelector('[data-site-fonts]');
-  if (fontSheet) {
-    const useSiteFonts = () => {
-      fontSheet.href = fontSheet.dataset.siteFonts;
-      window.removeEventListener('load', useSiteFonts);
-      window.removeEventListener('scroll', useSiteFonts);
-    };
-    if (document.readyState === 'complete') useSiteFonts();
-    else {
-      window.addEventListener('load', useSiteFonts, { once: true });
-      window.addEventListener('scroll', useSiteFonts, { once: true, passive: true });
-    }
-  }
-
   const homeReturn = document.querySelector('[data-home-return]');
   const postReturn = document.querySelector('[data-post-return]');
   if (document.querySelector('[data-post-entry]')) registerPostEntries();

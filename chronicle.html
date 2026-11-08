@@ -10,8 +10,12 @@
     <meta name="theme-color" content="#e9eeeb" />
     <title>长征纪事 · 山河印记</title>
     <link rel="icon" href="assets/images/mark.svg" type="image/svg+xml" />
-    <link rel="stylesheet" data-site-fonts="assets/css/fonts.css?v=20261105-opening-perf" />
-<noscript><link rel="stylesheet" href="assets/css/fonts.css?v=20261105-opening-perf" /></noscript>
+
+<!-- first-paint-fonts -->
+<link rel="preload" href="assets/fonts/shanhe-ui-critical-common-5d254210e5.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/shanhe-reading-critical-common-ade03e2366.woff2" as="font" type="font/woff2" crossorigin />
+<!-- /first-paint-fonts -->
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261108-stable-fonts" />
     <link rel="stylesheet" href="assets/css/base.css?v=20261024-stationery" />
     <link rel="stylesheet" href="assets/css/chronicle.css?v=20261107-smooth-preview" />
     <link rel="preload" href="assets/images/hero-chronicle-fast.webp" as="image" fetchpriority="high" media="not all and (max-width: 580px) and (orientation: portrait)" />
@@ -20,7 +24,7 @@
     <script defer src="data/stage-title-art.js?v=20261023-four-fixes"></script>
     <script defer src="assets/js/storage.js?v=20261107-papers-smooth-delivery"></script>
     <script defer src="assets/js/site.js"></script>
-    <script defer src="assets/js/site-nav.js?v=20261108-writing-return"></script>
+    <script defer src="assets/js/site-nav.js?v=20261108-stable-fonts"></script>
     <script defer src="assets/js/chronicle.js?v=20261108-reading-history"></script>
     <script>
       if (new URLSearchParams(location.search).get("directory") === "preview") {

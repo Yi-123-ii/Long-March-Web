@@ -22,6 +22,7 @@ coverage = {}
 for block in re.findall(r"@font-face\s*{([^}]+)}", css):
     family = re.search(r'font-family:\s*"([^"]+)"', block)[1]
     filename = re.search(r'url\("../fonts/([^"]+)"\)', block)[1]
+    assert re.search(r"font-display:\s*optional\s*;", block), "Late font swapping must stay disabled"
     declared = set()
     for start, end in re.findall(r"U\+([0-9A-F]+)(?:-([0-9A-F]+))?", block):
         declared.update(range(int(start, 16), int(end or start, 16) + 1))
@@ -55,4 +56,12 @@ for entry in manifest:
                 assert source["hmtx"][original_name] == font["hmtx"][name], "Glyph advance changed"
                 checked += 1
 assert coverage == expected, "Font routing removed previously supported input characters"
+critical_files = {entry["file"] for entry in manifest if entry.get("purpose") == "first-paint"}
+for page in ["index.html", "chronicle.html", "inheritance.html", "post-office.html", "modules/c/journey.html"]:
+    html = (root / page).read_text(encoding="utf-8")
+    assert "data-site-fonts" not in html, page + " must not defer fonts until window.load"
+    font_links = re.findall(r'<link[^>]+href="[^\"]*fonts\.css[^\"]*"[^>]*>', html)
+    assert len(font_links) == 1 and 'rel="stylesheet"' in font_links[0], page + " must load one early font stylesheet"
+    preloads = re.findall(r'<link[^>]*rel="preload"[^>]*href="([^\"]+\.woff2)"[^>]*>', html)
+    assert preloads and all(Path(url).name in critical_files for url in preloads), page + " has missing or outdated font preloads"
 print(f"Validated {checked} subset glyphs, unchanged outlines and full input coverage.")
