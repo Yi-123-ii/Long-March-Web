@@ -13,7 +13,7 @@
  function upcomingFilm(data,core,state){
   let node=core.current(data,state);
   const chapter=node?.chapter,seen=new Set();
-  for(let i=0;node&&i<4;i++){
+  for(let i=0;node&&i<12;i++){
    if(node.checkpoint||node.end||node.choices?.length>1||seen.has(node.id))return null;
    seen.add(node.id);
    const next=node.choices?.[0]?.next||core.target(data,state,node);

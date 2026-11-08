@@ -1,0 +1,48 @@
+{
+  "version": "053",
+  "posters": {
+    "reach": "assets/review-v053/reach-first.webp",
+    "introduce": "assets/review-v053/introduce-first.webp",
+    "liang-reminder": "assets/review-v053/liang-reminder-first.webp",
+    "liang-home": "assets/review-v053/liang-home-first.webp",
+    "boarding": "assets/review-v053/boarding-first.webp",
+    "xj-sleeve": "assets/review-v053/xj-sleeve-first.webp",
+    "xj-choice": "assets/review-v053/xj-choice-first.webp",
+    "xj-a-name": "assets/review-v053/xj-a-name-first.webp",
+    "xj-a-introduce": "assets/review-v053/xj-a-introduce-first.webp",
+    "xj-b-bag": "assets/review-v053/xj-b-bag-first.webp",
+    "xj-loss": "assets/review-v053/xj-loss-first.webp",
+    "zy-thread": "assets/review-v053/zy-thread-first.webp",
+    "zy-a-lusheng": "assets/review-v053/zy-a-lusheng-first.webp",
+    "zy-b-question": "assets/review-v053/zy-b-question-first.webp",
+    "zy-b-advice": "assets/review-v053/zy-b-advice-first.webp",
+    "zy-b-paper": "assets/review-v053/zy-b-paper-first.webp",
+    "xj-cover-fire-v035": "assets/review-v053/xj-cover-fire-v035-first.webp",
+    "t1-chenhe-route-v036": "assets/review-v053/t1-chenhe-route-v036-first.webp",
+    "snow-hold-pack": "assets/review-v053/snow-hold-pack-first.webp",
+    "snow-pack": "assets/review-v053/snow-pack-first.webp",
+    "snow-concern": "assets/review-v053/snow-concern-first.webp",
+    "snow-shelter": "assets/review-v053/snow-shelter-first.webp",
+    "grass-a-water": "assets/review-v053/grass-a-water-first.webp",
+    "grass-b-ask-names": "assets/review-v053/grass-b-ask-names-first.webp",
+    "grass-b-home-street": "assets/review-v053/grass-b-home-street-first.webp",
+    "grass-b-rest-first": "assets/review-v053/grass-b-rest-first-first.webp",
+    "grass-dawn-call": "assets/review-v053/grass-dawn-call-first.webp",
+    "wuqi-water": "assets/review-v053/wuqi-water-first.webp",
+    "wuqi-sew": "assets/review-v053/wuqi-sew-first.webp",
+    "wuqi-sew-still": "assets/review-v053/wuqi-sew-still-first.webp",
+    "wuqi-write-home": "assets/review-v053/wuqi-write-home-first.webp"
+  },
+  "audio": {
+    "original": "assets/audio/xiaoman-narration-v041/XN060.mp3",
+    "playback": "assets/review-v053/XN060-clean.mp3",
+    "retained_source_range": [
+      0,
+      12.85
+    ],
+    "last_spoken_cue_end": 12.6375,
+    "footer_start_after_silence": 13.1118,
+    "source_sha256": "1f1fc5bbe5c243aa04cc4a9564f3275cb8d5c478d1b8695515a0a0fca299bd7c",
+    "source_retained": true
+  }
+}
