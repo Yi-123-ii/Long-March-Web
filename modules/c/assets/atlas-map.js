@@ -5,7 +5,7 @@
  const R=window.AtlasRoute,points=R.points,xy=R.xy,W=R.width,H=R.height;
  const flag=$('atlas-flag'),trail=$('atlas-travel-route'),travelPanel=$('atlas-travel-panel');
  let journey=null,frame=0;
- let mobile=matchMedia('(max-width:600px)').matches,zoom=mobile?1.8:1,overview=false,chosen='yudu',currentState=null,drag=null,lastChapter='';
+ let mobile=matchMedia('(max-width:600px)').matches,zoom=mobile?1.25:1,overview=false,chosen='yudu',currentState=null,drag=null,lastChapter='';
  const byId=id=>D.chapters.find(c=>c.id===id);
  function select(id){
   if(journey)return;
@@ -48,7 +48,7 @@
  viewport.addEventListener('pointerdown',e=>{if(journey||e.target.closest('button')||e.pointerType!=='mouse')return;drag={x:e.clientX,y:e.clientY,left:viewport.scrollLeft,top:viewport.scrollTop};viewport.setPointerCapture(e.pointerId);});
  viewport.addEventListener('pointermove',e=>{if(!drag)return;viewport.scrollLeft=drag.left-(e.clientX-drag.x);viewport.scrollTop=drag.top-(e.clientY-drag.y);});
  viewport.addEventListener('pointerup',()=>drag=null);viewport.addEventListener('pointercancel',()=>drag=null);
- window.addEventListener('resize',()=>{const nextMobile=matchMedia('(max-width:600px)').matches;if(nextMobile!==mobile){mobile=nextMobile;overview=false;zoom=mobile?1.8:1;position();follow(chosen,'instant');}else position();});
+ window.addEventListener('resize',()=>{const nextMobile=matchMedia('(max-width:600px)').matches;if(nextMobile!==mobile){mobile=nextMobile;overview=false;zoom=mobile?1.25:1;position();follow(chosen,'instant');}else position();});
  function moveFlag(p,center=false){
   flag.setAttribute('transform','translate('+p.join(' ')+')');flag.removeAttribute('hidden');
   if(center)viewport.scrollTo({left:p[0]/W*world.clientWidth-viewport.clientWidth*.5,top:p[1]/H*world.clientHeight-viewport.clientHeight*.52,behavior:'instant'});

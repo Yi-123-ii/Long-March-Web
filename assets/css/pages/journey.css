@@ -950,3 +950,99 @@ body .section-opening .section-opening__copy :is(#journey-heading, #legacy-title
 .scene-document-dialog{background:#efe1c4;color:#463b2d;border-color:#b6a17a;width:min(560px,calc(100vw - 32px))}
 .scene-document-copy{white-space:pre-line;margin:15px 0 8px;padding:20px 5px;border-top:1px solid #9b815e50;font:clamp(18px,2vw,23px)/2.3 var(--serif)}
 @media(max-width:600px){.read-scene-document{font-size:13px;margin-bottom:14px}.scene-document-dialog{padding:22px}.scene-document-copy{font-size:18px;line-height:2.1}}
+
+/* modules/c/assets/atlas-mobile.css */
+/* A continuous paper surface joins the mobile map and station album. */
+.atlas-mobile-heading{display:none}
+@media(max-width:600px){
+ #map-screen .atlas-main{
+  display:flex;flex-direction:column;isolation:isolate;overflow:visible;min-height:100svh;
+  background:#f1dfbd;
+  background-image:radial-gradient(ellipse at 14% 70%,#d3ad7040,transparent 55%),linear-gradient(105deg,#f5e6c9,#eed7af);
+  padding:0 0 max(30px,env(safe-area-inset-bottom));
+ }
+ #map-screen .atlas-main::before{
+  content:"";position:absolute;left:0;right:0;top:-55px;height:56px;
+  background:linear-gradient(105deg,#f5e6c9,#eed7af);
+  -webkit-mask-image:linear-gradient(transparent,#000);mask-image:linear-gradient(transparent,#000);
+  pointer-events:none;
+ }
+ .atlas-mobile-heading{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  order:-1;padding:22px 20px 8px;color:#6a3825;
+ }
+ .atlas-mobile-heading h2{margin:0;font:600 18px/1.5 var(--serif);letter-spacing:2px}
+ .atlas-mobile-heading p{margin:0;font:12px/1.6 var(--serif);color:#806345}
+ #map-screen .atlas-window{
+  order:0;display:flex;align-items:safe center;height:clamp(268px,80vw,360px);
+  min-height:0;max-height:none;scrollbar-width:none;overscroll-behavior:auto;
+  background:transparent;
+  -webkit-mask-image:linear-gradient(transparent,#000 20px,#000 calc(100% - 40px),transparent);
+  mask-image:linear-gradient(transparent,#000 20px,#000 calc(100% - 40px),transparent);
+ }
+ #map-screen .atlas-window::-webkit-scrollbar{display:none}
+ #map-screen .atlas-canvas{align-self:auto;margin:0;overflow:visible}
+ #map-screen .atlas-terrain{
+  -webkit-mask-image:linear-gradient(transparent,#000 24%,#000 88%,transparent);
+  mask-image:linear-gradient(transparent,#000 24%,#000 88%,transparent);
+ }
+ #map-screen .atlas-canvas::after{box-shadow:none}
+ #map-screen .atlas-epilogue-note{font-size:10px;right:2%;top:0}
+ #map-screen .station-label{column-gap:4px;padding:4px 7px 4px 5px}
+ #map-screen .atlas-station .station-label strong{font-size:16px;letter-spacing:0}
+ #map-screen .station-label em{font-size:16px;padding:1px 5px 2px}
+ #map-screen .station-label small{font-size:10px;letter-spacing:.4px}
+ #map-screen .atlas-station:not(.selected) .station-label small{display:none}
+ #map-screen .atlas-station:not(.main-station) .station-label strong{font-size:12px}
+ #map-screen .atlas-controls{
+  position:relative;inset:auto;order:1;align-self:center;display:flex;align-items:center;
+  gap:8px;width:auto;margin:-4px 16px 0;padding:0;z-index:6;
+ }
+ #map-screen .atlas-controls>button,#map-screen .atlas-directory summary{
+  min-width:44px;min-height:44px;padding:8px 12px;font:14px/1.4 var(--serif);
+  background:#f9ebcfe8;border-color:#b8884e77;box-shadow:0 2px 4px #78512b12;
+ }
+ #map-screen .atlas-directory summary{min-width:116px;justify-content:center}
+ #map-screen .atlas-directory summary::after{content:"▾"}
+ #map-screen .atlas-directory[open] summary::after{content:"▴"}
+ #map-screen .atlas-controls #chapter-nav{
+  width:min(340px,calc(100vw - 32px));right:50%;top:calc(100% + 8px);bottom:auto;
+  transform:translateX(50%);max-height:min(42dvh,320px);
+ }
+ #map-screen .atlas-controls #chapter-nav button{min-height:44px}
+ #map-screen .atlas-card{
+  position:relative;inset:auto;order:2;align-self:center;transform:none;
+  grid-template-columns:minmax(92px,.76fr) minmax(0,1.24fr);grid-template-rows:auto auto auto auto auto auto;
+  column-gap:18px;row-gap:7px;width:calc(100% - 32px);min-height:0;
+  margin:24px 16px 0;padding:20px 18px 18px;
+  background:linear-gradient(94deg,#ecd09d,#fae9c7 36%,#c39b65 37%,#f8e7c7 38%,#fff0d0 93%,#e8cba0);
+  border-radius:8px 12px 12px 7px;
+  box-shadow:0 3px 0 #dfbe87,0 5px 0 #a37a49,0 8px 0 #dbc18d,0 13px 18px #68482926;
+ }
+ #map-screen .atlas-photo-wrap{
+  grid-column:1;grid-row:1/5;align-self:center;width:100%;height:156px;
+  min-height:0;max-height:none;aspect-ratio:auto;border:5px solid #fff2d6;
+  transform:rotate(-3deg);box-shadow:0 2px 7px #784e3140;
+ }
+ #map-screen .atlas-photo-wrap img{min-height:0;height:100%;object-fit:cover;object-position:center 35%}
+ #map-screen .atlas-card-copy{display:contents}
+ #map-screen .atlas-card-copy #atlas-chapter{
+  grid-column:2;grid-row:1;margin:0;padding:0 0 6px;font-size:12px;line-height:1.5;
+ }
+ #map-screen .atlas-card-copy h2{grid-column:2;grid-row:2;font-size:22px;line-height:1.45;margin:0;color:#8c291d}
+ #map-screen .atlas-meta{grid-column:2;grid-row:3;display:block;margin:0!important}
+ #map-screen .atlas-meta span{display:block;font-size:11px;line-height:1.8}
+ #map-screen .atlas-card .c-chapter-facts{grid-column:2;grid-row:4;align-self:start;justify-self:start;margin:0;padding:5px 0;font-size:12px;min-height:32px}
+ #map-screen .atlas-card .entry-actions{grid-column:1/-1;grid-row:5;display:flex;flex-direction:column;margin:8px 0 0;gap:4px}
+ #map-screen .atlas-card .primary{font-size:16px;min-height:46px;padding:10px 14px}
+ #map-screen .atlas-card .primary:disabled{font-size:13px}
+ #map-screen .atlas-card .quiet{font-size:12px;min-height:36px;margin:0;padding:6px}
+ #map-screen .atlas-card .journey-first-guide{grid-column:1/-1;grid-row:6;margin:5px 0 0;font-size:12px;line-height:1.8;color:#806044;max-width:none}
+}
+@media(max-width:359px){
+ #map-screen .atlas-card{column-gap:14px;padding:17px 15px 16px;grid-template-columns:minmax(84px,.72fr) minmax(0,1.28fr)}
+ #map-screen .atlas-card-copy h2{font-size:20px}
+ #map-screen .atlas-photo-wrap{height:145px}
+ #map-screen .atlas-controls{gap:5px}
+ #map-screen .atlas-directory summary{min-width:110px}
+}
