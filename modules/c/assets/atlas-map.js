@@ -12,7 +12,13 @@
   const ch=byId(id);if(!ch)return;chosen=id;
   $('atlas-place').textContent=ch.location;$('atlas-date').textContent=ch.date;$('station-title').textContent=ch.title;
   $('atlas-chapter').textContent=ch.name;
-  $('atlas-photo').src=resolve(D.images[ch.image]);$('atlas-photo').alt=ch.location+'这一程的画面';
+  const photo=$('atlas-photo'), source=resolve(D.images[ch.image]);
+  if(photo.dataset.deferSrc!==undefined){
+   photo.dataset.deferSrc=source;
+   if(window.LM_IMAGES)window.LM_IMAGES.observe(photo);
+   else photo.src=source;
+  }else if(photo.getAttribute('src')!==source)photo.src=source;
+  photo.alt=ch.location+'这一程的画面';
   const allowed=currentState&&C.canOpenChapter(D,currentState,id),mark=currentState?.chapterProgress?.[id];$('enter').disabled=!allowed;$('enter').textContent=allowed?(mark&&mark.node!==ch.start?'继续这一站':'翻开这一站'):'前一程走完，这一站就亮起';
   $('restart-map').hidden=!allowed||!mark||mark.node===ch.start;
   $('restart-map').textContent='重新开始这一站';
@@ -39,7 +45,9 @@
   const name=document.createElement('strong');name.textContent=p.name;label.append(name);
   if(p.date){const date=document.createElement('small');date.textContent=p.date;label.append(date);}
   b.append(dot,label);
-  b.addEventListener('pointerenter',()=>select(p.id));b.addEventListener('focus',()=>{select(p.id);if(!journey)follow(p.id);});
+  // Scrolling can move a station under a stationary pointer. Only preview on actual mouse motion.
+  b.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'&&(e.movementX||e.movementY)&&chosen!==p.id)select(p.id);});
+  b.addEventListener('focus',()=>{select(p.id);if(!journey)follow(p.id);});
   b.onclick=()=>window.dispatchEvent(new CustomEvent('journey:chapter',{detail:p.id}));pins.append(b);
  }
  $('atlas-main-route').setAttribute('d',R.path(0,9));$('atlas-epilogue-route').setAttribute('d',R.path(9,11));

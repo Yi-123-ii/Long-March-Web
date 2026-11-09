@@ -562,22 +562,17 @@ body:has(dialog[open]) {
   background: linear-gradient(180deg, var(--lm-bg), rgb(238 241 237 / 88%) 15%, rgb(238 241 237 / 40%) 52%, transparent);
 }
 .lm-hero-art {
-  --hero-image: image-set(url("../../images/hero-chronicle-fast.avif") type("image/avif"), url("../../images/hero-chronicle-fast.webp") type("image/webp"));
+  --hero-image: image-set(url("../../images/hero-chronicle-fast-contest.avif") type("image/avif"), url("../../images/hero-chronicle-fast.webp") type("image/webp"));
   position: absolute;
   inset: 0;
-}
-.lm-hero-art::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../../images/hero-chronicle-preview.webp") center 52% / cover no-repeat;
-  filter: blur(16px);
-  clip-path: inset(0);
-  pointer-events: none;
+  background-image: var(--hero-image);
+  background-position: center 52%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 @media (max-width: 580px) and (orientation: portrait) {
   .lm-hero-art {
-    --hero-image: image-set(url("../../images/hero-chronicle-portrait-fast.avif") type("image/avif"), url("../../images/hero-chronicle-portrait-fast.webp") type("image/webp"));
+    --hero-image: image-set(url("../../images/hero-chronicle-portrait-fast-contest.avif") type("image/avif"), url("../../images/hero-chronicle-portrait-fast.webp") type("image/webp"));
   }
 }
 .lm-hero-art::after {
@@ -589,7 +584,7 @@ body:has(dialog[open]) {
     #e9ede5bd 0%,
     #e9ede51a 52%,
     transparent 70%
-  ), var(--hero-image) center 52% / cover no-repeat;
+  );
 }
 .lm-hero-copy {
   position: relative;

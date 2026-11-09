@@ -1336,13 +1336,12 @@ body.v3-home :is(.a-hero__overline, .a-hero__subline, .a-hero__footer) {
   top: -88px;
 }
 .v3-home .a-hero__scenery {
-  --hero-image: image-set(url("../../images/home-panorama-fast.avif") type("image/avif"), url("../../images/home-panorama-fast.webp") type("image/webp"));
+  --hero-image: image-set(url("../../images/home-panorama-fast-contest.avif") type("image/avif"), url("../../images/home-panorama-fast.webp") type("image/webp"));
   background-image: none;
   background-position: center center;
   isolation: isolate;
   opacity: 1;
 }
-.v3-home .a-hero__scenery::before,
 .v3-home .a-hero__scenery::after {
   content: "";
   position: absolute;
@@ -1352,11 +1351,7 @@ body.v3-home :is(.a-hero__overline, .a-hero__subline, .a-hero__footer) {
   background-repeat: no-repeat;
   pointer-events: none;
 }
-.v3-home .a-hero__scenery::before {
-  background-image: url("../../images/home-panorama-preview.webp");
-  filter: blur(16px);
-  clip-path: inset(0);
-}
+.v3-home .a-hero__scenery::before { content: none; }
 .v3-home .a-hero__scenery::after { background-image: var(--hero-image); }
 .v3-home .a-hero__shade {
   background:
@@ -1379,7 +1374,7 @@ body.v3-home :is(.a-hero__overline, .a-hero__subline, .a-hero__footer) {
 }
 @media (max-width: 580px) and (orientation: portrait) {
   .v3-home .a-hero__scenery {
-    --hero-image: image-set(url("../../images/home-panorama-portrait-fast.avif") type("image/avif"), url("../../images/home-panorama-portrait-fast.webp") type("image/webp"));
+    --hero-image: image-set(url("../../images/home-panorama-portrait-fast-contest.avif") type("image/avif"), url("../../images/home-panorama-portrait-fast.webp") type("image/webp"));
   }
 }
 .v3-home .v3-prologue::after {

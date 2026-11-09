@@ -6,11 +6,11 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const brandSource = 'data:image/webp;base64,' +
   (await readFile(path.join(root, 'assets/images/titles/brand-name-compact.webp'))).toString('base64');
 const sections = [
-  { id: 'home', file: 'index.html', art: 'headers/home-v1.webp', tagline: '以山河为卷，以青春为答', lettering: 'titles/header-home-tagline-v1.webp' },
-  { id: 'chronicle', file: 'chronicle.html', art: 'brand-landscape-v2.webp', tagline: '循着来路，读懂远方', lettering: 'titles/brand-tagline-v2.webp' },
-  { id: 'journey', file: 'modules/c/journey.html', art: 'headers/journey-v1.webp', tagline: '重走征途，感知不易', lettering: 'titles/header-journey-tagline-v1.webp' },
-  { id: 'inheritance', file: 'inheritance.html', art: 'headers/inheritance-v1.webp', tagline: '接过薪火，续写山河', lettering: 'titles/header-inheritance-tagline-v1.webp' },
-  { id: 'post', file: 'post-office.html', art: 'headers/post-v1.webp', tagline: '寄一纸心语，念万里征途', lettering: 'titles/postal-tagline-brush-v2.webp' },
+  { id: 'home', file: 'index.html', art: 'headers/home-v1-compact.webp', tagline: '以山河为卷，以青春为答', lettering: 'titles/header-home-tagline-v1.webp' },
+  { id: 'chronicle', file: 'chronicle.html', art: 'brand-landscape-v2-compact.webp', tagline: '循着来路，读懂远方', lettering: 'titles/brand-tagline-v2.webp' },
+  { id: 'journey', file: 'modules/c/journey.html', art: 'headers/journey-v1-compact.webp', tagline: '重走征途，感知不易', lettering: 'titles/header-journey-tagline-v1.webp' },
+  { id: 'inheritance', file: 'inheritance.html', art: 'headers/inheritance-v1-compact.webp', tagline: '接过薪火，续写山河', lettering: 'titles/header-inheritance-tagline-v1.webp' },
+  { id: 'post', file: 'post-office.html', art: 'headers/post-v1-compact.webp', tagline: '寄一纸心语，念万里征途', lettering: 'titles/postal-tagline-brush-v2.webp' },
 ];
 const links = [ ['index.html', '首页', 'home'], ['chronicle.html', '长征纪事', 'chronicle'], ['modules/c/journey.html', '重走长征', 'journey'], ['inheritance.html', '精神传承', 'inheritance'], ['post-office.html', '山河邮局', 'post'] ];
 

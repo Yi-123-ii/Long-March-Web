@@ -4,7 +4,6 @@ html { scroll-behavior: smooth; }
   isolation: isolate;
   background: #ead1ad;
 }
-#map-screen::before,
 #map-screen::after {
   content: "";
   position: absolute;
@@ -14,13 +13,8 @@ html { scroll-behavior: smooth; }
   background: center top / 100% 200svh no-repeat;
   pointer-events: none;
 }
-#map-screen::before {
-  background-image: url("atlas/terrain-extension-preview.webp");
-  filter: blur(16px);
-  clip-path: inset(0);
-}
 #map-screen::after {
-  background-image: image-set(url("atlas/terrain-extension-fast.avif") type("image/avif"), url("atlas/terrain-extension-fast.webp") type("image/webp"));
+  background-image: image-set(url("atlas/terrain-extension-fast-contest.avif") type("image/avif"), url("atlas/terrain-extension-fast.webp") type("image/webp"));
 }
 #map-screen .atlas-main,
 #map-screen .atlas-window { background: transparent; }
@@ -98,7 +92,6 @@ html { scroll-behavior: smooth; }
 .atlas-controls #chapter-nav button { width: 100%; text-align: left; font: 13px/1.45 var(--serif); }
 .atlas-controls #about-open { margin-top: 8px; }
 @media (max-width: 760px) {
-  #map-screen::before,
   #map-screen::after { background-size: cover; }
   .journey-opening { min-height: 600px; padding: 0 6vw; align-items: flex-start; }
   .journey-opening__copy { width: 90%; margin-top: 32svh; }
