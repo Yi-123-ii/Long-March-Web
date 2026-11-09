@@ -1,7 +1,8 @@
 (() => {
-  const waiting = new WeakSet();
+  const waiting = new Set();
   function load(image) {
     observer?.unobserve(image);
+    waiting.delete(image);
     if (!image.dataset.deferSrc) return;
     // A scene or selected stamp may already have replaced the initial artwork.
     if (image.hasAttribute('src')) {
@@ -16,9 +17,21 @@
     delete image.dataset.deferSrcset;
     delete image.dataset.deferSizes;
   }
-  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+  const createObserver = rootMargin => 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
     entries.forEach(entry => { if (entry.isIntersecting && entry.intersectionRatio > 0) load(entry.target); });
-  }, { rootMargin: '0px 0px -1px 0px' }) : null;
+  }, { rootMargin }) : null;
+  let observer = createObserver('0px 0px -1px 0px');
+  function prepareNextScreen() {
+    if (!observer) return;
+    // Keep the cold cover request order; prepare full-size artwork ahead only after scrolling starts.
+    observer.disconnect();
+    const ahead = Math.min(900, Math.max(320, window.innerHeight));
+    observer = createObserver(`0px 0px ${ahead}px 0px`);
+    for (const image of waiting) {
+      if (image.isConnected) observer.observe(image);
+      else waiting.delete(image);
+    }
+  }
   function observe(image) {
     if (!image.dataset.deferSrc || waiting.has(image)) return;
     waiting.add(image);
@@ -53,6 +66,9 @@
       else window.addEventListener('load', loadInputFonts, { once: true });
     }
     scan(document);
+    if (document.body.hasAttribute('data-image-ahead')) {
+      window.addEventListener('scroll', prepareNextScreen, { capture: true, passive: true, once: true });
+    }
     new MutationObserver(records => {
       records.forEach(record => record.removedNodes.forEach(node => {
         if (node.nodeType === 1) forget(node);
