@@ -42,6 +42,13 @@
 #delivery-dialog:has([data-reading-return]:not([hidden])) .lm-delivery-controls { height: 184px; }
 #delivery-dialog #delivery-description { margin: 0 0 12px; font-size: 12px; color: var(--lm-muted); }
 #delivery-dialog #delivery-actions { gap: 12px; }
+@media (min-width: 460px) and (max-height: 450px) {
+  #delivery-dialog { padding-block: 12px 16px; }
+  #delivery-dialog #delivery-title { min-height: 1.7em; margin-block: 5px 8px; }
+  #delivery-dialog .lm-delivery-controls,
+  #delivery-dialog:has([data-reading-return]:not([hidden])) .lm-delivery-controls { height: 98px; }
+  #delivery-dialog #delivery-actions { flex-flow: row wrap; justify-content: center; gap: 8px 14px; }
+}
 #delivery-dialog.is-delivered #delivery-title, #delivery-dialog.is-delivered .lm-delivery-controls { animation: lm-delivery-confirm .6s ease-out both; }
 .lm-packing-paper[data-paper-illustrated] .lm-mini-letter { padding-top: 60px; }
 .lm-packing-paper[data-paper-illustrated] .lm-mini-heading { margin-bottom: 8px; }

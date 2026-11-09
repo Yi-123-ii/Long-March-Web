@@ -59,6 +59,9 @@
 @media (max-width: 580px) {
   .site-footer { --footer-padding: 11px; font-size: 10px; }
   .site-footer__inner { width: calc(100% - 40px); }
+  body:has([data-home-return]:not([hidden]):not([data-post-source])) .site-footer {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media print {

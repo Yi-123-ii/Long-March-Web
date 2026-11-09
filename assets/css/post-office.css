@@ -472,7 +472,7 @@
   width: min(520px, calc(100% - 32px));
   text-align: center;
   padding: 18px 28px 32px;
-  overflow: hidden;
+  overflow: auto;
 }
 #delivery-dialog #delivery-title {
   font-family: var(--lm-reading);
@@ -599,6 +599,10 @@
   }
   .lm-prompts {
     margin: 0;
+  }
+  .lm-prompts button {
+    min-height: 44px;
+    font-size: 12px;
   }
   .lm-send-row {
     flex-direction: row;
@@ -729,7 +733,6 @@
     padding-top: 17px;
   }
   .lm-prompts button {
-    font-size: 9px;
     padding: 5px 7px;
   }
   .lm-prompts > .lm-prompt-options {

@@ -104,12 +104,12 @@
   .lm-stamp-option { padding: 8px 5px; }
   .lm-stamp-option .lm-stamp { width: 67px; }
   .lm-stamp-option strong { font-size: 15px; }
-  .lm-stamp-option small { display: none; }
+  .lm-stamp-option small { max-width: 11em; }
   .lm-paper-options { grid-template-columns: repeat(2,minmax(0,1fr)); max-height: 45dvh; gap: 9px; }
   .lm-paper-option { padding: 8px 5px; }
   .lm-paper-sample { width: 67px; margin: 2px 0 6px; }
   .lm-paper-option strong { font-size: 15px; }
-  .lm-paper-option small { display: none; }
+  .lm-paper-option small { line-height: 1.5; }
   .lm-review-window { max-height: calc(90dvh - 190px); }
   .lm-review-paper { padding: 23px 23px 110px; min-height: 420px; }
   .lm-review-content { font-size: 15px; line-height: 31px; background-size: auto 31px; background-image: repeating-linear-gradient(transparent 0 30px,#83927635 30px 31px); }

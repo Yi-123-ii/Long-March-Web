@@ -24,3 +24,8 @@
   .v3-home .a-hero__content { --home-title-width: min(39vw, 63svh); }
   .v3-home .a-hero__statement { width: min(100%, 50svh); margin-block: 6px 10px; }
 }
+@media (max-width: 760px) and (max-height: 520px) and (orientation: landscape) {
+  .v3-home .a-hero { padding-top: 12px; }
+  .v3-home .a-hero__content { --home-title-width: min(66vw, 63svh); }
+  .v3-home .a-hero__statement { width: min(100%, 50svh); margin-block: 6px 10px; }
+}

@@ -61,11 +61,7 @@
 @keyframes lm-paper-pack { 0%,44% { transform: translateY(0) scale(1); opacity: 1; } 56% { transform: translateY(-9px) scale(.88); opacity: 1; } 72%,100% { transform: translateY(126px) scale(.88); opacity: 1; } }
 @keyframes lm-envelope-close { 0%,73% { transform: rotateX(0); z-index: 1; } 74% { z-index: 6; } 91%,100% { transform: rotateX(-180deg); z-index: 6; background: #eee0b9; } }
 @keyframes lm-envelope-seal { 0%,90% { opacity: 0; } 97%,100% { opacity: 1; } }
-@media (max-width: 800px) {
-  .lm-mailbox-scene { --desk-mailbox-width: 160px; }
-}
 @media (max-width: 580px) {
-  .lm-mailbox-scene { --desk-mailbox-width: 215px; }
   .lm-stamp { width: 58px; min-height: 0; }
   .lm-stamp span { font-size: 7px; }
   .lm-aside-courier { right: max(0px, calc(50% - 145px)); width: 80px; bottom: 35px; }

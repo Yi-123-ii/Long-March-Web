@@ -1422,6 +1422,11 @@ body.v3-home :is(.a-hero__overline, .a-hero__subline, .a-hero__footer) {
   .v3-home .a-hero__content { --home-title-width: min(39vw, 63svh); }
   .v3-home .a-hero__statement { width: min(100%, 50svh); margin-block: 6px 10px; }
 }
+@media (max-width: 760px) and (max-height: 520px) and (orientation: landscape) {
+  .v3-home .a-hero { padding-top: 12px; }
+  .v3-home .a-hero__content { --home-title-width: min(66vw, 63svh); }
+  .v3-home .a-hero__statement { width: min(100%, 50svh); margin-block: 6px 10px; }
+}
 
 /* assets/css/home-entry-link.css */
 /* Match the chronicle's quiet text, down arrow and fine underline. */
@@ -1674,6 +1679,9 @@ body.legacy-v41 .legacy-hero::after {
     gap: 0;
     width: 100%;
     height: auto;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
     padding: 14px 22px 20px;
     margin: 0;
     background: #eef1ed;
@@ -1936,6 +1944,9 @@ body.legacy-v41 .legacy-hero::after {
 @media (max-width: 580px) {
   .site-footer { --footer-padding: 11px; font-size: 10px; }
   .site-footer__inner { width: calc(100% - 40px); }
+  body:has([data-home-return]:not([hidden]):not([data-post-source])) .site-footer {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media print {

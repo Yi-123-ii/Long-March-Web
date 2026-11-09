@@ -209,6 +209,9 @@ body.legacy-v41 .legacy-hero::after {
     gap: 0;
     width: 100%;
     height: auto;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
     padding: 14px 22px 20px;
     margin: 0;
     background: #eef1ed;

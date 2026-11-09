@@ -214,6 +214,9 @@
 @media (max-width: 580px) {
   .site-footer { --footer-padding: 11px; font-size: 10px; }
   .site-footer__inner { width: calc(100% - 40px); }
+  body:has([data-home-return]:not([hidden]):not([data-post-source])) .site-footer {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media print {
@@ -917,6 +920,9 @@ body.legacy-v41 .legacy-hero::after {
     gap: 0;
     width: 100%;
     height: auto;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
     padding: 14px 22px 20px;
     margin: 0;
     background: #eef1ed;
@@ -1468,6 +1474,7 @@ body.legacy-v41 .v47-spirit__heading h2 {
   letter-spacing: .025em;
 }
 body.legacy-v41 .v47-spirit__reading {
+  max-width: 56em;
   color: #39463d;
   font: 400 17px/1.85 var(--v38-reading);
 }
