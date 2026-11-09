@@ -769,13 +769,38 @@ html { scroll-behavior: smooth; }
 .atlas-controls #chapter-nav button { width: 100%; text-align: left; font: 13px/1.45 var(--serif); }
 .atlas-controls #about-open { margin-top: 8px; }
 @media (max-width: 760px) {
+  #map-screen::before,
+  #map-screen::after { background-size: cover; }
   .journey-opening { min-height: 600px; padding: 0 6vw; align-items: flex-start; }
   .journey-opening__copy { width: 90%; margin-top: 32svh; }
   .journey-opening__entry { width: 180px; }
 }
+@media (600px < width <= 1100px) {
+  /* Keep the map card and tools above the return banner on narrower layouts. */
+  #map-screen:has(~ [data-home-return]:not([hidden])) :is(.atlas-card, .atlas-controls) {
+    margin-bottom: calc(66px + env(safe-area-inset-bottom, 0px));
+  }
+}
 @media (max-width: 600px) {
-  /* The old small map title is now the full-screen opening, so its 201px offset no longer applies. */
-  #map-screen .atlas-controls { top: calc(94.576vw - 48px); }
+  #map-screen {
+    --atlas-mobile-height: 94.576vw;
+    --atlas-return-space: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+  /* Leave room for the station card when the fixed return banner is present. */
+  #map-screen:has(~ [data-home-return]:not([hidden])) {
+    --atlas-mobile-height: min(94.576vw, max(240px, calc(100dvh - 264px - var(--atlas-return-space))));
+  }
+  #map-screen:has(~ [data-home-return]:not([hidden])) .atlas-main {
+    padding-bottom: var(--atlas-return-space);
+  }
+  #map-screen .atlas-window { height: var(--atlas-mobile-height); }
+  #map-screen .atlas-controls { top: calc(var(--atlas-mobile-height) - 48px); }
+  .atlas-controls:has(.atlas-directory[open]) { z-index: 5; }
+  .atlas-controls #chapter-nav {
+    top: calc(100% + 8px);
+    bottom: auto;
+    max-height: min(55dvh, 360px, max(8rem, calc(100dvh - var(--atlas-mobile-height) - var(--atlas-return-space))));
+  }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 

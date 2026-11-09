@@ -1836,13 +1836,20 @@ body.legacy-v41 .legacy-hero::after {
   .v3-home .v43-prologue { padding-inline: 5vw; }
 }
 
+@media (min-width: 580px) and (max-width: 760px) {
+  .v3-home .v3-chapter--03 .v3-chapter__image {
+    height: auto;
+    aspect-ratio: 2;
+  }
+}
+
 @media (max-width: 640px) {
   .v3-home .v43-prologue h2 {
     font-size: clamp(29px, 5.8vw, 38px);
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 560px) {
   .v43-guide__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
